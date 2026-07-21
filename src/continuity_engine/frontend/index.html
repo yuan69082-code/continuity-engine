@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="连续性引擎最小前端入口" />
+    <title>连续性引擎 · 前端入口</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="workspace" aria-label="连续性对话">
+        <header class="masthead">
+          <div class="brand-mark" aria-hidden="true"><span></span></div>
+          <div>
+            <p class="eyebrow">CONTINUITY ENGINE</p>
+            <h1>保持上下文，继续此刻</h1>
+          </div>
+          <div id="connection-status" class="status" data-tone="working" aria-live="polite">
+            准备连接
+          </div>
+        </header>
+
+        <div class="identity-bar">
+          <label>
+            <span>主体</span>
+            <input id="subject-id" name="subject_id" autocomplete="off" />
+          </label>
+          <label>
+            <span>用户 ID（预留）</span>
+            <input id="user-id" name="user_id" placeholder="可选" autocomplete="off" />
+          </label>
+          <button id="debug-toggle" class="quiet-button" type="button" aria-expanded="false">
+            查看状态
+          </button>
+        </div>
+
+        <section id="messages" class="messages" aria-live="polite" aria-label="消息记录">
+          <article class="message message--assistant">
+            <span class="message__label">连续性引擎</span>
+            <p class="message__body">
+              这是最小前端入口。你的输入会先成为事件，再进入感知、思考与行动决策流程。
+            </p>
+          </article>
+        </section>
+
+        <form id="message-form" class="composer">
+          <label class="sr-only" for="message-input">输入消息</label>
+          <textarea
+            id="message-input"
+            name="message"
+            rows="1"
+            maxlength="10000"
+            placeholder="输入一条消息…"
+            required
+          ></textarea>
+          <button id="send-button" type="submit">发送</button>
+          <p>Enter 发送 · Shift + Enter 换行</p>
+        </form>
+      </section>
+
+      <aside id="debug-panel" class="debug-panel" aria-label="主体状态调试面板">
+        <div class="debug-heading">
+          <div>
+            <p class="eyebrow">STATE VIEW</p>
+            <h2>当前状态</h2>
+          </div>
+          <span class="revision">rev <strong id="revision-value">—</strong></span>
+        </div>
+        <div id="state-summary" class="state-summary"></div>
+        <div class="events-heading">
+          <h3>最近事件</h3>
+          <button id="refresh-state" class="icon-button" type="button">刷新</button>
+        </div>
+        <ol id="recent-events" class="event-list"></ol>
+        <p class="privacy-note">
+          这里只展示 API 快照。主体状态、人格与记忆不会保存在浏览器中。
+        </p>
+      </aside>
+    </main>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
+

@@ -2,6 +2,41 @@
 
 连续性引擎是位于前端与 AI 模型之间的独立系统层。它保存的不是聊天记录，而是主体状态及其随事件发生的连续变化。
 
+当前版本为 `0.1.0` 原型，重点是建立可保存、可演化、可审计并受权限与资源约束的连续性内核。它不是已经具备真实自主执行能力的生产 Agent。
+
+## v0.1 能力状态
+
+### 已实现的内部能力
+
+- `SubjectState`：六个状态分区、revision、JSON 保存与重启恢复。
+- `Event / Evolution`：显式事件、状态变化规则、before/after 差异、`StateUpdateRecord` 和 expected_revision 保护。
+- Memory 管理层：检索请求、候选相关性判断、`MemoryRetrievalResult` 和影响记录接口。
+- Awakening：手动、定时和事件触发的单次唤醒流程，`WakeSession`、`WakeContext` 和确定性决策。
+- Perception：只读的确定性感知层，输出关注、时间、关系、记忆影响、观察和内在驱力。
+- Thinking：直接接收 `PerceptionResult`，通过 `ThinkSession` 保存摘要、预算、结果和关联信息；模型执行器可插拔。
+- Action：生成受权限、风险、资源和 revision 约束的 `ActionDecision` 与 `ActionPlan`，不执行真实动作。
+- Permission：权限连续状态、变化历史、`PermissionContext` 和本地 JSON 恢复。
+- Learning：受控候选、证据验证、长期特征、固化/回滚事件和审计历史；不训练模型。
+- Resource Management：`ResourceState`、`ResourcePolicy`、`ResourceManager`、确定性预算和资源检查入口。
+- 进程内 API：统一请求响应、安全门以及状态、记忆、感知、思考、行动计划、唤醒和聊天入口。
+- 本地 HTTP 服务：为调试前端提供静态资源、状态读取和聊天请求。
+- 调试前端：最小聊天界面、错误展示、SubjectState 摘要、revision 和最近事件视图。
+
+其中 Memory、Awakening、Thinking、Learning、Resource Management、接口和前端属于“内部结构或本地原型已完成，真实外部集成仍未完成”。Action 完成的是决策规划层，不包含执行层。
+
+### 尚未实现
+
+- 真实 GPT、Claude 或其他模型 Provider 接入。
+- 真实 MCP 连接或 MCP 协议传输。
+- ChatGPT、Claude 或其他平台的真实 Skill 接入。
+- 外部长期记忆库、向量库或记忆数据库。
+- Execution Engine、真实联系用户或真实工具调用。
+- 自动后台循环、常驻调度或无限自主运行。
+- 真实 Token 计量、账单、计费、购买或支付。
+- 生产数据库、用户认证、多租户和生产部署。
+
+`ContinuityMCPAdapter`、`SkillAdapter`、`ThinkingProvider` 和 Memory 端口只是可插拔接口或适配边界，不能视为对应外部能力已经接入。
+
 ## 当前开发阶段
 
 第一阶段已经完成：
@@ -10,7 +45,7 @@
 - 创建、读取和保存主体状态
 - 使用 JSON 文件持久化状态
 
-第二阶段已经进入内部状态演化开发：
+第二阶段已经完成内部状态演化核心：
 
 - 使用 `Event` 描述发生的事情
 - 根据事件影响范围和变更指令执行领域规则
@@ -39,7 +74,7 @@
 
 第五阶段已建立独立 Thinking Engine：
 
-- 只有 `WakeDecision == THINK` 时才创建 `ThinkSession`
+- 在 Wake 编排链中，只有 `WakeDecision == THINK` 时才创建 `ThinkSession`；进程内 API 也可基于已有 `PerceptionResult` 显式请求思考
 - 通过可插拔 `ThinkingProvider` 执行思考，不依赖具体模型
 - 使用 `TokenBudgetManager` 预留最大、剩余、本次预算和思考深度
 - 使用标准 `ThinkingResult` 表达内部思考结果和可选状态演化意图
@@ -91,7 +126,7 @@
 - `ResourceAwareWakeScheduler` 在创建 WakeSession 前检查资源，不启动后台循环
 - 使用本地 JSON 原子保存当前资源、使用历史和策略决策，支持重启恢复
 
-当前不包含前端、HTTP API、MCP、Skill、AI API、后台常驻调度器、主动消息、动作执行、真实 Token 计费、外部支付、自动购买资源、外部权限集成、模型训练或自动永久人格改变。
+当前已经包含进程内 API、本地 HTTP 调试服务、MCP/Skill 适配接口和最小调试前端。它们不代表真实 MCP、平台 Skill、AI API、外部记忆、主动消息、动作执行、后台常驻调度、真实 Token 计费、外部支付、外部权限集成或模型训练已经实现。
 
 这里的“自主唤醒”仅表示引擎具备可被定时器、人工或事件触发后独立运行一次检查流程的能力。当前不会主动发消息，也不会真正执行决策动作。
 
@@ -298,7 +333,43 @@ Thinking / Learning / Wake / Memory Request
 
 `ResourceManager` 在批准申请时立即记录估算 Token 和计算单位。`actual_tokens` 当前保持为空；未来模型适配器可以通过回填接口校正已用量，但本阶段不读取账单、不计算价格，也不购买资源。
 
-Thinking 直接使用 `ResourceManager` 作为 `TokenBudgetManager`。资源不足时，Thinking 生成等待结果并跳过 Provider。Learning 的结构化候选提取在资源不足时返回 deferred。主动 Wake 必须通过 `ResourceAwareWakeScheduler`；该调度器每次只尝试一次，不实现持续后台循环。
+Thinking 可以直接使用 `ResourceManager` 作为 `TokenBudgetManager`。资源不足时，Thinking 生成等待结果并跳过 Provider。Learning 配置了 ResourceManager 时，会在资源不足时延迟结构化候选提取。`ResourceAwareWakeScheduler` 提供资源检查后的单次唤醒入口，但底层 `AwakeningService` 仍可被直接调用，因此 v0.1 尚未强制所有内部路径经过统一资源入口。当前没有持续后台循环。
+
+## API、HTTP 与调试前端
+
+`APIService` 是进程内服务门面，不是独立部署的生产 API。它统一返回：
+
+- `request_id`
+- `subject_id`
+- `timestamp`
+- `current_revision`
+- `result`
+- `error`
+
+进程内 API 提供以下调用：
+
+- 获取 SubjectState 摘要、revision 和最近事件。
+- 查询相关记忆。
+- 获取当前 PerceptionResult。
+- 请求 Thinking。
+- 读取最近 ActionDecision 与 ActionPlan。
+- 触发需要确认的手动 Wake。
+- 提交一条用户消息并运行本地连续性流程。
+
+这些核心调用先经过 `PermissionContext` 和 `ResourceManager` 组成的访问门。外部请求可以通过 Event/Evolution 触发受控状态变化，但不能直接修改 SubjectState 或 JSON 文件。
+
+本地 `http.server` 实现只服务于调试前端，当前暴露：
+
+- `GET /api/config`
+- `GET /api/state`
+- `POST /api/chat`
+- 同源 HTML、CSS 和 JavaScript 静态文件
+
+它不是完整生产 HTTP API，没有用户认证、TLS、限流、多租户或部署配置。
+
+`ContinuityMCPAdapter` 只是调用 `APIService` 的 MCP-shaped 工具门面，没有 MCP SDK、Server/Client 或协议传输。`SkillAdapter` 是平台无关协议及 API 委托基类，没有接入任何真实 Skill 平台。
+
+最小前端只负责输入、展示和 API 通信，不在浏览器中保存 SubjectState、记忆、人格或权限，也不执行感知、思考、行动和学习规则。
 
 ## Memory 管理边界
 
@@ -394,17 +465,34 @@ src/continuity_engine/
 │   ├── learning_service.py       # 候选提取、验证、固化和回滚
 │   ├── resource_manager.py       # 资源申请、扣减、回填和模式管理
 │   ├── resource_aware_wake_scheduler.py # 资源检查后的单次 Wake 调度
+│   ├── user_interaction_service.py # 用户输入转 Event 并运行连续性流程
 │   ├── wake_perception_thinking_action_service.py # 第七阶段完整编排
 │   └── wake_perception_thinking_service.py # 兼容入口
 ├── storage/
-│   ├── base.py         # 状态与更新记录存储协议
+│   ├── base.py         # 各模块仓储 Protocol
 │   ├── json_repository.py        # SubjectState 与演化记录持久化
 │   ├── json_awakening_repository.py # 周期与 WakeSession 日志
 │   ├── json_thinking_repository.py  # ThinkSession 摘要日志
 │   ├── json_permission_repository.py # 权限状态与历史 JSON 持久化
 │   ├── json_learning_repository.py # 学习候选、特征与历史 JSON 持久化
 │   ├── json_resource_repository.py # 资源状态、消耗与决策 JSON 持久化
-│   └── in_memory_action_repository.py # 测试用 ActionSession 仓储
+│   └── in_memory_action_repository.py # 进程内 ActionSession 仓储
+├── interfaces/
+│   ├── models.py       # 统一 API 请求、响应与错误模型
+│   ├── ports.py        # API、Perception 和 Action 只读端口
+│   ├── security.py     # PermissionContext 与 ResourceManager 访问门
+│   ├── api_service.py  # 进程内 API 门面
+│   ├── core_views.py   # ActionSession 只读视图
+│   ├── mcp_adapter.py  # MCP-shaped 接口；无真实 MCP 传输
+│   ├── skill_adapter.py # 平台无关 Skill 协议；无平台接入
+│   ├── http_server.py  # 本地调试 HTTP 服务
+│   └── local_frontend_app.py # 本地依赖组装与显式初始化
+├── frontend/
+│   ├── index.html      # 最小聊天与状态调试界面
+│   ├── app.js          # 页面交互
+│   ├── client.js       # FrontendClient
+│   ├── styles.css      # 调试界面样式
+│   └── __main__.py     # python -m continuity_engine.frontend
 ├── cli.py              # 本地验证入口
 └── __main__.py         # python -m continuity_engine
 tests/                  # 标准库单元测试
@@ -472,6 +560,24 @@ python -m continuity_engine history demo-subject
 python -m continuity_engine --data-dir .\local-state show demo-subject
 ```
 
+### 启动本地调试前端
+
+首次启动必须显式创建本地主体、权限、资源和手动唤醒周期：
+
+```powershell
+$env:PYTHONPATH = "src"
+python -m continuity_engine.frontend --initialize
+```
+
+之后可省略 `--initialize`：
+
+```powershell
+$env:PYTHONPATH = "src"
+python -m continuity_engine.frontend
+```
+
+默认地址为 `http://127.0.0.1:8765`，默认数据目录为 `.continuity-data/`。该服务只用于本地调试，不应作为生产部署方式。
+
 ## 在代码中应用事件
 
 ```python
@@ -523,7 +629,11 @@ print(result.update.changes[0].after)
 
 ## 测试
 
+项目目标兼容 Python 3.11–3.14，不依赖第三方运行时包。发布前整理在 Python 3.14.4 上运行完整测试，并使用 Python 3.11 语法版本检查全部源码和测试；仓库当前尚未配置多版本 CI。
+
 ```powershell
 $env:PYTHONPATH = "src"
 python -m unittest discover -s tests -v
 ```
+
+当前测试基线：87 项。

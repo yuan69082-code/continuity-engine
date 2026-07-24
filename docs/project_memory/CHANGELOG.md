@@ -4,6 +4,40 @@
 
 ## [Unreleased]
 
+### Architecture Documentation — 2026-07-23
+
+- 新增 `docs/project_memory/05_核心模块架构.md`，集中说明 Continuity Engine 十层核心架构。
+- 为 SubjectState、Evolution、Memory、Awakening、Perception、Thinking、Action、Permission、Learning 和 Resource 分别记录当前状态、当前作用和未来扩展方向。
+- 在项目总览中增加核心架构入口，并继续明确框架完成不等于真实模型、MCP、外部记忆、动作执行、后台运行或 Token 计费已经接入。
+- 本次只新增和更新工程文档，没有修改源码或测试，也没有新增功能。
+
+### Engineering Archive Sync — 2026-07-23
+
+- 以《数字连续性引擎工程总档案 v1.0》同步长期工程档案，明确 Continuity Engine 是位于 AI 模型之外的连续性层。
+- 记录目标实时状态闭环：用户输入 → SubjectState 读取 → Memory 检索 → 模型回复 → StateMutation → Evolution → SubjectState 保存。
+- 统一 SubjectState、Evolution、Memory、Awakening、Perception、Thinking、Action、Permission、Learning 和 Resource 的框架完成口径，并明确真实接入边界。
+- 记录工程总档案后续阶段 8—12：AI 模型、MCP/外部记忆、正式前端、自主学习完善和自主运行；这些均未标记为已完成。
+- 明确真实模型、真实 MCP、外部长期记忆、真实动作执行、后台自主运行和真实 Token 计费仍未实现。
+- 本次只同步 `docs/project_memory/` 工程文档，没有修改源码、测试、README 或项目配置，也没有新增功能。
+
+### Fixed — 2026-07-23
+
+- 为 `storage/base.py` 启用延迟求值类型标注，修复 Python 3.11–3.13 中 `PermissionRepository.list()` 遮蔽内置 `list` 后影响后续类型标注的问题。
+- 保持 `PermissionRepository.list()` 方法名、参数和返回协议不变。
+
+### Documentation — 2026-07-23
+
+- 将 README 更新为 Continuity Engine v0.1 原型的真实能力范围。
+- 明确 SubjectState、Memory、Awakening、Perception、Thinking、Action、Permission、Learning、Resource Management、进程内 API、本地 HTTP 和调试前端的当前边界。
+- 明确真实 AI Provider、MCP、平台 Skill、外部长期记忆库、真实动作执行、后台常驻运行和真实 Token 计费尚未实现。
+- 更新 `pyproject.toml` 的过期项目描述，并同步当前状态与施工日志。
+
+### Verification — 2026-07-23
+
+- Python 3.14.4 完整自动化测试 87 项通过。
+- 全部 Python 源码和测试通过 Python 3.11 语法版本解析检查。
+- 当前环境未安装 Python 3.11–3.13，因此未执行这些解释器的运行时测试。
+
 ### Documentation — 2026-07-22
 
 - 新建 `docs/project_memory/` 长期工程档案系统。
@@ -55,5 +89,5 @@
 
 ### Repository Status
 
-- `0.1.0` 来自 `pyproject.toml`；初始提交为 `3856a96`，已同步到 `origin/main`，但当前尚无版本标签。
-- 正式发布前仍需同步 README/项目元数据、选择 LICENSE、添加 CI、提交本档案并决定版本标签。
+- `0.1.0` 来自 `pyproject.toml`；工程档案提交 `216bdfd` 已同步到 `origin/main`，当前发布前整理修改尚未提交，也没有版本标签。
+- README 和项目描述已经同步；正式发布前仍需人工评审当前修改，并在后续独立任务中决定 LICENSE、CI 和版本标签。

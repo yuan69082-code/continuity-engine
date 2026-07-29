@@ -8,3 +8,6 @@ build/
 *.egg-info/
 .continuity-data/
 
+
+# project document backups
+docs/project_memory/*.docx

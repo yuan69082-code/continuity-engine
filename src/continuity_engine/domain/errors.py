@@ -108,3 +108,15 @@ class ResourceNotFoundError(ResourceManagementError):
 
 class ResourceAlreadyExistsError(ResourceManagementError):
     """Raised when creating a resource state that already exists."""
+
+
+class MachineContractError(ContinuityEngineError):
+    """Base error for the versioned Vio/Continuity Engine machine contract."""
+
+
+class MachineContractValidationError(MachineContractError):
+    """Raised when an untrusted contract document fails strict validation."""
+
+
+class MachineContractSchemaError(MachineContractError):
+    """Raised when a schema is missing, invalid, or cannot resolve locally."""

@@ -8,14 +8,22 @@ version = "0.1.0"
 description = "A v0.1 continuity engine prototype for auditable state evolution and bounded autonomous workflows."
 readme = "README.md"
 requires-python = ">=3.11"
-dependencies = []
+dependencies = [
+    "jsonschema>=4.26,<5",
+    "rfc8785>=0.1.4,<1",
+]
 
 [project.scripts]
 continuity-engine = "continuity_engine.cli:main"
 continuity-frontend = "continuity_engine.frontend.__main__:main"
 
 [tool.setuptools.package-data]
-continuity_engine = ["frontend/*.html", "frontend/*.css", "frontend/*.js"]
+continuity_engine = [
+    "frontend/*.html",
+    "frontend/*.css",
+    "frontend/*.js",
+    "interfaces/schemas/*.json",
+]
 
 [tool.setuptools]
 package-dir = {"" = "src"}

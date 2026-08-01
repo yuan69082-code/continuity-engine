@@ -9,6 +9,13 @@ from .awakening_service import AwakeningService
 from .memory_ports import MemoryInfluenceRecorder, MemoryRetriever
 from .memory_service import MemoryService
 from .learning_service import LearningService
+from .integration_contract_hashing import (
+    calculate_binding_fixture_hash,
+    calculate_content_hash,
+    calculate_request_hash,
+    canonicalize_json,
+)
+from .integration_contract_validation import MachineContractValidator
 from .perception_service import PerceptionService
 from .permission_service import PermissionService
 from .resource_manager import ResourceManager
@@ -40,6 +47,7 @@ __all__ = [
     "MemoryRetriever",
     "MemoryService",
     "LearningService",
+    "MachineContractValidator",
     "PerceptionService",
     "PermissionService",
     "PermissionProvider",
@@ -57,6 +65,10 @@ __all__ = [
     "InteractionReplyComposer",
     "UserInteractionResult",
     "UserInteractionService",
+    "calculate_binding_fixture_hash",
+    "calculate_content_hash",
+    "calculate_request_hash",
+    "canonicalize_json",
     "WakeScheduleResult",
     "WakeScheduler",
 ]

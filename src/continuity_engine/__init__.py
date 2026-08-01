@@ -24,6 +24,16 @@ from .domain.models import (
 )
 from .domain.events import ChangeOperation, Event, StateMutation, StateSection, StateUpdateRecord
 from .domain.evolution import StateEvolutionResult, SubjectStateEvolver
+from .domain.integration_contract import (
+    Constraints,
+    ContinuityInteractionRequest,
+    Conversation,
+    Identity,
+    MessageVersionFact,
+    PlatformFactPackage,
+    PlatformObservation,
+    SubjectBindingFixture,
+)
 from .domain.memory import (
     MemoryCandidate,
     MemoryInfluenceRecord,
@@ -133,6 +143,13 @@ from .services.wake_perception_thinking_action_service import (
 from .services.memory_ports import MemoryInfluenceRecorder, MemoryRetriever
 from .services.memory_service import MemoryService
 from .services.learning_service import LearningService
+from .services.integration_contract_hashing import (
+    calculate_binding_fixture_hash,
+    calculate_content_hash,
+    calculate_request_hash,
+    canonicalize_json,
+)
+from .services.integration_contract_validation import MachineContractValidator
 from .services.awakening_service import AwakeningService
 from .services.subject_state_service import SubjectStateService
 from .services.user_interaction_service import (
@@ -159,8 +176,10 @@ from .interfaces import (
     ChatAPIRequest,
     ContinuityAPI,
     ContinuityMCPAdapter,
+    DEFAULT_SCHEMA_REGISTRY,
     EndpointPolicy,
     ExternalOperation,
+    FACT_SCHEMA_ID,
     InterfaceAccessError,
     InterfaceAccessGrant,
     InterfaceAccessGuard,
@@ -168,10 +187,14 @@ from .interfaces import (
     InterfaceOperationError,
     FrontendHTTPServer,
     LocalFrontendApplication,
+    LocalSchemaRegistry,
     MemoryAPIRequest,
     PerceptionAPIRequest,
     PerceptionResultProvider,
     RepositoryActionSessionProvider,
+    OBSERVATION_SCHEMA_ID,
+    REQUEST_SCHEMA_ID,
+    SCHEMA_IDS,
     SkillAdapter,
     SubjectStateAPIRequest,
     ThinkingAPIRequest,
@@ -181,6 +204,25 @@ from .interfaces import (
 )
 
 __all__ = [
+    "Constraints",
+    "ContinuityInteractionRequest",
+    "Conversation",
+    "DEFAULT_SCHEMA_REGISTRY",
+    "FACT_SCHEMA_ID",
+    "Identity",
+    "LocalSchemaRegistry",
+    "MachineContractValidator",
+    "MessageVersionFact",
+    "OBSERVATION_SCHEMA_ID",
+    "PlatformFactPackage",
+    "PlatformObservation",
+    "REQUEST_SCHEMA_ID",
+    "SCHEMA_IDS",
+    "SubjectBindingFixture",
+    "calculate_binding_fixture_hash",
+    "calculate_content_hash",
+    "calculate_request_hash",
+    "canonicalize_json",
     "APIBackedSkillAdapter",
     "APIError",
     "APIRequest",

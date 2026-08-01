@@ -5,6 +5,14 @@ from .local_frontend_app import (
     LocalFrontendApplication,
     create_local_frontend_application,
 )
+from .integration_contract_schema import (
+    DEFAULT_SCHEMA_REGISTRY,
+    FACT_SCHEMA_ID,
+    OBSERVATION_SCHEMA_ID,
+    REQUEST_SCHEMA_ID,
+    SCHEMA_IDS,
+    LocalSchemaRegistry,
+)
 from .mcp_adapter import ContinuityMCPAdapter
 from .models import (
     APIError,
@@ -47,6 +55,12 @@ __all__ = [
     "InterfaceAccessGuard",
     "InterfaceCapability",
     "InterfaceOperationError",
+    "DEFAULT_SCHEMA_REGISTRY",
+    "FACT_SCHEMA_ID",
+    "LocalSchemaRegistry",
+    "OBSERVATION_SCHEMA_ID",
+    "REQUEST_SCHEMA_ID",
+    "SCHEMA_IDS",
     "FrontendHTTPServer",
     "LocalFrontendApplication",
     "MemoryAPIRequest",

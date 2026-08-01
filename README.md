@@ -21,6 +21,7 @@
 - 进程内 API：统一请求响应、安全门以及状态、记忆、感知、思考、行动计划、唤醒和聊天入口。
 - 本地 HTTP 服务：为调试前端提供静态资源、状态读取和聊天请求。
 - 调试前端：最小聊天界面、错误展示、SubjectState 摘要、revision 和最近事件视图。
+- 第一轮机器契约基础（Engine E1）：类型化 `ContinuityInteractionRequest`、`message_created` PlatformObservation、`message_version` fact、固定 SubjectBinding fixture，本地 Draft 2020-12 Schema registry、严格校验、RFC 8785 与三项 hash 验证。
 
 其中 Memory、Awakening、Thinking、Learning、Resource Management、接口和前端属于“内部结构或本地原型已完成，真实外部集成仍未完成”。Action 完成的是决策规划层，不包含执行层。
 
@@ -41,9 +42,13 @@
 
 2026-07-30，Continuity Engine 通过《Engine Contract Final Read-Only Short Confirmation v1》正式接受 `Continuity Integration Contract v1.1`。长期系统边界和第一轮机器契约语义已经闭合；Vio 与 Continuity Engine 双方工程档案同步、引擎定点文档修正和双方工程档案最终只读复核均已完成，双方档案一致。
 
-这是一项文档与架构里程碑，不是连接能力验收。现在允许双方共同制定第一轮最小连接施工提示词，但提示词尚未制定完成；本次许可不授权执行代码施工。第一轮代码施工、共享测试和实际运行时连接均未开始。当前源码仍没有 PlatformObservation 运行时模型、严格 Schema validator、SubjectBinding、ContractTestAdapter、跨重启结果账本或 Vio 投影连接。机器契约的集中记录见 [`D-025`](docs/project_memory/04_决策记录.md)。
+双方随后共同确认了第一轮施工范围。2026-08-01，Continuity Engine 完成 Engine E1：三份正式 Schema、类型化机器契约结构、固定 SubjectBinding fixture、本地离线 registry、严格 Schema/交叉字段/hash 校验和正式一致性向量测试已经实现。该完成状态只覆盖机器契约基础，不表示第一轮连接已经完成。
+
+Engine E2 尚未开始。当前仍没有 `ContractTestAdapter`、request/operation/result 持久化账本、跨重启完整结果重放、stateProjection 生成或接收、Vio 实际连接和双方共享测试。现有 `APIService.submit_message`、本地 HTTP 与 `UserInteractionService` 也没有被改造成第一轮摄取入口。机器契约决定见 [`D-025`](docs/project_memory/04_决策记录.md)，E1 实现边界见同文件 `D-026`。
 
 ## 当前开发阶段
+
+第一轮最小连接施工的 Engine E1 已完成；下一阶段 Engine E2 尚未开始。E1 只负责解析和验证契约输入，不运行完整交互、不持久化幂等结果、不生成投影，也不连接 Vio。
 
 第一阶段已经完成：
 
@@ -454,6 +459,7 @@ src/continuity_engine/
 │   ├── learning.py     # 学习候选、长期特征、上下文、结果和审计记录
 │   ├── resources.py    # 资源状态、使用记录、请求、决策和运行模式
 │   ├── resource_policy.py # 深度降级、频率降低与延迟规则
+│   ├── integration_contract.py # E1 类型化请求、事实、观察与绑定 fixture
 │   └── errors.py       # 领域异常
 ├── services/
 │   ├── subject_state_service.py  # 创建、读取、应用事件、查询历史
@@ -471,6 +477,8 @@ src/continuity_engine/
 │   ├── learning_service.py       # 候选提取、验证、固化和回滚
 │   ├── resource_manager.py       # 资源申请、扣减、回填和模式管理
 │   ├── resource_aware_wake_scheduler.py # 资源检查后的单次 Wake 调度
+│   ├── integration_contract_hashing.py # RFC 8785 与三类 SHA-256 计算
+│   ├── integration_contract_validation.py # 严格 Schema、交叉字段和 hash 校验
 │   ├── user_interaction_service.py # 用户输入转 Event 并运行连续性流程
 │   ├── wake_perception_thinking_action_service.py # 第七阶段完整编排
 │   └── wake_perception_thinking_service.py # 兼容入口
@@ -492,6 +500,8 @@ src/continuity_engine/
 │   ├── mcp_adapter.py  # MCP-shaped 接口；无真实 MCP 传输
 │   ├── skill_adapter.py # 平台无关 Skill 协议；无平台接入
 │   ├── http_server.py  # 本地调试 HTTP 服务
+│   ├── integration_contract_schema.py # 仅本地解析的三 Schema registry
+│   ├── schemas/        # E1 三份 Draft 2020-12 Schema 单一权威来源
 │   └── local_frontend_app.py # 本地依赖组装与显式初始化
 ├── frontend/
 │   ├── index.html      # 最小聊天与状态调试界面
@@ -501,7 +511,7 @@ src/continuity_engine/
 │   └── __main__.py     # python -m continuity_engine.frontend
 ├── cli.py              # 本地验证入口
 └── __main__.py         # python -m continuity_engine
-tests/                  # 标准库单元测试
+tests/                  # 单元测试；含 E1 正反向契约一致性测试
 ```
 
 调用路径：
@@ -545,7 +555,13 @@ WakeContext + WakeSession（仅返回决策，不执行动作）
 
 ## 快速运行
 
-无需安装第三方运行时依赖。在项目根目录执行：
+先安装项目及其运行依赖，再在项目根目录执行：
+
+```powershell
+python -m pip install -e .
+```
+
+E1 新增 `jsonschema>=4.26,<5`（MIT，用于 Draft 2020-12 严格校验与本地 registry）和 `rfc8785>=0.1.4,<1`（Apache-2.0，用于标准 JSON 规范化）；二者均为本地库，不连接网络服务、不需要账户或密钥。
 
 ```powershell
 $env:PYTHONPATH = "src"
@@ -635,11 +651,11 @@ print(result.update.changes[0].after)
 
 ## 测试
 
-项目目标兼容 Python 3.11–3.14，不依赖第三方运行时包。发布前整理在 Python 3.14.4 上运行完整测试，并使用 Python 3.11 语法版本检查全部源码和测试；仓库当前尚未配置多版本 CI。
+项目目标兼容 Python 3.11–3.14。E1 使用 `jsonschema` 和 `rfc8785` 两个第三方运行依赖；仓库当前尚未配置多版本 CI。
 
 ```powershell
 $env:PYTHONPATH = "src"
 python -m unittest discover -s tests -v
 ```
 
-当前测试基线：87 项。
+当前测试基线：117 项（原有 87 项继续通过，E1 新增 30 项）。

@@ -4,6 +4,15 @@
 
 ## [Unreleased]
 
+### First Round Minimal Connection — Engine E1 — 2026-08-01
+
+- 新增 v1.1 第一轮 `ContinuityInteractionRequest`、PlatformObservation、message fact、嵌套值对象和固定 SubjectBinding fixture 的不可变类型化模型。
+- 新增三份 Draft 2020-12 Schema 作为单一权威来源，以及仅支持三个绝对 URN、拒绝网络/相对路径/别名回退的本地 registry。
+- 新增严格 Schema、禁止状态写字段、identity/conversation/reference、正文位置、UTC 时间和 hash 校验；使用 RFC 8785 规范化并独立复算三个正式固定 hash。
+- 新增 `jsonschema>=4.26,<5`（MIT）和 `rfc8785>=0.1.4,<1`（Apache-2.0）两个本地运行依赖。
+- 新增 30 项 E1 正反向测试；完整 117 项测试通过，原有 87 项继续通过。
+- E1 不包含 `ContractTestAdapter`、持久化账本、跨重启重放、投影、Vio 实际连接或共享测试；软件版本继续保持 `0.1.0`。
+
 ### Bilateral Archive Final Review — 2026-07-30
 
 - 记录 Vio 与 Continuity Engine 双方工程档案最终只读复核通过，双方档案一致。

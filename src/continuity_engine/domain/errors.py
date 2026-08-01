@@ -120,3 +120,15 @@ class MachineContractValidationError(MachineContractError):
 
 class MachineContractSchemaError(MachineContractError):
     """Raised when a schema is missing, invalid, or cannot resolve locally."""
+
+
+class IntegrationPersistenceError(MachineContractError):
+    """Raised when first-round binding or result persistence is invalid."""
+
+
+class IntegrationLedgerConflictError(IntegrationPersistenceError):
+    """Raised when an immutable result or projection conflicts with the ledger."""
+
+
+class IntegrationRecordNotFoundError(IntegrationPersistenceError):
+    """Raised when required first-round persisted data does not exist."""

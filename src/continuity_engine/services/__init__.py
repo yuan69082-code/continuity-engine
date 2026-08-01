@@ -12,9 +12,12 @@ from .learning_service import LearningService
 from .integration_contract_hashing import (
     calculate_binding_fixture_hash,
     calculate_content_hash,
+    calculate_projection_content_hash,
     calculate_request_hash,
+    calculate_state_hash,
     canonicalize_json,
 )
+from .integration_result_factory import FirstRoundResultFactory
 from .integration_contract_validation import MachineContractValidator
 from .perception_service import PerceptionService
 from .permission_service import PermissionService
@@ -67,8 +70,11 @@ __all__ = [
     "UserInteractionService",
     "calculate_binding_fixture_hash",
     "calculate_content_hash",
+    "calculate_projection_content_hash",
     "calculate_request_hash",
+    "calculate_state_hash",
     "canonicalize_json",
+    "FirstRoundResultFactory",
     "WakeScheduleResult",
     "WakeScheduler",
 ]

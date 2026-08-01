@@ -22,6 +22,7 @@
 - 本地 HTTP 服务：为调试前端提供静态资源、状态读取和聊天请求。
 - 调试前端：最小聊天界面、错误展示、SubjectState 摘要、revision 和最近事件视图。
 - 第一轮机器契约基础（Engine E1）：类型化 `ContinuityInteractionRequest`、`message_created` PlatformObservation、`message_version` fact、固定 SubjectBinding fixture，本地 Draft 2020-12 Schema registry、严格校验、RFC 8785 与三项 hash 验证。
+- 第一轮持久化基础（Engine E2）：不可变成功结果与四类错误 envelope、最小 `stateProjection`、`stateHash`/`contentHash`、固定 Binding 本地恢复，以及 request/operation/result 跨重启账本和投影唯一性约束。
 
 其中 Memory、Awakening、Thinking、Learning、Resource Management、接口和前端属于“内部结构或本地原型已完成，真实外部集成仍未完成”。Action 完成的是决策规划层，不包含执行层。
 
@@ -44,11 +45,11 @@
 
 双方随后共同确认了第一轮施工范围。2026-08-01，Continuity Engine 完成 Engine E1：三份正式 Schema、类型化机器契约结构、固定 SubjectBinding fixture、本地离线 registry、严格 Schema/交叉字段/hash 校验和正式一致性向量测试已经实现。该完成状态只覆盖机器契约基础，不表示第一轮连接已经完成。
 
-Engine E2 尚未开始。当前仍没有 `ContractTestAdapter`、request/operation/result 持久化账本、跨重启完整结果重放、stateProjection 生成或接收、Vio 实际连接和双方共享测试。现有 `APIService.submit_message`、本地 HTTP 与 `UserInteractionService` 也没有被改造成第一轮摄取入口。机器契约决定见 [`D-025`](docs/project_memory/04_决策记录.md)，E1 实现边界见同文件 `D-026`。
+Engine E2 已在 E1 同步基线 `ac61e78` 上完成引擎侧数据与存储基础：成功结果、错误 envelope、最小 stateProjection、固定 Binding 持久化、不可覆盖结果账本、跨重启精确重放与投影唯一性已经实现。当前仍没有 `ContractTestAdapter`、完整交互编排、Vio 投影接收器、Vio 实际连接和双方共享测试。现有 `APIService.submit_message`、本地 HTTP 与 `UserInteractionService` 也没有被改造成第一轮摄取入口。机器契约决定见 [`D-025`](docs/project_memory/04_决策记录.md)，E1/E2 实现边界见同文件 `D-026`、`D-027`。
 
 ## 当前开发阶段
 
-第一轮最小连接施工的 Engine E1 已完成；下一阶段 Engine E2 尚未开始。E1 只负责解析和验证契约输入，不运行完整交互、不持久化幂等结果、不生成投影，也不连接 Vio。
+第一轮最小连接施工的 Engine E1 与 E2 已完成。E2 只建立结果、投影、固定 Binding 和本地持久化账本基础，不负责摄取请求、执行验证顺序或运行完整交互；后续 `ContractTestAdapter` 与连接施工尚未获本轮实现授权，也未连接 Vio。
 
 第一阶段已经完成：
 
@@ -460,6 +461,8 @@ src/continuity_engine/
 │   ├── resources.py    # 资源状态、使用记录、请求、决策和运行模式
 │   ├── resource_policy.py # 深度降级、频率降低与延迟规则
 │   ├── integration_contract.py # E1 类型化请求、事实、观察与绑定 fixture
+│   ├── integration_hashing.py # E1/E2 共用 RFC 8785 与 SHA-256 规则
+│   ├── integration_results.py # E2 结果、错误 envelope 与最小投影
 │   └── errors.py       # 领域异常
 ├── services/
 │   ├── subject_state_service.py  # 创建、读取、应用事件、查询历史
@@ -479,6 +482,7 @@ src/continuity_engine/
 │   ├── resource_aware_wake_scheduler.py # 资源检查后的单次 Wake 调度
 │   ├── integration_contract_hashing.py # RFC 8785 与三类 SHA-256 计算
 │   ├── integration_contract_validation.py # 严格 Schema、交叉字段和 hash 校验
+│   ├── integration_result_factory.py # E2 结果与投影的确定性构造
 │   ├── user_interaction_service.py # 用户输入转 Event 并运行连续性流程
 │   ├── wake_perception_thinking_action_service.py # 第七阶段完整编排
 │   └── wake_perception_thinking_service.py # 兼容入口
@@ -490,6 +494,7 @@ src/continuity_engine/
 │   ├── json_permission_repository.py # 权限状态与历史 JSON 持久化
 │   ├── json_learning_repository.py # 学习候选、特征与历史 JSON 持久化
 │   ├── json_resource_repository.py # 资源状态、消耗与决策 JSON 持久化
+│   ├── json_integration_repository.py # 固定 Binding 与不可变结果账本
 │   └── in_memory_action_repository.py # 进程内 ActionSession 仓储
 ├── interfaces/
 │   ├── models.py       # 统一 API 请求、响应与错误模型
@@ -511,7 +516,7 @@ src/continuity_engine/
 │   └── __main__.py     # python -m continuity_engine.frontend
 ├── cli.py              # 本地验证入口
 └── __main__.py         # python -m continuity_engine
-tests/                  # 单元测试；含 E1 正反向契约一致性测试
+tests/                  # 单元测试；含 E1 契约与 E2 持久化正反向测试
 ```
 
 调用路径：
@@ -658,4 +663,4 @@ $env:PYTHONPATH = "src"
 python -m unittest discover -s tests -v
 ```
 
-当前测试基线：117 项（原有 87 项继续通过，E1 新增 30 项）。
+当前测试基线：153 项（E1 同步基线 117 项继续通过，E2 新增 36 项）。

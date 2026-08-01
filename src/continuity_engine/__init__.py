@@ -34,6 +34,18 @@ from .domain.integration_contract import (
     PlatformObservation,
     SubjectBindingFixture,
 )
+from .domain.integration_results import (
+    FirstRoundError,
+    FirstRoundErrorCode,
+    FirstRoundErrorEnvelope,
+    FirstRoundRetryClass,
+    FirstRoundSubjectResponse,
+    FirstRoundSuccessResult,
+    LedgerLookupResult,
+    LedgerLookupStatus,
+    SubjectStateProjection,
+    SubjectStateProjectionSnapshot,
+)
 from .domain.memory import (
     MemoryCandidate,
     MemoryInfluenceRecord,
@@ -146,9 +158,12 @@ from .services.learning_service import LearningService
 from .services.integration_contract_hashing import (
     calculate_binding_fixture_hash,
     calculate_content_hash,
+    calculate_projection_content_hash,
     calculate_request_hash,
+    calculate_state_hash,
     canonicalize_json,
 )
+from .services.integration_result_factory import FirstRoundResultFactory
 from .services.integration_contract_validation import MachineContractValidator
 from .services.awakening_service import AwakeningService
 from .services.subject_state_service import SubjectStateService
@@ -165,6 +180,10 @@ from .storage.json_permission_repository import JsonPermissionRepository
 from .storage.json_learning_repository import JsonLearningRepository
 from .storage.json_resource_repository import JsonResourceRepository
 from .storage.in_memory_action_repository import InMemoryActionRepository
+from .storage.json_integration_repository import (
+    JsonIntegrationResultLedger,
+    JsonSubjectBindingFixtureRepository,
+)
 from .interfaces import (
     APIBackedSkillAdapter,
     APIError,
@@ -219,10 +238,23 @@ __all__ = [
     "REQUEST_SCHEMA_ID",
     "SCHEMA_IDS",
     "SubjectBindingFixture",
+    "FirstRoundError",
+    "FirstRoundErrorCode",
+    "FirstRoundErrorEnvelope",
+    "FirstRoundRetryClass",
+    "FirstRoundSubjectResponse",
+    "FirstRoundSuccessResult",
+    "LedgerLookupResult",
+    "LedgerLookupStatus",
+    "SubjectStateProjection",
+    "SubjectStateProjectionSnapshot",
     "calculate_binding_fixture_hash",
     "calculate_content_hash",
+    "calculate_projection_content_hash",
     "calculate_request_hash",
+    "calculate_state_hash",
     "canonicalize_json",
+    "FirstRoundResultFactory",
     "APIBackedSkillAdapter",
     "APIError",
     "APIRequest",
@@ -250,6 +282,8 @@ __all__ = [
     "ExternalOperation",
     "FailurePolicy",
     "InMemoryActionRepository",
+    "JsonIntegrationResultLedger",
+    "JsonSubjectBindingFixtureRepository",
     "InMemoryPermissionProvider",
     "InterfaceAccessError",
     "InterfaceAccessGrant",

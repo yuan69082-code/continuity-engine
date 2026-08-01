@@ -6,6 +6,11 @@ from typing import Protocol
 from continuity_engine.domain.awakening import AwakeCycle, WakeSession
 from continuity_engine.domain.action import ActionSession
 from continuity_engine.domain.events import StateUpdateRecord
+from continuity_engine.domain.integration_contract import SubjectBindingFixture
+from continuity_engine.domain.integration_results import (
+    FirstRoundSuccessResult,
+    LedgerLookupResult,
+)
 from continuity_engine.domain.learning import LearningEvent, LearningRecord, PersonalityTrait
 from continuity_engine.domain.models import SubjectState
 from continuity_engine.domain.permissions import PermissionChangeRecord, PermissionState
@@ -161,3 +166,23 @@ class ResourceRepository(Protocol):
     def list_usage(self, subject_id: str) -> list[TokenUsageRecord]: ...
 
     def list_decisions(self, subject_id: str) -> list[ResourceDecision]: ...
+
+
+class SubjectBindingFixtureRepository(Protocol):
+    """Persistence boundary for the single fixed first-round binding fixture."""
+
+    def save_fixed(
+        self,
+        fixture: SubjectBindingFixture,
+        binding_fixture_hash: str,
+    ) -> None: ...
+
+    def load_fixed(self) -> tuple[SubjectBindingFixture, str]: ...
+
+
+class IntegrationResultLedger(Protocol):
+    """Immutable completed-result ledger used by the first-round contract."""
+
+    def lookup(self, request_id: str, request_hash: str) -> LedgerLookupResult: ...
+
+    def save_completed(self, result: FirstRoundSuccessResult) -> None: ...

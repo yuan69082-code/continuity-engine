@@ -1,6 +1,6 @@
 # Continuity Engine
 
-连续性引擎是位于前端与 AI 模型之间的独立系统层。它保存的不是聊天记录，而是主体状态及其随事件发生的连续变化。
+连续性引擎是位于 AI 模型之外的独立连续性层。它与 Vio 平台后端是边界独立、数据库独立的平行系统，通过正式版本化契约协作；Vio 前端只连接 Vio 平台后端。它保存的不是聊天记录，而是主体状态及其随事件发生的连续变化。模型、Tool、MCP 和设备只是经 Vio 管理的外部能力，不是主体状态权威。
 
 当前版本为 `0.1.0` 原型，重点是建立可保存、可演化、可审计并受权限与资源约束的连续性内核。它不是已经具备真实自主执行能力的生产 Agent。
 
@@ -36,6 +36,12 @@
 - 生产数据库、用户认证、多租户和生产部署。
 
 `ContinuityMCPAdapter`、`SkillAdapter`、`ThinkingProvider` 和 Memory 端口只是可插拔接口或适配边界，不能视为对应外部能力已经接入。
+
+## Vio 连接契约状态
+
+2026-07-30，Continuity Engine 通过《Engine Contract Final Read-Only Short Confirmation v1》正式接受 `Continuity Integration Contract v1.1`。长期系统边界和第一轮机器契约语义已经闭合；Vio 与 Continuity Engine 双方工程档案同步、引擎定点文档修正和双方工程档案最终只读复核均已完成，双方档案一致。
+
+这是一项文档与架构里程碑，不是连接能力验收。现在允许双方共同制定第一轮最小连接施工提示词，但提示词尚未制定完成；本次许可不授权执行代码施工。第一轮代码施工、共享测试和实际运行时连接均未开始。当前源码仍没有 PlatformObservation 运行时模型、严格 Schema validator、SubjectBinding、ContractTestAdapter、跨重启结果账本或 Vio 投影连接。机器契约的集中记录见 [`D-025`](docs/project_memory/04_决策记录.md)。
 
 ## 当前开发阶段
 

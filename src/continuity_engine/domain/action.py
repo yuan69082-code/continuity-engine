@@ -8,7 +8,7 @@ from typing import Any, Iterable
 
 from .awakening import AwakeningResult
 from .errors import ActionValidationError
-from .events import JsonValue, StateUpdateRecord
+from .events import JsonValue, StateMutation, StateUpdateRecord
 from .perception import PerceptionResult
 from .permissions import PermissionContext
 from .thinking import ThinkingExecutionResult, ThinkingResult
@@ -892,6 +892,112 @@ class ActionExecutionResult:
     @property
     def plan(self) -> ActionPlan:
         return self.session.action_plan
+
+
+@dataclass(slots=True)
+class ApprovedStateAction:
+    """Immutable-in-practice authorization snapshot produced by the Action Gate."""
+
+    action_session_id: str
+    decision_id: str
+    plan_id: str
+    subject_id: str
+    expected_revision: int
+    think_session_id: str
+    wake_session_id: str
+    perception_id: str
+    thinking_result_id: str
+    result_summary: str
+    rationale_summary: str
+    mutations: list[StateMutation]
+
+    def __post_init__(self) -> None:
+        for value, name in (
+            (self.action_session_id, "approved action_session_id"),
+            (self.decision_id, "approved decision_id"),
+            (self.plan_id, "approved plan_id"),
+            (self.subject_id, "approved subject_id"),
+            (self.think_session_id, "approved think_session_id"),
+            (self.wake_session_id, "approved wake_session_id"),
+            (self.perception_id, "approved perception_id"),
+            (self.thinking_result_id, "approved thinking_result_id"),
+            (self.result_summary, "approved result_summary"),
+            (self.rationale_summary, "approved rationale_summary"),
+        ):
+            _require_text(value, name)
+        if not isinstance(self.expected_revision, int) or self.expected_revision < 0:
+            raise ActionValidationError("approved expected_revision must be non-negative")
+        if not self.mutations or any(
+            not isinstance(item, StateMutation) for item in self.mutations
+        ):
+            raise ActionValidationError(
+                "approved state action requires StateMutation values"
+            )
+
+    @classmethod
+    def from_execution(
+        cls,
+        action: ActionExecutionResult,
+    ) -> ApprovedStateAction | None:
+        decision = action.decision
+        plan = action.plan
+        if (
+            not decision.approved
+            or decision.requires_confirmation
+            or decision.selected_action.action_type is not ActionType.UPDATE_STATE
+            or plan.status is not ActionPlanStatus.PLANNED
+        ):
+            return None
+        result = action.context.thinking_result
+        return cls(
+            action_session_id=action.session.action_session_id,
+            decision_id=decision.decision_id,
+            plan_id=plan.plan_id,
+            subject_id=action.context.subject_id,
+            expected_revision=action.context.subject_state_revision,
+            think_session_id=action.context.think_session_id,
+            wake_session_id=action.context.wake_session_id,
+            perception_id=action.context.perception_summary.perception_id,
+            thinking_result_id=result.result_id,
+            result_summary=result.result_summary,
+            rationale_summary=result.rationale_summary,
+            mutations=[StateMutation.from_dict(item.to_dict()) for item in result.proposed_mutations],
+        )
+
+    def to_dict(self) -> dict[str, JsonValue]:
+        return {
+            "action_session_id": self.action_session_id,
+            "decision_id": self.decision_id,
+            "plan_id": self.plan_id,
+            "subject_id": self.subject_id,
+            "expected_revision": self.expected_revision,
+            "think_session_id": self.think_session_id,
+            "wake_session_id": self.wake_session_id,
+            "perception_id": self.perception_id,
+            "thinking_result_id": self.thinking_result_id,
+            "result_summary": self.result_summary,
+            "rationale_summary": self.rationale_summary,
+            "mutations": [item.to_dict() for item in self.mutations],
+        }
+
+    @classmethod
+    def from_dict(cls, value: Any) -> ApprovedStateAction:
+        if not isinstance(value, dict) or not isinstance(value.get("mutations"), list):
+            raise ActionValidationError("approved state action must be an object")
+        return cls(
+            action_session_id=value.get("action_session_id"),
+            decision_id=value.get("decision_id"),
+            plan_id=value.get("plan_id"),
+            subject_id=value.get("subject_id"),
+            expected_revision=value.get("expected_revision"),
+            think_session_id=value.get("think_session_id"),
+            wake_session_id=value.get("wake_session_id"),
+            perception_id=value.get("perception_id"),
+            thinking_result_id=value.get("thinking_result_id"),
+            result_summary=value.get("result_summary"),
+            rationale_summary=value.get("rationale_summary"),
+            mutations=[StateMutation.from_dict(item) for item in value["mutations"]],
+        )
 
 
 @dataclass(slots=True)

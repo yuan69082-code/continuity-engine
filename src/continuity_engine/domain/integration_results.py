@@ -6,6 +6,7 @@ from datetime import datetime, timezone
 from enum import Enum
 from typing import Any
 
+from .action import ApprovedStateAction
 from .errors import MachineContractValidationError
 from .events import JsonValue
 from .integration_hashing import (
@@ -414,6 +415,351 @@ class FirstRoundSuccessResult:
             ),
             consumed_observation_ids=tuple(observations),
             completed_at=_utc_datetime(data["completedAt"], "completedAt"),
+        )
+
+
+class IntegrationOperationStage(str, Enum):
+    RESERVED = "reserved"
+    DOMAIN_COMPLETED = "domain_completed"
+    EVOLUTION_COMMITTED = "evolution_committed"
+    COMPLETED = "completed"
+
+
+@dataclass(frozen=True, slots=True)
+class IntegrationDomainCheckpoint:
+    response_id: str
+    response_content: str
+    response_completed_at: str
+    wake_session_id: str
+    perception_id: str
+    think_session_id: str
+    thinking_result_id: str
+    action_session_id: str
+    action_decision_id: str
+    action_plan_id: str
+    selected_action: str
+    action_approved: bool
+    action_requires_confirmation: bool
+    action_plan_status: str
+    approved_state_action: ApprovedStateAction | None
+
+    def __post_init__(self) -> None:
+        for value, name in (
+            (self.response_id, "operation domain responseId"),
+            (self.wake_session_id, "operation domain wakeSessionId"),
+            (self.perception_id, "operation domain perceptionId"),
+            (self.think_session_id, "operation domain thinkSessionId"),
+            (self.thinking_result_id, "operation domain thinkingResultId"),
+            (self.action_session_id, "operation domain actionSessionId"),
+            (self.action_decision_id, "operation domain actionDecisionId"),
+            (self.action_plan_id, "operation domain actionPlanId"),
+            (self.selected_action, "operation domain selectedAction"),
+            (self.action_plan_status, "operation domain actionPlanStatus"),
+        ):
+            _text(value, name)
+        _text(self.response_content, "operation domain responseContent", allow_empty=True)
+        _utc_datetime(
+            self.response_completed_at,
+            "operation domain responseCompletedAt",
+        )
+        _boolean(self.action_approved, "operation domain actionApproved")
+        _boolean(
+            self.action_requires_confirmation,
+            "operation domain actionRequiresConfirmation",
+        )
+        if self.approved_state_action is not None:
+            if not isinstance(self.approved_state_action, ApprovedStateAction):
+                raise MachineContractValidationError(
+                    "approvedStateAction must be an ApprovedStateAction"
+                )
+            if (
+                self.selected_action != "UPDATE_STATE"
+                or not self.action_approved
+                or self.action_requires_confirmation
+                or self.action_plan_status != "PLANNED"
+            ):
+                raise MachineContractValidationError(
+                    "approvedStateAction requires a planned approved UPDATE_STATE"
+                )
+            if self.approved_state_action.action_session_id != self.action_session_id:
+                raise MachineContractValidationError(
+                    "approvedStateAction does not match actionSessionId"
+                )
+
+    def to_dict(self) -> dict[str, JsonValue]:
+        return {
+            "responseId": self.response_id,
+            "responseContent": self.response_content,
+            "responseCompletedAt": self.response_completed_at,
+            "wakeSessionId": self.wake_session_id,
+            "perceptionId": self.perception_id,
+            "thinkSessionId": self.think_session_id,
+            "thinkingResultId": self.thinking_result_id,
+            "actionSessionId": self.action_session_id,
+            "actionDecisionId": self.action_decision_id,
+            "actionPlanId": self.action_plan_id,
+            "selectedAction": self.selected_action,
+            "actionApproved": self.action_approved,
+            "actionRequiresConfirmation": self.action_requires_confirmation,
+            "actionPlanStatus": self.action_plan_status,
+            "approvedStateAction": (
+                self.approved_state_action.to_dict()
+                if self.approved_state_action is not None
+                else None
+            ),
+        }
+
+    @classmethod
+    def from_dict(cls, value: Any) -> IntegrationDomainCheckpoint:
+        data = _object(
+            value,
+            "operation domain checkpoint",
+            {
+                "responseId",
+                "responseContent",
+                "responseCompletedAt",
+                "wakeSessionId",
+                "perceptionId",
+                "thinkSessionId",
+                "thinkingResultId",
+                "actionSessionId",
+                "actionDecisionId",
+                "actionPlanId",
+                "selectedAction",
+                "actionApproved",
+                "actionRequiresConfirmation",
+                "actionPlanStatus",
+                "approvedStateAction",
+            },
+        )
+        approved = data["approvedStateAction"]
+        return cls(
+            response_id=_text(data["responseId"], "operation domain responseId"),
+            response_content=_text(
+                data["responseContent"],
+                "operation domain responseContent",
+                allow_empty=True,
+            ),
+            response_completed_at=_utc_datetime(
+                data["responseCompletedAt"],
+                "operation domain responseCompletedAt",
+            ),
+            wake_session_id=_text(
+                data["wakeSessionId"], "operation domain wakeSessionId"
+            ),
+            perception_id=_text(
+                data["perceptionId"], "operation domain perceptionId"
+            ),
+            think_session_id=_text(
+                data["thinkSessionId"], "operation domain thinkSessionId"
+            ),
+            thinking_result_id=_text(
+                data["thinkingResultId"], "operation domain thinkingResultId"
+            ),
+            action_session_id=_text(
+                data["actionSessionId"], "operation domain actionSessionId"
+            ),
+            action_decision_id=_text(
+                data["actionDecisionId"], "operation domain actionDecisionId"
+            ),
+            action_plan_id=_text(
+                data["actionPlanId"], "operation domain actionPlanId"
+            ),
+            selected_action=_text(
+                data["selectedAction"], "operation domain selectedAction"
+            ),
+            action_approved=_boolean(
+                data["actionApproved"], "operation domain actionApproved"
+            ),
+            action_requires_confirmation=_boolean(
+                data["actionRequiresConfirmation"],
+                "operation domain actionRequiresConfirmation",
+            ),
+            action_plan_status=_text(
+                data["actionPlanStatus"], "operation domain actionPlanStatus"
+            ),
+            approved_state_action=(
+                ApprovedStateAction.from_dict(approved)
+                if approved is not None
+                else None
+            ),
+        )
+
+
+@dataclass(frozen=True, slots=True)
+class IntegrationEvolutionCheckpoint:
+    event_id: str
+    update_id: str
+    output_revision: int
+
+    def __post_init__(self) -> None:
+        _text(self.event_id, "operation evolution eventId")
+        _text(self.update_id, "operation evolution updateId")
+        _integer(self.output_revision, "operation evolution outputRevision")
+
+    def to_dict(self) -> dict[str, JsonValue]:
+        return {
+            "eventId": self.event_id,
+            "updateId": self.update_id,
+            "outputRevision": self.output_revision,
+        }
+
+    @classmethod
+    def from_dict(cls, value: Any) -> IntegrationEvolutionCheckpoint:
+        data = _object(
+            value,
+            "operation evolution checkpoint",
+            {"eventId", "updateId", "outputRevision"},
+        )
+        return cls(
+            event_id=_text(data["eventId"], "operation evolution eventId"),
+            update_id=_text(data["updateId"], "operation evolution updateId"),
+            output_revision=_integer(
+                data["outputRevision"], "operation evolution outputRevision"
+            ),
+        )
+
+
+@dataclass(frozen=True, slots=True)
+class IntegrationOperationRecord:
+    request_id: str
+    request_hash: str
+    operation_id: str
+    subject_id: str
+    binding_id: str
+    binding_version: int
+    input_revision: int
+    consumed_observation_ids: tuple[str, ...]
+    stage: IntegrationOperationStage
+    reserved_at: str
+    updated_at: str
+    domain: IntegrationDomainCheckpoint | None = None
+    evolution: IntegrationEvolutionCheckpoint | None = None
+
+    def __post_init__(self) -> None:
+        _text(self.request_id, "operation requestId")
+        _hash(self.request_hash, "operation requestHash")
+        _text(self.operation_id, "operation operationId")
+        _text(self.subject_id, "operation subjectId")
+        _text(self.binding_id, "operation bindingId")
+        if self.binding_version != FIRST_ROUND_BINDING_VERSION:
+            raise MachineContractValidationError("operation bindingVersion must be 1")
+        _integer(self.input_revision, "operation inputRevision")
+        if (
+            not isinstance(self.consumed_observation_ids, tuple)
+            or len(self.consumed_observation_ids) != 1
+        ):
+            raise MachineContractValidationError(
+                "operation consumedObservationIds must contain exactly one item"
+            )
+        _text(
+            self.consumed_observation_ids[0],
+            "operation consumedObservationIds[0]",
+        )
+        if not isinstance(self.stage, IntegrationOperationStage):
+            raise MachineContractValidationError("operation stage is invalid")
+        _utc_datetime(self.reserved_at, "operation reservedAt")
+        _utc_datetime(self.updated_at, "operation updatedAt")
+        if self.stage is IntegrationOperationStage.RESERVED:
+            if self.domain is not None or self.evolution is not None:
+                raise MachineContractValidationError(
+                    "a reserved operation cannot contain later checkpoints"
+                )
+        else:
+            if self.domain is None:
+                raise MachineContractValidationError(
+                    "a progressed operation requires a domain checkpoint"
+                )
+        if self.evolution is not None:
+            if self.domain is None or self.domain.approved_state_action is None:
+                raise MachineContractValidationError(
+                    "an evolution checkpoint requires an approved state action"
+                )
+            if self.evolution.output_revision != self.input_revision + 1:
+                raise MachineContractValidationError(
+                    "an evolution checkpoint must advance revision exactly once"
+                )
+        if (
+            self.stage is IntegrationOperationStage.EVOLUTION_COMMITTED
+            and self.evolution is None
+        ):
+            raise MachineContractValidationError(
+                "evolution_committed requires an evolution checkpoint"
+            )
+
+    def to_dict(self) -> dict[str, JsonValue]:
+        return {
+            "requestId": self.request_id,
+            "requestHash": self.request_hash,
+            "operationId": self.operation_id,
+            "subjectId": self.subject_id,
+            "bindingId": self.binding_id,
+            "bindingVersion": self.binding_version,
+            "inputRevision": self.input_revision,
+            "consumedObservationIds": list(self.consumed_observation_ids),
+            "stage": self.stage.value,
+            "reservedAt": self.reserved_at,
+            "updatedAt": self.updated_at,
+            "domain": self.domain.to_dict() if self.domain is not None else None,
+            "evolution": (
+                self.evolution.to_dict() if self.evolution is not None else None
+            ),
+        }
+
+    @classmethod
+    def from_dict(cls, value: Any) -> IntegrationOperationRecord:
+        data = _object(
+            value,
+            "operation record",
+            {
+                "requestId",
+                "requestHash",
+                "operationId",
+                "subjectId",
+                "bindingId",
+                "bindingVersion",
+                "inputRevision",
+                "consumedObservationIds",
+                "stage",
+                "reservedAt",
+                "updatedAt",
+                "domain",
+                "evolution",
+            },
+        )
+        raw_observations = data["consumedObservationIds"]
+        if not isinstance(raw_observations, list):
+            raise MachineContractValidationError(
+                "operation consumedObservationIds must be an array"
+            )
+        try:
+            stage = IntegrationOperationStage(data["stage"])
+        except (TypeError, ValueError) as exc:
+            raise MachineContractValidationError("operation stage is invalid") from exc
+        return cls(
+            request_id=_text(data["requestId"], "operation requestId"),
+            request_hash=_hash(data["requestHash"], "operation requestHash"),
+            operation_id=_text(data["operationId"], "operation operationId"),
+            subject_id=_text(data["subjectId"], "operation subjectId"),
+            binding_id=_text(data["bindingId"], "operation bindingId"),
+            binding_version=_integer(
+                data["bindingVersion"], "operation bindingVersion"
+            ),
+            input_revision=_integer(data["inputRevision"], "operation inputRevision"),
+            consumed_observation_ids=tuple(raw_observations),
+            stage=stage,
+            reserved_at=_utc_datetime(data["reservedAt"], "operation reservedAt"),
+            updated_at=_utc_datetime(data["updatedAt"], "operation updatedAt"),
+            domain=(
+                IntegrationDomainCheckpoint.from_dict(data["domain"])
+                if data["domain"] is not None
+                else None
+            ),
+            evolution=(
+                IntegrationEvolutionCheckpoint.from_dict(data["evolution"])
+                if data["evolution"] is not None
+                else None
+            ),
         )
 
 

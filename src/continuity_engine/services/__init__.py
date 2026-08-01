@@ -5,6 +5,19 @@ from .action_permissions import (
 )
 from .action_ports import PermissionProvider
 from .action_service import ActionService
+from .action_evolution_service import ActionEvolutionService
+from .contract_test_doubles import (
+    ContractReplyComposer,
+    DeterministicContractReplyComposer,
+    DeterministicMemoryInfluenceRecorder,
+    DeterministicMemoryRetriever,
+    DeterministicThinkingProvider,
+    DeterministicTokenBudgetManager,
+)
+from .contract_test_bootstrap import (
+    FirstRoundContractBootstrap,
+    FirstRoundContractFixture,
+)
 from .awakening_service import AwakeningService
 from .memory_ports import MemoryInfluenceRecorder, MemoryRetriever
 from .memory_service import MemoryService
@@ -43,6 +56,15 @@ from .user_interaction_service import (
 
 __all__ = [
     "ActionService",
+    "ActionEvolutionService",
+    "ContractReplyComposer",
+    "DeterministicContractReplyComposer",
+    "DeterministicMemoryInfluenceRecorder",
+    "DeterministicMemoryRetriever",
+    "DeterministicThinkingProvider",
+    "DeterministicTokenBudgetManager",
+    "FirstRoundContractBootstrap",
+    "FirstRoundContractFixture",
     "AwakeningService",
     "DeterministicPermissionProvider",
     "InMemoryPermissionProvider",

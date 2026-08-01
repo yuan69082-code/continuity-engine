@@ -6,18 +6,18 @@ from uuid import NAMESPACE_URL, uuid5
 
 from continuity_engine.domain.action import (
     ActionContext,
-    ActionPlanStatus,
-    ActionType,
+    ApprovedStateAction,
     ResourceLimits,
     WakePerceptionThinkingActionResult,
 )
 from continuity_engine.domain.awakening import AwakeningResult, WakeAction
-from continuity_engine.domain.events import Event, StateSection, StateUpdateRecord
+from continuity_engine.domain.events import StateUpdateRecord
 from continuity_engine.domain.models import utc_now
 from continuity_engine.domain.perception import PerceptionContext
 from continuity_engine.domain.thinking import ThinkingDepth
 
 from .action_service import ActionService
+from .action_evolution_service import ActionEvolutionService
 from .awakening_service import AwakeningService
 from .perception_service import PerceptionService
 from .permission_service import PermissionService
@@ -50,6 +50,10 @@ class WakePerceptionThinkingActionService:
         self._resource_limits = resource_limits or ResourceLimits()
         self._permission_service = permission_service
         self._clock = clock
+        self._action_evolution = ActionEvolutionService(
+            subject_states,
+            clock=clock,
+        )
 
     def wake_manual(
         self,
@@ -145,41 +149,6 @@ class WakePerceptionThinkingActionService:
         )
 
     def _evolve_approved_state_action(self, action) -> StateUpdateRecord | None:
-        decision = action.decision
-        plan = action.plan
-        if (
-            not decision.approved
-            or decision.requires_confirmation
-            or decision.selected_action.action_type is not ActionType.UPDATE_STATE
-            or plan.status is not ActionPlanStatus.PLANNED
-        ):
-            return None
-        result = action.context.thinking_result
-        scopes: list[StateSection] = []
-        for mutation in result.proposed_mutations:
-            section = StateSection(mutation.field_path.split(".", 1)[0])
-            if section not in scopes:
-                scopes.append(section)
-        event = Event.create(
-            occurred_at=self._clock(),
-            source="action_engine",
-            event_type="approved_internal_action",
-            content=result.result_summary,
-            impact_scope=scopes,
-            mutations=result.proposed_mutations,
-            reason=result.rationale_summary,
-            metadata={
-                "action_session_id": action.session.action_session_id,
-                "action_decision_id": decision.decision_id,
-                "action_plan_id": plan.plan_id,
-                "think_id": action.context.think_session_id,
-                "wake_session_id": action.context.wake_session_id,
-                "perception_id": action.context.perception_summary.perception_id,
-                "thinking_result_id": result.result_id,
-            },
+        return self._action_evolution.evolve(
+            ApprovedStateAction.from_execution(action)
         )
-        return self._subject_states.apply_event(
-            action.context.subject_id,
-            event,
-            expected_revision=action.context.subject_state_revision,
-        ).update

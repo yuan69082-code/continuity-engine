@@ -98,6 +98,74 @@ def _enum(value: Any, enum_type: type[Enum], field_name: str) -> Enum:
         raise PerceptionValidationError(f"unsupported {field_name}") from exc
 
 
+@dataclass(frozen=True, slots=True)
+class PerceivedPlatformFact:
+    """Validated external fact observed by Perception; never an internal Event."""
+
+    observation_id: str
+    source_event_id: str
+    observation_type: str
+    fact_id: str
+    conversation_id: str
+    message_id: str
+    message_version_id: str
+    content: str
+    occurred_at: datetime
+    observed_at: datetime
+
+    def __post_init__(self) -> None:
+        for value, name in (
+            (self.observation_id, "platform fact observation_id"),
+            (self.source_event_id, "platform fact source_event_id"),
+            (self.observation_type, "platform fact observation_type"),
+            (self.fact_id, "platform fact fact_id"),
+            (self.conversation_id, "platform fact conversation_id"),
+            (self.message_id, "platform fact message_id"),
+            (self.message_version_id, "platform fact message_version_id"),
+            (self.content, "platform fact content"),
+        ):
+            _require_text(value, name)
+        if self.occurred_at.tzinfo is None or self.observed_at.tzinfo is None:
+            raise PerceptionValidationError(
+                "platform fact timestamps must include a timezone"
+            )
+
+    def to_dict(self) -> dict[str, JsonValue]:
+        return {
+            "observation_id": self.observation_id,
+            "source_event_id": self.source_event_id,
+            "observation_type": self.observation_type,
+            "fact_id": self.fact_id,
+            "conversation_id": self.conversation_id,
+            "message_id": self.message_id,
+            "message_version_id": self.message_version_id,
+            "content": self.content,
+            "occurred_at": _format_datetime(self.occurred_at),
+            "observed_at": _format_datetime(self.observed_at),
+        }
+
+    @classmethod
+    def from_dict(cls, value: Any) -> PerceivedPlatformFact:
+        if not isinstance(value, dict):
+            raise PerceptionValidationError("perceived platform fact must be an object")
+        return cls(
+            observation_id=value.get("observation_id"),
+            source_event_id=value.get("source_event_id"),
+            observation_type=value.get("observation_type"),
+            fact_id=value.get("fact_id"),
+            conversation_id=value.get("conversation_id"),
+            message_id=value.get("message_id"),
+            message_version_id=value.get("message_version_id"),
+            content=value.get("content"),
+            occurred_at=_parse_datetime(
+                value.get("occurred_at"), "platform fact occurred_at"
+            ),
+            observed_at=_parse_datetime(
+                value.get("observed_at"), "platform fact observed_at"
+            ),
+        )
+
+
 @dataclass(slots=True)
 class PerceptionContext:
     """Read-only, unified input boundary for one perception pass."""
@@ -109,6 +177,7 @@ class PerceptionContext:
     memory_result: MemoryRetrievalResult
     recent_events: list[Event]
     current_time: datetime
+    external_facts: tuple[PerceivedPlatformFact, ...] = ()
 
     def __post_init__(self) -> None:
         _require_text(self.context_id, "perception context_id")
@@ -137,6 +206,13 @@ class PerceptionContext:
             if decision.relevant
         ):
             raise PerceptionValidationError("a relevant memory belongs to another subject")
+        if not isinstance(self.external_facts, tuple) or any(
+            not isinstance(item, PerceivedPlatformFact)
+            for item in self.external_facts
+        ):
+            raise PerceptionValidationError(
+                "external_facts must be a tuple of PerceivedPlatformFact values"
+            )
 
     @classmethod
     def from_awakening(
@@ -145,6 +221,7 @@ class PerceptionContext:
         *,
         current_time: datetime,
         context_id: str | None = None,
+        external_facts: Iterable[PerceivedPlatformFact] = (),
     ) -> PerceptionContext:
         session = awakening.session
         if not session.completed_successfully or session.decision is None:
@@ -163,6 +240,7 @@ class PerceptionContext:
             memory_result=awakening.context.memory_result,
             recent_events=list(awakening.context.recent_events),
             current_time=current_time,
+            external_facts=tuple(external_facts),
         )
 
     def to_dict(self) -> dict[str, JsonValue]:
@@ -174,12 +252,15 @@ class PerceptionContext:
             "memory_result": self.memory_result.to_dict(),
             "recent_events": [item.to_dict() for item in self.recent_events],
             "current_time": _format_datetime(self.current_time),
+            "external_facts": [item.to_dict() for item in self.external_facts],
         }
 
     @classmethod
     def from_dict(cls, value: Any) -> PerceptionContext:
-        if not isinstance(value, dict) or not isinstance(
-            value.get("recent_events"), list
+        if (
+            not isinstance(value, dict)
+            or not isinstance(value.get("recent_events"), list)
+            or not isinstance(value.get("external_facts", []), list)
         ):
             raise PerceptionValidationError(
                 "perception context must contain recent_events"
@@ -197,6 +278,10 @@ class PerceptionContext:
             ],
             current_time=_parse_datetime(
                 value.get("current_time"), "perception current_time"
+            ),
+            external_facts=tuple(
+                PerceivedPlatformFact.from_dict(item)
+                for item in value.get("external_facts", [])
             ),
         )
 
@@ -505,6 +590,7 @@ class PerceptionResult:
     viewed_memory_ids: list[str] = field(default_factory=list)
     selected_memory_ids: list[str] = field(default_factory=list)
     memory_request_id: str = ""
+    external_facts: tuple[PerceivedPlatformFact, ...] = ()
 
     def __post_init__(self) -> None:
         _require_text(self.perception_id, "perception_id")
@@ -527,6 +613,13 @@ class PerceptionResult:
         ):
             normalized = _text_list(values, name)
             setattr(self, name, normalized)
+        if not isinstance(self.external_facts, tuple) or any(
+            not isinstance(item, PerceivedPlatformFact)
+            for item in self.external_facts
+        ):
+            raise PerceptionValidationError(
+                "external_facts must be a tuple of PerceivedPlatformFact values"
+            )
 
     @classmethod
     def create(
@@ -568,6 +661,7 @@ class PerceptionResult:
                 item.memory_id for item in memory_result.selected_memories
             ],
             memory_request_id=memory_result.request.request_id,
+            external_facts=tuple(context.external_facts),
         )
 
     def to_dict(self) -> dict[str, JsonValue]:
@@ -590,12 +684,15 @@ class PerceptionResult:
             "viewed_memory_ids": list(self.viewed_memory_ids),
             "selected_memory_ids": list(self.selected_memory_ids),
             "memory_request_id": self.memory_request_id,
+            "external_facts": [item.to_dict() for item in self.external_facts],
         }
 
     @classmethod
     def from_dict(cls, value: Any) -> PerceptionResult:
-        if not isinstance(value, dict) or not isinstance(
-            value.get("internal_drives"), list
+        if (
+            not isinstance(value, dict)
+            or not isinstance(value.get("internal_drives"), list)
+            or not isinstance(value.get("external_facts", []), list)
         ):
             raise PerceptionValidationError(
                 "perception result must contain internal_drives"
@@ -636,4 +733,8 @@ class PerceptionResult:
                 value.get("selected_memory_ids", []), "selected_memory_ids"
             ),
             memory_request_id=value.get("memory_request_id"),
+            external_facts=tuple(
+                PerceivedPlatformFact.from_dict(item)
+                for item in value.get("external_facts", [])
+            ),
         )

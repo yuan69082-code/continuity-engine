@@ -9,6 +9,7 @@ from continuity_engine.domain.events import StateUpdateRecord
 from continuity_engine.domain.integration_contract import SubjectBindingFixture
 from continuity_engine.domain.integration_results import (
     FirstRoundSuccessResult,
+    IntegrationOperationRecord,
     LedgerLookupResult,
 )
 from continuity_engine.domain.learning import LearningEvent, LearningRecord, PersonalityTrait
@@ -181,8 +182,12 @@ class SubjectBindingFixtureRepository(Protocol):
 
 
 class IntegrationResultLedger(Protocol):
-    """Immutable completed-result ledger used by the first-round contract."""
+    """Completed-result ledger plus recoverable internal operation journal."""
 
     def lookup(self, request_id: str, request_hash: str) -> LedgerLookupResult: ...
 
     def save_completed(self, result: FirstRoundSuccessResult) -> None: ...
+
+    def load_operation(self, request_id: str) -> IntegrationOperationRecord | None: ...
+
+    def save_operation(self, operation: IntegrationOperationRecord) -> None: ...

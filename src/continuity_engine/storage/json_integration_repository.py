@@ -21,6 +21,8 @@ from continuity_engine.domain.integration_hashing import (
 )
 from continuity_engine.domain.integration_results import (
     FirstRoundSuccessResult,
+    IntegrationOperationRecord,
+    IntegrationOperationStage,
     LedgerLookupResult,
     LedgerLookupStatus,
     SubjectStateProjection,
@@ -29,8 +31,10 @@ from continuity_engine.domain.integration_results import (
 
 BINDING_PERSISTENCE_FORMAT_VERSION = 1
 LEDGER_PERSISTENCE_FORMAT_VERSION = 1
+OPERATION_JOURNAL_FORMAT_VERSION = 1
 _BINDING_FILE_NAME = "subject-binding.first-round-v1.json"
 _LEDGER_FILE_NAME = "result-ledger.first-round-v1.json"
+_OPERATION_FILE_NAME = "operation-journal.first-round-v1.json"
 
 
 def _strict_document(
@@ -183,14 +187,19 @@ class JsonSubjectBindingFixtureRepository:
 
 
 class JsonIntegrationResultLedger:
-    """Atomic, immutable first-round completed-result ledger."""
+    """Atomic-per-file result ledger with a recoverable operation journal."""
 
     def __init__(self, root: str | Path) -> None:
         self._path = Path(root) / "integration" / _LEDGER_FILE_NAME
+        self._operation_path = Path(root) / "integration" / _OPERATION_FILE_NAME
 
     @property
     def path(self) -> Path:
         return self._path
+
+    @property
+    def operation_path(self) -> Path:
+        return self._operation_path
 
     def lookup(self, request_id: str, request_hash: str) -> LedgerLookupResult:
         if not isinstance(request_id, str) or not request_id.strip():
@@ -209,7 +218,50 @@ class JsonIntegrationResultLedger:
                     result=result,
                 )
             return LedgerLookupResult(status=LedgerLookupStatus.HASH_CONFLICT)
+        operation = self.load_operation(request_id)
+        if operation is not None and operation.request_hash != request_hash:
+            return LedgerLookupResult(status=LedgerLookupStatus.HASH_CONFLICT)
         return LedgerLookupResult(status=LedgerLookupStatus.NOT_FOUND)
+
+    def load_operation(self, request_id: str) -> IntegrationOperationRecord | None:
+        if not isinstance(request_id, str) or not request_id.strip():
+            raise IntegrationPersistenceError("request_id must be a non-empty string")
+        for operation in self._load_operations():
+            if operation.request_id == request_id:
+                return operation
+        return None
+
+    def save_operation(self, operation: IntegrationOperationRecord) -> None:
+        if not isinstance(operation, IntegrationOperationRecord):
+            raise IntegrationPersistenceError(
+                "the operation journal accepts IntegrationOperationRecord values"
+            )
+        operations = self._load_operations()
+        existing = next(
+            (item for item in operations if item.request_id == operation.request_id),
+            None,
+        )
+        if existing is not None:
+            self._validate_operation_progress(existing, operation)
+            operations = [
+                operation if item.request_id == operation.request_id else item
+                for item in operations
+            ]
+        else:
+            if any(item.operation_id == operation.operation_id for item in operations):
+                raise IntegrationLedgerConflictError(
+                    "operationId must be unique in the operation journal"
+                )
+            operations.append(operation)
+        self._validate_operation_set(operations)
+        _atomic_write_json(
+            self._operation_path,
+            {
+                "operationJournalFormatVersion": OPERATION_JOURNAL_FORMAT_VERSION,
+                "operations": [item.to_dict() for item in operations],
+            },
+            name="first-round operation journal",
+        )
 
     def save_completed(self, result: FirstRoundSuccessResult) -> None:
         if not isinstance(result, FirstRoundSuccessResult):
@@ -221,6 +273,23 @@ class JsonIntegrationResultLedger:
             raise IntegrationLedgerConflictError(
                 "a completed requestId cannot be overwritten"
             )
+        operation = self.load_operation(result.request_id)
+        if operation is not None:
+            if (
+                operation.request_hash != result.request_hash
+                or operation.operation_id != result.operation_id
+                or operation.subject_id != result.subject_id
+                or operation.binding_id != result.binding_id
+                or operation.binding_version != result.binding_version
+                or operation.domain is None
+                or operation.domain.response_id != result.response.response_id
+                or operation.domain.response_content != result.response.content
+                or operation.consumed_observation_ids
+                != result.consumed_observation_ids
+            ):
+                raise IntegrationLedgerConflictError(
+                    "completed result does not match its reserved operation"
+                )
         self._validate_new_projection(results, result)
         updated = [*results, result]
         self._validate_result_set(updated)
@@ -232,6 +301,107 @@ class JsonIntegrationResultLedger:
             },
             name="first-round result ledger",
         )
+
+    def _load_operations(self) -> list[IntegrationOperationRecord]:
+        if not self._operation_path.exists():
+            return []
+        raw = _read_json(
+            self._operation_path,
+            name="first-round operation journal",
+        )
+        document = _strict_document(
+            raw,
+            name="first-round operation journal document",
+            expected_keys={"operationJournalFormatVersion", "operations"},
+        )
+        if (
+            document["operationJournalFormatVersion"]
+            != OPERATION_JOURNAL_FORMAT_VERSION
+        ):
+            raise IntegrationPersistenceError(
+                "unsupported first-round operation journal format version"
+            )
+        raw_operations = document["operations"]
+        if not isinstance(raw_operations, list):
+            raise IntegrationPersistenceError("journal operations must be an array")
+        try:
+            operations = [
+                IntegrationOperationRecord.from_dict(item)
+                for item in raw_operations
+            ]
+        except MachineContractValidationError as exc:
+            raise IntegrationPersistenceError(
+                f"persisted first-round operation is invalid: {exc}"
+            ) from exc
+        self._validate_operation_set(operations)
+        return operations
+
+    @staticmethod
+    def _validate_operation_set(
+        operations: list[IntegrationOperationRecord],
+    ) -> None:
+        request_ids: set[str] = set()
+        operation_ids: set[str] = set()
+        response_ids: set[str] = set()
+        for operation in operations:
+            if operation.request_id in request_ids:
+                raise IntegrationPersistenceError(
+                    "operation journal contains duplicate requestId values"
+                )
+            request_ids.add(operation.request_id)
+            if operation.operation_id in operation_ids:
+                raise IntegrationPersistenceError(
+                    "operation journal contains duplicate operationId values"
+                )
+            operation_ids.add(operation.operation_id)
+            if operation.domain is not None:
+                if operation.domain.response_id in response_ids:
+                    raise IntegrationPersistenceError(
+                        "operation journal contains duplicate responseId values"
+                    )
+                response_ids.add(operation.domain.response_id)
+
+    @staticmethod
+    def _validate_operation_progress(
+        previous: IntegrationOperationRecord,
+        current: IntegrationOperationRecord,
+    ) -> None:
+        identity_fields = (
+            "request_id",
+            "request_hash",
+            "operation_id",
+            "subject_id",
+            "binding_id",
+            "binding_version",
+            "input_revision",
+            "consumed_observation_ids",
+            "reserved_at",
+        )
+        if any(
+            getattr(previous, field) != getattr(current, field)
+            for field in identity_fields
+        ):
+            raise IntegrationLedgerConflictError(
+                "a reserved operation identity cannot be changed"
+            )
+        order = {
+            IntegrationOperationStage.RESERVED: 0,
+            IntegrationOperationStage.DOMAIN_COMPLETED: 1,
+            IntegrationOperationStage.EVOLUTION_COMMITTED: 2,
+            IntegrationOperationStage.COMPLETED: 3,
+        }
+        if order[current.stage] < order[previous.stage]:
+            raise IntegrationLedgerConflictError(
+                "an operation journal stage cannot move backwards"
+            )
+        if previous.domain is not None and current.domain != previous.domain:
+            raise IntegrationLedgerConflictError(
+                "a persisted domain checkpoint cannot be changed"
+            )
+        if previous.evolution is not None and current.evolution != previous.evolution:
+            raise IntegrationLedgerConflictError(
+                "a persisted evolution checkpoint cannot be changed"
+            )
 
     def _load_results(self) -> list[FirstRoundSuccessResult]:
         if not self._path.exists():

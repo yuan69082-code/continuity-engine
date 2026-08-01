@@ -61,6 +61,9 @@ class FirstRoundResultFactory:
         previous_revision: int,
         engine_update_id: str | None,
         consumed_observation_ids: Sequence[str],
+        operation_id: str | None = None,
+        response_id: str | None = None,
+        completed_at: datetime | None = None,
     ) -> FirstRoundSuccessResult:
         if binding != SubjectBindingFixture.first_round():
             raise MachineContractValidationError(
@@ -95,15 +98,15 @@ class FirstRoundResultFactory:
         return FirstRoundSuccessResult(
             request_id=request_id,
             request_hash=request_hash,
-            operation_id=self._operation_id_factory(),
+            operation_id=operation_id or self._operation_id_factory(),
             subject_id=subject_state.subject_id,
             binding_id=binding.binding_id,
             binding_version=binding.binding_version,
             response=FirstRoundSubjectResponse(
-                response_id=self._response_id_factory(),
+                response_id=response_id or self._response_id_factory(),
                 content=response_content,
             ),
             state_projection=projection,
             consumed_observation_ids=tuple(consumed_observation_ids),
-            completed_at=format_contract_datetime(self._clock()),
+            completed_at=format_contract_datetime(completed_at or self._clock()),
         )

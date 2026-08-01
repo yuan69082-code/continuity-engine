@@ -325,6 +325,7 @@ class ThinkingObservationLog:
     perception_id: str | None = None
     perception_summary: str | None = None
     thinking_context_id: str | None = None
+    perceived_external_fact_ids: list[str] = field(default_factory=list)
 
     def __post_init__(self) -> None:
         _require_text(self.wake_context_id, "wake_context_id")
@@ -335,6 +336,10 @@ class ThinkingObservationLog:
             (self.update_ids, "thinking update_ids"),
             (self.viewed_memory_ids, "thinking viewed_memory_ids"),
             (self.selected_memory_ids, "thinking selected_memory_ids"),
+            (
+                self.perceived_external_fact_ids,
+                "thinking perceived_external_fact_ids",
+            ),
         ):
             _text_list(values, name)
         if self.perception_id is not None:
@@ -359,6 +364,9 @@ class ThinkingObservationLog:
             update_ids=list(perception.recent_update_ids),
             viewed_memory_ids=list(perception.viewed_memory_ids),
             selected_memory_ids=list(perception.selected_memory_ids),
+            perceived_external_fact_ids=[
+                item.fact_id for item in perception.external_facts
+            ],
         )
 
     def to_dict(self) -> dict[str, JsonValue]:
@@ -372,6 +380,9 @@ class ThinkingObservationLog:
             "update_ids": list(self.update_ids),
             "viewed_memory_ids": list(self.viewed_memory_ids),
             "selected_memory_ids": list(self.selected_memory_ids),
+            "perceived_external_fact_ids": list(
+                self.perceived_external_fact_ids
+            ),
         }
 
     @classmethod
@@ -391,6 +402,10 @@ class ThinkingObservationLog:
             ),
             selected_memory_ids=_text_list(
                 value.get("selected_memory_ids", []), "thinking selected_memory_ids"
+            ),
+            perceived_external_fact_ids=_text_list(
+                value.get("perceived_external_fact_ids", []),
+                "thinking perceived_external_fact_ids",
             ),
         )
 

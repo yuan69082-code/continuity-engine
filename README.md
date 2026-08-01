@@ -23,6 +23,7 @@
 - 调试前端：最小聊天界面、错误展示、SubjectState 摘要、revision 和最近事件视图。
 - 第一轮机器契约基础（Engine E1）：类型化 `ContinuityInteractionRequest`、`message_created` PlatformObservation、`message_version` fact、固定 SubjectBinding fixture，本地 Draft 2020-12 Schema registry、严格校验、RFC 8785 与三项 hash 验证。
 - 第一轮持久化基础（Engine E2）：不可变成功结果与四类错误 envelope、最小 `stateProjection`、`stateHash`/`contentHash`、固定 Binding 本地恢复，以及 request/operation/result 跨重启账本和投影唯一性约束。
+- 第一轮确定性领域闭环（Engine E3）：独立、test-only、进程内 `ContractTestAdapter`，固定验证顺序，只读外部事实感知，确定性 Memory/Thinking/Reply/Token 替身，真实 Action Gate、Evolution，以及可恢复 operation journal。
 
 其中 Memory、Awakening、Thinking、Learning、Resource Management、接口和前端属于“内部结构或本地原型已完成，真实外部集成仍未完成”。Action 完成的是决策规划层，不包含执行层。
 
@@ -45,11 +46,11 @@
 
 双方随后共同确认了第一轮施工范围。2026-08-01，Continuity Engine 完成 Engine E1：三份正式 Schema、类型化机器契约结构、固定 SubjectBinding fixture、本地离线 registry、严格 Schema/交叉字段/hash 校验和正式一致性向量测试已经实现。该完成状态只覆盖机器契约基础，不表示第一轮连接已经完成。
 
-Engine E2 已在 E1 同步基线 `ac61e78` 上完成引擎侧数据与存储基础：成功结果、错误 envelope、最小 stateProjection、固定 Binding 持久化、不可覆盖结果账本、跨重启精确重放与投影唯一性已经实现。当前仍没有 `ContractTestAdapter`、完整交互编排、Vio 投影接收器、Vio 实际连接和双方共享测试。现有 `APIService.submit_message`、本地 HTTP 与 `UserInteractionService` 也没有被改造成第一轮摄取入口。机器契约决定见 [`D-025`](docs/project_memory/04_决策记录.md)，E1/E2 实现边界见同文件 `D-026`、`D-027`。
+Engine E2 已在 E1 同步基线 `ac61e78` 上完成引擎侧数据与存储基础并提交同步；E3 以 `d1a96b1` 为施工基线，完成独立 `ContractTestAdapter`、严格验证与错误映射、外部事实经 PerceptionResult 进入 Thinking、确定性进程内替身、真实 Action Gate/Evolution、operation reservation/journal 和跨重启中断恢复。E3 不复用也未修改 `APIService.submit_message`、本地 HTTP 或 `UserInteractionService`。Vio 客户端、Vio 投影接收器、双方共享测试、网络连接和生产 Integration Adapter 仍未实现。机器契约决定见 [`D-025`](docs/project_memory/04_决策记录.md)，E1/E2/E3 实现边界见同文件 `D-026`、`D-027`、`D-028`。
 
 ## 当前开发阶段
 
-第一轮最小连接施工的 Engine E1 与 E2 已完成。E2 只建立结果、投影、固定 Binding 和本地持久化账本基础，不负责摄取请求、执行验证顺序或运行完整交互；后续 `ContractTestAdapter` 与连接施工尚未获本轮实现授权，也未连接 Vio。
+第一轮最小连接施工的 Engine E1、E2 与 E3 均已完成并通过验收，完整测试基线为 203 项。E3 只完成 Continuity Engine 侧 test-only、进程内确定性闭环及故障恢复基础，不表示 Vio 已连接、双方共享测试已完成或生产 Integration Adapter 已存在。当前未授权继续代码施工；下一步等待双方确定 Vio 侧施工和共享验收顺序。
 
 第一阶段已经完成：
 
@@ -462,7 +463,7 @@ src/continuity_engine/
 │   ├── resource_policy.py # 深度降级、频率降低与延迟规则
 │   ├── integration_contract.py # E1 类型化请求、事实、观察与绑定 fixture
 │   ├── integration_hashing.py # E1/E2 共用 RFC 8785 与 SHA-256 规则
-│   ├── integration_results.py # E2 结果、错误 envelope 与最小投影
+│   ├── integration_results.py # E2 结果/投影与 E3 operation checkpoint
 │   └── errors.py       # 领域异常
 ├── services/
 │   ├── subject_state_service.py  # 创建、读取、应用事件、查询历史
@@ -483,6 +484,9 @@ src/continuity_engine/
 │   ├── integration_contract_hashing.py # RFC 8785 与三类 SHA-256 计算
 │   ├── integration_contract_validation.py # 严格 Schema、交叉字段和 hash 校验
 │   ├── integration_result_factory.py # E2 结果与投影的确定性构造
+│   ├── contract_test_bootstrap.py # E3 全新主体、固定 Binding/Cycle 准备
+│   ├── contract_test_doubles.py # E3 进程内确定性替身
+│   ├── action_evolution_service.py # Action Gate 授权后的统一 Evolution 入口
 │   ├── user_interaction_service.py # 用户输入转 Event 并运行连续性流程
 │   ├── wake_perception_thinking_action_service.py # 第七阶段完整编排
 │   └── wake_perception_thinking_service.py # 兼容入口
@@ -506,6 +510,7 @@ src/continuity_engine/
 │   ├── skill_adapter.py # 平台无关 Skill 协议；无平台接入
 │   ├── http_server.py  # 本地调试 HTTP 服务
 │   ├── integration_contract_schema.py # 仅本地解析的三 Schema registry
+│   ├── contract_test_adapter.py # E3 test-only 进程内契约入口
 │   ├── schemas/        # E1 三份 Draft 2020-12 Schema 单一权威来源
 │   └── local_frontend_app.py # 本地依赖组装与显式初始化
 ├── frontend/
@@ -516,7 +521,7 @@ src/continuity_engine/
 │   └── __main__.py     # python -m continuity_engine.frontend
 ├── cli.py              # 本地验证入口
 └── __main__.py         # python -m continuity_engine
-tests/                  # 单元测试；含 E1 契约与 E2 持久化正反向测试
+tests/                  # 单元测试；含 E1 契约、E2 持久化和 E3 闭环/恢复测试
 ```
 
 调用路径：
@@ -663,4 +668,4 @@ $env:PYTHONPATH = "src"
 python -m unittest discover -s tests -v
 ```
 
-当前测试基线：153 项（E1 同步基线 117 项继续通过，E2 新增 36 项）。
+当前测试基线：203 项（E2 基线 153 项继续通过，E3 新增 50 项）。

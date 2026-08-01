@@ -30,6 +30,7 @@ from continuity_engine.domain.models import SubjectState
 from continuity_engine.domain.perception import (
     DriveKind,
     InteractionFrequencyTrend,
+    PerceivedPlatformFact,
     PerceptionContext,
     PerceptionResult,
     RelationshipDirection,
@@ -239,9 +240,22 @@ class PerceptionEngineTests(unittest.TestCase):
 
     def test_perception_result_round_trips_without_raw_wake_or_state(self) -> None:
         awakening = self.build_awakening()
+        external_fact = PerceivedPlatformFact(
+            observation_id="observation-001",
+            source_event_id="platform-event-001",
+            observation_type="message_created",
+            fact_id="fact-001",
+            conversation_id="conversation-001",
+            message_id="message-001",
+            message_version_id="message-version-001",
+            content="hello",
+            occurred_at=self.now,
+            observed_at=self.now,
+        )
         context = PerceptionContext.from_awakening(
             awakening,
             current_time=self.now,
+            external_facts=[external_fact],
         )
         restored_context = PerceptionContext.from_dict(context.to_dict())
         result = PerceptionService().perceive(context)
@@ -250,6 +264,7 @@ class PerceptionEngineTests(unittest.TestCase):
 
         self.assertEqual(restored.to_dict(), result.to_dict())
         self.assertEqual(restored_context.to_dict(), context.to_dict())
+        self.assertEqual(restored.external_facts, (external_fact,))
         self.assertNotIn("subject_state", result.to_dict())
         self.assertNotIn("wake_context", result.to_dict())
 

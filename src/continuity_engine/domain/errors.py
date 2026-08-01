@@ -132,3 +132,23 @@ class IntegrationLedgerConflictError(IntegrationPersistenceError):
 
 class IntegrationRecordNotFoundError(IntegrationPersistenceError):
     """Raised when required first-round persisted data does not exist."""
+
+
+class MachineContractCallError(MachineContractError):
+    """Raised when a local caller cannot supply a safe contract correlation ID."""
+
+
+class ContractTestExecutionError(MachineContractError):
+    """Raised for an unexpected test-adapter fault after reserving an operation."""
+
+    def __init__(
+        self,
+        request_id: str,
+        operation_id: str | None,
+        stage: str,
+        message: str,
+    ) -> None:
+        super().__init__(message)
+        self.request_id = request_id
+        self.operation_id = operation_id
+        self.stage = stage

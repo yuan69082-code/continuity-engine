@@ -3,7 +3,11 @@ from continuity_engine.domain.errors import PerceptionValidationError
 from continuity_engine.domain.events import Event
 from continuity_engine.domain.memory import MemoryRetrievalResult
 from continuity_engine.domain.models import SubjectState
-from continuity_engine.domain.perception import PerceptionContext, PerceptionResult
+from continuity_engine.domain.perception import (
+    PerceivedPlatformFact,
+    PerceptionContext,
+    PerceptionResult,
+)
 from continuity_engine.domain.perception_rules import PerceptionPolicy
 
 
@@ -26,6 +30,10 @@ class PerceptionService:
             ),
             recent_events=[Event.from_dict(item.to_dict()) for item in context.recent_events],
             current_time=context.current_time,
+            external_facts=tuple(
+                PerceivedPlatformFact.from_dict(item.to_dict())
+                for item in context.external_facts
+            ),
         )
         result = self._policy.perceive(working_context)
         if not isinstance(result, PerceptionResult):

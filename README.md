@@ -24,6 +24,7 @@
 - 第一轮机器契约基础（Engine E1）：类型化 `ContinuityInteractionRequest`、`message_created` PlatformObservation、`message_version` fact、固定 SubjectBinding fixture，本地 Draft 2020-12 Schema registry、严格校验、RFC 8785 与三项 hash 验证。
 - 第一轮持久化基础（Engine E2）：不可变成功结果与四类错误 envelope、最小 `stateProjection`、`stateHash`/`contentHash`、固定 Binding 本地恢复，以及 request/operation/result 跨重启账本和投影唯一性约束。
 - 第一轮确定性领域闭环（Engine E3）：独立、test-only、进程内 `ContractTestAdapter`，固定验证顺序，只读外部事实感知，确定性 Memory/Thinking/Reply/Token 替身，真实 Action Gate、Evolution，以及可恢复 operation journal。
+- 第一轮共享验收测试桥：`tests/shared/` 下的 test-only JSONL Runner 可由外部测试进程逐行提交真实 v1.1 请求，并直接返回 E3 的成功结果或四类错误 envelope；它不是网络或生产 Adapter。
 
 其中 Memory、Awakening、Thinking、Learning、Resource Management、接口和前端属于“内部结构或本地原型已完成，真实外部集成仍未完成”。Action 完成的是决策规划层，不包含执行层。
 
@@ -46,11 +47,11 @@
 
 双方随后共同确认了第一轮施工范围。2026-08-01，Continuity Engine 完成 Engine E1：三份正式 Schema、类型化机器契约结构、固定 SubjectBinding fixture、本地离线 registry、严格 Schema/交叉字段/hash 校验和正式一致性向量测试已经实现。该完成状态只覆盖机器契约基础，不表示第一轮连接已经完成。
 
-Engine E2 已在 E1 同步基线 `ac61e78` 上完成引擎侧数据与存储基础并提交同步；E3 以 `d1a96b1` 为施工基线，完成独立 `ContractTestAdapter`、严格验证与错误映射、外部事实经 PerceptionResult 进入 Thinking、确定性进程内替身、真实 Action Gate/Evolution、operation reservation/journal 和跨重启中断恢复。E3 不复用也未修改 `APIService.submit_message`、本地 HTTP 或 `UserInteractionService`。Vio 客户端、Vio 投影接收器、双方共享测试、网络连接和生产 Integration Adapter 仍未实现。机器契约决定见 [`D-025`](docs/project_memory/04_决策记录.md)，E1/E2/E3 实现边界见同文件 `D-026`、`D-027`、`D-028`。
+Engine E1 完成提交为 `ac61e78`，Engine E2 完成提交为 `d1a96b1`，Engine E3 完成、验收及本轮施工基线为 `c732f35`。Vio V1 基线为 `c1e1336`，Vio V2 与本轮只读基线为 `97874ee`。在 E3 验收后，引擎测试范围新增 JSONL Runner，使用显式临时数据目录和真实 `ContractTestAdapter` 支持本地子进程共享验收准备；该 Runner 现已通过项目统筹窗口独立技术验收。它不复用也未修改 `APIService.submit_message`、本地 HTTP 或 `UserInteractionService`，不监听端口，也不连接 Vio。Vio 客户端、Vio 投影接收器、双方端到端共享验收、网络连接和生产 Integration Adapter 仍未实现。机器契约决定见 [`D-025`](docs/project_memory/04_决策记录.md)，E1/E2/E3 与测试桥实现边界见同文件 `D-026`—`D-029`。
 
 ## 当前开发阶段
 
-第一轮最小连接施工的 Engine E1、E2 与 E3 均已完成并通过验收，完整测试基线为 203 项。E3 只完成 Continuity Engine 侧 test-only、进程内确定性闭环及故障恢复基础，不表示 Vio 已连接、双方共享测试已完成或生产 Integration Adapter 已存在。当前未授权继续代码施工；下一步等待双方确定 Vio 侧施工和共享验收顺序。
+第一轮最小连接施工的 Engine E1、E2 与 E3 均已完成并通过验收；引擎侧 test-only JSONL Runner 也已完成并通过独立技术验收，当前完整测试基线为 219 项，现已具备整理并提交同步 Runner 成果的条件。该 Runner 只把 stdin/stdout JSONL 接到真实 E3 `ContractTestAdapter`，不表示 Vio 已调用、不表示双方共享验收完成，也不是生产 Integration Adapter。当前只允许整理并提交 Engine Runner 成果，不授权 Vio 侧代码施工；必须等 Engine 提交同步后，再由 Vio 测试代码实际启动 Runner。
 
 第一阶段已经完成：
 
@@ -522,6 +523,7 @@ src/continuity_engine/
 ├── cli.py              # 本地验证入口
 └── __main__.py         # python -m continuity_engine
 tests/                  # 单元测试；含 E1 契约、E2 持久化和 E3 闭环/恢复测试
+└── shared/             # test-only JSONL Runner 与真实 E3 装配辅助
 ```
 
 调用路径：
@@ -668,4 +670,13 @@ $env:PYTHONPATH = "src"
 python -m unittest discover -s tests -v
 ```
 
-当前测试基线：203 项（E2 基线 153 项继续通过，E3 新增 50 项）。
+当前测试基线：219 项（原 E3 验收基线 203 项继续通过，本轮共享 Runner 新增 16 项）。
+
+共享验收 Runner 只能从仓库根目录显式使用受控临时目录启动：
+
+```powershell
+$env:PYTHONPATH = "src"
+python -m tests.shared.continuity_contract_jsonl_runner --data-dir <受控临时数据目录>
+```
+
+它从 stdin 接收每行一个完整 `ContinuityInteractionRequest`，并在 stdout 对每个合法 JSON 对象立即输出一行紧凑 UTF-8 结果。该命令仅供双方测试代码使用，不是正式 CLI、HTTP 服务或生产连接入口。

@@ -223,6 +223,60 @@ class JsonIntegrationResultLedger:
             return LedgerLookupResult(status=LedgerLookupStatus.HASH_CONFLICT)
         return LedgerLookupResult(status=LedgerLookupStatus.NOT_FOUND)
 
+    def load_completed(self, request_id: str) -> FirstRoundSuccessResult | None:
+        if not isinstance(request_id, str) or not request_id.strip():
+            raise IntegrationPersistenceError("request_id must be a non-empty string")
+        return next(
+            (item for item in self._load_results() if item.request_id == request_id),
+            None,
+        )
+
+    def list_completed(self) -> list[FirstRoundSuccessResult]:
+        return list(self._load_results())
+
+    def list_operations(self) -> list[IntegrationOperationRecord]:
+        return list(self._load_operations())
+
+    def initialize_empty(self) -> None:
+        if self._path.exists() != self._operation_path.exists():
+            raise IntegrationPersistenceError(
+                "integration result ledger is only partially initialized"
+            )
+        if self._path.exists():
+            self.validate_initialized()
+            return
+        _atomic_write_json(
+            self._path,
+            {
+                "ledgerPersistenceFormatVersion": LEDGER_PERSISTENCE_FORMAT_VERSION,
+                "results": [],
+            },
+            name="first-round result ledger",
+        )
+        try:
+            _atomic_write_json(
+                self._operation_path,
+                {
+                    "operationJournalFormatVersion": OPERATION_JOURNAL_FORMAT_VERSION,
+                    "operations": [],
+                },
+                name="first-round operation journal",
+            )
+        except Exception:
+            try:
+                self._path.unlink()
+            except OSError:
+                pass
+            raise
+
+    def validate_initialized(self) -> None:
+        if not self._path.exists() or not self._operation_path.exists():
+            raise IntegrationRecordNotFoundError(
+                "integration result ledger has not been fully initialized"
+            )
+        self._load_results()
+        self._load_operations()
+
     def load_operation(self, request_id: str) -> IntegrationOperationRecord | None:
         if not isinstance(request_id, str) or not request_id.strip():
             raise IntegrationPersistenceError("request_id must be a non-empty string")

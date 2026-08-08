@@ -990,3 +990,57 @@ class LedgerLookupResult:
             raise MachineContractValidationError(
                 "non-completed ledger lookups cannot expose a result"
             )
+
+
+class IntegrationRequestQueryStatus(str, Enum):
+    COMPLETED = "completed"
+    RECOVERY_REQUIRED = "recovery_required"
+
+
+@dataclass(frozen=True, slots=True)
+class IntegrationRequestQueryResult:
+    """Strict read-only view of one persisted integration request."""
+
+    request_id: str
+    request_hash: str
+    operation_id: str
+    status: IntegrationRequestQueryStatus
+    result: FirstRoundSuccessResult | None
+
+    def __post_init__(self) -> None:
+        _text(self.request_id, "requestId")
+        _hash(self.request_hash, "requestHash")
+        _text(self.operation_id, "operationId")
+        if not isinstance(self.status, IntegrationRequestQueryStatus):
+            raise MachineContractValidationError("query status is invalid")
+        if self.status is IntegrationRequestQueryStatus.COMPLETED:
+            if self.result is None:
+                raise MachineContractValidationError(
+                    "completed query requires the persisted result"
+                )
+            if (
+                self.result.request_id != self.request_id
+                or self.result.request_hash != self.request_hash
+                or self.result.operation_id != self.operation_id
+            ):
+                raise MachineContractValidationError(
+                    "completed query identity must match its result"
+                )
+        elif self.result is not None:
+            raise MachineContractValidationError(
+                "recovery_required query result must be null"
+            )
+
+    @property
+    def contract_version(self) -> str:
+        return CONTRACT_VERSION
+
+    def to_dict(self) -> dict[str, JsonValue]:
+        return {
+            "contractVersion": self.contract_version,
+            "requestId": self.request_id,
+            "requestHash": self.request_hash,
+            "operationId": self.operation_id,
+            "status": self.status.value,
+            "result": self.result.to_dict() if self.result is not None else None,
+        }

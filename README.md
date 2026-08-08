@@ -26,6 +26,7 @@
 - 第一轮确定性领域闭环（Engine E3）：独立、test-only、进程内 `ContractTestAdapter`，固定验证顺序，只读外部事实感知，确定性 Memory/Thinking/Reply/Token 替身，真实 Action Gate、Evolution，以及可恢复 operation journal。
 - 第一轮共享验收测试桥：`tests/shared/` 下的 test-only JSONL Runner 可由外部测试进程逐行提交真实 v1.1 请求，并直接返回 E3 的成功结果或四类错误 envelope；它不是网络或生产 Adapter。
 - 第一轮双方 test-only 共享验收：Vio 的持久化 V1 请求已通过 JSONL Runner 进入真实 Engine E3，结果由 Vio V2 严格验证并持久化；幂等、revision、投影唯一性、四类错误和双方重启恢复均已完成端到端验证。
+- 正式本地集成服务（Engine E4）：`ContinuityInteractionService` 是测试与正式 Adapter 共用的唯一处理链；显式 `init` 持久化单一 active SubjectBinding；正式 HTTP/JSON 服务只监听 `127.0.0.1:8766`，提供提交、结果/恢复查询和最小健康检查，并以串行请求、Bearer 服务令牌、1 MiB 上限、默认 10 秒读取超时和“一请求一连接”的严格 JSON 传输边界保护本地入口。
 
 其中 Memory、Awakening、Thinking、Learning、Resource Management、接口和前端属于“内部结构或本地原型已完成，真实外部集成仍未完成”。Action 完成的是决策规划层，不包含执行层。
 
@@ -39,7 +40,8 @@
 - 自动后台循环、常驻调度或无限自主运行。
 - 真实 Token 计量、账单、计费、购买或支付。
 - 生产数据库、用户认证、多租户和生产部署。
-- Vio 与 Engine 的正式本地服务或网络连接，以及生产 Integration Adapter。
+- Vio 对 E4 正式本地服务的实际客户端接入与双方 HTTP 共享验收。
+- 面向生产部署的 Integration Adapter、TLS/反向代理、生产认证、多租户和运行监控。
 
 `ContinuityMCPAdapter`、`SkillAdapter`、`ThinkingProvider` 和 Memory 端口只是可插拔接口或适配边界，不能视为对应外部能力已经接入。
 
@@ -49,11 +51,11 @@
 
 双方随后共同确认了第一轮施工范围。2026-08-01，Continuity Engine 完成 Engine E1：三份正式 Schema、类型化机器契约结构、固定 SubjectBinding fixture、本地离线 registry、严格 Schema/交叉字段/hash 校验和正式一致性向量测试已经实现。该完成状态只覆盖机器契约基础，不表示第一轮连接已经完成。
 
-Engine E1、E2、E3 的完成基线依次为 `ac61e78`、`d1a96b1`、`c732f35`，Engine Runner 正式共享验收基线为 `7a32a99e60330782c1caf6d6adda5d08d0077a6c`。Vio V1/V2 施工基线为 `c1e1336`/`97874ee`，双方共享验收基线为 `673983901b38127b15f772a8be8507defec7384e`。第一轮 test-only 端到端共享验收现已通过：Vio 测试代码实际启动 Runner，把持久化请求送入真实 E3，并严格验证、保存结果、投影和 receipt。该链路仍不监听网络，不复用 `APIService.submit_message`、本地 HTTP 或 `UserInteractionService`，也不是生产 Integration Adapter。机器契约决定见 [`D-025`](docs/project_memory/04_决策记录.md)，实现边界见 `D-026`—`D-029`，共享验收结论见 `D-030`。
+Engine E1、E2、E3 的完成基线依次为 `ac61e78`、`d1a96b1`、`c732f35`，Engine Runner 正式共享验收基线为 `7a32a99e60330782c1caf6d6adda5d08d0077a6c`。Vio V1/V2 施工基线为 `c1e1336`/`97874ee`，双方共享验收基线为 `673983901b38127b15f772a8be8507defec7384e`。第一轮 test-only 端到端共享验收现已通过：Vio 测试代码实际启动 Runner，把持久化请求送入真实 E3，并严格验证、保存结果、投影和 receipt。Engine E4 随后在施工基线 `4f17722366e68980b9024c7a450f3e5256ca8079` 上完成 Engine 侧正式本地 HTTP/JSON Adapter，但 Vio 尚未实际调用该服务，也未开展双方 HTTP 共享验收。机器契约决定见 [`D-025`](docs/project_memory/04_决策记录.md)，E1—E3 与 Runner 边界见 `D-026`—`D-029`，test-only 共享验收见 `D-030`，E4 决定见 `D-031`。
 
 ## 当前开发阶段
 
-第一轮机器契约、Engine E1/E2/E3、test-only JSONL Runner 和双方 test-only 端到端共享验收均已完成；当前 Engine 完整测试基线为 219 项。验收只证明双方机器契约和领域边界能够通过本地子进程共同运行，不表示正式本地服务、网络连接、生产 Integration Adapter、真实模型、用户对话链路或前端数据链路已经完成。第一轮 test-only 施工阶段已经结束，下一阶段尚未开始；后续必须由双方共同确定正式本地服务连接和生产形态 Integration Adapter 的施工边界、顺序与授权。
+第一轮机器契约、Engine E1/E2/E3、test-only JSONL Runner、双方 test-only 共享验收和 Engine E4 均已完成；当前 Engine 完整测试基线为 286 项。E4 已建立 Engine 侧正式本地服务进程和持久化恢复边界，并补强 HTTP/1.1 连接关闭、慢请求超时、固定 JSON 错误和普通断连收敛；但当前仍使用确定性本地 Provider，且 Vio 尚未调用该 HTTP 服务。它不表示双方正式本地连接已验收，也不表示生产 Integration Adapter、真实模型、用户对话链路或前端数据链路已经完成。下一步必须由双方另行确定 Vio V3 客户端接入与 HTTP 共享验收范围；本轮不授权开始该阶段。
 
 第一阶段已经完成：
 
@@ -467,6 +469,7 @@ src/continuity_engine/
 │   ├── integration_contract.py # E1 类型化请求、事实、观察与绑定 fixture
 │   ├── integration_hashing.py # E1/E2 共用 RFC 8785 与 SHA-256 规则
 │   ├── integration_results.py # E2 结果/投影与 E3 operation checkpoint
+│   ├── subject_binding.py # E4 正式运行 SubjectBinding
 │   └── errors.py       # 领域异常
 ├── services/
 │   ├── subject_state_service.py  # 创建、读取、应用事件、查询历史
@@ -489,6 +492,9 @@ src/continuity_engine/
 │   ├── integration_result_factory.py # E2 结果与投影的确定性构造
 │   ├── contract_test_bootstrap.py # E3 全新主体、固定 Binding/Cycle 准备
 │   ├── contract_test_doubles.py # E3 进程内确定性替身
+│   ├── deterministic_integration_providers.py # E4 正式进程内确定性 Provider
+│   ├── integration_ports.py # E4 Binding/回复端口
+│   ├── continuity_interaction_service.py # E3/E4 共用的唯一交互核心
 │   ├── action_evolution_service.py # Action Gate 授权后的统一 Evolution 入口
 │   ├── user_interaction_service.py # 用户输入转 Event 并运行连续性流程
 │   ├── wake_perception_thinking_action_service.py # 第七阶段完整编排
@@ -502,6 +508,7 @@ src/continuity_engine/
 │   ├── json_learning_repository.py # 学习候选、特征与历史 JSON 持久化
 │   ├── json_resource_repository.py # 资源状态、消耗与决策 JSON 持久化
 │   ├── json_integration_repository.py # 固定 Binding 与不可变结果账本
+│   ├── json_subject_binding_repository.py # E4 单 active Binding 原子持久化
 │   └── in_memory_action_repository.py # 进程内 ActionSession 仓储
 ├── interfaces/
 │   ├── models.py       # 统一 API 请求、响应与错误模型
@@ -514,6 +521,10 @@ src/continuity_engine/
 │   ├── http_server.py  # 本地调试 HTTP 服务
 │   ├── integration_contract_schema.py # 仅本地解析的三 Schema registry
 │   ├── contract_test_adapter.py # E3 test-only 进程内契约入口
+│   ├── integration_adapter.py # E4 正式进程内薄 Adapter
+│   ├── integration_config.py # 仅回环地址、端口与令牌配置
+│   ├── local_integration_app.py # E4 正式初始化、恢复与装配
+│   ├── integration_http_server.py # E4 串行 HTTP/JSON 服务
 │   ├── schemas/        # E1 三份 Draft 2020-12 Schema 单一权威来源
 │   └── local_frontend_app.py # 本地依赖组装与显式初始化
 ├── frontend/
@@ -522,9 +533,10 @@ src/continuity_engine/
 │   ├── client.js       # FrontendClient
 │   ├── styles.css      # 调试界面样式
 │   └── __main__.py     # python -m continuity_engine.frontend
+├── integration_server.py # E4 显式 init/serve 进程入口
 ├── cli.py              # 本地验证入口
 └── __main__.py         # python -m continuity_engine
-tests/                  # 单元测试；含 E1 契约、E2 持久化和 E3 闭环/恢复测试
+tests/                  # 单元测试；含 E1—E4、HTTP、持久化与恢复测试
 └── shared/             # test-only JSONL Runner 与真实 E3 装配辅助
 ```
 
@@ -672,7 +684,25 @@ $env:PYTHONPATH = "src"
 python -m unittest discover -s tests -v
 ```
 
-当前测试基线：219 项（原 E3 验收基线 203 项继续通过，本轮共享 Runner 新增 16 项）。
+当前测试基线：286 项（原 219 项基线继续通过；E4 现有 67 项正式核心、Binding/init、HTTP、查询与恢复测试，其中 6 项补强 HTTP/1.1 原始 socket 传输边界）。
+
+正式本地集成服务必须先显式初始化，再使用至少 32 字符的进程环境令牌启动：
+
+```powershell
+$env:PYTHONPATH = "src"
+python -m continuity_engine.integration_server init `
+  --data-dir <Engine正式本地数据目录> `
+  --binding-file <完整Binding fixture JSON文件> `
+  --binding-fixture-hash <sha256:...> `
+  --cycle-id <稳定Engine cycle id>
+
+$env:CONTINUITY_ENGINE_INTEGRATION_TOKEN = "<至少32字符的本地服务令牌>"
+python -m continuity_engine.integration_server serve `
+  --data-dir <Engine正式本地数据目录> `
+  --port 8766
+```
+
+该服务固定监听 `127.0.0.1`，不会隐式初始化，也不向浏览器前端开放。所有响应都声明 `Connection: close` 并结束当前连接；每条连接默认使用 10 秒有界读取超时，普通超时、提前断连和可安全响应的解析错误不会产生 HTML 错误页或 Python traceback。当前确定性 Memory/Thinking/Reply/Token Provider 不是 GPT、Claude 或其他真实模型接入；Vio 客户端调用与双方 HTTP 共享验收尚未开始。
 
 共享验收 Runner 只能从仓库根目录显式使用受控临时目录启动：
 

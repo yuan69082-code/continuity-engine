@@ -138,8 +138,8 @@ class MachineContractCallError(MachineContractError):
     """Raised when a local caller cannot supply a safe contract correlation ID."""
 
 
-class ContractTestExecutionError(MachineContractError):
-    """Raised for an unexpected test-adapter fault after reserving an operation."""
+class IntegrationExecutionError(MachineContractError):
+    """Raised for an unexpected local integration execution fault."""
 
     def __init__(
         self,
@@ -152,3 +152,8 @@ class ContractTestExecutionError(MachineContractError):
         self.request_id = request_id
         self.operation_id = operation_id
         self.stage = stage
+
+
+# Backward-compatible E3 name.  The execution fault now belongs to the shared
+# integration core rather than to the test adapter.
+ContractTestExecutionError = IntegrationExecutionError

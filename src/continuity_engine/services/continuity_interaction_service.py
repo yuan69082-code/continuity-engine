@@ -8,12 +8,14 @@ from typing import Any
 from uuid import NAMESPACE_URL, uuid4, uuid5
 
 from continuity_engine.domain.action import ActionContext, ApprovedStateAction, ResourceLimits
+from continuity_engine.domain.awakening import AwakeningResult
 from continuity_engine.domain.errors import (
     IntegrationExecutionError,
     IntegrationPersistenceError,
     MachineContractCallError,
     MachineContractSchemaError,
     MachineContractValidationError,
+    StateNotFoundError,
 )
 from continuity_engine.domain.integration_contract import ContinuityInteractionRequest
 from continuity_engine.domain.integration_results import (
@@ -21,6 +23,8 @@ from continuity_engine.domain.integration_results import (
     FirstRoundErrorEnvelope,
     FirstRoundSuccessResult,
     IntegrationDomainCheckpoint,
+    IntegrationDomainProgress,
+    IntegrationDomainProgressStage,
     IntegrationEvolutionCheckpoint,
     IntegrationOperationRecord,
     IntegrationOperationStage,
@@ -29,9 +33,17 @@ from continuity_engine.domain.integration_results import (
     LedgerLookupStatus,
     format_contract_datetime,
 )
-from continuity_engine.domain.perception import PerceivedPlatformFact, PerceptionContext
+from continuity_engine.domain.perception import (
+    PerceivedPlatformFact,
+    PerceptionContext,
+    PerceptionResult,
+)
 from continuity_engine.domain.subject_binding import SubjectBinding
-from continuity_engine.domain.thinking import ThinkingDepth, ThinkingExecutionResult
+from continuity_engine.domain.thinking import (
+    ThinkSession,
+    ThinkingDepth,
+    ThinkingExecutionResult,
+)
 from continuity_engine.services.action_evolution_service import ActionEvolutionService
 from continuity_engine.services.action_service import ActionService
 from continuity_engine.services.awakening_service import AwakeningService
@@ -193,7 +205,7 @@ class ContinuityInteractionService:
                 self._ledger.save_operation(operation)
                 self._fault("after_domain_completed", operation)
             else:
-                thinking_execution = None
+                thinking_execution = self._restore_domain_thinking(operation)
 
             assert operation.domain is not None
             if operation.domain.approved_state_action is not None and operation.evolution is None:
@@ -336,41 +348,188 @@ class ContinuityInteractionService:
             occurred_at=_contract_datetime(observation.occurred_at),
             observed_at=_contract_datetime(observation.observed_at),
         )
+        operation = self._prepare_domain_progress(operation)
+        assert operation.domain_progress is not None
+        progress = operation.domain_progress
+
         self._record("wake")
-        awakening = self._awakening.wake_manual(
-            binding.cycle_id,
-            detail="Process one validated first-round PlatformObservation.",
-            session_id=str(uuid5(NAMESPACE_URL, f"first-round-wake|{operation.operation_id}")),
-        )
-        context = PerceptionContext.from_awakening(
-            awakening,
-            current_time=self._clock(),
-            context_id=str(uuid5(NAMESPACE_URL, f"first-round-perception|{operation.operation_id}")),
-            external_facts=(perceived_fact,),
-        )
+        if progress.wake_context is None:
+            legacy_thinking = self._load_think_session_if_present(
+                operation.subject_id,
+                progress.think_session_id,
+            )
+            try:
+                wake_session = self._awakening.get_session(
+                    operation.subject_id,
+                    progress.wake_session_id,
+                )
+            except StateNotFoundError:
+                awakening = self._awakening.wake_manual(
+                    binding.cycle_id,
+                    detail="Process one validated first-round PlatformObservation.",
+                    session_id=progress.wake_session_id,
+                    context_id=progress.wake_context_id,
+                    preserve_recovery_context=True,
+                )
+            else:
+                self._validate_wake_session(
+                    wake_session,
+                    operation=operation,
+                    cycle_id=binding.cycle_id,
+                    progress=progress,
+                )
+                awakening = self._awakening.recover_completed(
+                    wake_session,
+                    context_id=progress.wake_context_id,
+                    legacy_context_time=(
+                        legacy_thinking.started_at
+                        if legacy_thinking is not None
+                        else None
+                    ),
+                )
+            self._fault("after_wake_completed", operation)
+            perception_at = (
+                legacy_thinking.perception_snapshot.perceived_at
+                if (
+                    legacy_thinking is not None
+                    and legacy_thinking.perception_snapshot is not None
+                )
+                else (
+                    legacy_thinking.started_at
+                    if legacy_thinking is not None
+                    else self._clock()
+                )
+            )
+            progress = replace(
+                progress,
+                stage=IntegrationDomainProgressStage.WAKE_COMPLETED,
+                wake_context=awakening.context,
+                perception_at=format_contract_datetime(perception_at),
+            )
+            operation = self._save_domain_progress(operation, progress)
+            self._fault("after_wake_checkpoint_saved", operation)
+        else:
+            wake_session = self._awakening.get_session(
+                operation.subject_id,
+                progress.wake_session_id,
+            )
+            self._validate_wake_session(
+                wake_session,
+                operation=operation,
+                cycle_id=binding.cycle_id,
+                progress=progress,
+            )
+            awakening = AwakeningResult(
+                context=progress.wake_context,
+                session=wake_session,
+            )
+
+        assert progress.perception_at is not None
         self._record("perception")
-        perception = self._perception.perceive(context)
+        if progress.perception is None:
+            existing_thinking = self._load_think_session_if_present(
+                operation.subject_id,
+                progress.think_session_id,
+            )
+            if (
+                existing_thinking is not None
+                and existing_thinking.perception_snapshot is not None
+            ):
+                perception = PerceptionResult.from_dict(
+                    existing_thinking.perception_snapshot.to_dict()
+                )
+            else:
+                context = PerceptionContext.from_awakening(
+                    awakening,
+                    current_time=_contract_datetime(progress.perception_at),
+                    context_id=progress.perception_context_id,
+                    external_facts=(perceived_fact,),
+                )
+                perception = self._perception.perceive(
+                    context,
+                    perception_id=progress.perception_id,
+                )
+            self._validate_perception(
+                perception,
+                operation=operation,
+                progress=progress,
+                perceived_fact=perceived_fact,
+            )
+            if existing_thinking is not None:
+                self._validate_thinking_observation(existing_thinking, perception)
+            progress = replace(
+                progress,
+                stage=IntegrationDomainProgressStage.PERCEPTION_COMPLETED,
+                perception=perception,
+            )
+            operation = self._save_domain_progress(operation, progress)
+            self._fault("after_perception_checkpoint_saved", operation)
+        else:
+            perception = progress.perception
+            self._validate_perception(
+                perception,
+                operation=operation,
+                progress=progress,
+                perceived_fact=perceived_fact,
+            )
+
         self._record("thinking")
-        thinking = self._thinking.handle_perception(perception, depth=ThinkingDepth.NORMAL)
+        existing_thinking = self._load_think_session_if_present(
+            operation.subject_id,
+            progress.think_session_id,
+        )
+        if existing_thinking is None:
+            thinking = self._thinking.handle_perception(
+                perception,
+                depth=ThinkingDepth.NORMAL,
+                think_id=progress.think_session_id,
+                result_id=progress.thinking_result_id,
+                preserve_perception_snapshot=True,
+            )
+        else:
+            self._validate_completed_thinking(
+                existing_thinking,
+                operation=operation,
+                progress=progress,
+                perception=perception,
+            )
+            thinking = ThinkingExecutionResult(
+                perception=perception,
+                session=existing_thinking,
+                state_update=None,
+            )
+        self._fault("after_thinking_completed", operation)
+        if progress.stage is not IntegrationDomainProgressStage.THINKING_COMPLETED:
+            action_at = format_contract_datetime(self._clock())
+            progress = replace(
+                progress,
+                stage=IntegrationDomainProgressStage.THINKING_COMPLETED,
+                action_at=action_at,
+                response_completed_at=action_at,
+            )
+            operation = self._save_domain_progress(operation, progress)
+            self._fault("after_thinking_checkpoint_saved", operation)
+
+        assert progress.action_at is not None
+        assert progress.response_completed_at is not None
         self._record("action")
         action_context = ActionContext.from_results(
             subject_id=operation.subject_id,
             subject_state_revision=operation.input_revision,
             thinking=thinking,
             perception=perception,
-            current_time=self._clock(),
+            current_time=_contract_datetime(progress.action_at),
             available_permissions=self._available_permissions,
             resource_limits=self._resource_limits,
-            context_id=str(uuid5(NAMESPACE_URL, f"first-round-action|{operation.operation_id}")),
+            context_id=progress.action_context_id,
         )
         action = self._action.decide(action_context)
         response_content = self._reply_composer.compose(thinking, action)
         approved = ApprovedStateAction.from_execution(action)
-        completed_at = format_contract_datetime(self._clock())
         checkpoint = IntegrationDomainCheckpoint(
-            response_id=self._response_id_factory(),
+            response_id=progress.response_id,
             response_content=response_content,
-            response_completed_at=completed_at,
+            response_completed_at=progress.response_completed_at,
             wake_session_id=awakening.session.session_id,
             perception_id=perception.perception_id,
             think_session_id=thinking.session.think_id,
@@ -388,10 +547,218 @@ class ContinuityInteractionService:
             replace(
                 operation,
                 stage=IntegrationOperationStage.DOMAIN_COMPLETED,
-                updated_at=completed_at,
+                updated_at=progress.response_completed_at,
                 domain=checkpoint,
             ),
             thinking,
+        )
+
+    def _prepare_domain_progress(
+        self,
+        operation: IntegrationOperationRecord,
+    ) -> IntegrationOperationRecord:
+        if operation.domain_progress is not None:
+            return operation
+        wake_session_id = str(
+            uuid5(NAMESPACE_URL, f"first-round-wake|{operation.operation_id}")
+        )
+        candidates = [
+            session
+            for session in self._thinking.get_sessions(operation.subject_id)
+            if session.wake_session_id == wake_session_id
+            and session.provider_id == self._thinking.provider_id
+        ]
+        if len(candidates) > 1:
+            raise RuntimeError(
+                "legacy recovery found multiple ThinkSessions for one operation"
+            )
+        existing = candidates[0] if candidates else None
+        if existing is not None:
+            if not existing.completed_successfully or existing.result is None:
+                raise RuntimeError(
+                    "legacy recovery found a non-completed ThinkSession"
+                )
+            if (
+                existing.subject_id != operation.subject_id
+                or existing.observation.state_revision != operation.input_revision
+                or existing.observation.perception_id is None
+            ):
+                raise RuntimeError(
+                    "legacy ThinkSession does not match the operation identity"
+                )
+            wake_context_id = existing.observation.wake_context_id
+            perception_id = existing.observation.perception_id
+            think_session_id = existing.think_id
+            thinking_result_id = existing.result.result_id
+        else:
+            wake_context_id = str(
+                uuid5(NAMESPACE_URL, f"first-round-wake-context|{operation.operation_id}")
+            )
+            perception_id = str(
+                uuid5(NAMESPACE_URL, f"first-round-perception-result|{operation.operation_id}")
+            )
+            think_session_id = str(
+                uuid5(NAMESPACE_URL, f"first-round-thinking|{operation.operation_id}")
+            )
+            thinking_result_id = str(
+                uuid5(NAMESPACE_URL, f"first-round-thinking-result|{operation.operation_id}")
+            )
+        progress = IntegrationDomainProgress(
+            stage=IntegrationDomainProgressStage.PREPARED,
+            wake_session_id=wake_session_id,
+            wake_context_id=wake_context_id,
+            perception_context_id=str(
+                uuid5(NAMESPACE_URL, f"first-round-perception|{operation.operation_id}")
+            ),
+            perception_id=perception_id,
+            think_session_id=think_session_id,
+            thinking_result_id=thinking_result_id,
+            action_context_id=str(
+                uuid5(NAMESPACE_URL, f"first-round-action|{operation.operation_id}")
+            ),
+            response_id=self._response_id_factory(),
+        )
+        prepared = self._save_domain_progress(operation, progress)
+        self._fault("after_domain_progress_prepared", prepared)
+        return prepared
+
+    def _save_domain_progress(
+        self,
+        operation: IntegrationOperationRecord,
+        progress: IntegrationDomainProgress,
+    ) -> IntegrationOperationRecord:
+        updated = replace(
+            operation,
+            updated_at=format_contract_datetime(self._clock()),
+            domain_progress=progress,
+        )
+        self._ledger.save_operation(updated)
+        return updated
+
+    def _load_think_session_if_present(
+        self,
+        subject_id: str,
+        think_session_id: str,
+    ) -> ThinkSession | None:
+        try:
+            return self._thinking.get_session(subject_id, think_session_id)
+        except StateNotFoundError:
+            return None
+
+    @staticmethod
+    def _validate_wake_session(
+        session,
+        *,
+        operation: IntegrationOperationRecord,
+        cycle_id: str,
+        progress: IntegrationDomainProgress,
+    ) -> None:
+        if (
+            session.session_id != progress.wake_session_id
+            or session.cycle_id != cycle_id
+            or session.subject_id != operation.subject_id
+            or session.subject_revision != operation.input_revision
+            or not session.completed_successfully
+            or session.decision is None
+            or session.observation.context_id != progress.wake_context_id
+        ):
+            raise RuntimeError(
+                "persisted WakeSession does not match the recoverable operation"
+            )
+
+    @staticmethod
+    def _validate_perception(
+        perception: PerceptionResult,
+        *,
+        operation: IntegrationOperationRecord,
+        progress: IntegrationDomainProgress,
+        perceived_fact: PerceivedPlatformFact,
+    ) -> None:
+        if (
+            perception.perception_id != progress.perception_id
+            or perception.subject_id != operation.subject_id
+            or perception.source_revision != operation.input_revision
+            or perception.wake_session_id != progress.wake_session_id
+            or perception.wake_context_id != progress.wake_context_id
+            or perception.perceived_at != _contract_datetime(progress.perception_at or "")
+            or perception.external_facts != (perceived_fact,)
+        ):
+            raise RuntimeError(
+                "persisted PerceptionResult does not match the recoverable operation"
+            )
+
+    @staticmethod
+    def _validate_thinking_observation(
+        session: ThinkSession,
+        perception: PerceptionResult,
+    ) -> None:
+        observation = session.observation
+        if (
+            observation.perception_id != perception.perception_id
+            or observation.perception_summary != perception.summary
+            or observation.wake_context_id != perception.wake_context_id
+            or observation.state_revision != perception.source_revision
+            or observation.event_ids != perception.recent_event_ids
+            or observation.update_ids != perception.recent_update_ids
+            or observation.viewed_memory_ids != perception.viewed_memory_ids
+            or observation.selected_memory_ids != perception.selected_memory_ids
+            or observation.perceived_external_fact_ids
+            != [item.fact_id for item in perception.external_facts]
+        ):
+            raise RuntimeError(
+                "persisted ThinkSession observation does not match PerceptionResult"
+            )
+
+    def _validate_completed_thinking(
+        self,
+        session: ThinkSession,
+        *,
+        operation: IntegrationOperationRecord,
+        progress: IntegrationDomainProgress,
+        perception: PerceptionResult,
+    ) -> None:
+        if (
+            session.think_id != progress.think_session_id
+            or session.wake_session_id != progress.wake_session_id
+            or session.subject_id != operation.subject_id
+            or session.provider_id != self._thinking.provider_id
+            or not session.completed_successfully
+            or session.result is None
+            or session.result.result_id != progress.thinking_result_id
+        ):
+            raise RuntimeError(
+                "persisted ThinkSession does not match the recoverable operation"
+            )
+        self._validate_thinking_observation(session, perception)
+
+    def _restore_domain_thinking(
+        self,
+        operation: IntegrationOperationRecord,
+    ) -> ThinkingExecutionResult | None:
+        progress = operation.domain_progress
+        if progress is None:
+            return None
+        if (
+            progress.stage is not IntegrationDomainProgressStage.THINKING_COMPLETED
+            or progress.perception is None
+        ):
+            raise RuntimeError(
+                "domain checkpoint has incomplete durable Thinking progress"
+            )
+        session = self._thinking.get_session(
+            operation.subject_id,
+            progress.think_session_id,
+        )
+        self._validate_completed_thinking(
+            session,
+            operation=operation,
+            progress=progress,
+            perception=progress.perception,
+        )
+        return ThinkingExecutionResult(
+            perception=progress.perception,
+            session=session,
+            state_update=None,
         )
 
     def _complete_evolution(
@@ -416,8 +783,6 @@ class ContinuityInteractionService:
                 },
             )
             assert update is not None
-            if thinking is not None:
-                self._thinking.record_evolution_result(thinking, update)
             self._fault("after_evolution_committed", operation)
         if (
             update.before_revision != operation.input_revision
@@ -427,6 +792,18 @@ class ContinuityInteractionService:
             or update.event.metadata.get("integration_operation_id") != operation.operation_id
         ):
             raise RuntimeError("recovered Evolution record does not match the operation")
+        if thinking is not None:
+            session = thinking.session
+            if session.state_update_id not in (None, update.update_id):
+                raise RuntimeError(
+                    "ThinkSession references a different recovered state update"
+                )
+            if (
+                session.state_update_id != update.update_id
+                or session.state_event_id != update.event.event_id
+                or not session.state_written_back
+            ):
+                self._thinking.record_evolution_result(thinking, update)
         evolved = replace(
             operation,
             stage=IntegrationOperationStage.EVOLUTION_COMMITTED,

@@ -45,6 +45,13 @@ class JsonThinkingRepository:
                 and session.completed_successfully is None
             ):
                 raise ThinkingValidationError("a completed ThinkSession cannot return to running")
+            if (
+                previous.perception_snapshot is not None
+                and session.perception_snapshot != previous.perception_snapshot
+            ):
+                raise ThinkingValidationError(
+                    "a persisted ThinkSession perception snapshot cannot be changed"
+                )
         self._write_json(path, session.to_dict())
 
     def load_think_session(self, subject_id: str, think_id: str) -> ThinkSession:

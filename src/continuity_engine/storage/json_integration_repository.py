@@ -31,7 +31,7 @@ from continuity_engine.domain.integration_results import (
 
 BINDING_PERSISTENCE_FORMAT_VERSION = 1
 LEDGER_PERSISTENCE_FORMAT_VERSION = 1
-OPERATION_JOURNAL_FORMAT_VERSION = 1
+OPERATION_JOURNAL_FORMAT_VERSION = 2
 _BINDING_FILE_NAME = "subject-binding.first-round-v1.json"
 _LEDGER_FILE_NAME = "result-ledger.first-round-v1.json"
 _OPERATION_FILE_NAME = "operation-journal.first-round-v1.json"
@@ -368,10 +368,7 @@ class JsonIntegrationResultLedger:
             name="first-round operation journal document",
             expected_keys={"operationJournalFormatVersion", "operations"},
         )
-        if (
-            document["operationJournalFormatVersion"]
-            != OPERATION_JOURNAL_FORMAT_VERSION
-        ):
+        if document["operationJournalFormatVersion"] not in (1, 2):
             raise IntegrationPersistenceError(
                 "unsupported first-round operation journal format version"
             )
@@ -408,12 +405,21 @@ class JsonIntegrationResultLedger:
                     "operation journal contains duplicate operationId values"
                 )
             operation_ids.add(operation.operation_id)
-            if operation.domain is not None:
-                if operation.domain.response_id in response_ids:
+            response_id = (
+                operation.domain.response_id
+                if operation.domain is not None
+                else (
+                    operation.domain_progress.response_id
+                    if operation.domain_progress is not None
+                    else None
+                )
+            )
+            if response_id is not None:
+                if response_id in response_ids:
                     raise IntegrationPersistenceError(
                         "operation journal contains duplicate responseId values"
                     )
-                response_ids.add(operation.domain.response_id)
+                response_ids.add(response_id)
 
     @staticmethod
     def _validate_operation_progress(
@@ -452,6 +458,57 @@ class JsonIntegrationResultLedger:
             raise IntegrationLedgerConflictError(
                 "a persisted domain checkpoint cannot be changed"
             )
+        if previous.domain_progress is not None:
+            if current.domain_progress is None:
+                raise IntegrationLedgerConflictError(
+                    "durable domain progress cannot be removed"
+                )
+            progress_identity_fields = (
+                "wake_session_id",
+                "wake_context_id",
+                "perception_context_id",
+                "perception_id",
+                "think_session_id",
+                "thinking_result_id",
+                "action_context_id",
+                "response_id",
+            )
+            if any(
+                getattr(previous.domain_progress, field)
+                != getattr(current.domain_progress, field)
+                for field in progress_identity_fields
+            ):
+                raise IntegrationLedgerConflictError(
+                    "durable domain recovery identities cannot be changed"
+                )
+            progress_order = {
+                "prepared": 0,
+                "wake_completed": 1,
+                "perception_completed": 2,
+                "thinking_completed": 3,
+            }
+            if (
+                progress_order[current.domain_progress.stage.value]
+                < progress_order[previous.domain_progress.stage.value]
+            ):
+                raise IntegrationLedgerConflictError(
+                    "durable domain progress cannot move backwards"
+                )
+            for field in (
+                "wake_context",
+                "perception",
+                "perception_at",
+                "action_at",
+                "response_completed_at",
+            ):
+                previous_value = getattr(previous.domain_progress, field)
+                if (
+                    previous_value is not None
+                    and getattr(current.domain_progress, field) != previous_value
+                ):
+                    raise IntegrationLedgerConflictError(
+                        "a completed domain recovery fact cannot be changed"
+                    )
         if previous.evolution is not None and current.evolution != previous.evolution:
             raise IntegrationLedgerConflictError(
                 "a persisted evolution checkpoint cannot be changed"

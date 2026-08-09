@@ -457,6 +457,7 @@ class WakeSession:
     decision: WakeDecision | None = None
     observation: WakeObservationLog = field(default_factory=WakeObservationLog)
     error: str | None = None
+    recovery_context: WakeContext | None = None
 
     def __post_init__(self) -> None:
         _require_text(self.session_id, "session_id")
@@ -476,7 +477,12 @@ class WakeSession:
         ):
             raise AwakeningValidationError("completed_successfully must be boolean or null")
         if self.completed_successfully is None:
-            if self.completed_at is not None or self.decision is not None or self.error is not None:
+            if (
+                self.completed_at is not None
+                or self.decision is not None
+                or self.recovery_context is not None
+                or self.error is not None
+            ):
                 raise AwakeningValidationError(
                     "a running wake session cannot contain completion fields"
                 )
@@ -487,8 +493,21 @@ class WakeSession:
                 )
             if self.completed_successfully and self.error is not None:
                 raise AwakeningValidationError("a successful wake session cannot contain an error")
+            if not self.completed_successfully and self.recovery_context is not None:
+                raise AwakeningValidationError(
+                    "a failed wake session cannot contain a recovery context"
+                )
             if not self.completed_successfully:
                 _require_text(self.error, "wake session error")
+        if self.recovery_context is not None:
+            if self.recovery_context.subject_state.subject_id != self.subject_id:
+                raise AwakeningValidationError(
+                    "wake recovery context belongs to a different subject"
+                )
+            if self.recovery_context.context_id != self.observation.context_id:
+                raise AwakeningValidationError(
+                    "wake recovery context does not match the observation log"
+                )
 
     @classmethod
     def start(
@@ -514,6 +533,7 @@ class WakeSession:
         context: WakeContext,
         decision: WakeDecision,
         completed_at: datetime,
+        retain_recovery_context: bool = False,
     ) -> None:
         if context.subject_state.subject_id != self.subject_id:
             raise AwakeningValidationError("WakeContext subject does not match WakeSession")
@@ -521,6 +541,11 @@ class WakeSession:
             raise AwakeningValidationError("completed_at must include a timezone")
         self.subject_revision = context.subject_state.revision
         self.observation = WakeObservationLog.from_context(context)
+        self.recovery_context = (
+            WakeContext.from_dict(context.to_dict())
+            if retain_recovery_context
+            else None
+        )
         self.decision = decision
         self.completed_at = completed_at
         self.completed_successfully = True
@@ -543,6 +568,7 @@ class WakeSession:
         self.decision = decision
         self.completed_at = completed_at
         self.completed_successfully = False
+        self.recovery_context = None
         self.error = _require_text(error, "wake session error")
 
     def to_dict(self) -> dict[str, JsonValue]:
@@ -559,6 +585,11 @@ class WakeSession:
             "completed_successfully": self.completed_successfully,
             "decision": self.decision.to_dict() if self.decision else None,
             "observation": self.observation.to_dict(),
+            "recovery_context": (
+                self.recovery_context.to_dict()
+                if self.recovery_context is not None
+                else None
+            ),
             "error": self.error,
         }
 
@@ -569,6 +600,7 @@ class WakeSession:
         wake_time = _parse_datetime(value.get("wake_time"), "session.wake_time")
         assert wake_time is not None
         decision = value.get("decision")
+        recovery_context = value.get("recovery_context")
         return cls(
             session_id=value.get("session_id"),
             cycle_id=value.get("cycle_id"),
@@ -584,6 +616,11 @@ class WakeSession:
             completed_successfully=value.get("completed_successfully"),
             decision=WakeDecision.from_dict(decision) if decision is not None else None,
             observation=WakeObservationLog.from_dict(value.get("observation", {})),
+            recovery_context=(
+                WakeContext.from_dict(recovery_context)
+                if recovery_context is not None
+                else None
+            ),
             error=value.get("error"),
         )
 

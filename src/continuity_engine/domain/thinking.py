@@ -428,6 +428,7 @@ class ThinkSession:
     state_event_id: str | None = None
     state_update_id: str | None = None
     error: str | None = None
+    perception_snapshot: PerceptionResult | None = None
 
     def __post_init__(self) -> None:
         _require_text(self.think_id, "think_id")
@@ -478,6 +479,19 @@ class ThinkSession:
                 raise ThinkingValidationError(
                     "ThinkSession result budget does not match session budget"
                 )
+        if self.perception_snapshot is not None:
+            if self.perception_snapshot.subject_id != self.subject_id:
+                raise ThinkingValidationError(
+                    "ThinkSession perception snapshot belongs to another subject"
+                )
+            if self.perception_snapshot.wake_session_id != self.wake_session_id:
+                raise ThinkingValidationError(
+                    "ThinkSession perception snapshot belongs to another wake"
+                )
+            if self.perception_snapshot.perception_id != self.observation.perception_id:
+                raise ThinkingValidationError(
+                    "ThinkSession perception snapshot does not match its observation"
+                )
 
     @classmethod
     def start(
@@ -491,6 +505,7 @@ class ThinkSession:
         token_budget: TokenBudget,
         perception: PerceptionResult,
         think_id: str | None = None,
+        retain_perception_snapshot: bool = False,
     ) -> ThinkSession:
         if subject_id != perception.subject_id:
             raise ThinkingValidationError("ThinkSession subject does not match perception")
@@ -505,6 +520,11 @@ class ThinkSession:
             thinking_reason=thinking_reason,
             token_budget=token_budget,
             observation=ThinkingObservationLog.from_perception(perception),
+            perception_snapshot=(
+                PerceptionResult.from_dict(perception.to_dict())
+                if retain_perception_snapshot
+                else None
+            ),
         )
 
     def complete(
@@ -571,6 +591,11 @@ class ThinkSession:
             "state_event_id": self.state_event_id,
             "state_update_id": self.state_update_id,
             "observation": self.observation.to_dict(),
+            "perception_snapshot": (
+                self.perception_snapshot.to_dict()
+                if self.perception_snapshot is not None
+                else None
+            ),
             "error": self.error,
         }
 
@@ -581,6 +606,7 @@ class ThinkSession:
         started_at = _parse_datetime(value.get("started_at"), "think started_at")
         assert started_at is not None
         raw_result = value.get("result")
+        raw_perception = value.get("perception_snapshot")
         return cls(
             think_id=value.get("think_id"),
             wake_session_id=value.get("wake_session_id"),
@@ -597,6 +623,11 @@ class ThinkSession:
             state_event_id=value.get("state_event_id"),
             state_update_id=value.get("state_update_id"),
             observation=ThinkingObservationLog.from_dict(value.get("observation")),
+            perception_snapshot=(
+                PerceptionResult.from_dict(raw_perception)
+                if raw_perception is not None
+                else None
+            ),
             error=value.get("error"),
         )
 

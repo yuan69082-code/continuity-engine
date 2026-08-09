@@ -71,6 +71,13 @@ class JsonAwakeningRepository:
                 and session.completed_successfully is None
             ):
                 raise AwakeningValidationError("a completed wake session cannot return to running")
+            if (
+                previous.recovery_context is not None
+                and session.recovery_context != previous.recovery_context
+            ):
+                raise AwakeningValidationError(
+                    "a persisted wake recovery context cannot be changed"
+                )
         self._write_json(path, session.to_dict())
 
     def load_session(self, subject_id: str, session_id: str) -> WakeSession:

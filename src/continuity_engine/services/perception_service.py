@@ -1,3 +1,5 @@
+from dataclasses import replace
+
 from continuity_engine.domain.awakening import WakeContext
 from continuity_engine.domain.errors import PerceptionValidationError
 from continuity_engine.domain.events import Event
@@ -17,7 +19,12 @@ class PerceptionService:
     def __init__(self, policy: PerceptionPolicy | None = None) -> None:
         self._policy = policy or PerceptionPolicy()
 
-    def perceive(self, context: PerceptionContext) -> PerceptionResult:
+    def perceive(
+        self,
+        context: PerceptionContext,
+        *,
+        perception_id: str | None = None,
+    ) -> PerceptionResult:
         state_before = context.subject_state.to_dict()
         wake_state_before = context.wake_context.subject_state.to_dict()
         working_context = PerceptionContext(
@@ -40,6 +47,8 @@ class PerceptionService:
             raise PerceptionValidationError(
                 "PerceptionPolicy returned an invalid PerceptionResult"
             )
+        if perception_id is not None:
+            result = replace(result, perception_id=perception_id)
         if working_context.subject_state.to_dict() != state_before:
             raise PerceptionValidationError(
                 "Perception Engine must not modify its SubjectState input"

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from collections.abc import Callable
+from dataclasses import replace
 from datetime import datetime
 from uuid import uuid4
 
@@ -52,11 +53,18 @@ class ThinkingService:
     def clock(self) -> Callable[[], datetime]:
         return self._clock
 
+    @property
+    def provider_id(self) -> str:
+        return self._provider.provider_id
+
     def handle_perception(
         self,
         perception: PerceptionResult,
         *,
         depth: ThinkingDepth = ThinkingDepth.NORMAL,
+        think_id: str | None = None,
+        result_id: str | None = None,
+        preserve_perception_snapshot: bool = False,
     ) -> ThinkingExecutionResult:
         if not isinstance(perception, PerceptionResult):
             raise ThinkingValidationError("thinking requires a PerceptionResult")
@@ -66,7 +74,7 @@ class ThinkingService:
         )
 
         created_at = self._clock()
-        think_id = str(uuid4())
+        think_id = think_id or str(uuid4())
         budget_request = TokenBudgetRequest(
             subject_id=perception.subject_id,
             wake_session_id=perception.wake_session_id,
@@ -98,6 +106,7 @@ class ThinkingService:
                 token_budget=fallback_budget,
                 perception=perception,
                 think_id=think_id,
+                retain_perception_snapshot=preserve_perception_snapshot,
             )
             self._repository.save_think_session(session)
             failure_result = self._failure_result(
@@ -106,6 +115,7 @@ class ThinkingService:
                 summary=(
                     "Thinking could not start because no usable token budget was allocated."
                 ),
+                result_id=result_id,
             )
             session.fail(
                 ended_at=self._clock(),
@@ -127,10 +137,12 @@ class ThinkingService:
             token_budget=budget,
             perception=perception,
             think_id=think_id,
+            retain_perception_snapshot=preserve_perception_snapshot,
         )
         self._repository.save_think_session(session)
         if budget.session_tokens == 0:
             deferred_result = ThinkingResult.create(
+                result_id=result_id,
                 provider_id=self._provider.provider_id,
                 result_summary="Thinking was deferred by the resource policy.",
                 rationale_summary=(
@@ -157,6 +169,8 @@ class ThinkingService:
             )
         try:
             result = self._provider.think(perception, budget)
+            if result_id is not None:
+                result = replace(result, result_id=result_id)
             self._validate_provider_result(result, budget)
             session.complete(
                 ended_at=self._clock(),
@@ -174,6 +188,7 @@ class ThinkingService:
                 provider_id=self._provider.provider_id,
                 budget=budget,
                 summary="Thinking did not produce a usable completed result.",
+                result_id=result_id,
             )
             session.fail(
                 ended_at=self._clock(),
@@ -189,6 +204,9 @@ class ThinkingService:
 
     def get_sessions(self, subject_id: str, limit: int | None = None) -> list[ThinkSession]:
         return self._repository.list_think_sessions(subject_id, limit)
+
+    def get_session(self, subject_id: str, think_id: str) -> ThinkSession:
+        return self._repository.load_think_session(subject_id, think_id)
 
     def record_evolution_result(
         self,
@@ -246,8 +264,10 @@ class ThinkingService:
         provider_id: str,
         budget: TokenBudget,
         summary: str,
+        result_id: str | None = None,
     ) -> ThinkingResult:
         return ThinkingResult.create(
+            result_id=result_id,
             provider_id=provider_id,
             result_summary=summary,
             rationale_summary=(

@@ -4,6 +4,14 @@
 
 ## [Unreleased]
 
+### Engine E4 Durable Domain Crash Recovery — 2026-08-09
+
+- 为 operation journal 增加 domain 子阶段稳定恢复身份与 Wake/Perception/Thinking checkpoint；兼容读取旧 format v1，并以 format v2 保存 durable progress。
+- WakeSession 保存结构化 WakeContext 恢复快照，ThinkSession 保存结构化 PerceptionResult 恢复快照；已完成 Wake/Thinking 必须复用，running/failed、多个候选或矛盾状态失败关闭。
+- 支持恢复旧 E4 `reserved/domain=null` 但完成 WakeSession/ThinkSession 已落盘的部分状态；继续保证 Action 身份稳定、Evolution 单次提交、completed result 精确重放，以及 Event、StateUpdateRecord 和 revision 不重复。
+- 新增 15 项 crash-recovery 回归；E4 相关 82 项、Engine 全量 301 项通过。Vio V3 已开始正式本地 HTTP 验收，但 S3 尚未通过；当前等待在新 Engine SHA 上重跑。
+- 本修复不改变外部 HTTP envelope、v1.1、Schema/hash、SubjectBinding、Vio、生产架构或 `0.1.0` 软件版本。
+
 ### Engine E4 HTTP/1.1 Transport Boundary Hardening — 2026-08-08
 
 - 第一阶段正式本地服务统一为一请求一连接；success、机器 envelope、查询、health 和全部传输错误均发送 `Connection: close` 并停止复用当前连接，未消费的请求体不再污染下一请求。

@@ -27,6 +27,7 @@
 - 第一轮共享验收测试桥：`tests/shared/` 下的 test-only JSONL Runner 可由外部测试进程逐行提交真实 v1.1 请求，并直接返回 E3 的成功结果或四类错误 envelope；它不是网络或生产 Adapter。
 - 第一轮双方 test-only 共享验收：Vio 的持久化 V1 请求已通过 JSONL Runner 进入真实 Engine E3，结果由 Vio V2 严格验证并持久化；幂等、revision、投影唯一性、四类错误和双方重启恢复均已完成端到端验证。
 - 正式本地集成服务（Engine E4）：`ContinuityInteractionService` 是测试与正式 Adapter 共用的唯一处理链；显式 `init` 持久化单一 active SubjectBinding；正式 HTTP/JSON 服务只监听 `127.0.0.1:8766`，提供提交、结果/恢复查询和最小健康检查，并以串行请求、Bearer 服务令牌、1 MiB 上限、默认 10 秒读取超时和“一请求一连接”的严格 JSON 传输边界保护本地入口。domain 子阶段现持久化稳定恢复身份和 Wake/Perception/Thinking checkpoint；重启会复用已完成 WakeSession、ThinkSession/ThinkingResult，并继续沿用稳定 Action、Event、StateUpdateRecord 和最终结果身份。
+- 第一阶段正式本地回环连接验收：以 Engine `189441f9bad2a34119b4ef10365a4385ed0949cc` 和 Vio `35780da56c72b822fc018702dfe5e90674ab0fcb` 为基线，Vio 的真实持久化请求已通过 V3 HTTP transport 进入独立运行的 Engine E4；S2/S3 覆盖 completed、not_found、recovery_required、响应丢失以及双方分别或同时重启，稳定身份、领域经历、状态演化、投影和双方账本均未重复。
 
 其中 Memory、Awakening、Thinking、Learning、Resource Management、接口和前端属于“内部结构或本地原型已完成，真实外部集成仍未完成”。Action 完成的是决策规划层，不包含执行层。
 
@@ -40,7 +41,7 @@
 - 自动后台循环、常驻调度或无限自主运行。
 - 真实 Token 计量、账单、计费、购买或支付。
 - 生产数据库、用户认证、多租户和生产部署。
-- Vio V3 已开始对 E4 正式本地服务进行共享验收，但基线 `c5ebbf9b7583f3fb50198a3bf37ea0553edc131f` 暴露 domain 子阶段恢复缺陷；Engine 定点修复与本地回归已完成，等待 Vio 在新的 Engine SHA 上重新执行 S3。双方正式本地 HTTP 共享验收尚未通过。
+- Vio 面向用户的公共对话 API 到 Continuity Engine 的串联，以及现有前端与真实 Conversation/Message API 的接线。
 - 面向生产部署的 Integration Adapter、TLS/反向代理、生产认证、多租户和运行监控。
 
 `ContinuityMCPAdapter`、`SkillAdapter`、`ThinkingProvider` 和 Memory 端口只是可插拔接口或适配边界，不能视为对应外部能力已经接入。
@@ -51,11 +52,13 @@
 
 双方随后共同确认了第一轮施工范围。2026-08-01，Continuity Engine 完成 Engine E1：三份正式 Schema、类型化机器契约结构、固定 SubjectBinding fixture、本地离线 registry、严格 Schema/交叉字段/hash 校验和正式一致性向量测试已经实现。该完成状态只覆盖机器契约基础，不表示第一轮连接已经完成。
 
-Engine E1、E2、E3 的完成基线依次为 `ac61e78`、`d1a96b1`、`c732f35`，Engine Runner 正式共享验收基线为 `7a32a99e60330782c1caf6d6adda5d08d0077a6c`。Vio V1/V2 施工基线为 `c1e1336`/`97874ee`，双方 test-only 共享验收基线为 `673983901b38127b15f772a8be8507defec7384e`。第一轮 test-only 端到端共享验收现已通过：Vio 测试代码实际启动 Runner，把持久化请求送入真实 E3，并严格验证、保存结果、投影和 receipt。Engine E4 随后完成 Engine 侧正式本地 HTTP/JSON Adapter。Vio V3 已在 `8bf346c5bc920a2b89b6c3d12d60a3ecef26ab7b` 上启动正式本地 HTTP 共享验收，并在 Engine `c5ebbf9b7583f3fb50198a3bf37ea0553edc131f` 上发现完成 Wake/Thinking 后、operation domain checkpoint 前退出无法恢复的缺陷；Engine 已完成定点修复和本地回归，等待 Vio 在修复后的新 Engine SHA 上重新执行 S3。机器契约决定见 [`D-025`](docs/project_memory/04_决策记录.md)，E1—E3 与 Runner 边界见 `D-026`—`D-029`，test-only 共享验收见 `D-030`，E4 决定见 `D-031`，本次 durable domain recovery 决定见 `D-032`。
+Engine E1、E2、E3 的完成基线依次为 `ac61e78`、`d1a96b1`、`c732f35`，Engine Runner 正式共享验收基线为 `7a32a99e60330782c1caf6d6adda5d08d0077a6c`。Vio V1/V2 施工基线为 `c1e1336`/`97874ee`，双方 test-only 共享验收基线为 `673983901b38127b15f772a8be8507defec7384e`。第一轮 test-only 端到端共享验收现已通过：Vio 测试代码实际启动 Runner，把持久化请求送入真实 E3，并严格验证、保存结果、投影和 receipt。
+
+Engine E4 随后完成 Engine 侧正式本地 HTTP/JSON Adapter。Vio V3 首次在 Engine `c5ebbf9b7583f3fb50198a3bf37ea0553edc131f` 上执行 S3 时，发现完成 Wake/Thinking 后、operation domain checkpoint 前退出无法恢复的缺陷；该失败保留为历史。Engine 通过 D-032 完成定点修复并以 `189441f9bad2a34119b4ef10365a4385ed0949cc` 提交，Vio 在 `35780da56c72b822fc018702dfe5e90674ab0fcb` 上重新执行正式 S2/S3。第一阶段正式本地回环 HTTP/JSON 双方验收现已通过：S2+S3 为 15/15，Vio V1+RFC 8785+V2+V3 为 64/64，Vio 后端全量为 113/113，Engine crash-recovery 为 15/15、E4 为 67/67、全量为 301/301。机器契约决定见 [`D-025`](docs/project_memory/04_决策记录.md)，E1—E3 与 Runner 边界见 `D-026`—`D-029`，test-only 共享验收见 `D-030`，E4 与 durable recovery 见 `D-031`、`D-032`，正式本地双方验收里程碑见 `D-033`。
 
 ## 当前开发阶段
 
-第一轮机器契约、Engine E1/E2/E3、test-only JSONL Runner、双方 test-only 共享验收和 Engine E4 Engine 侧实现均已完成；当前 Engine 完整测试基线为 301 项。E4 已建立正式本地服务进程，并补强 HTTP/1.1 传输和 domain 子阶段 crash recovery：operation journal 先保存稳定恢复身份，WakeSession/ThinkSession 保存必要结构化快照，已完成 Wake/Thinking 在重启后复用，Evolution 和 completed result 继续保持单次提交与精确重放。Vio V3 已开始正式本地 HTTP 验收，但 S3 尚未通过；当前等待 Vio 在新 Engine SHA 上复跑。它不表示生产 Integration Adapter、真实模型、用户对话链路或前端数据链路已经完成，也不授权新功能施工。
+第一轮机器契约、Engine E1/E2/E3、test-only JSONL Runner、双方 test-only 共享验收、Engine E4 以及 Vio × Engine 第一阶段正式本地回环 HTTP/JSON 双方验收均已完成；当前 Engine 完整测试基线为 301 项。E4 已建立正式本地服务进程，并补强 HTTP/1.1 传输和 domain 子阶段 crash recovery：operation journal 先保存稳定恢复身份，WakeSession/ThinkSession 保存必要结构化快照，已完成 Wake/Thinking 在重启后复用，Evolution 和 completed result 继续保持单次提交与精确重放。下一阶段尚未开始，仍需双方另行确定生产形态 Integration Adapter、真实模型、Vio 公共对话 API 和前端数据链路的施工边界与顺序；本地回环验收通过不表示这些能力已实现，也不授权新阶段施工。
 
 第一阶段已经完成：
 
@@ -702,7 +705,7 @@ python -m continuity_engine.integration_server serve `
   --port 8766
 ```
 
-该服务固定监听 `127.0.0.1`，不会隐式初始化，也不向浏览器前端开放。所有响应都声明 `Connection: close` 并结束当前连接；每条连接默认使用 10 秒有界读取超时，普通超时、提前断连和可安全响应的解析错误不会产生 HTML 错误页或 Python traceback。当前确定性 Memory/Thinking/Reply/Token Provider 不是 GPT、Claude 或其他真实模型接入。Vio V3 已开始调用验收，但正式双方 HTTP S3 尚未通过；Engine 修复后仍需在新的提交 SHA 上由 Vio 重新验证。
+该服务固定监听 `127.0.0.1`，不会隐式初始化，也不向浏览器前端开放。所有响应都声明 `Connection: close` 并结束当前连接；每条连接默认使用 10 秒有界读取超时，普通超时、提前断连和可安全响应的解析错误不会产生 HTML 错误页或 Python traceback。当前确定性 Memory/Thinking/Reply/Token Provider 不是 GPT、Claude 或其他真实模型接入。Vio V3 与 Engine E4 的第一阶段正式本地回环 HTTP/JSON 双方验收已经通过；该结论不等于外网连接、生产部署、公共对话 API 串联或前端真实数据链路已经完成。
 
 共享验收 Runner 只能从仓库根目录显式使用受控临时目录启动：
 

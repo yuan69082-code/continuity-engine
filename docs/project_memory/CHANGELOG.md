@@ -4,6 +4,14 @@
 
 ## [Unreleased]
 
+### Vio × Engine Formal Local HTTP/JSON Shared Acceptance — 2026-08-09
+
+- 以 Continuity Engine `189441f9bad2a34119b4ef10365a4385ed0949cc` 和 Vio `35780da56c72b822fc018702dfe5e90674ab0fcb` 为正式基线，记录第一阶段本地回环 HTTP/JSON 双方验收通过。
+- Vio 的真实持久化请求经正式 V3 transport 进入独立 Engine E4；completed、not_found、recovery_required、POST 响应丢失，以及 Engine/Vio 分别或同时重启均通过。
+- S2+S3 15/15、Vio V1+RFC 8785+V2+V3 64/64、Vio 后端全量 113/113、Engine crash-recovery 15/15、E4 67/67、全量 301/301；request/operation 身份、Wake、Thinking、Event、StateUpdateRecord、revision、投影和双方账本未重复。
+- 保留首次 S3 在 Engine `c5ebbf9b7583f3fb50198a3bf37ea0553edc131f` 上发现恢复缺陷的历史；D-032 修复后的原失败场景和全部 S3 已通过。
+- 本里程碑不提升 `0.1.0` 软件版本，也不表示外网连接、生产部署、真实模型/Capability/MCP/Tool/设备、Vio 公共对话 API 或前端真实链路已经完成。下一阶段尚未开始。
+
 ### Engine E4 Durable Domain Crash Recovery — 2026-08-09
 
 - 为 operation journal 增加 domain 子阶段稳定恢复身份与 Wake/Perception/Thinking checkpoint；兼容读取旧 format v1，并以 format v2 保存 durable progress。

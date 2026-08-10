@@ -5,6 +5,8 @@ import os
 from dataclasses import dataclass
 from pathlib import Path
 
+from continuity_engine.domain.capability import IntegrationThinkingMode
+
 
 DEFAULT_INTEGRATION_HOST = "127.0.0.1"
 DEFAULT_INTEGRATION_PORT = 8766
@@ -24,6 +26,7 @@ class IntegrationServerConfig:
     port: int = DEFAULT_INTEGRATION_PORT
     host: str = DEFAULT_INTEGRATION_HOST
     read_timeout_seconds: float = DEFAULT_READ_TIMEOUT_SECONDS
+    thinking_mode: IntegrationThinkingMode = IntegrationThinkingMode.DETERMINISTIC
 
     def __post_init__(self) -> None:
         if self.host != DEFAULT_INTEGRATION_HOST:
@@ -49,6 +52,10 @@ class IntegrationServerConfig:
             raise IntegrationConfigurationError(
                 "read_timeout_seconds must be a finite number greater than zero"
             )
+        if not isinstance(self.thinking_mode, IntegrationThinkingMode):
+            raise IntegrationConfigurationError(
+                "thinking_mode must be deterministic or capability"
+            )
 
     @classmethod
     def from_environment(
@@ -56,6 +63,12 @@ class IntegrationServerConfig:
         *,
         data_dir: str | Path,
         port: int = DEFAULT_INTEGRATION_PORT,
+        thinking_mode: IntegrationThinkingMode = IntegrationThinkingMode.DETERMINISTIC,
     ) -> IntegrationServerConfig:
         token = os.environ.get(INTEGRATION_TOKEN_ENV, "")
-        return cls(data_dir=Path(data_dir), service_token=token, port=port)
+        return cls(
+            data_dir=Path(data_dir),
+            service_token=token,
+            port=port,
+            thinking_mode=thinking_mode,
+        )

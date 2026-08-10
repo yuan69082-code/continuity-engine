@@ -4,6 +4,15 @@
 
 ## [Unreleased]
 
+### Engine E5-A — Durable Capability Pause / Resume Core — 2026-08-10
+
+- 新增独立 `continuity-capability/v1` CapabilityRequest、受约束模型输出和 CapabilityResult 领域模型，配套三份严格 Draft 2020-12 Schema、封闭 registry、RFC 8785/SHA-256 hash 和身份/关联验证；不修改 v1.1。
+- ThinkSession 新增 `WAITING_CAPABILITY`；capability 模式在 Perception 后持久化不可变请求并暂停，结果返回后经解释器恢复原 Thinking，再进入 Action Gate 与 ReplyComposer。外部结果不能携带 StateMutation，也不能直接修改 SubjectState。
+- 新增 capability request/attempt durable ledger 与 operation journal format v3 checkpoint，兼容读取 E4 v1/v2；Action 完成后先持久化结构化 `ActionExecutionResult`，再进入 domain checkpoint。相同请求/结果精确幂等，冲突和损坏状态失败关闭，跨重启不重复 Thinking、Action 或最终结果。
+- 同一 E4 服务新增 Engine 侧 capability result 提交/查询语义；默认 deterministic 模式、既有 v1.1 HTTP envelope、SubjectBinding、Action/Evolution 和 E4 recovery 行为保持不变。
+- 完成 E5-A 定点复核修正：成功输出在落盘前执行去空白非空校验，CapabilityResult 时间不得早于已持久化请求创建时间，重复 `init` 可验证未使用、等待、retryable/unknown 与已完成 Capability 历史而不改写持久化事实；错误 `serve` 模式仍拒绝。
+- 新增 54 项 E5-A 测试，Engine 全量 355 项通过。该里程碑只完成 Engine 核心；Vio V4、真实模型、现实权限/安全确认、供应商调用、真实 usage 和双方共享验收尚未实现，软件版本继续为 `0.1.0`。
+
 ### Vio × Engine Formal Local HTTP/JSON Shared Acceptance — 2026-08-09
 
 - 以 Continuity Engine `189441f9bad2a34119b4ef10365a4385ed0949cc` 和 Vio `35780da56c72b822fc018702dfe5e90674ab0fcb` 为正式基线，记录第一阶段本地回环 HTTP/JSON 双方验收通过。

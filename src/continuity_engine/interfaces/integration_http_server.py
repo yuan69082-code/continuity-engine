@@ -9,15 +9,22 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 from typing import Any
 from urllib.parse import unquote, urlsplit
 
-from continuity_engine.domain.errors import MachineContractCallError
+from continuity_engine.domain.errors import (
+    CapabilityConflictError,
+    CapabilityNotFoundError,
+    CapabilityValidationError,
+    MachineContractCallError,
+)
 from continuity_engine.interfaces.integration_config import (
     MAX_REQUEST_BODY_BYTES,
+    IntegrationConfigurationError,
     IntegrationServerConfig,
 )
 from continuity_engine.interfaces.local_integration_app import LocalIntegrationApp
 
 
 _INTERACTION_PATH = "/internal/v1/continuity/interactions"
+_CAPABILITY_RESULT_PATH = "/internal/v1/continuity/capability-results"
 _QUERY_PREFIX = "/internal/v1/continuity/requests/"
 _SAFE_REQUEST_ID = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$")
 _JSON_CONTENT_TYPES = {
@@ -41,6 +48,10 @@ class LocalIntegrationHTTPServer(HTTPServer):
         config: IntegrationServerConfig,
         app: LocalIntegrationApp,
     ) -> None:
+        if config.thinking_mode is not app.thinking_mode:
+            raise IntegrationConfigurationError(
+                "HTTP configuration thinking mode must match the local app"
+            )
         self.integration_config = config
         self.integration_app = app
         super().__init__((config.host, config.port), IntegrationHTTPRequestHandler)
@@ -82,7 +93,7 @@ class IntegrationHTTPRequestHandler(BaseHTTPRequestHandler):
             status = 200 if self.server.integration_app.is_ready() else 503
             self._send_json(status, {"status": "ready" if status == 200 else "not_ready"})
             return
-        if path == _INTERACTION_PATH:
+        if path in {_INTERACTION_PATH, _CAPABILITY_RESULT_PATH}:
             self._send_transport_error(405, "method_not_allowed")
             return
         if path.startswith(_QUERY_PREFIX):
@@ -110,7 +121,7 @@ class IntegrationHTTPRequestHandler(BaseHTTPRequestHandler):
 
     def do_POST(self) -> None:  # noqa: N802 - BaseHTTPRequestHandler contract
         path = urlsplit(self.path).path
-        if path != _INTERACTION_PATH:
+        if path not in {_INTERACTION_PATH, _CAPABILITY_RESULT_PATH}:
             if path.startswith(_QUERY_PREFIX) or path.startswith("/health/"):
                 self._send_transport_error(405, "method_not_allowed")
             else:
@@ -163,8 +174,18 @@ class IntegrationHTTPRequestHandler(BaseHTTPRequestHandler):
             self._send_transport_error(400, "invalid_request")
             return
         try:
-            result = self.server.integration_app.adapter.submit(payload)
+            result = (
+                self.server.integration_app.adapter.submit_capability_result(payload)
+                if path == _CAPABILITY_RESULT_PATH
+                else self.server.integration_app.adapter.submit(payload)
+            )
             self._send_json(200, result.to_dict())
+        except CapabilityNotFoundError:
+            self._send_transport_error(404, "capability_request_not_found")
+        except CapabilityConflictError:
+            self._send_transport_error(409, "capability_result_conflict")
+        except CapabilityValidationError:
+            self._send_transport_error(400, "capability_result_invalid")
         except MachineContractCallError:
             self._send_transport_error(400, "invalid_request")
         except Exception:

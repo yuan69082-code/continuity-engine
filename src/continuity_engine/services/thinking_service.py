@@ -14,6 +14,7 @@ from continuity_engine.domain.models import utc_now
 from continuity_engine.domain.perception import PerceptionResult
 from continuity_engine.domain.thinking import (
     ThinkSession,
+    ThinkSessionStatus,
     ThinkingDepth,
     ThinkingExecutionResult,
     ThinkingResult,
@@ -201,6 +202,102 @@ class ThinkingService:
                 session.think_id,
                 f"ThinkSession failed and was logged: {session.think_id}",
             ) from exc
+
+    def begin_capability_wait(
+        self,
+        perception: PerceptionResult,
+        *,
+        capability_request_id: str,
+        depth: ThinkingDepth = ThinkingDepth.NORMAL,
+        think_id: str,
+        preserve_perception_snapshot: bool = True,
+        started_at: datetime | None = None,
+    ) -> ThinkSession:
+        """Persist one stable ThinkSession without invoking the provider."""
+
+        if not isinstance(perception, PerceptionResult):
+            raise ThinkingValidationError("thinking requires a PerceptionResult")
+        created_at = started_at or self._clock()
+        reason = (
+            "Perception requires an external model capability before Thinking can "
+            f"complete: {perception.summary}"
+        )
+        budget_request = TokenBudgetRequest(
+            subject_id=perception.subject_id,
+            wake_session_id=perception.wake_session_id,
+            depth=depth,
+            requested_at=created_at,
+            session_id=think_id,
+            model_name=self._provider.provider_id,
+            reason=reason,
+        )
+        budget = self._token_budgets.allocate(budget_request)
+        if not isinstance(budget, TokenBudget):
+            raise ThinkingValidationError(
+                "TokenBudgetManager returned an invalid budget"
+            )
+        if budget.session_tokens <= 0:
+            raise ThinkingValidationError(
+                "capability Thinking requires a positive allocated session budget"
+            )
+        session = ThinkSession.start(
+            wake_session_id=perception.wake_session_id,
+            subject_id=perception.subject_id,
+            provider_id=self._provider.provider_id,
+            started_at=created_at,
+            thinking_reason=reason,
+            token_budget=budget,
+            perception=perception,
+            think_id=think_id,
+            retain_perception_snapshot=preserve_perception_snapshot,
+        )
+        session.wait_for_capability(capability_request_id)
+        self._repository.save_think_session(session)
+        return session
+
+    def complete_capability_wait(
+        self,
+        perception: PerceptionResult,
+        *,
+        think_id: str,
+        result: ThinkingResult,
+        ended_at: datetime,
+    ) -> ThinkingExecutionResult:
+        """Complete the original waiting session from a validated execution fact."""
+
+        session = self.get_session(perception.subject_id, think_id)
+        if session.status is ThinkSessionStatus.COMPLETED:
+            if session.result != result:
+                raise ThinkingValidationError(
+                    "completed capability ThinkingResult cannot be replaced"
+                )
+            return ThinkingExecutionResult(perception=perception, session=session)
+        if session.status is ThinkSessionStatus.WAITING_CAPABILITY:
+            session.resume_from_capability()
+            self._repository.save_think_session(session)
+        elif (
+            session.status is not ThinkSessionStatus.RUNNING
+            or session.capability_request_id is None
+        ):
+            raise ThinkingValidationError(
+                "capability result requires the original capability ThinkSession"
+            )
+        if session.perception_snapshot != perception:
+            raise ThinkingValidationError(
+                "capability result perception does not match ThinkSession"
+            )
+        self._validate_provider_result(result, session.token_budget)
+        session.complete(
+            ended_at=ended_at,
+            result=result,
+            state_written_back=False,
+        )
+        self._repository.save_think_session(session)
+        return ThinkingExecutionResult(
+            perception=perception,
+            session=session,
+            state_update=None,
+        )
 
     def get_sessions(self, subject_id: str, limit: int | None = None) -> list[ThinkSession]:
         return self._repository.list_think_sessions(subject_id, limit)

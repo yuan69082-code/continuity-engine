@@ -9,7 +9,17 @@ from uuid import NAMESPACE_URL, uuid4, uuid5
 
 from continuity_engine.domain.action import ActionContext, ApprovedStateAction, ResourceLimits
 from continuity_engine.domain.awakening import AwakeningResult
+from continuity_engine.domain.capability import (
+    CapabilityFailedEnvelope,
+    CapabilityRequiredEnvelope,
+    CapabilityResult,
+    CapabilityStatus,
+    IntegrationThinkingMode,
+)
 from continuity_engine.domain.errors import (
+    CapabilityConflictError,
+    CapabilityNotFoundError,
+    CapabilityValidationError,
     IntegrationExecutionError,
     IntegrationPersistenceError,
     MachineContractCallError,
@@ -26,6 +36,7 @@ from continuity_engine.domain.integration_results import (
     IntegrationDomainProgress,
     IntegrationDomainProgressStage,
     IntegrationEvolutionCheckpoint,
+    IntegrationCapabilityCheckpoint,
     IntegrationOperationRecord,
     IntegrationOperationStage,
     IntegrationRequestQueryResult,
@@ -41,12 +52,19 @@ from continuity_engine.domain.perception import (
 from continuity_engine.domain.subject_binding import SubjectBinding
 from continuity_engine.domain.thinking import (
     ThinkSession,
+    ThinkSessionStatus,
     ThinkingDepth,
     ThinkingExecutionResult,
 )
 from continuity_engine.services.action_evolution_service import ActionEvolutionService
 from continuity_engine.services.action_service import ActionService
 from continuity_engine.services.awakening_service import AwakeningService
+from continuity_engine.services.capability_coordination_service import (
+    CapabilityCoordinationService,
+)
+from continuity_engine.services.capability_result_interpreter import (
+    CapabilityResultInterpreter,
+)
 from continuity_engine.services.integration_contract_hashing import calculate_request_hash
 from continuity_engine.services.integration_contract_validation import MachineContractValidator
 from continuity_engine.services.integration_ports import (
@@ -105,6 +123,9 @@ class ContinuityInteractionService:
         response_id_factory: IdFactory = _response_id,
         trace: TraceSink | None = None,
         fault_injector: FaultInjector | None = None,
+        thinking_mode: IntegrationThinkingMode = IntegrationThinkingMode.DETERMINISTIC,
+        capabilities: CapabilityCoordinationService | None = None,
+        capability_interpreter: CapabilityResultInterpreter | None = None,
     ) -> None:
         self._validator = validator
         self._bindings = bindings
@@ -123,9 +144,30 @@ class ContinuityInteractionService:
         self._response_id_factory = response_id_factory
         self._trace_sink = trace
         self._fault_injector = fault_injector
+        if not isinstance(thinking_mode, IntegrationThinkingMode):
+            raise ValueError("thinking_mode is invalid")
+        if thinking_mode is IntegrationThinkingMode.CAPABILITY and capabilities is None:
+            raise ValueError("capability thinking mode requires capability coordination")
+        self._thinking_mode = thinking_mode
+        self._capabilities = capabilities
+        self._capability_interpreter = (
+            capability_interpreter or CapabilityResultInterpreter()
+        )
         self.last_call_log: list[str] = []
 
-    def submit(self, payload: Any) -> FirstRoundSuccessResult | FirstRoundErrorEnvelope:
+    @property
+    def thinking_mode(self) -> IntegrationThinkingMode:
+        return self._thinking_mode
+
+    def submit(
+        self,
+        payload: Any,
+    ) -> (
+        FirstRoundSuccessResult
+        | FirstRoundErrorEnvelope
+        | CapabilityRequiredEnvelope
+        | CapabilityFailedEnvelope
+    ):
         request_id = self.safe_request_id(payload)
         self.last_call_log = []
         operation: IntegrationOperationRecord | None = None
@@ -202,30 +244,14 @@ class ContinuityInteractionService:
             if operation.domain is None:
                 stage = "domain"
                 operation, thinking_execution = self._run_domain(request, operation, binding)
+                if thinking_execution is None:
+                    return self._capability_status_envelope(operation)
                 self._ledger.save_operation(operation)
                 self._fault("after_domain_completed", operation)
             else:
                 thinking_execution = self._restore_domain_thinking(operation)
-
-            assert operation.domain is not None
-            if operation.domain.approved_state_action is not None and operation.evolution is None:
-                stage = "evolution"
-                operation = self._complete_evolution(operation, thinking_execution)
-
-            stage = "result"
-            result = self._build_result(binding, operation)
-            self._record("result")
-            self._ledger.save_completed(result)
-            self._fault("after_completed_result_saved", operation)
-            self._ledger.save_operation(
-                replace(
-                    operation,
-                    stage=IntegrationOperationStage.COMPLETED,
-                    updated_at=result.completed_at,
-                )
-            )
-            self._record("completed")
-            return result
+            stage = "completion"
+            return self._finish_operation(binding, operation, thinking_execution)
         except IntegrationExecutionError:
             raise
         except Exception as exc:
@@ -236,7 +262,113 @@ class ContinuityInteractionService:
                 message=f"Local integration encountered an unexpected execution fault during {stage}.",
             ) from exc
 
-    def query_request(self, request_id: str) -> IntegrationRequestQueryResult | None:
+    def submit_capability_result(
+        self,
+        payload: Any,
+    ) -> FirstRoundSuccessResult | CapabilityRequiredEnvelope | CapabilityFailedEnvelope:
+        if self._thinking_mode is not IntegrationThinkingMode.CAPABILITY:
+            raise CapabilityValidationError(
+                "CapabilityResult submission requires capability thinking mode"
+            )
+        assert self._capabilities is not None
+        self.last_call_log = []
+        self._record("capability_result_validation")
+        validated_result = self._capabilities.validator.validate_result(payload)
+        request_id = validated_result.request_id
+        operation = self._ledger.load_operation(request_id)
+        if operation is None:
+            raise CapabilityNotFoundError(
+                "CapabilityResult requestId does not identify an operation"
+            )
+        try:
+            self._fault("after_capability_result_received", operation)
+            attempt = self._capabilities.accept_result(
+                payload,
+                operation,
+                received_at=self._clock(),
+            )
+            self._fault("after_capability_result_persisted", operation)
+            result = attempt.result
+            completed = self._ledger.load_completed(request_id)
+            if completed is not None:
+                if operation.stage is not IntegrationOperationStage.COMPLETED:
+                    self._ledger.save_operation(
+                        replace(
+                            operation,
+                            stage=IntegrationOperationStage.COMPLETED,
+                            updated_at=completed.completed_at,
+                        )
+                    )
+                return completed
+            if operation.domain is not None:
+                binding = self._bindings.load_active()
+                thinking = self._restore_domain_thinking(operation)
+                return self._finish_operation(binding, operation, thinking)
+            checkpoint = IntegrationCapabilityCheckpoint(
+                capability_request_id=result.capability_request_id,
+                status=result.status,
+                accepted_result_id=result.capability_result_id,
+                accepted_result_hash=attempt.result_hash,
+                updated_at=attempt.received_at,
+            )
+            operation = replace(
+                operation,
+                stage=(
+                    operation.stage
+                    if operation.stage is IntegrationOperationStage.COMPLETED
+                    else IntegrationOperationStage.WAITING_CAPABILITY
+                ),
+                updated_at=attempt.received_at,
+                capability=checkpoint,
+            )
+            if operation.stage is not IntegrationOperationStage.COMPLETED:
+                self._ledger.save_operation(operation)
+            self._fault("after_capability_result_checkpoint_saved", operation)
+
+            if result.status.requires_capability:
+                request = self._capability_request_for_operation(operation)
+                assert request is not None
+                return self._capability_required(operation, request)
+            if result.status.failed_terminally:
+                return self._capability_failed(operation, result)
+
+            binding = self._bindings.load_active()
+            operation, thinking = self._resume_capability_domain(
+                operation,
+                binding,
+                result,
+            )
+            self._ledger.save_operation(operation)
+            self._fault("after_domain_completed", operation)
+            return self._finish_operation(binding, operation, thinking)
+        except (
+            CapabilityConflictError,
+            CapabilityValidationError,
+            CapabilityNotFoundError,
+        ):
+            raise
+        except IntegrationExecutionError:
+            raise
+        except Exception as exc:
+            raise IntegrationExecutionError(
+                request_id=request_id,
+                operation_id=operation.operation_id,
+                stage="capability_result",
+                message=(
+                    "Local integration encountered an unexpected execution fault "
+                    "during capability_result."
+                ),
+            ) from exc
+
+    def query_request(
+        self,
+        request_id: str,
+    ) -> (
+        IntegrationRequestQueryResult
+        | CapabilityRequiredEnvelope
+        | CapabilityFailedEnvelope
+        | None
+    ):
         if not isinstance(request_id, str) or not request_id.strip():
             raise MachineContractCallError("requestId must be a safe non-empty string")
         completed = self._ledger.load_completed(request_id)
@@ -255,6 +387,16 @@ class ContinuityInteractionService:
             )
         if operation is None:
             return None
+        if self._thinking_mode is IntegrationThinkingMode.CAPABILITY:
+            request = self._capability_request_for_operation(operation)
+            if request is not None:
+                latest = self._capabilities.latest_attempt(
+                    request.capability_request_id
+                )
+                if latest is None or latest.result.status.requires_capability:
+                    return self._capability_required(operation, request)
+                if latest.result.status.failed_terminally:
+                    return self._capability_failed(operation, latest.result)
         return IntegrationRequestQueryResult(
             request_id=operation.request_id,
             request_hash=operation.request_hash,
@@ -262,6 +404,37 @@ class ContinuityInteractionService:
             status=IntegrationRequestQueryStatus.RECOVERY_REQUIRED,
             result=None,
         )
+
+    def _finish_operation(
+        self,
+        binding: SubjectBinding,
+        operation: IntegrationOperationRecord,
+        thinking: ThinkingExecutionResult | None,
+    ) -> FirstRoundSuccessResult:
+        assert operation.domain is not None
+        if operation.domain.approved_state_action is not None and operation.evolution is None:
+            operation = self._complete_evolution(operation, thinking)
+        result = self._build_result(binding, operation)
+        self._record("result")
+        existing = self._ledger.load_completed(result.request_id)
+        if existing is None:
+            self._ledger.save_completed(result)
+            self._fault("after_completed_result_saved", operation)
+        elif existing != result:
+            raise IntegrationPersistenceError(
+                "completed interaction result cannot be replaced"
+            )
+        else:
+            result = existing
+        self._ledger.save_operation(
+            replace(
+                operation,
+                stage=IntegrationOperationStage.COMPLETED,
+                updated_at=result.completed_at,
+            )
+        )
+        self._record("completed")
+        return result
 
     @staticmethod
     def safe_request_id(payload: Any) -> str:
@@ -333,7 +506,7 @@ class ContinuityInteractionService:
         request: ContinuityInteractionRequest,
         operation: IntegrationOperationRecord,
         binding: SubjectBinding,
-    ) -> tuple[IntegrationOperationRecord, ThinkingExecutionResult]:
+    ) -> tuple[IntegrationOperationRecord, ThinkingExecutionResult | None]:
         observation = request.observations[0]
         fact = request.platform_fact_package.facts[0]
         perceived_fact = PerceivedPlatformFact(
@@ -473,6 +646,14 @@ class ContinuityInteractionService:
                 perceived_fact=perceived_fact,
             )
 
+        if self._thinking_mode is IntegrationThinkingMode.CAPABILITY:
+            return self._run_capability_domain(
+                operation,
+                binding,
+                awakening,
+                perception,
+            )
+
         self._record("thinking")
         existing_thinking = self._load_think_session_if_present(
             operation.subject_id,
@@ -499,7 +680,10 @@ class ContinuityInteractionService:
                 state_update=None,
             )
         self._fault("after_thinking_completed", operation)
-        if progress.stage is not IntegrationDomainProgressStage.THINKING_COMPLETED:
+        if progress.stage not in {
+            IntegrationDomainProgressStage.THINKING_COMPLETED,
+            IntegrationDomainProgressStage.ACTION_COMPLETED,
+        }:
             action_at = format_contract_datetime(self._clock())
             progress = replace(
                 progress,
@@ -510,20 +694,225 @@ class ContinuityInteractionService:
             operation = self._save_domain_progress(operation, progress)
             self._fault("after_thinking_checkpoint_saved", operation)
 
+        return self._complete_domain_after_thinking(
+            operation,
+            awakening,
+            perception,
+            thinking,
+        )
+
+    def _run_capability_domain(
+        self,
+        operation: IntegrationOperationRecord,
+        binding: SubjectBinding,
+        awakening: AwakeningResult,
+        perception: PerceptionResult,
+    ) -> tuple[IntegrationOperationRecord, ThinkingExecutionResult | None]:
+        assert self._capabilities is not None
+        assert operation.domain_progress is not None
+        progress = operation.domain_progress
+        self._record("capability_request")
+        self._fault("before_capability_request_created", operation)
+        request = self._capabilities.ensure_request(
+            operation,
+            binding,
+            perception,
+            created_at=self._clock(),
+        )
+        self._fault("after_capability_request_saved", operation)
+
+        existing = self._load_think_session_if_present(
+            operation.subject_id,
+            progress.think_session_id,
+        )
+        if existing is None:
+            self._thinking.begin_capability_wait(
+                perception,
+                capability_request_id=request.capability_request_id,
+                depth=ThinkingDepth.NORMAL,
+                think_id=progress.think_session_id,
+                preserve_perception_snapshot=True,
+                started_at=_contract_datetime(request.created_at),
+            )
+        else:
+            self._validate_capability_thinking(
+                existing,
+                operation=operation,
+                progress=progress,
+                perception=perception,
+                capability_request_id=request.capability_request_id,
+            )
+
+        latest = self._capabilities.latest_attempt(request.capability_request_id)
+        checkpoint = IntegrationCapabilityCheckpoint(
+            capability_request_id=request.capability_request_id,
+            status=(latest.result.status if latest is not None else CapabilityStatus.PROPOSED),
+            accepted_result_id=(
+                latest.result.capability_result_id if latest is not None else None
+            ),
+            accepted_result_hash=(latest.result_hash if latest is not None else None),
+            updated_at=(latest.received_at if latest is not None else request.created_at),
+        )
+        if operation.capability != checkpoint or (
+            operation.stage is IntegrationOperationStage.RESERVED
+        ):
+            operation = replace(
+                operation,
+                stage=IntegrationOperationStage.WAITING_CAPABILITY,
+                updated_at=checkpoint.updated_at,
+                capability=checkpoint,
+            )
+            self._ledger.save_operation(operation)
+        self._fault("after_capability_request_checkpoint_saved", operation)
+
+        if latest is None or latest.result.status.requires_capability:
+            return operation, None
+        if latest.result.status.failed_terminally:
+            return operation, None
+        return self._resume_capability_domain(
+            operation,
+            binding,
+            latest.result,
+            awakening=awakening,
+        )
+
+    def _resume_capability_domain(
+        self,
+        operation: IntegrationOperationRecord,
+        binding: SubjectBinding,
+        result: CapabilityResult,
+        *,
+        awakening: AwakeningResult | None = None,
+    ) -> tuple[IntegrationOperationRecord, ThinkingExecutionResult]:
+        assert self._capabilities is not None
+        progress = operation.domain_progress
+        if progress is None or progress.perception is None:
+            raise CapabilityValidationError(
+                "capability recovery requires durable Perception progress"
+            )
+        perception = progress.perception
+        request = self._capability_request_for_operation(operation)
+        if request is None or request.capability_request_id != result.capability_request_id:
+            raise CapabilityValidationError(
+                "CapabilityResult does not match the operation request"
+            )
+        session = self._load_think_session_if_present(
+            operation.subject_id,
+            progress.think_session_id,
+        )
+        if session is None:
+            session = self._thinking.begin_capability_wait(
+                perception,
+                capability_request_id=request.capability_request_id,
+                depth=ThinkingDepth.NORMAL,
+                think_id=progress.think_session_id,
+                preserve_perception_snapshot=True,
+                started_at=_contract_datetime(request.created_at),
+            )
+        self._validate_capability_thinking(
+            session,
+            operation=operation,
+            progress=progress,
+            perception=perception,
+            capability_request_id=request.capability_request_id,
+        )
+        self._record("thinking_resume")
+        if session.status in {
+            ThinkSessionStatus.WAITING_CAPABILITY,
+            ThinkSessionStatus.RUNNING,
+        }:
+            thinking_result = self._capability_interpreter.interpret(
+                result,
+                session,
+                thinking_result_id=progress.thinking_result_id,
+            )
+            thinking = self._thinking.complete_capability_wait(
+                perception,
+                think_id=progress.think_session_id,
+                result=thinking_result,
+                ended_at=_contract_datetime(result.completed_at),
+            )
+        else:
+            self._validate_completed_thinking(
+                session,
+                operation=operation,
+                progress=progress,
+                perception=perception,
+            )
+            thinking = ThinkingExecutionResult(
+                perception=perception,
+                session=session,
+                state_update=None,
+            )
+        self._fault("after_capability_thinking_completed", operation)
+        if progress.stage not in {
+            IntegrationDomainProgressStage.THINKING_COMPLETED,
+            IntegrationDomainProgressStage.ACTION_COMPLETED,
+        }:
+            progress = replace(
+                progress,
+                stage=IntegrationDomainProgressStage.THINKING_COMPLETED,
+                action_at=result.completed_at,
+                response_completed_at=result.completed_at,
+            )
+            operation = self._save_domain_progress(operation, progress)
+            self._fault("after_capability_thinking_checkpoint_saved", operation)
+        if awakening is None:
+            wake_session = self._awakening.get_session(
+                operation.subject_id,
+                progress.wake_session_id,
+            )
+            self._validate_wake_session(
+                wake_session,
+                operation=operation,
+                cycle_id=binding.cycle_id,
+                progress=progress,
+            )
+            awakening = AwakeningResult(
+                context=progress.wake_context,
+                session=wake_session,
+            )
+        return self._complete_domain_after_thinking(
+            operation,
+            awakening,
+            perception,
+            thinking,
+        )
+
+    def _complete_domain_after_thinking(
+        self,
+        operation: IntegrationOperationRecord,
+        awakening: AwakeningResult,
+        perception: PerceptionResult,
+        thinking: ThinkingExecutionResult,
+    ) -> tuple[IntegrationOperationRecord, ThinkingExecutionResult]:
+        progress = operation.domain_progress
+        assert progress is not None
         assert progress.action_at is not None
         assert progress.response_completed_at is not None
-        self._record("action")
-        action_context = ActionContext.from_results(
-            subject_id=operation.subject_id,
-            subject_state_revision=operation.input_revision,
-            thinking=thinking,
-            perception=perception,
-            current_time=_contract_datetime(progress.action_at),
-            available_permissions=self._available_permissions,
-            resource_limits=self._resource_limits,
-            context_id=progress.action_context_id,
-        )
-        action = self._action.decide(action_context)
+        if progress.action is None:
+            self._record("action")
+            action_context = ActionContext.from_results(
+                subject_id=operation.subject_id,
+                subject_state_revision=operation.input_revision,
+                thinking=thinking,
+                perception=perception,
+                current_time=_contract_datetime(progress.action_at),
+                available_permissions=self._available_permissions,
+                resource_limits=self._resource_limits,
+                context_id=progress.action_context_id,
+            )
+            action = self._action.decide(action_context)
+            progress = replace(
+                progress,
+                stage=IntegrationDomainProgressStage.ACTION_COMPLETED,
+                action=action,
+            )
+            operation = self._save_domain_progress(operation, progress)
+        else:
+            self._record("action_reused")
+            action = progress.action
+        self._fault("after_action_completed", operation)
         response_content = self._reply_composer.compose(thinking, action)
         approved = ApprovedStateAction.from_execution(action)
         checkpoint = IntegrationDomainCheckpoint(
@@ -552,6 +941,91 @@ class ContinuityInteractionService:
             ),
             thinking,
         )
+
+    def _capability_request_for_operation(self, operation: IntegrationOperationRecord):
+        if self._capabilities is None:
+            return None
+        return self._capabilities.find_request_by_operation(operation.operation_id)
+
+    def _capability_status_envelope(
+        self,
+        operation: IntegrationOperationRecord,
+    ) -> CapabilityRequiredEnvelope | CapabilityFailedEnvelope:
+        assert self._capabilities is not None
+        request = self._capability_request_for_operation(operation)
+        if request is None:
+            raise CapabilityValidationError(
+                "waiting operation is missing its CapabilityRequest"
+            )
+        latest = self._capabilities.latest_attempt(request.capability_request_id)
+        if latest is not None and latest.result.status.failed_terminally:
+            return self._capability_failed(operation, latest.result)
+        return self._capability_required(operation, request)
+
+    @staticmethod
+    def _capability_required(operation, request) -> CapabilityRequiredEnvelope:
+        return CapabilityRequiredEnvelope(
+            request_id=operation.request_id,
+            request_hash=operation.request_hash,
+            operation_id=operation.operation_id,
+            subject_id=operation.subject_id,
+            capability_request=request,
+            updated_at=(
+                operation.capability.updated_at
+                if operation.capability is not None
+                else request.created_at
+            ),
+        )
+
+    @staticmethod
+    def _capability_failed(
+        operation: IntegrationOperationRecord,
+        result: CapabilityResult,
+    ) -> CapabilityFailedEnvelope:
+        assert result.error_code is not None
+        assert result.retry_class is not None
+        return CapabilityFailedEnvelope(
+            request_id=operation.request_id,
+            request_hash=operation.request_hash,
+            operation_id=operation.operation_id,
+            subject_id=operation.subject_id,
+            capability_request_id=result.capability_request_id,
+            failure_status=result.status,
+            error_code=result.error_code,
+            retry_class=result.retry_class,
+            updated_at=(
+                operation.capability.updated_at
+                if operation.capability is not None
+                else result.completed_at
+            ),
+        )
+
+    def _validate_capability_thinking(
+        self,
+        session: ThinkSession,
+        *,
+        operation: IntegrationOperationRecord,
+        progress: IntegrationDomainProgress,
+        perception: PerceptionResult,
+        capability_request_id: str,
+    ) -> None:
+        if (
+            session.think_id != progress.think_session_id
+            or session.wake_session_id != progress.wake_session_id
+            or session.subject_id != operation.subject_id
+            or session.provider_id != self._thinking.provider_id
+            or session.capability_request_id != capability_request_id
+            or session.status
+            not in {
+                ThinkSessionStatus.RUNNING,
+                ThinkSessionStatus.WAITING_CAPABILITY,
+                ThinkSessionStatus.COMPLETED,
+            }
+        ):
+            raise CapabilityValidationError(
+                "persisted capability ThinkSession does not match operation identity"
+            )
+        self._validate_thinking_observation(session, perception)
 
     def _prepare_domain_progress(
         self,
@@ -739,7 +1213,11 @@ class ContinuityInteractionService:
         if progress is None:
             return None
         if (
-            progress.stage is not IntegrationDomainProgressStage.THINKING_COMPLETED
+            progress.stage
+            not in {
+                IntegrationDomainProgressStage.THINKING_COMPLETED,
+                IntegrationDomainProgressStage.ACTION_COMPLETED,
+            }
             or progress.perception is None
         ):
             raise RuntimeError(

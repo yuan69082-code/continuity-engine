@@ -18,6 +18,13 @@ class ThinkingDepth(str, Enum):
     DEEP = "DEEP"
 
 
+class ThinkSessionStatus(str, Enum):
+    RUNNING = "RUNNING"
+    WAITING_CAPABILITY = "WAITING_CAPABILITY"
+    COMPLETED = "COMPLETED"
+    FAILED = "FAILED"
+
+
 THINKING_WRITEBACK_SECTIONS = {
     StateSection.CONTINUITY,
     StateSection.INTENTIONS,
@@ -429,6 +436,8 @@ class ThinkSession:
     state_update_id: str | None = None
     error: str | None = None
     perception_snapshot: PerceptionResult | None = None
+    status: ThinkSessionStatus = ThinkSessionStatus.RUNNING
+    capability_request_id: str | None = None
 
     def __post_init__(self) -> None:
         _require_text(self.think_id, "think_id")
@@ -436,6 +445,10 @@ class ThinkSession:
         _require_text(self.subject_id, "think subject_id")
         _require_text(self.provider_id, "think provider_id")
         _require_text(self.thinking_reason, "thinking_reason")
+        if not isinstance(self.status, ThinkSessionStatus):
+            raise ThinkingValidationError("ThinkSession status is invalid")
+        if self.capability_request_id is not None:
+            _require_text(self.capability_request_id, "capability_request_id")
         if self.started_at.tzinfo is None:
             raise ThinkingValidationError("think started_at must include a timezone")
         if self.ended_at is not None and self.ended_at.tzinfo is None:
@@ -462,6 +475,20 @@ class ThinkSession:
                 raise ThinkingValidationError(
                     "a running ThinkSession cannot contain completion fields"
                 )
+            if self.status not in {
+                ThinkSessionStatus.RUNNING,
+                ThinkSessionStatus.WAITING_CAPABILITY,
+            }:
+                raise ThinkingValidationError(
+                    "an unfinished ThinkSession has an invalid status"
+                )
+            if (
+                self.status is ThinkSessionStatus.WAITING_CAPABILITY
+                and self.capability_request_id is None
+            ):
+                raise ThinkingValidationError(
+                    "WAITING_CAPABILITY requires capability_request_id"
+                )
         else:
             if self.ended_at is None or self.result is None or self.state_written_back is None:
                 raise ThinkingValidationError(
@@ -478,6 +505,15 @@ class ThinkSession:
             if self.result.token_budget != self.token_budget:
                 raise ThinkingValidationError(
                     "ThinkSession result budget does not match session budget"
+                )
+            expected_status = (
+                ThinkSessionStatus.COMPLETED
+                if self.completed_successfully
+                else ThinkSessionStatus.FAILED
+            )
+            if self.status is not expected_status:
+                raise ThinkingValidationError(
+                    "final ThinkSession status does not match its completion result"
                 )
         if self.perception_snapshot is not None:
             if self.perception_snapshot.subject_id != self.subject_id:
@@ -549,6 +585,7 @@ class ThinkSession:
         self.state_event_id = state_event_id
         self.state_update_id = state_update_id
         self.error = None
+        self.status = ThinkSessionStatus.COMPLETED
 
     def fail(
         self,
@@ -573,6 +610,29 @@ class ThinkSession:
         self.state_event_id = state_event_id
         self.state_update_id = state_update_id
         self.error = _require_text(error, "ThinkSession error")
+        self.status = ThinkSessionStatus.FAILED
+
+    def wait_for_capability(self, capability_request_id: str) -> None:
+        if self.status is not ThinkSessionStatus.RUNNING:
+            raise ThinkingValidationError(
+                "only a running ThinkSession can wait for capability"
+            )
+        self.capability_request_id = _require_text(
+            capability_request_id,
+            "capability_request_id",
+        )
+        self.status = ThinkSessionStatus.WAITING_CAPABILITY
+
+    def resume_from_capability(self) -> None:
+        if self.status is not ThinkSessionStatus.WAITING_CAPABILITY:
+            raise ThinkingValidationError(
+                "only a waiting ThinkSession can resume from capability"
+            )
+        if self.capability_request_id is None:
+            raise ThinkingValidationError(
+                "capability resume requires capability_request_id"
+            )
+        self.status = ThinkSessionStatus.RUNNING
 
     def to_dict(self) -> dict[str, JsonValue]:
         return {
@@ -597,6 +657,8 @@ class ThinkSession:
                 else None
             ),
             "error": self.error,
+            "status": self.status.value,
+            "capability_request_id": self.capability_request_id,
         }
 
     @classmethod
@@ -607,6 +669,20 @@ class ThinkSession:
         assert started_at is not None
         raw_result = value.get("result")
         raw_perception = value.get("perception_snapshot")
+        raw_status = value.get("status")
+        if raw_status is None:
+            completed = value.get("completed_successfully")
+            raw_status = (
+                ThinkSessionStatus.COMPLETED.value
+                if completed is True
+                else ThinkSessionStatus.FAILED.value
+                if completed is False
+                else ThinkSessionStatus.RUNNING.value
+            )
+        try:
+            status = ThinkSessionStatus(raw_status)
+        except (TypeError, ValueError) as exc:
+            raise ThinkingValidationError("ThinkSession status is invalid") from exc
         return cls(
             think_id=value.get("think_id"),
             wake_session_id=value.get("wake_session_id"),
@@ -629,6 +705,8 @@ class ThinkSession:
                 else None
             ),
             error=value.get("error"),
+            status=status,
+            capability_request_id=value.get("capability_request_id"),
         )
 
 

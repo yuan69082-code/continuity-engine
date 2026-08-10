@@ -154,6 +154,22 @@ class IntegrationExecutionError(MachineContractError):
         self.stage = stage
 
 
+class CapabilityError(ContinuityEngineError):
+    """Base error for the independent capability pause/resume protocol."""
+
+
+class CapabilityValidationError(CapabilityError):
+    """Raised when a capability document violates its strict machine contract."""
+
+
+class CapabilityConflictError(CapabilityError):
+    """Raised when an immutable capability identity is reused inconsistently."""
+
+
+class CapabilityNotFoundError(CapabilityError):
+    """Raised when a capability result cannot be associated with a request."""
+
+
 # Backward-compatible E3 name.  The execution fault now belongs to the shared
 # integration core rather than to the test adapter.
 ContractTestExecutionError = IntegrationExecutionError

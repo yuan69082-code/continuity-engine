@@ -171,6 +171,20 @@ class DeterministicThinkingProvider:
         )
 
 
+class DeferredCapabilityThinkingProvider:
+    """Identity-only provider seam; E5 never calls an external model here."""
+
+    @property
+    def provider_id(self) -> str:
+        return "vio-capability-model-provider"
+
+    def think(self, perception: PerceptionResult, budget: TokenBudget) -> ThinkingResult:
+        del perception, budget
+        raise RuntimeError(
+            "capability mode must pause and must not invoke a ThinkingProvider"
+        )
+
+
 class DeterministicContractReplyComposer:
     """Compose a stable expression from completed Thinking and Action."""
 
@@ -196,3 +210,25 @@ class DeterministicContractReplyComposer:
         ):
             return "The continuity test focus was approved for bounded evolution."
         return "The message was perceived; no continuity state change was approved."
+
+
+class CapabilityContractReplyComposer:
+    """Approve expression only after interpreted Thinking and Action have completed."""
+
+    def compose(
+        self,
+        thinking: ThinkingExecutionResult,
+        action: ActionExecutionResult,
+    ) -> str:
+        result = thinking.session.result
+        if result is None or not thinking.session.completed_successfully:
+            raise ValueError("reply composition requires completed Thinking")
+        if result.update_subject_state or result.proposed_mutations:
+            raise ValueError(
+                "E5 model capability output cannot propose SubjectState changes"
+            )
+        if action.decision.selected_action.action_type is not ActionType.NO_ACTION:
+            raise ValueError(
+                "E5 expression-only capability must pass a NO_ACTION decision"
+            )
+        return result.result_summary

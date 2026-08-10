@@ -28,12 +28,14 @@
 - 第一轮双方 test-only 共享验收：Vio 的持久化 V1 请求已通过 JSONL Runner 进入真实 Engine E3，结果由 Vio V2 严格验证并持久化；幂等、revision、投影唯一性、四类错误和双方重启恢复均已完成端到端验证。
 - 正式本地集成服务（Engine E4）：`ContinuityInteractionService` 是测试与正式 Adapter 共用的唯一处理链；显式 `init` 持久化单一 active SubjectBinding；正式 HTTP/JSON 服务只监听 `127.0.0.1:8766`，提供提交、结果/恢复查询和最小健康检查，并以串行请求、Bearer 服务令牌、1 MiB 上限、默认 10 秒读取超时和“一请求一连接”的严格 JSON 传输边界保护本地入口。domain 子阶段现持久化稳定恢复身份和 Wake/Perception/Thinking checkpoint；重启会复用已完成 WakeSession、ThinkSession/ThinkingResult，并继续沿用稳定 Action、Event、StateUpdateRecord 和最终结果身份。
 - 第一阶段正式本地回环连接验收：以 Engine `189441f9bad2a34119b4ef10365a4385ed0949cc` 和 Vio `35780da56c72b822fc018702dfe5e90674ab0fcb` 为基线，Vio 的真实持久化请求已通过 V3 HTTP transport 进入独立运行的 Engine E4；S2/S3 覆盖 completed、not_found、recovery_required、响应丢失以及双方分别或同时重启，稳定身份、领域经历、状态演化、投影和双方账本均未重复。
+- Durable Capability 暂停/恢复核心（Engine E5-A）：新增独立版本化 `CapabilityRequest`、`CapabilityResult` 和受约束模型输出 Schema；capability 模式会在 Perception 后持久化请求并将原 ThinkSession 置为 `WAITING_CAPABILITY`，通过同一 E4 HTTP 服务返回 `capability_required`。合法结果在写入 capability ledger 前必须通过严格 Schema、去除首尾空白后的非空输出、身份/hash 和请求时间一致性校验，再经结果解释器、原 ThinkSession、Action Gate 和 ReplyComposer 形成最终结果；operation journal format v3 还持久化已完成的 `ActionExecutionResult`，使 Action 完成后、domain checkpoint 前崩溃也能直接复用而不再次决策。capability ledger 与 journal 共同支持跨重启恢复和精确重放。重复 `init` 会按既有持久化历史选择校验模式，只验证或补齐允许的空 capability ledger，不改写任何身份、状态或历史；`serve` 的模式保护不变。该能力仅完成 Engine 侧协议与暂停—恢复核心，不代表 Vio V4 或真实模型已经接入。
 
 其中 Memory、Awakening、Thinking、Learning、Resource Management、接口和前端属于“内部结构或本地原型已完成，真实外部集成仍未完成”。Action 完成的是决策规划层，不包含执行层。
 
 ### 尚未实现
 
 - 真实 GPT、Claude 或其他模型 Provider 接入。
+- Vio V4 对 CapabilityRequest/CapabilityResult 的现实权限、安全确认、供应商路由、调用与 Token 账本实现。
 - 真实 MCP 连接或 MCP 协议传输。
 - ChatGPT、Claude 或其他平台的真实 Skill 接入。
 - 外部长期记忆库、向量库或记忆数据库。
@@ -56,9 +58,11 @@ Engine E1、E2、E3 的完成基线依次为 `ac61e78`、`d1a96b1`、`c732f35`�
 
 Engine E4 随后完成 Engine 侧正式本地 HTTP/JSON Adapter。Vio V3 首次在 Engine `c5ebbf9b7583f3fb50198a3bf37ea0553edc131f` 上执行 S3 时，发现完成 Wake/Thinking 后、operation domain checkpoint 前退出无法恢复的缺陷；该失败保留为历史。Engine 通过 D-032 完成定点修复并以 `189441f9bad2a34119b4ef10365a4385ed0949cc` 提交，Vio 在 `35780da56c72b822fc018702dfe5e90674ab0fcb` 上重新执行正式 S2/S3。第一阶段正式本地回环 HTTP/JSON 双方验收现已通过：S2+S3 为 15/15，Vio V1+RFC 8785+V2+V3 为 64/64，Vio 后端全量为 113/113，Engine crash-recovery 为 15/15、E4 为 67/67、全量为 301/301。机器契约决定见 [`D-025`](docs/project_memory/04_决策记录.md)，E1—E3 与 Runner 边界见 `D-026`—`D-029`，test-only 共享验收见 `D-030`，E4 与 durable recovery 见 `D-031`、`D-032`，正式本地双方验收里程碑见 `D-033`。
 
+2026-08-10，Engine E5-A 在 E4 基础上完成 Engine 侧 durable Capability 暂停/恢复核心，并完成空白成功结果、结果时间倒序和 Capability 历史目录重复初始化的定点修正。它使用独立的 `continuity-capability/v1` 协议，不修改 v1.1；默认 deterministic 模式保持 E4 行为，显式 capability 模式只生成可持久化、可查询的模型能力请求，不调用外部供应商。E5-A 专项测试为 54 项，完整测试基线为 355 项。架构决定见 `D-034`。Vio V4、真实模型、公共对话 API 和前端接线仍未开始。
+
 ## 当前开发阶段
 
-第一轮机器契约、Engine E1/E2/E3、test-only JSONL Runner、双方 test-only 共享验收、Engine E4 以及 Vio × Engine 第一阶段正式本地回环 HTTP/JSON 双方验收均已完成；当前 Engine 完整测试基线为 301 项。E4 已建立正式本地服务进程，并补强 HTTP/1.1 传输和 domain 子阶段 crash recovery：operation journal 先保存稳定恢复身份，WakeSession/ThinkSession 保存必要结构化快照，已完成 Wake/Thinking 在重启后复用，Evolution 和 completed result 继续保持单次提交与精确重放。下一阶段尚未开始，仍需双方另行确定生产形态 Integration Adapter、真实模型、Vio 公共对话 API 和前端数据链路的施工边界与顺序；本地回环验收通过不表示这些能力已实现，也不授权新阶段施工。
+第一轮机器契约、Engine E1/E2/E3、test-only JSONL Runner、双方 test-only 共享验收、Engine E4、Vio × Engine 第一阶段正式本地回环验收以及 Engine E5-A 均已完成；当前 Engine 完整测试基线为 355 项。E5-A 只完成 Engine 内部 durable CapabilityRequest/CapabilityResult 暂停—恢复、查询、幂等和崩溃恢复，不调用真实模型，也未修改 Vio。当前 E5-A 工作区等待用户最终复核与 Git 同步；Vio V4 和双方 Capability 共享验收须另行决定并授权，公共对话 API、前端真实链路、外网与生产部署仍未开始。
 
 第一阶段已经完成：
 
@@ -472,6 +476,7 @@ src/continuity_engine/
 │   ├── integration_contract.py # E1 类型化请求、事实、观察与绑定 fixture
 │   ├── integration_hashing.py # E1/E2 共用 RFC 8785 与 SHA-256 规则
 │   ├── integration_results.py # E2 结果/投影与 E3/E4 durable operation checkpoint
+│   ├── capability.py  # E5-A Capability 请求、结果、状态与 envelope
 │   ├── subject_binding.py # E4 正式运行 SubjectBinding
 │   └── errors.py       # 领域异常
 ├── services/
@@ -498,6 +503,10 @@ src/continuity_engine/
 │   ├── deterministic_integration_providers.py # E4 正式进程内确定性 Provider
 │   ├── integration_ports.py # E4 Binding/回复端口
 │   ├── continuity_interaction_service.py # E3/E4 共用的唯一交互核心
+│   ├── capability_ports.py # E5-A Capability 持久化端口
+│   ├── capability_contract_validation.py # E5-A 严格机器契约校验
+│   ├── capability_coordination_service.py # E5-A 请求创建、结果接收与幂等协调
+│   ├── capability_result_interpreter.py # E5-A 外部结果进入 Thinking 的解释边界
 │   ├── action_evolution_service.py # Action Gate 授权后的统一 Evolution 入口
 │   ├── user_interaction_service.py # 用户输入转 Event 并运行连续性流程
 │   ├── wake_perception_thinking_action_service.py # 第七阶段完整编排
@@ -528,7 +537,8 @@ src/continuity_engine/
 │   ├── integration_config.py # 仅回环地址、端口与令牌配置
 │   ├── local_integration_app.py # E4 正式初始化、恢复与装配
 │   ├── integration_http_server.py # E4 串行 HTTP/JSON 服务
-│   ├── schemas/        # E1 三份 Draft 2020-12 Schema 单一权威来源
+│   ├── capability_schema.py # E5-A 封闭本地 Schema registry
+│   ├── schemas/        # E1 与 E5-A 的 Draft 2020-12 Schema
 │   └── local_frontend_app.py # 本地依赖组装与显式初始化
 ├── frontend/
 │   ├── index.html      # 最小聊天与状态调试界面
@@ -539,7 +549,7 @@ src/continuity_engine/
 ├── integration_server.py # E4 显式 init/serve 进程入口
 ├── cli.py              # 本地验证入口
 └── __main__.py         # python -m continuity_engine
-tests/                  # 单元测试；含 E1—E4、HTTP、持久化与 crash recovery 测试
+tests/                  # 单元测试；含 E1—E5-A、HTTP、持久化与 crash recovery 测试
 └── shared/             # test-only JSONL Runner 与真实 E3 装配辅助
 ```
 
@@ -687,7 +697,7 @@ $env:PYTHONPATH = "src"
 python -m unittest discover -s tests -v
 ```
 
-当前测试基线：301 项（原 286 项基线继续通过；E4 正式核心、Binding/init 与 HTTP 专项 67 项，新增 crash-recovery 专项 15 项，合计 E4 相关 82 项）。
+当前测试基线：355 项（E5-A 专项 54 项；原 301 项基线继续全部通过）。
 
 正式本地集成服务必须先显式初始化，再使用至少 32 字符的进程环境令牌启动：
 
@@ -704,6 +714,17 @@ python -m continuity_engine.integration_server serve `
   --data-dir <Engine正式本地数据目录> `
   --port 8766
 ```
+
+默认 `serve` 继续使用 `deterministic` 模式。仅在 Engine E5-A 验证场景中显式启用 capability 模式：
+
+```powershell
+python -m continuity_engine.integration_server serve `
+  --data-dir <Engine正式本地数据目录> `
+  --port 8766 `
+  --thinking-mode capability
+```
+
+capability 模式新增 `POST /internal/v1/continuity/capability-results`，并通过既有请求查询路由返回 `capability_required`、`capability_failed` 或完成结果。它不会自行联网或调用模型；真实执行方未来由 Vio 提供。
 
 该服务固定监听 `127.0.0.1`，不会隐式初始化，也不向浏览器前端开放。所有响应都声明 `Connection: close` 并结束当前连接；每条连接默认使用 10 秒有界读取超时，普通超时、提前断连和可安全响应的解析错误不会产生 HTML 错误页或 Python traceback。当前确定性 Memory/Thinking/Reply/Token Provider 不是 GPT、Claude 或其他真实模型接入。Vio V3 与 Engine E4 的第一阶段正式本地回环 HTTP/JSON 双方验收已经通过；该结论不等于外网连接、生产部署、公共对话 API 串联或前端真实数据链路已经完成。
 

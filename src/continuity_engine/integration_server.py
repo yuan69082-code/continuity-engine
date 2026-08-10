@@ -4,6 +4,8 @@ import argparse
 import sys
 from pathlib import Path
 
+from continuity_engine.domain.capability import IntegrationThinkingMode
+
 from continuity_engine.interfaces.integration_config import (
     DEFAULT_INTEGRATION_PORT,
     IntegrationConfigurationError,
@@ -28,6 +30,11 @@ def _parser() -> argparse.ArgumentParser:
     serve = commands.add_parser("serve", help="serve the loopback-only integration API")
     serve.add_argument("--data-dir", type=Path, required=True)
     serve.add_argument("--port", type=int, default=DEFAULT_INTEGRATION_PORT)
+    serve.add_argument(
+        "--thinking-mode",
+        choices=[item.value for item in IntegrationThinkingMode],
+        default=IntegrationThinkingMode.DETERMINISTIC.value,
+    )
     return parser
 
 
@@ -46,8 +53,12 @@ def main(argv: list[str] | None = None) -> int:
         config = IntegrationServerConfig.from_environment(
             data_dir=args.data_dir,
             port=args.port,
+            thinking_mode=IntegrationThinkingMode(args.thinking_mode),
         )
-        app = build_local_integration_app(config.data_dir)
+        app = build_local_integration_app(
+            config.data_dir,
+            thinking_mode=config.thinking_mode,
+        )
         server = LocalIntegrationHTTPServer(config, app)
         try:
             print(

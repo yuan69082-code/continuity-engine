@@ -7,6 +7,10 @@ from continuity_engine.domain.integration_results import (
     FirstRoundSuccessResult,
     IntegrationRequestQueryResult,
 )
+from continuity_engine.domain.capability import (
+    CapabilityFailedEnvelope,
+    CapabilityRequiredEnvelope,
+)
 from continuity_engine.services.continuity_interaction_service import (
     ContinuityInteractionService,
 )
@@ -22,8 +26,30 @@ class IntegrationAdapter:
     def service(self) -> ContinuityInteractionService:
         return self._service
 
-    def submit(self, payload: Any) -> FirstRoundSuccessResult | FirstRoundErrorEnvelope:
+    def submit(
+        self,
+        payload: Any,
+    ) -> (
+        FirstRoundSuccessResult
+        | FirstRoundErrorEnvelope
+        | CapabilityRequiredEnvelope
+        | CapabilityFailedEnvelope
+    ):
         return self._service.submit(payload)
 
-    def query_request(self, request_id: str) -> IntegrationRequestQueryResult | None:
+    def query_request(
+        self,
+        request_id: str,
+    ) -> (
+        IntegrationRequestQueryResult
+        | CapabilityRequiredEnvelope
+        | CapabilityFailedEnvelope
+        | None
+    ):
         return self._service.query_request(request_id)
+
+    def submit_capability_result(
+        self,
+        payload: Any,
+    ) -> FirstRoundSuccessResult | CapabilityRequiredEnvelope | CapabilityFailedEnvelope:
+        return self._service.submit_capability_result(payload)

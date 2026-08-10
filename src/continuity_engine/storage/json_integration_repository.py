@@ -7,10 +7,19 @@ from tempfile import NamedTemporaryFile
 from typing import Any
 
 from continuity_engine.domain.errors import (
+    CapabilityConflictError,
+    CapabilityValidationError,
     IntegrationLedgerConflictError,
     IntegrationPersistenceError,
     IntegrationRecordNotFoundError,
     MachineContractValidationError,
+)
+from continuity_engine.domain.capability import (
+    CapabilityAttempt,
+    CapabilityRequest,
+    CapabilityResult,
+    CapabilityStatus,
+    calculate_capability_result_hash,
 )
 from continuity_engine.domain.integration_contract import SubjectBindingFixture
 from continuity_engine.domain.integration_hashing import (
@@ -31,10 +40,12 @@ from continuity_engine.domain.integration_results import (
 
 BINDING_PERSISTENCE_FORMAT_VERSION = 1
 LEDGER_PERSISTENCE_FORMAT_VERSION = 1
-OPERATION_JOURNAL_FORMAT_VERSION = 2
+OPERATION_JOURNAL_FORMAT_VERSION = 3
+CAPABILITY_LEDGER_FORMAT_VERSION = 1
 _BINDING_FILE_NAME = "subject-binding.first-round-v1.json"
 _LEDGER_FILE_NAME = "result-ledger.first-round-v1.json"
 _OPERATION_FILE_NAME = "operation-journal.first-round-v1.json"
+_CAPABILITY_FILE_NAME = "capability-ledger.v1.json"
 
 
 def _strict_document(
@@ -192,6 +203,7 @@ class JsonIntegrationResultLedger:
     def __init__(self, root: str | Path) -> None:
         self._path = Path(root) / "integration" / _LEDGER_FILE_NAME
         self._operation_path = Path(root) / "integration" / _OPERATION_FILE_NAME
+        self._capability_path = Path(root) / "integration" / _CAPABILITY_FILE_NAME
 
     @property
     def path(self) -> Path:
@@ -200,6 +212,10 @@ class JsonIntegrationResultLedger:
     @property
     def operation_path(self) -> Path:
         return self._operation_path
+
+    @property
+    def capability_path(self) -> Path:
+        return self._capability_path
 
     def lookup(self, request_id: str, request_hash: str) -> LedgerLookupResult:
         if not isinstance(request_id, str) or not request_id.strip():
@@ -262,6 +278,7 @@ class JsonIntegrationResultLedger:
                 },
                 name="first-round operation journal",
             )
+            self.initialize_capabilities()
         except Exception:
             try:
                 self._path.unlink()
@@ -276,6 +293,227 @@ class JsonIntegrationResultLedger:
             )
         self._load_results()
         self._load_operations()
+        if self._capability_path.exists():
+            self.validate_capability_initialized()
+
+    def initialize_capabilities(self) -> None:
+        if self._capability_path.exists():
+            self.validate_capability_initialized()
+            return
+        _atomic_write_json(
+            self._capability_path,
+            {
+                "capabilityLedgerFormatVersion": CAPABILITY_LEDGER_FORMAT_VERSION,
+                "requests": [],
+                "attempts": [],
+            },
+            name="capability ledger",
+        )
+
+    def validate_capability_initialized(self) -> None:
+        if not self._capability_path.exists():
+            raise IntegrationRecordNotFoundError(
+                "capability ledger has not been initialized"
+            )
+        self._load_capability_document()
+
+    def save_capability_request(self, request: CapabilityRequest) -> None:
+        if not isinstance(request, CapabilityRequest):
+            raise IntegrationPersistenceError(
+                "capability ledger accepts CapabilityRequest values"
+            )
+        requests, attempts = self._load_capability_document()
+        for existing in requests:
+            same_identity = (
+                existing.capability_request_id == request.capability_request_id
+                or existing.operation_id == request.operation_id
+                or existing.request_id == request.request_id
+            )
+            if not same_identity:
+                continue
+            if existing != request:
+                raise CapabilityConflictError(
+                    "an immutable CapabilityRequest cannot be changed"
+                )
+            return
+        requests.append(request)
+        self._write_capability_document(requests, attempts)
+
+    def load_capability_request(
+        self,
+        capability_request_id: str,
+    ) -> CapabilityRequest | None:
+        requests, _ = self._load_capability_document()
+        return next(
+            (
+                item for item in requests
+                if item.capability_request_id == capability_request_id
+            ),
+            None,
+        )
+
+    def find_capability_request_by_operation(
+        self,
+        operation_id: str,
+    ) -> CapabilityRequest | None:
+        requests, _ = self._load_capability_document()
+        return next((item for item in requests if item.operation_id == operation_id), None)
+
+    def save_capability_result(
+        self,
+        result: CapabilityResult,
+        *,
+        received_at: str,
+    ) -> CapabilityAttempt:
+        if not isinstance(result, CapabilityResult):
+            raise IntegrationPersistenceError(
+                "capability ledger accepts CapabilityResult values"
+            )
+        requests, attempts = self._load_capability_document()
+        request = next(
+            (
+                item for item in requests
+                if item.capability_request_id == result.capability_request_id
+            ),
+            None,
+        )
+        if request is None:
+            raise IntegrationRecordNotFoundError(
+                "CapabilityResult references an unknown CapabilityRequest"
+            )
+        result_hash = calculate_capability_result_hash(result)
+        for attempt in attempts:
+            if attempt.result.capability_result_id != result.capability_result_id:
+                continue
+            if attempt.result_hash != result_hash or attempt.result != result:
+                raise CapabilityConflictError(
+                    "capabilityResultId was reused with different content"
+                )
+            return attempt
+        request_attempts = [
+            item for item in attempts
+            if item.result.capability_request_id == result.capability_request_id
+        ]
+        if any(item.result.status is CapabilityStatus.SUCCEEDED for item in request_attempts):
+            raise CapabilityConflictError(
+                "a CapabilityRequest can accept only one successful result"
+            )
+        if any(item.result.status.failed_terminally for item in request_attempts):
+            raise CapabilityConflictError(
+                "a terminal CapabilityRequest cannot accept another result"
+            )
+        attempt = CapabilityAttempt(
+            result_hash=result_hash,
+            received_at=received_at,
+            result=result,
+        )
+        attempts.append(attempt)
+        self._write_capability_document(requests, attempts)
+        return attempt
+
+    def list_capability_attempts(
+        self,
+        capability_request_id: str,
+    ) -> list[CapabilityAttempt]:
+        _, attempts = self._load_capability_document()
+        return [
+            item for item in attempts
+            if item.result.capability_request_id == capability_request_id
+        ]
+
+    def _load_capability_document(
+        self,
+    ) -> tuple[list[CapabilityRequest], list[CapabilityAttempt]]:
+        if not self._capability_path.exists():
+            raise IntegrationRecordNotFoundError(
+                "capability ledger has not been initialized"
+            )
+        raw = _read_json(self._capability_path, name="capability ledger")
+        document = _strict_document(
+            raw,
+            name="capability ledger document",
+            expected_keys={"capabilityLedgerFormatVersion", "requests", "attempts"},
+        )
+        if document["capabilityLedgerFormatVersion"] != CAPABILITY_LEDGER_FORMAT_VERSION:
+            raise IntegrationPersistenceError(
+                "unsupported capability ledger format version"
+            )
+        if not isinstance(document["requests"], list) or not isinstance(
+            document["attempts"], list
+        ):
+            raise IntegrationPersistenceError(
+                "capability requests and attempts must be arrays"
+            )
+        try:
+            requests = [CapabilityRequest.from_dict(item) for item in document["requests"]]
+            attempts = [CapabilityAttempt.from_dict(item) for item in document["attempts"]]
+        except CapabilityValidationError as exc:
+            raise IntegrationPersistenceError(
+                f"persisted capability record is invalid: {exc}"
+            ) from exc
+        request_ids: set[str] = set()
+        operation_ids: set[str] = set()
+        result_ids: set[str] = set()
+        request_by_id = {item.capability_request_id: item for item in requests}
+        for request in requests:
+            if request.capability_request_id in request_ids or request.operation_id in operation_ids:
+                raise IntegrationPersistenceError(
+                    "capability ledger contains duplicate request identities"
+                )
+            request_ids.add(request.capability_request_id)
+            operation_ids.add(request.operation_id)
+        successful_requests: set[str] = set()
+        terminal_requests: set[str] = set()
+        for attempt in attempts:
+            result = attempt.result
+            if result.capability_result_id in result_ids:
+                raise IntegrationPersistenceError(
+                    "capability ledger contains duplicate capabilityResultId values"
+                )
+            result_ids.add(result.capability_result_id)
+            request = request_by_id.get(result.capability_request_id)
+            if request is None or any(
+                (
+                    result.operation_id != request.operation_id,
+                    result.request_id != request.request_id,
+                    result.request_hash != request.request_hash,
+                    result.subject_id != request.subject_id,
+                    result.binding_id != request.binding_id,
+                    result.binding_version != request.binding_version,
+                    result.capability_type != request.capability_type,
+                )
+            ):
+                raise IntegrationPersistenceError(
+                    "CapabilityResult does not match its persisted request"
+                )
+            if result.status is CapabilityStatus.SUCCEEDED:
+                if result.capability_request_id in successful_requests:
+                    raise IntegrationPersistenceError(
+                        "capability ledger contains multiple successful results"
+                    )
+                successful_requests.add(result.capability_request_id)
+            if result.status.failed_terminally:
+                if result.capability_request_id in terminal_requests:
+                    raise IntegrationPersistenceError(
+                        "capability ledger contains multiple terminal results"
+                    )
+                terminal_requests.add(result.capability_request_id)
+        return requests, attempts
+
+    def _write_capability_document(
+        self,
+        requests: list[CapabilityRequest],
+        attempts: list[CapabilityAttempt],
+    ) -> None:
+        _atomic_write_json(
+            self._capability_path,
+            {
+                "capabilityLedgerFormatVersion": CAPABILITY_LEDGER_FORMAT_VERSION,
+                "requests": [item.to_dict() for item in requests],
+                "attempts": [item.to_dict() for item in attempts],
+            },
+            name="capability ledger",
+        )
 
     def load_operation(self, request_id: str) -> IntegrationOperationRecord | None:
         if not isinstance(request_id, str) or not request_id.strip():
@@ -368,7 +606,7 @@ class JsonIntegrationResultLedger:
             name="first-round operation journal document",
             expected_keys={"operationJournalFormatVersion", "operations"},
         )
-        if document["operationJournalFormatVersion"] not in (1, 2):
+        if document["operationJournalFormatVersion"] not in (1, 2, 3):
             raise IntegrationPersistenceError(
                 "unsupported first-round operation journal format version"
             )
@@ -446,9 +684,10 @@ class JsonIntegrationResultLedger:
             )
         order = {
             IntegrationOperationStage.RESERVED: 0,
-            IntegrationOperationStage.DOMAIN_COMPLETED: 1,
-            IntegrationOperationStage.EVOLUTION_COMMITTED: 2,
-            IntegrationOperationStage.COMPLETED: 3,
+            IntegrationOperationStage.WAITING_CAPABILITY: 1,
+            IntegrationOperationStage.DOMAIN_COMPLETED: 2,
+            IntegrationOperationStage.EVOLUTION_COMMITTED: 3,
+            IntegrationOperationStage.COMPLETED: 4,
         }
         if order[current.stage] < order[previous.stage]:
             raise IntegrationLedgerConflictError(
@@ -458,6 +697,33 @@ class JsonIntegrationResultLedger:
             raise IntegrationLedgerConflictError(
                 "a persisted domain checkpoint cannot be changed"
             )
+        if previous.capability is not None:
+            if current.capability is None:
+                raise IntegrationLedgerConflictError(
+                    "a durable capability checkpoint cannot be removed"
+                )
+            if (
+                previous.capability.capability_request_id
+                != current.capability.capability_request_id
+            ):
+                raise IntegrationLedgerConflictError(
+                    "capabilityRequestId cannot be changed"
+                )
+            if previous.capability.status is CapabilityStatus.SUCCEEDED and (
+                current.capability.accepted_result_id
+                != previous.capability.accepted_result_id
+                or current.capability.accepted_result_hash
+                != previous.capability.accepted_result_hash
+            ):
+                raise IntegrationLedgerConflictError(
+                    "an accepted CapabilityResult cannot be changed"
+                )
+            if previous.capability.status.failed_terminally and (
+                current.capability != previous.capability
+            ):
+                raise IntegrationLedgerConflictError(
+                    "a terminal capability checkpoint cannot be changed"
+                )
         if previous.domain_progress is not None:
             if current.domain_progress is None:
                 raise IntegrationLedgerConflictError(
@@ -486,6 +752,7 @@ class JsonIntegrationResultLedger:
                 "wake_completed": 1,
                 "perception_completed": 2,
                 "thinking_completed": 3,
+                "action_completed": 4,
             }
             if (
                 progress_order[current.domain_progress.stage.value]
@@ -500,6 +767,7 @@ class JsonIntegrationResultLedger:
                 "perception_at",
                 "action_at",
                 "response_completed_at",
+                "action",
             ):
                 previous_value = getattr(previous.domain_progress, field)
                 if (

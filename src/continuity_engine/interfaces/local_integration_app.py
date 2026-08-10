@@ -9,6 +9,7 @@ from uuid import uuid4
 
 from continuity_engine.domain.action import PermissionGrant
 from continuity_engine.domain.awakening import AwakeCycle, AwakeMode
+from continuity_engine.domain.capability import IntegrationThinkingMode
 from continuity_engine.domain.errors import IntegrationPersistenceError
 from continuity_engine.domain.integration_hashing import calculate_state_hash
 from continuity_engine.domain.subject_binding import SubjectBinding
@@ -17,6 +18,9 @@ from continuity_engine.services.action_evolution_service import ActionEvolutionS
 from continuity_engine.services.action_permissions import InMemoryPermissionProvider
 from continuity_engine.services.action_service import ActionService
 from continuity_engine.services.awakening_service import AwakeningService
+from continuity_engine.services.capability_coordination_service import (
+    CapabilityCoordinationService,
+)
 from continuity_engine.services.continuity_interaction_service import ContinuityInteractionService
 from continuity_engine.services.deterministic_integration_providers import (
     DeterministicContractReplyComposer,
@@ -24,6 +28,8 @@ from continuity_engine.services.deterministic_integration_providers import (
     DeterministicMemoryRetriever,
     DeterministicThinkingProvider,
     DeterministicTokenBudgetManager,
+    DeferredCapabilityThinkingProvider,
+    CapabilityContractReplyComposer,
 )
 from continuity_engine.services.integration_contract_validation import MachineContractValidator
 from continuity_engine.services.memory_service import MemoryService
@@ -50,6 +56,7 @@ class LocalIntegrationApp:
     awakening_repository: JsonAwakeningRepository
     ledger: JsonIntegrationResultLedger
     data_dir: Path
+    thinking_mode: IntegrationThinkingMode
 
     def assert_ready(self) -> None:
         binding = JsonSubjectBindingRepository(self.data_dir).load_active()
@@ -60,6 +67,9 @@ class LocalIntegrationApp:
         if cycle.subject_id != binding.subject_id or cycle.mode is not AwakeMode.MANUAL:
             raise LocalIntegrationInitializationError("runtime AwakeCycle is inconsistent")
         self.ledger.validate_initialized()
+        capability_ledger_exists = self.ledger.capability_path.exists()
+        if self.thinking_mode is IntegrationThinkingMode.CAPABILITY:
+            self.ledger.validate_capability_initialized()
         updates = self.subject_states.get_update_history(binding.subject_id)
         update_ids = {item.update_id for item in updates}
         operations = self.ledger.list_operations()
@@ -77,6 +87,52 @@ class LocalIntegrationApp:
             ):
                 raise LocalIntegrationInitializationError(
                     "completed operation is missing its immutable result"
+                )
+            capability_request = (
+                self.ledger.find_capability_request_by_operation(operation.operation_id)
+                if capability_ledger_exists
+                else None
+            )
+            attempts = (
+                self.ledger.list_capability_attempts(
+                    capability_request.capability_request_id
+                )
+                if capability_request is not None
+                else []
+            )
+            if self.thinking_mode is IntegrationThinkingMode.DETERMINISTIC:
+                if capability_request is not None or operation.capability is not None:
+                    raise LocalIntegrationInitializationError(
+                        "capability operation cannot run in deterministic mode"
+                    )
+            elif (
+                operation.stage.value == "waiting_capability"
+                and capability_request is None
+            ):
+                raise LocalIntegrationInitializationError(
+                    "waiting operation is missing its CapabilityRequest"
+                )
+            elif operation.capability is not None and (
+                capability_request is None
+                or operation.capability.capability_request_id
+                != capability_request.capability_request_id
+            ):
+                raise LocalIntegrationInitializationError(
+                    "operation capability checkpoint conflicts with its request"
+                )
+            elif operation.capability is not None and (
+                operation.capability.status.value != "PROPOSED"
+                and not any(
+                    attempt.result.capability_result_id
+                    == operation.capability.accepted_result_id
+                    and attempt.result_hash
+                    == operation.capability.accepted_result_hash
+                    and attempt.result.status is operation.capability.status
+                    for attempt in attempts
+                )
+            ):
+                raise LocalIntegrationInitializationError(
+                    "operation capability checkpoint references an unknown result"
                 )
         for result in results:
             operation = operations_by_request.get(result.request_id)
@@ -155,6 +211,7 @@ def initialize_local_integration(
     root = _validate_data_dir(Path(data_dir))
     binding = _read_binding_file(Path(binding_file), binding_fixture_hash, cycle_id)
     empty = not root.exists() or next(root.iterdir(), None) is None
+    validation_mode = IntegrationThinkingMode.DETERMINISTIC
     if empty:
         root.mkdir(parents=True, exist_ok=True)
         subject_states = SubjectStateService(JsonSubjectStateRepository(root / "subject-state"))
@@ -190,10 +247,41 @@ def initialize_local_integration(
             raise LocalIntegrationInitializationError(
                 "existing data directory uses a different immutable binding"
             )
-    app = build_local_integration_app(root)
+        ledger = JsonIntegrationResultLedger(root)
+        validation_mode = _persisted_thinking_mode(ledger)
+        existing_app = build_local_integration_app(
+            root,
+            thinking_mode=validation_mode,
+        )
+        if existing_app.binding != binding:
+            raise LocalIntegrationInitializationError(
+                "existing data directory uses an inconsistent binding"
+            )
+        existing_app.ledger.initialize_capabilities()
+    app = build_local_integration_app(root, thinking_mode=validation_mode)
     if app.binding != binding:
         raise LocalIntegrationInitializationError("initialized binding does not match")
     return binding
+
+
+def _persisted_thinking_mode(
+    ledger: JsonIntegrationResultLedger,
+) -> IntegrationThinkingMode:
+    """Select only the mode needed to validate existing durable history."""
+
+    operations = ledger.list_operations()
+    capability_ledger_exists = ledger.capability_path.exists()
+    if any(
+        operation.capability is not None
+        or (
+            capability_ledger_exists
+            and ledger.find_capability_request_by_operation(operation.operation_id)
+            is not None
+        )
+        for operation in operations
+    ):
+        return IntegrationThinkingMode.CAPABILITY
+    return IntegrationThinkingMode.DETERMINISTIC
 
 
 def _binding_datetime(value: str):
@@ -202,8 +290,17 @@ def _binding_datetime(value: str):
     return datetime.fromisoformat(value[:-1] + "+00:00")
 
 
-def build_local_integration_app(data_dir: str | Path) -> LocalIntegrationApp:
+def build_local_integration_app(
+    data_dir: str | Path,
+    *,
+    thinking_mode: IntegrationThinkingMode = IntegrationThinkingMode.DETERMINISTIC,
+) -> LocalIntegrationApp:
     """Restore the formal deterministic E4 graph from an initialized directory."""
+
+    if not isinstance(thinking_mode, IntegrationThinkingMode):
+        raise LocalIntegrationInitializationError(
+            "thinking mode must be deterministic or capability"
+        )
 
     root = _validate_data_dir(Path(data_dir))
     if not root.exists() or next(root.iterdir(), None) is None:
@@ -222,10 +319,15 @@ def build_local_integration_app(data_dir: str | Path) -> LocalIntegrationApp:
             DeterministicMemoryInfluenceRecorder(),
         )
         awakening = AwakeningService(subject_states, memory, awakening_repository)
-        thinking = ThinkingService(
-            DeterministicThinkingProvider(
+        thinking_provider = (
+            DeferredCapabilityThinkingProvider()
+            if thinking_mode is IntegrationThinkingMode.CAPABILITY
+            else DeterministicThinkingProvider(
                 result_id_factory=lambda: _uuid_id("thinking-result")
-            ),
+            )
+        )
+        thinking = ThinkingService(
+            thinking_provider,
             DeterministicTokenBudgetManager(usage_id_factory=lambda: _uuid_id("usage")),
             subject_states,
             JsonThinkingRepository(root),
@@ -244,6 +346,11 @@ def build_local_integration_app(data_dir: str | Path) -> LocalIntegrationApp:
             ),
             InMemoryActionRepository(),
         )
+        capabilities = (
+            CapabilityCoordinationService(ledger)
+            if thinking_mode is IntegrationThinkingMode.CAPABILITY
+            else None
+        )
         service = ContinuityInteractionService(
             validator=MachineContractValidator(),
             bindings=binding_repository,
@@ -254,8 +361,14 @@ def build_local_integration_app(data_dir: str | Path) -> LocalIntegrationApp:
             thinking=thinking,
             action=action,
             action_evolution=ActionEvolutionService(subject_states),
-            reply_composer=DeterministicContractReplyComposer(),
+            reply_composer=(
+                CapabilityContractReplyComposer()
+                if thinking_mode is IntegrationThinkingMode.CAPABILITY
+                else DeterministicContractReplyComposer()
+            ),
             available_permissions=[permission_name],
+            thinking_mode=thinking_mode,
+            capabilities=capabilities,
         )
         app = LocalIntegrationApp(
             adapter=IntegrationAdapter(service),
@@ -264,6 +377,7 @@ def build_local_integration_app(data_dir: str | Path) -> LocalIntegrationApp:
             awakening_repository=awakening_repository,
             ledger=ledger,
             data_dir=root,
+            thinking_mode=thinking_mode,
         )
         app.assert_ready()
         return app

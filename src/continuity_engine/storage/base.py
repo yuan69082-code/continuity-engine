@@ -5,6 +5,11 @@ from typing import Protocol
 
 from continuity_engine.domain.awakening import AwakeCycle, WakeSession
 from continuity_engine.domain.action import ActionSession
+from continuity_engine.domain.capability import (
+    CapabilityAttempt,
+    CapabilityRequest,
+    CapabilityResult,
+)
 from continuity_engine.domain.events import StateUpdateRecord
 from continuity_engine.domain.integration_contract import SubjectBindingFixture
 from continuity_engine.domain.integration_results import (
@@ -201,3 +206,31 @@ class IntegrationResultLedger(Protocol):
     def initialize_empty(self) -> None: ...
 
     def validate_initialized(self) -> None: ...
+
+    def initialize_capabilities(self) -> None: ...
+
+    def validate_capability_initialized(self) -> None: ...
+
+    def save_capability_request(self, request: CapabilityRequest) -> None: ...
+
+    def load_capability_request(
+        self,
+        capability_request_id: str,
+    ) -> CapabilityRequest | None: ...
+
+    def find_capability_request_by_operation(
+        self,
+        operation_id: str,
+    ) -> CapabilityRequest | None: ...
+
+    def save_capability_result(
+        self,
+        result: CapabilityResult,
+        *,
+        received_at: str,
+    ) -> CapabilityAttempt: ...
+
+    def list_capability_attempts(
+        self,
+        capability_request_id: str,
+    ) -> list[CapabilityAttempt]: ...

@@ -885,6 +885,23 @@ class ActionExecutionResult:
     context: ActionContext
     session: ActionSession
 
+    def __post_init__(self) -> None:
+        if not isinstance(self.context, ActionContext) or not isinstance(
+            self.session, ActionSession
+        ):
+            raise ActionValidationError(
+                "ActionExecutionResult requires an ActionContext and ActionSession"
+            )
+        if (
+            self.context.subject_id != self.session.subject_id
+            or self.context.wake_session_id != self.session.wake_session_id
+            or self.context.think_session_id != self.session.think_session_id
+            or self.context.subject_state_revision != self.session.input_state_revision
+        ):
+            raise ActionValidationError(
+                "action execution context does not match its ActionSession"
+            )
+
     @property
     def decision(self) -> ActionDecision:
         return self.session.final_decision
@@ -892,6 +909,23 @@ class ActionExecutionResult:
     @property
     def plan(self) -> ActionPlan:
         return self.session.action_plan
+
+    def to_dict(self) -> dict[str, JsonValue]:
+        return {
+            "context": self.context.to_dict(),
+            "session": self.session.to_dict(),
+        }
+
+    @classmethod
+    def from_dict(cls, value: Any) -> ActionExecutionResult:
+        if not isinstance(value, dict) or set(value) != {"context", "session"}:
+            raise ActionValidationError(
+                "action execution result must contain only context and session"
+            )
+        return cls(
+            context=ActionContext.from_dict(value["context"]),
+            session=ActionSession.from_dict(value["session"]),
+        )
 
 
 @dataclass(slots=True)

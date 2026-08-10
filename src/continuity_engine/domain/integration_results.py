@@ -6,8 +6,9 @@ from datetime import datetime, timezone
 from enum import Enum
 from typing import Any
 
-from .action import ApprovedStateAction
+from .action import ActionExecutionResult, ApprovedStateAction
 from .awakening import WakeContext
+from .capability import CapabilityStatus
 from .errors import MachineContractValidationError
 from .events import JsonValue
 from .integration_hashing import (
@@ -422,6 +423,7 @@ class FirstRoundSuccessResult:
 
 class IntegrationOperationStage(str, Enum):
     RESERVED = "reserved"
+    WAITING_CAPABILITY = "waiting_capability"
     DOMAIN_COMPLETED = "domain_completed"
     EVOLUTION_COMMITTED = "evolution_committed"
     COMPLETED = "completed"
@@ -432,6 +434,7 @@ class IntegrationDomainProgressStage(str, Enum):
     WAKE_COMPLETED = "wake_completed"
     PERCEPTION_COMPLETED = "perception_completed"
     THINKING_COMPLETED = "thinking_completed"
+    ACTION_COMPLETED = "action_completed"
 
 
 @dataclass(frozen=True, slots=True)
@@ -452,6 +455,7 @@ class IntegrationDomainProgress:
     perception_at: str | None = None
     action_at: str | None = None
     response_completed_at: str | None = None
+    action: ActionExecutionResult | None = None
 
     def __post_init__(self) -> None:
         if not isinstance(self.stage, IntegrationDomainProgressStage):
@@ -475,6 +479,7 @@ class IntegrationDomainProgress:
             IntegrationDomainProgressStage.WAKE_COMPLETED: 1,
             IntegrationDomainProgressStage.PERCEPTION_COMPLETED: 2,
             IntegrationDomainProgressStage.THINKING_COMPLETED: 3,
+            IntegrationDomainProgressStage.ACTION_COMPLETED: 4,
         }
         rank = order[self.stage]
         if rank == 0:
@@ -486,6 +491,7 @@ class IntegrationDomainProgress:
                     self.perception_at,
                     self.action_at,
                     self.response_completed_at,
+                    self.action,
                 )
             ):
                 raise MachineContractValidationError(
@@ -509,6 +515,7 @@ class IntegrationDomainProgress:
                     self.perception,
                     self.action_at,
                     self.response_completed_at,
+                    self.action,
                 )
             ):
                 raise MachineContractValidationError(
@@ -529,7 +536,11 @@ class IntegrationDomainProgress:
                 "domain progress PerceptionResult identity does not match"
             )
         if rank == 2:
-            if self.action_at is not None or self.response_completed_at is not None:
+            if (
+                self.action_at is not None
+                or self.response_completed_at is not None
+                or self.action is not None
+            ):
                 raise MachineContractValidationError(
                     "perception-completed progress contains later-stage timestamps"
                 )
@@ -544,6 +555,35 @@ class IntegrationDomainProgress:
             self.response_completed_at,
             "domain progress responseCompletedAt",
         )
+        if rank == 3:
+            if self.action is not None:
+                raise MachineContractValidationError(
+                    "thinking-completed progress cannot contain an Action result"
+                )
+            return
+
+        if self.action is None:
+            raise MachineContractValidationError(
+                "action-completed progress requires ActionExecutionResult"
+            )
+        action_context = self.action.context
+        action_session = self.action.session
+        if (
+            action_context.context_id != self.action_context_id
+            or action_context.subject_id != self.perception.subject_id
+            or action_context.wake_session_id != self.wake_session_id
+            or action_context.think_session_id != self.think_session_id
+            or action_context.subject_state_revision != self.perception.source_revision
+            or action_context.thinking_result.result_id != self.thinking_result_id
+            or action_context.perception_summary.perception_id != self.perception_id
+            or action_session.subject_id != action_context.subject_id
+            or action_session.wake_session_id != self.wake_session_id
+            or action_session.think_session_id != self.think_session_id
+            or action_session.input_state_revision != self.perception.source_revision
+        ):
+            raise MachineContractValidationError(
+                "domain progress Action result does not match recovery identities"
+            )
 
     def to_dict(self) -> dict[str, JsonValue]:
         return {
@@ -565,10 +605,13 @@ class IntegrationDomainProgress:
             "perceptionAt": self.perception_at,
             "actionAt": self.action_at,
             "responseCompletedAt": self.response_completed_at,
+            "action": self.action.to_dict() if self.action is not None else None,
         }
 
     @classmethod
     def from_dict(cls, value: Any) -> IntegrationDomainProgress:
+        if isinstance(value, dict) and "action" not in value:
+            value = {**value, "action": None}
         data = _object(
             value,
             "operation domain progress",
@@ -587,6 +630,7 @@ class IntegrationDomainProgress:
                 "perceptionAt",
                 "actionAt",
                 "responseCompletedAt",
+                "action",
             },
         )
         try:
@@ -641,6 +685,11 @@ class IntegrationDomainProgress:
                     "domain progress responseCompletedAt",
                 )
                 if data["responseCompletedAt"] is not None
+                else None
+            ),
+            action=(
+                ActionExecutionResult.from_dict(data["action"])
+                if data["action"] is not None
                 else None
             ),
         )
@@ -842,6 +891,65 @@ class IntegrationEvolutionCheckpoint:
 
 
 @dataclass(frozen=True, slots=True)
+class IntegrationCapabilityCheckpoint:
+    capability_request_id: str
+    status: CapabilityStatus
+    updated_at: str
+    accepted_result_id: str | None = None
+    accepted_result_hash: str | None = None
+
+    def __post_init__(self) -> None:
+        _text(self.capability_request_id, "operation capability capabilityRequestId")
+        if not isinstance(self.status, CapabilityStatus):
+            raise MachineContractValidationError(
+                "operation capability status is invalid"
+            )
+        _utc_datetime(self.updated_at, "operation capability updatedAt")
+        if self.status is CapabilityStatus.PROPOSED:
+            if self.accepted_result_id is not None or self.accepted_result_hash is not None:
+                raise MachineContractValidationError(
+                    "a proposed capability cannot contain an accepted result"
+                )
+        else:
+            _text(self.accepted_result_id, "operation capability acceptedResultId")
+            _hash(self.accepted_result_hash, "operation capability acceptedResultHash")
+
+    def to_dict(self) -> dict[str, JsonValue]:
+        return {
+            "capabilityRequestId": self.capability_request_id,
+            "status": self.status.value,
+            "acceptedResultId": self.accepted_result_id,
+            "acceptedResultHash": self.accepted_result_hash,
+            "updatedAt": self.updated_at,
+        }
+
+    @classmethod
+    def from_dict(cls, value: Any) -> IntegrationCapabilityCheckpoint:
+        data = _object(
+            value,
+            "operation capability checkpoint",
+            {
+                "capabilityRequestId",
+                "status",
+                "acceptedResultId",
+                "acceptedResultHash",
+                "updatedAt",
+            },
+        )
+        try:
+            status = CapabilityStatus(data["status"])
+        except (TypeError, ValueError) as exc:
+            raise MachineContractValidationError(
+                "operation capability status is invalid"
+            ) from exc
+        return cls(
+            capability_request_id=data["capabilityRequestId"],
+            status=status,
+            accepted_result_id=data["acceptedResultId"],
+            accepted_result_hash=data["acceptedResultHash"],
+            updated_at=data["updatedAt"],
+        )
+@dataclass(frozen=True, slots=True)
 class IntegrationOperationRecord:
     request_id: str
     request_hash: str
@@ -857,6 +965,7 @@ class IntegrationOperationRecord:
     domain: IntegrationDomainCheckpoint | None = None
     evolution: IntegrationEvolutionCheckpoint | None = None
     domain_progress: IntegrationDomainProgress | None = None
+    capability: IntegrationCapabilityCheckpoint | None = None
 
     def __post_init__(self) -> None:
         _text(self.request_id, "operation requestId")
@@ -906,15 +1015,31 @@ class IntegrationOperationRecord:
                     raise MachineContractValidationError(
                         "domain progress PerceptionResult does not match operation identity"
                     )
-        if self.stage is IntegrationOperationStage.RESERVED:
+        if self.stage in {
+            IntegrationOperationStage.RESERVED,
+            IntegrationOperationStage.WAITING_CAPABILITY,
+        }:
             if self.domain is not None or self.evolution is not None:
                 raise MachineContractValidationError(
-                    "a reserved operation cannot contain later checkpoints"
+                    "an unfinished operation cannot contain later checkpoints"
                 )
         else:
             if self.domain is None:
                 raise MachineContractValidationError(
                     "a progressed operation requires a domain checkpoint"
+                )
+        if self.stage is IntegrationOperationStage.WAITING_CAPABILITY:
+            if self.capability is None or self.domain_progress is None:
+                raise MachineContractValidationError(
+                    "waiting_capability requires durable capability and domain progress"
+                )
+            if self.domain_progress.stage not in {
+                IntegrationDomainProgressStage.PERCEPTION_COMPLETED,
+                IntegrationDomainProgressStage.THINKING_COMPLETED,
+                IntegrationDomainProgressStage.ACTION_COMPLETED,
+            }:
+                raise MachineContractValidationError(
+                    "waiting_capability requires completed Perception"
                 )
         if self.evolution is not None:
             if self.domain is None or self.domain.approved_state_action is None:
@@ -934,9 +1059,9 @@ class IntegrationOperationRecord:
             )
         if self.domain is not None and self.domain_progress is not None:
             progress = self.domain_progress
-            if progress.stage is not IntegrationDomainProgressStage.THINKING_COMPLETED:
+            if progress.stage is not IntegrationDomainProgressStage.ACTION_COMPLETED:
                 raise MachineContractValidationError(
-                    "a domain checkpoint requires thinking-completed progress"
+                    "a domain checkpoint requires action-completed progress"
                 )
             if (
                 self.domain.response_id != progress.response_id
@@ -968,6 +1093,9 @@ class IntegrationOperationRecord:
                 if self.domain_progress is not None
                 else None
             ),
+            "capability": (
+                self.capability.to_dict() if self.capability is not None else None
+            ),
             "domain": self.domain.to_dict() if self.domain is not None else None,
             "evolution": (
                 self.evolution.to_dict() if self.evolution is not None else None
@@ -991,11 +1119,13 @@ class IntegrationOperationRecord:
                 "domain",
                 "evolution",
             }
-        current_keys = {*legacy_keys, "domainProgress"}
+        v2_keys = {*legacy_keys, "domainProgress"}
+        legacy_with_null_capability = {*legacy_keys, "capability"}
+        current_keys = {*v2_keys, "capability"}
         if not isinstance(value, dict):
             raise MachineContractValidationError("operation record must be an object")
         actual_keys = set(value)
-        if actual_keys == legacy_keys:
+        if actual_keys in (legacy_keys, v2_keys, legacy_with_null_capability):
             data = value
         else:
             data = _object(value, "operation record", current_keys)
@@ -1025,6 +1155,11 @@ class IntegrationOperationRecord:
             domain_progress=(
                 IntegrationDomainProgress.from_dict(data["domainProgress"])
                 if data.get("domainProgress") is not None
+                else None
+            ),
+            capability=(
+                IntegrationCapabilityCheckpoint.from_dict(data["capability"])
+                if data.get("capability") is not None
                 else None
             ),
             domain=(

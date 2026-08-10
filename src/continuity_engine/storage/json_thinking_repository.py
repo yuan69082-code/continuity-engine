@@ -8,7 +8,7 @@ from pathlib import Path
 from typing import Any
 
 from continuity_engine.domain.errors import StateNotFoundError, ThinkingValidationError
-from continuity_engine.domain.thinking import ThinkSession
+from continuity_engine.domain.thinking import ThinkSession, ThinkSessionStatus
 
 
 class JsonThinkingRepository:
@@ -45,6 +45,40 @@ class JsonThinkingRepository:
                 and session.completed_successfully is None
             ):
                 raise ThinkingValidationError("a completed ThinkSession cannot return to running")
+            allowed_transitions = {
+                ThinkSessionStatus.RUNNING: {
+                    ThinkSessionStatus.RUNNING,
+                    ThinkSessionStatus.WAITING_CAPABILITY,
+                    ThinkSessionStatus.COMPLETED,
+                    ThinkSessionStatus.FAILED,
+                },
+                ThinkSessionStatus.WAITING_CAPABILITY: {
+                    ThinkSessionStatus.RUNNING,
+                    ThinkSessionStatus.WAITING_CAPABILITY,
+                    ThinkSessionStatus.COMPLETED,
+                    ThinkSessionStatus.FAILED,
+                },
+                ThinkSessionStatus.COMPLETED: {ThinkSessionStatus.COMPLETED},
+                ThinkSessionStatus.FAILED: {ThinkSessionStatus.FAILED},
+            }
+            if session.status not in allowed_transitions[previous.status]:
+                raise ThinkingValidationError(
+                    "ThinkSession status cannot move backwards"
+                )
+            if (
+                previous.capability_request_id is not None
+                and session.capability_request_id != previous.capability_request_id
+            ):
+                raise ThinkingValidationError(
+                    "ThinkSession capability_request_id cannot be changed"
+                )
+            if (
+                previous.result is not None
+                and session.result != previous.result
+            ):
+                raise ThinkingValidationError(
+                    "a completed ThinkSession result cannot be changed"
+                )
             if (
                 previous.perception_snapshot is not None
                 and session.perception_snapshot != previous.perception_snapshot

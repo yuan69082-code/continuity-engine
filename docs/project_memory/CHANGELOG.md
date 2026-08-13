@@ -4,6 +4,13 @@
 
 ## [Unreleased]
 
+### Engine S4-R Acceptance Archive Sync — 2026-08-13
+
+- 正式记录 Engine E5-A、Vio V4、受控 S4 Capability 联验、Vio V5、F1、L1 已完成，Engine S4-R 独立追认结论为 `PASS`；当前双方基线为 Engine `cba52126db2fb5eca57d9b5c0c80884693c59a6f`、Vio `239759d1d219bd140f41257c5da18169fbf773a9`。
+- 记录仓库外固定 Binding 的 Engine 独立 RFC 8785/SHA-256 复算通过、L1 只读安全准备、Capability 结果回流原 Thinking/Action、Action Gate 和跨重启幂等边界；Contract v1.1 与 SubjectState 权威未改变。
+- 验收基线为 Engine E5 54/54、Engine 全量 355/355、Vio L1 24/24、Vio 后端 202/202、S4 shared 7/7、V5 shared 6/6、Vio 前端 19/19。
+- 本次只同步工程档案，不提升 `0.1.0` 软件版本。真实供应商、真实模型调用、真实 API Key、真实费用和 S4-Live 均未发生；生产认证、多租户、公网、部署及后续外部能力仍未完成。
+
 ### Engine E5-A — Durable Capability Pause / Resume Core — 2026-08-10
 
 - 新增独立 `continuity-capability/v1` CapabilityRequest、受约束模型输出和 CapabilityResult 领域模型，配套三份严格 Draft 2020-12 Schema、封闭 registry、RFC 8785/SHA-256 hash 和身份/关联验证；不修改 v1.1。

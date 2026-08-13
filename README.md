@@ -28,14 +28,15 @@
 - 第一轮双方 test-only 共享验收：Vio 的持久化 V1 请求已通过 JSONL Runner 进入真实 Engine E3，结果由 Vio V2 严格验证并持久化；幂等、revision、投影唯一性、四类错误和双方重启恢复均已完成端到端验证。
 - 正式本地集成服务（Engine E4）：`ContinuityInteractionService` 是测试与正式 Adapter 共用的唯一处理链；显式 `init` 持久化单一 active SubjectBinding；正式 HTTP/JSON 服务只监听 `127.0.0.1:8766`，提供提交、结果/恢复查询和最小健康检查，并以串行请求、Bearer 服务令牌、1 MiB 上限、默认 10 秒读取超时和“一请求一连接”的严格 JSON 传输边界保护本地入口。domain 子阶段现持久化稳定恢复身份和 Wake/Perception/Thinking checkpoint；重启会复用已完成 WakeSession、ThinkSession/ThinkingResult，并继续沿用稳定 Action、Event、StateUpdateRecord 和最终结果身份。
 - 第一阶段正式本地回环连接验收：以 Engine `189441f9bad2a34119b4ef10365a4385ed0949cc` 和 Vio `35780da56c72b822fc018702dfe5e90674ab0fcb` 为基线，Vio 的真实持久化请求已通过 V3 HTTP transport 进入独立运行的 Engine E4；S2/S3 覆盖 completed、not_found、recovery_required、响应丢失以及双方分别或同时重启，稳定身份、领域经历、状态演化、投影和双方账本均未重复。
-- Durable Capability 暂停/恢复核心（Engine E5-A）：新增独立版本化 `CapabilityRequest`、`CapabilityResult` 和受约束模型输出 Schema；capability 模式会在 Perception 后持久化请求并将原 ThinkSession 置为 `WAITING_CAPABILITY`，通过同一 E4 HTTP 服务返回 `capability_required`。合法结果在写入 capability ledger 前必须通过严格 Schema、去除首尾空白后的非空输出、身份/hash 和请求时间一致性校验，再经结果解释器、原 ThinkSession、Action Gate 和 ReplyComposer 形成最终结果；operation journal format v3 还持久化已完成的 `ActionExecutionResult`，使 Action 完成后、domain checkpoint 前崩溃也能直接复用而不再次决策。capability ledger 与 journal 共同支持跨重启恢复和精确重放。重复 `init` 会按既有持久化历史选择校验模式，只验证或补齐允许的空 capability ledger，不改写任何身份、状态或历史；`serve` 的模式保护不变。该能力仅完成 Engine 侧协议与暂停—恢复核心，不代表 Vio V4 或真实模型已经接入。
+- Durable Capability 暂停/恢复核心（Engine E5-A）：新增独立版本化 `CapabilityRequest`、`CapabilityResult` 和受约束模型输出 Schema；capability 模式会在 Perception 后持久化请求并将原 ThinkSession 置为 `WAITING_CAPABILITY`，通过同一 E4 HTTP 服务返回 `capability_required`。合法结果在写入 capability ledger 前必须通过严格 Schema、去除首尾空白后的非空输出、身份/hash 和请求时间一致性校验，再经结果解释器、原 ThinkSession、Action Gate 和 ReplyComposer 形成最终结果；operation journal format v3 还持久化已完成的 `ActionExecutionResult`，使 Action 完成后、domain checkpoint 前崩溃也能直接复用而不再次决策。capability ledger 与 journal 共同支持跨重启恢复和精确重放。重复 `init` 会按既有持久化历史选择校验模式，只验证或补齐允许的空 capability ledger，不改写任何身份、状态或历史；`serve` 的模式保护不变。
+- 受控 S4 Capability 链路与 S4-R 追认：Vio V4 已实现现实权限、安全确认、供应商路由、Token Budget、受控执行与可信用量边界；双方受控 S4、Vio V5 Conversation、F1 前端接线和 L1 安全准备均已完成，Engine 在基线 `cba52126db2fb5eca57d9b5c0c80884693c59a6f` 上完成独立 S4-R 追认并判定 `PASS`。受控验证使用回环替身，真实供应商调用、真实模型调用和费用均为 0；S4-Live 尚未开始。
 
 其中 Memory、Awakening、Thinking、Learning、Resource Management、接口和前端属于“内部结构或本地原型已完成，真实外部集成仍未完成”。Action 完成的是决策规划层，不包含执行层。
 
 ### 尚未实现
 
-- 真实 GPT、Claude 或其他模型 Provider 接入。
-- Vio V4 对 CapabilityRequest/CapabilityResult 的现实权限、安全确认、供应商路由、调用与 Token 账本实现。
+- S4-Live 首次真实供应商单次试聊，以及真实网络、认证、返回格式和费用的现场验证。
+- 用户在本机提供真实 Provider、模型、API Key 和预算配置；Engine 不读取、不接收或保存供应商 API Key。
 - 真实 MCP 连接或 MCP 协议传输。
 - ChatGPT、Claude 或其他平台的真实 Skill 接入。
 - 外部长期记忆库、向量库或记忆数据库。
@@ -43,7 +44,7 @@
 - 自动后台循环、常驻调度或无限自主运行。
 - 真实 Token 计量、账单、计费、购买或支付。
 - 生产数据库、用户认证、多租户和生产部署。
-- Vio 面向用户的公共对话 API 到 Continuity Engine 的串联，以及现有前端与真实 Conversation/Message API 的接线。
+- 面向生产和一般用户开放的公共对话 API、前端真实使用链路及运行治理；Vio V5/F1 当前完成的是固定本地受控链路。
 - 面向生产部署的 Integration Adapter、TLS/反向代理、生产认证、多租户和运行监控。
 
 `ContinuityMCPAdapter`、`SkillAdapter`、`ThinkingProvider` 和 Memory 端口只是可插拔接口或适配边界，不能视为对应外部能力已经接入。
@@ -58,11 +59,13 @@ Engine E1、E2、E3 的完成基线依次为 `ac61e78`、`d1a96b1`、`c732f35`�
 
 Engine E4 随后完成 Engine 侧正式本地 HTTP/JSON Adapter。Vio V3 首次在 Engine `c5ebbf9b7583f3fb50198a3bf37ea0553edc131f` 上执行 S3 时，发现完成 Wake/Thinking 后、operation domain checkpoint 前退出无法恢复的缺陷；该失败保留为历史。Engine 通过 D-032 完成定点修复并以 `189441f9bad2a34119b4ef10365a4385ed0949cc` 提交，Vio 在 `35780da56c72b822fc018702dfe5e90674ab0fcb` 上重新执行正式 S2/S3。第一阶段正式本地回环 HTTP/JSON 双方验收现已通过：S2+S3 为 15/15，Vio V1+RFC 8785+V2+V3 为 64/64，Vio 后端全量为 113/113，Engine crash-recovery 为 15/15、E4 为 67/67、全量为 301/301。机器契约决定见 [`D-025`](docs/project_memory/04_决策记录.md)，E1—E3 与 Runner 边界见 `D-026`—`D-029`，test-only 共享验收见 `D-030`，E4 与 durable recovery 见 `D-031`、`D-032`，正式本地双方验收里程碑见 `D-033`。
 
-2026-08-10，Engine E5-A 在 E4 基础上完成 Engine 侧 durable Capability 暂停/恢复核心，并完成空白成功结果、结果时间倒序和 Capability 历史目录重复初始化的定点修正。它使用独立的 `continuity-capability/v1` 协议，不修改 v1.1；默认 deterministic 模式保持 E4 行为，显式 capability 模式只生成可持久化、可查询的模型能力请求，不调用外部供应商。E5-A 专项测试为 54 项，完整测试基线为 355 项。架构决定见 `D-034`。Vio V4、真实模型、公共对话 API 和前端接线仍未开始。
+2026-08-10，Engine E5-A 在 E4 基础上完成 Engine 侧 durable Capability 暂停/恢复核心，并完成空白成功结果、结果时间倒序和 Capability 历史目录重复初始化的定点修正。它使用独立的 `continuity-capability/v1` 协议，不修改 v1.1；E5-A 专项测试为 54 项，Engine 完整测试基线为 355 项。架构决定见 `D-034`。
+
+随后 Vio V4、受控 S4、V5、F1 和 L1 依次完成；Engine 在当前双方基线 Engine `cba52126db2fb5eca57d9b5c0c80884693c59a6f`、Vio `239759d1d219bd140f41257c5da18169fbf773a9` 上完成 S4-R 独立追认，结论为 `PASS`。实际复跑为 Engine E5 54/54、Engine 全量 355/355、Vio L1 24/24、Vio 后端 202/202、S4 Capability shared 7/7、V5 Conversation shared 6/6、Vio 前端 19/19。Contract v1.1 与 Engine 主体权威边界未改变；整个受控链路没有调用真实供应商或真实模型，也没有产生真实费用。
 
 ## 当前开发阶段
 
-第一轮机器契约、Engine E1/E2/E3、test-only JSONL Runner、双方 test-only 共享验收、Engine E4、Vio × Engine 第一阶段正式本地回环验收以及 Engine E5-A 均已完成；当前 Engine 完整测试基线为 355 项。E5-A 只完成 Engine 内部 durable CapabilityRequest/CapabilityResult 暂停—恢复、查询、幂等和崩溃恢复，不调用真实模型，也未修改 Vio。当前 E5-A 工作区等待用户最终复核与 Git 同步；Vio V4 和双方 Capability 共享验收须另行决定并授权，公共对话 API、前端真实链路、外网与生产部署仍未开始。
+当前阶段顺序为 `E5-A → V4 → 受控 S4 → V5 → F1 → L1 → S4-R PASS → Engine 工程档案补齐 → 再决定是否启动 S4-Live`。受控 Capability 链路、Vio 固定本地 Conversation/前端链路和 L1 只读安全准备已通过验证；当前仅补齐工程档案，S4-Live 尚未开始，真实供应商、真实模型、API Key 和费用均未发生。外网、生产认证、多租户、部署、MCP/Tool/设备和后台长期主动运行仍未开始，软件版本保持 `0.1.0`。
 
 第一阶段已经完成：
 

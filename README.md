@@ -29,14 +29,14 @@
 - 正式本地集成服务（Engine E4）：`ContinuityInteractionService` 是测试与正式 Adapter 共用的唯一处理链；显式 `init` 持久化单一 active SubjectBinding；正式 HTTP/JSON 服务只监听 `127.0.0.1:8766`，提供提交、结果/恢复查询和最小健康检查，并以串行请求、Bearer 服务令牌、1 MiB 上限、默认 10 秒读取超时和“一请求一连接”的严格 JSON 传输边界保护本地入口。domain 子阶段现持久化稳定恢复身份和 Wake/Perception/Thinking checkpoint；重启会复用已完成 WakeSession、ThinkSession/ThinkingResult，并继续沿用稳定 Action、Event、StateUpdateRecord 和最终结果身份。
 - 第一阶段正式本地回环连接验收：以 Engine `189441f9bad2a34119b4ef10365a4385ed0949cc` 和 Vio `35780da56c72b822fc018702dfe5e90674ab0fcb` 为基线，Vio 的真实持久化请求已通过 V3 HTTP transport 进入独立运行的 Engine E4；S2/S3 覆盖 completed、not_found、recovery_required、响应丢失以及双方分别或同时重启，稳定身份、领域经历、状态演化、投影和双方账本均未重复。
 - Durable Capability 暂停/恢复核心（Engine E5-A）：新增独立版本化 `CapabilityRequest`、`CapabilityResult` 和受约束模型输出 Schema；capability 模式会在 Perception 后持久化请求并将原 ThinkSession 置为 `WAITING_CAPABILITY`，通过同一 E4 HTTP 服务返回 `capability_required`。合法结果在写入 capability ledger 前必须通过严格 Schema、去除首尾空白后的非空输出、身份/hash 和请求时间一致性校验，再经结果解释器、原 ThinkSession、Action Gate 和 ReplyComposer 形成最终结果；operation journal format v3 还持久化已完成的 `ActionExecutionResult`，使 Action 完成后、domain checkpoint 前崩溃也能直接复用而不再次决策。capability ledger 与 journal 共同支持跨重启恢复和精确重放。重复 `init` 会按既有持久化历史选择校验模式，只验证或补齐允许的空 capability ledger，不改写任何身份、状态或历史；`serve` 的模式保护不变。
-- 受控 S4 Capability 链路与 S4-R 追认：Vio V4 已实现现实权限、安全确认、供应商路由、Token Budget、受控执行与可信用量边界；双方受控 S4、Vio V5 Conversation、F1 前端接线和 L1 安全准备均已完成，Engine 在基线 `cba52126db2fb5eca57d9b5c0c80884693c59a6f` 上完成独立 S4-R 追认并判定 `PASS`。受控验证使用回环替身，真实供应商调用、真实模型调用和费用均为 0；S4-Live 尚未开始。
+- 受控 S4 Capability 链路、S4-R 与首次 S4-Live：Vio V4、双方受控 S4、Vio V5 Conversation、F1、L1 和 Engine S4-R `PASS` 均已完成。2026-08-14 又在不可晋升的独立可销毁沙箱中完成一次真实供应商单次试聊；真实 CapabilityResult 返回原 operation/ThinkSession，经 Engine Thinking、Action Gate 和 ReplyComposer 形成最终表达。本次 `changed=false`、revision `0→0`，没有 Event、StateMutation 或 StateUpdateRecord；它不是通用 Provider 接入、日常使用能力或生产部署。
 
 其中 Memory、Awakening、Thinking、Learning、Resource Management、接口和前端属于“内部结构或本地原型已完成，真实外部集成仍未完成”。Action 完成的是决策规划层，不包含执行层。
 
 ### 尚未实现
 
-- S4-Live 首次真实供应商单次试聊，以及真实网络、认证、返回格式和费用的现场验证。
-- 用户在本机提供真实 Provider、模型、API Key 和预算配置；Engine 不读取、不接收或保存供应商 API Key。
+- 通用、可重复配置的真实 Provider/模型接入，以及更多供应商、故障、并发和真实 `UPDATE_STATE` 场景验证；当前只完成一次受控 S4-Live 单次验收。
+- 面向日常使用或生产的 Provider、模型、预算、密钥治理与可信费用闭环；Engine 仍不读取、不接收或保存供应商 API Key。
 - 真实 MCP 连接或 MCP 协议传输。
 - ChatGPT、Claude 或其他平台的真实 Skill 接入。
 - 外部长期记忆库、向量库或记忆数据库。
@@ -63,9 +63,13 @@ Engine E4 随后完成 Engine 侧正式本地 HTTP/JSON Adapter。Vio V3 首次�
 
 随后 Vio V4、受控 S4、V5、F1 和 L1 依次完成；Engine 在当前双方基线 Engine `cba52126db2fb5eca57d9b5c0c80884693c59a6f`、Vio `239759d1d219bd140f41257c5da18169fbf773a9` 上完成 S4-R 独立追认，结论为 `PASS`。实际复跑为 Engine E5 54/54、Engine 全量 355/355、Vio L1 24/24、Vio 后端 202/202、S4 Capability shared 7/7、V5 Conversation shared 6/6、Vio 前端 19/19。Contract v1.1 与 Engine 主体权威边界未改变；整个受控链路没有调用真实供应商或真实模型，也没有产生真实费用。
 
+2026-08-14，Vio 在执行基线 `d6964a81f96540ab279bc8a5f6e3367f564f0cb8` 上使用仓库外短路径可销毁沙箱 `C:\VioS4\first-001` 和不可晋升测试身份完成首次 S4-Live，结论为 `PASS`。真实供应商为 Alibaba Cloud Model Studio OpenAI-compatible Provider，模型为 `qwen-flash-2025-07-28`；唯一一次 execution 成功，报告 input 177、output 9、total 186 Token，finish reason 为 `stop`。CapabilityResult `SUCCEEDED` 首次回传 HTTP 200，result outbox 和 Conversation Turn 均完成，没有第二次 execution、第二份结果、incident、outcome_unknown 或重复 Message。最终主体表达只来自 Engine `FirstRoundSuccessResult.response.content`；供应商候选没有绕过 Engine。
+
+该次验收保持 `stateProjection.changed=false`、revision `0→0`、`engineUpdateId=null`，没有创建 Event、StateMutation 或 StateUpdateRecord。API Key 只存在于 Vio 后端当次本地进程环境，Engine 未接收或保存。Vio 账本的费用事实为 `cost_status=not_reported`；供应商界面当时约为 0，但官方统计可能延迟，不能记录成永久确定的绝对零费用。验收后 5173、8787、8766 均停止监听，沙箱已整根删除且未触及仓库或受保护路径。首次尝试在供应商调用前暴露的 Windows 持久化路径预算问题由 Vio 的启动前门禁和旧沙箱清理兼容处理解决，未修改 Engine 代码，也不属于 Engine 领域、Schema、HTTP 或恢复协议缺陷。
+
 ## 当前开发阶段
 
-当前阶段顺序为 `E5-A → V4 → 受控 S4 → V5 → F1 → L1 → S4-R PASS → Engine 工程档案补齐 → 再决定是否启动 S4-Live`。受控 Capability 链路、Vio 固定本地 Conversation/前端链路和 L1 只读安全准备已通过验证；当前仅补齐工程档案，S4-Live 尚未开始，真实供应商、真实模型、API Key 和费用均未发生。外网、生产认证、多租户、部署、MCP/Tool/设备和后台长期主动运行仍未开始，软件版本保持 `0.1.0`。
+当前阶段顺序已推进为 `E5-A → V4 → 受控 S4 → V5 → F1 → L1 → S4-R PASS → S4-Live 首次真实供应商单次试聊 PASS → Engine 工程档案归档完成`。下一阶段仍须另行确认和授权；通用真实 Provider、日常正式使用、真实 `UPDATE_STATE` 模型演化、外网、生产认证、多租户、部署、MCP/Tool/设备和后台长期主动运行均未开始。软件版本保持 `0.1.0`。
 
 第一阶段已经完成：
 

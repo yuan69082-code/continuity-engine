@@ -4,6 +4,15 @@
 
 ## [Unreleased]
 
+### S4-Live First Real Provider Acceptance Archive — 2026-08-14
+
+- 正式记录 S4-Live 首次真实供应商单次试聊 `PASS`：在不可晋升的 `disposable_test / promotionAllowed=false` 身份和仓库外短路径可销毁沙箱中，经正式 V5/V1/V3/Engine E5-A/V4/V2 链路完成一次真实调用。
+- Alibaba Cloud Model Studio OpenAI-compatible Provider 的 `qwen-flash-2025-07-28` 恰好执行一次并 succeeded，报告 input/output/total Token 为 177/9/186；唯一 CapabilityResult `SUCCEEDED` 首次回传 HTTP 200，result outbox 和 Conversation Turn completed，没有重复 execution/result/Message、incident 或 outcome_unknown。
+- 最终主体表达只来自 Engine `FirstRoundSuccessResult.response.content`。Engine `changed=false`、revision `0→0`、`engineUpdateId=null`，没有 Event、StateMutation 或 StateUpdateRecord；该验收没有覆盖真实模型 `UPDATE_STATE`。
+- API Key 未进入 Engine 或档案；Vio 费用账本为 `cost_status=not_reported`，不能把供应商界面当时约 0 解释为最终绝对零费用。三个服务端口已停止，沙箱已整根删除且未触及仓库或受保护路径。
+- 保留供应商调用前的 Windows 路径预算事故历史；该次没有 CapabilityRequest、Provider execution、CapabilityResult 或费用，修复位于 Vio 启动前门禁/清理边界，没有修改 Engine。
+- 本次只同步 Markdown，不提升 `0.1.0` 软件版本。通用 Provider、正式身份/Binding、日常使用、真实状态演化、生产认证、多租户、外网、部署及后续外部能力仍未完成。
+
 ### Engine S4-R Acceptance Archive Sync — 2026-08-13
 
 - 正式记录 Engine E5-A、Vio V4、受控 S4 Capability 联验、Vio V5、F1、L1 已完成，Engine S4-R 独立追认结论为 `PASS`；当前双方基线为 Engine `cba52126db2fb5eca57d9b5c0c80884693c59a6f`、Vio `239759d1d219bd140f41257c5da18169fbf773a9`。

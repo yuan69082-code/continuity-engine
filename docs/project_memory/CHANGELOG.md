@@ -4,6 +4,19 @@
 
 ## [Unreleased]
 
+### P00 User Acceptance Closure — 2026-08-25
+
+- 规划监工窗口完成 P00 核查后，用户于 2026-08-25 正式验收 P00；P00 与 P00-01—P00-12 当前状态同步为 `ACCEPTED`。
+- P01—P23 继续为 `NOT_STARTED`；P01 未获授权，仍须单独 Stage Brief 和用户明确授权，不得自动开始。
+- 本次只收口工程档案与验收证据，不修改运行代码、契约、Schema 或软件版本，也不执行 Git 提交或推送。
+
+### P00 Planning, Contract and Independent Upgrade Baseline — 2026-08-25
+
+- 以确认同步版 v1.1/v6.7 建立 P00—P23 唯一施工底图，并新增 P00 阶段基线、施工测试验收矩阵、档案与测试索引、风险回滚与用户决策入口四份专责档案。
+- 冻结 Engine/Vio 定位、Subject Authority、六份交互/Capability Schema、D-025 hash 证据、P10 分支语义、P01/P20/P21 恢复边界、唯一现实行动链和 Reality Boundary。
+- 登记 Engine 与只读 Vio 的 Git、版本、测试、迁移及独立升级基线；历史连接能力保留，但不构成双方运行或施工依赖，生产 World Adapter 重连仍属于 P22。
+- 本次仅修改工程档案，不改变软件版本或运行能力。该次施工完成时 P00 为 `IMPLEMENTED_NOT_ACCEPTED`，P01—P23 均为 `NOT_STARTED`，尚未获得进入 P01 的授权；其后验收状态见上方 P00 User Acceptance Closure 记录。
+
 ### S4-Live First Real Provider Acceptance Archive — 2026-08-14
 
 - 正式记录 S4-Live 首次真实供应商单次试聊 `PASS`：在不可晋升的 `disposable_test / promotionAllowed=false` 身份和仓库外短路径可销毁沙箱中，经正式 V5/V1/V3/Engine E5-A/V4/V2 链路完成一次真实调用。

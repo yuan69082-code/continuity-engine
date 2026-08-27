@@ -71,7 +71,7 @@ Engine E4 随后完成 Engine 侧正式本地 HTTP/JSON Adapter。Vio V3 首次�
 
 历史阶段顺序已推进为 `E5-A → V4 → 受控 S4 → V5 → F1 → L1 → S4-R PASS → S4-Live 首次真实供应商单次试聊 PASS → Engine 工程档案归档完成`。
 
-P00——总规划冻结、接口冻结、运行断开与独立升级基线登记已于 2026-08-25 由规划监工窗口核查，并由用户明确验收，当前状态为 `ACCEPTED`。P00 从 Engine `7715fb8d35f4b71d94883946e930511b52056c26`、355 项完整测试和只读 Vio 基线出发，冻结 v1.1 的 P00—P23 顺序、Subject Authority、Engine/Vio 独立性、恢复边界、唯一现实行动链及逐项验收门；它只产生工程档案，没有修改运行代码。P01—P23 全部为 `NOT_STARTED`，用户明确没有授权 P01；P01 必须另行形成 Stage Brief 并取得单独授权，不能因 P00 已验收而自动开始。软件版本保持 `0.1.0`。
+P00——总规划冻结、接口冻结、运行断开与独立升级基线登记已于 2026-08-25 由规划监工窗口核查，并由用户明确验收，当前状态为 `ACCEPTED`。用户随后单独授权 P01 Engine 侧施工：当前已在独立 `continuity_engine.testing` 命名空间建立一次性 TEST Subject、独立 Binding/cycle/namespace/root、Frozen Clock、synthetic Fixture、19/19 组件 closed-world Snapshot/Branch、外部防篡改锚点、原子 rollback、test-only Memory/Action 持久化、验收回执、晋升禁止和安全清理。确定性 test-only 输入已真实经过唯一 `IntegrationAdapter → ContinuityInteractionService → Awakening → Perception → Thinking → Action → Evolution → completed result` 链，产生 `changed=true`、revision `1→2` 后精确回滚；42 项 P01 专项及 397 项本地完整回归通过。用户已于 2026-08-27 正式验收 P01，当前 P01 与 Engine side 均为 `ACCEPTED`；P01 Vio dependency = `NONE`，Vio/PWA production integration = `DEFERRED_TO_P22`。P02—P23 继续为 `NOT_STARTED`，P02 尚未授权。软件版本保持 `0.1.0`。
 
 P00 的唯一全周期入口：
 
@@ -79,8 +79,12 @@ P00 的唯一全周期入口：
 - [`12_P00_规划施工测试验收矩阵.md`](docs/project_memory/12_P00_规划施工测试验收矩阵.md)
 - [`13_P00_档案与测试索引.md`](docs/project_memory/13_P00_档案与测试索引.md)
 - [`14_P00_风险回滚与用户决策入口.md`](docs/project_memory/14_P00_风险回滚与用户决策入口.md)
+- [`15_P01_测试隔离架构与边界.md`](docs/project_memory/15_P01_测试隔离架构与边界.md)
+- [`16_P01_规划施工测试验收矩阵.md`](docs/project_memory/16_P01_规划施工测试验收矩阵.md)
+- [`17_P01_Snapshot组件与清理策略.md`](docs/project_memory/17_P01_Snapshot组件与清理策略.md)
+- [`18_P01_测试索引与联合验收入口.md`](docs/project_memory/18_P01_测试索引与联合验收入口.md)：P01 Engine 独立验收与 P22 未来重连边界
 
-通用真实 Provider、日常正式使用、真实 `UPDATE_STATE` 模型演化、外网、生产认证、多租户、部署、MCP/Tool/设备和后台长期主动运行仍未开始；它们只能按 P01—P23 的冻结顺序逐阶段授权。
+P01 不是正式 Subject 或生产恢复能力；P20/P21 仍负责正式恢复。通用真实 Provider、日常正式使用、外网、生产认证、多租户、部署、MCP/Tool/设备和后台长期主动运行仍未开始；它们只能按冻结顺序逐阶段授权。
 
 第一阶段已经完成：
 
@@ -715,7 +719,7 @@ $env:PYTHONPATH = "src"
 python -m unittest discover -s tests -v
 ```
 
-当前测试基线：355 项（E5-A 专项 54 项；原 301 项基线继续全部通过）。
+当前测试基线：397 项（P01 专项 42 项；施工前 355 项基线继续全部通过）。
 
 正式本地集成服务必须先显式初始化，再使用至少 32 字符的进程环境令牌启动：
 

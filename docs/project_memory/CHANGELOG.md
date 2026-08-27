@@ -4,6 +4,33 @@
 
 ## [Unreleased]
 
+### P01 User Acceptance Closure — 2026-08-27
+
+- 用户于 2026-08-27 正式验收 P01；P01、P01 Engine side 与 P01-01—P01-12 当前均为 `ACCEPTED`。
+- P01 Vio dependency 继续为 `NONE`，Vio/PWA production integration 继续后置到 P22；P02—P23 全部为 `NOT_STARTED`，P02 未授权。
+- P01 仍只提供测试、实验和 Research Sandbox 的 Snapshot/Rollback，不构成正式 Subject、Owner Domain 或生产恢复；P20/P21 边界不变。
+- 本次只同步验收状态和执行提交前核查，不升级 `0.1.0`，不修改运行代码、测试、Schema、正式契约、正式数据或 Vio，也不执行 Git 提交或推送。
+
+### P01 Engine Independent Boundary Closure — 2026-08-27
+
+- 按三份 2026-08-26 最新规划正文重新校准 P01：P01—P21 由 Engine 独立施工与验收，P01 Vio dependency = `NONE`；Vio/PWA production integration 后置到 P22。
+- 三份附件按指定 python-docx/NFKC/空白折叠算法的 normalized body SHA-256 全部匹配，并通过 P01—P21 独立施工、P10 实际建仓及 P22 首次重连等语义锚点核对。
+- 现有 P01 代码无需重写；四项旧缺陷定点回归、42 项 P01 专项、正式链路和完整回归继续作为 Engine 独立证据。P01 仍为 `IN_PROGRESS`，Engine side `IMPLEMENTED_NOT_ACCEPTED`，未升级软件版本、未修改冻结 Schema 或 Vio。
+
+### P01 Engine Review Repair — 2026-08-26
+
+- 保留首次 P01 施工及四项缺陷复现历史，完成标准 Engine 交互 `changed=true`、revision `1→2`、真实 Wake/Think/Action/operation/result 持久化与精确 rollback。
+- Snapshot 扩展为 19/19 组件 closed-world inventory；增加 descriptor/registry 外部 anchor，未知/重复物理文件与重算内部 hash 的篡改均失败关闭。
+- 增加 acceptance receipt 强制门、ACTIVE 创建即 24 小时 lease、正式整树 hash 与 repository root 隔离证明。
+- P01 专项 42/42、相关正式链路回归 200/200、Engine 完整 397/397 通过。P01 仍为 `IN_PROGRESS`，Engine side `IMPLEMENTED_NOT_ACCEPTED`、Vio cooperation `NOT_STARTED`；未修改软件版本、冻结 Schema、正式契约或 Vio。
+
+### P01 Engine Test Sandbox Infrastructure — 2026-08-25
+
+- 新增独立 `continuity_engine.testing` TEST Sandbox：disposable Subject/Binding/cycle/namespace/root、Frozen Clock、synthetic Fixture、完整 Snapshot/Branch、原子 rollback、test-only Memory、证据导出、retention 和受保护清理。
+- Snapshot 以 15 个逻辑组件的 canonical hash、物理文件 hash、revision/count 和 completeness 验证；缺失/篡改失败关闭，`changed=true` 回滚后逐项精确恢复。
+- 固化 `promotionAllowed=false` / `PROMOTION_FORBIDDEN`，以及成功自动清理、失败 24 小时、debug 最长 7 天、无后台 Scheduler 和 link/junction/正式路径拒绝边界。
+- 新增 29 项 P01 专项；当前完整本地回归为 384 项。P01 整体仍为 `IN_PROGRESS`，Engine side `IMPLEMENTED_NOT_ACCEPTED`，Vio cooperation `NOT_STARTED`；软件版本继续为 `0.1.0`。
+
 ### P00 User Acceptance Closure — 2026-08-25
 
 - 规划监工窗口完成 P00 核查后，用户于 2026-08-25 正式验收 P00；P00 与 P00-01—P00-12 当前状态同步为 `ACCEPTED`。

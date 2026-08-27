@@ -126,6 +126,7 @@ class ContinuityInteractionService:
         thinking_mode: IntegrationThinkingMode = IntegrationThinkingMode.DETERMINISTIC,
         capabilities: CapabilityCoordinationService | None = None,
         capability_interpreter: CapabilityResultInterpreter | None = None,
+        result_factory: FirstRoundResultFactory | None = None,
     ) -> None:
         self._validator = validator
         self._bindings = bindings
@@ -153,6 +154,7 @@ class ContinuityInteractionService:
         self._capability_interpreter = (
             capability_interpreter or CapabilityResultInterpreter()
         )
+        self._result_factory = result_factory
         self.last_call_log: list[str] = []
 
     @property
@@ -1310,11 +1312,12 @@ class ContinuityInteractionService:
         )
         if state.revision != expected_revision:
             raise RuntimeError("authoritative SubjectState no longer matches the operation checkpoint")
-        return FirstRoundResultFactory(
+        result_factory = self._result_factory or FirstRoundResultFactory(
             clock=self._clock,
             operation_id_factory=self._operation_id_factory,
             response_id_factory=self._response_id_factory,
-        ).create_completed_result(
+        )
+        return result_factory.create_completed_result(
             request_id=operation.request_id,
             request_hash=operation.request_hash,
             binding=binding.to_fixture(),

@@ -294,6 +294,7 @@ def build_local_integration_app(
     data_dir: str | Path,
     *,
     thinking_mode: IntegrationThinkingMode = IntegrationThinkingMode.DETERMINISTIC,
+    capability_thinking_provider_id: str = "vio-capability-model-provider",
 ) -> LocalIntegrationApp:
     """Restore the formal deterministic E4 graph from an initialized directory."""
 
@@ -320,7 +321,7 @@ def build_local_integration_app(
         )
         awakening = AwakeningService(subject_states, memory, awakening_repository)
         thinking_provider = (
-            DeferredCapabilityThinkingProvider()
+            DeferredCapabilityThinkingProvider(capability_thinking_provider_id)
             if thinking_mode is IntegrationThinkingMode.CAPABILITY
             else DeterministicThinkingProvider(
                 result_id_factory=lambda: _uuid_id("thinking-result")

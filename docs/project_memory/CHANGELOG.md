@@ -4,6 +4,23 @@
 
 ## [Unreleased]
 
+### P02 User Acceptance Closure — 2026-08-29
+
+- 用户于 2026-08-29 正式验收 P02；P02、P02 Engine side 与 P02-01—P02-12 当前均为 `ACCEPTED`。
+- P02 Vio dependency 保持 `NONE`；Real Provider/Vio/PWA production integration 继续 `DEFERRED_TO_P22`；P03—P23 继续 `NOT_STARTED`。
+- 本次只同步验收状态、D-040、矩阵、索引和工程档案，不修改运行代码、测试、Schema、`pyproject.toml`、正式数据或版本 `0.1.0`，也不执行 Git 暂存、提交或推送。
+
+### P02 Engine Host-Neutral Model Capability Loop — 2026-08-28
+
+- 新增宿主中立 `ModelProvider` Port、显式 Provider/Model Profile policy、Engine 内确定性 Fake Provider，以及持久化 execution/usage/test-credit 测试账本。
+- 以 Alibaba Cloud Model Studio / `qwen-flash-2025-07-28` 作为可替换 Fake Profile 元数据，固定单次 1024、每日 10240 synthetic Token、每次唯一成功 execution 记 1 test-credit、fallback 关闭；不代表真实供应商价格或调用。
+- 复用 E5-A 唯一 `model.generate` durable pause/resume，覆盖 success、generation/network failure、timeout、UNKNOWN 查询优先、retryable/terminal、cancelled/expired、预算耗尽、响应丢失、多轮和崩溃恢复；不重复 execution、credit、Thinking、Action 或主体结果。
+- 初次施工时 P02 专项 33/33、P01+E5-A+P02 相关链路 129/129、Engine 全量 430/430 通过；该组数字作为历史基线保留。
+- 规划监工发现的 UNKNOWN/TIMEOUT 查询解析、部分每日预算调用前约束、usage/test-credit 加载期验真三项阻断已定点返修；当前定点矩阵 16/16、P02 专项 47/47、相关链路 143/143 通过。
+- D-039 验收前置返修把 E4/E5 HTTP 所有“读取正文前拒绝 POST”统一为 response-first、flush、半关闭写端和有界固定缓冲丢弃未读输入；不改变认证优先级、路由、状态码、JSON、限制或外部契约。413/401 各连续 50/50、前置拒绝矩阵 20/20、E4 HTTP 340/340、E5 HTTP 140/140，Engine 全量连续三轮 444/444 通过。
+- P02 与 Engine side 当前为 `IMPLEMENTED_NOT_ACCEPTED`；P02 Vio dependency `NONE`，真实 Provider/Vio/PWA production integration 后置 P22，P03—P23 未开始。
+- 未修改六份冻结 Schema、生产 HTTP/API/Capability/Binding 外部契约、正式数据或版本 `0.1.0`；未访问网络、凭据或 Vio，未执行 Git 提交或推送。
+
 ### P01 User Acceptance Closure — 2026-08-27
 
 - 用户于 2026-08-27 正式验收 P01；P01、P01 Engine side 与 P01-01—P01-12 当前均为 `ACCEPTED`。

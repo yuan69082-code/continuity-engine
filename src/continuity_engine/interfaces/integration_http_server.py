@@ -5,6 +5,7 @@ import json
 import re
 import socket
 import sys
+import time
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from typing import Any
 from urllib.parse import unquote, urlsplit
@@ -31,6 +32,9 @@ _JSON_CONTENT_TYPES = {
     "application/json",
     "application/json; charset=utf-8",
 }
+_DISCARD_BUFFER_BYTES = 64 * 1024
+_DISCARD_IDLE_TIMEOUT_SECONDS = 0.1
+_DISCARD_TOTAL_TIMEOUT_SECONDS = 1.0
 _CONNECTION_ERRORS = (
     socket.timeout,
     BrokenPipeError,
@@ -123,36 +127,36 @@ class IntegrationHTTPRequestHandler(BaseHTTPRequestHandler):
         path = urlsplit(self.path).path
         if path not in {_INTERACTION_PATH, _CAPABILITY_RESULT_PATH}:
             if path.startswith(_QUERY_PREFIX) or path.startswith("/health/"):
-                self._send_transport_error(405, "method_not_allowed")
+                self._reject_post_before_body(405, "method_not_allowed")
             else:
-                self._send_transport_error(404, "not_found")
+                self._reject_post_before_body(404, "not_found")
             return
-        if not self._authorized():
+        if not self._authorized(before_post_body=True):
             return
         if not self.server.integration_app.is_ready():
-            self._send_transport_error(503, "not_ready")
+            self._reject_post_before_body(503, "not_ready")
             return
         content_type = self.headers.get("Content-Type", "").strip().lower()
         if content_type not in _JSON_CONTENT_TYPES:
-            self._send_transport_error(415, "unsupported_media_type")
+            self._reject_post_before_body(415, "unsupported_media_type")
             return
         if self.headers.get("Transfer-Encoding") is not None:
-            self._send_transport_error(400, "transfer_encoding_not_supported")
+            self._reject_post_before_body(400, "transfer_encoding_not_supported")
             return
         content_length = self.headers.get("Content-Length")
         if content_length is None:
-            self._send_transport_error(411, "length_required")
+            self._reject_post_before_body(411, "length_required")
             return
         try:
             length = int(content_length, 10)
         except ValueError:
-            self._send_transport_error(400, "invalid_content_length")
+            self._reject_post_before_body(400, "invalid_content_length")
             return
         if length < 0:
-            self._send_transport_error(400, "invalid_content_length")
+            self._reject_post_before_body(400, "invalid_content_length")
             return
         if length > MAX_REQUEST_BODY_BYTES:
-            self._send_transport_error(413, "payload_too_large")
+            self._reject_post_before_body(413, "payload_too_large")
             return
         try:
             body = self.rfile.read(length)
@@ -219,11 +223,14 @@ class IntegrationHTTPRequestHandler(BaseHTTPRequestHandler):
             return
         self._send_transport_error(400, "bad_request")
 
-    def _authorized(self) -> bool:
+    def _authorized(self, *, before_post_body: bool = False) -> bool:
         supplied = self.headers.get("Authorization", "")
         expected = f"Bearer {self.server.integration_config.service_token}"
         if not hmac.compare_digest(supplied, expected):
-            self._send_transport_error(401, "unauthorized")
+            if before_post_body:
+                self._reject_post_before_body(401, "unauthorized")
+            else:
+                self._send_transport_error(401, "unauthorized")
             return False
         return True
 
@@ -252,10 +259,47 @@ class IntegrationHTTPRequestHandler(BaseHTTPRequestHandler):
         sys.stderr.flush()
         self._send_transport_error(500, "internal_error")
 
+    def _reject_post_before_body(self, status: int, code: str) -> None:
+        response_sent = self._send_json(status, {"error": code})
+        if response_sent:
+            self._graceful_close_unread_input()
+
+    def _graceful_close_unread_input(self) -> None:
+        """Finish a one-shot rejected POST without parsing or retaining its body."""
+
+        previous_timeout = self.connection.gettimeout()
+        total_timeout = min(
+            self.server.integration_config.read_timeout_seconds,
+            _DISCARD_TOTAL_TIMEOUT_SECONDS,
+        )
+        deadline = time.monotonic() + total_timeout
+        try:
+            self.connection.shutdown(socket.SHUT_WR)
+            while True:
+                remaining_time = deadline - time.monotonic()
+                if remaining_time <= 0:
+                    break
+                self.connection.settimeout(
+                    min(remaining_time, _DISCARD_IDLE_TIMEOUT_SECONDS)
+                )
+                chunk = self.rfile.read1(_DISCARD_BUFFER_BYTES)
+                if not chunk:
+                    break
+        except socket.timeout:
+            pass
+        except _CONNECTION_ERRORS:
+            pass
+        finally:
+            self.close_connection = True
+            try:
+                self.connection.settimeout(previous_timeout)
+            except _CONNECTION_ERRORS:
+                pass
+
     def _send_transport_error(self, status: int, code: str) -> None:
         self._send_json(status, {"error": code})
 
-    def _send_json(self, status: int, payload: dict[str, Any]) -> None:
+    def _send_json(self, status: int, payload: dict[str, Any]) -> bool:
         self.close_connection = True
         body = json.dumps(
             payload,
@@ -272,8 +316,10 @@ class IntegrationHTTPRequestHandler(BaseHTTPRequestHandler):
             if self.command != "HEAD":
                 self.wfile.write(body)
                 self.wfile.flush()
+            return True
         except _CONNECTION_ERRORS:
             self.close_connection = True
+            return False
 
     def log_message(self, format: str, *args: Any) -> None:
         # The local formal boundary deliberately emits no request headers or bodies.

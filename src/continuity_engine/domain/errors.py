@@ -170,6 +170,22 @@ class CapabilityNotFoundError(CapabilityError):
     """Raised when a capability result cannot be associated with a request."""
 
 
+class ModelProviderError(ContinuityEngineError):
+    """Base error for host-neutral model execution coordination."""
+
+
+class ModelProviderValidationError(ModelProviderError):
+    """Raised when a profile, execution fact, or usage fact is invalid."""
+
+
+class ModelProviderConflictError(ModelProviderError):
+    """Raised when an immutable model execution identity is reused inconsistently."""
+
+
+class ModelProviderNotFoundError(ModelProviderError):
+    """Raised when a model execution or profile cannot be found."""
+
+
 # Backward-compatible E3 name.  The execution fault now belongs to the shared
 # integration core rather than to the test adapter.
 ContractTestExecutionError = IntegrationExecutionError

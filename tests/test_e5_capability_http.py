@@ -16,6 +16,7 @@ from continuity_engine.domain.capability import (
 )
 from continuity_engine.domain.integration_contract import SubjectBindingFixture
 from continuity_engine.interfaces.integration_config import (
+    MAX_REQUEST_BODY_BYTES,
     IntegrationConfigurationError,
     IntegrationServerConfig,
 )
@@ -107,6 +108,8 @@ class E5CapabilityHTTPTests(unittest.TestCase):
         raw = response.read()
         result = json.loads(raw.decode("utf-8")) if raw else {}
         close = response.headers.get("Connection")
+        self.assertEqual(response.headers.get("Cache-Control"), "no-store")
+        self.assertEqual(int(response.headers["Content-Length"]), len(raw))
         status = response.status
         connection.close()
         return status, result, close
@@ -324,14 +327,83 @@ class E5CapabilityHTTPTests(unittest.TestCase):
         self.assertEqual((status, body, close), (400, {"error": "invalid_json"}, "close"))
 
     def test_oversized_capability_result_is_rejected_before_parsing(self) -> None:
-        with self.server() as server:
-            status, body, close = self.call(
-                server,
-                "POST",
-                "/internal/v1/continuity/capability-results",
-                raw_body=b"x" * 1_048_577,
-            )
-        self.assertEqual((status, body, close), (413, {"error": "payload_too_large"}, "close"))
+        stderr = io.StringIO()
+        original_submit = self.app.adapter.submit_capability_result
+        submit_calls = 0
+
+        def guarded_submit(payload):
+            nonlocal submit_calls
+            submit_calls += 1
+            return original_submit(payload)
+
+        self.app.adapter.submit_capability_result = guarded_submit
+        try:
+            with redirect_stderr(stderr), self.server() as server:
+                oversized = b"x" * (MAX_REQUEST_BODY_BYTES + 1)
+                for attempt in range(3):
+                    with self.subTest(complete_request=attempt):
+                        status, body, close = self.call(
+                            server,
+                            "POST",
+                            "/internal/v1/continuity/capability-results",
+                            raw_body=oversized,
+                        )
+                        self.assertEqual(
+                            (status, body, close),
+                            (413, {"error": "payload_too_large"}, "close"),
+                        )
+
+                with socket.create_connection(
+                    ("127.0.0.1", server.server_port), timeout=5
+                ) as client:
+                    request = (
+                        "POST /internal/v1/continuity/capability-results HTTP/1.1\r\n"
+                        "Host: 127.0.0.1\r\n"
+                        f"Authorization: Bearer {TOKEN}\r\n"
+                        "Content-Type: application/json\r\n"
+                        f"Content-Length: {MAX_REQUEST_BODY_BYTES + 1}\r\n"
+                        "\r\n"
+                    ).encode("ascii")
+                    client.sendall(request + b"partial")
+                    client.shutdown(socket.SHUT_WR)
+                    chunks: list[bytes] = []
+                    while True:
+                        chunk = client.recv(4096)
+                        if not chunk:
+                            break
+                        chunks.append(chunk)
+                    partial_response = b"".join(chunks)
+
+                partial_head, partial_body = partial_response.split(b"\r\n\r\n", 1)
+                self.assertEqual(
+                    int(partial_head.split(b"\r\n", 1)[0].split()[1]),
+                    413,
+                )
+                self.assertIn(b"Connection: close", partial_head)
+                self.assertIn(b"Cache-Control: no-store", partial_head)
+                self.assertIn(
+                    f"Content-Length: {len(partial_body)}".encode("ascii"),
+                    partial_head,
+                )
+                self.assertEqual(
+                    json.loads(partial_body.decode("utf-8")),
+                    {"error": "payload_too_large"},
+                )
+
+                health_status, health_body, health_close = self.call(
+                    server,
+                    "GET",
+                    "/health/live",
+                )
+        finally:
+            self.app.adapter.submit_capability_result = original_submit
+
+        self.assertEqual(submit_calls, 0)
+        self.assertEqual(
+            (health_status, health_body, health_close),
+            (200, {"status": "live"}, "close"),
+        )
+        self.assertNotIn("Traceback", stderr.getvalue())
 
     def test_configuration_rejects_untyped_thinking_mode(self) -> None:
         with self.assertRaises(IntegrationConfigurationError):

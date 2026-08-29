@@ -29,14 +29,15 @@
 - 正式本地集成服务（Engine E4）：`ContinuityInteractionService` 是测试与正式 Adapter 共用的唯一处理链；显式 `init` 持久化单一 active SubjectBinding；正式 HTTP/JSON 服务只监听 `127.0.0.1:8766`，提供提交、结果/恢复查询和最小健康检查，并以串行请求、Bearer 服务令牌、1 MiB 上限、默认 10 秒读取超时和“一请求一连接”的严格 JSON 传输边界保护本地入口。domain 子阶段现持久化稳定恢复身份和 Wake/Perception/Thinking checkpoint；重启会复用已完成 WakeSession、ThinkSession/ThinkingResult，并继续沿用稳定 Action、Event、StateUpdateRecord 和最终结果身份。
 - 第一阶段正式本地回环连接验收：以 Engine `189441f9bad2a34119b4ef10365a4385ed0949cc` 和 Vio `35780da56c72b822fc018702dfe5e90674ab0fcb` 为基线，Vio 的真实持久化请求已通过 V3 HTTP transport 进入独立运行的 Engine E4；S2/S3 覆盖 completed、not_found、recovery_required、响应丢失以及双方分别或同时重启，稳定身份、领域经历、状态演化、投影和双方账本均未重复。
 - Durable Capability 暂停/恢复核心（Engine E5-A）：新增独立版本化 `CapabilityRequest`、`CapabilityResult` 和受约束模型输出 Schema；capability 模式会在 Perception 后持久化请求并将原 ThinkSession 置为 `WAITING_CAPABILITY`，通过同一 E4 HTTP 服务返回 `capability_required`。合法结果在写入 capability ledger 前必须通过严格 Schema、去除首尾空白后的非空输出、身份/hash 和请求时间一致性校验，再经结果解释器、原 ThinkSession、Action Gate 和 ReplyComposer 形成最终结果；operation journal format v3 还持久化已完成的 `ActionExecutionResult`，使 Action 完成后、domain checkpoint 前崩溃也能直接复用而不再次决策。capability ledger 与 journal 共同支持跨重启恢复和精确重放。重复 `init` 会按既有持久化历史选择校验模式，只验证或补齐允许的空 capability ledger，不改写任何身份、状态或历史；`serve` 的模式保护不变。
+- P02 Engine 独立模型能力闭环：新增宿主中立 `ModelProvider` Port、可替换 Provider/Model Profile、Engine 内确定性 Fake Provider、持久化 execution/usage/test-credit 账本、1024 单次/10240 每日 synthetic Token 预算门，以及 success、generation/network failure、timeout、`UNKNOWN`、retryable/terminal、cancelled/expired、响应丢失和重启恢复矩阵。UNKNOWN/TIMEOUT 会保存原始模糊事实并以单调 query resolution 恢复；当日剩余额度在调用前下压为 `maximumTokens`；usage/test-credit 每次加载均与唯一成功 Provider fact 逐字段验真。P02 只驱动 E5-A 唯一 durable Capability 通道；Provider 候选必须返回原 ThinkSession，再经过 Thinking、Action 和 ReplyComposer。E4/E5 HTTP 读取正文前拒绝路径已统一使用 response-first、半关闭和固定缓冲短时丢弃收口，认证优先级和外部契约不变。47 项 P02 专项、143 项相关链路及连续三轮 444 项完整回归已通过；用户于 2026-08-29 正式验收 P02，当前为 `ACCEPTED`。没有真实 Provider、网络、API Key、Vio 或真实费用。
 - 受控 S4 Capability 链路、S4-R 与首次 S4-Live：Vio V4、双方受控 S4、Vio V5 Conversation、F1、L1 和 Engine S4-R `PASS` 均已完成。2026-08-14 又在不可晋升的独立可销毁沙箱中完成一次真实供应商单次试聊；真实 CapabilityResult 返回原 operation/ThinkSession，经 Engine Thinking、Action Gate 和 ReplyComposer 形成最终表达。本次 `changed=false`、revision `0→0`，没有 Event、StateMutation 或 StateUpdateRecord；它不是通用 Provider 接入、日常使用能力或生产部署。
 
 其中 Memory、Awakening、Thinking、Learning、Resource Management、接口和前端属于“内部结构或本地原型已完成，真实外部集成仍未完成”。Action 完成的是决策规划层，不包含执行层。
 
 ### 尚未实现
 
-- 通用、可重复配置的真实 Provider/模型接入，以及更多供应商、故障、并发和真实 `UPDATE_STATE` 场景验证；当前只完成一次受控 S4-Live 单次验收。
-- 面向日常使用或生产的 Provider、模型、预算、密钥治理与可信费用闭环；Engine 仍不读取、不接收或保存供应商 API Key。
+- 真实 Provider SDK/网络、更多供应商、并发和真实 `UPDATE_STATE` 场景验证；P02 已完成宿主中立 Port、Fake Provider、Profile、故障/恢复和 synthetic 预算闭环，但真实接入后置到 P22。
+- 面向日常使用或生产的真实 Provider、密钥治理与可信费用闭环；Engine 仍不读取、不接收或保存供应商 API Key。
 - 真实 MCP 连接或 MCP 协议传输。
 - ChatGPT、Claude 或其他平台的真实 Skill 接入。
 - 外部长期记忆库、向量库或记忆数据库。
@@ -71,7 +72,7 @@ Engine E4 随后完成 Engine 侧正式本地 HTTP/JSON Adapter。Vio V3 首次�
 
 历史阶段顺序已推进为 `E5-A → V4 → 受控 S4 → V5 → F1 → L1 → S4-R PASS → S4-Live 首次真实供应商单次试聊 PASS → Engine 工程档案归档完成`。
 
-P00——总规划冻结、接口冻结、运行断开与独立升级基线登记已于 2026-08-25 由规划监工窗口核查，并由用户明确验收，当前状态为 `ACCEPTED`。用户随后单独授权 P01 Engine 侧施工：当前已在独立 `continuity_engine.testing` 命名空间建立一次性 TEST Subject、独立 Binding/cycle/namespace/root、Frozen Clock、synthetic Fixture、19/19 组件 closed-world Snapshot/Branch、外部防篡改锚点、原子 rollback、test-only Memory/Action 持久化、验收回执、晋升禁止和安全清理。确定性 test-only 输入已真实经过唯一 `IntegrationAdapter → ContinuityInteractionService → Awakening → Perception → Thinking → Action → Evolution → completed result` 链，产生 `changed=true`、revision `1→2` 后精确回滚；42 项 P01 专项及 397 项本地完整回归通过。用户已于 2026-08-27 正式验收 P01，当前 P01 与 Engine side 均为 `ACCEPTED`；P01 Vio dependency = `NONE`，Vio/PWA production integration = `DEFERRED_TO_P22`。P02—P23 继续为 `NOT_STARTED`，P02 尚未授权。软件版本保持 `0.1.0`。
+P00、P01、P02 已分别于 2026-08-25、2026-08-27、2026-08-29 由用户正式验收，当前均为 `ACCEPTED`。P02 Engine side 与 P02-01—P02-12 同为 `ACCEPTED`；P02 Vio dependency = `NONE`，真实 Provider integration 与 Vio/PWA production integration 均为 `DEFERRED_TO_P22`。P03—P23 保持 `NOT_STARTED`，未授权 P03。软件版本保持 `0.1.0`。
 
 P00 的唯一全周期入口：
 
@@ -83,6 +84,10 @@ P00 的唯一全周期入口：
 - [`16_P01_规划施工测试验收矩阵.md`](docs/project_memory/16_P01_规划施工测试验收矩阵.md)
 - [`17_P01_Snapshot组件与清理策略.md`](docs/project_memory/17_P01_Snapshot组件与清理策略.md)
 - [`18_P01_测试索引与联合验收入口.md`](docs/project_memory/18_P01_测试索引与联合验收入口.md)：P01 Engine 独立验收与 P22 未来重连边界
+- [`19_P02_宿主中立模型能力架构与边界.md`](docs/project_memory/19_P02_宿主中立模型能力架构与边界.md)
+- [`20_P02_规划施工测试验收矩阵.md`](docs/project_memory/20_P02_规划施工测试验收矩阵.md)
+- [`21_P02_Provider配置预算与失败语义.md`](docs/project_memory/21_P02_Provider配置预算与失败语义.md)
+- [`22_P02_测试索引与验收入口.md`](docs/project_memory/22_P02_测试索引与验收入口.md)
 
 P01 不是正式 Subject 或生产恢复能力；P20/P21 仍负责正式恢复。通用真实 Provider、日常正式使用、外网、生产认证、多租户、部署、MCP/Tool/设备和后台长期主动运行仍未开始；它们只能按冻结顺序逐阶段授权。
 

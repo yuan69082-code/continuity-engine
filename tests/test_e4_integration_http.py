@@ -112,6 +112,8 @@ class E4IntegrationHTTPTests(unittest.TestCase):
         raw = response.read()
         payload = json.loads(raw.decode("utf-8")) if raw else {}
         self.assertEqual(response.headers.get("Connection"), "close")
+        self.assertEqual(response.headers.get("Cache-Control"), "no-store")
+        self.assertEqual(int(response.headers["Content-Length"]), len(raw))
         connection.close()
         return response.status, payload, response
 
@@ -153,6 +155,8 @@ class E4IntegrationHTTPTests(unittest.TestCase):
         head, body = response.split(b"\r\n\r\n", 1)
         self.assertEqual(int(head.split(b"\r\n", 1)[0].split()[1]), status)
         self.assertIn(b"Connection: close", head)
+        self.assertIn(b"Cache-Control: no-store", head)
+        self.assertIn(f"Content-Length: {len(body)}".encode("ascii"), head)
         self.assertEqual(json.loads(body.decode("utf-8")), payload)
         self.assertEqual(response.count(b"HTTP/1.1"), 1)
         self.assertNotIn(b"<!DOCTYPE", response)
@@ -199,12 +203,32 @@ class E4IntegrationHTTPTests(unittest.TestCase):
         self.assertNotIn("Access-Control-Allow-Origin", response.headers)
 
     def test_missing_or_wrong_token_returns_401(self) -> None:
+        operations_before = self.app.ledger.list_operations()
         with self.server() as server:
-            for token in (None, "x" * 32):
-                with self.subTest(token=token):
-                    status, payload, _ = self.post_request(server, token=token)
-                    self.assertEqual(status, 401)
-                    self.assertEqual(payload, {"error": "unauthorized"})
+            for attempt in range(3):
+                for token in (None, "x" * 32):
+                    with self.subTest(attempt=attempt, token=token):
+                        status, payload, _ = self.post_request(server, token=token)
+                        self.assertEqual(status, 401)
+                        self.assertEqual(payload, {"error": "unauthorized"})
+
+            headers_only = (
+                b"POST /internal/v1/continuity/interactions HTTP/1.1\r\n"
+                b"Host: 127.0.0.1\r\n"
+                b"Content-Type: application/json\r\n"
+                b"Content-Length: 1048576\r\n\r\n"
+            )
+            started = time.monotonic()
+            response = self.raw_exchange(server, headers_only, timeout=2)
+            elapsed = time.monotonic() - started
+            health_status, health_payload, _ = self.call(
+                server, "GET", "/health/live", token=None, content_type=None
+            )
+
+        self.assert_raw_json_response(response, 401, {"error": "unauthorized"})
+        self.assertLess(elapsed, 1.5)
+        self.assertEqual((health_status, health_payload), (200, {"status": "live"}))
+        self.assertEqual(self.app.ledger.list_operations(), operations_before)
 
     def test_token_is_not_persisted_or_echoed(self) -> None:
         with self.server() as server:
@@ -276,6 +300,7 @@ class E4IntegrationHTTPTests(unittest.TestCase):
 
     def test_rejected_unread_bodies_close_connection_without_pipelining(self) -> None:
         suffix = b"GET /health/live HTTP/1.1\r\nHost: 127.0.0.1\r\n\r\n"
+        authorized = f"Authorization: Bearer {TOKEN}\r\n".encode()
         cases = (
             (
                 b"POST /internal/v1/continuity/interactions HTTP/1.1\r\n"
@@ -285,9 +310,21 @@ class E4IntegrationHTTPTests(unittest.TestCase):
                 {"error": "unauthorized"},
             ),
             (
+                b"POST /missing HTTP/1.1\r\nHost: 127.0.0.1\r\n"
+                b"Content-Length: 2\r\n\r\n{}" + suffix,
+                404,
+                {"error": "not_found"},
+            ),
+            (
+                b"POST /health/live HTTP/1.1\r\nHost: 127.0.0.1\r\n"
+                b"Content-Length: 2\r\n\r\n{}" + suffix,
+                405,
+                {"error": "method_not_allowed"},
+            ),
+            (
                 b"POST /internal/v1/continuity/interactions HTTP/1.1\r\n"
                 b"Host: 127.0.0.1\r\n"
-                + f"Authorization: Bearer {TOKEN}\r\n".encode()
+                + authorized
                 + b"Content-Type: application/json\r\n"
                 b"Content-Length: 1048577\r\n\r\n{}" + suffix,
                 413,
@@ -296,7 +333,7 @@ class E4IntegrationHTTPTests(unittest.TestCase):
             (
                 b"POST /internal/v1/continuity/interactions HTTP/1.1\r\n"
                 b"Host: 127.0.0.1\r\n"
-                + f"Authorization: Bearer {TOKEN}\r\n".encode()
+                + authorized
                 + b"Content-Type: text/plain\r\nContent-Length: 2\r\n\r\n{}"
                 + suffix,
                 415,
@@ -305,14 +342,44 @@ class E4IntegrationHTTPTests(unittest.TestCase):
             (
                 b"POST /internal/v1/continuity/interactions HTTP/1.1\r\n"
                 b"Host: 127.0.0.1\r\n"
-                + f"Authorization: Bearer {TOKEN}\r\n".encode()
+                + authorized
                 + b"Content-Type: application/json\r\n"
                 b"Transfer-Encoding: chunked\r\n\r\n2\r\n{}\r\n0\r\n\r\n"
                 + suffix,
                 400,
                 {"error": "transfer_encoding_not_supported"},
             ),
+            (
+                b"POST /internal/v1/continuity/interactions HTTP/1.1\r\n"
+                b"Host: 127.0.0.1\r\n"
+                + authorized
+                + b"Content-Type: application/json\r\n\r\n{}"
+                + suffix,
+                411,
+                {"error": "length_required"},
+            ),
+            (
+                b"POST /internal/v1/continuity/interactions HTTP/1.1\r\n"
+                b"Host: 127.0.0.1\r\n"
+                + authorized
+                + b"Content-Type: application/json\r\n"
+                b"Content-Length: invalid\r\n\r\n{}"
+                + suffix,
+                400,
+                {"error": "invalid_content_length"},
+            ),
+            (
+                b"POST /internal/v1/continuity/interactions HTTP/1.1\r\n"
+                b"Host: 127.0.0.1\r\n"
+                + authorized
+                + b"Content-Type: application/json\r\n"
+                b"Content-Length: -1\r\n\r\n{}"
+                + suffix,
+                400,
+                {"error": "invalid_content_length"},
+            ),
         )
+        operations_before = self.app.ledger.list_operations()
         with self.server() as server:
             for raw, status, payload in cases:
                 with self.subTest(status=status, payload=payload):
@@ -321,6 +388,27 @@ class E4IntegrationHTTPTests(unittest.TestCase):
                         status,
                         payload,
                     )
+
+            not_ready = (
+                b"POST /internal/v1/continuity/interactions HTTP/1.1\r\n"
+                b"Host: 127.0.0.1\r\n"
+                + authorized
+                + b"Content-Type: application/json\r\n"
+                b"Content-Length: 2\r\n\r\n{}"
+                + suffix
+            )
+            with patch.object(type(self.app), "is_ready", return_value=False):
+                self.assert_raw_json_response(
+                    self.raw_exchange(server, not_ready),
+                    503,
+                    {"error": "not_ready"},
+                )
+            health_status, health_payload, _ = self.call(
+                server, "GET", "/health/live", token=None, content_type=None
+            )
+
+        self.assertEqual((health_status, health_payload), (200, {"status": "live"}))
+        self.assertEqual(self.app.ledger.list_operations(), operations_before)
 
     def test_unknown_http_method_is_json_405_and_closes_connection(self) -> None:
         unknown = (

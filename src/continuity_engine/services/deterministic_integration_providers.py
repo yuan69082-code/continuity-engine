@@ -174,9 +174,14 @@ class DeterministicThinkingProvider:
 class DeferredCapabilityThinkingProvider:
     """Identity-only provider seam; E5 never calls an external model here."""
 
+    def __init__(self, provider_id: str = "vio-capability-model-provider") -> None:
+        if not isinstance(provider_id, str) or not provider_id.strip():
+            raise ValueError("capability thinking provider_id must be non-empty")
+        self._provider_id = provider_id
+
     @property
     def provider_id(self) -> str:
-        return "vio-capability-model-provider"
+        return self._provider_id
 
     def think(self, perception: PerceptionResult, budget: TokenBudget) -> ThinkingResult:
         del perception, budget

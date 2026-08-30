@@ -2,9 +2,17 @@ from __future__ import annotations
 
 from collections.abc import Callable
 from datetime import datetime
+from typing import Iterable
 
 from continuity_engine.domain.action import ApprovedStateAction
-from continuity_engine.domain.events import Event, StateSection, StateUpdateRecord
+from continuity_engine.domain.events import (
+    Event,
+    EventClassification,
+    EventReference,
+    EventSourceKind,
+    StateSection,
+    StateUpdateRecord,
+)
 from continuity_engine.domain.models import utc_now
 
 from .subject_state_service import SubjectStateService
@@ -28,6 +36,10 @@ class ActionEvolutionService:
         *,
         event_id: str | None = None,
         occurred_at: datetime | None = None,
+        observed_at: datetime | None = None,
+        recorded_at: datetime | None = None,
+        correlation_id: str | None = None,
+        references: Iterable[EventReference] = (),
         metadata: dict | None = None,
     ) -> StateUpdateRecord | None:
         if approved is None:
@@ -40,12 +52,18 @@ class ActionEvolutionService:
         event = Event.create(
             event_id=event_id,
             occurred_at=occurred_at or self._clock(),
+            observed_at=observed_at,
+            recorded_at=recorded_at,
             source="action_engine",
+            source_kind=EventSourceKind.INTERNAL,
             event_type="approved_internal_action",
+            classification=EventClassification.STATE_CHANGE,
             content=approved.result_summary,
             impact_scope=scopes,
             mutations=approved.mutations,
             reason=approved.rationale_summary,
+            correlation_id=correlation_id,
+            references=list(references),
             metadata={
                 "action_session_id": approved.action_session_id,
                 "action_decision_id": approved.decision_id,

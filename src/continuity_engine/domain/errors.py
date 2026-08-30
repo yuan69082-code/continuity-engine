@@ -18,6 +18,22 @@ class StateEvolutionError(ContinuityEngineError):
     """Raised when an event requests an invalid state transition."""
 
 
+class EventIdentityConflictError(StateEvolutionError):
+    """Raised when an event identity is reused with a different canonical body."""
+
+
+class EventReferenceError(StateEvolutionError):
+    """Raised when an event relation targets an invalid event or subject."""
+
+
+class TimelineValidationError(ContinuityEngineError):
+    """Raised when a read-only timeline query or projection is invalid."""
+
+
+class TimelineReferenceError(TimelineValidationError):
+    """Raised when timeline history contains an invalid event reference."""
+
+
 class MemoryValidationError(ContinuityEngineError):
     """Raised when a memory request, candidate, or decision is invalid."""
 

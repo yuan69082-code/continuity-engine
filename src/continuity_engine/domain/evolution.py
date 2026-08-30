@@ -50,6 +50,7 @@ FIELD_RULES: dict[str, FieldRule] = {
 class StateEvolutionResult:
     state: SubjectState
     update: StateUpdateRecord
+    idempotent_replay: bool = False
 
 
 def _json_value(value: Any) -> JsonValue:
@@ -196,4 +197,3 @@ class SubjectStateEvolver:
                 current.remove(value)
             return current
         raise StateEvolutionError(f"unsupported change operation: {operation}")
-

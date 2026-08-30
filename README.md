@@ -9,7 +9,8 @@
 ### 已实现的内部能力
 
 - `SubjectState`：六个状态分区、revision、JSON 保存与重启恢复。
-- `Event / Evolution`：显式事件、状态变化规则、before/after 差异、`StateUpdateRecord` 和 expected_revision 保护。
+- `Event / Evolution`：Event 分类/来源/证据、occurred/observed/recorded 三时间、内部/来源/关联身份、追加式 correction/revocation、精确幂等与冲突保护；状态变化仍只经 before/after、`StateUpdateRecord`、expected_revision 和 Action Gate/Evolution。
+- `Timeline`：只从 Event/StateUpdateRecord 历史重建的只读 UTC 投影，支持确定性排序、范围、first/last、间距、链及来源/分类/correlation 过滤；没有第二 Event Store 或写入权。
 - Memory 管理层：检索请求、候选相关性判断、`MemoryRetrievalResult` 和影响记录接口。
 - Awakening：手动、定时和事件触发的单次唤醒流程，`WakeSession`、`WakeContext` 和确定性决策。
 - Perception：只读的确定性感知层，输出关注、时间、关系、记忆影响、观察和内在驱力。
@@ -72,7 +73,7 @@ Engine E4 随后完成 Engine 侧正式本地 HTTP/JSON Adapter。Vio V3 首次�
 
 历史阶段顺序已推进为 `E5-A → V4 → 受控 S4 → V5 → F1 → L1 → S4-R PASS → S4-Live 首次真实供应商单次试聊 PASS → Engine 工程档案归档完成`。
 
-P00、P01、P02 已分别于 2026-08-25、2026-08-27、2026-08-29 由用户正式验收，当前均为 `ACCEPTED`。P02 Engine side 与 P02-01—P02-12 同为 `ACCEPTED`；P02 Vio dependency = `NONE`，真实 Provider integration 与 Vio/PWA production integration 均为 `DEFERRED_TO_P22`。P03—P23 保持 `NOT_STARTED`，未授权 P03。软件版本保持 `0.1.0`。
+P00、P01、P02、P03 已分别于 2026-08-25、2026-08-27、2026-08-29、2026-08-30 由用户正式验收，当前均为 `ACCEPTED`。P03 Event 三时间、来源/证据/引用、追加式 correction/revocation、精确幂等、只读 Timeline、版本化本地 Fixture 和 Golden Scenario 已完成 Engine 独立实现、返修和验收；P03 Engine side 与 P03-01—P03-12 均为 `ACCEPTED`，P03 Vio dependency = `NONE`。P04—P23 保持 `NOT_STARTED`，P03 验收不自动授权 P04；真实 Provider integration 与 Vio/PWA production integration 仍为 `DEFERRED_TO_P22`，软件版本保持 `0.1.0`。
 
 P00 的唯一全周期入口：
 
@@ -88,6 +89,10 @@ P00 的唯一全周期入口：
 - [`20_P02_规划施工测试验收矩阵.md`](docs/project_memory/20_P02_规划施工测试验收矩阵.md)
 - [`21_P02_Provider配置预算与失败语义.md`](docs/project_memory/21_P02_Provider配置预算与失败语义.md)
 - [`22_P02_测试索引与验收入口.md`](docs/project_memory/22_P02_测试索引与验收入口.md)
+- [`23_P03_Event时间与Timeline架构边界.md`](docs/project_memory/23_P03_Event时间与Timeline架构边界.md)
+- [`24_P03_规划施工测试验收矩阵.md`](docs/project_memory/24_P03_规划施工测试验收矩阵.md)
+- [`25_P03_时间来源修正撤销语义.md`](docs/project_memory/25_P03_时间来源修正撤销语义.md)
+- [`26_P03_测试索引与验收入口.md`](docs/project_memory/26_P03_测试索引与验收入口.md)
 
 P01 不是正式 Subject 或生产恢复能力；P20/P21 仍负责正式恢复。通用真实 Provider、日常正式使用、外网、生产认证、多租户、部署、MCP/Tool/设备和后台长期主动运行仍未开始；它们只能按冻结顺序逐阶段授权。
 

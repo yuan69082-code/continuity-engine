@@ -22,7 +22,27 @@ from .domain.models import (
     SubjectState,
     TemporalState,
 )
-from .domain.events import ChangeOperation, Event, StateMutation, StateSection, StateUpdateRecord
+from .domain.events import (
+    ChangeOperation,
+    Event,
+    EventClassification,
+    EventEvidenceReference,
+    EventReference,
+    EventRelationType,
+    EventSourceKind,
+    EventTimeBasis,
+    StateMutation,
+    StateSection,
+    StateUpdateRecord,
+)
+from .domain.timeline import (
+    TimelineEntry,
+    TimelineEventStatus,
+    TimelineProjection,
+    TimelineQuery,
+    TimelineRelativeOrder,
+    TimelineResult,
+)
 from .domain.evolution import StateEvolutionResult, SubjectStateEvolver
 from .domain.integration_contract import (
     Constraints,
@@ -167,6 +187,7 @@ from .services.integration_result_factory import FirstRoundResultFactory
 from .services.integration_contract_validation import MachineContractValidator
 from .services.awakening_service import AwakeningService
 from .services.subject_state_service import SubjectStateService
+from .services.timeline_service import TimelineService
 from .services.user_interaction_service import (
     DeterministicReplyComposer,
     InteractionReplyComposer,
@@ -330,6 +351,12 @@ __all__ = [
     "ChangeOperation",
     "EmotionState",
     "Event",
+    "EventClassification",
+    "EventEvidenceReference",
+    "EventReference",
+    "EventRelationType",
+    "EventSourceKind",
+    "EventTimeBasis",
     "Drive",
     "DriveKind",
     "DriveStrength",
@@ -389,6 +416,13 @@ __all__ = [
     "UserInteractionResult",
     "UserInteractionService",
     "TemporalState",
+    "TimelineEntry",
+    "TimelineEventStatus",
+    "TimelineProjection",
+    "TimelineQuery",
+    "TimelineRelativeOrder",
+    "TimelineResult",
+    "TimelineService",
     "ThinkSession",
     "ThinkingDepth",
     "ThinkingExecutionResult",

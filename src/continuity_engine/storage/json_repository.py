@@ -7,7 +7,12 @@ import tempfile
 from pathlib import Path
 from typing import Any
 
-from continuity_engine.domain.errors import StateEvolutionError, StateNotFoundError, StateValidationError
+from continuity_engine.domain.errors import (
+    EventIdentityConflictError,
+    StateEvolutionError,
+    StateNotFoundError,
+    StateValidationError,
+)
 from continuity_engine.domain.events import StateUpdateRecord
 from continuity_engine.domain.models import SubjectState
 
@@ -72,6 +77,20 @@ class JsonSubjectStateRepository:
         current, updates = self._decode_document(self._read_payload(path, state.subject_id))
         if current.subject_id != state.subject_id or update.subject_id != state.subject_id:
             raise StateEvolutionError("transition subject identifiers do not match")
+        existing = next(
+            (record for record in updates if record.event.event_id == update.event.event_id),
+            None,
+        )
+        if existing is not None:
+            if existing.event.canonical_dict() != update.event.canonical_dict():
+                raise EventIdentityConflictError(
+                    f"event identity conflicts with immutable history: {update.event.event_id}"
+                )
+            if current.to_dict() != state.to_dict():
+                raise StateEvolutionError(
+                    "idempotent event replay cannot change the persisted subject state"
+                )
+            return
         if current.revision != update.before_revision:
             raise StateEvolutionError(
                 f"stale state revision: stored {current.revision}, event expected "
@@ -81,9 +100,6 @@ class JsonSubjectStateRepository:
             raise StateEvolutionError("updated state revision does not match its update record")
         if any(record.update_id == update.update_id for record in updates):
             raise StateEvolutionError(f"duplicate update record: {update.update_id}")
-        if any(record.event.event_id == update.event.event_id for record in updates):
-            raise StateEvolutionError(f"event was already applied: {update.event.event_id}")
-
         self._write_payload(path, self._envelope(state, [*updates, update]))
 
     def list_update_records(self, subject_id: str) -> list[StateUpdateRecord]:
@@ -121,11 +137,48 @@ class JsonSubjectStateRepository:
             raw_updates = data.get("updates")
             if not isinstance(raw_updates, list):
                 raise StateValidationError("updates must be a list")
+            state = SubjectState.from_dict(data.get("state"))
+            updates = [StateUpdateRecord.from_dict(item) for item in raw_updates]
+            JsonSubjectStateRepository._validate_history(state, updates)
             return (
-                SubjectState.from_dict(data.get("state")),
-                [StateUpdateRecord.from_dict(item) for item in raw_updates],
+                state,
+                updates,
             )
         return SubjectState.from_dict(data), []
+
+    @staticmethod
+    def _validate_history(
+        state: SubjectState,
+        updates: list[StateUpdateRecord],
+    ) -> None:
+        update_ids: set[str] = set()
+        event_ids: set[str] = set()
+        revision = 0
+        for update in updates:
+            if update.subject_id != state.subject_id:
+                raise StateValidationError("update history crosses subject boundaries")
+            if update.update_id in update_ids:
+                raise StateValidationError("update history contains a duplicate update_id")
+            if update.event.event_id in event_ids:
+                raise StateValidationError("update history contains a duplicate event_id")
+            if update.before_revision != revision:
+                raise StateValidationError("update history revision chain is invalid")
+            if update.after_revision not in (revision, revision + 1):
+                raise StateValidationError("update history revision step is invalid")
+            for reference in update.event.references:
+                if reference.target_subject_id != state.subject_id:
+                    raise StateValidationError(
+                        "event history reference crosses subject boundaries"
+                    )
+                if reference.target_event_id not in event_ids:
+                    raise StateValidationError(
+                        "event history reference must target an earlier event"
+                    )
+            update_ids.add(update.update_id)
+            event_ids.add(update.event.event_id)
+            revision = update.after_revision
+        if updates and revision != state.revision:
+            raise StateValidationError("update history does not reach the current state revision")
 
     @staticmethod
     def _read_payload(path: Path, subject_id: str) -> Any:

@@ -4,6 +4,23 @@
 
 ## [Unreleased]
 
+### P03 User Acceptance Closure — 2026-08-30
+
+- 用户于 2026-08-30 正式验收 P03；P03、P03 Engine side 与 P03-01—P03-12 当前全部为 `ACCEPTED`，P03 Vio dependency 保持 `NONE`。
+- Event 继续是客观历史事实权威，SubjectState 继续是当前主体状态权威，Timeline 继续是无写入权的只读派生投影；P03 验收不改变 Authority 或冻结契约。
+- 开工 444、初版 22/469、两项语义返修 28/475、回退时钟恢复返修 31/478 及三项阻断失败历史全部保留。P04—P23 继续 `NOT_STARTED`，本次不授权 P04、P10、Vio 或 Git 操作。
+- 本次只同步验收状态、D-042、矩阵、索引和工程档案；不修改运行代码、测试、Schema、`pyproject.toml`、正式数据或版本 `0.1.0`。
+
+### P03 Event Time and Read-only Timeline — 2026-08-30
+
+- 用户在 P02 `ACCEPTED` 后单独授权 P03 Engine 独立施工；P03 Vio dependency 为 `NONE`，P04—P23 保持 `NOT_STARTED`。
+- 原位扩展 Event 为可验证分类、来源、证据、内部/来源/关联身份，以及 `occurredAt / observedAt / recordedAt` 三时间；旧单时间 JSON 以 `LEGACY_COALESCED` 向后兼容。
+- exact duplicate Event 变为精确幂等重放，不重复 Event、mutation 或 revision；相同 eventId 的不同 canonical body 以身份冲突失败关闭。恢复路径返修后，既有 eventId/canonical identity 判定先于新 Event 时间门，跨重启、回退时钟及已有后续 revision 后的重放保持原历史 update 身份且不读取 applied clock。
+- correction/revocation 只追加新 Event；缺失、跨 Subject、前向引用在持久化加载与 Timeline 重建时均失败关闭。监工返修后，FACT、OBSERVATION、INTENTION、CORRECTION、REVOCATION 无论是否迟到均不能携带 mutation；显式 recordedAt 必须不晚于单次读取的 appliedAt。
+- 新增无写入权的 `TimelineProjection` / `TimelineService`，仅从 StateUpdateRecord/Event 历史重建，提供 UTC 确定性排序、时间窗口、first/last、distance、chain 和来源/分类/correlation 过滤。
+- 新增版本化本地 P03 Fixture/adapter 与 Golden Scenario，区分 intention 和事实、固定争执/和解顺序，并由 SubjectState 权威表达当前关系；不访问 Vio、网络、真实 Provider 或凭据。
+- 三项监工语义阻断已定点返修；当前恢复阻断矩阵 4/4、P03 专项 31/31、相关链路 174/174、Engine 全量连续三轮 478/478。施工和返修完成时均保持 `IMPLEMENTED_NOT_ACCEPTED`；其后的用户正式验收状态见上方 P03 User Acceptance Closure。
+
 ### P02 User Acceptance Closure — 2026-08-29
 
 - 用户于 2026-08-29 正式验收 P02；P02、P02 Engine side 与 P02-01—P02-12 当前均为 `ACCEPTED`。

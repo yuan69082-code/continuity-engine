@@ -4,7 +4,7 @@ import unittest
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-from continuity_engine.domain.errors import StateEvolutionError
+from continuity_engine.domain.errors import EventIdentityConflictError, StateEvolutionError
 from continuity_engine.domain.events import (
     ChangeOperation,
     Event,
@@ -74,7 +74,7 @@ class EventPersistenceTests(unittest.TestCase):
                 "The user explicitly selected the second phase.",
             )
 
-    def test_same_event_cannot_be_applied_twice(self) -> None:
+    def test_same_event_is_an_exact_idempotent_replay(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             now = datetime(2026, 7, 21, 9, 0, tzinfo=timezone.utc)
             service = SubjectStateService(
@@ -99,10 +99,88 @@ class EventPersistenceTests(unittest.TestCase):
                 ],
                 reason="An event must not be recorded twice.",
             )
-            service.apply_event("subject-1", event)
+            first = service.apply_event("subject-1", event)
+            replay = service.apply_event("subject-1", event)
 
-            with self.assertRaises(StateEvolutionError):
-                service.apply_event("subject-1", event)
+            self.assertFalse(first.idempotent_replay)
+            self.assertTrue(replay.idempotent_replay)
+            self.assertEqual(replay.update.to_dict(), first.update.to_dict())
+            self.assertEqual(replay.state.revision, 1)
+            self.assertEqual(len(service.get_update_history("subject-1")), 1)
+
+    def test_same_event_identity_with_different_body_fails_closed(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            now = datetime(2026, 7, 21, 9, 0, tzinfo=timezone.utc)
+            service = SubjectStateService(JsonSubjectStateRepository(directory), clock=lambda: now)
+            service.create("subject-1")
+            original = self._focus_event("identity-conflict", now, "first focus")
+            conflicting = self._focus_event("identity-conflict", now, "different focus")
+            service.apply_event("subject-1", original)
+
+            with self.assertRaises(EventIdentityConflictError):
+                service.apply_event("subject-1", conflicting)
+
+            self.assertEqual(len(service.get_update_history("subject-1")), 1)
+            self.assertEqual(service.load("subject-1").revision, 1)
+
+    def test_exact_event_replay_remains_idempotent_after_restart(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            now = datetime(2026, 7, 21, 9, 0, tzinfo=timezone.utc)
+            first_service = SubjectStateService(
+                JsonSubjectStateRepository(directory), clock=lambda: now
+            )
+            first_service.create("subject-1")
+            event = self._focus_event("restart-replay", now, "restart safe")
+            first_result = first_service.apply_event("subject-1", event)
+
+            restarted = SubjectStateService(
+                JsonSubjectStateRepository(directory), clock=lambda: now
+            )
+            replay = restarted.apply_event("subject-1", event)
+
+            self.assertTrue(replay.idempotent_replay)
+            self.assertEqual(replay.update.to_dict(), first_result.update.to_dict())
+            self.assertEqual(len(restarted.get_update_history("subject-1")), 1)
+
+    def test_replay_after_later_revision_reports_historical_update_explicitly(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            now = datetime(2026, 7, 21, 9, 0, tzinfo=timezone.utc)
+            service = SubjectStateService(JsonSubjectStateRepository(directory), clock=lambda: now)
+            service.create("subject-1")
+            first = self._focus_event("first-event", now, "first focus")
+            second = self._focus_event(
+                "second-event", now + timedelta(minutes=1), "second focus"
+            )
+            first_result = service.apply_event("subject-1", first)
+            service.apply_event("subject-1", second)
+
+            replay = service.apply_event("subject-1", first)
+
+            self.assertTrue(replay.idempotent_replay)
+            self.assertEqual(replay.state.revision, 2)
+            self.assertEqual(replay.update.after_revision, 1)
+            self.assertEqual(replay.update.to_dict(), first_result.update.to_dict())
+            self.assertEqual(len(service.get_update_history("subject-1")), 2)
+
+    @staticmethod
+    def _focus_event(event_id: str, occurred_at: datetime, value: str) -> Event:
+        return Event.create(
+            event_id=event_id,
+            occurred_at=occurred_at,
+            source="system",
+            event_type="state_update",
+            content=f"Append {value}.",
+            impact_scope=[StateSection.CONTINUITY],
+            mutations=[
+                StateMutation(
+                    field_path="continuity.current_focus",
+                    operation=ChangeOperation.APPEND,
+                    value=value,
+                    reason="Test exact event identity semantics.",
+                )
+            ],
+            reason="Verify event replay or conflict behavior.",
+        )
 
     def test_direct_save_cannot_bypass_existing_event_history(self) -> None:
         with tempfile.TemporaryDirectory() as directory:

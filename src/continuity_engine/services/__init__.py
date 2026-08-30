@@ -43,6 +43,7 @@ from .resource_aware_wake_scheduler import (
 from .subject_state_service import SubjectStateService
 from .thinking_ports import ThinkingProvider, TokenBudgetManager
 from .thinking_service import ThinkingService
+from .timeline_service import TimelineService
 from .wake_perception_thinking_service import WakePerceptionThinkingService
 from .wake_perception_thinking_action_service import (
     WakePerceptionThinkingActionService,
@@ -83,6 +84,7 @@ __all__ = [
     "SubjectStateService",
     "ThinkingProvider",
     "ThinkingService",
+    "TimelineService",
     "TokenBudgetManager",
     "WakePerceptionThinkingService",
     "WakePerceptionThinkingActionService",

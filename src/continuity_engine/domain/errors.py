@@ -42,6 +42,26 @@ class MemoryInfluenceError(ContinuityEngineError):
     """Raised when an invalid memory influence is recorded."""
 
 
+class MemoryNotFoundError(MemoryValidationError):
+    """Raised when a formal Memory or DerivedSummary identity does not exist."""
+
+
+class MemoryIdentityConflictError(MemoryValidationError):
+    """Raised when an immutable Memory identity is reused inconsistently."""
+
+
+class MemoryEvidenceConflictError(MemoryValidationError):
+    """Raised when P04 receives unresolved contradictory memory evidence."""
+
+
+class MemoryPersistenceError(MemoryValidationError):
+    """Raised when the formal Memory document fails integrity verification."""
+
+
+class MemoryLineageError(MemoryValidationError):
+    """Raised when correction, revocation, or deletion lineage is invalid."""
+
+
 class AwakeningValidationError(ContinuityEngineError):
     """Raised when an awakening cycle, session, context, or decision is invalid."""
 

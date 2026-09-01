@@ -3,6 +3,7 @@ from .base import (
     AwakeningRepository,
     ContinuityRepository,
     LearningRepository,
+    MemoryRepository,
     IntegrationResultLedger,
     PermissionRepository,
     ResourceRepository,
@@ -14,6 +15,7 @@ from .base import (
 from .in_memory_action_repository import InMemoryActionRepository
 from .json_awakening_repository import JsonAwakeningRepository
 from .json_learning_repository import JsonLearningRepository
+from .json_memory_repository import JsonMemoryRepository
 from .json_permission_repository import JsonPermissionRepository
 from .json_resource_repository import JsonResourceRepository
 from .json_thinking_repository import JsonThinkingRepository
@@ -28,9 +30,11 @@ __all__ = [
     "AwakeningRepository",
     "ContinuityRepository",
     "LearningRepository",
+    "MemoryRepository",
     "IntegrationResultLedger",
     "JsonAwakeningRepository",
     "JsonLearningRepository",
+    "JsonMemoryRepository",
     "JsonPermissionRepository",
     "JsonResourceRepository",
     "JsonThinkingRepository",

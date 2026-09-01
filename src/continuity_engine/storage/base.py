@@ -18,6 +18,12 @@ from continuity_engine.domain.integration_results import (
     LedgerLookupResult,
 )
 from continuity_engine.domain.learning import LearningEvent, LearningRecord, PersonalityTrait
+from continuity_engine.domain.memory import (
+    DerivedSummary,
+    MemoryConsolidationOperation,
+    MemoryLineageRecord,
+    MemoryRecord,
+)
 from continuity_engine.domain.models import SubjectState
 from continuity_engine.domain.permissions import PermissionChangeRecord, PermissionState
 from continuity_engine.domain.resources import (
@@ -136,6 +142,67 @@ class LearningRepository(Protocol):
         subject_id: str,
         learning_id: str | None = None,
     ) -> list[LearningRecord]: ...
+
+
+class MemoryRepository(Protocol):
+    """Single P04 authority for formal Memory, summary views, and lineage."""
+
+    def save_memory(self, memory: MemoryRecord) -> bool: ...
+
+    def load_memory(self, subject_id: str, memory_id: str) -> MemoryRecord: ...
+
+    def list_memories(
+        self,
+        subject_id: str,
+        *,
+        include_inactive: bool = False,
+    ) -> list[MemoryRecord]: ...
+
+    def memory_history(self, subject_id: str, memory_id: str) -> list[MemoryRecord]: ...
+
+    def find_by_consolidation_id(
+        self,
+        subject_id: str,
+        consolidation_id: str,
+    ) -> MemoryRecord | None: ...
+
+    def load_consolidation_operation(
+        self,
+        subject_id: str,
+        consolidation_id: str,
+    ) -> MemoryConsolidationOperation | None: ...
+
+    def save_consolidation(
+        self,
+        memory: MemoryRecord,
+        operation: MemoryConsolidationOperation,
+    ) -> bool: ...
+
+    def save_summary(self, summary: DerivedSummary) -> bool: ...
+
+    def load_summary(self, subject_id: str, summary_id: str) -> DerivedSummary: ...
+
+    def list_summaries(
+        self,
+        subject_id: str,
+        *,
+        include_inactive: bool = False,
+    ) -> list[DerivedSummary]: ...
+
+    def summary_history(
+        self,
+        subject_id: str,
+        summary_id: str,
+    ) -> list[DerivedSummary]: ...
+
+    def list_lineage(self, subject_id: str) -> list[MemoryLineageRecord]: ...
+
+    def apply_propagation(
+        self,
+        memory: MemoryRecord,
+        lineage: MemoryLineageRecord,
+        summaries: list[DerivedSummary],
+    ) -> bool: ...
 
 
 class ResourceRepository(Protocol):

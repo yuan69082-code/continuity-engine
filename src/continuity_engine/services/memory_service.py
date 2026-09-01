@@ -11,17 +11,36 @@ from continuity_engine.domain.memory import (
     MemoryRelevancePolicy,
     MemoryRetrievalRequest,
     MemoryRetrievalResult,
+    MemoryTemperature,
 )
 from continuity_engine.domain.models import utc_now
+from continuity_engine.storage.base import MemoryRepository
 
 from .memory_ports import MemoryInfluenceRecorder, MemoryRetriever
+
+
+_FORMAL_PROVENANCE_FIELDS = frozenset(
+    {
+        "memory_kind",
+        "evidence_type",
+        "root_evidence_ids",
+        "source_event_ids",
+        "source_memory_ids",
+        "source_message_ids",
+        "visibility",
+        "memory_status",
+        "memory_temperature",
+        "memory_revision",
+        "memory_version",
+    }
+)
 
 
 class MemoryService:
     """Coordinate retrieval, relevance decisions, and influence reporting.
 
-    This service never stores long-term memory. Retrieval and influence recording
-    are delegated to injected ports that can later be backed by MCP adapters.
+    This compatibility service has no write authority over formal P04 Memory.
+    Retrieval and influence recording remain delegated to injected ports.
     """
 
     def __init__(
@@ -104,6 +123,16 @@ class MemoryService:
             related_event_id = state_update.event.event_id
             related_update_id = state_update.update_id
 
+        formal_metadata = dict(selected[memory_id].metadata)
+        record_metadata = dict(formal_metadata)
+        for key, value in (metadata or {}).items():
+            if key in _FORMAL_PROVENANCE_FIELDS:
+                if key not in formal_metadata or formal_metadata[key] != value:
+                    raise MemoryInfluenceError(
+                        f"caller metadata conflicts with sealed memory provenance: {key}"
+                    )
+                continue
+            record_metadata[key] = value
         record = MemoryInfluenceRecord.create(
             request_id=result.request.request_id,
             subject_id=result.request.subject_id,
@@ -115,7 +144,57 @@ class MemoryService:
             affected_fields=fields,
             related_event_id=related_event_id,
             related_update_id=related_update_id,
-            metadata=metadata,
+            metadata=record_metadata,
         )
         self._influence_recorder.record_influence(record)
         return record
+
+
+class RepositoryMemoryRetriever:
+    """Read-only adapter from the formal P04 Memory authority to the legacy port."""
+
+    def __init__(self, repository: MemoryRepository, *, enabled: bool = True) -> None:
+        self._repository = repository
+        self._enabled = enabled
+
+    def retrieve(self, request: MemoryRetrievalRequest) -> list[MemoryCandidate]:
+        if not self._enabled:
+            return []
+        query_terms = {
+            item.casefold() for item in request.query.split() if item.strip()
+        }
+        candidates: list[MemoryCandidate] = []
+        for memory in self._repository.list_memories(request.subject_id):
+            if memory.temperature is MemoryTemperature.ARCHIVED:
+                continue
+            searchable = {item.casefold() for item in memory.content.split()}
+            searchable.update(item.casefold() for item in memory.tags)
+            overlap = len(query_terms.intersection(searchable))
+            lexical = min(1.0, overlap / max(1, len(query_terms)))
+            relevance = round(max(memory.activation, lexical), 6)
+            candidates.append(
+                MemoryCandidate(
+                    memory_id=memory.memory_id,
+                    subject_id=memory.subject_id,
+                    content=memory.content,
+                    source="engine-memory-store",
+                    occurred_at=memory.occurred_at,
+                    provider_relevance=relevance,
+                    related_scope=[],
+                    tags=list(memory.tags),
+                    metadata={
+                        "memory_kind": memory.kind.value,
+                        "evidence_type": memory.evidence_type.value,
+                        "root_evidence_ids": list(memory.root_evidence_ids),
+                        "source_event_ids": list(memory.source_event_ids),
+                        "source_memory_ids": list(memory.source_memory_ids),
+                        "source_message_ids": list(memory.source_message_ids),
+                        "visibility": memory.visibility.value,
+                        "memory_status": memory.status.value,
+                        "memory_temperature": memory.temperature.value,
+                        "memory_revision": memory.revision,
+                        "memory_version": memory.memory_version,
+                    },
+                )
+            )
+        return candidates

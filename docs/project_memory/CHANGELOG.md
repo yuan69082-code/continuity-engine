@@ -4,6 +4,19 @@
 
 ## [Unreleased]
 
+### P04 Memory Consolidation and DerivedSummary — 2026-08-30
+
+- 用户于 2026-09-01 正式验收 P04；P04、P04 Engine side 与 P04-01—P04-12 当前均为 `ACCEPTED`，P04 Vio dependency `NONE`。D-044 固定 Authority、保留/删除、operation 精确重放、alias 自身来源链、Learning 根证据去重和未来开放边界；P05—P23 继续 `NOT_STARTED`。
+- 用户在 P03 `ACCEPTED` 后独立授权 P04 Engine 施工；新增正式 Memory 模型、单一原子 JSON MemoryRepository、root evidence 去重、可解释 activation/温度和追加式 correction/revocation/deletion lineage。
+- 新增 Memory 内部 `MemoryConsolidationService` 与宿主中立确定性 summary generator；DerivedSummary 与 Memory/lineage 共用同一仓储权威，可追溯、失效、替换和重建，但没有 Event/StateMutation/SubjectState 写权限。
+- LearningEvent/Record 现保存 root evidence identity；同一底层证据经多个 Memory/Summary/重建路径不会重复增加验证或 reinforcement，真正独立来源仍可构成多证据验证。
+- 默认可见性为 `ENGINE_PRIVATE`；P04 没有自动过期、物理删除、后台 Scheduler、永久删除入口、网络、Vio、Provider、MCP 或外部存储。HOT/WARM/COLD/ARCHIVED 容量为可配置默认值，显式 maintenance 只重算和降温。
+- 新增版本化 P04 本地 Fixture 与 Golden Scenario，复用 P03 intention/fact、争执/和解时间线；所有验证只使用临时 TEST root，正式 `.continuity-data` 不变。
+- 规划监工五项阻断返修：普通检索排除但不删除 ARCHIVED；正式 Memory provenance 在 influence 前密封；重复根 alias 的 consolidation operation identity 与 canonical input/result 在同一原子文档持久化；DerivedSummary 精确幂等覆盖 type/scope/source/root/time/confidence/content；lineage 根绑定来源 Event 并在保存/加载期拒绝无关、缺失、前向和篡改引用。
+- 返修新增 7 项定点测试；当前 P04 专项 26/26、相关链路 129/129，Engine 全量连续三轮 504/504。首次施工 19/122/497 仍作为历史证据保留。
+- 追加返修将 consolidation operation 绑定首次 result Memory revision/canonical hash，并对 alias candidate 自身 source chain 在保存和加载期独立验真；新增 5 项顶层测试后，当前 P04 专项 31/31、相关链路 134/134，Engine 全量连续三轮 509/509。此前 26/129/504 与更早历史保持不变。
+- P04 实现和返修完成时保持 `IMPLEMENTED_NOT_ACCEPTED`；其后的用户正式验收状态见本节首项。P05—P23 仍为 `NOT_STARTED`，软件版本保持 `0.1.0`。
+
 ### P03 User Acceptance Closure — 2026-08-30
 
 - 用户于 2026-08-30 正式验收 P03；P03、P03 Engine side 与 P03-01—P03-12 当前全部为 `ACCEPTED`，P03 Vio dependency 保持 `NONE`。

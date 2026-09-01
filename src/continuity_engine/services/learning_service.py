@@ -125,6 +125,7 @@ class LearningService:
         reason: str,
         source: str,
         learning_id: str | None = None,
+        root_evidence_ids: Iterable[str] = (),
     ) -> LearningCandidateResult:
         now = self._clock()
         candidate = LearningEvent(
@@ -139,6 +140,7 @@ class LearningService:
             confidence=confidence,
             validation_status=LearningValidationStatus.PENDING,
             created_at=now,
+            root_evidence_ids=list(root_evidence_ids),
         )
         record = LearningRecord(
             record_id=str(uuid4()),
@@ -157,6 +159,7 @@ class LearningService:
             source=source,
             created_at=now,
             evidence_learning_ids=[candidate.learning_id],
+            root_evidence_ids=list(candidate.root_evidence_ids),
         )
         self._repository.save_change(subject_id, candidate, record)
         return LearningCandidateResult(learning_event=candidate, record=record)
@@ -222,8 +225,14 @@ class LearningService:
             for item in evidence
         ):
             raise LearningValidationError("rejected or revoked evidence cannot validate learning")
-        if len({item.source_identity for item in evidence}) != len(evidence):
-            raise LearningValidationError("validation evidence must use distinct experiences")
+        seen_roots: set[str] = set()
+        for item in evidence:
+            roots = set(item.root_evidence_ids)
+            if seen_roots.intersection(roots):
+                raise LearningValidationError(
+                    "validation evidence must use distinct root experiences"
+                )
+            seen_roots.update(roots)
         signature = self._mutation_signature(target.proposed_change)
         if any(self._mutation_signature(item.proposed_change) != signature for item in evidence):
             raise LearningValidationError("validation evidence proposes inconsistent changes")
@@ -233,6 +242,7 @@ class LearningService:
         updated = LearningEvent.from_dict(target.to_dict())
         updated.confidence = round(max(target.confidence, learned_confidence), 6)
         updated.evidence_learning_ids = evidence_ids
+        updated.root_evidence_ids = sorted(seen_roots)
         updated.validation_status = (
             LearningValidationStatus.VALIDATED
             if updated.confidence >= VALIDATION_CONFIDENCE
@@ -305,7 +315,7 @@ class LearningService:
         if current.validation_status is not LearningValidationStatus.VALIDATED:
             raise LearningValidationError("only validated learning may be consolidated")
         if (
-            len(current.evidence_learning_ids) < MINIMUM_EVIDENCE_COUNT
+            len(current.root_evidence_ids) < MINIMUM_EVIDENCE_COUNT
             or current.confidence < VALIDATION_CONFIDENCE
         ):
             raise LearningValidationError("validated learning lacks sufficient evidence")
@@ -327,7 +337,7 @@ class LearningService:
             confidence=current.confidence,
             created_at=now,
             last_updated_at=now,
-            evidence_count=len(current.evidence_learning_ids),
+            evidence_count=len(current.root_evidence_ids),
         )
         state_event = Event.create(
             occurred_at=now,
@@ -526,6 +536,11 @@ class LearningService:
             original_experience=original_experience,
             reason=str(metadata.get("learning_reason", "Explicit learning evidence was supplied.")),
             source=str(metadata.get("learning_source", default_source)),
+            root_evidence_ids=(
+                metadata.get("root_evidence_ids", [])
+                if isinstance(metadata.get("root_evidence_ids", []), list)
+                else []
+            ),
         )
         return result.learning_event
 
@@ -606,6 +621,7 @@ class LearningService:
                 if learning.evidence_learning_ids
                 else [learning.learning_id]
             ),
+            root_evidence_ids=list(learning.root_evidence_ids),
             trait_id=trait_id,
             state_event_id=state_event_id,
         )

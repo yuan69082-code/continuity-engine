@@ -136,6 +136,7 @@ class LearningEvent:
     created_at: datetime
     revision: int = 0
     evidence_learning_ids: list[str] = field(default_factory=list)
+    root_evidence_ids: list[str] = field(default_factory=list)
 
     def __post_init__(self) -> None:
         _require_text(self.learning_id, "learning_id")
@@ -170,6 +171,13 @@ class LearningEvent:
         self.evidence_learning_ids = _text_list(
             self.evidence_learning_ids, "evidence_learning_ids"
         )
+        self.root_evidence_ids = _text_list(
+            self.root_evidence_ids, "root_evidence_ids"
+        )
+        if not self.root_evidence_ids:
+            self.root_evidence_ids = [self.source_identity]
+        if len(set(self.root_evidence_ids)) != len(self.root_evidence_ids):
+            raise LearningValidationError("root_evidence_ids must not contain duplicates")
 
     @property
     def source_identity(self) -> str:
@@ -193,6 +201,7 @@ class LearningEvent:
             "created_at": _format_datetime(self.created_at),
             "revision": self.revision,
             "evidence_learning_ids": list(self.evidence_learning_ids),
+            "root_evidence_ids": list(self.root_evidence_ids),
         }
 
     @classmethod
@@ -214,6 +223,9 @@ class LearningEvent:
             revision=value.get("revision", 0),
             evidence_learning_ids=_text_list(
                 value.get("evidence_learning_ids", []), "evidence_learning_ids"
+            ),
+            root_evidence_ids=_text_list(
+                value.get("root_evidence_ids", []), "root_evidence_ids"
             ),
         )
 
@@ -311,6 +323,7 @@ class LearningRecord:
     source: str
     created_at: datetime
     evidence_learning_ids: list[str] = field(default_factory=list)
+    root_evidence_ids: list[str] = field(default_factory=list)
     trait_id: str | None = None
     state_event_id: str | None = None
 
@@ -353,6 +366,13 @@ class LearningRecord:
         self.evidence_learning_ids = _text_list(
             self.evidence_learning_ids, "record evidence_learning_ids"
         )
+        self.root_evidence_ids = _text_list(
+            self.root_evidence_ids, "record root_evidence_ids"
+        )
+        if len(set(self.root_evidence_ids)) != len(self.root_evidence_ids):
+            raise LearningValidationError(
+                "record root_evidence_ids must not contain duplicates"
+            )
         self.trait_id = _optional_text(self.trait_id, "record trait_id")
         self.state_event_id = _optional_text(
             self.state_event_id, "record state_event_id"
@@ -376,6 +396,7 @@ class LearningRecord:
             "source": self.source,
             "created_at": _format_datetime(self.created_at),
             "evidence_learning_ids": list(self.evidence_learning_ids),
+            "root_evidence_ids": list(self.root_evidence_ids),
             "trait_id": self.trait_id,
             "state_event_id": self.state_event_id,
         }
@@ -403,6 +424,10 @@ class LearningRecord:
             evidence_learning_ids=_text_list(
                 value.get("evidence_learning_ids", []),
                 "record evidence_learning_ids",
+            ),
+            root_evidence_ids=_text_list(
+                value.get("root_evidence_ids", []),
+                "record root_evidence_ids",
             ),
             trait_id=value.get("trait_id"),
             state_event_id=value.get("state_event_id"),

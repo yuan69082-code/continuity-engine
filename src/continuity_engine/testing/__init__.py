@@ -25,6 +25,11 @@ from .p03_timeline_fixture import (
     P03TemporalFactFixture,
     run_p03_golden_scenario,
 )
+from .p04_memory_fixture import (
+    P04_GOLDEN_SCENARIO_VERSION,
+    P04GoldenScenarioResult,
+    run_p04_golden_scenario,
+)
 
 __all__ = [
     "CleanupResult",
@@ -34,6 +39,8 @@ __all__ = [
     "P03GoldenScenarioResult",
     "P03LocalEventFixtureAdapter",
     "P03TemporalFactFixture",
+    "P04_GOLDEN_SCENARIO_VERSION",
+    "P04GoldenScenarioResult",
     "RetentionMode",
     "SandboxDescriptor",
     "SandboxEnvironment",
@@ -45,4 +52,5 @@ __all__ = [
     "SnapshotManifest",
     "StateFixture",
     "run_p03_golden_scenario",
+    "run_p04_golden_scenario",
 ]

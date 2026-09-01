@@ -19,8 +19,14 @@ from .contract_test_bootstrap import (
     FirstRoundContractFixture,
 )
 from .awakening_service import AwakeningService
-from .memory_ports import MemoryInfluenceRecorder, MemoryRetriever
-from .memory_service import MemoryService
+from .memory_ports import DerivedSummaryGenerator, MemoryInfluenceRecorder, MemoryRetriever
+from .memory_service import MemoryService, RepositoryMemoryRetriever
+from .memory_consolidation_service import (
+    DeterministicDerivedSummaryGenerator,
+    MemoryConsolidationResult,
+    MemoryConsolidationService,
+    MemoryPropagationResult,
+)
 from .learning_service import LearningService
 from .integration_contract_hashing import (
     calculate_binding_fixture_hash,
@@ -72,6 +78,12 @@ __all__ = [
     "MemoryInfluenceRecorder",
     "MemoryRetriever",
     "MemoryService",
+    "RepositoryMemoryRetriever",
+    "DerivedSummaryGenerator",
+    "DeterministicDerivedSummaryGenerator",
+    "MemoryConsolidationResult",
+    "MemoryConsolidationService",
+    "MemoryPropagationResult",
     "LearningService",
     "MachineContractValidator",
     "PerceptionService",

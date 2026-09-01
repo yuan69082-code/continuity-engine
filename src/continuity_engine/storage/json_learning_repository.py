@@ -56,6 +56,10 @@ class JsonLearningRepository:
             raise LearningValidationError("personality trait belongs to another subject")
         if trait is not None and record.trait_id != trait.trait_id:
             raise LearningValidationError("learning record does not match saved trait")
+        if set(record.root_evidence_ids) != set(learning_event.root_evidence_ids):
+            raise LearningValidationError(
+                "learning audit record must preserve the candidate root evidence"
+            )
 
         path = self._path(subject_id)
         data = self._read_document(path) if path.is_file() else self._empty_document(subject_id)
@@ -266,6 +270,19 @@ class JsonLearningRepository:
         for key in ("learning_events", "traits", "records"):
             if not isinstance(data.get(key), list):
                 raise LearningValidationError(f"learning {key} must be a list")
+        events = {
+            item.learning_id: item
+            for item in (LearningEvent.from_dict(raw) for raw in data["learning_events"])
+        }
+        if len(events) != len(data["learning_events"]):
+            raise LearningValidationError("learning event identities must be unique")
+        for raw in data["records"]:
+            record = LearningRecord.from_dict(raw)
+            event = events.get(record.learning_id)
+            if event is None or not set(record.root_evidence_ids).issubset(
+                event.root_evidence_ids
+            ):
+                raise LearningValidationError("learning record root evidence is inconsistent")
         return data
 
     @staticmethod

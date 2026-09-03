@@ -50,6 +50,20 @@ from .subject_state_service import SubjectStateService
 from .thinking_ports import ThinkingProvider, TokenBudgetManager
 from .thinking_service import ThinkingService
 from .timeline_service import TimelineService
+from .context_router_service import (
+    ContextCandidateSource,
+    ContextPermissionDecision,
+    ContextPermissionPolicy,
+    ContextRouterService,
+    ContextSourceBinding,
+    ContextSourceQuery,
+    ContextSourceValidation,
+    DerivedSummaryContextSource,
+    EnginePrivateContextPermissionPolicy,
+    MemoryContextSource,
+    SubjectStateContextSource,
+    TimelineContextSource,
+)
 from .wake_perception_thinking_service import WakePerceptionThinkingService
 from .wake_perception_thinking_action_service import (
     WakePerceptionThinkingActionService,
@@ -113,4 +127,16 @@ __all__ = [
     "FirstRoundResultFactory",
     "WakeScheduleResult",
     "WakeScheduler",
+    "ContextCandidateSource",
+    "ContextPermissionDecision",
+    "ContextPermissionPolicy",
+    "ContextRouterService",
+    "ContextSourceBinding",
+    "ContextSourceQuery",
+    "ContextSourceValidation",
+    "DerivedSummaryContextSource",
+    "EnginePrivateContextPermissionPolicy",
+    "MemoryContextSource",
+    "SubjectStateContextSource",
+    "TimelineContextSource",
 ]

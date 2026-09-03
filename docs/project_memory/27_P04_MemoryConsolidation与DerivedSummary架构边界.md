@@ -3,7 +3,7 @@
 > 阶段：P04——Memory Consolidation 与 DerivedSummary
 > 当前状态：P04 / P04 Engine side = `ACCEPTED`（用户于 2026-09-01 正式验收）
 > Vio dependency：`NONE`
-> P05—P23：`NOT_STARTED`
+> P05：后续独立获权并于 2026-09-03 正式 `ACCEPTED`；P06—P23：`NOT_STARTED`
 > 软件版本：`0.1.0`
 
 ## 1. 权威边界

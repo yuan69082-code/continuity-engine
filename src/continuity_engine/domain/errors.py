@@ -34,6 +34,18 @@ class TimelineReferenceError(TimelineValidationError):
     """Raised when timeline history contains an invalid event reference."""
 
 
+class ContextRoutingError(ContinuityEngineError):
+    """Base error for P05 read-only context routing failures."""
+
+
+class ContextRoutingValidationError(ContextRoutingError):
+    """Raised when a route request, source result, or trace is invalid."""
+
+
+class ContextRoutingSourceError(ContextRoutingError):
+    """Raised when a bounded read-only source cannot provide verified candidates."""
+
+
 class MemoryValidationError(ContinuityEngineError):
     """Raised when a memory request, candidate, or decision is invalid."""
 

@@ -4,6 +4,17 @@
 
 ## [Unreleased]
 
+### P05 Context Router — 2026-09-02
+
+- 用户于 2026-09-03 正式验收 P05；P05、P05 Engine side 与 P05-01—P05-12 当前均为 `ACCEPTED`，D-046 记录该决定。
+- 用户在 P04 `ACCEPTED` 后独立授权 P05；新增只读、宿主中立 Context Router，基于结构化 Perception 生成确定性 RoutePlan、Candidate Manifest 与 Context Trace。
+- 新增 SubjectState、Memory、DerivedSummary、Timeline/Event 和版本化本地 Fact 的有界只读 source adapters；同 subject/environment、ENGINE_PRIVATE、status、version/hash/revision 权限与取用前重验失败关闭。
+- Retrieval Budget 默认 50、可配置 30—80，支持 per-source 上限，并与 Storage Budget、未来 P06 Context Budget 分离；来源失败不触发全库扫描或越权回退。
+- 排序结合 purpose、relevance、recency、importance、activation 和稳定 identity/version tie-break；Trace 只保存 hash/引用/原因码，不保存秘密、凭据或完整候选正文。
+- 规划监工复核后完成四项语义返修：purpose 先选择分区且未选来源零读取；总 Retrieval Budget 在 adapter 调用前分配；Memory/Summary 在仓储边界有界查询且 Timeline 使用可重验的近期相关稳定窗口；必需来源失败返回空 Manifest。Trace 分离 requested/retrieved/evaluated/retained/rejected。
+- 新增版本化 P05 Golden Fixture；当前 P05 专项 39/39、相关链路 125/125、跨阶段综合矩阵 244/244，Engine 全量连续三轮 548/548。初版 35/122/240/544 作为历史结果保留。
+- P05 Vio dependency `NONE`；P06—P23 `NOT_STARTED`。P05 验收不自动授权 P06；本地隔离也不是长期禁止 Memory 参与 Thinking/Context，P06/P16/P22 仍按既定阶段开放。未实现 P06 Composer、外部来源、Vio/网络/Provider 或任何 Store 写入，版本保持 `0.1.0`。
+
 ### P04 Memory Consolidation and DerivedSummary — 2026-08-30
 
 - 用户于 2026-09-01 正式验收 P04；P04、P04 Engine side 与 P04-01—P04-12 当前均为 `ACCEPTED`，P04 Vio dependency `NONE`。D-044 固定 Authority、保留/删除、operation 精确重放、alias 自身来源链、Learning 根证据去重和未来开放边界；P05—P23 继续 `NOT_STARTED`。

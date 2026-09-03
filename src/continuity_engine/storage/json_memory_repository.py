@@ -3,6 +3,7 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+import re
 import tempfile
 from pathlib import Path
 from typing import Any
@@ -18,14 +19,18 @@ from continuity_engine.domain.memory import (
     DerivedSummary,
     DerivedSummaryStatus,
     MemoryConsolidationOperation,
+    MemoryKind,
     MemoryLineageRecord,
     MemoryLineageType,
     MemoryRecord,
     MemoryStatus,
+    MemoryTemperature,
+    MemoryVisibility,
 )
 
 
 MEMORY_FORMAT_VERSION = 1
+_QUERY_TERM = re.compile(r"[A-Za-z0-9_]+|[\u3400-\u9fff]")
 
 
 class JsonMemoryRepository:
@@ -150,6 +155,82 @@ class JsonMemoryRepository:
             return records
         return [item for item in records if item.status is MemoryStatus.ACTIVE]
 
+    def query_memories(
+        self,
+        subject_id: str,
+        *,
+        environment: str,
+        status: MemoryStatus,
+        visibility: MemoryVisibility,
+        excluded_temperatures: tuple[MemoryTemperature, ...],
+        query_terms: tuple[str, ...],
+        preferred_kinds: tuple[MemoryKind, ...],
+        limit: int,
+    ) -> list[MemoryRecord]:
+        """Return a bounded, deterministic read-only window from Memory authority.
+
+        The atomic P04 document is still fully integrity-checked on load, but P05
+        never receives an unbounded list and cannot turn this lookup into a second
+        store or authority.
+        """
+
+        self._require_boundary(subject_id, environment)
+        self._require_query_limit(limit)
+        effective_status = (
+            status if isinstance(status, MemoryStatus) else MemoryStatus(status)
+        )
+        effective_visibility = (
+            visibility
+            if isinstance(visibility, MemoryVisibility)
+            else MemoryVisibility(visibility)
+        )
+        excluded = {
+            item
+            if isinstance(item, MemoryTemperature)
+            else MemoryTemperature(item)
+            for item in excluded_temperatures
+        }
+        preferred = {
+            item if isinstance(item, MemoryKind) else MemoryKind(item)
+            for item in preferred_kinds
+        }
+        terms = self._normalize_query_terms(query_terms)
+        data = self._load_if_exists(subject_id)
+        if data is None:
+            return []
+        latest: dict[str, MemoryRecord] = {}
+        for raw in data["memory_records"]:
+            memory = MemoryRecord.from_dict(raw)
+            latest[memory.memory_id] = memory
+        eligible = (
+            item
+            for item in latest.values()
+            if item.environment == environment
+            and item.status is effective_status
+            and item.visibility is effective_visibility
+            and item.temperature not in excluded
+        )
+        return sorted(
+            eligible,
+            key=lambda item: (
+                -max(
+                    1.0 if item.kind in preferred else 0.0,
+                    self._lexical_query_score(
+                        terms,
+                        item.content,
+                        item.tags,
+                        item.scope,
+                        item.kind.value,
+                    ),
+                ),
+                -item.importance,
+                -item.activation,
+                -item.occurred_at.timestamp(),
+                item.memory_id,
+                item.revision,
+            ),
+        )[:limit]
+
     def memory_history(self, subject_id: str, memory_id: str) -> list[MemoryRecord]:
         data = self._load_if_exists(subject_id)
         if data is None:
@@ -197,6 +278,63 @@ class JsonMemoryRepository:
         if include_inactive:
             return records
         return [item for item in records if item.status is DerivedSummaryStatus.ACTIVE]
+
+    def query_summaries(
+        self,
+        subject_id: str,
+        *,
+        environment: str,
+        status: DerivedSummaryStatus,
+        query_terms: tuple[str, ...],
+        preferred_scope_terms: tuple[str, ...],
+        limit: int,
+    ) -> list[DerivedSummary]:
+        """Return a bounded deterministic DerivedSummary window."""
+
+        self._require_boundary(subject_id, environment)
+        self._require_query_limit(limit)
+        effective_status = (
+            status
+            if isinstance(status, DerivedSummaryStatus)
+            else DerivedSummaryStatus(status)
+        )
+        terms = self._normalize_query_terms(query_terms)
+        preferred = self._normalize_query_terms(preferred_scope_terms)
+        data = self._load_if_exists(subject_id)
+        if data is None:
+            return []
+        latest: dict[str, DerivedSummary] = {}
+        for raw in data["derived_summaries"]:
+            summary = DerivedSummary.from_dict(raw)
+            latest[summary.summary_id] = summary
+        eligible = (
+            item
+            for item in latest.values()
+            if item.environment == environment and item.status is effective_status
+        )
+        return sorted(
+            eligible,
+            key=lambda item: (
+                -max(
+                    1.0
+                    if preferred
+                    and preferred.intersection(
+                        self._normalize_query_terms((item.scope, item.summary_type))
+                    )
+                    else 0.0,
+                    self._lexical_query_score(
+                        terms,
+                        item.content,
+                        item.scope,
+                        item.summary_type,
+                    ),
+                ),
+                -item.confidence,
+                -item.generated_at.timestamp(),
+                item.summary_id,
+                item.summary_version,
+            ),
+        )[:limit]
 
     def summary_history(
         self,
@@ -339,6 +477,37 @@ class JsonMemoryRepository:
             raise MemoryValidationError("memory environment does not match repository")
         if not isinstance(subject_id, str) or not subject_id.strip():
             raise MemoryValidationError("memory subject_id must be non-empty")
+
+    @staticmethod
+    def _require_query_limit(limit: int) -> None:
+        if not isinstance(limit, int) or isinstance(limit, bool) or limit < 1:
+            raise MemoryValidationError("memory query limit must be positive")
+
+    @staticmethod
+    def _normalize_query_terms(values: tuple[str, ...]) -> set[str]:
+        if not isinstance(values, tuple) or any(
+            not isinstance(item, str) for item in values
+        ):
+            raise MemoryValidationError("memory query terms must be strings")
+        return {
+            term
+            for value in values
+            for term in _QUERY_TERM.findall(value.casefold())
+            if term.strip()
+        }
+
+    @classmethod
+    def _lexical_query_score(cls, terms: set[str], *values: object) -> float:
+        if not terms:
+            return 0.0
+        actual = cls._normalize_query_terms(
+            tuple(
+                str(item)
+                for value in values
+                for item in (value if isinstance(value, (list, tuple, set)) else (value,))
+            )
+        )
+        return round(len(terms.intersection(actual)) / len(terms), 6)
 
     def _append_memory(self, records: list[MemoryRecord], memory: MemoryRecord) -> bool:
         existing_revision = next(

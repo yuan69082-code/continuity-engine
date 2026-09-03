@@ -30,6 +30,14 @@ from .p04_memory_fixture import (
     P04GoldenScenarioResult,
     run_p04_golden_scenario,
 )
+from .p05_context_fixture import (
+    P05_GOLDEN_SCENARIO_VERSION,
+    P05GoldenScenarioResult,
+    P05LocalFactSource,
+    P05VersionedLocalFact,
+    build_p05_perception,
+    run_p05_golden_scenario,
+)
 
 __all__ = [
     "CleanupResult",
@@ -53,4 +61,10 @@ __all__ = [
     "StateFixture",
     "run_p03_golden_scenario",
     "run_p04_golden_scenario",
+    "P05_GOLDEN_SCENARIO_VERSION",
+    "P05GoldenScenarioResult",
+    "P05LocalFactSource",
+    "P05VersionedLocalFact",
+    "build_p05_perception",
+    "run_p05_golden_scenario",
 ]

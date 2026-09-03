@@ -20,9 +20,14 @@ from continuity_engine.domain.integration_results import (
 from continuity_engine.domain.learning import LearningEvent, LearningRecord, PersonalityTrait
 from continuity_engine.domain.memory import (
     DerivedSummary,
+    DerivedSummaryStatus,
     MemoryConsolidationOperation,
+    MemoryKind,
     MemoryLineageRecord,
     MemoryRecord,
+    MemoryStatus,
+    MemoryTemperature,
+    MemoryVisibility,
 )
 from continuity_engine.domain.models import SubjectState
 from continuity_engine.domain.permissions import PermissionChangeRecord, PermissionState
@@ -158,6 +163,19 @@ class MemoryRepository(Protocol):
         include_inactive: bool = False,
     ) -> list[MemoryRecord]: ...
 
+    def query_memories(
+        self,
+        subject_id: str,
+        *,
+        environment: str,
+        status: MemoryStatus,
+        visibility: MemoryVisibility,
+        excluded_temperatures: tuple[MemoryTemperature, ...],
+        query_terms: tuple[str, ...],
+        preferred_kinds: tuple[MemoryKind, ...],
+        limit: int,
+    ) -> list[MemoryRecord]: ...
+
     def memory_history(self, subject_id: str, memory_id: str) -> list[MemoryRecord]: ...
 
     def find_by_consolidation_id(
@@ -187,6 +205,17 @@ class MemoryRepository(Protocol):
         subject_id: str,
         *,
         include_inactive: bool = False,
+    ) -> list[DerivedSummary]: ...
+
+    def query_summaries(
+        self,
+        subject_id: str,
+        *,
+        environment: str,
+        status: DerivedSummaryStatus,
+        query_terms: tuple[str, ...],
+        preferred_scope_terms: tuple[str, ...],
+        limit: int,
     ) -> list[DerivedSummary]: ...
 
     def summary_history(

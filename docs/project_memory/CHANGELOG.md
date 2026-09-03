@@ -4,6 +4,17 @@
 
 ## [Unreleased]
 
+### P06 Context Composer and Authority Layering — 2026-09-03
+
+- 用户于 2026-09-03 正式验收 P06；P06、P06 Engine side 与 P06-01—P06-12 当前均为 `ACCEPTED`，D-048 记录该决定。P06 Vio dependency `NONE`，P07—P23 `NOT_STARTED`。
+- 用户在 P05 `ACCEPTED` 后独立授权 P06；新增五类可信 Context Authority、规范序列化/hash、exact material resolvers、独立 Context Budget、Thinking-ready `ComposedContextSnapshot` 和无正文 `CompositionTrace`。
+- Composer 只消费 P05 `COMPLETE` Route Result 的既有 Manifest 引用；逐项校验 subject/environment/source/version/revision/content hash/status/permission。Manifest 外读取、二次搜索、分区扩大和候选自报 Authority 提权均失败关闭。
+- confirmed_state 的 identity/continuity/relationship 受保护；预算不足以容纳必需材料时返回 `INSUFFICIENT_CONTEXT_BUDGET`。Summary 与 raw source 不因文本相似合并，冲突材料并列保留且不提前实现 P07 裁决。
+- 新增版本化 P06 Golden Fixture 和 test-only Thinking consumer；P06 不修改生产 ThinkingProvider/E5-A，不建立 Context Store，也不写 SubjectState、Event、Memory、Summary、Timeline 或 revision。P09 才完成正式运行链接线。
+- 初版新增 P06 专项 33 项；P05+P06 72/72、直接相关链路 160/160、P01—P06 综合 277/277、Engine 全量连续三轮 581/581，作为施工历史保留。
+- 规划监工验收阻断返修将 Manifest candidate missing 与 P05 upstream notice 真正独立计数，新增 Composer 自有 resolver 总读取/按 source 审计，并为 State/Memory/Summary/Timeline/local exact resolver 固定九类失败原因；当前为 10/10 阻断、38/38 专项、77/77、165/165、282/282 相关矩阵及连续三轮 586/586 全量通过。
+- P06 实现和返修完成时保持 `IMPLEMENTED_NOT_ACCEPTED`；其后的用户正式验收状态见本节首项。P06 的本地隔离不是长期产品禁令，P09/P16/P22 仍按规划开放正式 Thinking 接线、外部知识及真实 Provider/Vio/PWA 集成，版本保持 `0.1.0`。
+
 ### P05 Context Router — 2026-09-02
 
 - 用户于 2026-09-03 正式验收 P05；P05、P05 Engine side 与 P05-01—P05-12 当前均为 `ACCEPTED`，D-046 记录该决定。

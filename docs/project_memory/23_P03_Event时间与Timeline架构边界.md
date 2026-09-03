@@ -80,4 +80,4 @@ Timeline 支持：
 
 ## 7. 阶段外边界
 
-P03 本阶段没有实现 P04 Memory Consolidation/DerivedSummary、P11 Scheduler、P17 Reality Execution、P20/P21 生产恢复、P22 Vio/PWA 重连、真实 Provider、网络或生产数据库。其后 P04、P05 已分别通过独立 Stage Brief 获权并于 2026-09-01、2026-09-03 正式 `ACCEPTED`；P06—P23 保持 `NOT_STARTED`。P03 Vio dependency = `NONE`。
+P03 本阶段没有实现 P04 Memory Consolidation/DerivedSummary、P11 Scheduler、P17 Reality Execution、P20/P21 生产恢复、P22 Vio/PWA 重连、真实 Provider、网络或生产数据库。其后 P04、P05、P06 已分别通过独立 Stage Brief 获权并于 2026-09-01、2026-09-03、2026-09-03 正式 `ACCEPTED`；P07—P23 保持 `NOT_STARTED`。P03 Vio dependency = `NONE`。

@@ -9,6 +9,7 @@ from continuity_engine.domain.timeline import (
     TimelineRelativeOrder,
     TimelineResult,
 )
+from continuity_engine.domain.errors import TimelineReferenceError
 from continuity_engine.storage.base import StateUpdateRecordRepository
 
 
@@ -55,3 +56,18 @@ class TimelineService:
 
     def chain(self, subject_id: str, event_id: str) -> tuple[TimelineEntry, ...]:
         return self.rebuild(subject_id).chain(event_id)
+
+    def load_entry(self, subject_id: str, event_id: str) -> TimelineEntry:
+        """Resolve one exact Event reference from the rebuildable P03 projection."""
+
+        entry = next(
+            (
+                item
+                for item in self.rebuild(subject_id).entries
+                if item.event.event_id == event_id
+            ),
+            None,
+        )
+        if entry is None:
+            raise TimelineReferenceError(f"timeline event not found: {event_id}")
+        return entry

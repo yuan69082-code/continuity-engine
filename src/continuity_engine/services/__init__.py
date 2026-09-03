@@ -64,6 +64,20 @@ from .context_router_service import (
     SubjectStateContextSource,
     TimelineContextSource,
 )
+from .context_material_resolvers import (
+    DerivedSummaryMaterialResolver,
+    ExactContextMaterialResolver,
+    ExactContextPayload,
+    MemoryMaterialResolver,
+    SubjectStateMaterialResolver,
+    TimelineMaterialResolver,
+)
+from .context_composer_service import (
+    ContextComposerService,
+    ContextTokenEstimator,
+    DeterministicContextTokenEstimator,
+    TrustedContextResolverBinding,
+)
 from .wake_perception_thinking_service import WakePerceptionThinkingService
 from .wake_perception_thinking_action_service import (
     WakePerceptionThinkingActionService,
@@ -139,4 +153,14 @@ __all__ = [
     "MemoryContextSource",
     "SubjectStateContextSource",
     "TimelineContextSource",
+    "ContextComposerService",
+    "ContextTokenEstimator",
+    "DeterministicContextTokenEstimator",
+    "TrustedContextResolverBinding",
+    "DerivedSummaryMaterialResolver",
+    "ExactContextMaterialResolver",
+    "ExactContextPayload",
+    "MemoryMaterialResolver",
+    "SubjectStateMaterialResolver",
+    "TimelineMaterialResolver",
 ]

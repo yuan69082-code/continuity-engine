@@ -13,6 +13,7 @@
 - `Timeline`：只从 Event/StateUpdateRecord 历史重建的只读 UTC 投影，支持确定性排序、范围、first/last、间距、链及来源/分类/correlation 过滤；没有第二 Event Store 或写入权。
 - Memory 管理层：P04 在既有检索/影响接口上新增正式 Memory 领域模型、单一原子 JSON `MemoryRepository`、根证据去重、可解释 HOT/WARM/COLD/ARCHIVED 生命周期、追加式纠错传播和可重建 `DerivedSummary`；普通召回排除但不删除 ARCHIVED，正式 provenance 被密封，consolidation operation、Summary 语义输入与 lineage 来源根均在同一仓储边界加载期验真；Summary 无 Event/StateMutation/SubjectState 写权限。
 - Context Router：P05 在结构化 `PerceptionResult` 之后先按 purpose/signals 选择逻辑分区，再在读取前把默认 50（可配置 30—80）的独立 Retrieval Budget 确定性分配给已打开、获授权的 SubjectState、P04 Memory/DerivedSummary、P03 Timeline/Event 及 Engine 本地版本化来源；未打开来源零读取，Memory/Summary 在仓储边界有界查询，Timeline 使用可重验的近期相关稳定窗口。它生成只读 `RoutePlan`、`CandidateManifest` 与 `ContextTrace`；必需来源失败时 Manifest 为空，结果只含稳定引用和原因，不复制正文、不写任何 Store，也不提前实现 P06 Composer。
+- Context Composer：P06 只消费 P05 的可消费 Manifest，通过可信 exact resolver 密封 `confirmed_state`、`confirmed_memory`、`derived_summary`、`retrieved_candidate`、`raw_source` 五类 Authority；候选自报标签不能提权。Composer 验证 subject/environment/version/revision/hash 后精确去重、稳定排序，并使用独立 Context Budget 保护 identity/continuity/relationship；必需材料失效或预算不足时失败关闭。`CompositionTrace` 将 Manifest candidate missing、P05 upstream notice 与 Composer 自有 resolver 读取次数分开审计，并保留具体稳定失败原因。输出仍为 Thinking-ready `ComposedContextSnapshot` 和不含正文/秘密的 Trace，不建立 Context Store，不写任何权威状态，也不修改生产 Thinking/E5-A；P09 才完成正式运行链接线。
 - Awakening：手动、定时和事件触发的单次唤醒流程，`WakeSession`、`WakeContext` 和确定性决策。
 - Perception：只读的确定性感知层，输出关注、时间、关系、记忆影响、观察和内在驱力。
 - Thinking：直接接收 `PerceptionResult`，通过 `ThinkSession` 保存摘要、预算、结果和关联信息；模型执行器可插拔。
@@ -74,7 +75,7 @@ Engine E4 随后完成 Engine 侧正式本地 HTTP/JSON Adapter。Vio V3 首次�
 
 历史阶段顺序已推进为 `E5-A → V4 → 受控 S4 → V5 → F1 → L1 → S4-R PASS → S4-Live 首次真实供应商单次试聊 PASS → Engine 工程档案归档完成`。
 
-P00—P05 已分别由用户正式验收，当前均为 `ACCEPTED`；其中用户于 2026-09-03 正式验收 P05。Context Router 初次施工及规划监工提出的 purpose 分区、读取前总预算、有界 Memory/Summary 与稳定 Timeline、必需来源失败 Manifest 四项阻断返修均已闭合，验收证据为 P05 专项 39/39、相关链路 125/125 与 244/244、连续三轮完整回归 548/548。P05 Engine side 与 P05-01—P05-12 同为 `ACCEPTED`，P05 Vio dependency = `NONE`。P06—P23 保持 `NOT_STARTED`；真实 Provider integration 与 Vio/PWA production integration 仍为 `DEFERRED_TO_P22`，软件版本保持 `0.1.0`。
+P00—P06 已分别由用户正式验收，当前均为 `ACCEPTED`。P06 Context Composer、P06 Engine side 与 P06-01—P06-12 均为 `ACCEPTED`；P06 Vio dependency = `NONE`。验收证据为 Golden candidate/resolved/missing/upstream notice = 18/18/0/5、resolver read = 18（按 source 稳定分解）、P06 专项 38/38 和完整回归 586/586；初版 33/72/160/277/581、监工反例及返修过程作为历史保留。D-047 记录施工及返修边界，D-048 记录用户于 2026-09-03 正式验收；P07—P23 保持 `NOT_STARTED`。P06 本地隔离不是长期产品禁令，P09/P16/P22 仍按规划分别开放正式 Thinking 接线、外部知识和真实 Provider/Vio/PWA 集成；软件版本保持 `0.1.0`。
 
 P00 的唯一全周期入口：
 
@@ -102,6 +103,10 @@ P00 的唯一全周期入口：
 - [`32_P05_规划施工测试验收矩阵.md`](docs/project_memory/32_P05_规划施工测试验收矩阵.md)
 - [`33_P05_权限检索预算来源失效与ContextTrace语义.md`](docs/project_memory/33_P05_权限检索预算来源失效与ContextTrace语义.md)
 - [`34_P05_测试索引与验收入口.md`](docs/project_memory/34_P05_测试索引与验收入口.md)
+- [`35_P06_ContextComposer与Authority架构边界.md`](docs/project_memory/35_P06_ContextComposer与Authority架构边界.md)
+- [`36_P06_规划施工测试验收矩阵.md`](docs/project_memory/36_P06_规划施工测试验收矩阵.md)
+- [`37_P06_ContextBudget去重冲突缺失与Trace语义.md`](docs/project_memory/37_P06_ContextBudget去重冲突缺失与Trace语义.md)
+- [`38_P06_测试索引与验收入口.md`](docs/project_memory/38_P06_测试索引与验收入口.md)
 
 P01 不是正式 Subject 或生产恢复能力；P20/P21 仍负责正式恢复。通用真实 Provider、日常正式使用、外网、生产认证、多租户、部署、MCP/Tool/设备和后台长期主动运行仍未开始；它们只能按冻结顺序逐阶段授权。
 

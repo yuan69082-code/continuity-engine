@@ -46,6 +46,18 @@ class ContextRoutingSourceError(ContextRoutingError):
     """Raised when a bounded read-only source cannot provide verified candidates."""
 
 
+class ContextCompositionError(ContinuityEngineError):
+    """Base error for P06 context composition failures."""
+
+
+class ContextCompositionValidationError(ContextCompositionError):
+    """Raised when a composition input, snapshot, or trace is invalid."""
+
+
+class ContextCompositionSourceError(ContextCompositionError):
+    """Raised when an exact P05 material reference cannot be safely resolved."""
+
+
 class MemoryValidationError(ContinuityEngineError):
     """Raised when a memory request, candidate, or decision is invalid."""
 

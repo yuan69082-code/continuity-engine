@@ -1,6 +1,6 @@
 # P05 权限、检索预算、来源失效与 Context Trace 语义
 
-> 用户于 2026-09-03 正式验收 P05；本文件规则当前为 `ACCEPTED`。P05 Vio dependency = `NONE`，P06—P23 = `NOT_STARTED`。
+> 用户于 2026-09-03 正式验收 P05、P06；本文件规则及 P06 当前均为 `ACCEPTED`。P05/P06 Vio dependency = `NONE`，P07—P23 = `NOT_STARTED`。
 
 ## 1. 权限门
 

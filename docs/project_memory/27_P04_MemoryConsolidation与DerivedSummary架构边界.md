@@ -3,7 +3,7 @@
 > 阶段：P04——Memory Consolidation 与 DerivedSummary
 > 当前状态：P04 / P04 Engine side = `ACCEPTED`（用户于 2026-09-01 正式验收）
 > Vio dependency：`NONE`
-> P05、P06：后续独立获权并于 2026-09-03 正式 `ACCEPTED`；P07—P23：`NOT_STARTED`
+> P05、P06：后续独立获权并正式 `ACCEPTED`；P07：`ACCEPTED`；P08—P23：`NOT_STARTED`
 > 软件版本：`0.1.0`
 
 ## 1. 权威边界
@@ -52,6 +52,8 @@ Summary 没有独立仓储。每次加载都重新验证格式、document hash�
 - 只有新的独立 root evidence 可以形成一次 reinforcement。
 - 同 kind/evidence/scope 且内容一致的独立证据可以合并为新 Memory revision。
 - P07 尚未施工，冲突内容不得静默覆盖或裁决；当前以显式 `MemoryEvidenceConflictError` 失败关闭。
+
+上述“P07 尚未施工”保留为 P04 当时的阶段边界；P07 后续已独立施工并由用户于 2026-09-04 正式验收（D-050），并不改变 P04 的失败关闭规则或自动接入生产链路。
 
 Learning 继续使用既有候选、确认和 Evolution 门，但 `LearningEvent/LearningRecord` 现在保存底层 `root_evidence_ids`。Repository retriever 生成的 root/source/kind/evidence/visibility/status/temperature/version provenance 在 influence 记录前被密封，调用方 metadata 不能覆盖或删除。验证按密封后的根证据集合去重，不再把两个 Memory ID 或重建后的摘要当成两份独立经验；DerivedSummary 没有独立 Learning source 类型。
 

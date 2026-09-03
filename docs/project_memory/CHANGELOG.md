@@ -4,6 +4,31 @@
 
 ## [Unreleased]
 
+### P07 用户正式验收 — 2026-09-04
+
+- 用户正式验收 P07，D-050 已创建并使用；P00—P07、P07 Engine side 与 P07-01—P07-12 均为 `ACCEPTED`，P07 Vio dependency `NONE`，P08—P23 保持 `NOT_STARTED`。
+- 规划监工独立确认第二轮两个反例被拒绝、合法生命周期及重启重放通过；P07 56/56、Engine 全量 642/642 PASS。初版、两轮阻断、失败回归、35/621、46/632、56/642 和当时的未验收状态按原样保留在以下历史条目。
+- 本轮仅校准 Markdown 验收档案，不修改运行代码、测试、冻结契约、正式数据或软件版本 `0.1.0`；不授权 P08、Vio 或任何 Git 写操作。`PLANNING_CONFLICT = NONE`、`EVIDENCE_CONFLICT = NONE`。
+
+### P07 第二轮 Resolution 审计与目标绑定返修 — 2026-09-04
+
+- 原 46/632 通过后仍发现跨 subject/environment 的 RESOLVED 审计和无关命题使用关系更正证据两项阻断；正式回归先取得 2/2 失败（0.372 秒），当时 `EVIDENCE_CONFLICT = PRESENT`。
+- 可信 evidence record 独立绑定适用 proposition/scope 与目标来源 version/hash/provenance/claim 语义；证明密封 case ID、原 revision/hash、snapshot、detector、claim 集合及 allowed action。audit 的 action/reason/source hashes/time 必须一致。
+- P07 format v3 repository 在追加与每次恢复时重新调用可信 verifier，拒绝自洽 hash 篡改和跨目标证明复用；不迁移正式数据，不建立第二 Authority。
+- 新增 10 项回归；当前 56/133/221/338 专项与链路通过，全量连续三轮 642/642（109.848、111.893、109.980 秒）。五类合法 basis、resolve/reopen/supersede、重启与 detect replay 保持通过。
+- P07 仍 `IMPLEMENTED_NOT_ACCEPTED`，D-050 未创建；`PLANNING_CONFLICT = NONE`、`EVIDENCE_CONFLICT = NONE`。以下初版和首轮返修记录保留，不倒写。
+
+### P07 Contradiction Detection and Evidential Isolation — 2026-09-03
+
+- 新增 P06 COMPLETE Context 封印、可信结构化 claim、`EPISTEMIC`/`EVIDENTIAL`/`COGNITIVE` 三类检测，以及 Psychological Conflict 明确排除。
+- 新增 contested/downgraded/isolated disposition、verification task、verified resolution、reopen/supersession 和 future Evolution referral；不按分数选择 winner，固定零状态写与零 Evolution commit。
+- 新增非权威、append-only、canonical hash/原子替换的 contradiction repository，覆盖精确 replay、重启、篡改、非法 transition 和跨边界失败关闭。
+- 新增版本化 Golden/fault fixture 与 35 项 P07 专项；当前 P05—P07 112/112、直接相关 200/200、P01—P07 综合 317/317、Engine 全量连续三轮 621/621。施工中一次引用四个不存在模块的无效入口作为命令错误保留，随后真实文件范围 200/200 通过。
+- 规划监工在上述首轮证据后复现 fabricated resolution、跨主体 COMPLETE result、canonical secret 明文落盘和旧版本前向 supersession 四项阻断；四个反例先以 4/4 失败测试保存，当时 `EVIDENCE_CONFLICT = PRESENT`。
+- 增加可信 `ResolutionEvidenceVerifier` 和 `ClaimSupersessionVerifier` 边界，Result 封印 case/trace subject/environment/snapshot/detector version，repository format v2 只保存 `canonical_value_hash`；`reopen()`/`supersede()` 不接受裸 hash。
+- 返修后 P07 46/46、P05—P07 123/123、直接相关 211/211、P01—P07 328/328、全量连续三轮 632/632。系统崩溃只中断档案同步，恢复后监工独立 P07 46/46；首轮数字和失败历史不删除。
+- 新增 D-049 和 P07 专责档案 `39`—`42`。P07、Engine side 与 P07-01—P07-12 当前为 `IMPLEMENTED_NOT_ACCEPTED`，P07 Vio dependency `NONE`；D-050 未创建，P08—P23 未开始。
+
 ### P06 Context Composer and Authority Layering — 2026-09-03
 
 - 用户于 2026-09-03 正式验收 P06；P06、P06 Engine side 与 P06-01—P06-12 当前均为 `ACCEPTED`，D-048 记录该决定。P06 Vio dependency `NONE`，P07—P23 `NOT_STARTED`。

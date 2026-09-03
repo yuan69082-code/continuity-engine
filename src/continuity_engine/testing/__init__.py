@@ -38,6 +38,16 @@ from .p05_context_fixture import (
     build_p05_perception,
     run_p05_golden_scenario,
 )
+from .p07_contradiction_fixture import (
+    P07_GOLDEN_SCENARIO_VERSION,
+    P07DeterministicResolutionEvidenceVerifier,
+    P07DeterministicSourceVersionVerifier,
+    P07GoldenScenarioResult,
+    P07StructuredClaimFixtureResolver,
+    build_p07_detector,
+    p07_resolution_evidence,
+    run_p07_golden_scenario,
+)
 
 __all__ = [
     "CleanupResult",
@@ -67,4 +77,12 @@ __all__ = [
     "P05VersionedLocalFact",
     "build_p05_perception",
     "run_p05_golden_scenario",
+    "P07_GOLDEN_SCENARIO_VERSION",
+    "P07DeterministicResolutionEvidenceVerifier",
+    "P07DeterministicSourceVersionVerifier",
+    "P07GoldenScenarioResult",
+    "P07StructuredClaimFixtureResolver",
+    "build_p07_detector",
+    "p07_resolution_evidence",
+    "run_p07_golden_scenario",
 ]

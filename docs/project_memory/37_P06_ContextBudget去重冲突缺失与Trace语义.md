@@ -1,6 +1,6 @@
 # P06 Context Budget、去重、冲突、缺失与 Trace 语义
 
-> 当前状态：用户于 2026-09-03 正式验收 P06，本文件约束当前为 `ACCEPTED`；P06 Vio dependency = `NONE`，P07—P23 = `NOT_STARTED`。
+> 当前状态：用户于 2026-09-03 正式验收 P06，本文件约束 P06 当前为 `ACCEPTED`；P07 已由用户于 2026-09-04 正式验收，P07 Vio dependency = `NONE`，P08—P23 = `NOT_STARTED`。
 
 ## Context Budget
 

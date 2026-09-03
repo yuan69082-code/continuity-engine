@@ -78,6 +78,13 @@ from .context_composer_service import (
     DeterministicContextTokenEstimator,
     TrustedContextResolverBinding,
 )
+from .contradiction_detector_service import (
+    P07_DETECTOR_VERSION,
+    ClaimSupersessionVerifier,
+    ContradictionDetectorService,
+    ResolutionEvidenceVerifier,
+    StructuredClaimResolver,
+)
 from .wake_perception_thinking_service import WakePerceptionThinkingService
 from .wake_perception_thinking_action_service import (
     WakePerceptionThinkingActionService,
@@ -157,6 +164,11 @@ __all__ = [
     "ContextTokenEstimator",
     "DeterministicContextTokenEstimator",
     "TrustedContextResolverBinding",
+    "P07_DETECTOR_VERSION",
+    "ClaimSupersessionVerifier",
+    "ContradictionDetectorService",
+    "ResolutionEvidenceVerifier",
+    "StructuredClaimResolver",
     "DerivedSummaryMaterialResolver",
     "ExactContextMaterialResolver",
     "ExactContextPayload",

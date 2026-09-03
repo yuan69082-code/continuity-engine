@@ -1,6 +1,6 @@
 # P05 Context Router 架构边界
 
-> 当前状态：P00—P06 = `ACCEPTED`；P05/P06 Vio dependency = `NONE`；P07—P23 = `NOT_STARTED`。用户于 2026-09-03 正式验收 P05、P06，决定分别见 D-046、D-048；P06 施工决定见 D-047。
+> 当前状态：P00—P07 = `ACCEPTED`；P07 = `ACCEPTED`，P07 Vio dependency = `NONE`；P08—P23 = `NOT_STARTED`。用户于 2026-09-03 正式验收 P05、P06，决定分别见 D-046、D-048；P07 施工决定见 D-049。
 
 ## 1. 职责
 

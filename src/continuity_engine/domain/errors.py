@@ -58,6 +58,26 @@ class ContextCompositionSourceError(ContextCompositionError):
     """Raised when an exact P05 material reference cannot be safely resolved."""
 
 
+class ContradictionError(ContinuityEngineError):
+    """Base error for P07 non-authoritative contradiction processing."""
+
+
+class ContradictionValidationError(ContradictionError):
+    """Raised when a claim, case, transition, or P06 input is invalid."""
+
+
+class ContradictionIdentityConflictError(ContradictionError):
+    """Raised when an immutable P07 identity is reused with different content."""
+
+
+class ContradictionPersistenceError(ContradictionError):
+    """Raised when a P07 audit document fails closed-world validation."""
+
+
+class ContradictionNotFoundError(ContradictionError):
+    """Raised when a requested contradiction case does not exist."""
+
+
 class MemoryValidationError(ContinuityEngineError):
     """Raised when a memory request, candidate, or decision is invalid."""
 

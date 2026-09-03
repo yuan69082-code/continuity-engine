@@ -6,7 +6,8 @@
 - P06 / P06 Engine side：`ACCEPTED`
 - P06-01—P06-12：12/12 `ACCEPTED`
 - P06 Vio dependency：`NONE`
-- P07—P23：`NOT_STARTED`
+- P07：`ACCEPTED`；D-049 已使用，D-050 已用于用户正式验收
+- P08—P23：`NOT_STARTED`
 - D-047：P06 开工、Authority 与预算边界
 - D-048：用户于 2026-09-03 正式验收 P06
 

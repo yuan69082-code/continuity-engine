@@ -29,6 +29,9 @@ from continuity_engine.domain.memory import (
     MemoryTemperature,
     MemoryVisibility,
 )
+from continuity_engine.domain.contradiction import (
+    AuditAction, ContradictionCase, ResolutionEvidence, VerifiedResolutionEvidence,
+)
 from continuity_engine.domain.models import SubjectState
 from continuity_engine.domain.permissions import PermissionChangeRecord, PermissionState
 from continuity_engine.domain.resources import (
@@ -232,6 +235,28 @@ class MemoryRepository(Protocol):
         lineage: MemoryLineageRecord,
         summaries: list[DerivedSummary],
     ) -> bool: ...
+
+
+class ResolutionEvidenceVerifier(Protocol):
+    """Trusted, independently bound P07 evidence lookup, not caller attestation."""
+
+    def verify(
+        self, case: ContradictionCase, evidence: ResolutionEvidence, *, action: AuditAction
+    ) -> VerifiedResolutionEvidence: ...
+
+
+class ContradictionRepository(Protocol):
+    """Non-authoritative P07 audit boundary; never a fact or state authority."""
+
+    def save_detected(self, case: ContradictionCase) -> ContradictionCase: ...
+
+    def append_transition(self, case: ContradictionCase) -> ContradictionCase: ...
+
+    def load_case(self, subject_id: str, case_id: str) -> ContradictionCase: ...
+
+    def case_history(self, subject_id: str, case_id: str) -> list[ContradictionCase]: ...
+
+    def list_cases(self, subject_id: str) -> list[ContradictionCase]: ...
 
 
 class ResourceRepository(Protocol):

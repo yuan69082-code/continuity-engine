@@ -30,7 +30,7 @@ class FakeActionAdapter:
     """
     adapter_id = "p08-fake-adapter-v1"
 
-    def __init__(self, root: Path):
+    def __init__(self, root: Path, *, clock=None):
         temp_root = Path(tempfile.gettempdir()).resolve()
         root = root.absolute()
         assert_no_link_components(root, stop_at=temp_root)
@@ -39,6 +39,7 @@ class FakeActionAdapter:
         self.execute_calls = 0
         self.query_calls = 0
         self.mode = "success"
+        self.clock = clock
         if not self.path.exists():
             atomic_write_json(self.path, {"version": P08_FIXTURE_VERSION, "facts": [], "hash": digest([])})
 
@@ -77,12 +78,14 @@ class FakeActionAdapter:
         if self.mode == "before_failure":
             raise RuntimeError("synthetic pre-execution failure")
         success = self.mode != "terminal"
-        effects = int(success and request.capability_type not in {"silence", "action.stop", "test.lookup"})
+        effects = int(success and request.capability_type not in {"silence", "action.stop", "test.lookup", "memory.lookup"})
         fact = ActionReceipt(
             "receipt:" + request.idempotency_key[7:], request.capability_request_id,
             request.request_hash, self.adapter_id, request.subject_id, request.choice.environment,
             request.step_id, "SUCCEEDED" if success else "FAILED_TERMINAL", effects, effects,
-            "2026-09-04T08:00:00Z", digest([request.step.argument_hash, success]),
+            (self.clock().astimezone(timezone.utc).isoformat().replace("+00:00", "Z")
+             if self.clock is not None else "2026-09-04T08:00:00Z"),
+            digest([request.step.argument_hash, success]),
         )
         facts = [x.to_dict() for x in self.receipts()] + [fact.to_dict()]
         atomic_write_json(self.path, {"version": P08_FIXTURE_VERSION, "facts": facts, "hash": digest(facts)})

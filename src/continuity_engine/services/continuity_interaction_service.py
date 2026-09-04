@@ -127,6 +127,7 @@ class ContinuityInteractionService:
         capabilities: CapabilityCoordinationService | None = None,
         capability_interpreter: CapabilityResultInterpreter | None = None,
         result_factory: FirstRoundResultFactory | None = None,
+        continuity_core=None,
     ) -> None:
         self._validator = validator
         self._bindings = bindings
@@ -155,6 +156,7 @@ class ContinuityInteractionService:
             capability_interpreter or CapabilityResultInterpreter()
         )
         self._result_factory = result_factory
+        self._continuity_core = continuity_core
         self.last_call_log: list[str] = []
 
     @property
@@ -195,6 +197,7 @@ class ContinuityInteractionService:
             if lookup.status is LedgerLookupStatus.COMPLETED:
                 assert lookup.result is not None
                 completed_operation = self._ledger.load_operation(request.request_id)
+                self._verify_core_completed(completed_operation, lookup.result)
                 if (
                     completed_operation is not None
                     and completed_operation.stage is not IntegrationOperationStage.COMPLETED
@@ -293,6 +296,7 @@ class ContinuityInteractionService:
             result = attempt.result
             completed = self._ledger.load_completed(request_id)
             if completed is not None:
+                self._verify_core_completed(operation, completed)
                 if operation.stage is not IntegrationOperationStage.COMPLETED:
                     self._ledger.save_operation(
                         replace(
@@ -380,6 +384,7 @@ class ContinuityInteractionService:
                 raise IntegrationPersistenceError(
                     "completed result is missing its operation journal record"
                 )
+            self._verify_core_completed(operation, completed)
             return IntegrationRequestQueryResult(
                 request_id=completed.request_id,
                 request_hash=completed.request_hash,
@@ -414,6 +419,7 @@ class ContinuityInteractionService:
         thinking: ThinkingExecutionResult | None,
     ) -> FirstRoundSuccessResult:
         assert operation.domain is not None
+        self._verify_core_completed(operation)
         if operation.domain.approved_state_action is not None and operation.evolution is None:
             operation = self._complete_evolution(operation, thinking)
         result = self._build_result(binding, operation)
@@ -624,6 +630,8 @@ class ContinuityInteractionService:
                     context,
                     perception_id=progress.perception_id,
                 )
+            if existing_thinking is None and self._continuity_core is not None and self._continuity_core.enabled:
+                perception = self._continuity_core.prepare(perception, operation)
             self._validate_perception(
                 perception,
                 operation=operation,
@@ -636,6 +644,8 @@ class ContinuityInteractionService:
                 progress,
                 stage=IntegrationDomainProgressStage.PERCEPTION_COMPLETED,
                 perception=perception,
+                continuity_context_hash=(perception.continuity_context.binding_hash()
+                                         if perception.continuity_context is not None else None),
             )
             operation = self._save_domain_progress(operation, progress)
             self._fault("after_perception_checkpoint_saved", operation)
@@ -662,6 +672,7 @@ class ContinuityInteractionService:
             progress.think_session_id,
         )
         if existing_thinking is None:
+            self._validate_core_before_thinking(perception)
             thinking = self._thinking.handle_perception(
                 perception,
                 depth=ThinkingDepth.NORMAL,
@@ -715,6 +726,8 @@ class ContinuityInteractionService:
         progress = operation.domain_progress
         self._record("capability_request")
         self._fault("before_capability_request_created", operation)
+        if self._ledger.find_capability_request_by_operation(operation.operation_id) is None:
+            self._validate_core_before_thinking(perception)
         request = self._capabilities.ensure_request(
             operation,
             binding,
@@ -893,6 +906,7 @@ class ContinuityInteractionService:
         assert progress.action_at is not None
         assert progress.response_completed_at is not None
         if progress.action is None:
+            self._validate_core_before_thinking(perception)
             self._record("action")
             action_context = ActionContext.from_results(
                 subject_id=operation.subject_id,
@@ -915,6 +929,11 @@ class ContinuityInteractionService:
             self._record("action_reused")
             action = progress.action
         self._fault("after_action_completed", operation)
+        if perception.continuity_context is not None:
+            if self._continuity_core is None:
+                raise CapabilityValidationError("C1_PENDING_FEATURE_DISABLED")
+            self._continuity_core.after_action(operation, thinking, action)
+            self._fault("after_c1_action_completed", operation)
         response_content = self._reply_composer.compose(thinking, action)
         approved = ApprovedStateAction.from_execution(action)
         checkpoint = IntegrationDomainCheckpoint(
@@ -943,6 +962,102 @@ class ContinuityInteractionService:
             ),
             thinking,
         )
+
+    def _validate_core_before_thinking(self, perception):
+        if perception.continuity_context is not None:
+            if self._continuity_core is None:
+                raise CapabilityValidationError("C1_PENDING_FEATURE_DISABLED")
+            self._continuity_core.before_thinking(perception)
+
+    def _verify_core_completed(self, operation, completed=None):
+        core = self._continuity_core
+        if operation is None:
+            return
+        if completed is not None and (
+            completed.request_id != operation.request_id
+            or completed.request_hash != operation.request_hash
+            or completed.operation_id != operation.operation_id
+            or completed.subject_id != operation.subject_id
+            or completed.binding_id != operation.binding_id
+            or completed.binding_version != operation.binding_version
+            or completed.consumed_observation_ids != operation.consumed_observation_ids
+            or operation.domain is None
+            or completed.response.response_id != operation.domain.response_id
+            or completed.response.content != operation.domain.response_content
+        ):
+            raise CapabilityValidationError("COMPLETED_OPERATION_BINDING_MISMATCH")
+        progress = operation.domain_progress
+        # The durable ThinkSession is an independent copy of the actual input.
+        # Inspect it before deciding whether a missing journal field means legacy.
+        if progress is None:
+            if operation.domain is not None:
+                session = self._load_think_session_if_present(operation.subject_id, operation.domain.think_session_id)
+                if session is not None and (session.observation.continuity_context_hash is not None
+                        or (session.perception_snapshot is not None
+                            and session.perception_snapshot.continuity_context is not None)):
+                    raise CapabilityValidationError("C1_DOMAIN_PROGRESS_MISSING")
+            return
+        thinking = self._restore_domain_thinking(operation)
+        if progress.perception is not None and progress.perception.continuity_context is not None:
+            if core is None or not core.enabled:
+                raise CapabilityValidationError("C1_PENDING_FEATURE_DISABLED")
+            core.after_action(operation, thinking, progress.action, replay=True)
+            self._verify_core_evolution(operation, thinking, completed)
+
+    def _verify_core_evolution(self, operation, thinking, completed=None):
+        """Validate existing state facts from all original evidence, not a nullable cache.
+
+        A pending first commit still belongs to _complete_evolution. Completed
+        replay is read-only, including when its optional journal checkpoint is lost.
+        """
+        approved = operation.domain.approved_state_action
+        session = thinking.session
+        checkpoint = operation.evolution
+        projection = completed.state_projection if completed is not None else None
+        claimed = (checkpoint is not None or session.state_written_back
+                   or session.state_event_id is not None or session.state_update_id is not None
+                   or (projection is not None and projection.changed))
+        if projection is not None and projection.previous_revision != operation.input_revision:
+            raise CapabilityValidationError("C1_STATE_PROJECTION_REVISION_MISMATCH")
+        if approved is None:
+            if claimed:
+                raise CapabilityValidationError("C1_STATE_FACT_WITHOUT_ACTION_AUTHORIZATION")
+            return
+        completed_claim = completed is not None or operation.stage is IntegrationOperationStage.COMPLETED
+        if not claimed and not completed_claim:
+            return  # No completed state fact yet: the original first-commit path must decide.
+        event_id = str(uuid5(NAMESPACE_URL, f"first-round-event|{operation.request_id}|{operation.operation_id}"))
+        update = self._action_evolution.find_update_by_event_id(operation.subject_id, event_id)
+        self._validate_evolution_binding(operation, approved, update, event_id)
+        if (not session.state_written_back or session.state_event_id != event_id
+                or session.state_update_id != update.update_id):
+            raise CapabilityValidationError("C1_EVOLUTION_THINKING_BINDING_MISMATCH")
+        if checkpoint is not None and (checkpoint.event_id != event_id
+                or checkpoint.update_id != update.update_id
+                or checkpoint.output_revision != update.after_revision):
+            raise CapabilityValidationError("C1_EVOLUTION_CHECKPOINT_BINDING_MISMATCH")
+        if projection is not None and (not projection.changed
+                or projection.engine_update_id != update.update_id
+                or projection.current_revision != update.after_revision):
+            raise CapabilityValidationError("C1_EVOLUTION_RESULT_BINDING_MISMATCH")
+
+    def retry_c1_actions(self, request_id: str, request_hash: str):
+        """Explicit host-neutral retry of a durable action checkpoint.
+
+        This does not create a request or change any external schema. Submit the
+        original interaction again to finish/replay its normal result. P08 still
+        queries independent receipts and validates every current execution gate.
+        """
+        operation = self._ledger.load_operation(request_id)
+        if (operation is None or operation.request_hash != request_hash
+                or operation.domain_progress is None or operation.domain_progress.action is None
+                or self._continuity_core is None):
+            raise CapabilityValidationError("C1_RETRY_CHECKPOINT_REQUIRED")
+        thinking = self._restore_domain_thinking(operation)
+        if operation.domain is not None and thinking.perception.continuity_context is not None:
+            self._verify_core_evolution(operation, thinking, self._ledger.load_completed(request_id))
+        return self._continuity_core.after_action(operation, thinking,
+            operation.domain_progress.action, replay=operation.domain is not None, retry=True)
 
     def _capability_request_for_operation(self, operation: IntegrationOperationRecord):
         if self._capabilities is None:
@@ -1169,6 +1284,15 @@ class ContinuityInteractionService:
         perception: PerceptionResult,
     ) -> None:
         observation = session.observation
+        snapshot = session.perception_snapshot
+        if (perception.continuity_context is not None
+                or observation.continuity_context_hash is not None
+                or (snapshot is not None and snapshot.continuity_context is not None)):
+            if (snapshot is None or snapshot != perception
+                    or perception.continuity_context is None
+                    or (observation.continuity_context_hash is not None
+                        and observation.continuity_context_hash != perception.continuity_context.binding_hash())):
+                raise CapabilityValidationError("C1_THINKING_OPERATION_INPUT_MISMATCH")
         if (
             observation.perception_id != perception.perception_id
             or observation.perception_summary != perception.summary
@@ -1206,6 +1330,13 @@ class ContinuityInteractionService:
                 "persisted ThinkSession does not match the recoverable operation"
             )
         self._validate_thinking_observation(session, perception)
+        if perception.continuity_context is not None and progress.action is not None:
+            if session.result != progress.action.context.thinking_result:
+                raise CapabilityValidationError("C1_ACTION_THINKING_RESULT_MISMATCH")
+            if operation.domain is not None and (
+                ApprovedStateAction.from_execution(progress.action) != operation.domain.approved_state_action
+            ):
+                raise CapabilityValidationError("C1_DOMAIN_ACTION_AUTHORIZATION_MISMATCH")
 
     def _restore_domain_thinking(
         self,
@@ -1241,6 +1372,41 @@ class ContinuityInteractionService:
             state_update=None,
         )
 
+    @staticmethod
+    def _validate_evolution_binding(operation, approved, update, event_id):
+        if update is None:
+            raise CapabilityValidationError("C1_COMMITTED_EVOLUTION_MISSING")
+        if approved is None:
+            raise CapabilityValidationError("C1_STATE_FACT_WITHOUT_ACTION_AUTHORIZATION")
+        if (
+            approved.subject_id != operation.subject_id
+            or approved.expected_revision != operation.input_revision
+            or update.subject_id != operation.subject_id
+            or update.before_revision != operation.input_revision
+            or update.after_revision != operation.input_revision + 1
+            or update.reason != approved.rationale_summary
+            or update.event.source != "action_engine"
+            or update.event.source_kind.value != "internal"
+            or update.event.event_type != "approved_internal_action"
+            or update.event.classification.value != "state_change"
+            or update.event.event_id != event_id
+            or update.event.metadata.get("integration_request_id") != operation.request_id
+            or update.event.metadata.get("integration_operation_id") != operation.operation_id
+            or update.event.mutations != approved.mutations
+            or update.event.content != approved.result_summary
+            or update.event.reason != approved.rationale_summary
+            or any(update.event.metadata.get(key) != value for key, value in {
+                "action_session_id": approved.action_session_id,
+                "action_decision_id": approved.decision_id,
+                "action_plan_id": approved.plan_id,
+                "think_id": approved.think_session_id,
+                "wake_session_id": approved.wake_session_id,
+                "perception_id": approved.perception_id,
+                "thinking_result_id": approved.thinking_result_id,
+            }.items())
+        ):
+            raise RuntimeError("recovered Evolution record does not match the operation")
+
     def _complete_evolution(
         self,
         operation: IntegrationOperationRecord,
@@ -1252,6 +1418,22 @@ class ContinuityInteractionService:
         event_id = str(uuid5(NAMESPACE_URL, f"first-round-event|{operation.request_id}|{operation.operation_id}"))
         update = self._action_evolution.find_update_by_event_id(operation.subject_id, event_id)
         if update is None:
+            progress = operation.domain_progress
+            if progress is not None and progress.perception is not None and progress.perception.continuity_context is not None:
+                # Only a first commit needs current authorization. A persisted
+                # Evolution below is an existing fact, not another execution.
+                self._validate_core_before_thinking(progress.perception)
+                action = progress.action
+                if action is None or ApprovedStateAction.from_execution(action) != approved:
+                    raise CapabilityValidationError("C1_STATE_ACTION_BINDING_INVALID")
+                intent = replace(action.decision.selected_action, created_at=self._clock())
+                if any(p not in self._available_permissions for p in intent.required_permissions):
+                    raise CapabilityValidationError("C1_STATE_PERMISSION_UNAVAILABLE")
+                assessment = self._action.assess_local_action(intent, subject_id=operation.subject_id,
+                    environment=progress.perception.continuity_context.composition.snapshot.environment,
+                    limits=self._resource_limits)
+                if not assessment.can_execute_automatically:
+                    raise CapabilityValidationError("C1_STATE_CURRENT_AUTHORIZATION_DENIED")
             self._record("evolution")
             update = self._action_evolution.evolve(
                 approved,
@@ -1264,14 +1446,7 @@ class ContinuityInteractionService:
             )
             assert update is not None
             self._fault("after_evolution_committed", operation)
-        if (
-            update.before_revision != operation.input_revision
-            or update.after_revision != operation.input_revision + 1
-            or update.event.event_id != event_id
-            or update.event.metadata.get("integration_request_id") != operation.request_id
-            or update.event.metadata.get("integration_operation_id") != operation.operation_id
-        ):
-            raise RuntimeError("recovered Evolution record does not match the operation")
+        self._validate_evolution_binding(operation, approved, update, event_id)
         if thinking is not None:
             session = thinking.session
             if session.state_update_id not in (None, update.update_id):

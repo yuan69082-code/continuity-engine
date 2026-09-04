@@ -1,0 +1,106 @@
+[
+  {
+    "evidencePath": "C:/Users/ADMINI~1/AppData/Local/Temp/c1e-7f4irrht",
+    "fixtureStillExists": false,
+    "phase": "segment-0",
+    "parentInterrupted": false,
+    "exceptionType": "RuntimeError",
+    "retryCount": 0,
+    "streams": [
+      {
+        "file": "segment-0.stdout.log",
+        "bytes": 24,
+        "recordedBytes": 24,
+        "redacted": false,
+        "hashMatches": true,
+        "exitCode": 91
+      },
+      {
+        "file": "segment-0.stderr.log",
+        "bytes": 25,
+        "recordedBytes": 25,
+        "redacted": false,
+        "hashMatches": true,
+        "exitCode": 91
+      }
+    ]
+  },
+  {
+    "evidencePath": "C:/Users/ADMINI~1/AppData/Local/Temp/c1e-qofq5dhb",
+    "fixtureStillExists": false,
+    "phase": "segment-0",
+    "parentInterrupted": true,
+    "exceptionType": "KeyboardInterrupt",
+    "retryCount": 0,
+    "streams": [
+      {
+        "file": "segment-0.stdout.log",
+        "bytes": 16,
+        "recordedBytes": 16,
+        "redacted": false,
+        "hashMatches": true,
+        "exitCode": 1
+      },
+      {
+        "file": "segment-0.stderr.log",
+        "bytes": 16,
+        "recordedBytes": 16,
+        "redacted": false,
+        "hashMatches": true,
+        "exitCode": 1
+      }
+    ]
+  },
+  {
+    "evidencePath": "C:/Users/Administrator/Documents/continuity-engine/docs/project_memory/p09_evidence/repair-02/retention-samples/byte-fix-child-failure",
+    "fixtureStillExists": false,
+    "phase": "segment-0",
+    "parentInterrupted": false,
+    "exceptionType": "RuntimeError",
+    "retryCount": 0,
+    "streams": [
+      {
+        "file": "segment-0.stdout.log",
+        "bytes": 24,
+        "recordedBytes": 24,
+        "redacted": false,
+        "hashMatches": true,
+        "exitCode": 91
+      },
+      {
+        "file": "segment-0.stderr.log",
+        "bytes": 25,
+        "recordedBytes": 25,
+        "redacted": false,
+        "hashMatches": true,
+        "exitCode": 91
+      }
+    ]
+  },
+  {
+    "evidencePath": "C:/Users/Administrator/Documents/continuity-engine/docs/project_memory/p09_evidence/repair-02/retention-samples/byte-fix-parent-interrupt",
+    "fixtureStillExists": false,
+    "phase": "segment-0",
+    "parentInterrupted": true,
+    "exceptionType": "KeyboardInterrupt",
+    "retryCount": 0,
+    "streams": [
+      {
+        "file": "segment-0.stdout.log",
+        "bytes": 16,
+        "recordedBytes": 16,
+        "redacted": false,
+        "hashMatches": true,
+        "exitCode": 1
+      },
+      {
+        "file": "segment-0.stderr.log",
+        "bytes": 16,
+        "recordedBytes": 16,
+        "redacted": false,
+        "hashMatches": true,
+        "exitCode": 1
+      }
+    ]
+  }
+]

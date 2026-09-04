@@ -1,0 +1,88 @@
+test_missing_evolution_checkpoint_cannot_skip_original_fact_validation (__main__.P09RepairIndependentTests.test_missing_evolution_checkpoint_cannot_skip_original_fact_validation) ... ERROR
+
+======================================================================
+ERROR: test_missing_evolution_checkpoint_cannot_skip_original_fact_validation (__main__.P09RepairIndependentTests.test_missing_evolution_checkpoint_cannot_skip_original_fact_validation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 543, in _run_domain
+    wake_session = self._awakening.get_session(
+        operation.subject_id,
+        progress.wake_session_id,
+    )
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\awakening_service.py", line 162, in get_session
+    return self._repository.load_session(subject_id, session_id)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_awakening_repository.py", line 86, in load_session
+    raise StateNotFoundError(f"wake session not found: {session_id}")
+continuity_engine.domain.errors.StateNotFoundError: wake session not found: dc357ed1-ff4e-5dae-938c-5edca8afac74
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 251, in submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 548, in _run_domain
+    awakening = self._awakening.wake_manual(
+        binding.cycle_id,
+    ...<3 lines>...
+        preserve_recovery_context=True,
+    )
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\awakening_service.py", line 109, in wake_manual
+    return self._run(
+           ~~~~~~~~~^
+        cycle,
+        ^^^^^^
+    ...<3 lines>...
+        preserve_recovery_context=preserve_recovery_context,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\awakening_service.py", line 265, in _run
+    self._repository.save_session(session)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_awakening_repository.py", line 81, in save_session
+    self._write_json(path, session.to_dict())
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_awakening_repository.py", line 118, in _write_json
+    with tempfile.NamedTemporaryFile(
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        mode="w",
+        ^^^^^^^^^
+    ...<5 lines>...
+        delete=False,
+        ^^^^^^^^^^^^^
+    ) as temporary:
+    ^
+  File "E:\Adobe\Lib\tempfile.py", line 603, in NamedTemporaryFile
+    file = _io.open(dir, mode, buffering=buffering,
+                    newline=newline, encoding=encoding, errors=errors,
+                    opener=opener)
+  File "E:\Adobe\Lib\tempfile.py", line 600, in opener
+    fd, name = _mkstemp_inner(dir, prefix, suffix, flags, output_type)
+               ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Adobe\Lib\tempfile.py", line 255, in _mkstemp_inner
+    fd = _os.open(file, flags, 0o600)
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\Administrator\\AppData\\Local\\Temp\\p09-repair-review-ztd70m3g\\s\\s\\sff638bc5\\b\\ba60f878e\\data\\awakening\\sessions\\d956cd1c5d095afac489144d3e06b445bd9fbb07bd345205a173fa16b8d0c47f\\.31d180eb2e9333707fb3c83e0de1cebb24f77f4d6d0aefceb714880d9d33bbf0.7h2fxk0r.tmp'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\work\p09_repair_review_probes.py", line 32, in test_missing_evolution_checkpoint_cannot_skip_original_fact_validation
+    first = f.submit(request)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p09_core_fixture.py", line 165, in submit
+    return self.app.adapter.submit(request or self.request())
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 263, in submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.
+
+----------------------------------------------------------------------
+Ran 1 test in 0.333s
+
+FAILED (errors=1)

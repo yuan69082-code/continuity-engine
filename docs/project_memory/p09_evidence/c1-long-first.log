@@ -1,0 +1,348 @@
+{
+  "fixture": "p09-c1-golden-v1",
+  "isolated_evidence_root": "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\c17f5k6ipo",
+  "logical_days": 30,
+  "new_events": 30,
+  "no_full_chat_history": true,
+  "production_soak_claim": false,
+  "restart_after_rounds": [
+    10,
+    20
+  ],
+  "rounds": 30,
+  "segments": [
+    {
+      "cpu_seconds": 17.390625,
+      "formal_access_count": 0,
+      "observations": [
+        {
+          "candidates": 11,
+          "context_tokens": 745,
+          "credits": 1,
+          "data_bytes": 189812,
+          "effects": 1,
+          "fragments": 7,
+          "logical_time": "2026-09-05T08:00:00Z",
+          "round": 1
+        },
+        {
+          "candidates": 14,
+          "context_tokens": 745,
+          "credits": 1,
+          "data_bytes": 375184,
+          "effects": 1,
+          "fragments": 7,
+          "logical_time": "2026-09-06T08:00:00Z",
+          "round": 2
+        },
+        {
+          "candidates": 17,
+          "context_tokens": 745,
+          "credits": 2,
+          "data_bytes": 585300,
+          "effects": 2,
+          "fragments": 7,
+          "logical_time": "2026-09-07T08:00:00Z",
+          "round": 3
+        },
+        {
+          "candidates": 20,
+          "context_tokens": 745,
+          "credits": 3,
+          "data_bytes": 793422,
+          "effects": 3,
+          "fragments": 7,
+          "logical_time": "2026-09-08T08:00:00Z",
+          "round": 4
+        },
+        {
+          "candidates": 23,
+          "context_tokens": 745,
+          "credits": 3,
+          "data_bytes": 1014268,
+          "effects": 3,
+          "fragments": 7,
+          "logical_time": "2026-09-09T08:00:00Z",
+          "round": 5
+        },
+        {
+          "candidates": 26,
+          "context_tokens": 745,
+          "credits": 4,
+          "data_bytes": 1259892,
+          "effects": 4,
+          "fragments": 7,
+          "logical_time": "2026-09-10T08:00:00Z",
+          "round": 6
+        },
+        {
+          "candidates": 29,
+          "context_tokens": 745,
+          "credits": 5,
+          "data_bytes": 1503518,
+          "effects": 5,
+          "fragments": 7,
+          "logical_time": "2026-09-11T08:00:00Z",
+          "round": 7
+        },
+        {
+          "candidates": 32,
+          "context_tokens": 745,
+          "credits": 5,
+          "data_bytes": 1759659,
+          "effects": 5,
+          "fragments": 7,
+          "logical_time": "2026-09-12T08:00:00Z",
+          "round": 8
+        },
+        {
+          "candidates": 35,
+          "context_tokens": 745,
+          "credits": 6,
+          "data_bytes": 2040434,
+          "effects": 6,
+          "fragments": 7,
+          "logical_time": "2026-09-13T08:00:00Z",
+          "round": 9
+        },
+        {
+          "candidates": 38,
+          "context_tokens": 745,
+          "credits": 7,
+          "data_bytes": 2304175,
+          "effects": 7,
+          "fragments": 7,
+          "logical_time": "2026-09-14T08:00:00Z",
+          "round": 10
+        }
+      ],
+      "pid": 36680,
+      "restart_replay_verified": false,
+      "round_start": 0,
+      "round_stop": 10,
+      "wall_seconds": 18.629036
+    },
+    {
+      "cpu_seconds": 67.640625,
+      "formal_access_count": 0,
+      "observations": [
+        {
+          "candidates": 41,
+          "context_tokens": 745,
+          "credits": 7,
+          "data_bytes": 2576275,
+          "effects": 7,
+          "fragments": 7,
+          "logical_time": "2026-09-15T08:00:00Z",
+          "round": 11
+        },
+        {
+          "candidates": 43,
+          "context_tokens": 745,
+          "credits": 8,
+          "data_bytes": 2868100,
+          "effects": 8,
+          "fragments": 7,
+          "logical_time": "2026-09-16T08:00:00Z",
+          "round": 12
+        },
+        {
+          "candidates": 43,
+          "context_tokens": 745,
+          "credits": 9,
+          "data_bytes": 3146094,
+          "effects": 9,
+          "fragments": 7,
+          "logical_time": "2026-09-17T08:00:00Z",
+          "round": 13
+        },
+        {
+          "candidates": 43,
+          "context_tokens": 745,
+          "credits": 9,
+          "data_bytes": 3425023,
+          "effects": 9,
+          "fragments": 7,
+          "logical_time": "2026-09-18T08:00:00Z",
+          "round": 14
+        },
+        {
+          "candidates": 43,
+          "context_tokens": 745,
+          "credits": 10,
+          "data_bytes": 3716867,
+          "effects": 10,
+          "fragments": 7,
+          "logical_time": "2026-09-19T08:00:00Z",
+          "round": 15
+        },
+        {
+          "candidates": 43,
+          "context_tokens": 745,
+          "credits": 11,
+          "data_bytes": 3994880,
+          "effects": 11,
+          "fragments": 7,
+          "logical_time": "2026-09-20T08:00:00Z",
+          "round": 16
+        },
+        {
+          "candidates": 43,
+          "context_tokens": 745,
+          "credits": 11,
+          "data_bytes": 4273824,
+          "effects": 11,
+          "fragments": 7,
+          "logical_time": "2026-09-21T08:00:00Z",
+          "round": 17
+        },
+        {
+          "candidates": 43,
+          "context_tokens": 745,
+          "credits": 12,
+          "data_bytes": 4565678,
+          "effects": 12,
+          "fragments": 7,
+          "logical_time": "2026-09-22T08:00:00Z",
+          "round": 18
+        },
+        {
+          "candidates": 43,
+          "context_tokens": 745,
+          "credits": 13,
+          "data_bytes": 4843704,
+          "effects": 13,
+          "fragments": 7,
+          "logical_time": "2026-09-23T08:00:00Z",
+          "round": 19
+        },
+        {
+          "candidates": 43,
+          "context_tokens": 745,
+          "credits": 13,
+          "data_bytes": 5122656,
+          "effects": 13,
+          "fragments": 7,
+          "logical_time": "2026-09-24T08:00:00Z",
+          "round": 20
+        }
+      ],
+      "pid": 37736,
+      "restart_replay_verified": true,
+      "round_start": 10,
+      "round_stop": 20,
+      "wall_seconds": 71.399316
+    },
+    {
+      "cpu_seconds": 132.359375,
+      "formal_access_count": 0,
+      "observations": [
+        {
+          "candidates": 43,
+          "context_tokens": 745,
+          "credits": 14,
+          "data_bytes": 5414518,
+          "effects": 14,
+          "fragments": 7,
+          "logical_time": "2026-09-25T08:00:00Z",
+          "round": 21
+        },
+        {
+          "candidates": 43,
+          "context_tokens": 745,
+          "credits": 15,
+          "data_bytes": 5692544,
+          "effects": 15,
+          "fragments": 7,
+          "logical_time": "2026-09-26T08:00:00Z",
+          "round": 22
+        },
+        {
+          "candidates": 43,
+          "context_tokens": 745,
+          "credits": 15,
+          "data_bytes": 5971496,
+          "effects": 15,
+          "fragments": 7,
+          "logical_time": "2026-09-27T08:00:00Z",
+          "round": 23
+        },
+        {
+          "candidates": 43,
+          "context_tokens": 745,
+          "credits": 16,
+          "data_bytes": 6263358,
+          "effects": 16,
+          "fragments": 7,
+          "logical_time": "2026-09-28T08:00:00Z",
+          "round": 24
+        },
+        {
+          "candidates": 43,
+          "context_tokens": 745,
+          "credits": 17,
+          "data_bytes": 6541384,
+          "effects": 17,
+          "fragments": 7,
+          "logical_time": "2026-09-29T08:00:00Z",
+          "round": 25
+        },
+        {
+          "candidates": 43,
+          "context_tokens": 745,
+          "credits": 17,
+          "data_bytes": 6820336,
+          "effects": 17,
+          "fragments": 7,
+          "logical_time": "2026-09-30T08:00:00Z",
+          "round": 26
+        },
+        {
+          "candidates": 43,
+          "context_tokens": 745,
+          "credits": 18,
+          "data_bytes": 7112198,
+          "effects": 18,
+          "fragments": 7,
+          "logical_time": "2026-10-01T08:00:00Z",
+          "round": 27
+        },
+        {
+          "candidates": 43,
+          "context_tokens": 745,
+          "credits": 19,
+          "data_bytes": 7390224,
+          "effects": 19,
+          "fragments": 7,
+          "logical_time": "2026-10-02T08:00:00Z",
+          "round": 28
+        },
+        {
+          "candidates": 43,
+          "context_tokens": 745,
+          "credits": 19,
+          "data_bytes": 7669138,
+          "effects": 19,
+          "fragments": 7,
+          "logical_time": "2026-10-03T08:00:00Z",
+          "round": 29
+        },
+        {
+          "candidates": 43,
+          "context_tokens": 745,
+          "credits": 20,
+          "data_bytes": 7960996,
+          "effects": 20,
+          "fragments": 7,
+          "logical_time": "2026-10-04T08:00:00Z",
+          "round": 30
+        }
+      ],
+      "pid": 34616,
+      "restart_replay_verified": true,
+      "round_start": 20,
+      "round_stop": 30,
+      "wall_seconds": 138.950622
+    }
+  ]
+}

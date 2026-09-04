@@ -1,0 +1,3 @@
+CONTROLLED_FAILURE_PARENT: C1 segment 0 failed; evidence: C:\Users\ADMINI~1\AppData\Local\Temp\p9e-3r45akxb
+EVIDENCE_ROOT_EXISTS_AFTER_TEST_SCOPE: False
+CHILD_STDERR_IN_PARENT: False

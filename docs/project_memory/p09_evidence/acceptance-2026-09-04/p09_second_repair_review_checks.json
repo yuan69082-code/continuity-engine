@@ -1,0 +1,34 @@
+{
+  "hash_checks": {
+    "sourceFiles": 187,
+    "sourceDiff": [],
+    "historicalEvidenceFiles": 54,
+    "historicalEvidenceDiff": [],
+    "boundaryFiles": 25,
+    "boundaryDiff": [],
+    "formalFiles": 7,
+    "formalDiff": []
+  },
+  "static_checks": "AST_3_11 177 PASS\r\nRUNTIME 3.14.4\r\nFORMAL_TREE_HASH sha256:f9c710c6085e430a251f74463d57133f8c5a4497fe8ffa2ccb96be2db1037bb2\r\n",
+  "markdown": {
+    "markdownFiles": 57,
+    "inlineLocalFileLinks": 375,
+    "missingLinks": [],
+    "trailingWhitespace": [],
+    "unclosedFences": []
+  },
+  "planning": [
+    {
+      "file": "Continuity Assistant 分支构想 v0.1_P10实际建仓同步版_2026-08-26.docx",
+      "matches": true
+    },
+    {
+      "file": "Continuity Engine（数字连续性引擎）全周期工程监工规划_v1.1_Engine独立施工与P10实际建仓同步版_2026-08-26.docx",
+      "matches": true
+    },
+    {
+      "file": "连续性引擎长期能力增补规划_v6.7_Engine独立施工与P10实际建仓同步版_2026-08-26.docx",
+      "matches": true
+    }
+  ]
+}

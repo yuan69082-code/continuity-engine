@@ -27,6 +27,8 @@ class CapabilityRepository(Protocol):
         operation_id: str,
     ) -> CapabilityRequest | InternalActionRequest | None: ...
 
+    def find_action_requests_by_decision(self, decision_id: str) -> list[InternalActionRequest]: ...
+
     def save_capability_result(
         self,
         result: CapabilityResult | InternalActionResult,

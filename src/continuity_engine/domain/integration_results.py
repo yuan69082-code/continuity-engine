@@ -456,12 +456,18 @@ class IntegrationDomainProgress:
     action_at: str | None = None
     response_completed_at: str | None = None
     action: ActionExecutionResult | None = None
+    continuity_context_hash: str | None = None
 
     def __post_init__(self) -> None:
         if not isinstance(self.stage, IntegrationDomainProgressStage):
             raise MachineContractValidationError(
                 "operation domain progress stage is invalid"
             )
+        if self.continuity_context_hash is not None:
+            _hash(self.continuity_context_hash, "domain progress continuityContextHash")
+            if (self.perception is None or self.perception.continuity_context is None
+                    or self.perception.continuity_context.binding_hash() != self.continuity_context_hash):
+                raise MachineContractValidationError("C1 operation input binding is missing or inconsistent")
         for value, name in (
             (self.wake_session_id, "domain progress wakeSessionId"),
             (self.wake_context_id, "domain progress wakeContextId"),
@@ -568,6 +574,12 @@ class IntegrationDomainProgress:
             )
         action_context = self.action.context
         action_session = self.action.session
+        c1_hash = action_context.perception_summary.continuity_context_hash
+        if c1_hash is not None and (
+            self.perception.continuity_context is None
+            or self.perception.continuity_context.binding_hash() != c1_hash
+        ):
+            raise MachineContractValidationError("C1 Action and operation inputs disagree")
         if (
             action_context.context_id != self.action_context_id
             or action_context.subject_id != self.perception.subject_id
@@ -606,12 +618,16 @@ class IntegrationDomainProgress:
             "actionAt": self.action_at,
             "responseCompletedAt": self.response_completed_at,
             "action": self.action.to_dict() if self.action is not None else None,
+            **({"continuityContextHash": self.continuity_context_hash}
+               if self.continuity_context_hash is not None else {}),
         }
 
     @classmethod
     def from_dict(cls, value: Any) -> IntegrationDomainProgress:
         if isinstance(value, dict) and "action" not in value:
             value = {**value, "action": None}
+        if isinstance(value, dict) and "continuityContextHash" not in value:
+            value = {**value, "continuityContextHash": None}
         data = _object(
             value,
             "operation domain progress",
@@ -631,6 +647,7 @@ class IntegrationDomainProgress:
                 "actionAt",
                 "responseCompletedAt",
                 "action",
+                "continuityContextHash",
             },
         )
         try:
@@ -692,6 +709,7 @@ class IntegrationDomainProgress:
                 if data["action"] is not None
                 else None
             ),
+            continuity_context_hash=data["continuityContextHash"],
         )
 
 

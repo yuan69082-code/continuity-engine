@@ -1,0 +1,13 @@
+======================================================================
+FAIL: test_child_failure_evidence_survives_fixture_cleanup (tests.test_p09_evidence_retention.P09EvidenceRetentionTests.test_child_failure_evidence_survives_fixture_cleanup)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p09_evidence_retention.py", line 45, in test_child_failure_evidence_survives_fixture_cleanup
+    self.assertEqual(len(saved), record[stream]["bytes"])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 25 != 24
+
+----------------------------------------------------------------------
+Ran 1 test in 0.329s
+
+FAILED (failures=1)

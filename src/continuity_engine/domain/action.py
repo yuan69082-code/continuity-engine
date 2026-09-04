@@ -158,6 +158,7 @@ class PerceptionActionSummary:
     memory_influence: str
     observation_notes: list[str]
     internal_drives: list[str]
+    continuity_context_hash: str | None = None
 
     def __post_init__(self) -> None:
         _require_text(self.perception_id, "perception_id")
@@ -178,6 +179,13 @@ class PerceptionActionSummary:
         self.internal_drives = _text_list(
             self.internal_drives, "perception internal_drives"
         )
+        if self.continuity_context_hash is not None and (
+            not isinstance(self.continuity_context_hash, str)
+            or len(self.continuity_context_hash) != 71
+            or not self.continuity_context_hash.startswith("sha256:")
+            or any(c not in "0123456789abcdef" for c in self.continuity_context_hash[7:])
+        ):
+            raise ActionValidationError("invalid C1 Action input binding")
 
     @classmethod
     def from_perception(cls, perception: PerceptionResult) -> PerceptionActionSummary:
@@ -192,6 +200,8 @@ class PerceptionActionSummary:
             memory_influence=perception.memory_influence.summary,
             observation_notes=list(perception.observation.notes),
             internal_drives=[item.tendency for item in perception.internal_drives],
+            continuity_context_hash=(perception.continuity_context.binding_hash()
+                                     if perception.continuity_context is not None else None),
         )
 
     def to_dict(self) -> dict[str, JsonValue]:
@@ -206,6 +216,8 @@ class PerceptionActionSummary:
             "memory_influence": self.memory_influence,
             "observation_notes": list(self.observation_notes),
             "internal_drives": list(self.internal_drives),
+            **({"continuity_context_hash": self.continuity_context_hash}
+               if self.continuity_context_hash is not None else {}),
         }
 
     @classmethod
@@ -227,6 +239,7 @@ class PerceptionActionSummary:
             internal_drives=_text_list(
                 value.get("internal_drives", []), "perception internal_drives"
             ),
+            continuity_context_hash=value.get("continuity_context_hash"),
         )
 
 

@@ -1,0 +1,56 @@
+======================================================================
+ERROR: test_expired_context_stops_new_thinking_from_checkpoint (tests.test_p09_continuity_core.P09CoreTests.test_expired_context_stops_new_thinking_from_checkpoint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p09_continuity_core.py", line 105, in test_expired_context_stops_new_thinking_from_checkpoint
+    f.app.service._fault_injector = crash
+    ^^^^^^^^^^^^^
+AttributeError: 'LocalIntegrationApp' object has no attribute 'service'
+
+======================================================================
+ERROR: test_turning_action_gate_on_does_not_add_effect_to_completed_disabled_round (tests.test_p09_continuity_core.P09CoreTests.test_turning_action_gate_on_does_not_add_effect_to_completed_disabled_round)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 211, in submit
+    self._verify_core_completed(completed_operation)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 976, in _verify_core_completed
+    core.after_action(operation, thinking, progress.action, replay=True)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 278, in after_action
+    attempts = self.coordination.action_attempts(request, receipt_verifier=binding.adapter)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\capability_coordination_service.py", line 72, in action_attempts
+    raise CapabilityConflictError("internal recovery request mismatch")
+continuity_engine.domain.errors.CapabilityConflictError: internal recovery request mismatch
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p09_continuity_core.py", line 121, in test_turning_action_gate_on_does_not_add_effect_to_completed_disabled_round
+    self.assertEqual(f.submit(request).to_dict(), first.to_dict())
+                     ~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p09_core_fixture.py", line 159, in submit
+    return self.app.adapter.submit(request or self.request())
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 263, in submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during ledger.
+
+======================================================================
+FAIL: test_completed_c1_cannot_skip_receipt_verification_by_disabling_feature (tests.test_p09_continuity_core.P09CoreTests.test_completed_c1_cannot_skip_receipt_verification_by_disabling_feature)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p09_continuity_core.py", line 130, in test_completed_c1_cannot_skip_receipt_verification_by_disabling_feature
+    with self.assertRaises(IntegrationExecutionError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: IntegrationExecutionError not raised
+
+----------------------------------------------------------------------
+Ran 10 tests in 5.770s
+
+FAILED (failures=1, errors=2)

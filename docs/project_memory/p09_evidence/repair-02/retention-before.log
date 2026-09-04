@@ -1,0 +1,15 @@
+test_child_failure_evidence_survives_fixture_cleanup (tests.test_p09_evidence_retention.P09EvidenceRetentionTests.test_child_failure_evidence_survives_fixture_cleanup) ... FAIL
+
+======================================================================
+FAIL: test_child_failure_evidence_survives_fixture_cleanup (tests.test_p09_evidence_retention.P09EvidenceRetentionTests.test_child_failure_evidence_survives_fixture_cleanup)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p09_evidence_retention.py", line 21, in test_child_failure_evidence_survives_fixture_cleanup
+    self.assertIsNotNone(retained, "child failure has no evidence outside the cleaned fixture")
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : child failure has no evidence outside the cleaned fixture
+
+----------------------------------------------------------------------
+Ran 1 test in 0.282s
+
+FAILED (failures=1)

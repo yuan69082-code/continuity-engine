@@ -333,6 +333,7 @@ class ThinkingObservationLog:
     perception_summary: str | None = None
     thinking_context_id: str | None = None
     perceived_external_fact_ids: list[str] = field(default_factory=list)
+    continuity_context_hash: str | None = None
 
     def __post_init__(self) -> None:
         _require_text(self.wake_context_id, "wake_context_id")
@@ -353,6 +354,13 @@ class ThinkingObservationLog:
             _require_text(self.perception_id, "perception_id")
         if self.perception_summary is not None:
             _require_text(self.perception_summary, "perception_summary")
+        if self.continuity_context_hash is not None and (
+            not isinstance(self.continuity_context_hash, str)
+            or len(self.continuity_context_hash) != 71
+            or not self.continuity_context_hash.startswith("sha256:")
+            or any(c not in "0123456789abcdef" for c in self.continuity_context_hash[7:])
+        ):
+            raise ThinkingValidationError("invalid C1 Thinking input binding")
         if self.thinking_context_id is not None:
             _require_text(self.thinking_context_id, "thinking_context_id")
         if self.perception_id is None and self.thinking_context_id is None:
@@ -374,6 +382,8 @@ class ThinkingObservationLog:
             perceived_external_fact_ids=[
                 item.fact_id for item in perception.external_facts
             ],
+            continuity_context_hash=(perception.continuity_context.binding_hash()
+                                     if perception.continuity_context is not None else None),
         )
 
     def to_dict(self) -> dict[str, JsonValue]:
@@ -390,6 +400,8 @@ class ThinkingObservationLog:
             "perceived_external_fact_ids": list(
                 self.perceived_external_fact_ids
             ),
+            **({"continuity_context_hash": self.continuity_context_hash}
+               if self.continuity_context_hash is not None else {}),
         }
 
     @classmethod
@@ -414,6 +426,7 @@ class ThinkingObservationLog:
                 value.get("perceived_external_fact_ids", []),
                 "thinking perceived_external_fact_ids",
             ),
+            continuity_context_hash=value.get("continuity_context_hash"),
         )
 
 
@@ -515,6 +528,11 @@ class ThinkSession:
                 raise ThinkingValidationError(
                     "final ThinkSession status does not match its completion result"
                 )
+        if self.observation.continuity_context_hash is not None:
+            snapshot = self.perception_snapshot
+            if (snapshot is None or snapshot.continuity_context is None
+                    or snapshot.continuity_context.binding_hash() != self.observation.continuity_context_hash):
+                raise ThinkingValidationError("C1 ThinkSession input binding is missing or inconsistent")
         if self.perception_snapshot is not None:
             if self.perception_snapshot.subject_id != self.subject_id:
                 raise ThinkingValidationError(
@@ -558,7 +576,7 @@ class ThinkSession:
             observation=ThinkingObservationLog.from_perception(perception),
             perception_snapshot=(
                 PerceptionResult.from_dict(perception.to_dict())
-                if retain_perception_snapshot
+                if retain_perception_snapshot or perception.continuity_context is not None
                 else None
             ),
         )

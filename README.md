@@ -1,8 +1,8 @@
 # Continuity Engine
 
-> P08 现行门：P00—P08 = `ACCEPTED`；P08 / Engine side / P08-01—P08-12 = `ACCEPTED`；P08 Vio dependency = `NONE`；P09—P23 = `NOT_STARTED`。D-051 保留施工决定，D-052 已登记用户正式验收；不授权 P09 或 Git 操作。见 [P08 矩阵](docs/project_memory/44_P08_规划施工测试验收矩阵.md)。
+> P09 现行门：P00—P09 = `ACCEPTED`；P09 / Engine side / P09-01—P09-12 = `ACCEPTED`；P09 Vio dependency = `NONE`；P10—P23 = `NOT_STARTED`。PLANNING_CONFLICT = NONE；EVIDENCE_CONFLICT = NONE（仅表示现行验收阻断已闭合）。 D-054 已记录用户正式验收；历史 segment 10 stderr 缺失、根因 UNKNOWN 保留。成果尚未提交，稳定 C1 SHA 待用户提交并 push 后核定。见 [P09 验收档案](docs/project_memory/50_P09_测试索引与C1运行入口.md#p09-accepted)。
 
-连续性引擎是位于 AI 模型之外的独立连续性层。它与 Vio 平台后端是边界独立、数据库独立的平行系统，通过正式版本化契约协作；Vio 前端只连接 Vio 平台后端。它保存的不是聊天记录，而是主体状态及其随事件发生的连续变化。模型、Tool、MCP 和设备只是经 Vio 管理的外部能力，不是主体状态权威。
+连续性引擎是位于 AI 模型之外的独立连续性层。它与 Vio 平台后端是边界独立、数据库独立的平行系统，通过正式版本化契约协作；Vio 前端只连接 Vio 平台后端。它保存的不是聊天记录，而是主体状态及其随事件发生的连续变化。模型、Tool、MCP 和设备是外部能力，不是主体状态权威。历史 Vio 连接仍受已冻结契约约束；P09 按现行独立规划使用宿主中立 Port，Vio 不是本轮运行依赖。
 
 当前版本为 `0.1.0` 原型，重点是建立可保存、可演化、可审计并受权限与资源约束的连续性内核。它不是已经具备真实自主执行能力的生产 Agent。
 
@@ -15,13 +15,13 @@
 - `Timeline`：只从 Event/StateUpdateRecord 历史重建的只读 UTC 投影，支持确定性排序、范围、first/last、间距、链及来源/分类/correlation 过滤；没有第二 Event Store 或写入权。
 - Memory 管理层：P04 在既有检索/影响接口上新增正式 Memory 领域模型、单一原子 JSON `MemoryRepository`、根证据去重、可解释 HOT/WARM/COLD/ARCHIVED 生命周期、追加式纠错传播和可重建 `DerivedSummary`；普通召回排除但不删除 ARCHIVED，正式 provenance 被密封，consolidation operation、Summary 语义输入与 lineage 来源根均在同一仓储边界加载期验真；Summary 无 Event/StateMutation/SubjectState 写权限。
 - Context Router：P05 在结构化 `PerceptionResult` 之后先按 purpose/signals 选择逻辑分区，再在读取前把默认 50（可配置 30—80）的独立 Retrieval Budget 确定性分配给已打开、获授权的 SubjectState、P04 Memory/DerivedSummary、P03 Timeline/Event 及 Engine 本地版本化来源；未打开来源零读取，Memory/Summary 在仓储边界有界查询，Timeline 使用可重验的近期相关稳定窗口。它生成只读 `RoutePlan`、`CandidateManifest` 与 `ContextTrace`；必需来源失败时 Manifest 为空，结果只含稳定引用和原因，不复制正文、不写任何 Store，也不提前实现 P06 Composer。
-- Context Composer：P06 只消费 P05 的可消费 Manifest，通过可信 exact resolver 密封 `confirmed_state`、`confirmed_memory`、`derived_summary`、`retrieved_candidate`、`raw_source` 五类 Authority；候选自报标签不能提权。Composer 验证 subject/environment/version/revision/hash 后精确去重、稳定排序，并使用独立 Context Budget 保护 identity/continuity/relationship；必需材料失效或预算不足时失败关闭。`CompositionTrace` 将 Manifest candidate missing、P05 upstream notice 与 Composer 自有 resolver 读取次数分开审计，并保留具体稳定失败原因。输出仍为 Thinking-ready `ComposedContextSnapshot` 和不含正文/秘密的 Trace，不建立 Context Store，不写任何权威状态，也不修改生产 Thinking/E5-A；P09 才完成正式运行链接线。
-- Contradiction Detector：P07 只消费完整、可消费且 hash 封印通过的 P06 `ContextCompositionResult`，通过可信结构化 claim resolver 发现 `EPISTEMIC`、`EVIDENTIAL`、`COGNITIVE` 三类矛盾；无法形成可信 claim 的材料保持未评估，LOVE/HATE 等心理矛盾明确排除。检测结果只追加 contested/isolated disposition、verification task、resolution/reopen/supersession 审计与未来 Evolution referral；不选择赢家、不写 SubjectState/Event/Memory/Timeline/P06 snapshot，也不进入 P08/P09。
+- Context Composer：P06 只消费 P05 的可消费 Manifest，通过可信 exact resolver 密封 `confirmed_state`、`confirmed_memory`、`derived_summary`、`retrieved_candidate`、`raw_source` 五类 Authority；候选自报标签不能提权。Composer 验证 subject/environment/version/revision/hash 后精确去重、稳定排序，并使用独立 Context Budget 保护 identity/continuity/relationship；必需材料失效或预算不足时失败关闭。`CompositionTrace` 将 Manifest candidate missing、P05 upstream notice 与 Composer 自有 resolver 读取次数分开审计，并保留具体稳定失败原因。输出仍为 Thinking-ready `ComposedContextSnapshot` 和不含正文/秘密的 Trace，不建立 Context Store，不写任何权威状态，P06 单阶段交付不修改 Thinking/E5-A；P09 本轮在既有正常交互服务中接线，见下述 C1 入口。
+- Contradiction Detector：P07 只消费完整、可消费且 hash 封印通过的 P06 `ContextCompositionResult`，通过可信结构化 claim resolver 发现 `EPISTEMIC`、`EVIDENTIAL`、`COGNITIVE` 三类矛盾；无法形成可信 claim 的材料保持未评估，LOVE/HATE 等心理矛盾明确排除。检测结果只追加 contested/isolated disposition、verification task、resolution/reopen/supersession 审计与未来 Evolution referral；不选择赢家、不写 SubjectState/Event/Memory/Timeline/P06 snapshot，P07 单阶段交付不进入后续阶段；P09 本轮复用其非权威检测/核实边界。
 - Awakening：手动、定时和事件触发的单次唤醒流程，`WakeSession`、`WakeContext` 和确定性决策。
 - Perception：只读的确定性感知层，输出关注、时间、关系、记忆影响、观察和内在驱力。
 - Thinking：直接接收 `PerceptionResult`，通过 `ThinkSession` 保存摘要、预算、结果和关联信息；模型执行器可插拔。
 - Action：生成受权限、风险、资源和 revision 约束的 `ActionDecision` 与 `ActionPlan`，不执行真实动作。
-- P08 本地行动：简单 Direct Action 无 Goal/Plan，复杂 Information Need/Action Intent 使用 Optional Planner；内部非模型请求经唯一 E5-A ledger 和既有 Action 权限/风险/资源门、确认、恢复与 Reality Boundary 进入 TEST Fake Adapter。执行成功和执行失败都必须有经绑定 Adapter query 独立核实的回执；无回执 EXPIRED 只是本地停止决定，须 query 明确 NOT_EXECUTED，不能靠 reason/时间/自洽 hash 掩盖已发生成功。历史冲突拒绝消费且不覆盖；当前 Context 失效不阻止原请求已发生事实归账，但仍阻止新执行、重试和后续步骤。旧 model.generate 契约和原 ThinkSession 恢复不变，UNKNOWN/查询异常不盲重试，重复结果不重复 synthetic effect/credit；没有生产 Adapter 或 P09/P17 正式接线。
+- P08 本地行动：简单 Direct Action 无 Goal/Plan，复杂 Information Need/Action Intent 使用 Optional Planner；内部非模型请求经唯一 E5-A ledger 和既有 Action 权限/风险/资源门、确认、恢复与 Reality Boundary 进入 TEST Fake Adapter。执行成功和执行失败都必须有经绑定 Adapter query 独立核实的回执；无回执 EXPIRED 只是本地停止决定，须 query 明确 NOT_EXECUTED，不能靠 reason/时间/自洽 hash 掩盖已发生成功。历史冲突拒绝消费且不覆盖；当前 Context 失效不阻止原请求已发生事实归账，但仍阻止新执行、重试和后续步骤。旧 model.generate 契约和原 ThinkSession 恢复不变，UNKNOWN/查询异常不盲重试，重复结果不重复 synthetic effect/credit；P08 单阶段交付不含 P09 接线；P09 本轮复用原通道，仍没有生产 Adapter 或 P17 执行引擎。
 - Permission：权限连续状态、变化历史、`PermissionContext` 和本地 JSON 恢复。
 - Learning：受控候选、证据验证、长期特征、固化/回滚事件和审计历史；不训练模型。
 - Resource Management：`ResourceState`、`ResourcePolicy`、`ResourceManager`、确定性预算和资源检查入口。
@@ -77,9 +77,11 @@ Engine E4 随后完成 Engine 侧正式本地 HTTP/JSON Adapter。Vio V3 首次�
 
 ## 当前开发阶段
 
+P00—P09 已正式 ACCEPTED（P09：D-054）；监工独立复核已通过，成果仍是尚未提交的工作区内容。历史 UNKNOWN 保留，当前验收阻断已闭合。稳定 C1 SHA 等待用户提交并 push 后核定，P10—P23 未开始。详见 [P09 正式验收](docs/project_memory/50_P09_测试索引与C1运行入口.md#p09-accepted)。
+
 历史阶段顺序已推进为 `E5-A → V4 → 受控 S4 → V5 → F1 → L1 → S4-R PASS → S4-Live 首次真实供应商单次试聊 PASS → Engine 工程档案归档完成`。
 
-P00—P08 已分别由用户正式验收，当前均为 `ACCEPTED`。P07 Contradiction Detector、P07 Engine side 与 P07-01—P07-12 已完成 Engine 独立实现和首轮四项及第二轮两项监工阻断返修，当前均为 `ACCEPTED`；P07 Vio dependency = `NONE`。P07 验收证据为 专项 56/56、P05—P07 133/133、直接相关 221/221、P01—P07 综合 338/338，以及返修后连续三轮完整回归 642/642；首轮 35/112/200/317/621 作为历史保留。D-049 记录开工、Authority 边界和可信 resolution/supersession 补充决定；D-050 记录用户于 2026-09-04 正式验收 P07。P09—P23 保持 `NOT_STARTED`；P06/P07 本地隔离不是长期产品禁令，P09/P16/P22 仍按规划分别开放正式 Thinking 接线、外部知识和真实 Provider/Vio/PWA 集成；软件版本保持 `0.1.0`。 第一轮返修 46/123/211/328/632 仍作为当时历史证据保留。 用户于 2026-09-04 正式验收 P08（D-052），含方案 A 有限泛化及两轮返修；监工独立四项反例 4/4、P08 58/58、全量 700/700 通过。不扩大生产 exactly-once，不授权生产 Adapter、P09/P17 或 Git 操作。
+> P09 开工前的历史阶段记录（现行状态见文首及 D-053）：P00—P08 已分别由用户正式验收，当前均为 `ACCEPTED`。P07 Contradiction Detector、P07 Engine side 与 P07-01—P07-12 已完成 Engine 独立实现和首轮四项及第二轮两项监工阻断返修，当前均为 `ACCEPTED`；P07 Vio dependency = `NONE`。P07 验收证据为 专项 56/56、P05—P07 133/133、直接相关 221/221、P01—P07 综合 338/338，以及返修后连续三轮完整回归 642/642；首轮 35/112/200/317/621 作为历史保留。D-049 记录开工、Authority 边界和可信 resolution/supersession 补充决定；D-050 记录用户于 2026-09-04 正式验收 P07。P09—P23 保持 `NOT_STARTED`；P06/P07 本地隔离不是长期产品禁令，P09/P16/P22 仍按规划分别开放正式 Thinking 接线、外部知识和真实 Provider/Vio/PWA 集成；软件版本保持 `0.1.0`。 第一轮返修 46/123/211/328/632 仍作为当时历史证据保留。 用户于 2026-09-04 正式验收 P08（D-052），含方案 A 有限泛化及两轮返修；监工独立四项反例 4/4、P08 58/58、全量 700/700 通过。不扩大生产 exactly-once，不授权生产 Adapter、P09/P17 或 Git 操作。
 
 P00 的唯一全周期入口：
 
@@ -790,3 +792,21 @@ python -m tests.shared.continuity_contract_jsonl_runner --data-dir <受控临时
 ```
 
 它从 stdin 接收每行一个完整 `ContinuityInteractionRequest`，并在 stdout 对每个合法 JSON 对象立即输出一行紧凑 UTF-8 结果。该命令仅供双方测试代码使用，不是正式 CLI、HTTP 服务或生产连接入口。
+
+## P09 C1 Engine 独立入口（待独立复核与用户验收）
+
+P09 已按 D-053 接入既有正常交互服务：Event/Timeline → Memory Consolidation → Router → Composer → P07 → Thinking/Action Gate → Direct/Optional Planner。可消费 Context 保存于既有 Perception/ThinkSession checkpoint；原模型契约及唯一 E5-A ledger 保留。情绪时间衰减只读，StateMutation 仍必须走原合法 Evolution。当前为 `IMPLEMENTED_NOT_ACCEPTED`；P10—P23 未开始。
+
+以下入口只创建独立临时 P01 数据根，并禁止网络连接；无需 Vio、Provider 或凭据：
+
+```powershell
+$env:PYTHONPATH='src'
+$env:PYTHONDONTWRITEBYTECODE='1'
+python -m continuity_engine.testing.p09_core_runner --scenario golden
+python -m continuity_engine.testing.p09_core_runner --scenario long
+```
+
+Golden 包括 Direct、Information Need、复杂 Planner、静默及重放；Long 固定 30 逻辑日/30 轮，在第 10、20 轮后真实进程重启。报告输出临时证据位置，长期场景会随追加历史增加校验耗时。完整矩阵、真实失败与兼容/全量结果见 [P09 测试索引](docs/project_memory/50_P09_测试索引与C1运行入口.md)。幂等只限本地 Fake 原子回执；D-054 未创建，稳定 C1 提交须待正式验收后确定。
+
+
+本轮 P09 监工返修已补齐首次 Evolution 的当前 Context/Action 授权检查，以及 C1 输入与既有 ThinkSession/Action/E5-A 之间的恢复绑定；合法状态更新、已提交事实恢复与旧格式兼容保留。定点、专项、兼容、三轮全量及档案后终局复跑已通过；首次终局异常根因未确认，EVIDENCE_CONFLICT 继续 PRESENT 待独立复核；全部首次失败和结果见 [50 返修索引](docs/project_memory/50_P09_测试索引与C1运行入口.md#p09-repair-01)。

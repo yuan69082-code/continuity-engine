@@ -371,6 +371,14 @@ class JsonIntegrationResultLedger:
         requests, _ = self._load_capability_document()
         return next((item for item in requests if item.operation_id == operation_id), None)
 
+    def find_action_requests_by_decision(self, decision_id: str) -> list[InternalActionRequest]:
+        """Read existing typed requests; this is not an execution receipt check."""
+        if not self._capability_path.exists():
+            return []
+        requests, _ = self._load_capability_document()
+        return [item for item in requests if isinstance(item, InternalActionRequest)
+                and item.choice.decision_id == decision_id]
+
     def save_capability_result(
         self,
         result: CapabilityResult,
@@ -807,6 +815,7 @@ class JsonIntegrationResultLedger:
             for field in (
                 "wake_context",
                 "perception",
+                "continuity_context_hash",
                 "perception_at",
                 "action_at",
                 "response_completed_at",

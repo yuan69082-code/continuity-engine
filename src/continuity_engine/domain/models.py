@@ -181,10 +181,47 @@ class EmotionState:
     emotions: list[str] = field(default_factory=list)
     continuity_notes: list[str] = field(default_factory=list)
 
+    current_state: str | None = None
+    intensity: float | None = None
+    updated_at: str | None = None
+    confidence: float | None = None
+    baseline: float | None = None
+
+    def to_dict(self):
+        import math
+        result = {"interaction_state": self.interaction_state,
+                  "emotions": list(self.emotions), "continuity_notes": list(self.continuity_notes)}
+        values = (self.current_state, self.intensity, self.updated_at, self.confidence, self.baseline)
+        if any(v is not None for v in values):
+            if (not isinstance(self.current_state, str) or not self.current_state
+                    or any(type(v) not in (int, float) or not math.isfinite(v) or not 0 <= v <= 1
+                           for v in (self.intensity, self.confidence, self.baseline))):
+                raise StateValidationError("invalid C1 emotion result")
+            _parse_datetime(self.updated_at, "emotion_state.updated_at")
+            result.update(current_state=self.current_state, intensity=self.intensity,
+                          updated_at=self.updated_at, confidence=self.confidence, baseline=self.baseline)
+        return result
+
+    def effective_at(self, at: datetime, *, half_life_seconds: float = 86400.0):
+        import math
+        self.to_dict()
+        if at.tzinfo is None or type(half_life_seconds) not in (int, float) or not math.isfinite(half_life_seconds) or half_life_seconds <= 0:
+            raise StateValidationError("invalid C1 emotion clock or half life")
+        if self.current_state is None:
+            return {"current_state": self.interaction_state, "intensity": 0.0,
+                    "confidence": 0.0, "elapsed_seconds": 0.0}
+        elapsed = max(0.0, (at - _parse_datetime(self.updated_at, "emotion_state.updated_at")).total_seconds())
+        intensity = self.baseline + (self.intensity - self.baseline) * 2 ** (-elapsed / half_life_seconds)
+        return {"current_state": self.current_state, "intensity": round(intensity, 9),
+                "confidence": self.confidence, "elapsed_seconds": elapsed}
+
     @classmethod
     def from_dict(cls, value: Any) -> EmotionState:
         data = _mapping(value, "emotion_state")
-        return cls(
+        result = cls(
+            current_state=data.get("current_state"), intensity=data.get("intensity"),
+            updated_at=data.get("updated_at"), confidence=data.get("confidence"),
+            baseline=data.get("baseline"),
             interaction_state=_string(
                 data.get("interaction_state"), "emotion_state.interaction_state"
             ),
@@ -193,6 +230,9 @@ class EmotionState:
                 data.get("continuity_notes"), "emotion_state.continuity_notes"
             ),
         )
+
+        result.to_dict()
+        return result
 
 
 @dataclass(slots=True)
@@ -270,11 +310,7 @@ class SubjectState:
                 "judgments": list(self.intentions.judgments),
                 "action_tendencies": list(self.intentions.action_tendencies),
             },
-            "emotion_state": {
-                "interaction_state": self.emotion_state.interaction_state,
-                "emotions": list(self.emotion_state.emotions),
-                "continuity_notes": list(self.emotion_state.continuity_notes),
-            },
+            "emotion_state": self.emotion_state.to_dict(),
         }
 
     @classmethod

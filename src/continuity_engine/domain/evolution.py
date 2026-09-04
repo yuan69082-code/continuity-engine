@@ -40,6 +40,11 @@ FIELD_RULES: dict[str, FieldRule] = {
     "intentions.emerging_thoughts": FieldRule(StateSection.INTENTIONS, list, str),
     "intentions.judgments": FieldRule(StateSection.INTENTIONS, list, str),
     "intentions.action_tendencies": FieldRule(StateSection.INTENTIONS, list, str),
+    "emotion_state.current_state": FieldRule(StateSection.EMOTION_STATE, str),
+    "emotion_state.intensity": FieldRule(StateSection.EMOTION_STATE, float),
+    "emotion_state.updated_at": FieldRule(StateSection.EMOTION_STATE, str),
+    "emotion_state.confidence": FieldRule(StateSection.EMOTION_STATE, float),
+    "emotion_state.baseline": FieldRule(StateSection.EMOTION_STATE, float),
     "emotion_state.interaction_state": FieldRule(StateSection.EMOTION_STATE, str),
     "emotion_state.emotions": FieldRule(StateSection.EMOTION_STATE, list, str),
     "emotion_state.continuity_notes": FieldRule(StateSection.EMOTION_STATE, list, str),
@@ -172,6 +177,11 @@ class SubjectStateEvolver:
         rule: FieldRule,
     ) -> JsonValue:
         if operation is ChangeOperation.SET:
+            if rule.value_type is float:
+                import math
+                if type(value) not in (float, int) or not math.isfinite(value) or not 0 <= value <= 1:
+                    raise StateEvolutionError("emotion value must be a finite ratio")
+                return float(value)
             if rule.value_type is str:
                 if not isinstance(value, str):
                     raise StateEvolutionError("set value must be a string for this field")

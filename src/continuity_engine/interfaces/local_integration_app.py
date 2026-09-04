@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import json
 from dataclasses import dataclass
-from datetime import timedelta
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 from uuid import uuid4
@@ -295,6 +295,12 @@ def build_local_integration_app(
     *,
     thinking_mode: IntegrationThinkingMode = IntegrationThinkingMode.DETERMINISTIC,
     capability_thinking_provider_id: str = "vio-capability-model-provider",
+    clock=None,
+    thinking_provider=None,
+    continuity_core_factory=None,
+    contract_validator=None,
+    result_factory=None,
+    available_permissions=None,
 ) -> LocalIntegrationApp:
     """Restore the formal deterministic E4 graph from an initialized directory."""
 
@@ -303,6 +309,7 @@ def build_local_integration_app(
             "thinking mode must be deterministic or capability"
         )
 
+    clock = clock or (lambda: datetime.now(timezone.utc))
     root = _validate_data_dir(Path(data_dir))
     if not root.exists() or next(root.iterdir(), None) is None:
         raise LocalIntegrationInitializationError(
@@ -311,7 +318,7 @@ def build_local_integration_app(
     try:
         binding_repository = JsonSubjectBindingRepository(root)
         binding = binding_repository.load_active()
-        subject_states = SubjectStateService(JsonSubjectStateRepository(root / "subject-state"))
+        subject_states = SubjectStateService(JsonSubjectStateRepository(root / "subject-state"), clock=clock)
         awakening_repository = JsonAwakeningRepository(root)
         ledger = JsonIntegrationResultLedger(root)
 
@@ -319,8 +326,8 @@ def build_local_integration_app(
             DeterministicMemoryRetriever(),
             DeterministicMemoryInfluenceRecorder(),
         )
-        awakening = AwakeningService(subject_states, memory, awakening_repository)
-        thinking_provider = (
+        awakening = AwakeningService(subject_states, memory, awakening_repository, clock=clock)
+        thinking_provider = thinking_provider or (
             DeferredCapabilityThinkingProvider(capability_thinking_provider_id)
             if thinking_mode is IntegrationThinkingMode.CAPABILITY
             else DeterministicThinkingProvider(
@@ -332,17 +339,19 @@ def build_local_integration_app(
             DeterministicTokenBudgetManager(usage_id_factory=lambda: _uuid_id("usage")),
             subject_states,
             JsonThinkingRepository(root),
+            clock=clock,
         )
         permission_name = "subject_state:update"
+        permissions = tuple(available_permissions) if available_permissions is not None else (permission_name,)
         action = ActionService(
             InMemoryPermissionProvider(
                 [
                     PermissionGrant(
-                        permission=permission_name,
+                        permission=name,
                         subject_id=binding.subject_id,
                         valid_from=_binding_datetime(binding.effective_at) - timedelta(days=1),
                         scopes=["*"],
-                    )
+                    ) for name in permissions
                 ]
             ),
             InMemoryActionRepository(),
@@ -352,8 +361,14 @@ def build_local_integration_app(
             if thinking_mode is IntegrationThinkingMode.CAPABILITY
             else None
         )
+        core = (continuity_core_factory(data_dir=root, binding=binding, ledger=ledger,
+                subject_states=subject_states, action_gate=action, clock=clock)
+                if continuity_core_factory is not None else None)
         service = ContinuityInteractionService(
-            validator=MachineContractValidator(),
+            continuity_core=core,
+            clock=clock,
+            validator=contract_validator or MachineContractValidator(),
+            result_factory=result_factory,
             bindings=binding_repository,
             ledger=ledger,
             subject_states=subject_states,
@@ -361,13 +376,13 @@ def build_local_integration_app(
             perception=PerceptionService(),
             thinking=thinking,
             action=action,
-            action_evolution=ActionEvolutionService(subject_states),
+            action_evolution=ActionEvolutionService(subject_states, clock=clock),
             reply_composer=(
                 CapabilityContractReplyComposer()
                 if thinking_mode is IntegrationThinkingMode.CAPABILITY
                 else DeterministicContractReplyComposer()
             ),
-            available_permissions=[permission_name],
+            available_permissions=permissions,
             thinking_mode=thinking_mode,
             capabilities=capabilities,
         )

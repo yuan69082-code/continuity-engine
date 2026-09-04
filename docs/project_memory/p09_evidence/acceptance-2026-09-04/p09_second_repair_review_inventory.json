@@ -1,0 +1,2838 @@
+{
+  "comparison": {
+    "before": 352,
+    "after": 352,
+    "changed": [],
+    "added": [],
+    "deleted": []
+  },
+  "git": {
+    "branch": "main",
+    "head": "fb8713ccb049ca082079cf820d06956be0954af9",
+    "localOriginMain": "fb8713ccb049ca082079cf820d06956be0954af9",
+    "aheadBehind": "0\t0",
+    "stagedFiles": [],
+    "trackedCount": 67,
+    "untrackedCount": 118
+  },
+  "files_before": [
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\.continuity-data\\66343283d4a54390b47b4f9ef82d62553faa3a25d9c89fb002cf9fcd626dd1b9.json",
+      "hash": "77CD26E175A22E4078A89597A475CD5BE9BE2691B4A689C01838A370381C1281"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\.continuity-data\\a940747044d25cbbc065d4c65e6418ed7ac50c4ad85cd03fcfa6cb3560fb11ef.json",
+      "hash": "399CE8A82C69249FE5560382319E2D87F198869DE2D918858955562B4D1275F8"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\.continuity-data\\awakening\\cycles\\9206d2b588ec3f039d36855e0fdda3f1d24e66d479ab1ac71a847001996c5fce.json",
+      "hash": "F3C472A94E1E2B4687BC8DD15025CA47592F30A91DBACA90DAF25BE07210430A"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\.continuity-data\\awakening\\cycles\\ad7ca61028768690c65473d3918e757c9966927a44535a964a65b188c973caa5.json",
+      "hash": "D26A8164B0DACD647010D87330004F1D9E42172D31062A8F07293898AF6D9C86"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\.continuity-data\\awakening\\sessions\\a940747044d25cbbc065d4c65e6418ed7ac50c4ad85cd03fcfa6cb3560fb11ef\\14a54f0b7fca71545600cdb46d0320cc4be2659da62bf764d76500cd4531f410.json",
+      "hash": "8D5724FAC3C4B8A665C6832CEA2BCB87773440D788B6A87DBEE599AEA1873304"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\.continuity-data\\awakening\\sessions\\a940747044d25cbbc065d4c65e6418ed7ac50c4ad85cd03fcfa6cb3560fb11ef\\678ae6f20c2099e8c9bd5e8a09aa103a2361ec9e7aa14b442aefd3c74f3b4b31.json",
+      "hash": "693EFE42584B732CB0F3C1388EDCCE0CF144F0866194BF2DD59F2C8A2AB0913B"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\.continuity-data\\thinking\\sessions\\a940747044d25cbbc065d4c65e6418ed7ac50c4ad85cd03fcfa6cb3560fb11ef\\8492dba044e1c1841b3c394d7de7d6e8469138f6263a0633d065dac7ed0bad15.json",
+      "hash": "59BEB2523A89285E3D525B63B55E45016DA53FB9D609F6A13C1428677B66A982"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\00_项目总览.md",
+      "hash": "02119D362B7A1FFAB4EA5ECE4863B0FF35BA8F08CFA1D2921EB4BCD2056EA4BF"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\01_当前状态.md",
+      "hash": "CF029C9AEE539E0E105B5118D1562124FD8B9CF3FB460180869913B7568780D9"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\02_工程路线图.md",
+      "hash": "453C84345A0F0D8B30365986FAAC5F5C0FFB5F1536DF1D3B3A31354A1C384746"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\03_施工日志.md",
+      "hash": "6C76C66C044215356FBC4F4E2DCD6F64C37A8183967F6A2E771F975A017EDAFD"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\04_决策记录.md",
+      "hash": "AE885A4481FF0AA5BCFE13789034B014828170148BFB51772AFC3B43F9F1E887"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\05_核心模块架构.md",
+      "hash": "045A54B852F6EC671A5877395D977BAB31CCFAA7C2263289FAADBB5914122434"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\05_已完成模块.md",
+      "hash": "7E1F4B6EAC31E0B933C2008682B4F1F37B5E6C31EF95B08A580D40DEFAF10AF4"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\06_未完成事项.md",
+      "hash": "9B6843AC51DB6F7D708B953814C4C9E66358DE3C335FA30B92B8D4BDD5E304D6"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\07_待确认事项.md",
+      "hash": "FD9A3EA71562390E3FDC270CC107C0990EC22CB04C2F213BB2FDAAB65BE4C8F4"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\08_未来扩展.md",
+      "hash": "7DB968AC0FA9A600A312A73F9CC498C4345545D6C4008E7B042559DE1C773A5D"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\09_开发规范.md",
+      "hash": "476235186DCF73AE55FAC140D3FF9646775F3A918453E5765A33E53B5AB04B59"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\10_档案修订记录.md",
+      "hash": "49F8C78973DEADFE7F9996DB8DF08AEE6B875214BD62CE8977A7ECC4960F6042"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\11_P00_全周期能力与阶段基线.md",
+      "hash": "7BC093219B9FB8AE0AC4AFB46B50F4C81C0D411D30885855E3F00806447256AE"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\12_P00_规划施工测试验收矩阵.md",
+      "hash": "B5DED9EDFC83BE12945BE063B8A7D302AB186C3BCCE0FA09F97431C7E0CF206A"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\13_P00_档案与测试索引.md",
+      "hash": "2932C00115A4AC069452A2DE41D4198D58D3D39C401216757131C39AE4EA022E"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\14_P00_风险回滚与用户决策入口.md",
+      "hash": "DCD47F98FC7507164E5FDF342C12F7DA97952F09D1698E2971D20875931AFBB7"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\15_P01_测试隔离架构与边界.md",
+      "hash": "7E28D8805BB24CACB7337E98D912FDEBCC21A2DC7ACCF2E7216A7B4E7B1B3559"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\16_P01_规划施工测试验收矩阵.md",
+      "hash": "DD5FCCB61720EFDD8B83E8EBFC2F1320A570F5D1FFDC9AAFCC70C6E10CBDF128"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\17_P01_Snapshot组件与清理策略.md",
+      "hash": "88E6B022C2E5DE3E8241A175AF3E35E650CFB5BB7272682C2767673D7612D584"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\18_P01_测试索引与联合验收入口.md",
+      "hash": "AF0FA7927DB1D008D838503D1AC41FE46A3999330A73ADD00BA819CD2BC2F191"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\19_P02_宿主中立模型能力架构与边界.md",
+      "hash": "78F9873BFA1FDE6BC1B4A80204BE9A23861B9C3D8C7FA35276192299133CC8C3"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\20_P02_规划施工测试验收矩阵.md",
+      "hash": "6831C8779BFE5E1AEA9831A0D424B8F2546ABA0E5EA9A4AC7229DA01E09468C2"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\21_P02_Provider配置预算与失败语义.md",
+      "hash": "F5D74F3575645BC522009E155DC090CE9A2C241B0D5E75F8F70022E2892F13A7"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\22_P02_测试索引与验收入口.md",
+      "hash": "55469F9EB9FB0965AB15E41D67621869EC065BCAF439A5D1C7D47861DF561A4B"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\23_P03_Event时间与Timeline架构边界.md",
+      "hash": "ADFC5AEC68A7086356ED9B24D65D0B6C40363C5CDF7A250A2A2A233D838BC295"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\24_P03_规划施工测试验收矩阵.md",
+      "hash": "4908AAC59797CBCFC19CC1D13FCC051D3D545A6BC959597F1CEAE24671B8CDBB"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\25_P03_时间来源修正撤销语义.md",
+      "hash": "43997D457BB8EFFFCF3B50C319AD185898192324580692036DF68D25B8FA713F"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\26_P03_测试索引与验收入口.md",
+      "hash": "F38A146F3A8785E252487E4C35B19024F2B35C6214A26C980B60D442C3F059C6"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\27_P04_MemoryConsolidation与DerivedSummary架构边界.md",
+      "hash": "ADA3A578755B8637FB39B74B410812F7B11C9F30AE7F4C103D36A277EBED288E"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\28_P04_规划施工测试验收矩阵.md",
+      "hash": "D1DC210BD8FC34344BBB45994671CD20F04E29990E0214F179855A36D348D58F"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\29_P04_保留可见删除与证据去重语义.md",
+      "hash": "9E243D8B7972F6D4B168D5D7857171C627E7E00B35B86D533517D14F3DE1F2F9"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\30_P04_测试索引与验收入口.md",
+      "hash": "1754CCD33B95F3510E19219563B17DB38072F8594303ABB8BB1BC77CA0C137D6"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\31_P05_ContextRouter架构边界.md",
+      "hash": "9E4AC4D70EDC19459108E66F9543998B157869867E6060DAB1351CF239FCBA65"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\32_P05_规划施工测试验收矩阵.md",
+      "hash": "41521484521164A1796DBC76E5EBE18310AC871E31811D04EC81EC493B5B06DE"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\33_P05_权限检索预算来源失效与ContextTrace语义.md",
+      "hash": "6F98D2774DA150B7B4C16CE0F0AD437D939F5287C80F2B386FB8A1A2D7449583"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\34_P05_测试索引与验收入口.md",
+      "hash": "71DA067069BAD17C0D40FB43681CCC3A5722833FDA86B7B12C0DEA9560B46005"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\35_P06_ContextComposer与Authority架构边界.md",
+      "hash": "BBE62B9627CB6BA1E6B3F3872DC8D0E34DCE59E9940C1702E3F46E70000583E1"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\36_P06_规划施工测试验收矩阵.md",
+      "hash": "2DFA9FB4BEA4EAAA443DA5C3D3A7201285A7AF48B4FF6422AA335EEDFF1739D7"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\37_P06_ContextBudget去重冲突缺失与Trace语义.md",
+      "hash": "EECE35F2397F15D4FE62CE215B13EC469A5E449C60B1F0F66E9040C3EF1A7642"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\38_P06_测试索引与验收入口.md",
+      "hash": "DB577B75183EEF3D0D61295AB9F04BB0DF3071491FF8FD4B41E15216DEB561C1"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\39_P07_ContradictionDetector架构边界.md",
+      "hash": "270CEDBC755694626BC3CCC49CB0B8106616843DBFC6AA34B1EE9E27F6B6946F"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\40_P07_规划施工测试验收矩阵.md",
+      "hash": "F9011E17DBE6F419DEE367CAFD6805B54EF4520FBBF02D44D95AFD0F1331967D"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\41_P07_矛盾分类隔离核实解决与Trace语义.md",
+      "hash": "A7623A01CED5FF75FE31B6473F25234283015D7285FA01C44B20B33EAB470272"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\42_P07_测试索引与验收入口.md",
+      "hash": "34A97103F664F8DF568CD7BE880067588216282B33B9717EC14267B9E8B43D21"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\43_P08_DirectAction与OptionalPlanner架构边界.md",
+      "hash": "29401D9D160D43855078CAB1D98540D75E7E6CAA01CEBEAED32690DE836BFB4B"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\44_P08_规划施工测试验收矩阵.md",
+      "hash": "FF0A5DD760AF7C870C4577C22607FC5322628F84D9027392006C33A2D6184846"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\45_P08_DirectPlanner执行恢复语义.md",
+      "hash": "E4B48432D70081BAB56A16016C15DFC8F72DAF515A54CF631FA36BF78E0FEA3F"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\46_P08_测试索引与验收入口.md",
+      "hash": "EB9BE5B0958F4A75DF078613AA244883F865609DCAE0C5F6542A779ED8382C0F"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\47_P09_C1正常运行链与架构边界.md",
+      "hash": "2AFDB5FD63D937A30A4F5783CAD4B8B5A1B10BCF049DF2DEB7A2FCC9A2942EF3"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\48_P09_规划施工测试验收矩阵.md",
+      "hash": "30D44C07E601EA9A4128C8864AEA388220FA3D50EA0ED9B34C9FC00E5CA015A8"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\49_P09_恢复组合语义与施工证据.md",
+      "hash": "FFA5B1C286FAB7BB5437228FE07A6B084EC5ECFFBDE52EFF4221FA4901A813BF"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\50_P09_测试索引与C1运行入口.md",
+      "hash": "E8C2C9F3B0BEFFDE1433DFECC0FEEBE1EC94E5E2F961CE9BD2F82C181A6E23DB"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\工程总档案_v1.0_转换前旧版备份.docx",
+      "hash": "EDEE45DDC422B94B8920E3A747B1135F8A2A96112BA87589D743E5C6CCA4E4F1"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\工程总档案.md",
+      "hash": "56A70B907C6BDD90D53CA12430D652F74C7B1FDCCAC70AC52D1F4427410BB6E9"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\数字连续性引擎工程总档案_v1.0_独立版_新增项目愿景介绍版.docx",
+      "hash": "5CD484F15B9B3FAC549530D3118296F5AA2B0D0A30A7B89C9CFD489AF846C724"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\CHANGELOG.md",
+      "hash": "499BE3EA7EB14352584C221421A032BF68EFCB8DFCBAA1DD30E35712930CE421"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\baseline-unittest.log",
+      "hash": "38FC6833E0F8C0C7F593142DA8736C762BA21CC3BBC6BDF6CF0823F10276EFFE"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\c1-golden-first.log",
+      "hash": "2DBBD70B2A61A6B28C9C3059AAA41195102F9ECFAE15DB98352FBCB44C31F9D8"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\c1-long-first.log",
+      "hash": "24D444F40218F9EFB7E74A120A4DAAE162E970E20674001173242A101E2EAC5E"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\compat-e5a-p02.log",
+      "hash": "81D32F4615455E48B7199DA29B6C17EAFCC354BBC0EC5921A9DDA571534ABBD8"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\compat-p03-p08.log",
+      "hash": "036A0CDBF0E16E1ACC09CE12B2211B8BCA07580501B1D7BC4DC7A8A7E8E87867"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\final-boundary-audit.json",
+      "hash": "B58EFB2AACB6AB6F13CB0611D777841AB14EE0D03910462EC88B1E2B40AEEE33"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\final-full.log",
+      "hash": "7219A0D053FD351AAC83DF9273613978E587FBE47CFD4B9BFA99B64D3D3B3626"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\final-p09.log",
+      "hash": "A81DF11D735F9A9149C9A12A3EF5FFF83EEE3597426A4CF300DED311F9D03FCA"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\frozen-baseline.json",
+      "hash": "4DC6BB06B4CABCA8A3F1863AFE20D0325D87F8B11A0AC1D365196E4A49D33623"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\full-round-1.log",
+      "hash": "FA5634DD56D64D11D241B1D72FB873C7D6894BBDF8E0139CB5D471C724862059"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\full-round-2.log",
+      "hash": "7949CCEBA15D184919443ABEACD70EF88C80BA444188FB916D9C36DD240705DC"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\full-round-3.log",
+      "hash": "A16BA6D1B62C9A9ECEDA76CCB987867808164E22BE9BF9CF655713DC7DE829E1"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\p09-ancestor-first.log",
+      "hash": "FC00B71E88B54D5A21A4F89CD010F41D55A1901A1ED4BA6D9ED6D4C26CD0D818"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\p09-ancestor-fix.log",
+      "hash": "3D936F383D5870F613A4BFD769853D7B1203907D624D3E46CC7A98DBF88AB986"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\p09-boundaries-first.log",
+      "hash": "3201F8274E8A36D7633B79A314640093ADAF80FEA5D029E34153818D90B91194"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\p09-combination-first.log",
+      "hash": "30D9F786143EE0728133ACE0660E54798B1A9FF8634BDEC1D0B366D1962A611B"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\p09-combined-33.log",
+      "hash": "77C46E94255123B48AA3C408A983ACFC6CC5A1DC24BC0EEB000357566609F287"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\p09-contradiction-backlog-first.log",
+      "hash": "8E8666FB1F1A81877F119002DA5F1C068F2D634545606AFCC9364216C8D63812"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\p09-event-composition-first.log",
+      "hash": "38AF3DF2000F78C67F2FA64042EF739A218B8F0ACD9DB851610BCD1993420660"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\p09-event-final.log",
+      "hash": "D4C8F18E215AE381DD514ADDB9581900490B66080937255EF536D0CEB1B8852E"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\p09-event-scope-fix.log",
+      "hash": "2AA35AE616B4C6BF402647DA0D7032BCF58872938B21F6690DD3063506518083"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\p09-expiry-reproducer.log",
+      "hash": "AE68D6D6A09B02A652F9E0D65C5B0F51BEB649DD7E7EA11FECFEBD7DDDE3DF10"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\p09-gate-expiry-first.log",
+      "hash": "FF2B14B7A072927747B356AE814F9ED8035399ED641BF3603A170DA072FA3C8C"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\p09-gate-expiry-fix.log",
+      "hash": "5BA8A694E39BA8358FB24971E9897DEB90DDEA4D587F5F7E2F174B53D50AA0D8"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\p09-initial.log",
+      "hash": "46022B391B8DDE23D88F906E805AFF8C84980635994E4F69AC3337E79B6BB954"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\p09-input-budget-fix.log",
+      "hash": "D02F0FE103281630EFB9F6BC7F85C1C25B90BFA3EBCA4A6F45BF6702684C0410"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\p09-recovery-canonical-fix.log",
+      "hash": "72A5A794A3CC189F7C7EA33FE4F1E69FD46F7831F5767BBAC457A3A08C56E50F"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\p09-recovery-final.log",
+      "hash": "97EADA8EFB57981C97C0131972517C6ED42759AFB047825EB2EBB0F179CA9B96"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\p09-recovery-first.log",
+      "hash": "1DEB1B79BE20253BBE519C6C6C3C67589329BD29B708E7E49113F47C594BEBB5"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\p09-snapshot-fix.log",
+      "hash": "0EF10A30ECD94F1FF2734A4E8B6D15112CED881E0B86AC4CEAEACFD2670AA4BC"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\p09-specialist.log",
+      "hash": "C0B7FD3AEA1979BD10F4B8EAE63A577F130D8160F7B44F19504564CD2EA8D63F"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-01\\compat-e5a-p02.log",
+      "hash": "1D2DCFE0C63F45B2FB0E801742306CF1C92014B8C139EA9D42E98D0DE9D0AD59"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-01\\compat-p03-p08.log",
+      "hash": "47944480C383D19471C46330512ADDDF6878666B574510F9E258B9B7BA655826"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-01\\expanded-evolution-fix.log",
+      "hash": "16B4012FF4B29A27B860D3295C837542D5B0CED5033C0CAB62D6AAB69F467DAC"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-01\\expanded-first.log",
+      "hash": "25D70A13DEE6C4284A3E4B06F1ADD4DAC8B1BD1D77579BE5AFF3F3AEA3C7D58A"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-01\\final-boundary-audit.json",
+      "hash": "96EE43E0495D405A921CF2CA93C552B58669EA4C2CC6B3867376885344E4BA34"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-01\\final-full-completed.log",
+      "hash": "B12F5CA8B31090828910E1C88FA62056A7C7733BE7771CB74B8FC05337BFF26D"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-01\\final-p09-completed.log",
+      "hash": "61969DD1CF51BAA917BFC0074899FBD43D741E50F771FF1D238C264D838D10AF"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-01\\final-p09.log",
+      "hash": "5C3FCB753AA6D259B606651BB68ED3C663F7F822CBAFC5F5940A22358AC0431E"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-01\\full-round-1.log",
+      "hash": "609DD91918B4539CFFFFF2AFD79F44B80F02B97C97EC2DB2ED0692813C99DAAA"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-01\\full-round-2.log",
+      "hash": "FDDD68185638EE95616656391233879B5C9DAB5D1D3E1A24A10C28A47251611B"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-01\\full-round-3.log",
+      "hash": "FBD5F0B2804B7EE7085B222FB80DE52244D54DE7BCA69003FB491A4DF6AA5F53"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-01\\missing-operation-before.log",
+      "hash": "BDC4E5FA3E14D9E2F233C0925E07107F6F0501477F6A45CC1CFE05AD5F860EA2"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-01\\missing-operation-probe.initial.py",
+      "hash": "77D24F2A080C7F8F7F7A4ADAB13D854F83FEF9ACF09D28BF8DEE7358BE100F19"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-01\\p09_independent_probes.final.log",
+      "hash": "95935246C8D7F988D19EA3E133D45F272E364F15AD2AB3B0F9389B84E170A7CB"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-01\\p09_independent_probes.py",
+      "hash": "A63B19620AD5C0EDDC2585EBBE61E764E065F8C7907AB6B07577DD8B3F9A11B3"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-01\\p09_independent_review_2026-09-04.md",
+      "hash": "9B663771D02619C9F59B3120D916ABA70C49FFAF10DEC73A750DE4E89C4715CF"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-01\\p09-specialist-first.log",
+      "hash": "08ED2DBCD823C8CDFFB668863BA1E7832156632BF174FA6109E2C552CCD17AFF"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-01\\pre-final-boundary-audit.json",
+      "hash": "AC426EDF99E2D0A82877C9F49E18FC5018CDA76260CEED8A9BCD98B81E828F46"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-01\\regressions-before.log",
+      "hash": "7C946F6C70EFC12746A28DBEAB0D8C672CB27477118179918604402591340CED"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-01\\regressions-first-fix.log",
+      "hash": "2CC0A58B585414FF5CB5F154B44DB0D63A8C12EA392CE7F79004536185B03BE2"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-01\\repair-baseline.json",
+      "hash": "2C34AB1F7930CE7DDD8CFE019F1453A47DE0C6A3AC4E8CFBE788499984474B3C"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-01\\source-test-regression-hashes.json",
+      "hash": "CB5097DA5305C0756B19794C648FAE23E9F27819BAC0C25E5C853F1347DF9763"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\compat-e5a-p02-byte-fix.log",
+      "hash": "BDF5216B59EFB5DFAF77E8BEB212D9660B8139B07EFEC8D7A00281F5C82CD07F"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\compat-e5a-p02.log",
+      "hash": "C7DF33AD14EDBE6C13163ABBFDCDB9828353FD1EEC402F4C73D2253D50E39B77"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\compat-p03-p08-byte-fix.log",
+      "hash": "0D48ED0141DABD483C9206EF6FC5173E83BDF571F2FD661A9AF999C9EEF4722D"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\compat-p03-p08.log",
+      "hash": "BDDA8CC61824BDC840B309BBCCEB1669648C9E0F4C472643D3B70948B2BA6390"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\evolution-before.log",
+      "hash": "543D9B0FEA38A3C82B1278E0C3FBF2AF8FC90A58EA1D97845E105E9276E86B02"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\evolution-first-fix.log",
+      "hash": "67850119BAA7FFDD19AE4850A0B7CB20FACC1B9A2F9235019EDBB1AF7EFF95F0"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\expanded-byte-fix.log",
+      "hash": "7EEB722E07A84E923470CFFBF4C98E0D43EBCA470CC3F9A3F60A70D94D4A1E0D"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\expanded-first.log",
+      "hash": "73F7B655B54333EDABC0C881C85AB84C6F1BA8474136A781E4B5F2068060C7A2"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\final-boundary-audit.json",
+      "hash": "AC52E2FA3FD25330E84EAF93E3D3314621D38BC15888A5FC24231430537A5BF6"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\final-full.log",
+      "hash": "F6742CEABDD05D2C22E2F40597C1F4D61B721AEE2D2FE91C36DF51BF9AF1A4F6"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\final-p09.log",
+      "hash": "57C9F353F44BA27E11EDABB2EA4B39813347EE57D5A545DBF85BBB3417CBCD84"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\full-round-1.log",
+      "hash": "ADE726CAAA198FD4A615208A67F5E2158523EDC767A412C9F6055352B4CAE755"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\full-round-2.log",
+      "hash": "4054F0FBDD50E542A50989557842DCE618E6F8DC3C1F8ABE4D7D96DFD060C63F"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\full-round-3.log",
+      "hash": "0019934D6D24E1D3D75C1BCE26BDC9BE31778766D3E9F39B60E4B2698B49459D"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\original-16-byte-fix.log",
+      "hash": "A3A6B4032EB2C921EF7F4090E0A826B4F9180F8C4BF93C228B5ABF3AD36628FD"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\original-16.log",
+      "hash": "4B117094408A8731B7A809EB979DA47CD35AD28F6190FD9DDF305F360E6DA5F9"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\p09_repair_independent_review_2026-09-04.md",
+      "hash": "B0B7938629831DB5EA12B2593E5C6D4D6444D1D0B4B2D3D02B0DE0FD0C93DAF4"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\p09_repair_review_full.log",
+      "hash": "EDF8BE795B9E831E91C446A80882A0007C765A14A999CEF4C46EF8B11834FEE0"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\p09_repair_review_probes.final.log",
+      "hash": "9376A83120B828934B68820917FEA70E2C1C265B6AA98A4548FB03A42BB1C7AC"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\p09_repair_review_probes.initial-path-error.log",
+      "hash": "60E11ECEBE6E6600EC5F51732E0A91743447ACC39DE036402DCCDFD51B180951"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\p09_repair_review_probes.py",
+      "hash": "D3065EBFC1EFB641A106D91FFE882DDFB7C89F8402FA31C48C2922B7EA2E9889"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\p09_repair_review_retention.log",
+      "hash": "56122AEA4223C8161ADBFACC5A005F53FBE88FC23B959DA886DBE991BEA19A42"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\p09-specialist-byte-fix.log",
+      "hash": "360D6BB6D5B3D011DF1A3F2F735653110B404DFE2043010132AD2E957C25FB82"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\p09-specialist.log",
+      "hash": "DAB3A31A32F0900EF059E5488ADC6911DDEEDDFF323DA26A50331928F2973F76"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\pre-final-boundary-audit.json",
+      "hash": "12ED6235159CAE900412A802C02B84A588115E22D63E9B217EDD1458478798DC"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\pre-terminal-boundary-audit.json",
+      "hash": "47EE4346D496904E130706A2220F485B10B8081770182778E5116074E27BAE97"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\quality-byte-mismatch-output.txt",
+      "hash": "6172257D284128C21FB324BF2C3B1B173FBA9779ACBD0B0D3A4F6911FB8269E4"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\repair-baseline.json",
+      "hash": "B819BEC5122D1702584D626375E6E862913F38DE34D181C84FCBCEE6A88EF0BB"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\retention-before.log",
+      "hash": "BF8E126D2222C41A9C0EA09F3884AE11F3E665375C0A7CCBA6EC845712022E07"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\retention-byte-integrity-before.log",
+      "hash": "7321CE65FA97EBA566E9C552E03C3044F786ABADF3B687290B04F592CB9DAA2E"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\retention-first-fix.log",
+      "hash": "049278E9690670C191A518E5BA232D06E36FF4C72B648F977003AE567C2116C3"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\retention-regression-before.py",
+      "hash": "0558FE67A016D16CC784363CAA068AAEC20E362B51D49A33386AF2A07A3BC5FE"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\retention-samples\\byte-fix-child-failure\\metadata.json",
+      "hash": "062B7EF63DF283D1E8683F941232907E3AC13A3A782F05676E3306C137977BDF"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\retention-samples\\byte-fix-child-failure\\segment-0.stderr.log",
+      "hash": "7CEE0C40645111AF87332549BC9002B227B9F07FE3B599D5CBCDAA5475F0F4E0"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\retention-samples\\byte-fix-child-failure\\segment-0.stdout.log",
+      "hash": "7BB1A996D4F45B185AED97790E8BEBFE849010EAA30A15D51EAA52B9D337EE1D"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\retention-samples\\byte-fix-parent-interrupt\\metadata.json",
+      "hash": "70D6DEBE8A9C713B416147D38850992C8E0378A3C71955A0E6DCB4EB5BACE544"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\retention-samples\\byte-fix-parent-interrupt\\segment-0.stderr.log",
+      "hash": "D7F79417D484E0B991CE8F977B141387C3C627FEAC2BCE3345A033BE37578B55"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\retention-samples\\byte-fix-parent-interrupt\\segment-0.stdout.log",
+      "hash": "C06349C5ABED2E799EB203F614B3048D39BF3FFAB1D476C5752249D5BC6048B4"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\retention-samples\\controlled-child-failure\\metadata.json",
+      "hash": "DD287AE5F53F5770CDB9EC5DFD09F2C7A53EDBA2159EAA7567FEBB3880E6C1E5"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\retention-samples\\controlled-child-failure\\segment-0.stderr.log",
+      "hash": "0B7322E8191267442BCD2C0BCF0F2345A5F69CFDECB9ECBBB2697C47AC0C2B86"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\retention-samples\\controlled-child-failure\\segment-0.stdout.log",
+      "hash": "CB88BD86F6095308E01A3E75871432E6001CBF32893D01A50C3491BCEDFA0ADA"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\retention-samples\\controlled-parent-interrupt\\metadata.json",
+      "hash": "B4F41B6D0086A3D43CABF78EFF19205E7B544053D2503C8B77ECF7CFD51DED8B"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\retention-samples\\controlled-parent-interrupt\\segment-0.stderr.log",
+      "hash": "D3F751CB9E7F30F1E56C603898673009096345F1E3B386B1FC0278712F9EF3C3"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\retention-samples\\controlled-parent-interrupt\\segment-0.stdout.log",
+      "hash": "15327C1B65328F18DCB8284DA5B6E2B4932D4F6EFA4EB713CCD69060A212393E"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\source-test-byte-fix-hashes.json",
+      "hash": "8075CF42651195D2930E3007044B28FAA13206688D44FAF3CA19197F0F93B3F6"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\source-test-regression-hashes.json",
+      "hash": "8D437BD79B31EB20FD397944BD46B6AA99E6717DC1B87B4D3639EA6B2FD74FAC"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\source-test-regression-hashes.json",
+      "hash": "F45FCFC5E1194CFE1F9DB9DCF0DB740DC57E23BF447B5B5EBA8AD1DF1F6DBBBF"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\pyproject.toml",
+      "hash": "40703A155AB1C1626901D1B61363384E49B5C64E58303CC110FE499FF6C25419"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\README.md",
+      "hash": "A978626A463D62B6905D03F31C232D4BF2E69488960CA3DC340A9B6DA7ADABB3"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\__init__.py",
+      "hash": "BA26CE64B9DC5FDAC0954BBA04D08F92693C2223FC423739A875E62C21BE884A"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\__main__.py",
+      "hash": "2CDD23D4F5CD6C3B3E4CB690AD16D560637767B9CA5B2A3CF129FCC0A5EBC82B"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\cli.py",
+      "hash": "7F3DB1990C8EFF0E50F4E7808505746B545D2DA6DC3E684E93C8E986F80EBBED"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\__init__.py",
+      "hash": "9CC04F6476BE412979AB0360B25855BC51AF7397D610D74B2C087C50D788C0AC"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\action_capability.py",
+      "hash": "E73F1B71BB4D2B14EB03A7CBAFB71F3069BF34CE2224F17C3DA014D1B94AEC60"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\action_planning.py",
+      "hash": "89CAD01523E89A72400AA50DA6A89629C5358465D4539141976544DBD08A83AE"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\action.py",
+      "hash": "2E4151FF0F492EC3B8FA5F96182438C83755D81C1CD82759ADB367591591FAC2"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\awakening_rules.py",
+      "hash": "BCE519D994867B1D72ADE0E58897D760BC9A800A4D3E33A76FB1E2CDF71069F4"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\awakening.py",
+      "hash": "7ECEEC49DC52E2F096AA474B008FCE8EFCF42E6209CFD100704C622C0A802C67"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\capability.py",
+      "hash": "4872502542ED538863E096EF3EB98254C190DE10350E088BC74EBA0ECDF83E6D"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\context_composition.py",
+      "hash": "90F511726EA18B27951BAC73768560514F5365B06D8FAED9E2BBD8F15A1C662B"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\context_routing.py",
+      "hash": "FA5596DCA9698A242E89F25C7CB0C2573F0EE5BBADB9C27255B52E589206BA17"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\continuity_core.py",
+      "hash": "094B9602208E4B95F16BFFEAE731D6D3C7070EC80E0F6B55A3ADF95FCE5A1FBD"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\contradiction.py",
+      "hash": "870ACF77F63C28A9919334FD2CACD59B5288C385D50285FA29D663EC41729375"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\errors.py",
+      "hash": "A89023BA3BE46A83F99CB81A149D1DDD2E7FC25C593F4B282FDE73BA2BD89186"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\events.py",
+      "hash": "0342F776802854BA726B3EBC68F57F1FC137B209A002584F2DE8B191B41D46BA"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\evolution.py",
+      "hash": "96CF5BAE31AF55A06DEE5D266946CBE4C8090B3BF2F4BEF96D04F62F0B84A7F1"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\integration_contract.py",
+      "hash": "FDB22CC00249BAC423EBF08FE1B6070E8CAC0CAABE61B87DBB9C6C11285EF747"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\integration_hashing.py",
+      "hash": "956B9BFD9C73133C0280CB9332384F523CF007B3844C50E2449A0B6FA8A3F11D"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\integration_results.py",
+      "hash": "0AD9099433339615B924B2828A5013E439DA9F3B251C696A451BD65BF4D02D96"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\learning.py",
+      "hash": "7F9FB4DCFFF0B2D252C1CCC62AC700AE30EA8B0ACFCA6B95F9528B2DC22FAAB7"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\memory.py",
+      "hash": "676CB216D3DD6D38DDDC9D3F419384C4446F85F9928A928BCD3D0BE33BDECAFC"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\model_provider.py",
+      "hash": "9E33FD09968BACE1C77596E4D3570A1814668F5EB4051FF9D702E12266A5D823"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\models.py",
+      "hash": "2BEC483CE67CA6D4AAA79B66A44CC9F5A5382FC8648C4B9AF65CC0C551269D24"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\perception_rules.py",
+      "hash": "7FE8108FD751C9FDD6F3B672A2B3DDC9B0E9BACA11B2BFCA507D0C1BF4FBBF7B"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\perception.py",
+      "hash": "499CD2990B8A5BFE052316E5145A98EE71850D37CBC559065D5186F6ADD6673A"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\permissions.py",
+      "hash": "7FC518E2EC10B653EB8064D248755D42DEC0871D6BFF6DEE0B60AB7D2FFA93D0"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\resource_policy.py",
+      "hash": "9EFF68B5BD2EF239C1F306B0D43F8521EB86941829FC621EF1321D515B1AED34"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\resources.py",
+      "hash": "46CBE2140BDBD3E34D246B2A3BE35B65EC0CCE7ACAEAD13A65D5CCDA549CB815"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\subject_binding.py",
+      "hash": "568A724B92BB24C9A4E4AFD274299AF37BE45511D12AC485C1A247B0AD3E87AF"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\thinking.py",
+      "hash": "29D39A8D4A1D7F2B570FD452449C52967EB2ED0E0F326FAA3AADAD45970A8408"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\timeline.py",
+      "hash": "ACBA8FBB7F4C5676606A6C9F0A7A66B99650B1C257C32818287379575266A5B8"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\frontend\\__init__.py",
+      "hash": "D83F19E0508818C595EFB980E62D82BD8AA2B51B29A1A497B04AED2E4D6FCAD0"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\frontend\\__main__.py",
+      "hash": "E6D1E90A444AA7BF84B80CF8CA6E8D755DE24FA5E9CA65EE9DE6FD1E0230ABB4"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\frontend\\app.js",
+      "hash": "18265854472DAE7B52F3048D0A539619FFB2D1525C37070F93AB8915C8D44081"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\frontend\\client.js",
+      "hash": "E0FC0CD17C3693F37BC5E7718BB04FD5A5481878C2C0E903C3CD6BE401C25548"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\frontend\\index.html",
+      "hash": "87AAAD4C6F9F242D48F3C1F6ADACD2CAB5738437D1B1067868FE5F124C924B0B"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\frontend\\styles.css",
+      "hash": "9762909A4C01AAFBB404F73B0BEC4E5B8455575061697C043EBE3D66DC693B4A"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\integration_server.py",
+      "hash": "1AD50DFCD662FF4E28E74F0347BE946584AE063F0F7CA05192453FA5E16B941C"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\interfaces\\__init__.py",
+      "hash": "54565F8093E65116139496461B82F529A8E3179CCFA90BD8816E4BE85DB5801B"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\interfaces\\api_service.py",
+      "hash": "1A2D6F3CD5D5B1AE40C5DD081332B27BC68349F5CA3D0667063B3011BED12979"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\interfaces\\capability_schema.py",
+      "hash": "474DE9FD9130885E7DDD7607AA361BFED5BFB64CFBB2DC7D2B7A5103CE9E6701"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\interfaces\\contract_test_adapter.py",
+      "hash": "1C9B988FE875151570AB27215099C7F5CA0AF881AEE99F1139C57CC1768A3043"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\interfaces\\core_views.py",
+      "hash": "2B6EE55A0E08DDE0D015CEBC9EE49FB2A581A1F9E655F79E93834CBF93B24092"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\interfaces\\http_server.py",
+      "hash": "15C7843FAC6435FA3AE9194604F7993DD3EAD2C67401653C2F3446DD17877786"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\interfaces\\integration_adapter.py",
+      "hash": "3A6C4CD987779D3712242993BAAA4C460A30F06A5E7A30FD11419A2DB240D487"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\interfaces\\integration_config.py",
+      "hash": "2E06BAFD253C09127FA3A3B537271F84390C57D73C5F3A93909505BF97121572"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\interfaces\\integration_contract_schema.py",
+      "hash": "136765997F4314B8E4F5FB1F353CE90A6278ADE0B16E1E59FBEA349670C11550"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\interfaces\\integration_http_server.py",
+      "hash": "131DA59540AB2F3F0403F939D38528D6A964412D05643BBF7DDAC47FFC418BA1"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\interfaces\\local_frontend_app.py",
+      "hash": "9649514D102E905B07EC7C2DF05CE6E5BEBFB94203F8FE587EC851CC9CDCD70D"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\interfaces\\local_integration_app.py",
+      "hash": "445638FCED092E77B3CD600DA2348061B269C94AF516FE935188B610E369C1EF"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\interfaces\\local_model_capability_app.py",
+      "hash": "51F18D21BB2FF5171109134F71CA05DB72D91EF01DB80D01C85A3C347218AEF4"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\interfaces\\mcp_adapter.py",
+      "hash": "2D4D01F44D10F2BCAC348FDB82E56BC8BF57591DAD814E80B0B02203377E4A6A"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\interfaces\\models.py",
+      "hash": "BF79E56545CF3CA726139130CC827DD7CB258172AF0EB3930435230AB3164056"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\interfaces\\ports.py",
+      "hash": "938737F18341596802EDFE953192565BD71090ACCE15997225D922236B15E85E"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\interfaces\\schemas\\capability-model-output.v1.schema.json",
+      "hash": "BABDF85C2AA28609D2EB16178AB0A57E3B648F686AB05DEF0F86DCA898526426"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\interfaces\\schemas\\capability-request.v1.schema.json",
+      "hash": "093284BFC70D0BD5679B34C68D4197A49103680094443AC9D7D6550F9A44E949"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\interfaces\\schemas\\capability-result.v1.schema.json",
+      "hash": "3359228260EEB5A48F52C2F7CA20BF4821705AA7E50ECD41973D495E703A7001"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\interfaces\\schemas\\continuity-interaction-request.first-round-v1.schema.json",
+      "hash": "18D9656CF4A3842CC55B18411593DFC48A79522AC742B64D83A6FA17D9ADD656"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\interfaces\\schemas\\platform-fact.message-version.first-round-v1.schema.json",
+      "hash": "2CCF8FEA7DC69CC1D89E5DA5AE8F798F3C170285E61A5D4191D3CBFAD1A8746B"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\interfaces\\schemas\\platform-observation.message-created.first-round-v1.schema.json",
+      "hash": "BC3AAFF3D5A928975E9EC434A74D05C7F18BFFAAA1BDCA46DA78142552A98ACE"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\interfaces\\security.py",
+      "hash": "40D7F863350E1699DBB460660813ADBE4F9CD590BBABE94FAE28EB560DC039C9"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\interfaces\\skill_adapter.py",
+      "hash": "72AE15B7AD8FBB94DBDFC3D21EC153667CDFC264D13685189E707CBD1FA65EDB"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\__init__.py",
+      "hash": "B4A521743F9C9F4A794B37823F32018E6D7D1491BB38EE7754E255C08799D221"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\action_evaluators.py",
+      "hash": "F7257F9CCD37FB0585B28EC31A3D0A872B02BCD7CFBE0E0AD16DCD0544B038AE"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\action_evolution_service.py",
+      "hash": "F310B8EC714FC429564A47FFCF58BE05910893464DC1EE7D7F516136119A9EF2"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\action_permissions.py",
+      "hash": "F8515A6774477DC0FA62C453D973192071FCAB0971C6CEE91436C0EF45D8A9BD"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\action_planning_service.py",
+      "hash": "7429A228730177353383519FCBC677C27BC8EFD65A181F553453BE3B0937821F"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\action_ports.py",
+      "hash": "809481077A3EBDD8DFBBB3C12C8AE36659DDCADAE7F1FFFD95DB92DC24B3FAB4"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\action_service.py",
+      "hash": "72A67F9B94D80E27FB4636573B5CE87008692063B2C0D7B894E805C80C73230D"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\awakening_service.py",
+      "hash": "0CBF3489DC0E2822B95376BF51D2994150563F23CCA7CF53808B0B0E38A9904A"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\capability_contract_validation.py",
+      "hash": "B81C4E84C7DA5F75293E1E31185986A4720283AD94D883D914F76C260A32DF10"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\capability_coordination_service.py",
+      "hash": "A343B224DB5E4AC8FB4D3D7350811656D2D21ABC27A20B0BB6BEAE49E3894082"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\capability_ports.py",
+      "hash": "9874CE9813D9597FA840DD751FE6971DC5946CFAECF3B13F841DCBD43113316E"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\capability_result_interpreter.py",
+      "hash": "63FF86FBE53700B7E78C5F3C3C5A471211083D7C8B70967E9096F21BB06DEB52"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\context_composer_service.py",
+      "hash": "0D75A5CD6AEB8C33919DE50598CC4B4820CAA6224766B8FBB51ACE41B2A1D199"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\context_material_resolvers.py",
+      "hash": "F0F39F5718CF85CA68ED5E58FF8734BFD301A3BF5F4864A1E2BF7F99B19360D2"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\context_router_service.py",
+      "hash": "85BF9F21E29EEC80F7354F75D2715899847BB46D7057A3097F91CB3C6109D3C3"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\continuity_core_runtime.py",
+      "hash": "26EC10C6A56D36D1DAED3080AABEA3AD9B157F4DA031D86AE41B312598B52566"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\continuity_core_service.py",
+      "hash": "548C2232CCE908BC24099108D877CFBF9E8C13F379A26518DDBB8C793C60F26D"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\continuity_interaction_service.py",
+      "hash": "CD752293C453197877A21113B321C0DC66B4257AEAD23ACE4FFAE38E3E80ED96"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\contract_test_bootstrap.py",
+      "hash": "1C42372A69BE901D995DA8A6DF189AF9FE99B4C43F7E443CE5E3C9D2B3CD1221"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\contract_test_doubles.py",
+      "hash": "826ECFAE6B06993F8A1257B120B396C8FE4CD7A46DD2FFAA61D0AC1789BFB801"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\contradiction_detector_service.py",
+      "hash": "823A5586FD16301C08A07430AA9B8B768176D71CF9E91908502838B24D54CB6B"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\deterministic_integration_providers.py",
+      "hash": "3C05FF52DF329A7F5C48EC48B33433C6F196A57B6BC09423ABA6E29C90BE5AFD"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\integration_contract_hashing.py",
+      "hash": "BB1E72CAB29DB47B222FFBE9285BF6DB6A97BE869C21EECCFA324D065E6EBEAE"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\integration_contract_validation.py",
+      "hash": "F60632A382A161E70084E1BAAD429C8171DF33814E4D49828BB374B83FA0F026"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\integration_ports.py",
+      "hash": "872E6FFD4D35CEEEFD389649557A26AF1ACFC5D89A277792893A66D6F2F41E75"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\integration_result_factory.py",
+      "hash": "7FA194E89313165DB550114952D639949D6F37DE16089A8D74BEBDDF55AA7796"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\learning_service.py",
+      "hash": "DC0BB850F160DCEC311A9047605C237E804040013766B282DA30436B0A059777"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\memory_consolidation_service.py",
+      "hash": "9DEB9BBE8ECC3599795997141CF80284A56B6CF41E1D6BC0CAF77E92028E6009"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\memory_ports.py",
+      "hash": "AAA25E84692487AB787B6578A9888BE1FF6296440D4573D944DA6649B713CE57"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\memory_service.py",
+      "hash": "6732D5B8F8ADCBED32460E82A53158D619E78B49C1ADFCAB37C5FE5D31A8F204"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\model_capability_service.py",
+      "hash": "F4BAB5850D6CB8590CD36F4EAD143173791781527E0BC38083EB681253997188"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\model_profile_policy.py",
+      "hash": "AA49EE4B40A381EFCF149FE3FE5C3D7E64F765D772D9BA672CA5DD2748738027"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\model_provider_ports.py",
+      "hash": "47A7422DC4CC7147B002E5B2857E015049A2A5ACD415642F1D9419C8DF5E90FB"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\perception_service.py",
+      "hash": "9F4BA03337132562647A05A4C645001709514EAA4419E3964CA33BB6F899BC57"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\permission_service.py",
+      "hash": "00B03B734E5CA282B0ABD383BF8861399579E414B6E0272B48F79A6B2C8F0239"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\resource_aware_wake_scheduler.py",
+      "hash": "9BD44149F8F79806B7FBDF7844A53F3CF95CF11331428BD8C3B3E3C1A478B8CF"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\resource_manager.py",
+      "hash": "0EF3239704582140C43E7073F464E988600E2047E261E73063F64E5B3B5D03DF"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\subject_state_service.py",
+      "hash": "35F1CFFFBA74A50B21F34BC5D2405577B56A3041F80F71CC6F0A4146351BDA14"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\thinking_ports.py",
+      "hash": "DC95AC821034B1292CA62D14EE24DAEC3437F6C72B22D496AA17D8595AAE9AE3"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\thinking_service.py",
+      "hash": "C95FCC55228E72DDC306A2E00621538AEE04C84A5D575C4CF816C585F5FA5381"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\timeline_service.py",
+      "hash": "5608ECAEE368AD3A226E3006ED25114B033C43915DBAFCAB14D8296396016F7A"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\user_interaction_service.py",
+      "hash": "EC22F2247C52D63778C81717CB3F74C1AB3949F2E49B4856B716846B5A6219F4"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\wake_perception_thinking_action_service.py",
+      "hash": "7B39106F193DD5FE1303C93F51BD28B22B85DA11DC593042A6B0F34A345E2131"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\wake_perception_thinking_service.py",
+      "hash": "D8BE7D1FFDD9A4A9078291835DF3B2011CDD59CA07D4AAC501023474EE62797D"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\__init__.py",
+      "hash": "469CD2447EFB6BBB1925DF581E997FF8EE3620E5E5CD51EC930B7057837C0F9C"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\base.py",
+      "hash": "9856206DA18558B8957BB8878A7453E405A549BDA1EA8369F1B1C73BD139D1A9"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\in_memory_action_repository.py",
+      "hash": "916A21E16B687DD3639E27007112CA74F02C20D7EA69A2ADDD4983A64F9BFD70"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\json_awakening_repository.py",
+      "hash": "AE550F6D691048A50861512F091C8CF7EBAA1FA7A133C82522620390EDFC5C13"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\json_contradiction_repository.py",
+      "hash": "1BE8DD53295A4375F72EE28C4BBE3CE24A0895C626C7BA76375B22803BC983E0"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\json_integration_repository.py",
+      "hash": "0D06FA82847B593BCC266672F6FE2AAF16B104D017ED6F6EF78D2AD410EB4512"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\json_learning_repository.py",
+      "hash": "D1A572078268B2F541236FF3E5807A770B55BBE48D9A4297D0D8960D3C3B3529"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\json_memory_repository.py",
+      "hash": "62E7AF821D696571D7187C21A3DDA8C18E5960AFE5B87BFCE8A66EEE6D646FB4"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\json_model_execution_repository.py",
+      "hash": "03B5FBCC1659E8C0E2304B7730702B54D02B3F66D2E5A42DB43A34CB2D2AB1BF"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\json_permission_repository.py",
+      "hash": "9C873ABE17E267915C32A2F4F7F3D86BEF15AE6B1AC7093AB613BE7F8C47964F"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\json_repository.py",
+      "hash": "0122DE530400314E89604A74996D7CD47C38FDA5937AC8404E94DACEBC169786"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\json_resource_repository.py",
+      "hash": "3BC2C2CF1213488DA298E8C75A44D25C5934AB22816863979B8E15A57EBF9ED0"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\json_subject_binding_repository.py",
+      "hash": "235F71973BE5B8F02CFC947253140F2F7358E9D83E9310EBE6BC74776F600E6A"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\json_thinking_repository.py",
+      "hash": "32AC37F931C14719FE3E389C74B89DC70CB417DC0554C7CB05CDF8229A9A3DF2"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\testing\\__init__.py",
+      "hash": "807737ED37C3ABA5B98256723FCABA5AA35D1448E32DA6E499B28C399418A7FA"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\testing\\c1_snapshot.py",
+      "hash": "3B2FC18ED05C55C41DA602AEC08ECED3CF8DD3C0F4B57DC8488499E96FA645F2"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\testing\\fake_model_provider.py",
+      "hash": "2D5A57BDBA6500804956364BA09FED627AD6A01759C6B39114DB49DCF9E3B461"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\testing\\interaction.py",
+      "hash": "AD4C037F9CF5911FB4A5C3DA5406FFD4DFF5368D05534C22BFBCF2BED3D70E04"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\testing\\models.py",
+      "hash": "A9B51CD2D45BBC7D7384986EBA0931C386682B90FB30882DA448E384F3CA83ED"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\testing\\p03_timeline_fixture.py",
+      "hash": "D31804F5C70BB5C4B54A8169509F969BDE899A88953C487560DAD122FCC960D7"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\testing\\p04_memory_fixture.py",
+      "hash": "4D8F28EC126946DFF5A3BFBC9B25272E9EEDF2945DEF65EFE17A810003E0C11A"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\testing\\p05_context_fixture.py",
+      "hash": "468C0E4AA16CC5FC5B6671D4AE70E7C3FEDF99D15ED073B193054AA0F551C264"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\testing\\p06_context_fixture.py",
+      "hash": "E84CF77CB5AC06754947A909B18B540384B8AFB3EA121279EC1F9919A0637C47"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\testing\\p07_contradiction_fixture.py",
+      "hash": "60228CFC997F3430C9063FCA70D0B33A7184C20B98F1E3B2DA759D1F8406BEC0"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\testing\\p08_action_fixture.py",
+      "hash": "1C821E16BEB3140A42776F893AFDCC8F239A3D3B3316A895EE68D3A41C110E80"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\testing\\p09_core_fixture.py",
+      "hash": "E8A600FB12EF90F9616F1D4BBF6AD6B5D55C192EFD8E7EA47C29B49482DCA984"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\testing\\p09_core_runner.py",
+      "hash": "49F5B19E22B02D82EB96E4027597ED41155AB256F75E5258EB8B47637CC7799C"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\testing\\persistence.py",
+      "hash": "84FCD2B7C5EF1226E4BF182AF00730631F2D649E91A39F4FD37942A993663CCE"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\testing\\sandbox.py",
+      "hash": "514D90634A745BDCB301AC5C2D7D463F62C042CC1E800276898A6C0BF7F07CF0"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\shared\\__init__.py",
+      "hash": "7875421ED0EEABC80360CFFC06771B34D995E171AA923650147622E905F71A65"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\shared\\continuity_contract_jsonl_runner.py",
+      "hash": "DA7B74899645078FD15A299112BEC41AD63E8366DAB16BBF323AF1CD258D7AF0"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\shared\\contract_runtime.py",
+      "hash": "1DF4E88298D89990ACF446E5E96DA6EA51B7D21CA0B2D857ACD5CCACCFF05666"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_action.py",
+      "hash": "7F490F59D4EBA1B600FE54A029FD7F7B0DEBEEB8EC1B237D86558D9D228F7937"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_awakening.py",
+      "hash": "A45BB10D5F2CB4F7A395D9241757787394A2B17ECC573DB514736E4E375ACCE5"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_contract_test_adapter.py",
+      "hash": "C9F8557267BEE31C1A1D9FAB7CD938C36EB70CFC4ECB7F05B9CD5A5F84CD1B90"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_e4_crash_recovery.py",
+      "hash": "2DB90DCAC3E2EC5FFB95C1F1A4541F84C83C609E47EDB7431A2FC2954D87CB07"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_e4_integration_http.py",
+      "hash": "EC0C99EB876FB65B3C4945764F50FD8735D25981C8DD6658DE2E209115129483"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_e4_local_integration.py",
+      "hash": "58AFBC1217523ACDB9ED5D8B5A643F335947EF411EFD85D6A809F35188A54259"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_e5_capability_flow.py",
+      "hash": "3D35F59E9A0B8F3EDC80C5A28B5B3ABFA9019357764BB40D5463FA2F3EDD999B"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_e5_capability_http.py",
+      "hash": "41A6A5138D5836A1F9A9DC729E044DE36D16C2590ED010B8779D2AACB8CD82A0"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_e5_capability_recovery.py",
+      "hash": "9F081A9B90A1D3169783D9A57DE8114B0D1AC2E17B509E0FD4405CD60002D921"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_event_persistence.py",
+      "hash": "E8D0FEC2BA0EAD756C7CA2AFCFF2DE8A92AD03C02CDCC290AC493BC930AF49BD"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_evolution.py",
+      "hash": "488380267B193D79564066E9B94167ABCB3C0A3945BDBD902A60C3ADB72FBF23"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_frontend_integration.py",
+      "hash": "5AB6BCCC215EFAB3693677859A55A1701EC53955C69A9DAFA138C2F526595AEF"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_integration_contract.py",
+      "hash": "13B475B3BEF91727DA3622C28D1DBACA1D9357344438750A803CCBE3CC072E76"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_integration_persistence.py",
+      "hash": "46FA94E26CB64D1210D6AD00FD5CD3903155DCED816B93C16B5EA9116D3878F4"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_interfaces.py",
+      "hash": "8BD983F06D37DD5FA86E949323695CBA6F440058E33F99C70D363FD2337B5A0D"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_learning.py",
+      "hash": "94AC3DB393D2CEFA69393B39CF3A12E59D9B1899F47295D9A0BA86B5CADE4CAB"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_memory_service.py",
+      "hash": "FD2150D027C8698B8B4E97D324E556181351FC1A406C78F9B47363EEF00F13FB"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_models.py",
+      "hash": "9FFA8A75213D3CFF219C568E7E8F261424DF9F547331753FAA572032E6F11803"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p01_sandbox.py",
+      "hash": "6A512DD325E3F43F6A7484AB11F5C31067D252B31C3569F7E7DB363D34082623"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p02_model_capability.py",
+      "hash": "7891F31C90DE3E5CE89F7B55B53C9859EA7B48719824D968AE0A62FFCFF151E1"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p02_model_recovery.py",
+      "hash": "A9E601022C02307198BD43A10491BBC12C0037EED414830B49BFDF2383F18D4D"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p03_event_semantics.py",
+      "hash": "50C952496890BB2D731226E05854330C31D1795FE197418B174265AD72BBBC43"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p03_timeline.py",
+      "hash": "359127B5850C2AB57BF18870F3A4BD73D5D66F99B7DB6AA1A20D1656AA3E71DC"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p04_memory_consolidation.py",
+      "hash": "A72D83929FAD61544CD6360AC40785A699B3DDA69F3440E763F03063FC9D8444"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p04_memory_repository.py",
+      "hash": "7D743B7153B08D612E192F4671213C261C1E14586310933DE1875392C3F19B58"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p05_context_router.py",
+      "hash": "76237BD2CD564458E0B6CB79A680E6CD2195CE74E5249A00FABDC262EBCC32FA"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p05_context_routing.py",
+      "hash": "4D6FC46C5917802DCD4B19285560F424A652B1DE6174498296B8DA9B6012A819"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p06_context_composer.py",
+      "hash": "11F7B5343BF9093E959E8C8B686023C079E71DFD9A92C34206D33E6227F9D794"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p06_context_composition.py",
+      "hash": "BC83EB57599A2B7A5D325FF43ACDEE6FB400933A0888A20C6AE7094D76A9FE09"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p07_contradiction_detector.py",
+      "hash": "B9DAB71E7AD978A732B8F42648486E8C65701A221A5513CB860FAFABBBB7E08F"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p07_contradiction.py",
+      "hash": "EAF6638809C2946E24D943941E308176F5C63FB1BA682099F383B86A4B5B420F"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p08_action_planning.py",
+      "hash": "8F1EB158BB51EAF6E9DD0891CF8210597D8AB571DE41FE383D7B01E9FC3B73EB"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p08_action_recovery.py",
+      "hash": "C67C023BA26AEB486926616C79AD510A711F1B7071D437A67444216141584133"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p09_boundaries.py",
+      "hash": "D2FEE333292971478E4A7486F67F299570556AFA81752AE64609ED93033FC22A"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p09_continuity_core.py",
+      "hash": "BB79EAFDCB64E082F86368FED9F3FCCA63597F07229A94F8FA51498CEDDF9FC6"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p09_contradictions.py",
+      "hash": "7D0111144488A068F3866988368524B45BC5B5D30F75EF7F78B32C32EBD5D472"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p09_evidence_retention.py",
+      "hash": "0BE523CCEB653FA5666A412160B4B5C5855869F1C92C0CA27AC7AB23564BA6D7"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p09_evolution_review.py",
+      "hash": "51C2438F9ADD4F222FA5C77040339593AE672E54FAB37DD5A635D31031D31934"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p09_long_run.py",
+      "hash": "624E362DB1AAEB50A7A09A0D5C08663D883C99B5CEDFABF7B1D88E05896AD72E"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p09_recovery.py",
+      "hash": "115518D45495C8CC56E03A4C00EE530F7D11F8791B9F848C3B5E18A2E8875E4E"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p09_review_regressions.py",
+      "hash": "BE019040ADBCFBE49E7AE6DDF3EB1DD4A0144B9EEE5010CB6AEC29724CD09033"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_perception.py",
+      "hash": "C236AF8F7D22DAF6474D6C3941E83539B9EA50BC8D5E5B4667B78761C85B858A"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_permissions.py",
+      "hash": "3E692CE4E985F4E3783AEDB9AAE0BDF5B4B7DB485D25F3C2A54FD737B77F7B3F"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_repository.py",
+      "hash": "5BB8D39F49404CAA46E64693AB864EEBFBA640A6415903A355D5E1137CA187D7"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_resources.py",
+      "hash": "77611F94E1717251B87685CAB33B0167A67744561556192699FAE13810C33910"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_service.py",
+      "hash": "06196707504D6D04CDEF6876CB57FA3DF0E5B5355C32A7145B5CC923A2772A8F"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_shared_contract_jsonl_runner.py",
+      "hash": "84CB54BDB8219CA439FF999BCFA0F9583C19D5B081DAE49AE6BFEFA7146C9D1D"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_thinking.py",
+      "hash": "9FED29E0DDA208C71D45E6E8314E19B3F414FC936D83FD39E5697E65B40512D7"
+    }
+  ],
+  "files_after": [
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\.continuity-data\\66343283d4a54390b47b4f9ef82d62553faa3a25d9c89fb002cf9fcd626dd1b9.json",
+      "hash": "77CD26E175A22E4078A89597A475CD5BE9BE2691B4A689C01838A370381C1281"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\.continuity-data\\a940747044d25cbbc065d4c65e6418ed7ac50c4ad85cd03fcfa6cb3560fb11ef.json",
+      "hash": "399CE8A82C69249FE5560382319E2D87F198869DE2D918858955562B4D1275F8"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\.continuity-data\\awakening\\cycles\\9206d2b588ec3f039d36855e0fdda3f1d24e66d479ab1ac71a847001996c5fce.json",
+      "hash": "F3C472A94E1E2B4687BC8DD15025CA47592F30A91DBACA90DAF25BE07210430A"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\.continuity-data\\awakening\\cycles\\ad7ca61028768690c65473d3918e757c9966927a44535a964a65b188c973caa5.json",
+      "hash": "D26A8164B0DACD647010D87330004F1D9E42172D31062A8F07293898AF6D9C86"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\.continuity-data\\awakening\\sessions\\a940747044d25cbbc065d4c65e6418ed7ac50c4ad85cd03fcfa6cb3560fb11ef\\14a54f0b7fca71545600cdb46d0320cc4be2659da62bf764d76500cd4531f410.json",
+      "hash": "8D5724FAC3C4B8A665C6832CEA2BCB87773440D788B6A87DBEE599AEA1873304"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\.continuity-data\\awakening\\sessions\\a940747044d25cbbc065d4c65e6418ed7ac50c4ad85cd03fcfa6cb3560fb11ef\\678ae6f20c2099e8c9bd5e8a09aa103a2361ec9e7aa14b442aefd3c74f3b4b31.json",
+      "hash": "693EFE42584B732CB0F3C1388EDCCE0CF144F0866194BF2DD59F2C8A2AB0913B"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\.continuity-data\\thinking\\sessions\\a940747044d25cbbc065d4c65e6418ed7ac50c4ad85cd03fcfa6cb3560fb11ef\\8492dba044e1c1841b3c394d7de7d6e8469138f6263a0633d065dac7ed0bad15.json",
+      "hash": "59BEB2523A89285E3D525B63B55E45016DA53FB9D609F6A13C1428677B66A982"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\00_项目总览.md",
+      "hash": "02119D362B7A1FFAB4EA5ECE4863B0FF35BA8F08CFA1D2921EB4BCD2056EA4BF"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\01_当前状态.md",
+      "hash": "CF029C9AEE539E0E105B5118D1562124FD8B9CF3FB460180869913B7568780D9"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\02_工程路线图.md",
+      "hash": "453C84345A0F0D8B30365986FAAC5F5C0FFB5F1536DF1D3B3A31354A1C384746"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\03_施工日志.md",
+      "hash": "6C76C66C044215356FBC4F4E2DCD6F64C37A8183967F6A2E771F975A017EDAFD"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\04_决策记录.md",
+      "hash": "AE885A4481FF0AA5BCFE13789034B014828170148BFB51772AFC3B43F9F1E887"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\05_核心模块架构.md",
+      "hash": "045A54B852F6EC671A5877395D977BAB31CCFAA7C2263289FAADBB5914122434"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\05_已完成模块.md",
+      "hash": "7E1F4B6EAC31E0B933C2008682B4F1F37B5E6C31EF95B08A580D40DEFAF10AF4"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\06_未完成事项.md",
+      "hash": "9B6843AC51DB6F7D708B953814C4C9E66358DE3C335FA30B92B8D4BDD5E304D6"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\07_待确认事项.md",
+      "hash": "FD9A3EA71562390E3FDC270CC107C0990EC22CB04C2F213BB2FDAAB65BE4C8F4"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\08_未来扩展.md",
+      "hash": "7DB968AC0FA9A600A312A73F9CC498C4345545D6C4008E7B042559DE1C773A5D"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\09_开发规范.md",
+      "hash": "476235186DCF73AE55FAC140D3FF9646775F3A918453E5765A33E53B5AB04B59"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\10_档案修订记录.md",
+      "hash": "49F8C78973DEADFE7F9996DB8DF08AEE6B875214BD62CE8977A7ECC4960F6042"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\11_P00_全周期能力与阶段基线.md",
+      "hash": "7BC093219B9FB8AE0AC4AFB46B50F4C81C0D411D30885855E3F00806447256AE"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\12_P00_规划施工测试验收矩阵.md",
+      "hash": "B5DED9EDFC83BE12945BE063B8A7D302AB186C3BCCE0FA09F97431C7E0CF206A"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\13_P00_档案与测试索引.md",
+      "hash": "2932C00115A4AC069452A2DE41D4198D58D3D39C401216757131C39AE4EA022E"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\14_P00_风险回滚与用户决策入口.md",
+      "hash": "DCD47F98FC7507164E5FDF342C12F7DA97952F09D1698E2971D20875931AFBB7"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\15_P01_测试隔离架构与边界.md",
+      "hash": "7E28D8805BB24CACB7337E98D912FDEBCC21A2DC7ACCF2E7216A7B4E7B1B3559"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\16_P01_规划施工测试验收矩阵.md",
+      "hash": "DD5FCCB61720EFDD8B83E8EBFC2F1320A570F5D1FFDC9AAFCC70C6E10CBDF128"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\17_P01_Snapshot组件与清理策略.md",
+      "hash": "88E6B022C2E5DE3E8241A175AF3E35E650CFB5BB7272682C2767673D7612D584"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\18_P01_测试索引与联合验收入口.md",
+      "hash": "AF0FA7927DB1D008D838503D1AC41FE46A3999330A73ADD00BA819CD2BC2F191"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\19_P02_宿主中立模型能力架构与边界.md",
+      "hash": "78F9873BFA1FDE6BC1B4A80204BE9A23861B9C3D8C7FA35276192299133CC8C3"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\20_P02_规划施工测试验收矩阵.md",
+      "hash": "6831C8779BFE5E1AEA9831A0D424B8F2546ABA0E5EA9A4AC7229DA01E09468C2"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\21_P02_Provider配置预算与失败语义.md",
+      "hash": "F5D74F3575645BC522009E155DC090CE9A2C241B0D5E75F8F70022E2892F13A7"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\22_P02_测试索引与验收入口.md",
+      "hash": "55469F9EB9FB0965AB15E41D67621869EC065BCAF439A5D1C7D47861DF561A4B"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\23_P03_Event时间与Timeline架构边界.md",
+      "hash": "ADFC5AEC68A7086356ED9B24D65D0B6C40363C5CDF7A250A2A2A233D838BC295"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\24_P03_规划施工测试验收矩阵.md",
+      "hash": "4908AAC59797CBCFC19CC1D13FCC051D3D545A6BC959597F1CEAE24671B8CDBB"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\25_P03_时间来源修正撤销语义.md",
+      "hash": "43997D457BB8EFFFCF3B50C319AD185898192324580692036DF68D25B8FA713F"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\26_P03_测试索引与验收入口.md",
+      "hash": "F38A146F3A8785E252487E4C35B19024F2B35C6214A26C980B60D442C3F059C6"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\27_P04_MemoryConsolidation与DerivedSummary架构边界.md",
+      "hash": "ADA3A578755B8637FB39B74B410812F7B11C9F30AE7F4C103D36A277EBED288E"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\28_P04_规划施工测试验收矩阵.md",
+      "hash": "D1DC210BD8FC34344BBB45994671CD20F04E29990E0214F179855A36D348D58F"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\29_P04_保留可见删除与证据去重语义.md",
+      "hash": "9E243D8B7972F6D4B168D5D7857171C627E7E00B35B86D533517D14F3DE1F2F9"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\30_P04_测试索引与验收入口.md",
+      "hash": "1754CCD33B95F3510E19219563B17DB38072F8594303ABB8BB1BC77CA0C137D6"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\31_P05_ContextRouter架构边界.md",
+      "hash": "9E4AC4D70EDC19459108E66F9543998B157869867E6060DAB1351CF239FCBA65"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\32_P05_规划施工测试验收矩阵.md",
+      "hash": "41521484521164A1796DBC76E5EBE18310AC871E31811D04EC81EC493B5B06DE"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\33_P05_权限检索预算来源失效与ContextTrace语义.md",
+      "hash": "6F98D2774DA150B7B4C16CE0F0AD437D939F5287C80F2B386FB8A1A2D7449583"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\34_P05_测试索引与验收入口.md",
+      "hash": "71DA067069BAD17C0D40FB43681CCC3A5722833FDA86B7B12C0DEA9560B46005"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\35_P06_ContextComposer与Authority架构边界.md",
+      "hash": "BBE62B9627CB6BA1E6B3F3872DC8D0E34DCE59E9940C1702E3F46E70000583E1"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\36_P06_规划施工测试验收矩阵.md",
+      "hash": "2DFA9FB4BEA4EAAA443DA5C3D3A7201285A7AF48B4FF6422AA335EEDFF1739D7"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\37_P06_ContextBudget去重冲突缺失与Trace语义.md",
+      "hash": "EECE35F2397F15D4FE62CE215B13EC469A5E449C60B1F0F66E9040C3EF1A7642"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\38_P06_测试索引与验收入口.md",
+      "hash": "DB577B75183EEF3D0D61295AB9F04BB0DF3071491FF8FD4B41E15216DEB561C1"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\39_P07_ContradictionDetector架构边界.md",
+      "hash": "270CEDBC755694626BC3CCC49CB0B8106616843DBFC6AA34B1EE9E27F6B6946F"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\40_P07_规划施工测试验收矩阵.md",
+      "hash": "F9011E17DBE6F419DEE367CAFD6805B54EF4520FBBF02D44D95AFD0F1331967D"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\41_P07_矛盾分类隔离核实解决与Trace语义.md",
+      "hash": "A7623A01CED5FF75FE31B6473F25234283015D7285FA01C44B20B33EAB470272"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\42_P07_测试索引与验收入口.md",
+      "hash": "34A97103F664F8DF568CD7BE880067588216282B33B9717EC14267B9E8B43D21"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\43_P08_DirectAction与OptionalPlanner架构边界.md",
+      "hash": "29401D9D160D43855078CAB1D98540D75E7E6CAA01CEBEAED32690DE836BFB4B"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\44_P08_规划施工测试验收矩阵.md",
+      "hash": "FF0A5DD760AF7C870C4577C22607FC5322628F84D9027392006C33A2D6184846"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\45_P08_DirectPlanner执行恢复语义.md",
+      "hash": "E4B48432D70081BAB56A16016C15DFC8F72DAF515A54CF631FA36BF78E0FEA3F"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\46_P08_测试索引与验收入口.md",
+      "hash": "EB9BE5B0958F4A75DF078613AA244883F865609DCAE0C5F6542A779ED8382C0F"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\47_P09_C1正常运行链与架构边界.md",
+      "hash": "2AFDB5FD63D937A30A4F5783CAD4B8B5A1B10BCF049DF2DEB7A2FCC9A2942EF3"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\48_P09_规划施工测试验收矩阵.md",
+      "hash": "30D44C07E601EA9A4128C8864AEA388220FA3D50EA0ED9B34C9FC00E5CA015A8"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\49_P09_恢复组合语义与施工证据.md",
+      "hash": "FFA5B1C286FAB7BB5437228FE07A6B084EC5ECFFBDE52EFF4221FA4901A813BF"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\50_P09_测试索引与C1运行入口.md",
+      "hash": "E8C2C9F3B0BEFFDE1433DFECC0FEEBE1EC94E5E2F961CE9BD2F82C181A6E23DB"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\工程总档案_v1.0_转换前旧版备份.docx",
+      "hash": "EDEE45DDC422B94B8920E3A747B1135F8A2A96112BA87589D743E5C6CCA4E4F1"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\工程总档案.md",
+      "hash": "56A70B907C6BDD90D53CA12430D652F74C7B1FDCCAC70AC52D1F4427410BB6E9"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\数字连续性引擎工程总档案_v1.0_独立版_新增项目愿景介绍版.docx",
+      "hash": "5CD484F15B9B3FAC549530D3118296F5AA2B0D0A30A7B89C9CFD489AF846C724"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\CHANGELOG.md",
+      "hash": "499BE3EA7EB14352584C221421A032BF68EFCB8DFCBAA1DD30E35712930CE421"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\baseline-unittest.log",
+      "hash": "38FC6833E0F8C0C7F593142DA8736C762BA21CC3BBC6BDF6CF0823F10276EFFE"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\c1-golden-first.log",
+      "hash": "2DBBD70B2A61A6B28C9C3059AAA41195102F9ECFAE15DB98352FBCB44C31F9D8"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\c1-long-first.log",
+      "hash": "24D444F40218F9EFB7E74A120A4DAAE162E970E20674001173242A101E2EAC5E"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\compat-e5a-p02.log",
+      "hash": "81D32F4615455E48B7199DA29B6C17EAFCC354BBC0EC5921A9DDA571534ABBD8"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\compat-p03-p08.log",
+      "hash": "036A0CDBF0E16E1ACC09CE12B2211B8BCA07580501B1D7BC4DC7A8A7E8E87867"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\final-boundary-audit.json",
+      "hash": "B58EFB2AACB6AB6F13CB0611D777841AB14EE0D03910462EC88B1E2B40AEEE33"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\final-full.log",
+      "hash": "7219A0D053FD351AAC83DF9273613978E587FBE47CFD4B9BFA99B64D3D3B3626"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\final-p09.log",
+      "hash": "A81DF11D735F9A9149C9A12A3EF5FFF83EEE3597426A4CF300DED311F9D03FCA"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\frozen-baseline.json",
+      "hash": "4DC6BB06B4CABCA8A3F1863AFE20D0325D87F8B11A0AC1D365196E4A49D33623"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\full-round-1.log",
+      "hash": "FA5634DD56D64D11D241B1D72FB873C7D6894BBDF8E0139CB5D471C724862059"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\full-round-2.log",
+      "hash": "7949CCEBA15D184919443ABEACD70EF88C80BA444188FB916D9C36DD240705DC"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\full-round-3.log",
+      "hash": "A16BA6D1B62C9A9ECEDA76CCB987867808164E22BE9BF9CF655713DC7DE829E1"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\p09-ancestor-first.log",
+      "hash": "FC00B71E88B54D5A21A4F89CD010F41D55A1901A1ED4BA6D9ED6D4C26CD0D818"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\p09-ancestor-fix.log",
+      "hash": "3D936F383D5870F613A4BFD769853D7B1203907D624D3E46CC7A98DBF88AB986"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\p09-boundaries-first.log",
+      "hash": "3201F8274E8A36D7633B79A314640093ADAF80FEA5D029E34153818D90B91194"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\p09-combination-first.log",
+      "hash": "30D9F786143EE0728133ACE0660E54798B1A9FF8634BDEC1D0B366D1962A611B"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\p09-combined-33.log",
+      "hash": "77C46E94255123B48AA3C408A983ACFC6CC5A1DC24BC0EEB000357566609F287"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\p09-contradiction-backlog-first.log",
+      "hash": "8E8666FB1F1A81877F119002DA5F1C068F2D634545606AFCC9364216C8D63812"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\p09-event-composition-first.log",
+      "hash": "38AF3DF2000F78C67F2FA64042EF739A218B8F0ACD9DB851610BCD1993420660"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\p09-event-final.log",
+      "hash": "D4C8F18E215AE381DD514ADDB9581900490B66080937255EF536D0CEB1B8852E"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\p09-event-scope-fix.log",
+      "hash": "2AA35AE616B4C6BF402647DA0D7032BCF58872938B21F6690DD3063506518083"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\p09-expiry-reproducer.log",
+      "hash": "AE68D6D6A09B02A652F9E0D65C5B0F51BEB649DD7E7EA11FECFEBD7DDDE3DF10"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\p09-gate-expiry-first.log",
+      "hash": "FF2B14B7A072927747B356AE814F9ED8035399ED641BF3603A170DA072FA3C8C"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\p09-gate-expiry-fix.log",
+      "hash": "5BA8A694E39BA8358FB24971E9897DEB90DDEA4D587F5F7E2F174B53D50AA0D8"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\p09-initial.log",
+      "hash": "46022B391B8DDE23D88F906E805AFF8C84980635994E4F69AC3337E79B6BB954"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\p09-input-budget-fix.log",
+      "hash": "D02F0FE103281630EFB9F6BC7F85C1C25B90BFA3EBCA4A6F45BF6702684C0410"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\p09-recovery-canonical-fix.log",
+      "hash": "72A5A794A3CC189F7C7EA33FE4F1E69FD46F7831F5767BBAC457A3A08C56E50F"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\p09-recovery-final.log",
+      "hash": "97EADA8EFB57981C97C0131972517C6ED42759AFB047825EB2EBB0F179CA9B96"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\p09-recovery-first.log",
+      "hash": "1DEB1B79BE20253BBE519C6C6C3C67589329BD29B708E7E49113F47C594BEBB5"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\p09-snapshot-fix.log",
+      "hash": "0EF10A30ECD94F1FF2734A4E8B6D15112CED881E0B86AC4CEAEACFD2670AA4BC"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\p09-specialist.log",
+      "hash": "C0B7FD3AEA1979BD10F4B8EAE63A577F130D8160F7B44F19504564CD2EA8D63F"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-01\\compat-e5a-p02.log",
+      "hash": "1D2DCFE0C63F45B2FB0E801742306CF1C92014B8C139EA9D42E98D0DE9D0AD59"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-01\\compat-p03-p08.log",
+      "hash": "47944480C383D19471C46330512ADDDF6878666B574510F9E258B9B7BA655826"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-01\\expanded-evolution-fix.log",
+      "hash": "16B4012FF4B29A27B860D3295C837542D5B0CED5033C0CAB62D6AAB69F467DAC"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-01\\expanded-first.log",
+      "hash": "25D70A13DEE6C4284A3E4B06F1ADD4DAC8B1BD1D77579BE5AFF3F3AEA3C7D58A"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-01\\final-boundary-audit.json",
+      "hash": "96EE43E0495D405A921CF2CA93C552B58669EA4C2CC6B3867376885344E4BA34"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-01\\final-full-completed.log",
+      "hash": "B12F5CA8B31090828910E1C88FA62056A7C7733BE7771CB74B8FC05337BFF26D"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-01\\final-p09-completed.log",
+      "hash": "61969DD1CF51BAA917BFC0074899FBD43D741E50F771FF1D238C264D838D10AF"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-01\\final-p09.log",
+      "hash": "5C3FCB753AA6D259B606651BB68ED3C663F7F822CBAFC5F5940A22358AC0431E"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-01\\full-round-1.log",
+      "hash": "609DD91918B4539CFFFFF2AFD79F44B80F02B97C97EC2DB2ED0692813C99DAAA"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-01\\full-round-2.log",
+      "hash": "FDDD68185638EE95616656391233879B5C9DAB5D1D3E1A24A10C28A47251611B"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-01\\full-round-3.log",
+      "hash": "FBD5F0B2804B7EE7085B222FB80DE52244D54DE7BCA69003FB491A4DF6AA5F53"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-01\\missing-operation-before.log",
+      "hash": "BDC4E5FA3E14D9E2F233C0925E07107F6F0501477F6A45CC1CFE05AD5F860EA2"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-01\\missing-operation-probe.initial.py",
+      "hash": "77D24F2A080C7F8F7F7A4ADAB13D854F83FEF9ACF09D28BF8DEE7358BE100F19"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-01\\p09_independent_probes.final.log",
+      "hash": "95935246C8D7F988D19EA3E133D45F272E364F15AD2AB3B0F9389B84E170A7CB"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-01\\p09_independent_probes.py",
+      "hash": "A63B19620AD5C0EDDC2585EBBE61E764E065F8C7907AB6B07577DD8B3F9A11B3"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-01\\p09_independent_review_2026-09-04.md",
+      "hash": "9B663771D02619C9F59B3120D916ABA70C49FFAF10DEC73A750DE4E89C4715CF"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-01\\p09-specialist-first.log",
+      "hash": "08ED2DBCD823C8CDFFB668863BA1E7832156632BF174FA6109E2C552CCD17AFF"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-01\\pre-final-boundary-audit.json",
+      "hash": "AC426EDF99E2D0A82877C9F49E18FC5018CDA76260CEED8A9BCD98B81E828F46"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-01\\regressions-before.log",
+      "hash": "7C946F6C70EFC12746A28DBEAB0D8C672CB27477118179918604402591340CED"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-01\\regressions-first-fix.log",
+      "hash": "2CC0A58B585414FF5CB5F154B44DB0D63A8C12EA392CE7F79004536185B03BE2"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-01\\repair-baseline.json",
+      "hash": "2C34AB1F7930CE7DDD8CFE019F1453A47DE0C6A3AC4E8CFBE788499984474B3C"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-01\\source-test-regression-hashes.json",
+      "hash": "CB5097DA5305C0756B19794C648FAE23E9F27819BAC0C25E5C853F1347DF9763"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\compat-e5a-p02-byte-fix.log",
+      "hash": "BDF5216B59EFB5DFAF77E8BEB212D9660B8139B07EFEC8D7A00281F5C82CD07F"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\compat-e5a-p02.log",
+      "hash": "C7DF33AD14EDBE6C13163ABBFDCDB9828353FD1EEC402F4C73D2253D50E39B77"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\compat-p03-p08-byte-fix.log",
+      "hash": "0D48ED0141DABD483C9206EF6FC5173E83BDF571F2FD661A9AF999C9EEF4722D"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\compat-p03-p08.log",
+      "hash": "BDDA8CC61824BDC840B309BBCCEB1669648C9E0F4C472643D3B70948B2BA6390"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\evolution-before.log",
+      "hash": "543D9B0FEA38A3C82B1278E0C3FBF2AF8FC90A58EA1D97845E105E9276E86B02"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\evolution-first-fix.log",
+      "hash": "67850119BAA7FFDD19AE4850A0B7CB20FACC1B9A2F9235019EDBB1AF7EFF95F0"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\expanded-byte-fix.log",
+      "hash": "7EEB722E07A84E923470CFFBF4C98E0D43EBCA470CC3F9A3F60A70D94D4A1E0D"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\expanded-first.log",
+      "hash": "73F7B655B54333EDABC0C881C85AB84C6F1BA8474136A781E4B5F2068060C7A2"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\final-boundary-audit.json",
+      "hash": "AC52E2FA3FD25330E84EAF93E3D3314621D38BC15888A5FC24231430537A5BF6"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\final-full.log",
+      "hash": "F6742CEABDD05D2C22E2F40597C1F4D61B721AEE2D2FE91C36DF51BF9AF1A4F6"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\final-p09.log",
+      "hash": "57C9F353F44BA27E11EDABB2EA4B39813347EE57D5A545DBF85BBB3417CBCD84"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\full-round-1.log",
+      "hash": "ADE726CAAA198FD4A615208A67F5E2158523EDC767A412C9F6055352B4CAE755"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\full-round-2.log",
+      "hash": "4054F0FBDD50E542A50989557842DCE618E6F8DC3C1F8ABE4D7D96DFD060C63F"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\full-round-3.log",
+      "hash": "0019934D6D24E1D3D75C1BCE26BDC9BE31778766D3E9F39B60E4B2698B49459D"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\original-16-byte-fix.log",
+      "hash": "A3A6B4032EB2C921EF7F4090E0A826B4F9180F8C4BF93C228B5ABF3AD36628FD"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\original-16.log",
+      "hash": "4B117094408A8731B7A809EB979DA47CD35AD28F6190FD9DDF305F360E6DA5F9"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\p09_repair_independent_review_2026-09-04.md",
+      "hash": "B0B7938629831DB5EA12B2593E5C6D4D6444D1D0B4B2D3D02B0DE0FD0C93DAF4"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\p09_repair_review_full.log",
+      "hash": "EDF8BE795B9E831E91C446A80882A0007C765A14A999CEF4C46EF8B11834FEE0"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\p09_repair_review_probes.final.log",
+      "hash": "9376A83120B828934B68820917FEA70E2C1C265B6AA98A4548FB03A42BB1C7AC"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\p09_repair_review_probes.initial-path-error.log",
+      "hash": "60E11ECEBE6E6600EC5F51732E0A91743447ACC39DE036402DCCDFD51B180951"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\p09_repair_review_probes.py",
+      "hash": "D3065EBFC1EFB641A106D91FFE882DDFB7C89F8402FA31C48C2922B7EA2E9889"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\p09_repair_review_retention.log",
+      "hash": "56122AEA4223C8161ADBFACC5A005F53FBE88FC23B959DA886DBE991BEA19A42"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\p09-specialist-byte-fix.log",
+      "hash": "360D6BB6D5B3D011DF1A3F2F735653110B404DFE2043010132AD2E957C25FB82"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\p09-specialist.log",
+      "hash": "DAB3A31A32F0900EF059E5488ADC6911DDEEDDFF323DA26A50331928F2973F76"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\pre-final-boundary-audit.json",
+      "hash": "12ED6235159CAE900412A802C02B84A588115E22D63E9B217EDD1458478798DC"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\pre-terminal-boundary-audit.json",
+      "hash": "47EE4346D496904E130706A2220F485B10B8081770182778E5116074E27BAE97"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\quality-byte-mismatch-output.txt",
+      "hash": "6172257D284128C21FB324BF2C3B1B173FBA9779ACBD0B0D3A4F6911FB8269E4"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\repair-baseline.json",
+      "hash": "B819BEC5122D1702584D626375E6E862913F38DE34D181C84FCBCEE6A88EF0BB"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\retention-before.log",
+      "hash": "BF8E126D2222C41A9C0EA09F3884AE11F3E665375C0A7CCBA6EC845712022E07"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\retention-byte-integrity-before.log",
+      "hash": "7321CE65FA97EBA566E9C552E03C3044F786ABADF3B687290B04F592CB9DAA2E"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\retention-first-fix.log",
+      "hash": "049278E9690670C191A518E5BA232D06E36FF4C72B648F977003AE567C2116C3"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\retention-regression-before.py",
+      "hash": "0558FE67A016D16CC784363CAA068AAEC20E362B51D49A33386AF2A07A3BC5FE"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\retention-samples\\byte-fix-child-failure\\metadata.json",
+      "hash": "062B7EF63DF283D1E8683F941232907E3AC13A3A782F05676E3306C137977BDF"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\retention-samples\\byte-fix-child-failure\\segment-0.stderr.log",
+      "hash": "7CEE0C40645111AF87332549BC9002B227B9F07FE3B599D5CBCDAA5475F0F4E0"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\retention-samples\\byte-fix-child-failure\\segment-0.stdout.log",
+      "hash": "7BB1A996D4F45B185AED97790E8BEBFE849010EAA30A15D51EAA52B9D337EE1D"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\retention-samples\\byte-fix-parent-interrupt\\metadata.json",
+      "hash": "70D6DEBE8A9C713B416147D38850992C8E0378A3C71955A0E6DCB4EB5BACE544"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\retention-samples\\byte-fix-parent-interrupt\\segment-0.stderr.log",
+      "hash": "D7F79417D484E0B991CE8F977B141387C3C627FEAC2BCE3345A033BE37578B55"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\retention-samples\\byte-fix-parent-interrupt\\segment-0.stdout.log",
+      "hash": "C06349C5ABED2E799EB203F614B3048D39BF3FFAB1D476C5752249D5BC6048B4"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\retention-samples\\controlled-child-failure\\metadata.json",
+      "hash": "DD287AE5F53F5770CDB9EC5DFD09F2C7A53EDBA2159EAA7567FEBB3880E6C1E5"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\retention-samples\\controlled-child-failure\\segment-0.stderr.log",
+      "hash": "0B7322E8191267442BCD2C0BCF0F2345A5F69CFDECB9ECBBB2697C47AC0C2B86"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\retention-samples\\controlled-child-failure\\segment-0.stdout.log",
+      "hash": "CB88BD86F6095308E01A3E75871432E6001CBF32893D01A50C3491BCEDFA0ADA"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\retention-samples\\controlled-parent-interrupt\\metadata.json",
+      "hash": "B4F41B6D0086A3D43CABF78EFF19205E7B544053D2503C8B77ECF7CFD51DED8B"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\retention-samples\\controlled-parent-interrupt\\segment-0.stderr.log",
+      "hash": "D3F751CB9E7F30F1E56C603898673009096345F1E3B386B1FC0278712F9EF3C3"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\retention-samples\\controlled-parent-interrupt\\segment-0.stdout.log",
+      "hash": "15327C1B65328F18DCB8284DA5B6E2B4932D4F6EFA4EB713CCD69060A212393E"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\source-test-byte-fix-hashes.json",
+      "hash": "8075CF42651195D2930E3007044B28FAA13206688D44FAF3CA19197F0F93B3F6"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\repair-02\\source-test-regression-hashes.json",
+      "hash": "8D437BD79B31EB20FD397944BD46B6AA99E6717DC1B87B4D3639EA6B2FD74FAC"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p09_evidence\\source-test-regression-hashes.json",
+      "hash": "F45FCFC5E1194CFE1F9DB9DCF0DB740DC57E23BF447B5B5EBA8AD1DF1F6DBBBF"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\pyproject.toml",
+      "hash": "40703A155AB1C1626901D1B61363384E49B5C64E58303CC110FE499FF6C25419"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\README.md",
+      "hash": "A978626A463D62B6905D03F31C232D4BF2E69488960CA3DC340A9B6DA7ADABB3"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\__init__.py",
+      "hash": "BA26CE64B9DC5FDAC0954BBA04D08F92693C2223FC423739A875E62C21BE884A"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\__main__.py",
+      "hash": "2CDD23D4F5CD6C3B3E4CB690AD16D560637767B9CA5B2A3CF129FCC0A5EBC82B"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\cli.py",
+      "hash": "7F3DB1990C8EFF0E50F4E7808505746B545D2DA6DC3E684E93C8E986F80EBBED"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\__init__.py",
+      "hash": "9CC04F6476BE412979AB0360B25855BC51AF7397D610D74B2C087C50D788C0AC"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\action_capability.py",
+      "hash": "E73F1B71BB4D2B14EB03A7CBAFB71F3069BF34CE2224F17C3DA014D1B94AEC60"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\action_planning.py",
+      "hash": "89CAD01523E89A72400AA50DA6A89629C5358465D4539141976544DBD08A83AE"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\action.py",
+      "hash": "2E4151FF0F492EC3B8FA5F96182438C83755D81C1CD82759ADB367591591FAC2"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\awakening_rules.py",
+      "hash": "BCE519D994867B1D72ADE0E58897D760BC9A800A4D3E33A76FB1E2CDF71069F4"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\awakening.py",
+      "hash": "7ECEEC49DC52E2F096AA474B008FCE8EFCF42E6209CFD100704C622C0A802C67"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\capability.py",
+      "hash": "4872502542ED538863E096EF3EB98254C190DE10350E088BC74EBA0ECDF83E6D"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\context_composition.py",
+      "hash": "90F511726EA18B27951BAC73768560514F5365B06D8FAED9E2BBD8F15A1C662B"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\context_routing.py",
+      "hash": "FA5596DCA9698A242E89F25C7CB0C2573F0EE5BBADB9C27255B52E589206BA17"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\continuity_core.py",
+      "hash": "094B9602208E4B95F16BFFEAE731D6D3C7070EC80E0F6B55A3ADF95FCE5A1FBD"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\contradiction.py",
+      "hash": "870ACF77F63C28A9919334FD2CACD59B5288C385D50285FA29D663EC41729375"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\errors.py",
+      "hash": "A89023BA3BE46A83F99CB81A149D1DDD2E7FC25C593F4B282FDE73BA2BD89186"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\events.py",
+      "hash": "0342F776802854BA726B3EBC68F57F1FC137B209A002584F2DE8B191B41D46BA"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\evolution.py",
+      "hash": "96CF5BAE31AF55A06DEE5D266946CBE4C8090B3BF2F4BEF96D04F62F0B84A7F1"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\integration_contract.py",
+      "hash": "FDB22CC00249BAC423EBF08FE1B6070E8CAC0CAABE61B87DBB9C6C11285EF747"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\integration_hashing.py",
+      "hash": "956B9BFD9C73133C0280CB9332384F523CF007B3844C50E2449A0B6FA8A3F11D"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\integration_results.py",
+      "hash": "0AD9099433339615B924B2828A5013E439DA9F3B251C696A451BD65BF4D02D96"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\learning.py",
+      "hash": "7F9FB4DCFFF0B2D252C1CCC62AC700AE30EA8B0ACFCA6B95F9528B2DC22FAAB7"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\memory.py",
+      "hash": "676CB216D3DD6D38DDDC9D3F419384C4446F85F9928A928BCD3D0BE33BDECAFC"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\model_provider.py",
+      "hash": "9E33FD09968BACE1C77596E4D3570A1814668F5EB4051FF9D702E12266A5D823"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\models.py",
+      "hash": "2BEC483CE67CA6D4AAA79B66A44CC9F5A5382FC8648C4B9AF65CC0C551269D24"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\perception_rules.py",
+      "hash": "7FE8108FD751C9FDD6F3B672A2B3DDC9B0E9BACA11B2BFCA507D0C1BF4FBBF7B"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\perception.py",
+      "hash": "499CD2990B8A5BFE052316E5145A98EE71850D37CBC559065D5186F6ADD6673A"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\permissions.py",
+      "hash": "7FC518E2EC10B653EB8064D248755D42DEC0871D6BFF6DEE0B60AB7D2FFA93D0"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\resource_policy.py",
+      "hash": "9EFF68B5BD2EF239C1F306B0D43F8521EB86941829FC621EF1321D515B1AED34"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\resources.py",
+      "hash": "46CBE2140BDBD3E34D246B2A3BE35B65EC0CCE7ACAEAD13A65D5CCDA549CB815"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\subject_binding.py",
+      "hash": "568A724B92BB24C9A4E4AFD274299AF37BE45511D12AC485C1A247B0AD3E87AF"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\thinking.py",
+      "hash": "29D39A8D4A1D7F2B570FD452449C52967EB2ED0E0F326FAA3AADAD45970A8408"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\timeline.py",
+      "hash": "ACBA8FBB7F4C5676606A6C9F0A7A66B99650B1C257C32818287379575266A5B8"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\frontend\\__init__.py",
+      "hash": "D83F19E0508818C595EFB980E62D82BD8AA2B51B29A1A497B04AED2E4D6FCAD0"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\frontend\\__main__.py",
+      "hash": "E6D1E90A444AA7BF84B80CF8CA6E8D755DE24FA5E9CA65EE9DE6FD1E0230ABB4"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\frontend\\app.js",
+      "hash": "18265854472DAE7B52F3048D0A539619FFB2D1525C37070F93AB8915C8D44081"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\frontend\\client.js",
+      "hash": "E0FC0CD17C3693F37BC5E7718BB04FD5A5481878C2C0E903C3CD6BE401C25548"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\frontend\\index.html",
+      "hash": "87AAAD4C6F9F242D48F3C1F6ADACD2CAB5738437D1B1067868FE5F124C924B0B"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\frontend\\styles.css",
+      "hash": "9762909A4C01AAFBB404F73B0BEC4E5B8455575061697C043EBE3D66DC693B4A"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\integration_server.py",
+      "hash": "1AD50DFCD662FF4E28E74F0347BE946584AE063F0F7CA05192453FA5E16B941C"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\interfaces\\__init__.py",
+      "hash": "54565F8093E65116139496461B82F529A8E3179CCFA90BD8816E4BE85DB5801B"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\interfaces\\api_service.py",
+      "hash": "1A2D6F3CD5D5B1AE40C5DD081332B27BC68349F5CA3D0667063B3011BED12979"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\interfaces\\capability_schema.py",
+      "hash": "474DE9FD9130885E7DDD7607AA361BFED5BFB64CFBB2DC7D2B7A5103CE9E6701"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\interfaces\\contract_test_adapter.py",
+      "hash": "1C9B988FE875151570AB27215099C7F5CA0AF881AEE99F1139C57CC1768A3043"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\interfaces\\core_views.py",
+      "hash": "2B6EE55A0E08DDE0D015CEBC9EE49FB2A581A1F9E655F79E93834CBF93B24092"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\interfaces\\http_server.py",
+      "hash": "15C7843FAC6435FA3AE9194604F7993DD3EAD2C67401653C2F3446DD17877786"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\interfaces\\integration_adapter.py",
+      "hash": "3A6C4CD987779D3712242993BAAA4C460A30F06A5E7A30FD11419A2DB240D487"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\interfaces\\integration_config.py",
+      "hash": "2E06BAFD253C09127FA3A3B537271F84390C57D73C5F3A93909505BF97121572"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\interfaces\\integration_contract_schema.py",
+      "hash": "136765997F4314B8E4F5FB1F353CE90A6278ADE0B16E1E59FBEA349670C11550"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\interfaces\\integration_http_server.py",
+      "hash": "131DA59540AB2F3F0403F939D38528D6A964412D05643BBF7DDAC47FFC418BA1"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\interfaces\\local_frontend_app.py",
+      "hash": "9649514D102E905B07EC7C2DF05CE6E5BEBFB94203F8FE587EC851CC9CDCD70D"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\interfaces\\local_integration_app.py",
+      "hash": "445638FCED092E77B3CD600DA2348061B269C94AF516FE935188B610E369C1EF"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\interfaces\\local_model_capability_app.py",
+      "hash": "51F18D21BB2FF5171109134F71CA05DB72D91EF01DB80D01C85A3C347218AEF4"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\interfaces\\mcp_adapter.py",
+      "hash": "2D4D01F44D10F2BCAC348FDB82E56BC8BF57591DAD814E80B0B02203377E4A6A"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\interfaces\\models.py",
+      "hash": "BF79E56545CF3CA726139130CC827DD7CB258172AF0EB3930435230AB3164056"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\interfaces\\ports.py",
+      "hash": "938737F18341596802EDFE953192565BD71090ACCE15997225D922236B15E85E"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\interfaces\\schemas\\capability-model-output.v1.schema.json",
+      "hash": "BABDF85C2AA28609D2EB16178AB0A57E3B648F686AB05DEF0F86DCA898526426"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\interfaces\\schemas\\capability-request.v1.schema.json",
+      "hash": "093284BFC70D0BD5679B34C68D4197A49103680094443AC9D7D6550F9A44E949"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\interfaces\\schemas\\capability-result.v1.schema.json",
+      "hash": "3359228260EEB5A48F52C2F7CA20BF4821705AA7E50ECD41973D495E703A7001"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\interfaces\\schemas\\continuity-interaction-request.first-round-v1.schema.json",
+      "hash": "18D9656CF4A3842CC55B18411593DFC48A79522AC742B64D83A6FA17D9ADD656"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\interfaces\\schemas\\platform-fact.message-version.first-round-v1.schema.json",
+      "hash": "2CCF8FEA7DC69CC1D89E5DA5AE8F798F3C170285E61A5D4191D3CBFAD1A8746B"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\interfaces\\schemas\\platform-observation.message-created.first-round-v1.schema.json",
+      "hash": "BC3AAFF3D5A928975E9EC434A74D05C7F18BFFAAA1BDCA46DA78142552A98ACE"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\interfaces\\security.py",
+      "hash": "40D7F863350E1699DBB460660813ADBE4F9CD590BBABE94FAE28EB560DC039C9"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\interfaces\\skill_adapter.py",
+      "hash": "72AE15B7AD8FBB94DBDFC3D21EC153667CDFC264D13685189E707CBD1FA65EDB"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\__init__.py",
+      "hash": "B4A521743F9C9F4A794B37823F32018E6D7D1491BB38EE7754E255C08799D221"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\action_evaluators.py",
+      "hash": "F7257F9CCD37FB0585B28EC31A3D0A872B02BCD7CFBE0E0AD16DCD0544B038AE"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\action_evolution_service.py",
+      "hash": "F310B8EC714FC429564A47FFCF58BE05910893464DC1EE7D7F516136119A9EF2"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\action_permissions.py",
+      "hash": "F8515A6774477DC0FA62C453D973192071FCAB0971C6CEE91436C0EF45D8A9BD"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\action_planning_service.py",
+      "hash": "7429A228730177353383519FCBC677C27BC8EFD65A181F553453BE3B0937821F"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\action_ports.py",
+      "hash": "809481077A3EBDD8DFBBB3C12C8AE36659DDCADAE7F1FFFD95DB92DC24B3FAB4"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\action_service.py",
+      "hash": "72A67F9B94D80E27FB4636573B5CE87008692063B2C0D7B894E805C80C73230D"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\awakening_service.py",
+      "hash": "0CBF3489DC0E2822B95376BF51D2994150563F23CCA7CF53808B0B0E38A9904A"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\capability_contract_validation.py",
+      "hash": "B81C4E84C7DA5F75293E1E31185986A4720283AD94D883D914F76C260A32DF10"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\capability_coordination_service.py",
+      "hash": "A343B224DB5E4AC8FB4D3D7350811656D2D21ABC27A20B0BB6BEAE49E3894082"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\capability_ports.py",
+      "hash": "9874CE9813D9597FA840DD751FE6971DC5946CFAECF3B13F841DCBD43113316E"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\capability_result_interpreter.py",
+      "hash": "63FF86FBE53700B7E78C5F3C3C5A471211083D7C8B70967E9096F21BB06DEB52"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\context_composer_service.py",
+      "hash": "0D75A5CD6AEB8C33919DE50598CC4B4820CAA6224766B8FBB51ACE41B2A1D199"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\context_material_resolvers.py",
+      "hash": "F0F39F5718CF85CA68ED5E58FF8734BFD301A3BF5F4864A1E2BF7F99B19360D2"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\context_router_service.py",
+      "hash": "85BF9F21E29EEC80F7354F75D2715899847BB46D7057A3097F91CB3C6109D3C3"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\continuity_core_runtime.py",
+      "hash": "26EC10C6A56D36D1DAED3080AABEA3AD9B157F4DA031D86AE41B312598B52566"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\continuity_core_service.py",
+      "hash": "548C2232CCE908BC24099108D877CFBF9E8C13F379A26518DDBB8C793C60F26D"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\continuity_interaction_service.py",
+      "hash": "CD752293C453197877A21113B321C0DC66B4257AEAD23ACE4FFAE38E3E80ED96"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\contract_test_bootstrap.py",
+      "hash": "1C42372A69BE901D995DA8A6DF189AF9FE99B4C43F7E443CE5E3C9D2B3CD1221"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\contract_test_doubles.py",
+      "hash": "826ECFAE6B06993F8A1257B120B396C8FE4CD7A46DD2FFAA61D0AC1789BFB801"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\contradiction_detector_service.py",
+      "hash": "823A5586FD16301C08A07430AA9B8B768176D71CF9E91908502838B24D54CB6B"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\deterministic_integration_providers.py",
+      "hash": "3C05FF52DF329A7F5C48EC48B33433C6F196A57B6BC09423ABA6E29C90BE5AFD"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\integration_contract_hashing.py",
+      "hash": "BB1E72CAB29DB47B222FFBE9285BF6DB6A97BE869C21EECCFA324D065E6EBEAE"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\integration_contract_validation.py",
+      "hash": "F60632A382A161E70084E1BAAD429C8171DF33814E4D49828BB374B83FA0F026"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\integration_ports.py",
+      "hash": "872E6FFD4D35CEEEFD389649557A26AF1ACFC5D89A277792893A66D6F2F41E75"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\integration_result_factory.py",
+      "hash": "7FA194E89313165DB550114952D639949D6F37DE16089A8D74BEBDDF55AA7796"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\learning_service.py",
+      "hash": "DC0BB850F160DCEC311A9047605C237E804040013766B282DA30436B0A059777"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\memory_consolidation_service.py",
+      "hash": "9DEB9BBE8ECC3599795997141CF80284A56B6CF41E1D6BC0CAF77E92028E6009"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\memory_ports.py",
+      "hash": "AAA25E84692487AB787B6578A9888BE1FF6296440D4573D944DA6649B713CE57"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\memory_service.py",
+      "hash": "6732D5B8F8ADCBED32460E82A53158D619E78B49C1ADFCAB37C5FE5D31A8F204"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\model_capability_service.py",
+      "hash": "F4BAB5850D6CB8590CD36F4EAD143173791781527E0BC38083EB681253997188"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\model_profile_policy.py",
+      "hash": "AA49EE4B40A381EFCF149FE3FE5C3D7E64F765D772D9BA672CA5DD2748738027"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\model_provider_ports.py",
+      "hash": "47A7422DC4CC7147B002E5B2857E015049A2A5ACD415642F1D9419C8DF5E90FB"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\perception_service.py",
+      "hash": "9F4BA03337132562647A05A4C645001709514EAA4419E3964CA33BB6F899BC57"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\permission_service.py",
+      "hash": "00B03B734E5CA282B0ABD383BF8861399579E414B6E0272B48F79A6B2C8F0239"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\resource_aware_wake_scheduler.py",
+      "hash": "9BD44149F8F79806B7FBDF7844A53F3CF95CF11331428BD8C3B3E3C1A478B8CF"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\resource_manager.py",
+      "hash": "0EF3239704582140C43E7073F464E988600E2047E261E73063F64E5B3B5D03DF"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\subject_state_service.py",
+      "hash": "35F1CFFFBA74A50B21F34BC5D2405577B56A3041F80F71CC6F0A4146351BDA14"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\thinking_ports.py",
+      "hash": "DC95AC821034B1292CA62D14EE24DAEC3437F6C72B22D496AA17D8595AAE9AE3"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\thinking_service.py",
+      "hash": "C95FCC55228E72DDC306A2E00621538AEE04C84A5D575C4CF816C585F5FA5381"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\timeline_service.py",
+      "hash": "5608ECAEE368AD3A226E3006ED25114B033C43915DBAFCAB14D8296396016F7A"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\user_interaction_service.py",
+      "hash": "EC22F2247C52D63778C81717CB3F74C1AB3949F2E49B4856B716846B5A6219F4"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\wake_perception_thinking_action_service.py",
+      "hash": "7B39106F193DD5FE1303C93F51BD28B22B85DA11DC593042A6B0F34A345E2131"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\wake_perception_thinking_service.py",
+      "hash": "D8BE7D1FFDD9A4A9078291835DF3B2011CDD59CA07D4AAC501023474EE62797D"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\__init__.py",
+      "hash": "469CD2447EFB6BBB1925DF581E997FF8EE3620E5E5CD51EC930B7057837C0F9C"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\base.py",
+      "hash": "9856206DA18558B8957BB8878A7453E405A549BDA1EA8369F1B1C73BD139D1A9"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\in_memory_action_repository.py",
+      "hash": "916A21E16B687DD3639E27007112CA74F02C20D7EA69A2ADDD4983A64F9BFD70"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\json_awakening_repository.py",
+      "hash": "AE550F6D691048A50861512F091C8CF7EBAA1FA7A133C82522620390EDFC5C13"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\json_contradiction_repository.py",
+      "hash": "1BE8DD53295A4375F72EE28C4BBE3CE24A0895C626C7BA76375B22803BC983E0"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\json_integration_repository.py",
+      "hash": "0D06FA82847B593BCC266672F6FE2AAF16B104D017ED6F6EF78D2AD410EB4512"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\json_learning_repository.py",
+      "hash": "D1A572078268B2F541236FF3E5807A770B55BBE48D9A4297D0D8960D3C3B3529"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\json_memory_repository.py",
+      "hash": "62E7AF821D696571D7187C21A3DDA8C18E5960AFE5B87BFCE8A66EEE6D646FB4"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\json_model_execution_repository.py",
+      "hash": "03B5FBCC1659E8C0E2304B7730702B54D02B3F66D2E5A42DB43A34CB2D2AB1BF"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\json_permission_repository.py",
+      "hash": "9C873ABE17E267915C32A2F4F7F3D86BEF15AE6B1AC7093AB613BE7F8C47964F"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\json_repository.py",
+      "hash": "0122DE530400314E89604A74996D7CD47C38FDA5937AC8404E94DACEBC169786"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\json_resource_repository.py",
+      "hash": "3BC2C2CF1213488DA298E8C75A44D25C5934AB22816863979B8E15A57EBF9ED0"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\json_subject_binding_repository.py",
+      "hash": "235F71973BE5B8F02CFC947253140F2F7358E9D83E9310EBE6BC74776F600E6A"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\json_thinking_repository.py",
+      "hash": "32AC37F931C14719FE3E389C74B89DC70CB417DC0554C7CB05CDF8229A9A3DF2"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\testing\\__init__.py",
+      "hash": "807737ED37C3ABA5B98256723FCABA5AA35D1448E32DA6E499B28C399418A7FA"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\testing\\c1_snapshot.py",
+      "hash": "3B2FC18ED05C55C41DA602AEC08ECED3CF8DD3C0F4B57DC8488499E96FA645F2"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\testing\\fake_model_provider.py",
+      "hash": "2D5A57BDBA6500804956364BA09FED627AD6A01759C6B39114DB49DCF9E3B461"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\testing\\interaction.py",
+      "hash": "AD4C037F9CF5911FB4A5C3DA5406FFD4DFF5368D05534C22BFBCF2BED3D70E04"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\testing\\models.py",
+      "hash": "A9B51CD2D45BBC7D7384986EBA0931C386682B90FB30882DA448E384F3CA83ED"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\testing\\p03_timeline_fixture.py",
+      "hash": "D31804F5C70BB5C4B54A8169509F969BDE899A88953C487560DAD122FCC960D7"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\testing\\p04_memory_fixture.py",
+      "hash": "4D8F28EC126946DFF5A3BFBC9B25272E9EEDF2945DEF65EFE17A810003E0C11A"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\testing\\p05_context_fixture.py",
+      "hash": "468C0E4AA16CC5FC5B6671D4AE70E7C3FEDF99D15ED073B193054AA0F551C264"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\testing\\p06_context_fixture.py",
+      "hash": "E84CF77CB5AC06754947A909B18B540384B8AFB3EA121279EC1F9919A0637C47"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\testing\\p07_contradiction_fixture.py",
+      "hash": "60228CFC997F3430C9063FCA70D0B33A7184C20B98F1E3B2DA759D1F8406BEC0"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\testing\\p08_action_fixture.py",
+      "hash": "1C821E16BEB3140A42776F893AFDCC8F239A3D3B3316A895EE68D3A41C110E80"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\testing\\p09_core_fixture.py",
+      "hash": "E8A600FB12EF90F9616F1D4BBF6AD6B5D55C192EFD8E7EA47C29B49482DCA984"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\testing\\p09_core_runner.py",
+      "hash": "49F5B19E22B02D82EB96E4027597ED41155AB256F75E5258EB8B47637CC7799C"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\testing\\persistence.py",
+      "hash": "84FCD2B7C5EF1226E4BF182AF00730631F2D649E91A39F4FD37942A993663CCE"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\testing\\sandbox.py",
+      "hash": "514D90634A745BDCB301AC5C2D7D463F62C042CC1E800276898A6C0BF7F07CF0"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\shared\\__init__.py",
+      "hash": "7875421ED0EEABC80360CFFC06771B34D995E171AA923650147622E905F71A65"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\shared\\continuity_contract_jsonl_runner.py",
+      "hash": "DA7B74899645078FD15A299112BEC41AD63E8366DAB16BBF323AF1CD258D7AF0"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\shared\\contract_runtime.py",
+      "hash": "1DF4E88298D89990ACF446E5E96DA6EA51B7D21CA0B2D857ACD5CCACCFF05666"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_action.py",
+      "hash": "7F490F59D4EBA1B600FE54A029FD7F7B0DEBEEB8EC1B237D86558D9D228F7937"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_awakening.py",
+      "hash": "A45BB10D5F2CB4F7A395D9241757787394A2B17ECC573DB514736E4E375ACCE5"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_contract_test_adapter.py",
+      "hash": "C9F8557267BEE31C1A1D9FAB7CD938C36EB70CFC4ECB7F05B9CD5A5F84CD1B90"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_e4_crash_recovery.py",
+      "hash": "2DB90DCAC3E2EC5FFB95C1F1A4541F84C83C609E47EDB7431A2FC2954D87CB07"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_e4_integration_http.py",
+      "hash": "EC0C99EB876FB65B3C4945764F50FD8735D25981C8DD6658DE2E209115129483"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_e4_local_integration.py",
+      "hash": "58AFBC1217523ACDB9ED5D8B5A643F335947EF411EFD85D6A809F35188A54259"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_e5_capability_flow.py",
+      "hash": "3D35F59E9A0B8F3EDC80C5A28B5B3ABFA9019357764BB40D5463FA2F3EDD999B"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_e5_capability_http.py",
+      "hash": "41A6A5138D5836A1F9A9DC729E044DE36D16C2590ED010B8779D2AACB8CD82A0"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_e5_capability_recovery.py",
+      "hash": "9F081A9B90A1D3169783D9A57DE8114B0D1AC2E17B509E0FD4405CD60002D921"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_event_persistence.py",
+      "hash": "E8D0FEC2BA0EAD756C7CA2AFCFF2DE8A92AD03C02CDCC290AC493BC930AF49BD"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_evolution.py",
+      "hash": "488380267B193D79564066E9B94167ABCB3C0A3945BDBD902A60C3ADB72FBF23"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_frontend_integration.py",
+      "hash": "5AB6BCCC215EFAB3693677859A55A1701EC53955C69A9DAFA138C2F526595AEF"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_integration_contract.py",
+      "hash": "13B475B3BEF91727DA3622C28D1DBACA1D9357344438750A803CCBE3CC072E76"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_integration_persistence.py",
+      "hash": "46FA94E26CB64D1210D6AD00FD5CD3903155DCED816B93C16B5EA9116D3878F4"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_interfaces.py",
+      "hash": "8BD983F06D37DD5FA86E949323695CBA6F440058E33F99C70D363FD2337B5A0D"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_learning.py",
+      "hash": "94AC3DB393D2CEFA69393B39CF3A12E59D9B1899F47295D9A0BA86B5CADE4CAB"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_memory_service.py",
+      "hash": "FD2150D027C8698B8B4E97D324E556181351FC1A406C78F9B47363EEF00F13FB"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_models.py",
+      "hash": "9FFA8A75213D3CFF219C568E7E8F261424DF9F547331753FAA572032E6F11803"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p01_sandbox.py",
+      "hash": "6A512DD325E3F43F6A7484AB11F5C31067D252B31C3569F7E7DB363D34082623"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p02_model_capability.py",
+      "hash": "7891F31C90DE3E5CE89F7B55B53C9859EA7B48719824D968AE0A62FFCFF151E1"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p02_model_recovery.py",
+      "hash": "A9E601022C02307198BD43A10491BBC12C0037EED414830B49BFDF2383F18D4D"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p03_event_semantics.py",
+      "hash": "50C952496890BB2D731226E05854330C31D1795FE197418B174265AD72BBBC43"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p03_timeline.py",
+      "hash": "359127B5850C2AB57BF18870F3A4BD73D5D66F99B7DB6AA1A20D1656AA3E71DC"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p04_memory_consolidation.py",
+      "hash": "A72D83929FAD61544CD6360AC40785A699B3DDA69F3440E763F03063FC9D8444"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p04_memory_repository.py",
+      "hash": "7D743B7153B08D612E192F4671213C261C1E14586310933DE1875392C3F19B58"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p05_context_router.py",
+      "hash": "76237BD2CD564458E0B6CB79A680E6CD2195CE74E5249A00FABDC262EBCC32FA"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p05_context_routing.py",
+      "hash": "4D6FC46C5917802DCD4B19285560F424A652B1DE6174498296B8DA9B6012A819"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p06_context_composer.py",
+      "hash": "11F7B5343BF9093E959E8C8B686023C079E71DFD9A92C34206D33E6227F9D794"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p06_context_composition.py",
+      "hash": "BC83EB57599A2B7A5D325FF43ACDEE6FB400933A0888A20C6AE7094D76A9FE09"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p07_contradiction_detector.py",
+      "hash": "B9DAB71E7AD978A732B8F42648486E8C65701A221A5513CB860FAFABBBB7E08F"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p07_contradiction.py",
+      "hash": "EAF6638809C2946E24D943941E308176F5C63FB1BA682099F383B86A4B5B420F"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p08_action_planning.py",
+      "hash": "8F1EB158BB51EAF6E9DD0891CF8210597D8AB571DE41FE383D7B01E9FC3B73EB"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p08_action_recovery.py",
+      "hash": "C67C023BA26AEB486926616C79AD510A711F1B7071D437A67444216141584133"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p09_boundaries.py",
+      "hash": "D2FEE333292971478E4A7486F67F299570556AFA81752AE64609ED93033FC22A"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p09_continuity_core.py",
+      "hash": "BB79EAFDCB64E082F86368FED9F3FCCA63597F07229A94F8FA51498CEDDF9FC6"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p09_contradictions.py",
+      "hash": "7D0111144488A068F3866988368524B45BC5B5D30F75EF7F78B32C32EBD5D472"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p09_evidence_retention.py",
+      "hash": "0BE523CCEB653FA5666A412160B4B5C5855869F1C92C0CA27AC7AB23564BA6D7"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p09_evolution_review.py",
+      "hash": "51C2438F9ADD4F222FA5C77040339593AE672E54FAB37DD5A635D31031D31934"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p09_long_run.py",
+      "hash": "624E362DB1AAEB50A7A09A0D5C08663D883C99B5CEDFABF7B1D88E05896AD72E"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p09_recovery.py",
+      "hash": "115518D45495C8CC56E03A4C00EE530F7D11F8791B9F848C3B5E18A2E8875E4E"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p09_review_regressions.py",
+      "hash": "BE019040ADBCFBE49E7AE6DDF3EB1DD4A0144B9EEE5010CB6AEC29724CD09033"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_perception.py",
+      "hash": "C236AF8F7D22DAF6474D6C3941E83539B9EA50BC8D5E5B4667B78761C85B858A"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_permissions.py",
+      "hash": "3E692CE4E985F4E3783AEDB9AAE0BDF5B4B7DB485D25F3C2A54FD737B77F7B3F"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_repository.py",
+      "hash": "5BB8D39F49404CAA46E64693AB864EEBFBA640A6415903A355D5E1137CA187D7"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_resources.py",
+      "hash": "77611F94E1717251B87685CAB33B0167A67744561556192699FAE13810C33910"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_service.py",
+      "hash": "06196707504D6D04CDEF6876CB57FA3DF0E5B5355C32A7145B5CC923A2772A8F"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_shared_contract_jsonl_runner.py",
+      "hash": "84CB54BDB8219CA439FF999BCFA0F9583C19D5B081DAE49AE6BFEFA7146C9D1D"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_thinking.py",
+      "hash": "9FED29E0DDA208C71D45E6E8314E19B3F414FC936D83FD39E5697E65B40512D7"
+    }
+  ]
+}

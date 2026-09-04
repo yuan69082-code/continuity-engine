@@ -1,0 +1,13 @@
+======================================================================
+ERROR: test_model_and_action_share_ledger_across_waiting_restart_and_result_loss (tests.test_p09_recovery.P09RecoveryTests.test_model_and_action_share_ledger_across_waiting_restart_and_result_loss)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p09_recovery.py", line 174, in test_model_and_action_share_ledger_across_waiting_restart_and_result_loss
+    self.assertEqual({r["capabilityType"] for r in ledger["requests"]}, {"model.generate", "expression.emit"})
+                      ~^^^^^^^^^^^^^^^^^^
+KeyError: 'capabilityType'
+
+----------------------------------------------------------------------
+Ran 9 tests in 8.011s
+
+FAILED (errors=1)

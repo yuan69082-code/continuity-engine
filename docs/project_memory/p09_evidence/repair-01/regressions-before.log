@@ -1,0 +1,55 @@
+test_already_committed_state_recovers_after_expiry_control (tests.test_p09_review_regressions.P09ReviewRegressionTests.test_already_committed_state_recovers_after_expiry_control) ... ok
+CONTEXT_REMOVAL_PROBE FirstRoundSuccessResult query_calls 0 same_result True
+test_checkpoint_context_removal_cannot_downgrade_c1_to_legacy_replay (tests.test_p09_review_regressions.P09ReviewRegressionTests.test_checkpoint_context_removal_cannot_downgrade_c1_to_legacy_replay) ... FAIL
+GATE_FLIP_PROBE FirstRoundSuccessResult query_calls 0 same_result True
+test_checkpoint_gate_flip_cannot_bypass_completed_receipt_verification (tests.test_p09_review_regressions.P09ReviewRegressionTests.test_checkpoint_gate_flip_cannot_bypass_completed_receipt_verification) ... FAIL
+test_current_context_allows_legal_state_update_control (tests.test_p09_review_regressions.P09ReviewRegressionTests.test_current_context_allows_legal_state_update_control) ... ok
+EXPIRED_CONTEXT_PROBE FirstRoundSuccessResult revision 2 thinking_calls 0
+test_expired_context_must_block_first_state_commit_after_thinking_crash (tests.test_p09_review_regressions.P09ReviewRegressionTests.test_expired_context_must_block_first_state_commit_after_thinking_crash) ... FAIL
+REVOKED_REFERENCE_PROBE FirstRoundSuccessResult revision 2 thinking_calls 0
+test_revoked_reference_must_block_first_state_commit_after_thinking_crash (tests.test_p09_review_regressions.P09ReviewRegressionTests.test_revoked_reference_must_block_first_state_commit_after_thinking_crash) ... FAIL
+
+======================================================================
+FAIL: test_checkpoint_context_removal_cannot_downgrade_c1_to_legacy_replay (tests.test_p09_review_regressions.P09ReviewRegressionTests.test_checkpoint_context_removal_cannot_downgrade_c1_to_legacy_replay)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p09_review_regressions.py", line 128, in test_checkpoint_context_removal_cannot_downgrade_c1_to_legacy_replay
+    self.assertTrue(blocked, "missing Context downgraded C1 history to legacy replay")
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : missing Context downgraded C1 history to legacy replay
+
+======================================================================
+FAIL: test_checkpoint_gate_flip_cannot_bypass_completed_receipt_verification (tests.test_p09_review_regressions.P09ReviewRegressionTests.test_checkpoint_gate_flip_cannot_bypass_completed_receipt_verification)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p09_review_regressions.py", line 109, in test_checkpoint_gate_flip_cannot_bypass_completed_receipt_verification
+    self.assertTrue(blocked, "checkpoint gate flip bypassed historical receipt verification")
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : checkpoint gate flip bypassed historical receipt verification
+
+======================================================================
+FAIL: test_expired_context_must_block_first_state_commit_after_thinking_crash (tests.test_p09_review_regressions.P09ReviewRegressionTests.test_expired_context_must_block_first_state_commit_after_thinking_crash)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p09_review_regressions.py", line 60, in test_expired_context_must_block_first_state_commit_after_thinking_crash
+    self.assertEqual(f.runtime.subject_state().revision, 1,
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     "expired Context authorized a new StateMutation/Evolution commit")
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 1 : expired Context authorized a new StateMutation/Evolution commit
+
+======================================================================
+FAIL: test_revoked_reference_must_block_first_state_commit_after_thinking_crash (tests.test_p09_review_regressions.P09ReviewRegressionTests.test_revoked_reference_must_block_first_state_commit_after_thinking_crash)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p09_review_regressions.py", line 83, in test_revoked_reference_must_block_first_state_commit_after_thinking_crash
+    self.assertEqual(f.runtime.subject_state().revision, 1,
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     "revoked Context authorized a new StateMutation/Evolution commit")
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 1 : revoked Context authorized a new StateMutation/Evolution commit
+
+----------------------------------------------------------------------
+Ran 6 tests in 3.336s
+
+FAILED (failures=4)

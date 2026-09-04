@@ -58,6 +58,11 @@ class JsonMemoryRepository:
     def _path(self, subject_id: str) -> Path:
         return self.root / f"{self._identity_hash(subject_id, 'subject_id')}.json"
 
+    def initialize_empty(self, subject_id: str) -> None:
+        """Explicit initialization; ordinary reads never create a document."""
+        if self._load_if_exists(subject_id) is None:
+            self._write_document(self._path(subject_id), self._empty_document(subject_id))
+
     def save_memory(self, memory: MemoryRecord) -> bool:
         self._require_boundary(memory.subject_id, memory.environment)
         path = self._path(memory.subject_id)

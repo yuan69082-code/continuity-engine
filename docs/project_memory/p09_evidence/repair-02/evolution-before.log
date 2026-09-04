@@ -1,0 +1,27 @@
+NULL_EVOLUTION_QUERY_PROBE IntegrationRequestQueryStatus.COMPLETED fact_queries 0
+test_missing_evolution_checkpoint_cannot_skip_missing_original_fact_on_query (tests.test_p09_evolution_review.P09RepairIndependentTests.test_missing_evolution_checkpoint_cannot_skip_missing_original_fact_on_query) ... FAIL
+NULL_EVOLUTION_PROBE FirstRoundSuccessResult fact_queries 0 same_result True
+test_missing_evolution_checkpoint_cannot_skip_original_fact_validation (tests.test_p09_evolution_review.P09RepairIndependentTests.test_missing_evolution_checkpoint_cannot_skip_original_fact_validation) ... FAIL
+
+======================================================================
+FAIL: test_missing_evolution_checkpoint_cannot_skip_missing_original_fact_on_query (tests.test_p09_evolution_review.P09RepairIndependentTests.test_missing_evolution_checkpoint_cannot_skip_missing_original_fact_on_query)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p09_evolution_review.py", line 89, in test_missing_evolution_checkpoint_cannot_skip_missing_original_fact_on_query
+    self.assertTrue(blocked, "query reported completed state while skipping missing original fact")
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : query reported completed state while skipping missing original fact
+
+======================================================================
+FAIL: test_missing_evolution_checkpoint_cannot_skip_original_fact_validation (tests.test_p09_evolution_review.P09RepairIndependentTests.test_missing_evolution_checkpoint_cannot_skip_original_fact_validation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p09_evolution_review.py", line 58, in test_missing_evolution_checkpoint_cannot_skip_original_fact_validation
+    self.assertTrue(blocked, "null Evolution checkpoint bypassed conflicting original fact validation")
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : null Evolution checkpoint bypassed conflicting original fact validation
+
+----------------------------------------------------------------------
+Ran 2 tests in 1.417s
+
+FAILED (failures=2)

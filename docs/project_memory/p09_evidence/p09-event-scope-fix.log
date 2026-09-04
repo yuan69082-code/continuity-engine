@@ -1,0 +1,105 @@
+======================================================================
+ERROR: test_model_context_remains_usable_after_events_and_consolidation (tests.test_p09_continuity_core.P09CoreTests.test_model_context_remains_usable_after_events_and_consolidation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 251, in submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 660, in _run_domain
+    return self._run_capability_domain(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        operation,
+        ^^^^^^^^^^
+    ...<2 lines>...
+        perception,
+        ^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 729, in _run_capability_domain
+    request = self._capabilities.ensure_request(
+        operation,
+    ...<2 lines>...
+        created_at=self._clock(),
+    )
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\capability_coordination_service.py", line 134, in ensure_request
+    model_input = self._model_input(perception)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\capability_coordination_service.py", line 287, in _model_input
+    perception_summary=(perception.continuity_context.model_summary()
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\domain\continuity_core.py", line 82, in model_summary
+    raise CapabilityValidationError("C1_MODEL_INPUT_BUDGET_EXCEEDED")
+continuity_engine.domain.errors.CapabilityValidationError: C1_MODEL_INPUT_BUDGET_EXCEEDED
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p09_continuity_core.py", line 177, in test_model_context_remains_usable_after_events_and_consolidation
+    self.assertIsInstance(f.submit(), CapabilityRequiredEnvelope)
+                          ~~~~~~~~^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p09_core_fixture.py", line 159, in submit
+    return self.app.adapter.submit(request or self.request())
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 263, in submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.
+
+======================================================================
+ERROR: test_revocation_propagates_to_summary_and_old_context (tests.test_p09_continuity_core.P09CoreTests.test_revocation_propagates_to_summary_and_old_context)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 251, in submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 708, in _run_domain
+    return self._complete_domain_after_thinking(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        operation,
+        ^^^^^^^^^^
+    ...<2 lines>...
+        thinking,
+        ^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 932, in _complete_domain_after_thinking
+    self._continuity_core.after_action(operation, thinking, action)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 294, in after_action
+    self.last_action = service.run(choice, context.composition, retry=retry)
+                       ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\action_planning_service.py", line 158, in run
+    results[request.step_id] = self._resume(request, context=context, retry=retry)
+                               ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\action_planning_service.py", line 209, in _resume
+    receipt.validate_request(request)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\domain\action_capability.py", line 151, in validate_request
+    raise CapabilityValidationError("receipt precedes choice")
+continuity_engine.domain.errors.CapabilityValidationError: receipt precedes choice
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p09_continuity_core.py", line 159, in test_revocation_propagates_to_summary_and_old_context
+    f.submit(request)
+    ~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p09_core_fixture.py", line 159, in submit
+    return self.app.adapter.submit(request or self.request())
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 263, in submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.
+
+----------------------------------------------------------------------
+Ran 13 tests in 7.325s
+
+FAILED (errors=2)

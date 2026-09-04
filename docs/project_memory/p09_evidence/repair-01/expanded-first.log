@@ -1,0 +1,36 @@
+test_already_committed_state_recovers_after_expiry_control (tests.test_p09_review_regressions.P09ReviewRegressionTests.test_already_committed_state_recovers_after_expiry_control) ... ok
+CONTEXT_REMOVAL_PROBE REJECTED LocalIntegrationInitializationError
+test_checkpoint_context_removal_cannot_downgrade_c1_to_legacy_replay (tests.test_p09_review_regressions.P09ReviewRegressionTests.test_checkpoint_context_removal_cannot_downgrade_c1_to_legacy_replay) ... ok
+GATE_FLIP_PROBE REJECTED LocalIntegrationInitializationError
+test_checkpoint_gate_flip_cannot_bypass_completed_receipt_verification (tests.test_p09_review_regressions.P09ReviewRegressionTests.test_checkpoint_gate_flip_cannot_bypass_completed_receipt_verification) ... ok
+test_committed_evolution_checkpoint_recovers_without_reauthorization_or_writes (tests.test_p09_review_regressions.P09ReviewRegressionTests.test_committed_evolution_checkpoint_recovers_without_reauthorization_or_writes) ... ok
+test_completed_state_replay_rejects_conflicting_evolution_binding (tests.test_p09_review_regressions.P09ReviewRegressionTests.test_completed_state_replay_rejects_conflicting_evolution_binding) ... FAIL
+DISABLED_INPUTS_WITH_E5_HISTORY REJECTED IntegrationExecutionError
+test_consistently_disabled_inputs_cannot_hide_existing_e5_action (tests.test_p09_review_regressions.P09ReviewRegressionTests.test_consistently_disabled_inputs_cannot_hide_existing_e5_action) ... ok
+test_current_context_allows_legal_state_update_control (tests.test_p09_review_regressions.P09ReviewRegressionTests.test_current_context_allows_legal_state_update_control) ... ok
+EXPIRED_CONTEXT_PROBE IntegrationExecutionError revision 1 thinking_calls 0
+test_expired_context_must_block_first_state_commit_after_thinking_crash (tests.test_p09_review_regressions.P09ReviewRegressionTests.test_expired_context_must_block_first_state_commit_after_thinking_crash) ... ok
+test_first_commit_rechecks_action_and_domain_recovery_checkpoints (tests.test_p09_review_regressions.P09ReviewRegressionTests.test_first_commit_rechecks_action_and_domain_recovery_checkpoints) ... ok
+test_first_commit_uses_current_action_permission_time_and_resources (tests.test_p09_review_regressions.P09ReviewRegressionTests.test_first_commit_uses_current_action_permission_time_and_resources) ... ok
+test_journal_binding_checks_deserialization_loading_submit_and_query (tests.test_p09_review_regressions.P09ReviewRegressionTests.test_journal_binding_checks_deserialization_loading_submit_and_query) ... ok
+test_missing_context_before_thinking_cannot_downgrade_to_legacy (tests.test_p09_review_regressions.P09ReviewRegressionTests.test_missing_context_before_thinking_cannot_downgrade_to_legacy) ... ok
+test_pre_binding_c1_and_real_legacy_disabled_records_remain_compatible (tests.test_p09_review_regressions.P09ReviewRegressionTests.test_pre_binding_c1_and_real_legacy_disabled_records_remain_compatible) ... ok
+REHASHED_JOURNAL REJECTED IntegrationExecutionError
+test_rehashed_journal_cannot_override_original_thinking_input (tests.test_p09_review_regressions.P09ReviewRegressionTests.test_rehashed_journal_cannot_override_original_thinking_input) ... ok
+REVOKED_REFERENCE_PROBE IntegrationExecutionError revision 1 thinking_calls 0
+test_revoked_reference_must_block_first_state_commit_after_thinking_crash (tests.test_p09_review_regressions.P09ReviewRegressionTests.test_revoked_reference_must_block_first_state_commit_after_thinking_crash) ... ok
+test_thinking_binding_rejects_removed_context_or_snapshot (tests.test_p09_review_regressions.P09ReviewRegressionTests.test_thinking_binding_rejects_removed_context_or_snapshot) ... ok
+
+======================================================================
+FAIL: test_completed_state_replay_rejects_conflicting_evolution_binding (tests.test_p09_review_regressions.P09ReviewRegressionTests.test_completed_state_replay_rejects_conflicting_evolution_binding)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p09_review_regressions.py", line 246, in test_completed_state_replay_rejects_conflicting_evolution_binding
+    with self.assertRaises(IntegrationExecutionError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: IntegrationExecutionError not raised
+
+----------------------------------------------------------------------
+Ran 16 tests in 14.003s
+
+FAILED (failures=1)

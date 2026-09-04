@@ -1,0 +1,54 @@
+======================================================================
+ERROR: test_model_and_action_share_ledger_across_waiting_restart_and_result_loss (tests.test_p09_recovery.P09RecoveryTests.test_model_and_action_share_ledger_across_waiting_restart_and_result_loss)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 251, in submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 660, in _run_domain
+    return self._run_capability_domain(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        operation,
+        ^^^^^^^^^^
+    ...<2 lines>...
+        perception,
+        ^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 729, in _run_capability_domain
+    request = self._capabilities.ensure_request(
+        operation,
+    ...<2 lines>...
+        created_at=self._clock(),
+    )
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\capability_coordination_service.py", line 131, in ensure_request
+    self._validate_request_association(existing, operation, binding, perception)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\capability_coordination_service.py", line 266, in _validate_request_association
+    raise CapabilityValidationError(
+        "persisted CapabilityRequest conflicts with operation identity"
+    )
+continuity_engine.domain.errors.CapabilityValidationError: persisted CapabilityRequest conflicts with operation identity
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p09_recovery.py", line 157, in test_model_and_action_share_ledger_across_waiting_restart_and_result_loss
+    self.assertEqual(f.submit(request).to_dict(), waiting.to_dict())
+                     ~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p09_core_fixture.py", line 159, in submit
+    return self.app.adapter.submit(request or self.request())
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 263, in submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.
+
+----------------------------------------------------------------------
+Ran 9 tests in 7.701s
+
+FAILED (errors=1)

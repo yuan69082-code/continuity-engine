@@ -1,8 +1,44 @@
 # Changelog
 
+第二轮返修历史补充：Windows 换行转换的 1 FAIL（0.329 秒）及早期样本保留；二进制保存已修正，第二轮定点修复与规定回归已完成，交回独立复核。历史 segment 10 根因未知。
+
 本文件记录 continuity-engine 的版本级变化。格式参考 Keep a Changelog，但只记录可由当前代码、测试和本次档案工作确认的事实。仓库目前只有一个汇总式初始提交，早期变化无法可靠分配具体日期。
 
 ## [Unreleased]
+
+### P09 用户正式验收（D-054）— 2026-09-04
+
+- 用户已明确验收；P00—P09、P09 Engine side 和十二项均 ACCEPTED，Vio dependency NONE；P10—P23 NOT_STARTED。PLANNING_CONFLICT/EVIDENCE_CONFLICT 当前 NONE，仅表示现行阻断闭合。
+- 监工本轮原两项 2/2（1.381 秒）、两轮矩阵 30/30（27.690 秒）、全量 770/770（484.753 秒）PASS；现场与其复核后 352 文件逐项 hash 一致，源码/测试无新增变化。
+- 仅同步验收档案。原第二轮三轮后条目中的“终局尚未执行”属于当时快照；随后实际终局 70/70（347.630 秒）、770/770（479.431 秒）已在 50 保存，本次不覆盖该阶段记录。
+- 历史 segment 10 stderr 缺失、根因 UNKNOWN 及全部失败保留。成果尚未提交，稳定 C1 SHA 待用户提交并 push 后核定；版本 0.1.0，无功能或 Git 写操作。
+- 本次纯档案后全量 770/770 PASS、493.514 秒，单次运行；与监工结果分开记录于 [50 正式验收入口](50_P09_测试索引与C1运行入口.md#p09-accepted)。
+
+### P09 第二轮：Evolution 缺失 checkpoint 与测试证据保留（历史阶段记录）— 2026-09-04
+
+- 原两项新反例修改前正式实跑 2 FAIL/1.417 秒；保留缺口 1 FAIL/0.282 秒。独立监工原四反例闭合、16/756 的通过以及新两项失败均单列为历史，不冒充本轮运行。
+- 完成状态事实核验由原 Action、稳定 operation/event、ThinkSession 和结果 projection 共同决定；nullable checkpoint 不再关闭事实查询。原记录缺失、身份/版本/授权来源/内容矛盾失败关闭，合法首次更新和已提交事实恢复保留，无新增 Authority 或账本。
+- long harness 在失败/可捕获中断时，于 Fixture 清理前独立保存命令、阶段、退出码、stdout/stderr、时间和中断信息；流式写入避免丢失已写输出，无隐式重试，唯一目录不覆盖首次失败，必要脱敏且不复制状态数据。
+- 新增矩阵 14/14 PASS（10.666 秒），原 16 项 16/16 PASS（14.465 秒）；P09 专项 70/70 PASS（332.715 秒），E5-A/P02 101/101 PASS（23.893 秒），P03—P08 253/253 PASS（43.846 秒）。连续三轮全量分别为 770/770 PASS（480.525 秒） / 770/770 PASS（479.072 秒） / 770/770 PASS（476.349 秒）。档案后专项及全量终局尚未执行，完成后另行追加实际输出。
+- 历史 segment 10 stderr 缺失，根因仍未知，不以当前 PASS 推断过去。本轮 EVIDENCE_CONFLICT 按用户要求保持 PRESENT，P09 IMPLEMENTED_NOT_ACCEPTED；D-053 追加事实，D-054 未使用，P10—P23 未开始，无 Git 写操作。
+
+
+### P09 C1 当前授权与历史绑定返修（第一轮历史）— 2026-09-04
+
+- 独立监工发现四项反例归属两项阻断；本轮先正式复现 6 项 4 FAIL/2 PASS、3.336 秒，原 40/740 历史保留。D-053 追加定点授权，D-054 未使用，当前 EVIDENCE_CONFLICT=PRESENT。
+- 首次状态提交经当前 Context 和原 Action gate；既有 Evolution 身份/内容核对后幂等恢复。C1 输入绑定跨原 journal、ThinkSession、Action 与 E5-A 核对，不能由单处字段降级跳过独立回执。
+- 16 项定点扩展已通过，P09 专项 56/56、331.217 秒；加载提前拒绝的两个 helper ERROR、完成重放的一项 FAIL 和修复前后原始结果见 50。本轮兼容 101/253 和连续三轮 756 全量已通过（473.352 / 469.270 / 483.176 秒）；档案后最终专项 56/56（373.797 秒）、全量 756/756（512.954 秒）PASS；首次终局 ERROR 与辅助诊断 ERROR 原样保留，其子进程根因未确认，EVIDENCE_CONFLICT 继续 PRESENT 待独立复核。
+- 不改变六份 Schema、外部契约、正式数据、规划、pyproject/0.1.0 或 Authority；不开后续阶段，不执行 Git 写操作，P09 继续 IMPLEMENTED_NOT_ACCEPTED。
+
+### P09 C1 正常运行链集成（首版历史）— 2026-09-04
+
+- 用户已提交并推送 P08，main/P08 开工 SHA 为 `fb8713ccb049ca082079cf820d06956be0954af9`；D-053 记录新增 P09 授权，D-052 原验收保留，D-054 未创建。P09 当前 IMPLEMENTED_NOT_ACCEPTED，P10—P23 NOT_STARTED，本轮无 Git 写操作。
+- 在正常 LocalIntegrationApp/ContinuityInteractionService 中贯通 Event/Timeline、P04 Memory、Router、Composer、P07 和原 Thinking/Action Gate/P08。可消费 Context 保存于原 Perception/ThinkSession，确定性与模型输入共享；Direct/Planner 继续复用唯一 E5-A，不增加 Authority 或请求账本。
+- 当前 Context/来源/精确引用许可在新 Thinking/行动前重验；已执行事实恢复保留 P08 独立可信回执语义。Feature Gate 关闭覆盖零访问和历史恢复；添加纯 elapsed-time 情绪衰减，持久化仍经既有合法 Evolution。
+- 复用 P01 显式 C1 profile 完整覆盖新增持久化文件；提供可运行 golden/long 入口，30 逻辑日/30 轮、两个真实进程重启点。新增 40 项组合测试，保留开发失败、辅助错误及修复记录；实际各轮结果见 50 号索引与原始 log。
+- 六份外部 Schema、pyproject/0.1.0、正式数据不变；`interfaces/local_integration_app.py` 仅增加内部组装参数，其余接口文件不变，外部机器路由/字段契约不改。幂等结论限定于本地 Fake 原子回执，未接 Vio、真实 Provider 或生产 Adapter。
+
+- P09 终局实测：专项 40/40、251.136 秒；全量 740/740、389.729 秒。此前三轮全量分别 390.100/385.853/389.943 秒，历史基线与开发失败原文见 50；P09 IMPLEMENTED_NOT_ACCEPTED，交回独立复核。
 
 ### P08 用户正式验收档案接续收尾 — 2026-09-04
 

@@ -619,6 +619,10 @@ class SandboxRuntime:
             "state_fixture": [fixture_path],
             "test_trace": [self.trace.path],
         }
+        from .c1_snapshot import additions
+        c1 = additions(self.data_root, self.descriptor.subject_id)
+        for name, (path, _) in c1.items():
+            physical_paths[name].append(path)
         for name, paths in physical_paths.items():
             if any(not path.is_file() or is_link_like(path) for path in paths):
                 raise SandboxOperationError(
@@ -696,6 +700,9 @@ class SandboxRuntime:
             "state_fixture": (fixture_document, fixture_document["appliedRevision"], 1),
             "test_trace": (trace_document, None, len(trace_document["entries"])),
         }
+        for name, (_, document) in c1.items():
+            payload, revision, count = components[name]
+            components[name] = ({"p01": payload, "c1": document}, revision, count + 1)
         return {
             name: {
                 "payload": payload,

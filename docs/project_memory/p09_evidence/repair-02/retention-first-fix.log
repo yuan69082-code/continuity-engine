@@ -1,0 +1,13 @@
+RETAINED_CONTROLLED_FAILURE C:\Users\ADMINI~1\AppData\Local\Temp\c1e-jkovsta4 exit_code=91
+test_child_failure_evidence_survives_fixture_cleanup (tests.test_p09_evidence_retention.P09EvidenceRetentionTests.test_child_failure_evidence_survives_fixture_cleanup) ... ok
+test_distinct_failures_do_not_overwrite_first_evidence (tests.test_p09_evidence_retention.P09EvidenceRetentionTests.test_distinct_failures_do_not_overwrite_first_evidence) ... ok
+test_invalid_success_output_is_retained_as_parent_validation_failure (tests.test_p09_evidence_retention.P09EvidenceRetentionTests.test_invalid_success_output_is_retained_as_parent_validation_failure) ... ok
+test_later_failure_retains_prior_segment_and_never_starts_next (tests.test_p09_evidence_retention.P09EvidenceRetentionTests.test_later_failure_retains_prior_segment_and_never_starts_next) ... ok
+RETAINED_CONTROLLED_INTERRUPT C:\Users\ADMINI~1\AppData\Local\Temp\c1e-0osytw97 exit_code= 1
+test_parent_interrupt_preserves_partial_streams_and_actual_exit_code (tests.test_p09_evidence_retention.P09EvidenceRetentionTests.test_parent_interrupt_preserves_partial_streams_and_actual_exit_code) ... ok
+test_saved_diagnostics_redact_secrets_without_copying_fixture_state (tests.test_p09_evidence_retention.P09EvidenceRetentionTests.test_saved_diagnostics_redact_secrets_without_copying_fixture_state) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 2.389s
+
+OK

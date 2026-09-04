@@ -1,0 +1,42 @@
+{
+  "format": "p09-long-failure-v1",
+  "fixture": "p09-c1-golden-v1",
+  "fixture_root": "C:\\Users\\Administrator\\AppData\\Local\\Temp\\p9e-f1uio5jv",
+  "phase": "segment-0",
+  "started_at_utc": "2026-09-04T09:44:43.005753+00:00",
+  "failed_at_utc": "2026-09-04T09:44:43.304037+00:00",
+  "wall_seconds": 0.298286,
+  "exception_type": "RuntimeError",
+  "exception_message": "C1 segment 0 failed with exit code 91",
+  "parent_interrupted": false,
+  "retry_count": 0,
+  "segments": [
+    {
+      "stage": "segment-0",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "import sys; print('synthetic-child-output', flush=True); print('synthetic-child-failure', file=sys.stderr, flush=True); sys.exit(91)"
+      ],
+      "started_at_utc": "2026-09-04T09:44:43.260477+00:00",
+      "exit_code": 91,
+      "parent_interrupted": false,
+      "child_interrupt_exit": false,
+      "finished_at_utc": "2026-09-04T09:44:43.297243+00:00",
+      "stdout": {
+        "file": "segment-0.stdout.log",
+        "source_present": true,
+        "bytes": 24,
+        "sha256": "7bb1a996d4f45b185aed97790e8bebfe849010eaa30a15d51eaa52b9d337ee1d",
+        "redacted": false
+      },
+      "stderr": {
+        "file": "segment-0.stderr.log",
+        "source_present": true,
+        "bytes": 25,
+        "sha256": "7cee0c40645111af87332549bc9002b227b9f07fe3b599d5cbcdaa5475f0f4e0",
+        "redacted": false
+      }
+    }
+  ]
+}

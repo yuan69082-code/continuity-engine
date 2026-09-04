@@ -1,6 +1,10 @@
 # P08 Natural/Direct Action 与 Optional Planner 架构边界
 
-当前 P00—P08 = `ACCEPTED`；P08 / Engine side / P08-01—P08-12 = `ACCEPTED`；P09—P23 = `NOT_STARTED`。用户于 2026-09-04 正式验收（D-052），D-051 与全部返修历史保留。P08 Vio dependency = `NONE`；PLANNING_CONFLICT/EVIDENCE_CONFLICT = `NONE`。本次验收不扩大方案 A，不代表生产 exactly-once，不授权生产 Adapter、P09/P17 或 Git 操作。
+> P09 现行门：P00—P09 = `ACCEPTED`；P09 / Engine side / P09-01—P09-12 = `ACCEPTED`；P09 Vio dependency = `NONE`；P10—P23 = `NOT_STARTED`。PLANNING_CONFLICT = NONE；EVIDENCE_CONFLICT = NONE（仅表示现行验收阻断已闭合）。 D-054 已记录用户正式验收；历史 segment 10 stderr 缺失、根因 UNKNOWN 保留。成果尚未提交，稳定 C1 SHA 待用户提交并 push 后核定。见 [P09 验收档案](50_P09_测试索引与C1运行入口.md#p09-accepted)。
+
+> 下文的 P08 收口与后续未授权状态均为当时记录；D-053 是后续独立授权，不改变 P08 十二项 ACCEPTED 或原有限泛化边界。
+
+> P08 验收时的快照（历史保留）：当前 P00—P08 = `ACCEPTED`；P08 / Engine side / P08-01—P08-12 = `ACCEPTED`；P09—P23 = `NOT_STARTED`。用户于 2026-09-04 正式验收（D-052），D-051 与全部返修历史保留。P08 Vio dependency = `NONE`；PLANNING_CONFLICT/EVIDENCE_CONFLICT = `NONE`。本次验收不扩大方案 A，不代表生产 exactly-once，不授权生产 Adapter、P09/P17 或 Git 操作。
 
 ## 1. 唯一执行事实与身份映射
 

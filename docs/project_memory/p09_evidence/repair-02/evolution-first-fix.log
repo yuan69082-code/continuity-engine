@@ -1,0 +1,10 @@
+CONTEXT_REMOVAL_PROBE REJECTED LocalIntegrationInitializationError
+GATE_FLIP_PROBE REJECTED LocalIntegrationInitializationError
+DISABLED_INPUTS_WITH_E5_HISTORY REJECTED IntegrationExecutionError
+EXPIRED_CONTEXT_PROBE IntegrationExecutionError revision 1 thinking_calls 0
+REHASHED_JOURNAL REJECTED IntegrationExecutionError
+REVOKED_REFERENCE_PROBE IntegrationExecutionError revision 1 thinking_calls 0
+----------------------------------------------------------------------
+Ran 18 tests in 16.412s
+
+OK

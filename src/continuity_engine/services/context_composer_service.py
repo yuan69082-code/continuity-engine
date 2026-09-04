@@ -76,6 +76,7 @@ class ContextComposerService:
         enabled: bool = True,
         feature_gate_version: str = "p06-context-composer-v1",
         default_token_limit: int = 2048,
+        material_token_cost=None,
     ) -> None:
         if not isinstance(enabled, bool):
             raise ContextCompositionValidationError("P06 feature gate must be boolean")
@@ -97,6 +98,7 @@ class ContextComposerService:
         self._enabled = enabled
         self._feature_gate_version = feature_gate_version
         self._default_token_limit = default_token_limit
+        self._material_token_cost = material_token_cost
 
     def compose(
         self,
@@ -263,7 +265,7 @@ class ContextComposerService:
                 material.version,
                 material.content_hash,
             )
-            tokens = self._estimator.estimate(
+            tokens = self._material_token_cost(material) if self._material_token_cost else self._estimator.estimate(
                 material.content, source_type=material.source_type
             )
             if not isinstance(tokens, int) or isinstance(tokens, bool) or tokens < 1:

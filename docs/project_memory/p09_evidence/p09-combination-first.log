@@ -1,0 +1,192 @@
+======================================================================
+ERROR: test_capability_model_input_contains_the_composed_context (tests.test_p09_continuity_core.P09CoreTests.test_capability_model_input_contains_the_composed_context)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p09_continuity_core.py", line 76, in test_capability_model_input_contains_the_composed_context
+    summary = result.capability_request.model_input.perception_summary
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'CapabilityRequest' object has no attribute 'model_input'
+
+======================================================================
+ERROR: test_information_need_is_direct_and_complex_intent_uses_planner (tests.test_p09_continuity_core.P09CoreTests.test_information_need_is_direct_and_complex_intent_uses_planner) (mode='information')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 543, in _run_domain
+    wake_session = self._awakening.get_session(
+        operation.subject_id,
+        progress.wake_session_id,
+    )
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\awakening_service.py", line 162, in get_session
+    return self._repository.load_session(subject_id, session_id)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_awakening_repository.py", line 86, in load_session
+    raise StateNotFoundError(f"wake session not found: {session_id}")
+continuity_engine.domain.errors.StateNotFoundError: wake session not found: de5fd232-aaee-5c95-9e43-ce49378a2ece
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 251, in submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 548, in _run_domain
+    awakening = self._awakening.wake_manual(
+        binding.cycle_id,
+    ...<3 lines>...
+        preserve_recovery_context=True,
+    )
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\awakening_service.py", line 109, in wake_manual
+    return self._run(
+           ~~~~~~~~~^
+        cycle,
+        ^^^^^^
+    ...<3 lines>...
+        preserve_recovery_context=preserve_recovery_context,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\awakening_service.py", line 265, in _run
+    self._repository.save_session(session)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_awakening_repository.py", line 81, in save_session
+    self._write_json(path, session.to_dict())
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_awakening_repository.py", line 118, in _write_json
+    with tempfile.NamedTemporaryFile(
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        mode="w",
+        ^^^^^^^^^
+    ...<5 lines>...
+        delete=False,
+        ^^^^^^^^^^^^^
+    ) as temporary:
+    ^
+  File "E:\Adobe\Lib\tempfile.py", line 603, in NamedTemporaryFile
+    file = _io.open(dir, mode, buffering=buffering,
+                    newline=newline, encoding=encoding, errors=errors,
+                    opener=opener)
+  File "E:\Adobe\Lib\tempfile.py", line 600, in opener
+    fd, name = _mkstemp_inner(dir, prefix, suffix, flags, output_type)
+               ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Adobe\Lib\tempfile.py", line 255, in _mkstemp_inner
+    fd = _os.open(file, flags, 0o600)
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\Administrator\\AppData\\Local\\Temp\\tmpjn8kyobg\\information\\sandboxes\\s\\s053acdb2\\b\\bf5cbe935\\data\\awakening\\sessions\\48626b6c2e417f6459c10aa60ce88fbdbb62539ee7b75b15a22d3679e9df0465\\.ac8d95b26c51d011ac2119244e150f1ca63efb286dd740e42911335ce68f3fea.p516eahs.tmp'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p09_continuity_core.py", line 66, in test_information_need_is_direct_and_complex_intent_uses_planner
+    self.assertIsInstance(f.submit(), FirstRoundSuccessResult)
+                          ~~~~~~~~^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p09_core_fixture.py", line 156, in submit
+    return self.app.adapter.submit(request or self.request())
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 263, in submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.
+
+======================================================================
+ERROR: test_information_need_is_direct_and_complex_intent_uses_planner (tests.test_p09_continuity_core.P09CoreTests.test_information_need_is_direct_and_complex_intent_uses_planner) (mode='complex')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 543, in _run_domain
+    wake_session = self._awakening.get_session(
+        operation.subject_id,
+        progress.wake_session_id,
+    )
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\awakening_service.py", line 162, in get_session
+    return self._repository.load_session(subject_id, session_id)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_awakening_repository.py", line 86, in load_session
+    raise StateNotFoundError(f"wake session not found: {session_id}")
+continuity_engine.domain.errors.StateNotFoundError: wake session not found: 779a75df-175e-57c5-9cee-85ca15669692
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 251, in submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 548, in _run_domain
+    awakening = self._awakening.wake_manual(
+        binding.cycle_id,
+    ...<3 lines>...
+        preserve_recovery_context=True,
+    )
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\awakening_service.py", line 109, in wake_manual
+    return self._run(
+           ~~~~~~~~~^
+        cycle,
+        ^^^^^^
+    ...<3 lines>...
+        preserve_recovery_context=preserve_recovery_context,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\awakening_service.py", line 265, in _run
+    self._repository.save_session(session)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_awakening_repository.py", line 81, in save_session
+    self._write_json(path, session.to_dict())
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_awakening_repository.py", line 118, in _write_json
+    with tempfile.NamedTemporaryFile(
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        mode="w",
+        ^^^^^^^^^
+    ...<5 lines>...
+        delete=False,
+        ^^^^^^^^^^^^^
+    ) as temporary:
+    ^
+  File "E:\Adobe\Lib\tempfile.py", line 603, in NamedTemporaryFile
+    file = _io.open(dir, mode, buffering=buffering,
+                    newline=newline, encoding=encoding, errors=errors,
+                    opener=opener)
+  File "E:\Adobe\Lib\tempfile.py", line 600, in opener
+    fd, name = _mkstemp_inner(dir, prefix, suffix, flags, output_type)
+               ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Adobe\Lib\tempfile.py", line 255, in _mkstemp_inner
+    fd = _os.open(file, flags, 0o600)
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\Administrator\\AppData\\Local\\Temp\\tmpjn8kyobg\\complex\\sandboxes\\s\\se64812ca\\b\\b1bd64284\\data\\awakening\\sessions\\fb52f5e0a9e19f6d37f4a6cc573f3c143e1468e15d95bb42bc2c438f61a35306\\.321b11a4e20daf576ee46373257c422e50d2af5325cb598ab025f48c26a09c53.rgp5z7yk.tmp'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p09_continuity_core.py", line 66, in test_information_need_is_direct_and_complex_intent_uses_planner
+    self.assertIsInstance(f.submit(), FirstRoundSuccessResult)
+                          ~~~~~~~~^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p09_core_fixture.py", line 156, in submit
+    return self.app.adapter.submit(request or self.request())
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 263, in submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.
+
+======================================================================
+ERROR: test_snapshot_covers_c1_persistence_and_branch_replays_without_effect (tests.test_p09_continuity_core.P09CoreTests.test_snapshot_covers_c1_persistence_and_branch_replays_without_effect)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p09_continuity_core.py", line 85, in test_snapshot_covers_c1_persistence_and_branch_replays_without_effect
+    snapshot = f.manager.create_snapshot(f.runtime.descriptor.sandbox_id,
+        expected_revision=f.runtime.subject_state().revision)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\sandbox.py", line 887, in create_snapshot
+    raise SandboxOperationError(
+    ...<2 lines>...
+    )
+continuity_engine.testing.models.SandboxOperationError: SNAPSHOT_INCOMPLETE: snapshot physical inventory contains missing or unmapped files
+
+----------------------------------------------------------------------
+Ran 7 tests in 2.820s
+
+FAILED (errors=4)

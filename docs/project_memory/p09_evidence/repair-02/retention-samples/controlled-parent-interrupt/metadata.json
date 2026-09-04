@@ -1,0 +1,42 @@
+{
+  "format": "p09-long-failure-v1",
+  "fixture": "p09-c1-golden-v1",
+  "fixture_root": "C:\\Users\\Administrator\\AppData\\Local\\Temp\\p9e-qe7u4ld_",
+  "phase": "segment-0",
+  "started_at_utc": "2026-09-04T09:31:29.234815+00:00",
+  "failed_at_utc": "2026-09-04T09:31:29.558649+00:00",
+  "wall_seconds": 0.323838,
+  "exception_type": "KeyboardInterrupt",
+  "exception_message": "controlled parent interrupt",
+  "parent_interrupted": true,
+  "retry_count": 0,
+  "segments": [
+    {
+      "stage": "segment-0",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "import sys,time; from pathlib import Path; print('partial-stdout',flush=True); print('partial-stderr',file=sys.stderr,flush=True); Path('C:\\\\Users\\\\ADMINI~1\\\\AppData\\\\Local\\\\Temp\\\\p9e-qe7u4ld_\\\\controlled-ready').write_text('ready'); time.sleep(30)"
+      ],
+      "started_at_utc": "2026-09-04T09:31:29.491449+00:00",
+      "exit_code": 1,
+      "parent_interrupted": true,
+      "child_interrupt_exit": false,
+      "finished_at_utc": "2026-09-04T09:31:29.554212+00:00",
+      "stdout": {
+        "file": "segment-0.stdout.log",
+        "source_present": true,
+        "bytes": 16,
+        "sha256": "c06349c5abed2e799eb203f614b3048d39bf3ffab1d476c5752249d5bc6048b4",
+        "redacted": false
+      },
+      "stderr": {
+        "file": "segment-0.stderr.log",
+        "source_present": true,
+        "bytes": 16,
+        "sha256": "d7f79417d484e0b991ce8f977b141387c3c627feac2bce3345a033be37578b55",
+        "redacted": false
+      }
+    }
+  ]
+}

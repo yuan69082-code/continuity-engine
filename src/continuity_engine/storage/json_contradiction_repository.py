@@ -52,6 +52,11 @@ class JsonContradictionRepository:
         self.environment = environment
         self._resolution_evidence_verifier = resolution_evidence_verifier
 
+    def initialize_empty(self, subject_id: str) -> None:
+        """Explicit initialization; detection/read gates need not create files."""
+        if self._load_if_exists(subject_id) is None:
+            self._write_document(self._path(subject_id), self._load_or_empty(subject_id))
+
     def save_detected(self, case: ContradictionCase) -> ContradictionCase:
         self._require_case_boundary(case)
         if case.revision != 0:

@@ -60,6 +60,9 @@ class CapabilityCoordinationService:
         self._repository.save_capability_request(request)
         return request
 
+    def action_requests_by_decision(self, decision_id: str):
+        return self._repository.find_action_requests_by_decision(decision_id)
+
     def action_attempts(self, request: InternalActionRequest, *, receipt_verifier):
         """Read the existing ledger, then verify execution facts before consumption.
 
@@ -284,7 +287,8 @@ class CapabilityCoordinationService:
             observation_id=fact.observation_id,
             message_content=fact.content,
             perception_id=perception.perception_id,
-            perception_summary=perception.summary,
+            perception_summary=(perception.continuity_context.model_summary()
+                                if perception.continuity_context is not None else perception.summary),
             current_focus=perception.current_focus.summary,
             source_revision=perception.source_revision,
             output_schema_version="continuity-model-output/v1",

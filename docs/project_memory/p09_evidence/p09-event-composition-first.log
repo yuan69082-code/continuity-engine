@@ -1,0 +1,142 @@
+======================================================================
+ERROR: test_late_duplicate_out_of_order_events_reach_memory_and_context (tests.test_p09_continuity_core.P09CoreTests.test_late_duplicate_out_of_order_events_reach_memory_and_context)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 251, in submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 634, in _run_domain
+    perception = self._continuity_core.prepare(perception, operation)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 199, in prepare
+    self._consolidate_events()
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 152, in _consolidate_events
+    self.consolidation.consolidate(MemoryRecord(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+        memory_id="memory:" + event.event_id, subject_id=self.subject_id,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<8 lines>...
+        tags=[event.classification.value],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ))
+    ^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\memory_consolidation_service.py", line 118, in consolidate
+    raise MemoryEvidenceConflictError(
+        "conflicting evidence remains unresolved until the P07 boundary"
+    )
+continuity_engine.domain.errors.MemoryEvidenceConflictError: conflicting evidence remains unresolved until the P07 boundary
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p09_continuity_core.py", line 142, in test_late_duplicate_out_of_order_events_reach_memory_and_context
+    self.assertIsInstance(f.submit(request), FirstRoundSuccessResult)
+                          ~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p09_core_fixture.py", line 159, in submit
+    return self.app.adapter.submit(request or self.request())
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 263, in submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.
+
+======================================================================
+ERROR: test_model_context_remains_usable_after_events_and_consolidation (tests.test_p09_continuity_core.P09CoreTests.test_model_context_remains_usable_after_events_and_consolidation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 251, in submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 634, in _run_domain
+    perception = self._continuity_core.prepare(perception, operation)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 199, in prepare
+    self._consolidate_events()
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 152, in _consolidate_events
+    self.consolidation.consolidate(MemoryRecord(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+        memory_id="memory:" + event.event_id, subject_id=self.subject_id,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<8 lines>...
+        tags=[event.classification.value],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ))
+    ^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\memory_consolidation_service.py", line 118, in consolidate
+    raise MemoryEvidenceConflictError(
+        "conflicting evidence remains unresolved until the P07 boundary"
+    )
+continuity_engine.domain.errors.MemoryEvidenceConflictError: conflicting evidence remains unresolved until the P07 boundary
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p09_continuity_core.py", line 177, in test_model_context_remains_usable_after_events_and_consolidation
+    self.assertIsInstance(f.submit(), CapabilityRequiredEnvelope)
+                          ~~~~~~~~^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p09_core_fixture.py", line 159, in submit
+    return self.app.adapter.submit(request or self.request())
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 263, in submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.
+
+======================================================================
+ERROR: test_revocation_propagates_to_summary_and_old_context (tests.test_p09_continuity_core.P09CoreTests.test_revocation_propagates_to_summary_and_old_context)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 251, in submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 634, in _run_domain
+    perception = self._continuity_core.prepare(perception, operation)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 199, in prepare
+    self._consolidate_events()
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 152, in _consolidate_events
+    self.consolidation.consolidate(MemoryRecord(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+        memory_id="memory:" + event.event_id, subject_id=self.subject_id,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<8 lines>...
+        tags=[event.classification.value],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ))
+    ^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\memory_consolidation_service.py", line 118, in consolidate
+    raise MemoryEvidenceConflictError(
+        "conflicting evidence remains unresolved until the P07 boundary"
+    )
+continuity_engine.domain.errors.MemoryEvidenceConflictError: conflicting evidence remains unresolved until the P07 boundary
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p09_continuity_core.py", line 159, in test_revocation_propagates_to_summary_and_old_context
+    f.submit(request)
+    ~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p09_core_fixture.py", line 159, in submit
+    return self.app.adapter.submit(request or self.request())
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 263, in submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.
+
+----------------------------------------------------------------------
+Ran 13 tests in 6.777s
+
+FAILED (errors=3)

@@ -1,0 +1,51 @@
+======================================================================
+ERROR: test_emotion_persists_only_through_fixture_evolution_and_reads_do_not_write (tests.test_p09_boundaries.P09BoundaryTests.test_emotion_persists_only_through_fixture_evolution_and_reads_do_not_write)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p09_boundaries.py", line 137, in test_emotion_persists_only_through_fixture_evolution_and_reads_do_not_write
+    f.event("emotion-fixture", classification=EventClassification.STATE_CHANGE, mutations=mutations)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p09_core_fixture.py", line 180, in event
+    return self.runtime.subject_states.apply_event(self.runtime.descriptor.subject_id, event)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\subject_state_service.py", line 119, in apply_event
+    result = self._evolver.evolve(state, event, applied_at=applied_at)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\domain\evolution.py", line 94, in evolve
+    raise StateEvolutionError(
+        f"field {mutation.field_path} is outside the event impact scope"
+    )
+continuity_engine.domain.errors.StateEvolutionError: field emotion_state.current_state is outside the event impact scope
+
+======================================================================
+ERROR: test_independent_router_and_composer_budgets_preserve_missing_notices (tests.test_p09_boundaries.P09BoundaryTests.test_independent_router_and_composer_budgets_preserve_missing_notices)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p09_boundaries.py", line 64, in test_independent_router_and_composer_budgets_preserve_missing_notices
+    self.assertFalse(c.composition.snapshot.direct_state_write_allowed)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ComposedContextSnapshot' object has no attribute 'direct_state_write_allowed'
+
+======================================================================
+ERROR: test_invalid_emotion_does_not_partially_commit_evolution (tests.test_p09_boundaries.P09BoundaryTests.test_invalid_emotion_does_not_partially_commit_evolution)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p09_boundaries.py", line 152, in test_invalid_emotion_does_not_partially_commit_evolution
+    f.event("invalid-emotion", classification=EventClassification.STATE_CHANGE, mutations=(
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        StateMutation("emotion_state.intensity", ChangeOperation.SET, 2.0, "invalid fixture"),))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p09_core_fixture.py", line 180, in event
+    return self.runtime.subject_states.apply_event(self.runtime.descriptor.subject_id, event)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\subject_state_service.py", line 119, in apply_event
+    result = self._evolver.evolve(state, event, applied_at=applied_at)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\domain\evolution.py", line 94, in evolve
+    raise StateEvolutionError(
+        f"field {mutation.field_path} is outside the event impact scope"
+    )
+continuity_engine.domain.errors.StateEvolutionError: field emotion_state.intensity is outside the event impact scope
+
+----------------------------------------------------------------------
+Ran 20 tests in 13.039s
+
+FAILED (errors=3)

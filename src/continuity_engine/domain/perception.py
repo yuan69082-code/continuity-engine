@@ -591,6 +591,7 @@ class PerceptionResult:
     selected_memory_ids: list[str] = field(default_factory=list)
     memory_request_id: str = ""
     external_facts: tuple[PerceivedPlatformFact, ...] = ()
+    continuity_context: object | None = None
 
     def __post_init__(self) -> None:
         _require_text(self.perception_id, "perception_id")
@@ -665,7 +666,7 @@ class PerceptionResult:
         )
 
     def to_dict(self) -> dict[str, JsonValue]:
-        return {
+        result = {
             "perception_id": self.perception_id,
             "subject_id": self.subject_id,
             "source_revision": self.source_revision,
@@ -687,6 +688,10 @@ class PerceptionResult:
             "external_facts": [item.to_dict() for item in self.external_facts],
         }
 
+        if self.continuity_context is not None:
+            result["continuity_context"] = self.continuity_context.to_dict()
+        return result
+
     @classmethod
     def from_dict(cls, value: Any) -> PerceptionResult:
         if (
@@ -700,7 +705,10 @@ class PerceptionResult:
         revision = value.get("source_revision")
         if not isinstance(revision, int):
             raise PerceptionValidationError("source_revision must be an integer")
+        from .continuity_core import ContinuityCoreContext
         return cls(
+            continuity_context=(ContinuityCoreContext.from_dict(value["continuity_context"])
+                                if value.get("continuity_context") is not None else None),
             perception_id=value.get("perception_id"),
             subject_id=value.get("subject_id"),
             source_revision=revision,

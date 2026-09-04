@@ -1,0 +1,42 @@
+======================================================================
+ERROR: test_revocation_propagates_to_summary_and_old_context (tests.test_p09_continuity_core.P09CoreTests.test_revocation_propagates_to_summary_and_old_context)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\domain\events.py", line 192, in __post_init__
+    EventRelationType(self.relation_type),
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "E:\Adobe\Lib\enum.py", line 708, in __call__
+    return cls.__new__(cls, value)
+           ~~~~~~~~~~~^^^^^^^^^^^^
+  File "E:\Adobe\Lib\enum.py", line 1193, in __new__
+    raise ve_exc
+ValueError: 'sub-27c29c007ca345ea' is not a valid EventRelationType
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p09_continuity_core.py", line 165, in test_revocation_propagates_to_summary_and_old_context
+    references=(EventReference(EventRelationType.REVOKES, "old", subject),))
+                ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 6, in __init__
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\domain\events.py", line 195, in __post_init__
+    raise StateValidationError(
+        "event_reference.relation_type is not supported"
+    ) from exc
+continuity_engine.domain.errors.StateValidationError: event_reference.relation_type is not supported
+
+======================================================================
+FAIL: test_late_duplicate_out_of_order_events_reach_memory_and_context (tests.test_p09_continuity_core.P09CoreTests.test_late_duplicate_out_of_order_events_reach_memory_and_context)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p09_continuity_core.py", line 150, in test_late_duplicate_out_of_order_events_reach_memory_and_context
+    self.assertTrue(any("late" in fragment.provenance_roots[0]
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        for fragment in f.context(request).composition.snapshot.fragments))
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 13 tests in 7.986s
+
+FAILED (failures=1, errors=1)

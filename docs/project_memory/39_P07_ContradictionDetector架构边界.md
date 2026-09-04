@@ -1,6 +1,7 @@
 # P07 Contradiction Detector 架构边界
 
-> P08 现行门：P00—P08 = `ACCEPTED`；P08 / Engine side / P08-01—P08-12 = `ACCEPTED`；P08 Vio dependency = `NONE`；P09—P23 = `NOT_STARTED`。D-051 保留施工决定，D-052 已登记用户正式验收；不授权 P09 或 Git 操作。见 [P08 矩阵](44_P08_规划施工测试验收矩阵.md)。
+> P09 现行门：P00—P09 = `ACCEPTED`；P09 / Engine side / P09-01—P09-12 = `ACCEPTED`；P09 Vio dependency = `NONE`；P10—P23 = `NOT_STARTED`。PLANNING_CONFLICT = NONE；EVIDENCE_CONFLICT = NONE（仅表示现行验收阻断已闭合）。 D-054 已记录用户正式验收；历史 segment 10 stderr 缺失、根因 UNKNOWN 保留。成果尚未提交，稳定 C1 SHA 待用户提交并 push 后核定。见 [P09 验收档案](50_P09_测试索引与C1运行入口.md#p09-accepted)。
+> 下文保留该阶段施工及验收时的范围、后续未授权状态与测试历史；P09 的本轮新增授权和接线以本页现行门及 47—50 号档案为准，不倒写既往决定。
 
 ## 当前状态
 

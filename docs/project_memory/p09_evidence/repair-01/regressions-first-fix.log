@@ -1,0 +1,135 @@
+test_already_committed_state_recovers_after_expiry_control (tests.test_p09_review_regressions.P09ReviewRegressionTests.test_already_committed_state_recovers_after_expiry_control) ... ok
+test_checkpoint_context_removal_cannot_downgrade_c1_to_legacy_replay (tests.test_p09_review_regressions.P09ReviewRegressionTests.test_checkpoint_context_removal_cannot_downgrade_c1_to_legacy_replay) ... ERROR
+test_checkpoint_gate_flip_cannot_bypass_completed_receipt_verification (tests.test_p09_review_regressions.P09ReviewRegressionTests.test_checkpoint_gate_flip_cannot_bypass_completed_receipt_verification) ... ERROR
+test_current_context_allows_legal_state_update_control (tests.test_p09_review_regressions.P09ReviewRegressionTests.test_current_context_allows_legal_state_update_control) ... ok
+EXPIRED_CONTEXT_PROBE IntegrationExecutionError revision 1 thinking_calls 0
+test_expired_context_must_block_first_state_commit_after_thinking_crash (tests.test_p09_review_regressions.P09ReviewRegressionTests.test_expired_context_must_block_first_state_commit_after_thinking_crash) ... ok
+REVOKED_REFERENCE_PROBE IntegrationExecutionError revision 1 thinking_calls 0
+test_revoked_reference_must_block_first_state_commit_after_thinking_crash (tests.test_p09_review_regressions.P09ReviewRegressionTests.test_revoked_reference_must_block_first_state_commit_after_thinking_crash) ... ok
+
+======================================================================
+ERROR: test_checkpoint_context_removal_cannot_downgrade_c1_to_legacy_replay (tests.test_p09_review_regressions.P09ReviewRegressionTests.test_checkpoint_context_removal_cannot_downgrade_c1_to_legacy_replay)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_integration_repository.py", line 669, in _load_operations
+    IntegrationOperationRecord.from_dict(item)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\domain\integration_results.py", line 1174, in from_dict
+    IntegrationDomainProgress.from_dict(data["domainProgress"])
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\domain\integration_results.py", line 661, in from_dict
+    return cls(
+        stage=stage,
+    ...<49 lines>...
+        continuity_context_hash=data["continuityContextHash"],
+    )
+  File "<string>", line 19, in __init__
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\domain\integration_results.py", line 470, in __post_init__
+    raise MachineContractValidationError("C1 operation input binding is missing or inconsistent")
+continuity_engine.domain.errors.MachineContractValidationError: C1 operation input binding is missing or inconsistent
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\local_integration_app.py", line 398, in build_local_integration_app
+    app.assert_ready()
+    ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\local_integration_app.py", line 69, in assert_ready
+    self.ledger.validate_initialized()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_integration_repository.py", line 298, in validate_initialized
+    self._load_operations()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_integration_repository.py", line 673, in _load_operations
+    raise IntegrationPersistenceError(
+        f"persisted first-round operation is invalid: {exc}"
+    ) from exc
+continuity_engine.domain.errors.IntegrationPersistenceError: persisted first-round operation is invalid: C1 operation input binding is missing or inconsistent
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p09_review_regressions.py", line 119, in test_checkpoint_context_removal_cannot_downgrade_c1_to_legacy_replay
+    f.reopen()
+    ~~~~~~~~^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p09_core_fixture.py", line 153, in reopen
+    self.app = build_local_integration_app(self.runtime.data_root, clock=self.runtime.clock.now,
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        thinking_mode=self.thinking_mode, capability_thinking_provider_id="p09-model-capability-fixture-v1",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        result_factory=SandboxFirstRoundResultFactory(), available_permissions=(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            "subject_state:update", "memory:request", "user:contact", "expression:emit", "action:silence", "test:lookup"))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\local_integration_app.py", line 403, in build_local_integration_app
+    raise LocalIntegrationInitializationError(
+        "formal local integration data is incomplete, corrupt, or inconsistent"
+    ) from exc
+continuity_engine.interfaces.local_integration_app.LocalIntegrationInitializationError: formal local integration data is incomplete, corrupt, or inconsistent
+
+======================================================================
+ERROR: test_checkpoint_gate_flip_cannot_bypass_completed_receipt_verification (tests.test_p09_review_regressions.P09ReviewRegressionTests.test_checkpoint_gate_flip_cannot_bypass_completed_receipt_verification)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_integration_repository.py", line 669, in _load_operations
+    IntegrationOperationRecord.from_dict(item)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\domain\integration_results.py", line 1174, in from_dict
+    IntegrationDomainProgress.from_dict(data["domainProgress"])
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\domain\integration_results.py", line 661, in from_dict
+    return cls(
+        stage=stage,
+    ...<49 lines>...
+        continuity_context_hash=data["continuityContextHash"],
+    )
+  File "<string>", line 19, in __init__
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\domain\integration_results.py", line 470, in __post_init__
+    raise MachineContractValidationError("C1 operation input binding is missing or inconsistent")
+continuity_engine.domain.errors.MachineContractValidationError: C1 operation input binding is missing or inconsistent
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\local_integration_app.py", line 398, in build_local_integration_app
+    app.assert_ready()
+    ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\local_integration_app.py", line 69, in assert_ready
+    self.ledger.validate_initialized()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_integration_repository.py", line 298, in validate_initialized
+    self._load_operations()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_integration_repository.py", line 673, in _load_operations
+    raise IntegrationPersistenceError(
+        f"persisted first-round operation is invalid: {exc}"
+    ) from exc
+continuity_engine.domain.errors.IntegrationPersistenceError: persisted first-round operation is invalid: C1 operation input binding is missing or inconsistent
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p09_review_regressions.py", line 100, in test_checkpoint_gate_flip_cannot_bypass_completed_receipt_verification
+    f.reopen()
+    ~~~~~~~~^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p09_core_fixture.py", line 153, in reopen
+    self.app = build_local_integration_app(self.runtime.data_root, clock=self.runtime.clock.now,
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        thinking_mode=self.thinking_mode, capability_thinking_provider_id="p09-model-capability-fixture-v1",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        result_factory=SandboxFirstRoundResultFactory(), available_permissions=(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            "subject_state:update", "memory:request", "user:contact", "expression:emit", "action:silence", "test:lookup"))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\local_integration_app.py", line 403, in build_local_integration_app
+    raise LocalIntegrationInitializationError(
+        "formal local integration data is incomplete, corrupt, or inconsistent"
+    ) from exc
+continuity_engine.interfaces.local_integration_app.LocalIntegrationInitializationError: formal local integration data is incomplete, corrupt, or inconsistent
+
+----------------------------------------------------------------------
+Ran 6 tests in 3.485s
+
+FAILED (errors=2)

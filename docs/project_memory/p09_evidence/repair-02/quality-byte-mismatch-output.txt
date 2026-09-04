@@ -1,0 +1,12 @@
+本轮首次静态边界检查的工具输出摘录（非 unittest 运行）：
+命令：python C:\Users\ADMINI~1\AppData\Local\Temp\ce-p09-r2-vkau35qy\quality-check.py docs/project_memory/p09_evidence/repair-02/pre-final-boundary-audit.json
+退出码：1；工具报告 wall_time_seconds：1.6721610999999998。
+当时未生成 pre-final-boundary-audit.json；该 JSON 是随后修复通过后实际生成的另一次检查结果。
+
+Traceback (most recent call last):
+  File "C:\Users\ADMINI~1\AppData\Local\Temp\ce-p09-r2-vkau35qy\quality-check.py", line 75, in <module>
+    if not item['redacted']:assert sha(p)==item['sha256']
+                                   ^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+
+后续核对：早期独立证据目录与仓库归档副本按字节一致，但 Windows 文本写入再次转换 CRLF，故保存流与原 metadata 的 bytes/hash 不一致。正式修复前失败回归见 retention-byte-integrity-before.log；修复后见 expanded-byte-fix.log。未将此静态失败计作新的测试数量，也未改写早期样本。

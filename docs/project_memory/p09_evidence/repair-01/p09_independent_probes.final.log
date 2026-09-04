@@ -1,0 +1,55 @@
+test_already_committed_state_recovers_after_expiry_control (__main__.IndependentP09Review.test_already_committed_state_recovers_after_expiry_control) ... ok
+test_checkpoint_context_removal_cannot_downgrade_c1_to_legacy_replay (__main__.IndependentP09Review.test_checkpoint_context_removal_cannot_downgrade_c1_to_legacy_replay) ... CONTEXT_REMOVAL_PROBE FirstRoundSuccessResult query_calls 0 same_result True
+FAIL
+test_checkpoint_gate_flip_cannot_bypass_completed_receipt_verification (__main__.IndependentP09Review.test_checkpoint_gate_flip_cannot_bypass_completed_receipt_verification) ... GATE_FLIP_PROBE FirstRoundSuccessResult query_calls 0 same_result True
+FAIL
+test_current_context_allows_legal_state_update_control (__main__.IndependentP09Review.test_current_context_allows_legal_state_update_control) ... ok
+test_expired_context_must_block_first_state_commit_after_thinking_crash (__main__.IndependentP09Review.test_expired_context_must_block_first_state_commit_after_thinking_crash) ... EXPIRED_CONTEXT_PROBE FirstRoundSuccessResult revision 2 thinking_calls 0
+FAIL
+test_revoked_reference_must_block_first_state_commit_after_thinking_crash (__main__.IndependentP09Review.test_revoked_reference_must_block_first_state_commit_after_thinking_crash) ... REVOKED_REFERENCE_PROBE FirstRoundSuccessResult revision 2 thinking_calls 0
+FAIL
+
+======================================================================
+FAIL: test_checkpoint_context_removal_cannot_downgrade_c1_to_legacy_replay (__main__.IndependentP09Review.test_checkpoint_context_removal_cannot_downgrade_c1_to_legacy_replay)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\work\p09_independent_probes.py", line 119, in test_checkpoint_context_removal_cannot_downgrade_c1_to_legacy_replay
+    self.assertTrue(blocked, "missing Context downgraded C1 history to legacy replay")
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : missing Context downgraded C1 history to legacy replay
+
+======================================================================
+FAIL: test_checkpoint_gate_flip_cannot_bypass_completed_receipt_verification (__main__.IndependentP09Review.test_checkpoint_gate_flip_cannot_bypass_completed_receipt_verification)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\work\p09_independent_probes.py", line 100, in test_checkpoint_gate_flip_cannot_bypass_completed_receipt_verification
+    self.assertTrue(blocked, "checkpoint gate flip bypassed historical receipt verification")
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : checkpoint gate flip bypassed historical receipt verification
+
+======================================================================
+FAIL: test_expired_context_must_block_first_state_commit_after_thinking_crash (__main__.IndependentP09Review.test_expired_context_must_block_first_state_commit_after_thinking_crash)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\work\p09_independent_probes.py", line 54, in test_expired_context_must_block_first_state_commit_after_thinking_crash
+    self.assertEqual(f.runtime.subject_state().revision, 1,
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     "expired Context authorized a new StateMutation/Evolution commit")
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 1 : expired Context authorized a new StateMutation/Evolution commit
+
+======================================================================
+FAIL: test_revoked_reference_must_block_first_state_commit_after_thinking_crash (__main__.IndependentP09Review.test_revoked_reference_must_block_first_state_commit_after_thinking_crash)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\work\p09_independent_probes.py", line 74, in test_revoked_reference_must_block_first_state_commit_after_thinking_crash
+    self.assertEqual(f.runtime.subject_state().revision, 1,
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     "revoked Context authorized a new StateMutation/Evolution commit")
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 1 : revoked Context authorized a new StateMutation/Evolution commit
+
+----------------------------------------------------------------------
+Ran 6 tests in 3.212s
+
+FAILED (failures=4)

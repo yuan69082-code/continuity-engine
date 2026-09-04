@@ -1,0 +1,13 @@
+======================================================================
+FAIL: test_expired_context_stops_new_thinking_from_checkpoint (tests.test_p09_continuity_core.P09CoreTests.test_expired_context_stops_new_thinking_from_checkpoint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p09_continuity_core.py", line 112, in test_expired_context_stops_new_thinking_from_checkpoint
+    self.assertEqual(f.provider.calls, 0)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0
+
+----------------------------------------------------------------------
+Ran 1 test in 0.459s
+
+FAILED (failures=1)

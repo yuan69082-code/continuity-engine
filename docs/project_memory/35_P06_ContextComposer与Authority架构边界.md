@@ -1,5 +1,7 @@
 # P06 Context Composer 与 Authority 架构边界
 
+> P08 现行门：P00—P08 = `ACCEPTED`；P08 / Engine side / P08-01—P08-12 = `ACCEPTED`；P08 Vio dependency = `NONE`；P09—P23 = `NOT_STARTED`。D-051 保留施工决定，D-052 已登记用户正式验收；不授权 P09 或 Git 操作。见 [P08 矩阵](44_P08_规划施工测试验收矩阵.md)。
+
 ## 当前状态
 
 - P00—P06：`ACCEPTED`
@@ -7,7 +9,7 @@
 - P06-01—P06-12：12/12 `ACCEPTED`
 - P06 Vio dependency：`NONE`
 - P07：`ACCEPTED`；D-049 已使用，D-050 已用于用户正式验收
-- P08—P23：`NOT_STARTED`
+- P09—P23：`NOT_STARTED`
 - D-047：P06 开工、Authority 与预算边界
 - D-048：用户于 2026-09-03 正式验收 P06
 

@@ -1,5 +1,7 @@
 # Continuity Engine
 
+> P08 现行门：P00—P08 = `ACCEPTED`；P08 / Engine side / P08-01—P08-12 = `ACCEPTED`；P08 Vio dependency = `NONE`；P09—P23 = `NOT_STARTED`。D-051 保留施工决定，D-052 已登记用户正式验收；不授权 P09 或 Git 操作。见 [P08 矩阵](docs/project_memory/44_P08_规划施工测试验收矩阵.md)。
+
 连续性引擎是位于 AI 模型之外的独立连续性层。它与 Vio 平台后端是边界独立、数据库独立的平行系统，通过正式版本化契约协作；Vio 前端只连接 Vio 平台后端。它保存的不是聊天记录，而是主体状态及其随事件发生的连续变化。模型、Tool、MCP 和设备只是经 Vio 管理的外部能力，不是主体状态权威。
 
 当前版本为 `0.1.0` 原型，重点是建立可保存、可演化、可审计并受权限与资源约束的连续性内核。它不是已经具备真实自主执行能力的生产 Agent。
@@ -19,6 +21,7 @@
 - Perception：只读的确定性感知层，输出关注、时间、关系、记忆影响、观察和内在驱力。
 - Thinking：直接接收 `PerceptionResult`，通过 `ThinkSession` 保存摘要、预算、结果和关联信息；模型执行器可插拔。
 - Action：生成受权限、风险、资源和 revision 约束的 `ActionDecision` 与 `ActionPlan`，不执行真实动作。
+- P08 本地行动：简单 Direct Action 无 Goal/Plan，复杂 Information Need/Action Intent 使用 Optional Planner；内部非模型请求经唯一 E5-A ledger 和既有 Action 权限/风险/资源门、确认、恢复与 Reality Boundary 进入 TEST Fake Adapter。执行成功和执行失败都必须有经绑定 Adapter query 独立核实的回执；无回执 EXPIRED 只是本地停止决定，须 query 明确 NOT_EXECUTED，不能靠 reason/时间/自洽 hash 掩盖已发生成功。历史冲突拒绝消费且不覆盖；当前 Context 失效不阻止原请求已发生事实归账，但仍阻止新执行、重试和后续步骤。旧 model.generate 契约和原 ThinkSession 恢复不变，UNKNOWN/查询异常不盲重试，重复结果不重复 synthetic effect/credit；没有生产 Adapter 或 P09/P17 正式接线。
 - Permission：权限连续状态、变化历史、`PermissionContext` 和本地 JSON 恢复。
 - Learning：受控候选、证据验证、长期特征、固化/回滚事件和审计历史；不训练模型。
 - Resource Management：`ResourceState`、`ResourcePolicy`、`ResourceManager`、确定性预算和资源检查入口。
@@ -76,7 +79,7 @@ Engine E4 随后完成 Engine 侧正式本地 HTTP/JSON Adapter。Vio V3 首次�
 
 历史阶段顺序已推进为 `E5-A → V4 → 受控 S4 → V5 → F1 → L1 → S4-R PASS → S4-Live 首次真实供应商单次试聊 PASS → Engine 工程档案归档完成`。
 
-P00—P07 已分别由用户正式验收，当前均为 `ACCEPTED`。P07 Contradiction Detector、P07 Engine side 与 P07-01—P07-12 已完成 Engine 独立实现和首轮四项及第二轮两项监工阻断返修，当前均为 `ACCEPTED`；P07 Vio dependency = `NONE`。当前证据为 P07 专项 56/56、P05—P07 133/133、直接相关 221/221、P01—P07 综合 338/338，以及返修后连续三轮完整回归 642/642；首轮 35/112/200/317/621 作为历史保留。D-049 记录开工、Authority 边界和可信 resolution/supersession 补充决定；D-050 记录用户于 2026-09-04 正式验收 P07。P08—P23 保持 `NOT_STARTED`；P06/P07 本地隔离不是长期产品禁令，P09/P16/P22 仍按规划分别开放正式 Thinking 接线、外部知识和真实 Provider/Vio/PWA 集成；软件版本保持 `0.1.0`。 第一轮返修 46/123/211/328/632 仍作为当时历史证据保留。
+P00—P08 已分别由用户正式验收，当前均为 `ACCEPTED`。P07 Contradiction Detector、P07 Engine side 与 P07-01—P07-12 已完成 Engine 独立实现和首轮四项及第二轮两项监工阻断返修，当前均为 `ACCEPTED`；P07 Vio dependency = `NONE`。P07 验收证据为 专项 56/56、P05—P07 133/133、直接相关 221/221、P01—P07 综合 338/338，以及返修后连续三轮完整回归 642/642；首轮 35/112/200/317/621 作为历史保留。D-049 记录开工、Authority 边界和可信 resolution/supersession 补充决定；D-050 记录用户于 2026-09-04 正式验收 P07。P09—P23 保持 `NOT_STARTED`；P06/P07 本地隔离不是长期产品禁令，P09/P16/P22 仍按规划分别开放正式 Thinking 接线、外部知识和真实 Provider/Vio/PWA 集成；软件版本保持 `0.1.0`。 第一轮返修 46/123/211/328/632 仍作为当时历史证据保留。 用户于 2026-09-04 正式验收 P08（D-052），含方案 A 有限泛化及两轮返修；监工独立四项反例 4/4、P08 58/58、全量 700/700 通过。不扩大生产 exactly-once，不授权生产 Adapter、P09/P17 或 Git 操作。
 
 P00 的唯一全周期入口：
 

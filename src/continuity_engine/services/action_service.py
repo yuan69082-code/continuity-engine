@@ -50,6 +50,42 @@ class ActionService:
         self._risk_evaluator = risk_evaluator or RiskEvaluator()
         self._resource_evaluator = resource_evaluator or ResourceEvaluator()
 
+    def assess_local_action(self, intent: ActionIntent, *, subject_id: str,
+                            environment: str, limits, confirmed: bool = False) -> ActionDecision:
+        """P08 additive gate: assess a sealed local choice without creating a Plan.
+
+        Confirmation is supplied by the trusted P08 gate binding, never by Observation.
+        The existing decide/ActionSession/Evolution and external paths are unchanged.
+        """
+        if environment not in {"TEST", "RESEARCH"}:
+            raise ValueError("local Action gate requires TEST/RESEARCH")
+        checks = [self._permissions.check(
+            permission, subject_id=subject_id, action_type=intent.action_type,
+            target=intent.target, at=intent.created_at,
+        ) for permission in intent.required_permissions]
+        risk = self._risk_evaluator.evaluate(intent, checks)
+        resources = self._resource_evaluator.evaluate(intent, limits)
+        needs_confirmation = (any(item.requires_confirmation for item in checks)
+                              or intent.action_type is ActionType.CONTACT_USER
+                              or risk.risk_level in (RiskLevel.HIGH, RiskLevel.CRITICAL))
+        reason = None
+        if any(not item.valid for item in checks):
+            reason = "PERMISSION_DENIED"
+        elif not resources.within_limits:
+            reason = "RESOURCE_EXHAUSTED"
+        elif risk.risk_level is RiskLevel.CRITICAL:
+            reason = "CRITICAL_RISK_DENIED"
+        elif needs_confirmation and not confirmed:
+            reason = "CONFIRMATION_REQUIRED"
+        return ActionDecision(
+            decision_id=self._id("p08-gate", intent.intent_id, str(confirmed)),
+            selected_action=intent, approved=reason is None, rejection_reason=reason,
+            requires_confirmation=needs_confirmation,
+            can_execute_automatically=(reason is None and not needs_confirmation),
+            evaluated_permissions=checks, evaluated_risks=risk, evaluated_resources=resources,
+            created_at=intent.created_at,
+        )
+
     def decide(self, context: ActionContext) -> ActionExecutionResult:
         intents = self._extract_intents(context)
         selected = min(intents, key=lambda item: _ACTION_PRIORITY[item.action_type])

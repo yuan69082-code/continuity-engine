@@ -291,7 +291,12 @@ from .thinking import (
     WakePerceptionThinkingResult,
 )
 
+from .action_planning import ActionChoice, ActionSpecification, AutonomousActionPlan, OptionalActionPlanner
+from .action_capability import InternalActionRequest, InternalActionResult, InternalActionAttempt, ActionReceipt
+
 __all__ = [
+    "ActionChoice", "ActionSpecification", "AutonomousActionPlan", "OptionalActionPlanner",
+    "InternalActionRequest", "InternalActionResult", "InternalActionAttempt", "ActionReceipt",
     "ActionContext",
     "ActionDecision",
     "ActionExecutionResult",

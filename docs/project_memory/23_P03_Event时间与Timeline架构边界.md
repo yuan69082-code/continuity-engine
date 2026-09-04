@@ -1,5 +1,7 @@
 # P03 Event 时间与 Timeline 架构边界
 
+> P08 现行门：P00—P08 = `ACCEPTED`；P08 / Engine side / P08-01—P08-12 = `ACCEPTED`；P08 Vio dependency = `NONE`；P09—P23 = `NOT_STARTED`。D-051 保留施工决定，D-052 已登记用户正式验收；不授权 P09 或 Git 操作。见 [P08 矩阵](44_P08_规划施工测试验收矩阵.md)。
+
 > 阶段：P03——Event 语义、时间系统与 Timeline
 > 当前状态：P03 / P03 Engine side = `ACCEPTED`
 > 用户验收：2026-08-30；P04 后续独立获权并于 2026-09-01 正式 `ACCEPTED`
@@ -80,4 +82,4 @@ Timeline 支持：
 
 ## 7. 阶段外边界
 
-P03 本阶段没有实现 P04 Memory Consolidation/DerivedSummary、P11 Scheduler、P17 Reality Execution、P20/P21 生产恢复、P22 Vio/PWA 重连、真实 Provider、网络或生产数据库。其后 P04、P05、P06 已分别通过独立 Stage Brief 获权并正式 `ACCEPTED`；P07 已通过独立 Stage Brief 实现，并由用户于 2026-09-04 正式验收，P08—P23 保持 `NOT_STARTED`。P03 Vio dependency = `NONE`。
+P03 本阶段没有实现 P04 Memory Consolidation/DerivedSummary、P11 Scheduler、P17 Reality Execution、P20/P21 生产恢复、P22 Vio/PWA 重连、真实 Provider、网络或生产数据库。其后 P04、P05、P06 已分别通过独立 Stage Brief 获权并正式 `ACCEPTED`；P07 已通过独立 Stage Brief 实现，并由用户于 2026-09-04 正式验收，P09—P23 保持 `NOT_STARTED`。P03 Vio dependency = `NONE`。

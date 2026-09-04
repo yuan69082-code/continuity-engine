@@ -4,6 +4,35 @@
 
 ## [Unreleased]
 
+### P08 用户正式验收档案接续收尾 — 2026-09-04
+
+- 既有 D-052 已登记用户正式验收 P08、方案 A 内部有限泛化及两轮监工阻断返修；本次补齐十二项矩阵、验收索引、未完成/待确认清单、施工日志、修订记录与汇总档案，不重复创建决定。
+- P00—P08、P08 Engine side 与十二项均 ACCEPTED，P08 Vio dependency NONE，P09—P23 NOT_STARTED，PLANNING_CONFLICT/EVIDENCE_CONFLICT 均 NONE；不扩大本地 Fake 幂等能力结论，不授权生产 Adapter、P09/P17 或 Git 操作。
+- 保留开工 642、36/678、46/688、58/700 和全部失败/返修/历史状态；监工独立及引擎返修终局证据见 P08 测试索引第 10 节，本次档案后的顺序复跑结果单独在最终报告登记。
+- 本轮只修改档案，运行代码、测试、六份 Schema、外部接口、pyproject、版本 0.1.0 和正式数据不变。旧任务 remote compact 断流属于上下文压缩/响应传输中断，不是项目测试失败。
+
+### P08 无回执终态与过期停止决定返修 — 2026-09-04
+
+- 原 46/688 通过外再发现两条监工反例：receipt=None 的 FAILED_TERMINAL 可通过协调器，重算 hash 的 EXPIRED 可掩盖 Fake 实际成功；先保留 2/2 FAIL、0.467 秒，当时 EVIDENCE_CONFLICT=PRESENT。
+- 内部状态/证据约束贯穿构造、反序列化、attempt 保存和协调消费；成功/执行失败必须核实 receipt，EXPIRED 必须 query 明确类型化 NOT_EXECUTED。UNKNOWN/查询异常不是未执行；停止历史冲突拒绝消费、不覆盖；过期 choice/Context 仍可恢复原真实回执，但不授权新执行。
+- 新增 12 项回归，定点 12、P08 58、旧 E5-A/P02 101、直接链路 329、综合 396 均通过；连续三轮全量 700/700（136.457/137.235/138.780 秒）。两条反例修复后 2/2 PASS、0.495 秒；补测 NameError 与修正也追加日志，原 36/678、46/688 和失败历史保留。
+- 没有新增 ledger/存储版本或修改外部契约、Authority、Schema、pyproject/0.1.0、正式数据。P08/Engine/十二项 IMPLEMENTED_NOT_ACCEPTED，PLANNING_CONFLICT/EVIDENCE_CONFLICT 闭合为 NONE；D-052 未创建，等待独立复核，不执行 Git 写操作。
+
+### P08 历史回执验真与 Context 失效恢复返修 — 2026-09-04
+
+- 原 36/678 通过后，规划监工发现伪造 ledger 成功可放行 contact、当前 Context 失效阻断既有效果归账；先保留 2/2 正式失败（0.487 秒），当时 EVIDENCE_CONFLICT=PRESENT。
+- 内部 coordination 对历史加载消费、终态重放、依赖与追加结果统一查询绑定 Adapter，缺失/UNKNOWN/漂移/不可验证回执失败关闭；自洽存储 hash 不等于独立执行证明。Context 失效时允许精确原请求事实查询/归账，仍禁止新请求、新执行、受控 retry 及后续动作越过当前门禁。
+- 新增 10 项正式回归；定点 10、P08 46、旧 E5-A/P02 101、直接链路 317、综合 384 全部通过；三轮 Engine 688/688，130.617/131.293/134.722 秒。原 36/307/374/678、早期失败与本轮两处测试辅助代码错误均保留于日志，不倒写。
+- P08 / Engine side / 十二项继续 IMPLEMENTED_NOT_ACCEPTED，两个 conflict 闭合为 NONE，D-052 未创建。未增加第二账本或变更持久化格式、模型通道、外部接口、Authority、正式数据、Schema、pyproject/0.1.0；不接 P09/P17/Vio/真实系统，不执行 Git 写操作。
+
+### P08 Direct / Optional Planner 与 E5-A 内部有限泛化 — 2026-09-04
+
+- 用户独立授权 P08，并明确选择 A：保留外部六份 Schema 与原 model.generate/ThinkSession 通道，仅增加内部 Action/Step 类型及同一 capability ledger 的恢复分派。D-051 已记录；D-052 未创建。
+- 简单行动无需 Goal/Plan；复杂、多步、依赖或非原子选择必须走 Planner；Information Need / Action Intent 共用输入封印、Action 权限/风险/资源、确认、Recoverability 与 Reality Boundary 门。
+- Fake receipt query 优先，UNKNOWN 不盲重试，旧模型等待/完成记录仍可加载、恢复和精确重放。新增 36 项测试，307 直接链路、374 综合与三轮 678/678 全量通过（116.450/116.219/117.417 秒）。
+- 保留 Adapter 漂移和步骤间 Context 漂移两次 1/1 FAIL；分别通过绑定 Adapter/policy hash 和执行前 Context 重验闭合，没有删除或弱化断言。
+- P08 / Engine side / P08-01—P08-12 = IMPLEMENTED_NOT_ACCEPTED，P00—P07 ACCEPTED，P09—P23 NOT_STARTED；PLANNING_CONFLICT = NONE，EVIDENCE_CONFLICT = NONE。没有生产 Adapter、Vio/网络/真实 Provider、正式数据或版本变更，不执行任何 Git 写操作。
+
 ### P07 用户正式验收 — 2026-09-04
 
 - 用户正式验收 P07，D-050 已创建并使用；P00—P07、P07 Engine side 与 P07-01—P07-12 均为 `ACCEPTED`，P07 Vio dependency `NONE`，P08—P23 保持 `NOT_STARTED`。

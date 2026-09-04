@@ -21,6 +21,9 @@ from continuity_engine.domain.capability import (
     CapabilityStatus,
     calculate_capability_result_hash,
 )
+from continuity_engine.domain.action_capability import (
+    InternalActionRequest, InternalActionResult, InternalActionAttempt,
+)
 from continuity_engine.domain.integration_contract import SubjectBindingFixture
 from continuity_engine.domain.integration_hashing import (
     HASH_PATTERN,
@@ -318,11 +321,20 @@ class JsonIntegrationResultLedger:
         self._load_capability_document()
 
     def save_capability_request(self, request: CapabilityRequest) -> None:
-        if not isinstance(request, CapabilityRequest):
+        if not isinstance(request, (CapabilityRequest, InternalActionRequest)):
             raise IntegrationPersistenceError(
                 "capability ledger accepts CapabilityRequest values"
             )
         requests, attempts = self._load_capability_document()
+        if isinstance(request, InternalActionRequest):
+            for existing in requests:
+                if isinstance(existing, InternalActionRequest) and (
+                    existing.choice.subject_id, existing.choice.environment,
+                    existing.choice.producer_id, existing.choice.decision_id
+                ) == (request.choice.subject_id, request.choice.environment,
+                      request.choice.producer_id, request.choice.decision_id):
+                    if existing.choice != request.choice or existing.plan_id != request.plan_id:
+                        raise CapabilityConflictError("action decision identity was reused")
         for existing in requests:
             same_identity = (
                 existing.capability_request_id == request.capability_request_id
@@ -365,7 +377,7 @@ class JsonIntegrationResultLedger:
         *,
         received_at: str,
     ) -> CapabilityAttempt:
-        if not isinstance(result, CapabilityResult):
+        if not isinstance(result, (CapabilityResult, InternalActionResult)):
             raise IntegrationPersistenceError(
                 "capability ledger accepts CapabilityResult values"
             )
@@ -381,7 +393,10 @@ class JsonIntegrationResultLedger:
             raise IntegrationRecordNotFoundError(
                 "CapabilityResult references an unknown CapabilityRequest"
             )
-        result_hash = calculate_capability_result_hash(result)
+        if isinstance(request, InternalActionRequest) or isinstance(result, InternalActionResult):
+            if not isinstance(result, InternalActionResult) or result.request != request:
+                raise CapabilityConflictError("internal result recovery target mismatch")
+        result_hash = calculate_capability_result_hash(result.to_dict())
         for attempt in attempts:
             if attempt.result.capability_result_id != result.capability_result_id:
                 continue
@@ -402,7 +417,8 @@ class JsonIntegrationResultLedger:
             raise CapabilityConflictError(
                 "a terminal CapabilityRequest cannot accept another result"
             )
-        attempt = CapabilityAttempt(
+        attempt_type = InternalActionAttempt if isinstance(result, InternalActionResult) else CapabilityAttempt
+        attempt = attempt_type(
             result_hash=result_hash,
             received_at=received_at,
             result=result,
@@ -434,7 +450,7 @@ class JsonIntegrationResultLedger:
             name="capability ledger document",
             expected_keys={"capabilityLedgerFormatVersion", "requests", "attempts"},
         )
-        if document["capabilityLedgerFormatVersion"] != CAPABILITY_LEDGER_FORMAT_VERSION:
+        if document["capabilityLedgerFormatVersion"] not in (CAPABILITY_LEDGER_FORMAT_VERSION, 2):
             raise IntegrationPersistenceError(
                 "unsupported capability ledger format version"
             )
@@ -445,17 +461,36 @@ class JsonIntegrationResultLedger:
                 "capability requests and attempts must be arrays"
             )
         try:
-            requests = [CapabilityRequest.from_dict(item) for item in document["requests"]]
-            attempts = [CapabilityAttempt.from_dict(item) for item in document["attempts"]]
+            requests = [
+                (InternalActionRequest if isinstance(item, dict) and "internalVersion" in item
+                 else CapabilityRequest).from_dict(item) for item in document["requests"]
+            ]
+            attempts = [
+                (InternalActionAttempt if isinstance(item, dict) and isinstance(item.get("result"), dict)
+                 and "internalVersion" in item["result"] else CapabilityAttempt).from_dict(item)
+                for item in document["attempts"]
+            ]
+            if document["capabilityLedgerFormatVersion"] == 1 and any(
+                isinstance(item, InternalActionRequest) for item in requests
+            ):
+                raise CapabilityValidationError("internal actions require ledger format 2")
         except CapabilityValidationError as exc:
             raise IntegrationPersistenceError(
                 f"persisted capability record is invalid: {exc}"
             ) from exc
         request_ids: set[str] = set()
         operation_ids: set[str] = set()
+        internal_decisions: dict[tuple, tuple] = {}
         result_ids: set[str] = set()
         request_by_id = {item.capability_request_id: item for item in requests}
         for request in requests:
+            if isinstance(request, InternalActionRequest):
+                key = (request.subject_id, request.choice.environment, request.choice.producer_id,
+                       request.choice.decision_id)
+                value = (request.choice.canonical_hash(), request.plan_id)
+                if key in internal_decisions and internal_decisions[key] != value:
+                    raise IntegrationPersistenceError("conflicting internal decision history")
+                internal_decisions[key] = value
             if request.capability_request_id in request_ids or request.operation_id in operation_ids:
                 raise IntegrationPersistenceError(
                     "capability ledger contains duplicate request identities"
@@ -472,6 +507,11 @@ class JsonIntegrationResultLedger:
                 )
             result_ids.add(result.capability_result_id)
             request = request_by_id.get(result.capability_request_id)
+            if isinstance(request, InternalActionRequest) or isinstance(result, InternalActionResult):
+                if not isinstance(result, InternalActionResult) or result.request != request:
+                    raise IntegrationPersistenceError("internal result request/type boundary mismatch")
+                if result.capability_request_id in successful_requests | terminal_requests:
+                    raise IntegrationPersistenceError("internal attempt appended after terminal result")
             if request is None or any(
                 (
                     result.operation_id != request.operation_id,
@@ -508,7 +548,10 @@ class JsonIntegrationResultLedger:
         _atomic_write_json(
             self._capability_path,
             {
-                "capabilityLedgerFormatVersion": CAPABILITY_LEDGER_FORMAT_VERSION,
+                "capabilityLedgerFormatVersion": (
+                    2 if any(isinstance(item, InternalActionRequest) for item in requests)
+                    else CAPABILITY_LEDGER_FORMAT_VERSION
+                ),
                 "requests": [item.to_dict() for item in requests],
                 "attempts": [item.to_dict() for item in attempts],
             },

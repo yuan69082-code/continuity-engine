@@ -9,6 +9,7 @@ from continuity_engine.domain.capability import (
     CapabilityModelInput,
     CapabilityRequest,
     CapabilityResult,
+    CapabilityStatus,
     calculate_capability_content_hash,
     parse_capability_datetime,
 )
@@ -26,6 +27,8 @@ from continuity_engine.domain.subject_binding import SubjectBinding
 
 from .capability_contract_validation import CapabilityContractValidator
 from .capability_ports import CapabilityRepository
+from continuity_engine.domain.action_capability import ActionReceipt, InternalActionRequest, InternalActionResult, ReceiptQuery
+from continuity_engine.domain.errors import CapabilityConflictError
 
 
 class CapabilityCoordinationService:
@@ -42,6 +45,76 @@ class CapabilityCoordinationService:
     @property
     def validator(self) -> CapabilityContractValidator:
         return self._validator
+
+    def ensure_action_request(self, request: InternalActionRequest, *, allow_create: bool = True) -> InternalActionRequest:
+        """Internal-only typed dispatch; never sent to the frozen external validator."""
+        if not isinstance(request, InternalActionRequest):
+            raise CapabilityValidationError("internal action request required")
+        existing = self._repository.find_capability_request_by_operation(request.operation_id)
+        if existing is not None and existing != request:
+            raise CapabilityConflictError("operation recovery identity conflict")
+        if existing is not None:
+            return existing
+        if not allow_create:
+            raise CapabilityValidationError("CONTEXT_STALE_OR_UNAUTHORIZED")
+        self._repository.save_capability_request(request)
+        return request
+
+    def action_attempts(self, request: InternalActionRequest, *, receipt_verifier):
+        """Read the existing ledger, then verify execution facts before consumption.
+
+        Repository shape/hash validation is not proof of an Adapter effect. This
+        gate applies equally to reloaded history, exact replay and result append.
+        It deliberately does not execute, retry, or repair persisted history.
+        """
+        existing = self._repository.load_capability_request(request.capability_request_id)
+        if existing != request:
+            raise CapabilityConflictError("internal recovery request mismatch")
+        attempts = self._repository.list_capability_attempts(request.capability_request_id)
+        for attempt in attempts:
+            self._verify_action_result_evidence(attempt.result, receipt_verifier)
+        return attempts
+
+    @staticmethod
+    def _query_action_fact(request, verifier):
+        if verifier.adapter_id != request.adapter_id:
+            raise CapabilityValidationError("ADAPTER_RECEIPT_BINDING_MISMATCH")
+        try:
+            fact = verifier.query(request)
+        except Exception as exc:
+            raise CapabilityValidationError("EXECUTION_FACT_UNVERIFIABLE") from exc
+        if isinstance(fact, ActionReceipt):
+            fact.validate_request(request)
+        return fact
+
+    @classmethod
+    def _verify_action_result_evidence(cls, result, verifier):
+        # No public status/reason/hash (including receipt=None) is execution proof.
+        checked = InternalActionResult.from_dict(result.to_dict())
+        if checked.receipt is not None:
+            cls._verify_action_receipt(checked.request, checked.receipt, verifier)
+        elif checked.status is CapabilityStatus.EXPIRED:
+            fact = cls._query_action_fact(checked.request, verifier)
+            if isinstance(fact, ActionReceipt):
+                raise CapabilityValidationError("LOCAL_STOP_CONFLICTS_WITH_EXECUTION_FACT")
+            if fact is not ReceiptQuery.NOT_EXECUTED:
+                raise CapabilityValidationError("LOCAL_STOP_NOT_EXECUTED_UNVERIFIED")
+
+    @classmethod
+    def _verify_action_receipt(cls, request, receipt, verifier):
+        receipt.validate_request(request)
+        verified = cls._query_action_fact(request, verifier)
+        if not isinstance(verified, ActionReceipt) or verified != receipt:
+            raise CapabilityValidationError("EXECUTION_FACT_UNVERIFIED_OR_DRIFTED")
+        verified.validate_request(request)
+
+    def accept_action_result(self, result: InternalActionResult, *, received_at: str, receipt_verifier):
+        """Reuse the same attempt/terminal ledger after exact receipt verification."""
+        if not isinstance(result, InternalActionResult):
+            raise CapabilityValidationError("internal action result required")
+        self.action_attempts(result.request, receipt_verifier=receipt_verifier)
+        self._verify_action_result_evidence(result, receipt_verifier)
+        return self._repository.save_capability_result(result, received_at=received_at)
 
     def ensure_request(
         self,

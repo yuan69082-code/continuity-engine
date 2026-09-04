@@ -1,6 +1,8 @@
 # P07 矛盾分类、隔离、核实、解决与 Trace 语义
 
-> 用户于 2026-09-04 正式验收 P07（D-050）；P07、Engine side 与 P07-01—P07-12 均为 `ACCEPTED`。本文既有 Authority 与两轮返修语义保持不变；P08—P23 `NOT_STARTED`，本次不授权 Git 写操作。
+> P08 现行门：P00—P08 = `ACCEPTED`；P08 / Engine side / P08-01—P08-12 = `ACCEPTED`；P08 Vio dependency = `NONE`；P09—P23 = `NOT_STARTED`。D-051 保留施工决定，D-052 已登记用户正式验收；不授权 P09 或 Git 操作。见 [P08 矩阵](44_P08_规划施工测试验收矩阵.md)。
+
+> 用户于 2026-09-04 正式验收 P07（D-050）；P07、Engine side 与 P07-01—P07-12 均为 `ACCEPTED`。本文既有 Authority 与两轮返修语义保持不变；P09—P23 `NOT_STARTED`，本次不授权 Git 写操作。
 
 ## 1. 三类矛盾
 

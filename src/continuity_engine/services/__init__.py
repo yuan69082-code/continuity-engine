@@ -96,7 +96,10 @@ from .user_interaction_service import (
     UserInteractionService,
 )
 
+from .action_planning_service import ActionPlanningService, ActionCapabilityBinding, ActionRunResult, ReceiptQuery
+
 __all__ = [
+    "ActionPlanningService", "ActionCapabilityBinding", "ActionRunResult", "ReceiptQuery",
     "ActionService",
     "ActionEvolutionService",
     "ContractReplyComposer",

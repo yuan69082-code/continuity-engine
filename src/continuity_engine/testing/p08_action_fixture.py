@@ -17,9 +17,42 @@ from continuity_engine.services.capability_coordination_service import Capabilit
 from continuity_engine.storage.json_integration_repository import JsonIntegrationResultLedger
 from .p06_context_fixture import run_p06_golden_scenario
 from .persistence import atomic_write_json, read_json, assert_no_link_components, assert_descendant
+from .models import SandboxOperationError
 
 P08_FIXTURE_VERSION = "p08-direct-planner-golden-v1"
 P08_TIME = datetime(2026, 9, 4, 8, tzinfo=timezone.utc)
+
+
+def _validate_fixture_root(root: Path, *, formal_data_roots=(), protected_paths=()) -> Path:
+    """Read-only TEST isolation check, shared by both pre-initialization entries."""
+    temp_root = Path(tempfile.gettempdir()).resolve()
+    root = Path(root).absolute()
+    assert_no_link_components(root, stop_at=temp_root)
+    assert_descendant(root, temp_root)
+    resolved = root.resolve()
+    protected = [Path(__file__).resolve().parents[3],
+                 *map(Path, formal_data_roots), *map(Path, protected_paths)]
+    # Installed fixtures can run from a checkout other than their source tree.
+    # Git directories and worktree .git files both identify protected checkouts.
+    for start in (resolved, Path.cwd().resolve()):
+        for parent in (start, *start.parents):
+            if (parent / '.git').exists():
+                protected.append(parent)
+                break
+    for name in ('.continuity-data', '.assistant-data'):
+        # Native Path comparison folds case on Windows and preserves POSIX spelling.
+        protected.extend(parent for parent in (resolved, *resolved.parents) if Path(parent.name) == Path(name))
+        if (resolved / name).exists():
+            protected.append(resolved / name)
+    for path in protected:
+        path = path.resolve()
+        if resolved == path or resolved in path.parents or path in resolved.parents:
+            raise SandboxOperationError(
+                'SANDBOX_PATH_FORBIDDEN',
+                'P08 Fixture root overlaps a repository, formal data, or protected path',
+            )
+    assert_no_link_components(root / 'p08-fake-receipts.json', stop_at=temp_root)
+    return root
 
 
 class FakeActionAdapter:
@@ -30,11 +63,9 @@ class FakeActionAdapter:
     """
     adapter_id = "p08-fake-adapter-v1"
 
-    def __init__(self, root: Path, *, clock=None):
-        temp_root = Path(tempfile.gettempdir()).resolve()
-        root = root.absolute()
-        assert_no_link_components(root, stop_at=temp_root)
-        assert_descendant(root.resolve(), temp_root)
+    def __init__(self, root: Path, *, clock=None, formal_data_roots=(), protected_paths=()):
+        root = _validate_fixture_root(root, formal_data_roots=formal_data_roots,
+                                      protected_paths=protected_paths)
         self.path = root / "p08-fake-receipts.json"
         self.execute_calls = 0
         self.query_calls = 0
@@ -142,14 +173,17 @@ class TestActionPermissions:
 
 
 class P08Fixture:
-    def __init__(self, root: Path):
+    def __init__(self, root: Path, *, formal_data_roots=(), protected_paths=()):
+        root = _validate_fixture_root(root, formal_data_roots=formal_data_roots,
+                                      protected_paths=protected_paths)
         self.root = root
         self.p06 = run_p06_golden_scenario(root / "sources")
         self.context = self.p06.composition
         self.producer = TestChoiceProducer()
         self.constraints = TestActionConstraints(self.context)
         self.permissions = TestActionPermissions()
-        self.adapter = FakeActionAdapter(root)
+        self.adapter = FakeActionAdapter(root, formal_data_roots=formal_data_roots,
+                                          protected_paths=protected_paths)
         self.ledger = JsonIntegrationResultLedger(root)
         self.ledger.initialize_empty()
 

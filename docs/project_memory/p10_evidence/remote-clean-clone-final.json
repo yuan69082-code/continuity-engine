@@ -1,0 +1,22 @@
+{
+  "started_utc": "2026-09-04T12:55:46.858119+00:00",
+  "finished_utc": "2026-09-04T12:55:49.515768+00:00",
+  "command": [
+    "git",
+    "-c",
+    "core.longpaths=true",
+    "clone",
+    "--branch",
+    "continuity-assistant-fenzhi",
+    "--config",
+    "core.autocrlf=false",
+    "https://github.com/yuan69082-code/continuity-assistant.git",
+    "C:\\Users\\Administrator\\Documents\\continuity-assistant-p10-clean-20260904"
+  ],
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "Cloning into 'C:\\Users\\Administrator\\Documents\\continuity-assistant-p10-clean-20260904'...\n",
+  "path": "C:\\Users\\Administrator\\Documents\\continuity-assistant-p10-clean-20260904",
+  "remote": "https://github.com/yuan69082-code/continuity-assistant.git",
+  "reason": "Checkout outside OS Temp; preserve unresolved P08 TEST adapter counterexample in first clone"
+}

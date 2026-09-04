@@ -1,0 +1,23 @@
+{
+  "stage": "P10 Engine opening baseline",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-q"
+  ],
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "start_utc": "2026-09-04T11:37:20.695121+00:00",
+  "end_utc": "2026-09-04T11:45:28.621669+00:00",
+  "elapsed_seconds": 487.927,
+  "exit_code": 0,
+  "interrupted": false,
+  "environment": {
+    "PYTHONPATH": "src",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONUTF8": "1"
+  }
+}

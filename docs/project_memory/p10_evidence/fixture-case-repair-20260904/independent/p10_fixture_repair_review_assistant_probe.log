@@ -1,0 +1,84 @@
+PRESERVED_TEST_ROOT C:\Users\Administrator\AppData\Local\Temp\p10r2-independent-b2ojby04
+test_checkout_marker_protects_root_and_formal_directory (__main__.IndependentFixtureRepairTests.test_checkout_marker_protects_root_and_formal_directory) ... ok
+test_reserved_directory_spelling_is_windows_case_insensitive (__main__.IndependentFixtureRepairTests.test_reserved_directory_spelling_is_windows_case_insensitive) ... {"spelling": ".continuity-data", "factory": "FakeActionAdapter", "rejected": true, "unchanged": true, "added_count": 0, "test_receipt_created": false}
+{"spelling": ".continuity-data", "factory": "P08Fixture", "rejected": true, "unchanged": true, "added_count": 0, "test_receipt_created": false}
+{"spelling": ".CONTINUITY-DATA", "factory": "FakeActionAdapter", "rejected": false, "unchanged": false, "added_count": 2, "test_receipt_created": true}
+
+  test_reserved_directory_spelling_is_windows_case_insensitive (__main__.IndependentFixtureRepairTests.test_reserved_directory_spelling_is_windows_case_insensitive) (spelling='.CONTINUITY-DATA', factory='FakeActionAdapter') ... FAIL
+{"spelling": ".CONTINUITY-DATA", "factory": "P08Fixture", "rejected": false, "unchanged": false, "added_count": 11, "test_receipt_created": true}
+  test_reserved_directory_spelling_is_windows_case_insensitive (__main__.IndependentFixtureRepairTests.test_reserved_directory_spelling_is_windows_case_insensitive) (spelling='.CONTINUITY-DATA', factory='P08Fixture') ... FAIL
+{"spelling": ".assistant-data", "factory": "FakeActionAdapter", "rejected": true, "unchanged": true, "added_count": 0, "test_receipt_created": false}
+{"spelling": ".assistant-data", "factory": "P08Fixture", "rejected": true, "unchanged": true, "added_count": 0, "test_receipt_created": false}
+{"spelling": ".ASSISTANT-DATA", "factory": "FakeActionAdapter", "rejected": false, "unchanged": false, "added_count": 2, "test_receipt_created": true}
+  test_reserved_directory_spelling_is_windows_case_insensitive (__main__.IndependentFixtureRepairTests.test_reserved_directory_spelling_is_windows_case_insensitive) (spelling='.ASSISTANT-DATA', factory='FakeActionAdapter') ... FAIL
+{"spelling": ".ASSISTANT-DATA", "factory": "P08Fixture", "rejected": false, "unchanged": false, "added_count": 11, "test_receipt_created": true}
+  test_reserved_directory_spelling_is_windows_case_insensitive (__main__.IndependentFixtureRepairTests.test_reserved_directory_spelling_is_windows_case_insensitive) (spelling='.ASSISTANT-DATA', factory='P08Fixture') ... FAIL
+
+======================================================================
+FAIL: test_reserved_directory_spelling_is_windows_case_insensitive (__main__.IndependentFixtureRepairTests.test_reserved_directory_spelling_is_windows_case_insensitive) (spelling='.CONTINUITY-DATA', factory='FakeActionAdapter')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\work\p10_fixture_repair_review_probe.py", line 60, in test_reserved_directory_spelling_is_windows_case_insensitive
+    self.assertEqual((rejected, before == after), (True, True))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (False, False) != (True, True)
+
+First differing element 0:
+False
+True
+
+- (False, False)
++ (True, True)
+
+======================================================================
+FAIL: test_reserved_directory_spelling_is_windows_case_insensitive (__main__.IndependentFixtureRepairTests.test_reserved_directory_spelling_is_windows_case_insensitive) (spelling='.CONTINUITY-DATA', factory='P08Fixture')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\work\p10_fixture_repair_review_probe.py", line 60, in test_reserved_directory_spelling_is_windows_case_insensitive
+    self.assertEqual((rejected, before == after), (True, True))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (False, False) != (True, True)
+
+First differing element 0:
+False
+True
+
+- (False, False)
++ (True, True)
+
+======================================================================
+FAIL: test_reserved_directory_spelling_is_windows_case_insensitive (__main__.IndependentFixtureRepairTests.test_reserved_directory_spelling_is_windows_case_insensitive) (spelling='.ASSISTANT-DATA', factory='FakeActionAdapter')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\work\p10_fixture_repair_review_probe.py", line 60, in test_reserved_directory_spelling_is_windows_case_insensitive
+    self.assertEqual((rejected, before == after), (True, True))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (False, False) != (True, True)
+
+First differing element 0:
+False
+True
+
+- (False, False)
++ (True, True)
+
+======================================================================
+FAIL: test_reserved_directory_spelling_is_windows_case_insensitive (__main__.IndependentFixtureRepairTests.test_reserved_directory_spelling_is_windows_case_insensitive) (spelling='.ASSISTANT-DATA', factory='P08Fixture')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\work\p10_fixture_repair_review_probe.py", line 60, in test_reserved_directory_spelling_is_windows_case_insensitive
+    self.assertEqual((rejected, before == after), (True, True))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (False, False) != (True, True)
+
+First differing element 0:
+False
+True
+
+- (False, False)
++ (True, True)
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.453s
+
+FAILED (failures=4)

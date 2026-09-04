@@ -1,0 +1,23 @@
+{
+  "stage": "assistant-save-stage",
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-assistant",
+  "command": [
+    "git",
+    "add",
+    "--",
+    "README.md",
+    "docs/assistant/P08_FIXTURE_CASE_REPAIR.md",
+    "docs/assistant/P08_FIXTURE_REPAIR.md",
+    "docs/assistant/P10_BOUNDARIES_AND_SYNC.md",
+    "src/continuity_engine/testing/p08_action_fixture.py",
+    "tests/test_p08_fixture_paths.py"
+  ],
+  "start_utc": "2026-09-04T16:01:32.698638+00:00",
+  "exit_code": 0,
+  "wall_seconds": 0.061,
+  "end_utc": "2026-09-04T16:01:32.759924+00:00",
+  "logs": {
+    "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

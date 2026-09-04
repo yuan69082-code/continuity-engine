@@ -1,0 +1,26 @@
+======================================================================
+FAIL: test_repository_formal_home_and_parent_roots_are_forbidden (test_p01_sandbox.P01SandboxTests.test_repository_formal_home_and_parent_roots_are_forbidden) (candidate=WindowsPath('C:/Users/Administrator/Documents/continuity-assistant'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-assistant\tests\test_p01_sandbox.py", line 690, in test_repository_formal_home_and_parent_roots_are_forbidden
+    self.assert_code(
+    ~~~~~~~~~~~~~~~~^
+        "SANDBOX_ROOT_FORBIDDEN",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        ),
+        ^^
+    )
+    ^
+  File "C:\Users\Administrator\Documents\continuity-assistant\tests\test_p01_sandbox.py", line 89, in assert_code
+    self.assertEqual(caught.exception.code, code)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'SANDBOX_ROOT_INVALID' != 'SANDBOX_ROOT_FORBIDDEN'
+- SANDBOX_ROOT_INVALID
++ SANDBOX_ROOT_FORBIDDEN
+
+
+----------------------------------------------------------------------
+Ran 770 tests in 458.613s
+
+FAILED (failures=1)

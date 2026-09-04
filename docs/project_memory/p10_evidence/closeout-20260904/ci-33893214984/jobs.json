@@ -1,0 +1,97 @@
+{
+  "total_count": 1,
+  "jobs": [
+    {
+      "id": 101089632218,
+      "run_id": 33893214984,
+      "workflow_name": "P10 Core compatibility",
+      "head_branch": "continuity-assistant-fenzhi",
+      "run_url": "https://api.github.com/repos/yuan69082-code/continuity-assistant/actions/runs/33893214984",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOUOOHxs8AAAAXiWlf2g",
+      "head_sha": "664530c2c6faae7f37dd90bc73463d8dfb66b490",
+      "url": "https://api.github.com/repos/yuan69082-code/continuity-assistant/actions/jobs/101089632218",
+      "html_url": "https://github.com/yuan69082-code/continuity-assistant/actions/runs/33893214984/job/101089632218",
+      "status": "completed",
+      "conclusion": "failure",
+      "created_at": "2026-09-04T16:05:52Z",
+      "started_at": "2026-09-04T16:05:55Z",
+      "completed_at": "2026-09-04T16:06:59Z",
+      "name": "core",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-09-04T16:05:56Z",
+          "completed_at": "2026-09-04T16:05:57Z"
+        },
+        {
+          "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-09-04T16:05:57Z",
+          "completed_at": "2026-09-04T16:06:05Z"
+        },
+        {
+          "name": "Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-09-04T16:06:05Z",
+          "completed_at": "2026-09-04T16:06:06Z"
+        },
+        {
+          "name": "Build, install, P10 checks and unchanged Core regression",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 4,
+          "started_at": "2026-09-04T16:06:06Z",
+          "completed_at": "2026-09-04T16:06:53Z"
+        },
+        {
+          "name": "Preserve first-run evidence even on failure",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-09-04T16:06:53Z",
+          "completed_at": "2026-09-04T16:06:55Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-09-04T16:06:55Z",
+          "completed_at": "2026-09-04T16:06:55Z"
+        },
+        {
+          "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-09-04T16:06:55Z",
+          "completed_at": "2026-09-04T16:06:57Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-09-04T16:06:57Z",
+          "completed_at": "2026-09-04T16:06:57Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/yuan69082-code/continuity-assistant/check-runs/101089632218",
+      "labels": [
+        "windows-latest"
+      ],
+      "runner_id": 1000000039,
+      "runner_name": "GitHub Actions 1000000039",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    }
+  ]
+}

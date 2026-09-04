@@ -1,0 +1,6 @@
+{
+  "unique_blobs_scanned": 953,
+  "signature_findings": [],
+  "scope": "all blobs reachable from fixed C1, high-specificity secret signatures; no matched values printed",
+  "history_forbidden_path_findings": []
+}

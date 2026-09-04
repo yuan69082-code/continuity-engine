@@ -1,0 +1,29 @@
+{
+  "stage": "assistant-install-final",
+  "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\09\\04\\01a06ab0-b58a-7b11-be93-8221ce27b2b1\\p10-fixture-repair-build\\outside-checkout",
+  "command": [
+    "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\09\\04\\01a06ab0-b58a-7b11-be93-8221ce27b2b1\\p10-fixture-repair-build\\venv\\Scripts\\python.exe",
+    "-m",
+    "pip",
+    "install",
+    "--no-index",
+    "--no-deps",
+    "--no-compile",
+    "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\09\\04\\01a06ab0-b58a-7b11-be93-8221ce27b2b1\\p10-fixture-repair-build\\wheel\\continuity_assistant-0.1.0-py3-none-any.whl"
+  ],
+  "start_utc": "2026-09-04T14:46:16.750992+00:00",
+  "interruption": null,
+  "environment": {
+    "PYTHONPATH": null,
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONUTF8": "1",
+    "GIT_OPTIONAL_LOCKS": "0"
+  },
+  "exit_code": 0,
+  "end_utc": "2026-09-04T14:46:17.634160+00:00",
+  "wall_seconds": 0.8831634999951348,
+  "logs": {
+    "stdout.log": "870dd60c56904b57821213d1aa67bd229513a9316aec18d4bad58c0843f9b670",
+    "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

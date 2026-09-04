@@ -1,0 +1,6 @@
+test_symlink_component_rejected_without_writes (tests.test_p08_fixture_paths.P08FixturePathTests.test_symlink_component_rejected_without_writes) ... skipped 'OS does not grant symlink creation: 1314'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.006s
+
+OK (skipped=1)

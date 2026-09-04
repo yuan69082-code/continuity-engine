@@ -1,0 +1,47 @@
+{
+  "commit": "664530c2c6faae7f37dd90bc73463d8dfb66b490",
+  "parents": [
+    "2b1e500d9a5becde127f6c60d272def49bfc2e13",
+    "0115733d75f854e0d7c39062d8cb328a97995354"
+  ],
+  "upstreamCoreCommit": "0115733d75f854e0d7c39062d8cb328a97995354",
+  "originalC1": "9d58b427ffaca2e64a268640979337e4c759d49d",
+  "firstAssistant": "c6dd2c0cab17337a445b64fb8611d317190242c6",
+  "files": [
+    "README.md",
+    "docs/assistant/P10_BOUNDARIES_AND_SYNC.md",
+    "docs/assistant/P10_CHECKPOINT_SYNC.md",
+    "docs/assistant/core-source-manifest.json",
+    "docs/assistant/core-source-manifest.c1.json",
+    "docs/assistant/core-test-inventory.json",
+    "src/continuity_assistant/core_source.json",
+    "p10_tests/test_p10_repository.py",
+    "tools/p10_verify.py",
+    "tools/p10_core_regression.py"
+  ],
+  "hashes": {
+    "README.md": "1b71d40eb919b3c09f68d819e6c15305a4288da90fa90618270c6de27aac783e",
+    "docs/assistant/P10_BOUNDARIES_AND_SYNC.md": "6c8a93ffef880d5e38c70b26495ca41902aaf02f055671fb177c4184bee1aba4",
+    "docs/assistant/P10_CHECKPOINT_SYNC.md": "027af0c0bbc8fc8f5bc0c969e1e9fe15221186ca136b435810ac22b8705362ab",
+    "docs/assistant/core-source-manifest.json": "aeeb21b8a4a1d598129d68a5e3e27b0bbab3eff0169879e7f996a81723dcd5bf",
+    "docs/assistant/core-source-manifest.c1.json": "68036ec859ddb1411b5bec8f67b5ecd79ae72e26367ec32e64ea4244e9cc190c",
+    "docs/assistant/core-test-inventory.json": "06e1191b3f650a8337f2a7824ca472b7487dca1574c8c81ebea801a5e2a8ac59",
+    "src/continuity_assistant/core_source.json": "822a1af36aeae33ab6ea6b84eb61404e30aa9deb5015e4a26da6a7e7611e5dc9",
+    "p10_tests/test_p10_repository.py": "733678aefc58faf353e0d3cac376a5d067e18a2351dccad5c52a2b9a1fd17b6d",
+    "tools/p10_verify.py": "17387c0d30ac51a5c46e4fa1b9d83c2c123fc5f8a5d29b4c4ee942ed3e152f7d",
+    "tools/p10_core_regression.py": "b253bd2c0ab7aab5ca1d84573c8308947a338ca23d0a41234704ba0bd3c88e41"
+  },
+  "target": "https://github.com/yuan69082-code/continuity-assistant.git",
+  "state": {
+    "HEAD": "664530c2c6faae7f37dd90bc73463d8dfb66b490",
+    "branch": "continuity-assistant-fenzhi",
+    "remotes": "origin\thttps://github.com/yuan69082-code/continuity-assistant.git (fetch)\norigin\thttps://github.com/yuan69082-code/continuity-assistant.git (push)",
+    "origin": "https://github.com/yuan69082-code/continuity-assistant.git",
+    "push": "https://github.com/yuan69082-code/continuity-assistant.git",
+    "upstream": "664530c2c6faae7f37dd90bc73463d8dfb66b490",
+    "ahead_behind": "0\t0",
+    "staged": "",
+    "status": [],
+    "changed_hashes": {}
+  }
+}

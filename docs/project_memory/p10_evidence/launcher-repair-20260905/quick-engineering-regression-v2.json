@@ -1,0 +1,25 @@
+{
+  "stage": "quick-engineering-regression-v2",
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-assistant",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "p10_tests",
+    "-p",
+    "test_p10_core_launcher.py",
+    "-v"
+  ],
+  "start_utc": "2026-09-04T16:31:23.513647+00:00",
+  "interrupted": false,
+  "exit_code": 0,
+  "end_utc": "2026-09-04T16:31:25.454151+00:00",
+  "wall_seconds": 1.941,
+  "logs": {
+    "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr.log": "49d26ec9b224712a059996da720ddc4e377f9b16f00f17ce8fbc7d11a53664dd"
+  }
+}

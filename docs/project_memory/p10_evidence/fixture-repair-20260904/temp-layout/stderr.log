@@ -1,0 +1,9 @@
+test_actual_module_inside_temp_keeps_legal_independent_fixture (__main__.ActualTempLayoutTests.test_actual_module_inside_temp_keeps_legal_independent_fixture) ... ok
+test_actual_module_inside_temp_p08_initialization_is_zero_write (__main__.ActualTempLayoutTests.test_actual_module_inside_temp_p08_initialization_is_zero_write) ... ok
+test_actual_module_inside_temp_rejects_repository_and_formal_root (__main__.ActualTempLayoutTests.test_actual_module_inside_temp_rejects_repository_and_formal_root) ... ok
+test_preserved_failed_clone_original_assertion_and_zero_write (__main__.ActualTempLayoutTests.test_preserved_failed_clone_original_assertion_and_zero_write) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.907s
+
+OK

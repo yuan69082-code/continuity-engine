@@ -1,0 +1,17 @@
+{
+  "failed_clone": "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\ca10-clean-g6jiv4az\\repo",
+  "HEAD": "c6dd2c0cab17337a445b64fb8611d317190242c6",
+  "git_status": "?? p08-fake-receipts.json",
+  "generated_test_receipts": {
+    "p08-fake-receipts.json": {
+      "bytes": 148,
+      "sha256": "a411df96a3b6eea514baf41f59d45ab70c55b96ee9f28e118d79525ea3bfe8c8"
+    },
+    ".continuity-data/p08-fake-receipts.json": {
+      "bytes": 148,
+      "sha256": "a411df96a3b6eea514baf41f59d45ab70c55b96ee9f28e118d79525ea3bfe8c8"
+    }
+  },
+  "preserved": true,
+  "cleanup_performed": false
+}

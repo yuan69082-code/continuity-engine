@@ -1,0 +1,28 @@
+{
+  "commit": "90f112b8be4617feb2d6387ceb2f77603302cee6",
+  "parent": "664530c2c6faae7f37dd90bc73463d8dfb66b490",
+  "files": [
+    "tools/p10_core_regression.py",
+    "p10_tests/test_p10_core_launcher.py"
+  ],
+  "tested_worktree_hashes": {
+    "tools/p10_core_regression.py": "44411b40322e002cf2b62006faa2cb0330e285bb6c0d4457509ee59f12e25229",
+    "p10_tests/test_p10_core_launcher.py": "64012abd160edd09f3f5938585979d5c37b7388263d99217a1d29864c8ef9a91"
+  },
+  "target": "https://github.com/yuan69082-code/continuity-assistant.git",
+  "branch": "continuity-assistant-fenzhi",
+  "upstreamCoreCommit": "0115733d75f854e0d7c39062d8cb328a97995354",
+  "state": {
+    "HEAD": "90f112b8be4617feb2d6387ceb2f77603302cee6",
+    "branch": "continuity-assistant-fenzhi",
+    "remotes": "origin\thttps://github.com/yuan69082-code/continuity-assistant.git (fetch)\norigin\thttps://github.com/yuan69082-code/continuity-assistant.git (push)",
+    "origin": "https://github.com/yuan69082-code/continuity-assistant.git",
+    "push": "https://github.com/yuan69082-code/continuity-assistant.git",
+    "upstream": "90f112b8be4617feb2d6387ceb2f77603302cee6",
+    "ahead_behind": "0\t0",
+    "staged": "",
+    "status": [],
+    "changed_hashes": {}
+  },
+  "receipt_recovery": "Read-only after summary filename collision; original commit/push evidence preserved, no repeat Git mutation"
+}

@@ -1,0 +1,26 @@
+{
+  "first_audit_error": "AssertionError comparing clone raw bytes to Engine worktree hashes; no test executed or Core changed",
+  "comparisons": [
+    {
+      "path": "src/continuity_engine/services/continuity_interaction_service.py",
+      "engine_worktree_sha256": "cd752293c453197877a21113b321c0dc66b4257aead23ace4ffae38e3e80ed96",
+      "fixed_commit_blob_sha256": "661c4db90e1f64ab35ff364cdcf2ce86d10098e8e63ece5d879c94fc53e718ff",
+      "engine_original_unchanged": true,
+      "difference": "CRLF in unchanged Engine worktree; LF in fixed Git blob"
+    },
+    {
+      "path": "tests/test_p09_evolution_review.py",
+      "engine_worktree_sha256": "51c2438f9add4f222fa5c77040339593ae672e54fab37dd5a635d31031d31934",
+      "fixed_commit_blob_sha256": "22d436d43de764cc49a5a3456e539601ce523ce5f76ac8d0f6c1ccb3a9f2a81d",
+      "engine_original_unchanged": true,
+      "difference": "CRLF in unchanged Engine worktree; LF in fixed Git blob"
+    },
+    {
+      "path": "tests/test_p09_review_regressions.py",
+      "engine_worktree_sha256": "be019040adbcfbe49e7ae6ddf3eb1dd4a0144b9eee5010cb6aec29724cd09033",
+      "fixed_commit_blob_sha256": "22d8e38dd21832943d42ea95bca20d0fba577ad3cf07a09cba3ca954775e4d1e",
+      "engine_original_unchanged": true,
+      "difference": "CRLF in unchanged Engine worktree; LF in fixed Git blob"
+    }
+  ]
+}

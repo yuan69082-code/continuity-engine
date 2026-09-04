@@ -1,0 +1,21 @@
+{
+  "commit": "2b1e500d9a5becde127f6c60d272def49bfc2e13",
+  "parent": "c6dd2c0cab17337a445b64fb8611d317190242c6",
+  "files": [
+    "README.md",
+    "docs/assistant/P08_FIXTURE_CASE_REPAIR.md",
+    "docs/assistant/P08_FIXTURE_REPAIR.md",
+    "docs/assistant/P10_BOUNDARIES_AND_SYNC.md",
+    "src/continuity_engine/testing/p08_action_fixture.py",
+    "tests/test_p08_fixture_paths.py"
+  ],
+  "hashes": {
+    "README.md": "4b54c201ffff6c759730f723d338799354f78a7c9f125e33559f75160923ea54",
+    "docs/assistant/P10_BOUNDARIES_AND_SYNC.md": "2b6c62a0ddb957711dd63a80704ebde4383058a8741cd5ecd0589fd180c7d3ab",
+    "src/continuity_engine/testing/p08_action_fixture.py": "6509bf7097fa2f528f8194446f228ca910f00abf73a7900287aee3a79b7b520e",
+    "docs/assistant/P08_FIXTURE_CASE_REPAIR.md": "f75f54947cb00c48773551202e9712b0f5b41b064fc49d7b5d164b0bd72f401c",
+    "docs/assistant/P08_FIXTURE_REPAIR.md": "acba2a4b62d8e653803707b4d40c380319404d4decca2ad0eb22702ac5b9761e",
+    "tests/test_p08_fixture_paths.py": "376e68d7709324943d2827901a416c32c1aa82df22caa124dfa9caa0641ba8e6"
+  },
+  "pushed": false
+}

@@ -1,0 +1,19 @@
+{
+  "stage": "engine-stage-patch",
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "command": [
+    "git",
+    "add",
+    "--",
+    "src/continuity_engine/testing/p08_action_fixture.py",
+    "tests/test_p08_fixture_paths.py"
+  ],
+  "start_utc": "2026-09-04T16:00:25.707368+00:00",
+  "exit_code": 0,
+  "wall_seconds": 0.035,
+  "end_utc": "2026-09-04T16:00:25.742643+00:00",
+  "logs": {
+    "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr.log": "8e1ddbc5c693aeb179b2cf9a3532e3e829100d0d0a4ec1a33b48252635e79254"
+  }
+}

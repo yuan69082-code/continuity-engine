@@ -1,0 +1,22 @@
+{
+  "stage": "assistant-core",
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-assistant",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-q"
+  ],
+  "start_utc": "2026-09-04T14:36:39.281092+00:00",
+  "interruption": null,
+  "exit_code": 0,
+  "end_utc": "2026-09-04T14:44:27.385196+00:00",
+  "wall_seconds": 468.104101799996,
+  "logs": {
+    "stdout.log": "3d1546a2eaa69f3ba7d40dbc1b2f8c7fa1009be7b478bb02a4b07c58a3cc6187",
+    "stderr.log": "1173934bc35d6499341b679310b49575ef2a1f953d377a11ef5b2208a5953f95"
+  }
+}

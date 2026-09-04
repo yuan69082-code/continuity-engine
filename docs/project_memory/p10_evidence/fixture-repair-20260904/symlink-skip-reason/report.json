@@ -1,0 +1,20 @@
+{
+  "stage": "symlink-skip-reason",
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_p08_fixture_paths.P08FixturePathTests.test_symlink_component_rejected_without_writes",
+    "-v"
+  ],
+  "start_utc": "2026-09-04T14:44:55.816036+00:00",
+  "interruption": null,
+  "exit_code": 0,
+  "end_utc": "2026-09-04T14:44:56.463867+00:00",
+  "wall_seconds": 0.6478540999960387,
+  "logs": {
+    "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr.log": "32cd4e6ee1d4c6b5401529f9662cd6a6b3e753eac21c6d20660f5363e16cac87"
+  }
+}

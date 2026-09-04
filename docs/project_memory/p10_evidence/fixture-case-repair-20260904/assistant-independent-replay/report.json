@@ -1,0 +1,23 @@
+{
+  "stage": "assistant-independent-replay",
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-assistant",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p10_evidence\\fixture-case-repair-20260904\\independent\\p10_fixture_repair_review_probe.py"
+  ],
+  "start_utc": "2026-09-04T15:14:30.868911+00:00",
+  "interruption": null,
+  "environment": {
+    "PYTHONPATH": "src",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONUTF8": "1",
+    "GIT_OPTIONAL_LOCKS": "0"
+  },
+  "exit_code": 0,
+  "end_utc": "2026-09-04T15:14:31.892622+00:00",
+  "wall_seconds": 1.0237436999886995,
+  "logs": {
+    "stdout.log": "38ca7518553df407fb04be6f6fb50ae037ec88b8f0638f1fea6adfec1741bac5",
+    "stderr.log": "58a30964304e78ea59c042e0296a864e193784d2721632cc7ead03b9dc62be44"
+  }
+}

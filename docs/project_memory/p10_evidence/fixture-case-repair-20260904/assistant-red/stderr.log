@@ -1,0 +1,508 @@
+======================================================================
+FAIL: test_lowercase_alias_of_uppercase_directory_is_zero_write (tests.test_p08_fixture_paths.P08ReservedDirectoryCaseTests.test_lowercase_alias_of_uppercase_directory_is_zero_write) (name='.continuity-data', factory='FakeActionAdapter', child=False, alias=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-assistant\tests\test_p08_fixture_paths.py", line 181, in check_spellings
+    P08FixturePathTests.reject_without_writes(self, target, factory)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-assistant\tests\test_p08_fixture_paths.py", line 39, in reject_without_writes
+    self.assertEqual((rejected, writer.call_count, inventory(self.root) == before),
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     (True, 0, True), 'must reject before any directory/file/receipt write')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (False, 1, False) != (True, 0, True)
+
+First differing element 0:
+False
+True
+
+- (False, 1, False)
++ (True, 0, True) : must reject before any directory/file/receipt write
+
+======================================================================
+FAIL: test_lowercase_alias_of_uppercase_directory_is_zero_write (tests.test_p08_fixture_paths.P08ReservedDirectoryCaseTests.test_lowercase_alias_of_uppercase_directory_is_zero_write) (name='.continuity-data', factory='P08Fixture', child=False, alias=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-assistant\tests\test_p08_fixture_paths.py", line 181, in check_spellings
+    P08FixturePathTests.reject_without_writes(self, target, factory)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-assistant\tests\test_p08_fixture_paths.py", line 39, in reject_without_writes
+    self.assertEqual((rejected, writer.call_count, inventory(self.root) == before),
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     (True, 0, True), 'must reject before any directory/file/receipt write')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (False, 1, False) != (True, 0, True)
+
+First differing element 0:
+False
+True
+
+- (False, 1, False)
++ (True, 0, True) : must reject before any directory/file/receipt write
+
+======================================================================
+FAIL: test_lowercase_alias_of_uppercase_directory_is_zero_write (tests.test_p08_fixture_paths.P08ReservedDirectoryCaseTests.test_lowercase_alias_of_uppercase_directory_is_zero_write) (name='.assistant-data', factory='FakeActionAdapter', child=False, alias=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-assistant\tests\test_p08_fixture_paths.py", line 181, in check_spellings
+    P08FixturePathTests.reject_without_writes(self, target, factory)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-assistant\tests\test_p08_fixture_paths.py", line 39, in reject_without_writes
+    self.assertEqual((rejected, writer.call_count, inventory(self.root) == before),
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     (True, 0, True), 'must reject before any directory/file/receipt write')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (False, 1, False) != (True, 0, True)
+
+First differing element 0:
+False
+True
+
+- (False, 1, False)
++ (True, 0, True) : must reject before any directory/file/receipt write
+
+======================================================================
+FAIL: test_lowercase_alias_of_uppercase_directory_is_zero_write (tests.test_p08_fixture_paths.P08ReservedDirectoryCaseTests.test_lowercase_alias_of_uppercase_directory_is_zero_write) (name='.assistant-data', factory='P08Fixture', child=False, alias=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-assistant\tests\test_p08_fixture_paths.py", line 181, in check_spellings
+    P08FixturePathTests.reject_without_writes(self, target, factory)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-assistant\tests\test_p08_fixture_paths.py", line 39, in reject_without_writes
+    self.assertEqual((rejected, writer.call_count, inventory(self.root) == before),
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     (True, 0, True), 'must reject before any directory/file/receipt write')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (False, 1, False) != (True, 0, True)
+
+First differing element 0:
+False
+True
+
+- (False, 1, False)
++ (True, 0, True) : must reject before any directory/file/receipt write
+
+======================================================================
+FAIL: test_lowercase_alias_of_uppercase_directory_is_zero_write (tests.test_p08_fixture_paths.P08ReservedDirectoryCaseTests.test_lowercase_alias_of_uppercase_directory_is_zero_write) (name='.continuity-data', factory='FakeActionAdapter', child=True, alias=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-assistant\tests\test_p08_fixture_paths.py", line 181, in check_spellings
+    P08FixturePathTests.reject_without_writes(self, target, factory)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-assistant\tests\test_p08_fixture_paths.py", line 39, in reject_without_writes
+    self.assertEqual((rejected, writer.call_count, inventory(self.root) == before),
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     (True, 0, True), 'must reject before any directory/file/receipt write')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (False, 1, False) != (True, 0, True)
+
+First differing element 0:
+False
+True
+
+- (False, 1, False)
++ (True, 0, True) : must reject before any directory/file/receipt write
+
+======================================================================
+FAIL: test_lowercase_alias_of_uppercase_directory_is_zero_write (tests.test_p08_fixture_paths.P08ReservedDirectoryCaseTests.test_lowercase_alias_of_uppercase_directory_is_zero_write) (name='.continuity-data', factory='P08Fixture', child=True, alias=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-assistant\tests\test_p08_fixture_paths.py", line 181, in check_spellings
+    P08FixturePathTests.reject_without_writes(self, target, factory)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-assistant\tests\test_p08_fixture_paths.py", line 39, in reject_without_writes
+    self.assertEqual((rejected, writer.call_count, inventory(self.root) == before),
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     (True, 0, True), 'must reject before any directory/file/receipt write')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (False, 1, False) != (True, 0, True)
+
+First differing element 0:
+False
+True
+
+- (False, 1, False)
++ (True, 0, True) : must reject before any directory/file/receipt write
+
+======================================================================
+FAIL: test_lowercase_alias_of_uppercase_directory_is_zero_write (tests.test_p08_fixture_paths.P08ReservedDirectoryCaseTests.test_lowercase_alias_of_uppercase_directory_is_zero_write) (name='.assistant-data', factory='FakeActionAdapter', child=True, alias=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-assistant\tests\test_p08_fixture_paths.py", line 181, in check_spellings
+    P08FixturePathTests.reject_without_writes(self, target, factory)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-assistant\tests\test_p08_fixture_paths.py", line 39, in reject_without_writes
+    self.assertEqual((rejected, writer.call_count, inventory(self.root) == before),
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     (True, 0, True), 'must reject before any directory/file/receipt write')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (False, 1, False) != (True, 0, True)
+
+First differing element 0:
+False
+True
+
+- (False, 1, False)
++ (True, 0, True) : must reject before any directory/file/receipt write
+
+======================================================================
+FAIL: test_lowercase_alias_of_uppercase_directory_is_zero_write (tests.test_p08_fixture_paths.P08ReservedDirectoryCaseTests.test_lowercase_alias_of_uppercase_directory_is_zero_write) (name='.assistant-data', factory='P08Fixture', child=True, alias=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-assistant\tests\test_p08_fixture_paths.py", line 181, in check_spellings
+    P08FixturePathTests.reject_without_writes(self, target, factory)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-assistant\tests\test_p08_fixture_paths.py", line 39, in reject_without_writes
+    self.assertEqual((rejected, writer.call_count, inventory(self.root) == before),
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     (True, 0, True), 'must reject before any directory/file/receipt write')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (False, 1, False) != (True, 0, True)
+
+First differing element 0:
+False
+True
+
+- (False, 1, False)
++ (True, 0, True) : must reject before any directory/file/receipt write
+
+======================================================================
+FAIL: test_mixedcase_directory_child_follows_platform_semantics (tests.test_p08_fixture_paths.P08ReservedDirectoryCaseTests.test_mixedcase_directory_child_follows_platform_semantics) (name='.continuity-data', factory='FakeActionAdapter', child=True, alias=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-assistant\tests\test_p08_fixture_paths.py", line 181, in check_spellings
+    P08FixturePathTests.reject_without_writes(self, target, factory)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-assistant\tests\test_p08_fixture_paths.py", line 39, in reject_without_writes
+    self.assertEqual((rejected, writer.call_count, inventory(self.root) == before),
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     (True, 0, True), 'must reject before any directory/file/receipt write')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (False, 1, False) != (True, 0, True)
+
+First differing element 0:
+False
+True
+
+- (False, 1, False)
++ (True, 0, True) : must reject before any directory/file/receipt write
+
+======================================================================
+FAIL: test_mixedcase_directory_child_follows_platform_semantics (tests.test_p08_fixture_paths.P08ReservedDirectoryCaseTests.test_mixedcase_directory_child_follows_platform_semantics) (name='.continuity-data', factory='P08Fixture', child=True, alias=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-assistant\tests\test_p08_fixture_paths.py", line 181, in check_spellings
+    P08FixturePathTests.reject_without_writes(self, target, factory)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-assistant\tests\test_p08_fixture_paths.py", line 39, in reject_without_writes
+    self.assertEqual((rejected, writer.call_count, inventory(self.root) == before),
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     (True, 0, True), 'must reject before any directory/file/receipt write')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (False, 1, False) != (True, 0, True)
+
+First differing element 0:
+False
+True
+
+- (False, 1, False)
++ (True, 0, True) : must reject before any directory/file/receipt write
+
+======================================================================
+FAIL: test_mixedcase_directory_child_follows_platform_semantics (tests.test_p08_fixture_paths.P08ReservedDirectoryCaseTests.test_mixedcase_directory_child_follows_platform_semantics) (name='.assistant-data', factory='FakeActionAdapter', child=True, alias=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-assistant\tests\test_p08_fixture_paths.py", line 181, in check_spellings
+    P08FixturePathTests.reject_without_writes(self, target, factory)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-assistant\tests\test_p08_fixture_paths.py", line 39, in reject_without_writes
+    self.assertEqual((rejected, writer.call_count, inventory(self.root) == before),
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     (True, 0, True), 'must reject before any directory/file/receipt write')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (False, 1, False) != (True, 0, True)
+
+First differing element 0:
+False
+True
+
+- (False, 1, False)
++ (True, 0, True) : must reject before any directory/file/receipt write
+
+======================================================================
+FAIL: test_mixedcase_directory_child_follows_platform_semantics (tests.test_p08_fixture_paths.P08ReservedDirectoryCaseTests.test_mixedcase_directory_child_follows_platform_semantics) (name='.assistant-data', factory='P08Fixture', child=True, alias=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-assistant\tests\test_p08_fixture_paths.py", line 181, in check_spellings
+    P08FixturePathTests.reject_without_writes(self, target, factory)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-assistant\tests\test_p08_fixture_paths.py", line 39, in reject_without_writes
+    self.assertEqual((rejected, writer.call_count, inventory(self.root) == before),
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     (True, 0, True), 'must reject before any directory/file/receipt write')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (False, 1, False) != (True, 0, True)
+
+First differing element 0:
+False
+True
+
+- (False, 1, False)
++ (True, 0, True) : must reject before any directory/file/receipt write
+
+======================================================================
+FAIL: test_mixedcase_directory_itself_follows_platform_semantics (tests.test_p08_fixture_paths.P08ReservedDirectoryCaseTests.test_mixedcase_directory_itself_follows_platform_semantics) (name='.continuity-data', factory='FakeActionAdapter', child=False, alias=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-assistant\tests\test_p08_fixture_paths.py", line 181, in check_spellings
+    P08FixturePathTests.reject_without_writes(self, target, factory)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-assistant\tests\test_p08_fixture_paths.py", line 39, in reject_without_writes
+    self.assertEqual((rejected, writer.call_count, inventory(self.root) == before),
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     (True, 0, True), 'must reject before any directory/file/receipt write')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (False, 1, False) != (True, 0, True)
+
+First differing element 0:
+False
+True
+
+- (False, 1, False)
++ (True, 0, True) : must reject before any directory/file/receipt write
+
+======================================================================
+FAIL: test_mixedcase_directory_itself_follows_platform_semantics (tests.test_p08_fixture_paths.P08ReservedDirectoryCaseTests.test_mixedcase_directory_itself_follows_platform_semantics) (name='.continuity-data', factory='P08Fixture', child=False, alias=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-assistant\tests\test_p08_fixture_paths.py", line 181, in check_spellings
+    P08FixturePathTests.reject_without_writes(self, target, factory)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-assistant\tests\test_p08_fixture_paths.py", line 39, in reject_without_writes
+    self.assertEqual((rejected, writer.call_count, inventory(self.root) == before),
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     (True, 0, True), 'must reject before any directory/file/receipt write')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (False, 1, False) != (True, 0, True)
+
+First differing element 0:
+False
+True
+
+- (False, 1, False)
++ (True, 0, True) : must reject before any directory/file/receipt write
+
+======================================================================
+FAIL: test_mixedcase_directory_itself_follows_platform_semantics (tests.test_p08_fixture_paths.P08ReservedDirectoryCaseTests.test_mixedcase_directory_itself_follows_platform_semantics) (name='.assistant-data', factory='FakeActionAdapter', child=False, alias=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-assistant\tests\test_p08_fixture_paths.py", line 181, in check_spellings
+    P08FixturePathTests.reject_without_writes(self, target, factory)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-assistant\tests\test_p08_fixture_paths.py", line 39, in reject_without_writes
+    self.assertEqual((rejected, writer.call_count, inventory(self.root) == before),
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     (True, 0, True), 'must reject before any directory/file/receipt write')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (False, 1, False) != (True, 0, True)
+
+First differing element 0:
+False
+True
+
+- (False, 1, False)
++ (True, 0, True) : must reject before any directory/file/receipt write
+
+======================================================================
+FAIL: test_mixedcase_directory_itself_follows_platform_semantics (tests.test_p08_fixture_paths.P08ReservedDirectoryCaseTests.test_mixedcase_directory_itself_follows_platform_semantics) (name='.assistant-data', factory='P08Fixture', child=False, alias=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-assistant\tests\test_p08_fixture_paths.py", line 181, in check_spellings
+    P08FixturePathTests.reject_without_writes(self, target, factory)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-assistant\tests\test_p08_fixture_paths.py", line 39, in reject_without_writes
+    self.assertEqual((rejected, writer.call_count, inventory(self.root) == before),
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     (True, 0, True), 'must reject before any directory/file/receipt write')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (False, 1, False) != (True, 0, True)
+
+First differing element 0:
+False
+True
+
+- (False, 1, False)
++ (True, 0, True) : must reject before any directory/file/receipt write
+
+======================================================================
+FAIL: test_uppercase_directory_child_follows_platform_semantics (tests.test_p08_fixture_paths.P08ReservedDirectoryCaseTests.test_uppercase_directory_child_follows_platform_semantics) (name='.continuity-data', factory='FakeActionAdapter', child=True, alias=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-assistant\tests\test_p08_fixture_paths.py", line 181, in check_spellings
+    P08FixturePathTests.reject_without_writes(self, target, factory)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-assistant\tests\test_p08_fixture_paths.py", line 39, in reject_without_writes
+    self.assertEqual((rejected, writer.call_count, inventory(self.root) == before),
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     (True, 0, True), 'must reject before any directory/file/receipt write')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (False, 1, False) != (True, 0, True)
+
+First differing element 0:
+False
+True
+
+- (False, 1, False)
++ (True, 0, True) : must reject before any directory/file/receipt write
+
+======================================================================
+FAIL: test_uppercase_directory_child_follows_platform_semantics (tests.test_p08_fixture_paths.P08ReservedDirectoryCaseTests.test_uppercase_directory_child_follows_platform_semantics) (name='.continuity-data', factory='P08Fixture', child=True, alias=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-assistant\tests\test_p08_fixture_paths.py", line 181, in check_spellings
+    P08FixturePathTests.reject_without_writes(self, target, factory)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-assistant\tests\test_p08_fixture_paths.py", line 39, in reject_without_writes
+    self.assertEqual((rejected, writer.call_count, inventory(self.root) == before),
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     (True, 0, True), 'must reject before any directory/file/receipt write')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (False, 1, False) != (True, 0, True)
+
+First differing element 0:
+False
+True
+
+- (False, 1, False)
++ (True, 0, True) : must reject before any directory/file/receipt write
+
+======================================================================
+FAIL: test_uppercase_directory_child_follows_platform_semantics (tests.test_p08_fixture_paths.P08ReservedDirectoryCaseTests.test_uppercase_directory_child_follows_platform_semantics) (name='.assistant-data', factory='FakeActionAdapter', child=True, alias=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-assistant\tests\test_p08_fixture_paths.py", line 181, in check_spellings
+    P08FixturePathTests.reject_without_writes(self, target, factory)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-assistant\tests\test_p08_fixture_paths.py", line 39, in reject_without_writes
+    self.assertEqual((rejected, writer.call_count, inventory(self.root) == before),
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     (True, 0, True), 'must reject before any directory/file/receipt write')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (False, 1, False) != (True, 0, True)
+
+First differing element 0:
+False
+True
+
+- (False, 1, False)
++ (True, 0, True) : must reject before any directory/file/receipt write
+
+======================================================================
+FAIL: test_uppercase_directory_child_follows_platform_semantics (tests.test_p08_fixture_paths.P08ReservedDirectoryCaseTests.test_uppercase_directory_child_follows_platform_semantics) (name='.assistant-data', factory='P08Fixture', child=True, alias=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-assistant\tests\test_p08_fixture_paths.py", line 181, in check_spellings
+    P08FixturePathTests.reject_without_writes(self, target, factory)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-assistant\tests\test_p08_fixture_paths.py", line 39, in reject_without_writes
+    self.assertEqual((rejected, writer.call_count, inventory(self.root) == before),
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     (True, 0, True), 'must reject before any directory/file/receipt write')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (False, 1, False) != (True, 0, True)
+
+First differing element 0:
+False
+True
+
+- (False, 1, False)
++ (True, 0, True) : must reject before any directory/file/receipt write
+
+======================================================================
+FAIL: test_uppercase_directory_itself_follows_platform_semantics (tests.test_p08_fixture_paths.P08ReservedDirectoryCaseTests.test_uppercase_directory_itself_follows_platform_semantics) (name='.continuity-data', factory='FakeActionAdapter', child=False, alias=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-assistant\tests\test_p08_fixture_paths.py", line 181, in check_spellings
+    P08FixturePathTests.reject_without_writes(self, target, factory)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-assistant\tests\test_p08_fixture_paths.py", line 39, in reject_without_writes
+    self.assertEqual((rejected, writer.call_count, inventory(self.root) == before),
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     (True, 0, True), 'must reject before any directory/file/receipt write')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (False, 1, False) != (True, 0, True)
+
+First differing element 0:
+False
+True
+
+- (False, 1, False)
++ (True, 0, True) : must reject before any directory/file/receipt write
+
+======================================================================
+FAIL: test_uppercase_directory_itself_follows_platform_semantics (tests.test_p08_fixture_paths.P08ReservedDirectoryCaseTests.test_uppercase_directory_itself_follows_platform_semantics) (name='.continuity-data', factory='P08Fixture', child=False, alias=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-assistant\tests\test_p08_fixture_paths.py", line 181, in check_spellings
+    P08FixturePathTests.reject_without_writes(self, target, factory)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-assistant\tests\test_p08_fixture_paths.py", line 39, in reject_without_writes
+    self.assertEqual((rejected, writer.call_count, inventory(self.root) == before),
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     (True, 0, True), 'must reject before any directory/file/receipt write')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (False, 1, False) != (True, 0, True)
+
+First differing element 0:
+False
+True
+
+- (False, 1, False)
++ (True, 0, True) : must reject before any directory/file/receipt write
+
+======================================================================
+FAIL: test_uppercase_directory_itself_follows_platform_semantics (tests.test_p08_fixture_paths.P08ReservedDirectoryCaseTests.test_uppercase_directory_itself_follows_platform_semantics) (name='.assistant-data', factory='FakeActionAdapter', child=False, alias=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-assistant\tests\test_p08_fixture_paths.py", line 181, in check_spellings
+    P08FixturePathTests.reject_without_writes(self, target, factory)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-assistant\tests\test_p08_fixture_paths.py", line 39, in reject_without_writes
+    self.assertEqual((rejected, writer.call_count, inventory(self.root) == before),
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     (True, 0, True), 'must reject before any directory/file/receipt write')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (False, 1, False) != (True, 0, True)
+
+First differing element 0:
+False
+True
+
+- (False, 1, False)
++ (True, 0, True) : must reject before any directory/file/receipt write
+
+======================================================================
+FAIL: test_uppercase_directory_itself_follows_platform_semantics (tests.test_p08_fixture_paths.P08ReservedDirectoryCaseTests.test_uppercase_directory_itself_follows_platform_semantics) (name='.assistant-data', factory='P08Fixture', child=False, alias=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-assistant\tests\test_p08_fixture_paths.py", line 181, in check_spellings
+    P08FixturePathTests.reject_without_writes(self, target, factory)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-assistant\tests\test_p08_fixture_paths.py", line 39, in reject_without_writes
+    self.assertEqual((rejected, writer.call_count, inventory(self.root) == before),
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     (True, 0, True), 'must reject before any directory/file/receipt write')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (False, 1, False) != (True, 0, True)
+
+First differing element 0:
+False
+True
+
+- (False, 1, False)
++ (True, 0, True) : must reject before any directory/file/receipt write
+
+----------------------------------------------------------------------
+Ran 6 tests in 3.030s
+
+FAILED (failures=24)

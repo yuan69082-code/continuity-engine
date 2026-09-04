@@ -1,0 +1,27 @@
+{
+  "stage": "assistant-sync-stage",
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-assistant",
+  "command": [
+    "git",
+    "add",
+    "--",
+    "README.md",
+    "docs/assistant/P10_BOUNDARIES_AND_SYNC.md",
+    "docs/assistant/P10_CHECKPOINT_SYNC.md",
+    "docs/assistant/core-source-manifest.json",
+    "docs/assistant/core-source-manifest.c1.json",
+    "docs/assistant/core-test-inventory.json",
+    "src/continuity_assistant/core_source.json",
+    "p10_tests/test_p10_repository.py",
+    "tools/p10_verify.py",
+    "tools/p10_core_regression.py"
+  ],
+  "start_utc": "2026-09-04T16:05:44.930192+00:00",
+  "exit_code": 0,
+  "wall_seconds": 0.078,
+  "end_utc": "2026-09-04T16:05:45.008308+00:00",
+  "logs": {
+    "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

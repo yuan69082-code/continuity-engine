@@ -1,0 +1,19 @@
+{
+  "stage": "quick-discovery",
+  "cwd": "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\p10-quick-8jwxoc_r",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-B",
+    "C:\\Users\\Administrator\\Documents\\continuity-assistant\\tools\\p10_core_regression.py",
+    "--discover-only"
+  ],
+  "start_utc": "2026-09-04T16:30:14.140206+00:00",
+  "interrupted": false,
+  "exit_code": 1,
+  "end_utc": "2026-09-04T16:30:15.107332+00:00",
+  "wall_seconds": 0.967,
+  "logs": {
+    "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr.log": "aad63b79752a5d0f2e1c3d7349368aeb35cb5d3aa22d2fc2cdccaa867fdc471a"
+  }
+}

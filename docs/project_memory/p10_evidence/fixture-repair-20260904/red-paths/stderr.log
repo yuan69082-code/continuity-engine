@@ -1,0 +1,193 @@
+======================================================================
+FAIL: test_cwd_repository_with_installed_fixture_rejected_without_writes (tests.test_p08_fixture_paths.P08FixturePathTests.test_cwd_repository_with_installed_fixture_rejected_without_writes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p08_fixture_paths.py", line 63, in test_cwd_repository_with_installed_fixture_rejected_without_writes
+    self.reject_without_writes(self.repo / '.continuity-data')
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p08_fixture_paths.py", line 38, in reject_without_writes
+    self.assertEqual((rejected, writer.call_count, inventory(self.root) == before),
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     (True, 0, True), 'must reject before any directory/file/receipt write')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (False, 1, False) != (True, 0, True)
+
+First differing element 0:
+False
+True
+
+- (False, 1, False)
++ (True, 0, True) : must reject before any directory/file/receipt write
+
+======================================================================
+FAIL: test_formal_root_under_temp_repository_rejected_without_writes (tests.test_p08_fixture_paths.P08FixturePathTests.test_formal_root_under_temp_repository_rejected_without_writes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p08_fixture_paths.py", line 47, in test_formal_root_under_temp_repository_rejected_without_writes
+    self.reject_without_writes(self.repo / '.continuity-data')
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p08_fixture_paths.py", line 38, in reject_without_writes
+    self.assertEqual((rejected, writer.call_count, inventory(self.root) == before),
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     (True, 0, True), 'must reject before any directory/file/receipt write')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (False, 1, False) != (True, 0, True)
+
+First differing element 0:
+False
+True
+
+- (False, 1, False)
++ (True, 0, True) : must reject before any directory/file/receipt write
+
+======================================================================
+FAIL: test_full_p08_fixture_checks_before_upstream_initialization (tests.test_p08_fixture_paths.P08FixturePathTests.test_full_p08_fixture_checks_before_upstream_initialization)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p08_fixture_paths.py", line 59, in test_full_p08_fixture_checks_before_upstream_initialization
+    self.reject_without_writes(self.repo, fixture.P08Fixture)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p08_fixture_paths.py", line 38, in reject_without_writes
+    self.assertEqual((rejected, writer.call_count, inventory(self.root) == before),
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     (True, 0, True), 'must reject before any directory/file/receipt write')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (False, 1, False) != (True, 0, True)
+
+First differing element 0:
+False
+True
+
+- (False, 1, False)
++ (True, 0, True) : must reject before any directory/file/receipt write
+
+======================================================================
+FAIL: test_other_repository_with_git_file_rejected_without_writes (tests.test_p08_fixture_paths.P08FixturePathTests.test_other_repository_with_git_file_rejected_without_writes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p08_fixture_paths.py", line 69, in test_other_repository_with_git_file_rejected_without_writes
+    self.reject_without_writes(other / 'nested')
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p08_fixture_paths.py", line 38, in reject_without_writes
+    self.assertEqual((rejected, writer.call_count, inventory(self.root) == before),
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     (True, 0, True), 'must reject before any directory/file/receipt write')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (False, 1, False) != (True, 0, True)
+
+First differing element 0:
+False
+True
+
+- (False, 1, False)
++ (True, 0, True) : must reject before any directory/file/receipt write
+
+======================================================================
+FAIL: test_repository_ancestor_overlap_rejected_without_writes (tests.test_p08_fixture_paths.P08FixturePathTests.test_repository_ancestor_overlap_rejected_without_writes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p08_fixture_paths.py", line 55, in test_repository_ancestor_overlap_rejected_without_writes
+    self.reject_without_writes(self.root)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p08_fixture_paths.py", line 38, in reject_without_writes
+    self.assertEqual((rejected, writer.call_count, inventory(self.root) == before),
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     (True, 0, True), 'must reject before any directory/file/receipt write')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (False, 1, False) != (True, 0, True)
+
+First differing element 0:
+False
+True
+
+- (False, 1, False)
++ (True, 0, True) : must reject before any directory/file/receipt write
+
+======================================================================
+FAIL: test_repository_descendant_rejected_without_writes (tests.test_p08_fixture_paths.P08FixturePathTests.test_repository_descendant_rejected_without_writes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p08_fixture_paths.py", line 51, in test_repository_descendant_rejected_without_writes
+    self.reject_without_writes(self.repo / 'missing' / 'fixture')
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p08_fixture_paths.py", line 38, in reject_without_writes
+    self.assertEqual((rejected, writer.call_count, inventory(self.root) == before),
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     (True, 0, True), 'must reject before any directory/file/receipt write')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (False, 1, False) != (True, 0, True)
+
+First differing element 0:
+False
+True
+
+- (False, 1, False)
++ (True, 0, True) : must reject before any directory/file/receipt write
+
+======================================================================
+FAIL: test_repository_under_actual_temp_rejected_without_writes (tests.test_p08_fixture_paths.P08FixturePathTests.test_repository_under_actual_temp_rejected_without_writes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p08_fixture_paths.py", line 43, in test_repository_under_actual_temp_rejected_without_writes
+    self.reject_without_writes(self.repo)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p08_fixture_paths.py", line 38, in reject_without_writes
+    self.assertEqual((rejected, writer.call_count, inventory(self.root) == before),
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     (True, 0, True), 'must reject before any directory/file/receipt write')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (False, 1, False) != (True, 0, True)
+
+First differing element 0:
+False
+True
+
+- (False, 1, False)
++ (True, 0, True) : must reject before any directory/file/receipt write
+
+======================================================================
+FAIL: test_reserved_formal_data_roots_outside_repository_rejected_without_writes (tests.test_p08_fixture_paths.P08FixturePathTests.test_reserved_formal_data_roots_outside_repository_rejected_without_writes) (name='.continuity-data')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p08_fixture_paths.py", line 74, in test_reserved_formal_data_roots_outside_repository_rejected_without_writes
+    self.reject_without_writes(self.root / name / 'nested')
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p08_fixture_paths.py", line 38, in reject_without_writes
+    self.assertEqual((rejected, writer.call_count, inventory(self.root) == before),
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     (True, 0, True), 'must reject before any directory/file/receipt write')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (False, 1, False) != (True, 0, True)
+
+First differing element 0:
+False
+True
+
+- (False, 1, False)
++ (True, 0, True) : must reject before any directory/file/receipt write
+
+======================================================================
+FAIL: test_reserved_formal_data_roots_outside_repository_rejected_without_writes (tests.test_p08_fixture_paths.P08FixturePathTests.test_reserved_formal_data_roots_outside_repository_rejected_without_writes) (name='.assistant-data')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p08_fixture_paths.py", line 74, in test_reserved_formal_data_roots_outside_repository_rejected_without_writes
+    self.reject_without_writes(self.root / name / 'nested')
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p08_fixture_paths.py", line 38, in reject_without_writes
+    self.assertEqual((rejected, writer.call_count, inventory(self.root) == before),
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     (True, 0, True), 'must reject before any directory/file/receipt write')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (False, 1, False) != (True, 0, True)
+
+First differing element 0:
+False
+True
+
+- (False, 1, False)
++ (True, 0, True) : must reject before any directory/file/receipt write
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.377s
+
+FAILED (failures=9, skipped=1)

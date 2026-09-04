@@ -1,0 +1,1 @@
+P10 首次本地验证：构建、安装及包导入通过；新增 12 项检查出现 1 ERROR（11 PASS），7.509 秒。test_04 使用显式 top_level_dir 把无 __init__.py 的原 tests 目录当作可导入包，ImportError。原 Core 全量尚未启动。仅改用独立 TestLoader 按原 discover -s tests 方式发现，保持 770 数量断言及原测试不变。该失败归属 P10 检查辅助代码，不是 Core 缺陷。原 report 缺少顶层 result，但阶段 exit_code=1 与原始 stderr 完整；后续 harness 明确写入 FAIL/INTERRUPTED，不回写本次记录。

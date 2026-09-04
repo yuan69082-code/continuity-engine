@@ -1,0 +1,236 @@
+{
+  "started_utc": "2026-09-04T12:58:12.748978+00:00",
+  "repository": "C:\\Users\\Administrator\\Documents\\continuity-assistant-p10-clean-20260904",
+  "isolated_work_root": "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\ca10-r0e8vzkq",
+  "evidence_root": "C:\\Users\\Administrator\\Documents\\continuity-assistant-p10-clean-20260904\\.p10-evidence\\20260904T125812Z-98717b60",
+  "stages": [
+    {
+      "stage": "01-venv",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "venv",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\ca10-r0e8vzkq\\venv"
+      ],
+      "cwd": "C:\\Users\\Administrator\\Documents\\continuity-assistant-p10-clean-20260904",
+      "started_utc": "2026-09-04T12:58:12.749033+00:00",
+      "interrupted": false,
+      "environment": {
+        "PYTHONPATH": null,
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONUTF8": "1"
+      },
+      "exit_code": 0,
+      "finished_utc": "2026-09-04T12:58:17.593320+00:00",
+      "elapsed_seconds": 4.844,
+      "stdout": {
+        "file": "01-venv.stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "file": "01-venv.stderr.log",
+        "bytes": 287,
+        "sha256": "0dde52408ab1f835649b2b18af96e4cd27d8945f628c8bc9529937aa0a86fc42"
+      }
+    },
+    {
+      "stage": "02-build",
+      "command": [
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\ca10-r0e8vzkq\\venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "wheel",
+        "--no-deps",
+        "--wheel-dir",
+        "C:\\Users\\Administrator\\Documents\\continuity-assistant-p10-clean-20260904\\.p10-evidence\\20260904T125812Z-98717b60\\wheel",
+        "."
+      ],
+      "cwd": "C:\\Users\\Administrator\\Documents\\continuity-assistant-p10-clean-20260904",
+      "started_utc": "2026-09-04T12:58:17.594962+00:00",
+      "interrupted": false,
+      "environment": {
+        "PYTHONPATH": null,
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONUTF8": "1"
+      },
+      "exit_code": 0,
+      "finished_utc": "2026-09-04T12:58:22.980037+00:00",
+      "elapsed_seconds": 5.385,
+      "stdout": {
+        "file": "02-build.stdout.log",
+        "bytes": 931,
+        "sha256": "03c222a1f2ba0014e2765ad906727f50024e5c3ed4977fa20972663ddf5aeae1"
+      },
+      "stderr": {
+        "file": "02-build.stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "stage": "03-install",
+      "command": [
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\ca10-r0e8vzkq\\venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "install",
+        "--no-compile",
+        "C:\\Users\\Administrator\\Documents\\continuity-assistant-p10-clean-20260904\\.p10-evidence\\20260904T125812Z-98717b60\\wheel\\continuity_assistant-0.1.0-py3-none-any.whl"
+      ],
+      "cwd": "C:\\Users\\Administrator\\Documents\\continuity-assistant-p10-clean-20260904",
+      "started_utc": "2026-09-04T12:58:22.981464+00:00",
+      "interrupted": false,
+      "environment": {
+        "PYTHONPATH": null,
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONUTF8": "1"
+      },
+      "exit_code": 0,
+      "finished_utc": "2026-09-04T12:58:26.255893+00:00",
+      "elapsed_seconds": 3.274,
+      "stdout": {
+        "file": "03-install.stdout.log",
+        "bytes": 1686,
+        "sha256": "6dd0b7f82c44b5a53f766b90f98ab9ae051ab00e116bdbb27f7a744c0a3d8d98"
+      },
+      "stderr": {
+        "file": "03-install.stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "stage": "04-installed-smoke",
+      "command": [
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\ca10-r0e8vzkq\\venv\\Scripts\\python.exe",
+        "-I",
+        "-c",
+        "import continuity_engine, continuity_assistant, json; from importlib.resources import files; assert files('continuity_engine').joinpath('interfaces/schemas/capability-request.v1.schema.json').is_file(); assert files('continuity_engine').joinpath('frontend/index.html').is_file(); assert continuity_assistant.describe()['runtimeEnabled'] is False; print(json.dumps({'engine':continuity_engine.__file__,'assistant':continuity_assistant.__file__}))"
+      ],
+      "cwd": "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\ca10-r0e8vzkq\\installed-smoke",
+      "started_utc": "2026-09-04T12:58:26.259528+00:00",
+      "interrupted": false,
+      "environment": {
+        "PYTHONPATH": null,
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONUTF8": "1"
+      },
+      "exit_code": 0,
+      "finished_utc": "2026-09-04T12:58:27.741741+00:00",
+      "elapsed_seconds": 1.482,
+      "stdout": {
+        "file": "04-installed-smoke.stdout.log",
+        "bytes": 264,
+        "sha256": "d30c35fbb849bca2a870b1ff71edc47b89089228a09b8fb547197ec1bdfd40fb"
+      },
+      "stderr": {
+        "file": "04-installed-smoke.stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "stage": "05-p10",
+      "command": [
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\ca10-r0e8vzkq\\venv\\Scripts\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "p10_tests",
+        "-q"
+      ],
+      "cwd": "C:\\Users\\Administrator\\Documents\\continuity-assistant-p10-clean-20260904",
+      "started_utc": "2026-09-04T12:58:27.743032+00:00",
+      "interrupted": false,
+      "environment": {
+        "PYTHONPATH": null,
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONUTF8": "1"
+      },
+      "exit_code": 0,
+      "finished_utc": "2026-09-04T12:58:37.423836+00:00",
+      "elapsed_seconds": 9.68,
+      "stdout": {
+        "file": "05-p10.stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "file": "05-p10.stderr.log",
+        "bytes": 102,
+        "sha256": "b998cc383d281ba64c010bc213e742a60c7c39718c42a37e5dcb0f1e693065c8"
+      }
+    },
+    {
+      "stage": "05b-installed-golden",
+      "command": [
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\ca10-r0e8vzkq\\venv\\Scripts\\python.exe",
+        "-I",
+        "-m",
+        "continuity_engine.testing.p09_core_runner",
+        "--scenario",
+        "golden"
+      ],
+      "cwd": "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\ca10-r0e8vzkq\\installed-smoke",
+      "started_utc": "2026-09-04T12:58:37.425164+00:00",
+      "interrupted": false,
+      "environment": {
+        "PYTHONPATH": null,
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONUTF8": "1"
+      },
+      "exit_code": 0,
+      "finished_utc": "2026-09-04T12:58:43.160033+00:00",
+      "elapsed_seconds": 5.734,
+      "stdout": {
+        "file": "05b-installed-golden.stdout.log",
+        "bytes": 937,
+        "sha256": "56fcb747a1f40e81c6a8d6efdcb5cf4cabc62a698f209b80b128ce74483b77cb"
+      },
+      "stderr": {
+        "file": "05b-installed-golden.stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "stage": "06-core",
+      "command": [
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\ca10-r0e8vzkq\\venv\\Scripts\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-q"
+      ],
+      "cwd": "C:\\Users\\Administrator\\Documents\\continuity-assistant-p10-clean-20260904",
+      "started_utc": "2026-09-04T12:58:43.161531+00:00",
+      "interrupted": false,
+      "environment": {
+        "PYTHONPATH": "C:\\Users\\Administrator\\Documents\\continuity-assistant-p10-clean-20260904\\src",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONUTF8": "1"
+      },
+      "exit_code": 0,
+      "finished_utc": "2026-09-04T13:06:18.220225+00:00",
+      "elapsed_seconds": 455.058,
+      "stdout": {
+        "file": "06-core.stdout.log",
+        "bytes": 850,
+        "sha256": "787d4728cbb3a707d051ef97a62556c30cc979ba0e7db1de78ce333516f5050f"
+      },
+      "stderr": {
+        "file": "06-core.stderr.log",
+        "bytes": 105,
+        "sha256": "9c0e7d07dea2a6acaa702ef8234e5df16f14a7e363b37dc04bcd06c5855c72e8"
+      }
+    }
+  ],
+  "implicit_retries": 0,
+  "core_import_mode": "original regression with PYTHONPATH=src; installed wheel smoke/Golden separate",
+  "result": "PASS",
+  "finished_utc": "2026-09-04T13:06:18.221357+00:00"
+}

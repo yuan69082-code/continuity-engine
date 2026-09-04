@@ -1,0 +1,11 @@
+{
+  "files": [
+    "tools/p10_core_regression.py",
+    "p10_tests/test_p10_core_launcher.py"
+  ],
+  "hashes": {
+    "tools/p10_core_regression.py": "44411b40322e002cf2b62006faa2cb0330e285bb6c0d4457509ee59f12e25229",
+    "p10_tests/test_p10_core_launcher.py": "64012abd160edd09f3f5938585979d5c37b7388263d99217a1d29864c8ef9a91"
+  },
+  "reason": "First quick run passed loader errors/identities but reporting assumed tests.__file__; preserve quick-discovery failure, inspect namespace __path__ instead."
+}

@@ -1,0 +1,19 @@
+{
+  "stage": "repair-commit",
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-assistant",
+  "command": [
+    "git",
+    "commit",
+    "-m",
+    "test: preserve Core import context in P10 statistics launcher"
+  ],
+  "start_utc": "2026-09-04T16:40:00.622270+00:00",
+  "interrupted": false,
+  "exit_code": 0,
+  "end_utc": "2026-09-04T16:40:00.717414+00:00",
+  "wall_seconds": 0.095,
+  "logs": {
+    "stdout.log": "86b951b3e8ec4b758b9ee7d5c86831d76e149f5ead0c4701e9e6e5f68409e546",
+    "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

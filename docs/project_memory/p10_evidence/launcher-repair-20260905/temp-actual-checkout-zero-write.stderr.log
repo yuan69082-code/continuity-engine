@@ -1,0 +1,6 @@
+test_actual_checkout_both_entrypoints_reject_without_any_write (__main__.ActualTempCheckoutTests.test_actual_checkout_both_entrypoints_reject_without_any_write) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 2.283s
+
+OK

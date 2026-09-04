@@ -1,0 +1,23 @@
+{
+  "stage": "assistant-install",
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-assistant",
+  "command": [
+    "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\09\\04\\01a06ab0-b58a-7b11-be93-8221ce27b2b1\\p10-fixture-repair-build\\venv\\Scripts\\python.exe",
+    "-m",
+    "pip",
+    "install",
+    "--no-index",
+    "--no-deps",
+    "--no-compile",
+    "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\09\\04\\01a06ab0-b58a-7b11-be93-8221ce27b2b1\\p10-fixture-repair-build\\wheel\\continuity_assistant-0.1.0-py3-none-any.whl"
+  ],
+  "start_utc": "2026-09-04T14:44:54.236728+00:00",
+  "interruption": null,
+  "exit_code": 0,
+  "end_utc": "2026-09-04T14:44:55.038857+00:00",
+  "wall_seconds": 0.8021183000091696,
+  "logs": {
+    "stdout.log": "37e349f15f5be9d65ea4b4e6cd674bcc61d1799f1f84211d37284d4084cb652f",
+    "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

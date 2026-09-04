@@ -1,0 +1,18 @@
+{
+  "stage": "assistant-save-commit",
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-assistant",
+  "command": [
+    "git",
+    "commit",
+    "-m",
+    "test: preserve reviewed P08 fixture repair and evidence"
+  ],
+  "start_utc": "2026-09-04T16:01:32.794134+00:00",
+  "exit_code": 0,
+  "wall_seconds": 0.126,
+  "end_utc": "2026-09-04T16:01:32.919972+00:00",
+  "logs": {
+    "stdout.log": "e1135feec226b947d7b1706c96fc0a14ea886aba8337a661344644cb591b5923",
+    "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

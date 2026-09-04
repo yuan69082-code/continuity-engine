@@ -1,0 +1,18 @@
+{
+  "stage": "temp-actual-checkout-zero-write",
+  "cwd": "C:\\Users\\Administrator\\AppData\\Local\\Temp\\p10-final-g0vhsy2o\\repo",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-B",
+    "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p10_evidence\\launcher-repair-20260905\\temp_checkout_probe.py"
+  ],
+  "start_utc": "2026-09-04T16:42:33.793538+00:00",
+  "interrupted": false,
+  "exit_code": 0,
+  "end_utc": "2026-09-04T16:42:37.054554+00:00",
+  "wall_seconds": 3.261,
+  "logs": {
+    "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr.log": "a0f2e1621713220bd55cbb8114d3afe90f2ea73e8ae7c437953b26f77f2a1b77"
+  }
+}

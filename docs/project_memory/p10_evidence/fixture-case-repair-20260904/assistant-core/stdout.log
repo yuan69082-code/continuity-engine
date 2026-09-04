@@ -1,0 +1,12 @@
+FORGED_HISTORY_RECOVERY REJECTED effect= 0 query_calls= 1
+RECEIPTLESS_FAILURE REJECTED append_queries= 0 recovered= COMPLETED effect= 1
+REHASHED_EXPIRED REJECTED query_calls= 1 effect= 1
+STALE_CONTEXT_RECEIPT_RECOVERY COMPLETED effect= 1 query_calls= 2
+RETAINED_CONTROLLED_FAILURE C:\Users\ADMINI~1\AppData\Local\Temp\c1e-82hgisal exit_code=91
+RETAINED_CONTROLLED_INTERRUPT C:\Users\ADMINI~1\AppData\Local\Temp\c1e-7zlmsdhj exit_code= 1
+CONTEXT_REMOVAL_PROBE REJECTED LocalIntegrationInitializationError
+GATE_FLIP_PROBE REJECTED LocalIntegrationInitializationError
+DISABLED_INPUTS_WITH_E5_HISTORY REJECTED IntegrationExecutionError
+EXPIRED_CONTEXT_PROBE IntegrationExecutionError revision 1 thinking_calls 0
+REHASHED_JOURNAL REJECTED IntegrationExecutionError
+REVOKED_REFERENCE_PROBE IntegrationExecutionError revision 1 thinking_calls 0

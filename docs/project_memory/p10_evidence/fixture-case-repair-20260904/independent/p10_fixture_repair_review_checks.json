@@ -1,0 +1,19 @@
+{
+  "engine": {
+    "repo": "continuity-engine",
+    "before": 543,
+    "after": 543,
+    "changed": [],
+    "added": [],
+    "deleted": []
+  },
+  "assistant": {
+    "repo": "continuity-assistant",
+    "before": 367,
+    "after": 367,
+    "changed": [],
+    "added": [],
+    "deleted": []
+  },
+  "boundaries": "[{\"field\":\"source_test\",\"checked\":187,\"changed\":[\"src/continuity_engine/testing/p08_action_fixture.py\"]},{\"field\":\"boundary\",\"checked\":25,\"changed\":[]},{\"field\":\"data\",\"checked\":7,\"changed\":[]}]\r\n{\"file\":\"src/continuity_engine/testing/p08_action_fixture.py\",\"equal\":true,\"hash\":\"5BC595B3746EB4773E1D7F79A2508007BF1B26E4F6A4964242298D9E008DCE9D\"}\r\n{\"file\":\"tests/test_p08_fixture_paths.py\",\"equal\":true,\"hash\":\"A53FD8D180C439571B30DF341C1F502EA423A87F23E738A00CD59194B3ED91F6\"}\r\n26:def _validate_fixture_root(root: Path, *, formal_data_roots=(), protected_paths=()) -> Path:\n43:        protected.extend(parent for parent in (resolved, *resolved.parents) if parent.name == name)\n"
+}

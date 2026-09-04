@@ -1,0 +1,20 @@
+{
+  "stage": "assistant-venv",
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-assistant",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "venv",
+    "--system-site-packages",
+    "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\09\\04\\01a06ab0-b58a-7b11-be93-8221ce27b2b1\\p10-fixture-repair-build\\venv"
+  ],
+  "start_utc": "2026-09-04T14:44:48.129678+00:00",
+  "interruption": null,
+  "exit_code": 0,
+  "end_utc": "2026-09-04T14:44:52.169134+00:00",
+  "wall_seconds": 4.039449899995816,
+  "logs": {
+    "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "stage": "green-paths",
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_p08_fixture_paths",
+    "-q"
+  ],
+  "start_utc": "2026-09-04T14:26:27.991469+00:00",
+  "interruption": null,
+  "exit_code": 0,
+  "end_utc": "2026-09-04T14:26:28.953428+00:00",
+  "wall_seconds": 0.961970400006976,
+  "logs": {
+    "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr.log": "c2363d825fb8f6e996b960510ce4262bf51a01cd25a5f3bb631e8c7ed39cc889"
+  }
+}

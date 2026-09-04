@@ -1,0 +1,21 @@
+{
+  "engine": {
+    "repo": "continuity-engine",
+    "before": 593,
+    "after": 593,
+    "changed": [],
+    "added": [],
+    "deleted": []
+  },
+  "assistant": {
+    "repo": "continuity-assistant",
+    "before": 368,
+    "after": 368,
+    "changed": [],
+    "added": [],
+    "deleted": []
+  },
+  "boundaries": "[{\"field\":\"source_test\",\"checked\":187,\"changed\":[\"src/continuity_engine/testing/p08_action_fixture.py\"]},{\"field\":\"boundary\",\"checked\":25,\"changed\":[]},{\"field\":\"data\",\"checked\":7,\"changed\":[]}]\r\n{\"repo\":\"engine\",\"file\":\"src/continuity_engine/testing/p08_action_fixture.py\",\"matches_stable\":true}\r\n{\"repo\":\"engine\",\"file\":\"tests/test_p08_fixture_paths.py\",\"matches_stable\":true}\r\n{\"repo\":\"assistant\",\"file\":\"src/continuity_engine/testing/p08_action_fixture.py\",\"matches_stable\":true}\r\n{\"repo\":\"assistant\",\"file\":\"tests/test_p08_fixture_paths.py\",\"matches_stable\":true}\r\n{\"stage\":\"engine-core\",\"log\":\"stdout.log\",\"matches\":true}\r\n{\"stage\":\"engine-core\",\"log\":\"stderr.log\",\"matches\":true}\r\n{\"stage\":\"assistant-core\",\"log\":\"stdout.log\",\"matches\":true}\r\n{\"stage\":\"assistant-core\",\"log\":\"stderr.log\",\"matches\":true}\r\n",
+  "engine_git": "main\n9d58b427ffaca2e64a268640979337e4c759d49d\n0\t0\n{\"diff_check_exit\":0,\"output_line_count\":47,\"non_warning_lines\":[]}\r\n",
+  "assistant_git": "continuity-assistant-fenzhi\nc6dd2c0cab17337a445b64fb8611d317190242c6\n0\t0\n{\"diff_check_exit\":0,\"output_line_count\":0,\"non_warning_lines\":[]}\r\n"
+}

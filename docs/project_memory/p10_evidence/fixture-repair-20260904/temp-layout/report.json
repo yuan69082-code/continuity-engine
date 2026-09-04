@@ -1,0 +1,17 @@
+{
+  "stage": "temp-layout",
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "docs/project_memory/p10_evidence/fixture-repair-20260904/temp_probe.py"
+  ],
+  "start_utc": "2026-09-04T14:35:29.594867+00:00",
+  "interruption": null,
+  "exit_code": 0,
+  "end_utc": "2026-09-04T14:35:31.032817+00:00",
+  "wall_seconds": 1.4379535000043688,
+  "logs": {
+    "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr.log": "9629b57017d50bc4a808787cba9e494239c4829fe8412aece7c08c641212933f"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "stage": "remote-temp-clone-command",
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "command": [
+    "git",
+    "-c",
+    "core.longpaths=true",
+    "clone",
+    "--branch",
+    "continuity-assistant-fenzhi",
+    "--config",
+    "core.autocrlf=false",
+    "https://github.com/yuan69082-code/continuity-assistant.git",
+    "C:\\Users\\Administrator\\AppData\\Local\\Temp\\p10-final-g0vhsy2o\\repo"
+  ],
+  "start_utc": "2026-09-04T16:41:40.810524+00:00",
+  "interrupted": false,
+  "exit_code": 0,
+  "end_utc": "2026-09-04T16:41:43.380576+00:00",
+  "wall_seconds": 2.57,
+  "logs": {
+    "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr.log": "1ea0d440058050121c4b73610fe5ed885e0bc80634dbf22deb1cab7167b54b9f"
+  }
+}

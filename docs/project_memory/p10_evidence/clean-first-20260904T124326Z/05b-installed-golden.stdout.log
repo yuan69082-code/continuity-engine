@@ -1,0 +1,39 @@
+{
+  "credits": 2,
+  "effects": 2,
+  "fixture": "p09-c1-golden-v1",
+  "formal_access_count": 0,
+  "isolated_evidence_root": "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\c126yfu14m",
+  "revision": 1,
+  "rounds": [
+    {
+      "context_consumed": true,
+      "mode": "direct",
+      "planner": false,
+      "steps": 1,
+      "trigger": "ACTION_INTENT"
+    },
+    {
+      "context_consumed": true,
+      "mode": "information",
+      "planner": false,
+      "steps": 1,
+      "trigger": "INFORMATION_NEED"
+    },
+    {
+      "context_consumed": true,
+      "mode": "complex",
+      "planner": true,
+      "steps": 2,
+      "trigger": "INFORMATION_NEED"
+    },
+    {
+      "context_consumed": true,
+      "mode": "silence",
+      "planner": false,
+      "steps": 1,
+      "trigger": "ACTION_INTENT"
+    }
+  ],
+  "semantic_hash": "sha256:4219612c6d41971196e939dbb07d2deeeadb91ed7ee443014a8863072bc4ff8f"
+}

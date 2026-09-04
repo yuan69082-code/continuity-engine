@@ -1,0 +1,7 @@
+test_direct_script_outside_checkout_without_pythonpath (test_p10_core_launcher.P10CoreLauncherTests.test_direct_script_outside_checkout_without_pythonpath) ... ok
+test_isolated_script_outside_checkout_without_environment_imports (test_p10_core_launcher.P10CoreLauncherTests.test_isolated_script_outside_checkout_without_environment_imports) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 1.848s
+
+OK

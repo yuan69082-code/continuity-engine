@@ -1,6 +1,6 @@
 # Continuity Engine
 
-> P09 现行门：P00—P09 = `ACCEPTED`；P09 / Engine side / P09-01—P09-12 = `ACCEPTED`；P09 Vio dependency = `NONE`；P10—P23 = `NOT_STARTED`。PLANNING_CONFLICT = NONE；EVIDENCE_CONFLICT = NONE（仅表示现行验收阻断已闭合）。 D-054 已记录用户正式验收；历史 segment 10 stderr 缺失、根因 UNKNOWN 保留。成果尚未提交，稳定 C1 SHA 待用户提交并 push 后核定。见 [P09 验收档案](docs/project_memory/50_P09_测试索引与C1运行入口.md#p09-accepted)。
+> P10 现行门：P00—P10 = ACCEPTED；P10 / P10 Engine side / P10-01—P10-12 = ACCEPTED；P10 Vio dependency = NONE；P11—P23 = NOT_STARTED；PLANNING_CONFLICT = NONE；EVIDENCE_CONFLICT = NONE（仅表示现行 P10 验收阻断已闭合）。 D-056 与最终依据见 [最终复核及验收记录](docs/project_memory/p10_evidence/launcher-repair-20260905/REVIEW_REPORT.md#p10-accepted)。Engine checkpoint `0115733d75f854e0d7c39062d8cb328a97995354`；Assistant 最终代码提交 `90f112b8be4617feb2d6387ceb2f77603302cee6`；[CI run 33896418682](https://github.com/yuan69082-code/continuity-assistant/actions/runs/33896418682) 为 794/794 PASS、0 SKIP、0 FAIL。历史 FAIL、SKIP、旧 CI failure、辅助错误及 P09 segment 10 stderr 缺失/根因 UNKNOWN 原样保留。
 
 连续性引擎是位于 AI 模型之外的独立连续性层。它与 Vio 平台后端是边界独立、数据库独立的平行系统，通过正式版本化契约协作；Vio 前端只连接 Vio 平台后端。它保存的不是聊天记录，而是主体状态及其随事件发生的连续变化。模型、Tool、MCP 和设备是外部能力，不是主体状态权威。历史 Vio 连接仍受已冻结契约约束；P09 按现行独立规划使用宿主中立 Port，Vio 不是本轮运行依赖。
 
@@ -77,7 +77,7 @@ Engine E4 随后完成 Engine 侧正式本地 HTTP/JSON Adapter。Vio V3 首次�
 
 ## 当前开发阶段
 
-P00—P09 已正式 ACCEPTED（P09：D-054）；监工独立复核已通过，成果仍是尚未提交的工作区内容。历史 UNKNOWN 保留，当前验收阻断已闭合。稳定 C1 SHA 等待用户提交并 push 后核定，P10—P23 未开始。详见 [P09 正式验收](docs/project_memory/50_P09_测试索引与C1运行入口.md#p09-accepted)。
+P00—P09 已正式 ACCEPTED（P09：D-054），用户已提交并 push；稳定 C1 核定为 `9d58b427ffaca2e64a268640979337e4c759d49d`。D-055 授权 P10 实际 Assistant 建仓，当前 IMPLEMENTED_NOT_ACCEPTED，P11—P23 未开始。历史 UNKNOWN 保留。详见 [P09 正式验收](docs/project_memory/50_P09_测试索引与C1运行入口.md#p09-accepted)。
 
 历史阶段顺序已推进为 `E5-A → V4 → 受控 S4 → V5 → F1 → L1 → S4-R PASS → S4-Live 首次真实供应商单次试聊 PASS → Engine 工程档案归档完成`。
 
@@ -793,9 +793,9 @@ python -m tests.shared.continuity_contract_jsonl_runner --data-dir <受控临时
 
 它从 stdin 接收每行一个完整 `ContinuityInteractionRequest`，并在 stdout 对每个合法 JSON 对象立即输出一行紧凑 UTF-8 结果。该命令仅供双方测试代码使用，不是正式 CLI、HTTP 服务或生产连接入口。
 
-## P09 C1 Engine 独立入口（待独立复核与用户验收）
+## P09 C1 Engine 独立入口（已由用户正式验收）
 
-P09 已按 D-053 接入既有正常交互服务：Event/Timeline → Memory Consolidation → Router → Composer → P07 → Thinking/Action Gate → Direct/Optional Planner。可消费 Context 保存于既有 Perception/ThinkSession checkpoint；原模型契约及唯一 E5-A ledger 保留。情绪时间衰减只读，StateMutation 仍必须走原合法 Evolution。当前为 `IMPLEMENTED_NOT_ACCEPTED`；P10—P23 未开始。
+P09 已按 D-053 接入既有正常交互服务：Event/Timeline → Memory Consolidation → Router → Composer → P07 → Thinking/Action Gate → Direct/Optional Planner。可消费 Context 保存于既有 Perception/ThinkSession checkpoint；原模型契约及唯一 E5-A ledger 保留。情绪时间衰减只读，StateMutation 仍必须走原合法 Evolution。P09 当前为 `ACCEPTED`；P10 已由 D-055 另行授权，P11—P23 未开始。
 
 以下入口只创建独立临时 P01 数据根，并禁止网络连接；无需 Vio、Provider 或凭据：
 
@@ -810,3 +810,21 @@ Golden 包括 Direct、Information Need、复杂 Planner、静默及重放；Lon
 
 
 本轮 P09 监工返修已补齐首次 Evolution 的当前 Context/Action 授权检查，以及 C1 输入与既有 ThinkSession/Action/E5-A 之间的恢复绑定；合法状态更新、已提交事实恢复与旧格式兼容保留。定点、专项、兼容、三轮全量及档案后终局复跑已通过；首次终局异常根因未确认，EVIDENCE_CONFLICT 继续 PRESENT 待独立复核；全部首次失败和结果见 [50 返修索引](docs/project_memory/50_P09_测试索引与C1运行入口.md#p09-repair-01)。
+
+
+## P10 实际建仓与验证入口（2026-09-04，D-055）
+
+P10 分支、独立本地/PRIVATE 远程、13 文件初始化提交及首次 push 已完成。Assistant HEAD `c6dd2c0cab17337a445b64fb8611d317190242c6`，直接父提交/共同祖先为固定 C1 `9d58b427ffaca2e64a268640979337e4c759d49d`。本地、Temp 外远程干净克隆及首次真实 CI 的构建/安装、已安装包导入/Golden、原 Core 770 项和新增 P10 12 项均通过；具体命令、耗时及全部首次失败见 54。P10 / Engine side / P10-01—P10-12 = IMPLEMENTED_NOT_ACCEPTED，P10 Vio dependency=NONE；P00—P09 ACCEPTED，P11—P23 NOT_STARTED。PLANNING_CONFLICT=NONE，EVIDENCE_CONFLICT=PRESENT：Temp 内首次克隆暴露的原 P08 Fixture 路径边界反例未修，须独立复核；后续通过不覆盖它。D-055 登记开工与事实，D-056 未创建、未使用。Engine main 未提交或推送，Engine P10 档案仍是未提交成果。
+
+- [51 架构与 Stage Brief](docs/project_memory/51_P10_Assistant建仓架构与StageBrief.md)
+- [52 逐项矩阵](docs/project_memory/52_P10_规划施工测试验收矩阵.md)
+- [53 来源/checkpoint 与显式版本同步](docs/project_memory/53_P10_来源Checkpoint与跨仓版本同步.md)
+- [54 测试、CI 与验收入口](docs/project_memory/54_P10_测试索引与验收入口.md)
+
+## P10 正式验收收尾（2026-09-05，D-056）
+
+P00—P10 = ACCEPTED；P10 / P10 Engine side / P10-01—P10-12 = ACCEPTED；P10 Vio dependency = NONE；P11—P23 = NOT_STARTED；PLANNING_CONFLICT = NONE；EVIDENCE_CONFLICT = NONE（仅表示现行 P10 验收阻断已闭合）。
+
+规划监工最终独立核对确认 Engine checkpoint `0115733d75f854e0d7c39062d8cb328a97995354`、Assistant 最终代码提交 `90f112b8be4617feb2d6387ceb2f77603302cee6`、P10 工程检查 14/14 PASS、原 770 项与新增 24 项身份完整，以及 [CI run 33896418682](https://github.com/yuan69082-code/continuity-assistant/actions/runs/33896418682) 794/794 PASS、0 SKIP、0 FAIL。Temp 内远程干净克隆的构建、安装、Golden、来源和两个 Fixture 入口的路径隔离验证通过；冻结边界、正式 7 文件及版本 0.1.0 未变。
+
+D-056 登记的是用户此前给出的条件式验收在独立核对通过后生效。当前冲突归零不改写历史：首次 Temp 失败、Windows 大小写漏项、旧 CI failure、统计入口导入失败、辅助工具错误、各次 SKIP，以及 P09 segment 10 stderr 缺失且根因 UNKNOWN 均保留。P11—P23 未开始；不创建标签或发布。

@@ -1,0 +1,22 @@
+{
+  "stage": "engine-p08",
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_p08_action_planning",
+    "tests.test_p08_action_recovery",
+    "tests.test_p08_fixture_paths",
+    "-q"
+  ],
+  "start_utc": "2026-09-04T14:27:02.842031+00:00",
+  "interruption": null,
+  "exit_code": 0,
+  "end_utc": "2026-09-04T14:27:26.033815+00:00",
+  "wall_seconds": 23.191801100008888,
+  "logs": {
+    "stdout.log": "60de6810cbb118f85a85e0e0ce18a157e71b48b527d517606cb2ec85f25a5ff7",
+    "stderr.log": "64dd09c8f09a9c7856c04215c5b0dcac1113808acddb66cfb43949937efcc074"
+  }
+}

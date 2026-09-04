@@ -1,0 +1,10 @@
+{
+  "engine": {
+    "src/continuity_engine/testing/p08_action_fixture.py": "6509bf7097fa2f528f8194446f228ca910f00abf73a7900287aee3a79b7b520e",
+    "tests/test_p08_fixture_paths.py": "376e68d7709324943d2827901a416c32c1aa82df22caa124dfa9caa0641ba8e6"
+  },
+  "assistant": {
+    "src/continuity_engine/testing/p08_action_fixture.py": "6509bf7097fa2f528f8194446f228ca910f00abf73a7900287aee3a79b7b520e",
+    "tests/test_p08_fixture_paths.py": "376e68d7709324943d2827901a416c32c1aa82df22caa124dfa9caa0641ba8e6"
+  }
+}

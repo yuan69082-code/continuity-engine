@@ -1,0 +1,5 @@
+[continuity-assistant-fenzhi 2b1e500] test: preserve reviewed P08 fixture repair and evidence
+ 6 files changed, 355 insertions(+), 11 deletions(-)
+ create mode 100644 docs/assistant/P08_FIXTURE_CASE_REPAIR.md
+ create mode 100644 docs/assistant/P08_FIXTURE_REPAIR.md
+ create mode 100644 tests/test_p08_fixture_paths.py

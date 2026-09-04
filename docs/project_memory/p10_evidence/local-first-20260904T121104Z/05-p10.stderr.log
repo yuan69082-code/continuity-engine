@@ -1,0 +1,14 @@
+======================================================================
+ERROR: test_04_all_original_770_cases_remain_discoverable (test_p10_repository.P10RepositoryTests.test_04_all_original_770_cases_remain_discoverable)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-assistant\p10_tests\test_p10_repository.py", line 55, in test_04_all_original_770_cases_remain_discoverable
+    suite = unittest.defaultTestLoader.discover(str(ROOT / "tests"), top_level_dir=str(ROOT))
+  File "E:\Adobe\Lib\unittest\loader.py", line 334, in discover
+    raise ImportError('Start directory is not importable: %r' % start_dir)
+ImportError: Start directory is not importable: 'C:\\Users\\Administrator\\Documents\\continuity-assistant\\tests'
+
+----------------------------------------------------------------------
+Ran 12 tests in 7.509s
+
+FAILED (errors=1)

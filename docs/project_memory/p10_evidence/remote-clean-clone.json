@@ -1,0 +1,22 @@
+{
+  "started_utc": "2026-09-04T12:41:26.496423+00:00",
+  "ended_utc": "2026-09-04T12:41:29.577562+00:00",
+  "command": [
+    "git",
+    "-c",
+    "core.longpaths=true",
+    "clone",
+    "--branch",
+    "continuity-assistant-fenzhi",
+    "--config",
+    "core.autocrlf=false",
+    "https://github.com/yuan69082-code/continuity-assistant.git",
+    "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\ca10-clean-g6jiv4az\\repo"
+  ],
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "Cloning into 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\ca10-clean-g6jiv4az\\repo'...\n",
+  "path": "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\ca10-clean-g6jiv4az\\repo",
+  "remote": "https://github.com/yuan69082-code/continuity-assistant.git",
+  "private": true
+}

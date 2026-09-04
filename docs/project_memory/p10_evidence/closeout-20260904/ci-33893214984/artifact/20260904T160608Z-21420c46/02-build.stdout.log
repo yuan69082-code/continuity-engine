@@ -1,0 +1,13 @@
+Processing .\.
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: continuity-assistant
+  Building wheel for continuity-assistant (pyproject.toml): started
+  Building wheel for continuity-assistant (pyproject.toml): finished with status 'done'
+  Created wheel for continuity-assistant: filename=continuity_assistant-0.1.0-py3-none-any.whl size=377783 sha256=18068c708983835fe157ec1b795a477d666fef2456c35870ea5ea652770004dc
+  Stored in directory: C:\Users\runneradmin\AppData\Local\Temp\pip-ephem-wheel-cache-fyfe_e56\wheels\66\20\a4\32e8bac01c99de7a208195a0f5a60a3081b48ef4b901265af5
+Successfully built continuity-assistant

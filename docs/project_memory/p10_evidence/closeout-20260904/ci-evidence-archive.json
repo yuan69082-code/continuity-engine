@@ -1,0 +1,75 @@
+{
+  "id": 33893214984,
+  "head": "664530c2c6faae7f37dd90bc73463d8dfb66b490",
+  "conclusion": "failure",
+  "url": "https://github.com/yuan69082-code/continuity-assistant/actions/runs/33893214984",
+  "artifacts": [
+    {
+      "id": 9944709359,
+      "private_zip": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\09\\04\\01a06ab0-b58a-7b11-be93-8221ce27b2b1\\p10-closeout-private-evidence\\artifact-9944709359.zip",
+      "sha256": "efd3b2d36eba205eeb344a7f3c3de1c004a23450681af6d4b46329f4abb375bc",
+      "extracted": [
+        {
+          "path": "artifact/20260904T160608Z-21420c46/01-venv.stderr.log",
+          "sha256": "01c1c618dd847c50afb6ee54ff563fe67671108a8e56d617fa97aac42bd4bac8"
+        },
+        {
+          "path": "artifact/20260904T160608Z-21420c46/01-venv.stdout.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "artifact/20260904T160608Z-21420c46/02-build.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "artifact/20260904T160608Z-21420c46/02-build.stdout.log",
+          "sha256": "ed5e888e5ea5cf1aa8a150d65372518860f174db2eab397b713e18ee0351e41b"
+        },
+        {
+          "path": "artifact/20260904T160608Z-21420c46/03-install.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "artifact/20260904T160608Z-21420c46/03-install.stdout.log",
+          "sha256": "6b616f4140d976ad7a1102b375f45bc6ef04fde2d3d0a5999ed30720b1dd6d69"
+        },
+        {
+          "path": "artifact/20260904T160608Z-21420c46/04-installed-smoke.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "artifact/20260904T160608Z-21420c46/04-installed-smoke.stdout.log",
+          "sha256": "03b10366545dcf0615a9715cf88a4f9b2d001f1657bae15c7668159457cab4de"
+        },
+        {
+          "path": "artifact/20260904T160608Z-21420c46/05-p10.stderr.log",
+          "sha256": "fb6b633254ac3688bea5a80d5d2fc01b7f2a67390c47b556dce84f097efc6cf9"
+        },
+        {
+          "path": "artifact/20260904T160608Z-21420c46/05-p10.stdout.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "artifact/20260904T160608Z-21420c46/05b-installed-golden.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "artifact/20260904T160608Z-21420c46/05b-installed-golden.stdout.log",
+          "sha256": "a267163a9f213a7bcfd5de0a553c47b41c2a8df8b3f465059f90f80713436bc5"
+        },
+        {
+          "path": "artifact/20260904T160608Z-21420c46/06-core.stderr.log",
+          "sha256": "29005a5017973e2e63b860fe34bc0a58c2c8e9ddd91423dae0dc9c2a5a3ddd93"
+        },
+        {
+          "path": "artifact/20260904T160608Z-21420c46/06-core.stdout.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "artifact/20260904T160608Z-21420c46/report.json",
+          "sha256": "fc6dc8e001a547830939545537c93f2e515a814f6a1d4c511779d1351491e1ce"
+        }
+      ]
+    }
+  ]
+}

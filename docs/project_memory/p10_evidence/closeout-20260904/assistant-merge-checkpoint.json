@@ -1,0 +1,19 @@
+{
+  "stage": "assistant-merge-checkpoint",
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-assistant",
+  "command": [
+    "git",
+    "merge",
+    "--no-ff",
+    "--no-commit",
+    "0115733d75f854e0d7c39062d8cb328a97995354"
+  ],
+  "start_utc": "2026-09-04T16:01:34.348467+00:00",
+  "exit_code": 0,
+  "wall_seconds": 0.102,
+  "end_utc": "2026-09-04T16:01:34.450333+00:00",
+  "logs": {
+    "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr.log": "96bb6a194a796153cbd0c640642866371219451832063763d544b942a8d97c4e"
+  }
+}

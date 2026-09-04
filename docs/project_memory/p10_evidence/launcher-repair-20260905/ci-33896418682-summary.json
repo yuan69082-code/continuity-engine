@@ -1,0 +1,53 @@
+{
+  "head": "90f112b8be4617feb2d6387ceb2f77603302cee6",
+  "ci_id": 33896418682,
+  "ci_url": "https://github.com/yuan69082-code/continuity-assistant/actions/runs/33896418682",
+  "ci_conclusion": "success",
+  "artifacts": [
+    {
+      "id": 9946436607,
+      "private_zip": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\09\\04\\01a06ab0-b58a-7b11-be93-8221ce27b2b1\\p10-closeout-private-evidence\\artifact-9946436607.zip",
+      "sha256": "ce3b72b29f39f332a89124bb60c8e87d8be8305e6e5fa0be3b5e03d39dbeeeb5",
+      "extracted": {
+        "artifact/20260904T164022Z-1c9eaf12/01-venv.stderr.log": "9ad67ec37ac4ba3eb1957c14f0c68fe5ae473f15e8b2e6d4f171da9c06038078",
+        "artifact/20260904T164022Z-1c9eaf12/01-venv.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "artifact/20260904T164022Z-1c9eaf12/02-build.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "artifact/20260904T164022Z-1c9eaf12/02-build.stdout.log": "a47fe9911f12075baf64103bfc9f2696c4f71b7a65aadfaba5ca19b8d0d07f44",
+        "artifact/20260904T164022Z-1c9eaf12/03-install.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "artifact/20260904T164022Z-1c9eaf12/03-install.stdout.log": "95c90dac8bd0687c890fc9a8de60cb53dda81e98221b8d98a56448d97694ef14",
+        "artifact/20260904T164022Z-1c9eaf12/04-installed-smoke.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "artifact/20260904T164022Z-1c9eaf12/04-installed-smoke.stdout.log": "56bc962bad3b4891334cca050065e1675901bc8e5b76b82681f52703546bafa7",
+        "artifact/20260904T164022Z-1c9eaf12/05-p10.stderr.log": "5d108680b1b63af81ad4afc797051371e6b20c74fb625dbed08488d919bea918",
+        "artifact/20260904T164022Z-1c9eaf12/05-p10.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "artifact/20260904T164022Z-1c9eaf12/05b-installed-golden.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "artifact/20260904T164022Z-1c9eaf12/05b-installed-golden.stdout.log": "61ab971a0c4e4b16591b0226152ff98f4ec7af2cfe817f08de873e42326373d9",
+        "artifact/20260904T164022Z-1c9eaf12/06-core.stderr.log": "0b12f7713482b6786680930f7a7b868c936dc698e9fa40210c84be6fe9315f4e",
+        "artifact/20260904T164022Z-1c9eaf12/06-core.stdout.log": "2a8ad7c78ba3d034743c7c9bd0c9f136e696ce568ccc5aeaee7e2a856d817114",
+        "artifact/20260904T164022Z-1c9eaf12/core-results.json": "1336d7b50ecfd8d0520963fcb83d634f9beed4efd21f0a63a54941d85d5394f6",
+        "artifact/20260904T164022Z-1c9eaf12/report.json": "f3392081c46c926b14ff9c72ef4a299534e330a8a58d2fab2218b000fb12bb2c"
+      }
+    }
+  ],
+  "report": "ci-33896418682/artifact/20260904T164022Z-1c9eaf12/report.json",
+  "pipeline_result": "PASS",
+  "core": {
+    "tests_run": 794,
+    "elapsed_seconds": 869.3,
+    "successful": true,
+    "groups": {
+      "original": {
+        "total": 770,
+        "PASS": 770,
+        "SKIP": {}
+      },
+      "fixtureRepair": {
+        "total": 24,
+        "PASS": 24,
+        "SKIP": {}
+      }
+    },
+    "failures": [],
+    "errors": [],
+    "unexpected_skips": []
+  }
+}

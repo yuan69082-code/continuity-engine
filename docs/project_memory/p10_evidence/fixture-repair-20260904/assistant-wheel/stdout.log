@@ -1,0 +1,9 @@
+Processing .\.
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: continuity-assistant
+  Building wheel for continuity-assistant (pyproject.toml): started
+  Building wheel for continuity-assistant (pyproject.toml): finished with status 'done'
+  Created wheel for continuity-assistant: filename=continuity_assistant-0.1.0-py3-none-any.whl size=377383 sha256=07e6cb191e0c3f2072a9ee86bfd677fc92f482089bfd029c985528804e7afb86
+  Stored in directory: c:\users\administrator\appdata\local\pip\cache\wheels\ad\d9\1a\3aafa4fb1bdd6e0b94dd11be8d93b4c470629d7839e84a50eb
+Successfully built continuity-assistant

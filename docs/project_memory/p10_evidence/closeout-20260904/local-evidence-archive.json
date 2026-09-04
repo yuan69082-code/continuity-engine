@@ -1,0 +1,23 @@
+{
+  "original": "C:\\Users\\Administrator\\Documents\\continuity-assistant\\.p10-evidence\\20260904T160610Z-5aeb7659",
+  "copied": {
+    "01-venv.stderr.log": "32ee45603a00913049b12bc56ff626184eb1b7e9f8e2566cecfab635525eef51",
+    "01-venv.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "02-build.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "02-build.stdout.log": "498ff95d99fe548ea89d201adece9e1a1f1a32feba207e56c2af1d6680ab3986",
+    "03-install.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "03-install.stdout.log": "9264911ba2a3cad0938bf29ceb2efc227d605119c3da253479a8a33e2258e878",
+    "04-installed-smoke.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "04-installed-smoke.stdout.log": "afbb6fa60b15804ae91bcfbe899135ccebe92efe9ff717cd92ba4946c95630e2",
+    "05-p10.stderr.log": "4fd220c7fe4fe7b83763491bc7b456fdc30fc05fdc4f5656f65cc088f4c7b8fe",
+    "05-p10.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "05b-installed-golden.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "05b-installed-golden.stdout.log": "3271e0e0718eb9c06d33e5f896fc970266a71ab4e1077ae2895b07dcb016a27c",
+    "06-core.stderr.log": "6f18bec82b97cb88922f3e5b3ca8669fc65ba91f46ff6d946432580ee8c93985",
+    "06-core.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "report.json": "aa17bde7269dc3a960218cdd11872b24ace3a757098a55cf020bcc3cd1920a94"
+  },
+  "private_wheel_path": "C:\\Users\\Administrator\\Documents\\continuity-assistant\\.p10-evidence\\20260904T160610Z-5aeb7659\\wheel\\continuity_assistant-0.1.0-py3-none-any.whl",
+  "private_wheel_sha256": "a00bf7d35c6619f03f166bc4ae5b6a462a7cdeebcac743a070a82a4e6dc22c83",
+  "core_results_created": false
+}

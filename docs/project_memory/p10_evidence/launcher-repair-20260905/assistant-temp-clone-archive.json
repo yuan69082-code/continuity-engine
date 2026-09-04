@@ -1,0 +1,26 @@
+{
+  "original": "C:\\Users\\Administrator\\AppData\\Local\\Temp\\p10-final-g0vhsy2o\\repo\\.p10-evidence\\20260904T164316Z-0d5cdfdd",
+  "expected_head": "90f112b8be4617feb2d6387ceb2f77603302cee6",
+  "result": "PASS",
+  "files": {
+    "01-venv.stderr.log": "ac4a07092e20ca29f5a44e2be9ce357c90ff7448b7979d9470c91bc7a4d828b0",
+    "01-venv.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "02-build.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "02-build.stdout.log": "1c29d4fe952fbd9ed8c0ad4bfbfa33585f3bd9e4b5e39c7ed253c8b301c4102b",
+    "03-install.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "03-install.stdout.log": "7a054084881441c96989903ef7d1dfa6b60a71918ea871066f1b3073d9af67d2",
+    "04-installed-smoke.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "04-installed-smoke.stdout.log": "80e2f0a19392efbfc3272e86238090252b4126f03ec59440627709f6be0a728e",
+    "05-p10.stderr.log": "15f200d1d8e504ff1899d85fa915893d0a3647aa21cc23334b4fcb3cfc1c043a",
+    "05-p10.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "05b-installed-golden.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "05b-installed-golden.stdout.log": "48a70bea5451bf342b9fc60eaca06e09f10467166f2010079551ecb71a61f123",
+    "06-core.stderr.log": "33a4d8ec256f0c25c3f4bb13e6d348e6b883e54bc66c690147c98ae6fca92cfe",
+    "06-core.stdout.log": "f43a049f1463655fc5a12dcfc05b801c0d8d8462bdc645956890cc88d0f1254b",
+    "core-results.json": "c9fdc97da91650a6cd0fb18805a52e81ec4bf8fb0c93458d72c168a22c8ef3a9",
+    "report.json": "181ec02837a295456cfb7fb2e175120999cf44d5839d8bff19d5518f3bb8f913"
+  },
+  "private_wheels": {
+    "C:\\Users\\Administrator\\AppData\\Local\\Temp\\p10-final-g0vhsy2o\\repo\\.p10-evidence\\20260904T164316Z-0d5cdfdd\\wheel\\continuity_assistant-0.1.0-py3-none-any.whl": "8f7ceed98fc2cf821ba9ff6de29d24f257842f7b16cd597c17b7be2928d8b504"
+  }
+}

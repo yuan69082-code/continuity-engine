@@ -1,0 +1,25 @@
+{
+  "total_count": 1,
+  "artifacts": [
+    {
+      "id": 9946436607,
+      "node_id": "MDg6QXJ0aWZhY3Q5OTQ2NDM2NjA3",
+      "name": "p10-evidence-33896418682-1",
+      "size_in_bytes": 384779,
+      "url": "https://api.github.com/repos/yuan69082-code/continuity-assistant/actions/artifacts/9946436607",
+      "archive_download_url": "https://api.github.com/repos/yuan69082-code/continuity-assistant/actions/artifacts/9946436607/zip",
+      "expired": false,
+      "digest": "sha256:ce3b72b29f39f332a89124bb60c8e87d8be8305e6e5fa0be3b5e03d39dbeeeb5",
+      "created_at": "2026-09-04T16:56:10Z",
+      "updated_at": "2026-09-04T16:56:10Z",
+      "expires_at": "2026-09-18T16:56:09Z",
+      "workflow_run": {
+        "id": 33896418682,
+        "repository_id": 1357088710,
+        "head_repository_id": 1357088710,
+        "head_branch": "continuity-assistant-fenzhi",
+        "head_sha": "90f112b8be4617feb2d6387ceb2f77603302cee6"
+      }
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "files": [
+    "tools/p10_core_regression.py",
+    "p10_tests/test_p10_core_launcher.py"
+  ],
+  "hashes": {
+    "tools/p10_core_regression.py": "eed5a8e654a54c7cdffed7e3a2b97ca07db9d3eda3f592fa55c88106ce612eef",
+    "p10_tests/test_p10_core_launcher.py": "40be72a0fab40dbb1af2cb68fc236b38a8ce295dc28475bf87443602945351fa"
+  },
+  "parent": "664530c2c6faae7f37dd90bc73463d8dfb66b490"
+}

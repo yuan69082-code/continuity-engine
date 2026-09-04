@@ -1,0 +1,26 @@
+{
+  "original": "C:\\Users\\Administrator\\Documents\\continuity-assistant\\.p10-evidence\\20260904T163150Z-c95cbe19",
+  "expected_head": "664530c2c6faae7f37dd90bc73463d8dfb66b490",
+  "result": "PASS",
+  "files": {
+    "01-venv.stderr.log": "537790c52ee54979928421cdb3819134867c2d6cdfbc148764de630b1a4feacc",
+    "01-venv.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "02-build.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "02-build.stdout.log": "121fb393c14e5db7667d846433d81d3109bf799ed5706124c7022d2287024497",
+    "03-install.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "03-install.stdout.log": "adbfa96b240d99153b02c274b01eb222e0368f89051a3235cbd0babc90a0329c",
+    "04-installed-smoke.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "04-installed-smoke.stdout.log": "726a80e0a858dd6f6f77c91c57d8277d00b003deb44d5b7b3d668f8070c0246b",
+    "05-p10.stderr.log": "d70807bc856d306af631cfc971097078e6b73bfaaf7be7daa72954055426d8f3",
+    "05-p10.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "05b-installed-golden.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "05b-installed-golden.stdout.log": "fbb406f178fd789ebcbbba59b323f5ff2f9178949f392957d7517ce07bbf4cd5",
+    "06-core.stderr.log": "0187cda1707136100c529e5cae3ea331efbc5b0ceacda8079c34922d00ea1b87",
+    "06-core.stdout.log": "e67b4e0ffc0ec03e5869b6a66b29353ff61eb97f0d9faef412d35996452a432b",
+    "core-results.json": "346cb66dc45434369cce7d910e16e7be0e3e9d8924c3dc705e82537302c914a1",
+    "report.json": "8f675e8a4ca8d21e2cb60d88baccab1c89c3e1ea08865bf29de8093783d64e6e"
+  },
+  "private_wheels": {
+    "C:\\Users\\Administrator\\Documents\\continuity-assistant\\.p10-evidence\\20260904T163150Z-c95cbe19\\wheel\\continuity_assistant-0.1.0-py3-none-any.whl": "1c7eb1d70d73ac5b333c826d835b4c3c8d2c9a230bc3f2fa4242bba2710ac144"
+  }
+}

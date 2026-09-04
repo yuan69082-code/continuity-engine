@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "docs/project_memory/p10_evidence/final_audit.py", line 78, in <module>
+    assert all(sha(root / p) == value for p, value in source.items())
+AssertionError
+
+Three pre-existing Engine worktree CRLF files differ from their fixed C1 LF Git blobs. Engine before/after hashes are unchanged; Assistant matches fixed Git blobs. Audit corrected to compare cross-repository content against exact fixed C1 blobs, retaining original Engine raw-byte freeze checks. No source/test content or line endings modified.

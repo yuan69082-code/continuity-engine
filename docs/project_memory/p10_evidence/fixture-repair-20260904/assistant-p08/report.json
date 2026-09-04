@@ -1,0 +1,22 @@
+{
+  "stage": "assistant-p08",
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-assistant",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_p08_action_planning",
+    "tests.test_p08_action_recovery",
+    "tests.test_p08_fixture_paths",
+    "-q"
+  ],
+  "start_utc": "2026-09-04T14:35:46.314081+00:00",
+  "interruption": null,
+  "exit_code": 0,
+  "end_utc": "2026-09-04T14:36:09.676833+00:00",
+  "wall_seconds": 23.36273940000683,
+  "logs": {
+    "stdout.log": "60de6810cbb118f85a85e0e0ce18a157e71b48b527d517606cb2ec85f25a5ff7",
+    "stderr.log": "18b5fd64bf6a4c906bba509607b05e1bf202b1f40e202b057c74f67165bd082f"
+  }
+}

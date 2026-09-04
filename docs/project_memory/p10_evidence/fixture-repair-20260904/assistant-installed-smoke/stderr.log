@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import json, hashlib; from pathlib import Path; import continuity_assistant; from continuity_engine.testing import p08_action_fixture as f; expected='5bc595b3746eb4773e1d7f79a2508007bf1b26e4f6a4964242298d9e008dce9d'; assert hashlib.sha256(Path(f.__file__).read_bytes()).hexdigest()==expected; assert not continuity_assistant.describe()['runtimeEnabled']; print(json.dumps({'fixture_sha256': expected, 'runtimeEnabled':False}))
+                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'continuity_assistant'

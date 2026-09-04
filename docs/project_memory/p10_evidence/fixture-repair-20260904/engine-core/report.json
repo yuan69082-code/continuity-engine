@@ -1,0 +1,22 @@
+{
+  "stage": "engine-core",
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-q"
+  ],
+  "start_utc": "2026-09-04T14:27:52.075605+00:00",
+  "interruption": null,
+  "exit_code": 0,
+  "end_utc": "2026-09-04T14:34:54.908467+00:00",
+  "wall_seconds": 422.83286890000454,
+  "logs": {
+    "stdout.log": "65786741dd35827771573f9b08af3d0e1dc674599b2f6d0592fc247e9d85e834",
+    "stderr.log": "721cee134eb50ecc883abec6f901320cfc9216dd16c23f4524ffb1ebe67bda07"
+  }
+}

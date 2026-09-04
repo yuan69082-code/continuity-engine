@@ -1,6 +1,6 @@
 # P08 Natural/Direct Action 与 Optional Planner 架构边界
 
-> P09 现行门：P00—P09 = `ACCEPTED`；P09 / Engine side / P09-01—P09-12 = `ACCEPTED`；P09 Vio dependency = `NONE`；P10—P23 = `NOT_STARTED`。PLANNING_CONFLICT = NONE；EVIDENCE_CONFLICT = NONE（仅表示现行验收阻断已闭合）。 D-054 已记录用户正式验收；历史 segment 10 stderr 缺失、根因 UNKNOWN 保留。成果尚未提交，稳定 C1 SHA 待用户提交并 push 后核定。见 [P09 验收档案](50_P09_测试索引与C1运行入口.md#p09-accepted)。
+> P10 现行门：P00—P10 = ACCEPTED；P10 / P10 Engine side / P10-01—P10-12 = ACCEPTED；P10 Vio dependency = NONE；P11—P23 = NOT_STARTED；PLANNING_CONFLICT = NONE；EVIDENCE_CONFLICT = NONE（仅表示现行 P10 验收阻断已闭合）。 D-056 与最终依据见 [最终复核及验收记录](p10_evidence/launcher-repair-20260905/REVIEW_REPORT.md#p10-accepted)。Engine checkpoint `0115733d75f854e0d7c39062d8cb328a97995354`；Assistant 最终代码提交 `90f112b8be4617feb2d6387ceb2f77603302cee6`；[CI run 33896418682](https://github.com/yuan69082-code/continuity-assistant/actions/runs/33896418682) 为 794/794 PASS、0 SKIP、0 FAIL。历史 FAIL、SKIP、旧 CI failure、辅助错误及 P09 segment 10 stderr 缺失/根因 UNKNOWN 原样保留。
 
 > 下文的 P08 收口与后续未授权状态均为当时记录；D-053 是后续独立授权，不改变 P08 十二项 ACCEPTED 或原有限泛化边界。
 
@@ -49,3 +49,11 @@
 参见 [矩阵](44_P08_规划施工测试验收矩阵.md)、[恢复语义](45_P08_DirectPlanner执行恢复语义.md)、[测试索引](46_P08_测试索引与验收入口.md)、[D-051](04_决策记录.md)。
 
 **2026-09-04 无回执终态返修：** 原“只要 receipt 非空才验真”遗漏已由两条正式失败回归证明。内部结果现只允许 PROPOSED、UNKNOWN、SUCCEEDED、FAILED_TERMINAL、EXPIRED；取消和 retryable terminal 等本阶段不支持的输入明确拒绝，不建设取消系统。构造、反序列化和 InternalActionAttempt 追加执行等价结构约束；真实执行依据仍由同一协调器查询端口验真，不新增字段、存储版本、账本或生产验签基础设施。choice 过期不否定已经发生的成功；原 UNKNOWN 仍可归账真实回执。已存 EXPIRED 若与后来查询的回执冲突，必须拒绝消费并保留原 ledger 与 Fake 历史，不静默覆盖。
+
+## P10 正式验收收尾（2026-09-05，D-056）
+
+P00—P10 = ACCEPTED；P10 / P10 Engine side / P10-01—P10-12 = ACCEPTED；P10 Vio dependency = NONE；P11—P23 = NOT_STARTED；PLANNING_CONFLICT = NONE；EVIDENCE_CONFLICT = NONE（仅表示现行 P10 验收阻断已闭合）。
+
+规划监工最终独立核对确认 Engine checkpoint `0115733d75f854e0d7c39062d8cb328a97995354`、Assistant 最终代码提交 `90f112b8be4617feb2d6387ceb2f77603302cee6`、P10 工程检查 14/14 PASS、原 770 项与新增 24 项身份完整，以及 [CI run 33896418682](https://github.com/yuan69082-code/continuity-assistant/actions/runs/33896418682) 794/794 PASS、0 SKIP、0 FAIL。Temp 内远程干净克隆的构建、安装、Golden、来源和两个 Fixture 入口的路径隔离验证通过；冻结边界、正式 7 文件及版本 0.1.0 未变。
+
+D-056 登记的是用户此前给出的条件式验收在独立核对通过后生效。当前冲突归零不改写历史：首次 Temp 失败、Windows 大小写漏项、旧 CI failure、统计入口导入失败、辅助工具错误、各次 SKIP，以及 P09 segment 10 stderr 缺失且根因 UNKNOWN 均保留。P11—P23 未开始；不创建标签或发布。

@@ -1,0 +1,26 @@
+{
+  "stage": "assistant-point",
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-assistant",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_p08_fixture_paths",
+    "-q"
+  ],
+  "start_utc": "2026-09-04T15:12:42.750032+00:00",
+  "interruption": null,
+  "environment": {
+    "PYTHONPATH": "src",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONUTF8": "1",
+    "GIT_OPTIONAL_LOCKS": "0"
+  },
+  "exit_code": 0,
+  "end_utc": "2026-09-04T15:12:44.519763+00:00",
+  "wall_seconds": 1.7697228000033647,
+  "logs": {
+    "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr.log": "844ae4e9c6aaf7f7e9c3f1841e77a5da5b4244bcac4ddaa8c80198724d72475a"
+  }
+}

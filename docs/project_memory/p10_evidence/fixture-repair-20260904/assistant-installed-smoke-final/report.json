@@ -1,0 +1,25 @@
+{
+  "stage": "assistant-installed-smoke-final",
+  "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\09\\04\\01a06ab0-b58a-7b11-be93-8221ce27b2b1\\p10-fixture-repair-build\\outside-checkout",
+  "command": [
+    "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\09\\04\\01a06ab0-b58a-7b11-be93-8221ce27b2b1\\p10-fixture-repair-build\\venv\\Scripts\\python.exe",
+    "-I",
+    "-c",
+    "import json,hashlib; from pathlib import Path; import continuity_assistant; from continuity_engine.testing import p08_action_fixture as f; assert hashlib.sha256(Path(f.__file__).read_bytes()).hexdigest()=='5bc595b3746eb4773e1d7f79a2508007bf1b26e4f6a4964242298d9e008dce9d'; assert not continuity_assistant.describe()['runtimeEnabled']; print(json.dumps({'fixture_sha256':'5bc595b3746eb4773e1d7f79a2508007bf1b26e4f6a4964242298d9e008dce9d','runtimeEnabled':False}))"
+  ],
+  "start_utc": "2026-09-04T14:46:17.694123+00:00",
+  "interruption": null,
+  "environment": {
+    "PYTHONPATH": null,
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONUTF8": "1",
+    "GIT_OPTIONAL_LOCKS": "0"
+  },
+  "exit_code": 0,
+  "end_utc": "2026-09-04T14:46:18.461700+00:00",
+  "wall_seconds": 0.7675958000036189,
+  "logs": {
+    "stdout.log": "ec73cdc7374dbe063781b54b307a268f829b41419d002e89b4978d939c1e2fee",
+    "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

@@ -1,0 +1,16 @@
+PRESERVED_TEST_ROOT C:\Users\Administrator\AppData\Local\Temp\p10r2-independent-hsiiiy2z
+test_checkout_marker_protects_root_and_formal_directory (__main__.IndependentFixtureRepairTests.test_checkout_marker_protects_root_and_formal_directory) ... ok
+test_reserved_directory_spelling_is_windows_case_insensitive (__main__.IndependentFixtureRepairTests.test_reserved_directory_spelling_is_windows_case_insensitive) ... {"spelling": ".continuity-data", "factory": "FakeActionAdapter", "rejected": true, "unchanged": true, "added_count": 0, "test_receipt_created": false}
+{"spelling": ".continuity-data", "factory": "P08Fixture", "rejected": true, "unchanged": true, "added_count": 0, "test_receipt_created": false}
+{"spelling": ".CONTINUITY-DATA", "factory": "FakeActionAdapter", "rejected": true, "unchanged": true, "added_count": 0, "test_receipt_created": false}
+{"spelling": ".CONTINUITY-DATA", "factory": "P08Fixture", "rejected": true, "unchanged": true, "added_count": 0, "test_receipt_created": false}
+{"spelling": ".assistant-data", "factory": "FakeActionAdapter", "rejected": true, "unchanged": true, "added_count": 0, "test_receipt_created": false}
+{"spelling": ".assistant-data", "factory": "P08Fixture", "rejected": true, "unchanged": true, "added_count": 0, "test_receipt_created": false}
+{"spelling": ".ASSISTANT-DATA", "factory": "FakeActionAdapter", "rejected": true, "unchanged": true, "added_count": 0, "test_receipt_created": false}
+{"spelling": ".ASSISTANT-DATA", "factory": "P08Fixture", "rejected": true, "unchanged": true, "added_count": 0, "test_receipt_created": false}
+ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.099s
+
+OK

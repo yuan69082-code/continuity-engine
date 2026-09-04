@@ -1,0 +1,3 @@
+[main 0115733] test: isolate P08 fixtures from protected Windows paths
+ 2 files changed, 255 insertions(+), 7 deletions(-)
+ create mode 100644 tests/test_p08_fixture_paths.py

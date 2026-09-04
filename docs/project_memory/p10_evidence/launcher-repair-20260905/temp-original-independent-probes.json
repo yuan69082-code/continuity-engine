@@ -1,0 +1,18 @@
+{
+  "stage": "temp-original-independent-probes",
+  "cwd": "C:\\Users\\Administrator\\AppData\\Local\\Temp\\p10-final-g0vhsy2o\\repo",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-B",
+    "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p10_evidence\\fixture-case-repair-20260904\\independent\\p10_fixture_repair_review_probe.py"
+  ],
+  "start_utc": "2026-09-04T16:42:37.056705+00:00",
+  "interrupted": false,
+  "exit_code": 0,
+  "end_utc": "2026-09-04T16:42:37.838259+00:00",
+  "wall_seconds": 0.782,
+  "logs": {
+    "stdout.log": "880307f47ead9d311d1d0274b7ce63e2e7488df8a92d5c104b0178718d055971",
+    "stderr.log": "ee66a33d92a07e95228f100bea3c4b701b44d2b502eb3ad28230060ed93d12fd"
+  }
+}

@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-assistant\tools\p10_core_regression.py", line 32, in <module>
+    tests_module=str(Path(sys.modules["tests"].__file__).resolve()))))
+                     ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Adobe\Lib\pathlib\__init__.py", line 150, in __init__
+    raise TypeError(
+    ...<2 lines>...
+        f"not {type(path).__name__!r}")
+TypeError: argument should be a str or an os.PathLike object where __fspath__ returns a str, not 'NoneType'

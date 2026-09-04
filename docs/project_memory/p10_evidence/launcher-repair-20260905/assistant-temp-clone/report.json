@@ -1,0 +1,235 @@
+{
+  "git_head": "90f112b8be4617feb2d6387ceb2f77603302cee6",
+  "upstream_core_commit": "0115733d75f854e0d7c39062d8cb328a97995354",
+  "checkout_under_system_temp": true,
+  "started_utc": "2026-09-04T16:43:16.778956+00:00",
+  "repository": "C:\\Users\\Administrator\\AppData\\Local\\Temp\\p10-final-g0vhsy2o\\repo",
+  "isolated_work_root": "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\ca10-uzs53cob",
+  "evidence_root": "C:\\Users\\Administrator\\AppData\\Local\\Temp\\p10-final-g0vhsy2o\\repo\\.p10-evidence\\20260904T164316Z-0d5cdfdd",
+  "stages": [
+    {
+      "stage": "01-venv",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "venv",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\ca10-uzs53cob\\venv"
+      ],
+      "cwd": "C:\\Users\\Administrator\\AppData\\Local\\Temp\\p10-final-g0vhsy2o\\repo",
+      "started_utc": "2026-09-04T16:43:16.778986+00:00",
+      "interrupted": false,
+      "environment": {
+        "PYTHONPATH": null,
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONUTF8": "1"
+      },
+      "exit_code": 0,
+      "finished_utc": "2026-09-04T16:43:20.504050+00:00",
+      "elapsed_seconds": 3.725,
+      "stdout": {
+        "file": "01-venv.stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "file": "01-venv.stderr.log",
+        "bytes": 287,
+        "sha256": "ac4a07092e20ca29f5a44e2be9ce357c90ff7448b7979d9470c91bc7a4d828b0"
+      }
+    },
+    {
+      "stage": "02-build",
+      "command": [
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\ca10-uzs53cob\\venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "wheel",
+        "--no-deps",
+        "--wheel-dir",
+        "C:\\Users\\Administrator\\AppData\\Local\\Temp\\p10-final-g0vhsy2o\\repo\\.p10-evidence\\20260904T164316Z-0d5cdfdd\\wheel",
+        "."
+      ],
+      "cwd": "C:\\Users\\Administrator\\AppData\\Local\\Temp\\p10-final-g0vhsy2o\\repo",
+      "started_utc": "2026-09-04T16:43:20.505925+00:00",
+      "interrupted": false,
+      "environment": {
+        "PYTHONPATH": null,
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONUTF8": "1"
+      },
+      "exit_code": 0,
+      "finished_utc": "2026-09-04T16:43:25.708332+00:00",
+      "elapsed_seconds": 5.202,
+      "stdout": {
+        "file": "02-build.stdout.log",
+        "bytes": 957,
+        "sha256": "1c29d4fe952fbd9ed8c0ad4bfbfa33585f3bd9e4b5e39c7ed253c8b301c4102b"
+      },
+      "stderr": {
+        "file": "02-build.stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "stage": "03-install",
+      "command": [
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\ca10-uzs53cob\\venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "install",
+        "--no-compile",
+        "C:\\Users\\Administrator\\AppData\\Local\\Temp\\p10-final-g0vhsy2o\\repo\\.p10-evidence\\20260904T164316Z-0d5cdfdd\\wheel\\continuity_assistant-0.1.0-py3-none-any.whl"
+      ],
+      "cwd": "C:\\Users\\Administrator\\AppData\\Local\\Temp\\p10-final-g0vhsy2o\\repo",
+      "started_utc": "2026-09-04T16:43:25.710872+00:00",
+      "interrupted": false,
+      "environment": {
+        "PYTHONPATH": null,
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONUTF8": "1"
+      },
+      "exit_code": 0,
+      "finished_utc": "2026-09-04T16:43:28.016735+00:00",
+      "elapsed_seconds": 2.305,
+      "stdout": {
+        "file": "03-install.stdout.log",
+        "bytes": 1686,
+        "sha256": "7a054084881441c96989903ef7d1dfa6b60a71918ea871066f1b3073d9af67d2"
+      },
+      "stderr": {
+        "file": "03-install.stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "stage": "04-installed-smoke",
+      "command": [
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\ca10-uzs53cob\\venv\\Scripts\\python.exe",
+        "-I",
+        "-c",
+        "import continuity_engine, continuity_assistant, json; from importlib.resources import files; assert files('continuity_engine').joinpath('interfaces/schemas/capability-request.v1.schema.json').is_file(); assert files('continuity_engine').joinpath('frontend/index.html').is_file(); assert continuity_assistant.describe()['runtimeEnabled'] is False; print(json.dumps({'engine':continuity_engine.__file__,'assistant':continuity_assistant.__file__}))"
+      ],
+      "cwd": "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\ca10-uzs53cob\\installed-smoke",
+      "started_utc": "2026-09-04T16:43:28.018579+00:00",
+      "interrupted": false,
+      "environment": {
+        "PYTHONPATH": null,
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONUTF8": "1"
+      },
+      "exit_code": 0,
+      "finished_utc": "2026-09-04T16:43:28.819113+00:00",
+      "elapsed_seconds": 0.8,
+      "stdout": {
+        "file": "04-installed-smoke.stdout.log",
+        "bytes": 264,
+        "sha256": "80e2f0a19392efbfc3272e86238090252b4126f03ec59440627709f6be0a728e"
+      },
+      "stderr": {
+        "file": "04-installed-smoke.stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "stage": "05-p10",
+      "command": [
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\ca10-uzs53cob\\venv\\Scripts\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "p10_tests",
+        "-q"
+      ],
+      "cwd": "C:\\Users\\Administrator\\AppData\\Local\\Temp\\p10-final-g0vhsy2o\\repo",
+      "started_utc": "2026-09-04T16:43:28.820387+00:00",
+      "interrupted": false,
+      "environment": {
+        "PYTHONPATH": null,
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONUTF8": "1"
+      },
+      "exit_code": 0,
+      "finished_utc": "2026-09-04T16:43:45.708240+00:00",
+      "elapsed_seconds": 16.887,
+      "stdout": {
+        "file": "05-p10.stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "file": "05-p10.stderr.log",
+        "bytes": 103,
+        "sha256": "15f200d1d8e504ff1899d85fa915893d0a3647aa21cc23334b4fcb3cfc1c043a"
+      }
+    },
+    {
+      "stage": "05b-installed-golden",
+      "command": [
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\ca10-uzs53cob\\venv\\Scripts\\python.exe",
+        "-I",
+        "-m",
+        "continuity_engine.testing.p09_core_runner",
+        "--scenario",
+        "golden"
+      ],
+      "cwd": "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\ca10-uzs53cob\\installed-smoke",
+      "started_utc": "2026-09-04T16:43:45.709481+00:00",
+      "interrupted": false,
+      "environment": {
+        "PYTHONPATH": null,
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONUTF8": "1"
+      },
+      "exit_code": 0,
+      "finished_utc": "2026-09-04T16:43:49.856047+00:00",
+      "elapsed_seconds": 4.146,
+      "stdout": {
+        "file": "05b-installed-golden.stdout.log",
+        "bytes": 937,
+        "sha256": "48a70bea5451bf342b9fc60eaca06e09f10467166f2010079551ecb71a61f123"
+      },
+      "stderr": {
+        "file": "05b-installed-golden.stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "stage": "06-core",
+      "command": [
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\ca10-uzs53cob\\venv\\Scripts\\python.exe",
+        "C:\\Users\\Administrator\\AppData\\Local\\Temp\\p10-final-g0vhsy2o\\repo\\tools\\p10_core_regression.py",
+        "C:\\Users\\Administrator\\AppData\\Local\\Temp\\p10-final-g0vhsy2o\\repo\\.p10-evidence\\20260904T164316Z-0d5cdfdd\\core-results.json"
+      ],
+      "cwd": "C:\\Users\\Administrator\\AppData\\Local\\Temp\\p10-final-g0vhsy2o\\repo",
+      "started_utc": "2026-09-04T16:43:49.857414+00:00",
+      "interrupted": false,
+      "environment": {
+        "PYTHONPATH": "C:\\Users\\Administrator\\AppData\\Local\\Temp\\p10-final-g0vhsy2o\\repo\\src",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONUTF8": "1"
+      },
+      "exit_code": 0,
+      "finished_utc": "2026-09-04T16:50:33.733651+00:00",
+      "elapsed_seconds": 403.876,
+      "stdout": {
+        "file": "06-core.stdout.log",
+        "bytes": 959,
+        "sha256": "f43a049f1463655fc5a12dcfc05b801c0d8d8462bdc645956890cc88d0f1254b"
+      },
+      "stderr": {
+        "file": "06-core.stderr.log",
+        "bytes": 913,
+        "sha256": "33a4d8ec256f0c25c3f4bb13e6d348e6b883e54bc66c690147c98ae6fca92cfe"
+      }
+    }
+  ],
+  "implicit_retries": 0,
+  "core_import_mode": "original regression with PYTHONPATH=src; installed wheel smoke/Golden separate",
+  "result": "PASS",
+  "finished_utc": "2026-09-04T16:50:33.734938+00:00"
+}

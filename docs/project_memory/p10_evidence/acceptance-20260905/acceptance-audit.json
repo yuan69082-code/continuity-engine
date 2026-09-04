@@ -1,0 +1,148 @@
+{
+  "generatedAt": "2026-09-04T20:24:52.199628+00:00",
+  "result": "PASS",
+  "errors": [],
+  "acceptanceBasis": {
+    "engineCheckpoint": "0115733d75f854e0d7c39062d8cb328a97995354",
+    "assistantTestedCodeCommit": "90f112b8be4617feb2d6387ceb2f77603302cee6",
+    "ciRun": 33896418682,
+    "ciUrl": "https://github.com/yuan69082-code/continuity-assistant/actions/runs/33896418682",
+    "ciResult": {
+      "p10Engineering": "14/14 PASS",
+      "core": "794/794 PASS",
+      "skip": 0,
+      "fail": 0
+    },
+    "planningSupervisorFinalReview": "PASS (user-supplied final independent conclusion)"
+  },
+  "acceptanceState": {
+    "d056Count": 1,
+    "matrixAccepted": 12,
+    "matrixPending": 0,
+    "p00ThroughP10": "ACCEPTED",
+    "p11ThroughP23": "NOT_STARTED",
+    "planningConflict": "NONE",
+    "evidenceConflict": "NONE current only"
+  },
+  "engine": {
+    "head": "0115733d75f854e0d7c39062d8cb328a97995354",
+    "branch": "main",
+    "runtimeCodeOrTestsChanged": false,
+    "pythonParsed": 182,
+    "pythonParseErrors": []
+  },
+  "assistant": {
+    "head": "90f112b8be4617feb2d6387ceb2f77603302cee6",
+    "branch": "continuity-assistant-fenzhi",
+    "docOnlyFiles": [
+      "README.md",
+      "docs/assistant/P10_BOUNDARIES_AND_SYNC.md",
+      "docs/assistant/P10_CHECKPOINT_SYNC.md"
+    ]
+  },
+  "frozen": {
+    "count": 25,
+    "mismatches": {},
+    "hashes": {
+      "pyproject.toml": "40703a155ab1c1626901d1b61363384e49b5c64e58303cc110fe499ff6c25419",
+      "src/continuity_engine/interfaces/__init__.py": "54565f8093e65116139496461b82f529a8e3179ccfa90bd8816e4be85db5801b",
+      "src/continuity_engine/interfaces/api_service.py": "1a2d6f3cd5d5b1ae40c5dd081332b27bc68349f5ca3d0667063b3011bed12979",
+      "src/continuity_engine/interfaces/capability_schema.py": "474de9fd9130885e7ddd7607aa361bfed5bfb64cfbb2dc7d2b7a5103ce9e6701",
+      "src/continuity_engine/interfaces/contract_test_adapter.py": "1c9b988fe875151570ab27215099c7f5ca0af881aee99f1139c57cc1768a3043",
+      "src/continuity_engine/interfaces/core_views.py": "2b6ee55a0e08dde0d015cebc9ee49fb2a581a1f9e655f79e93834cbf93b24092",
+      "src/continuity_engine/interfaces/http_server.py": "15c7843fac6435fa3ae9194604f7993dd3ead2c67401653c2f3446dd17877786",
+      "src/continuity_engine/interfaces/integration_adapter.py": "3a6c4cd987779d3712242993baaa4c460a30f06a5e7a30fd11419a2db240d487",
+      "src/continuity_engine/interfaces/integration_config.py": "2e06bafd253c09127fa3a3b537271f84390c57d73c5f3a93909505bf97121572",
+      "src/continuity_engine/interfaces/integration_contract_schema.py": "136765997f4314b8e4f5fb1f353ce90a6278ade0b16e1e59fbea349670c11550",
+      "src/continuity_engine/interfaces/integration_http_server.py": "131da59540ab2f3f0403f939d38528d6a964412d05643bbf7ddac47ffc418ba1",
+      "src/continuity_engine/interfaces/local_frontend_app.py": "9649514d102e905b07ec7c2df05ce6e5bebfb94203f8fe587ec851cc9cdcd70d",
+      "src/continuity_engine/interfaces/local_integration_app.py": "445638fced092e77b3cd600da2348061b269c94af516fe935188b610e369c1ef",
+      "src/continuity_engine/interfaces/local_model_capability_app.py": "51f18d21bb2ff5171109134f71ca05db72d91ef01db80d01c85a3c347218aef4",
+      "src/continuity_engine/interfaces/mcp_adapter.py": "2d4d01f44d10f2bcac348fdb82e56bc8bf57591dad814e80b0b02203377e4a6a",
+      "src/continuity_engine/interfaces/models.py": "bf79e56545cf3ca726139130cc827dd7cb258172af0eb3930435230ab3164056",
+      "src/continuity_engine/interfaces/ports.py": "938737f18341596802edfe953192565bd71090acce15997225d922236b15e85e",
+      "src/continuity_engine/interfaces/schemas/capability-model-output.v1.schema.json": "babdf85c2aa28609d2eb16178ab0a57e3b648f686ab05def0f86dca898526426",
+      "src/continuity_engine/interfaces/schemas/capability-request.v1.schema.json": "093284bfc70d0bd5679b34c68d4197a49103680094443ac9d7d6550f9a44e949",
+      "src/continuity_engine/interfaces/schemas/capability-result.v1.schema.json": "3359228260eeb5a48f52c2f7ca20bf4821705aa7e50ecd41973d495e703a7001",
+      "src/continuity_engine/interfaces/schemas/continuity-interaction-request.first-round-v1.schema.json": "18d9656cf4a3842cc55b18411593dfc48a79522ac742b64d83a6fa17d9add656",
+      "src/continuity_engine/interfaces/schemas/platform-fact.message-version.first-round-v1.schema.json": "2ccf8fea7dc69cc1d89e5da5ae8f798f3c170285e61a5d4191d3cbfad1a8746b",
+      "src/continuity_engine/interfaces/schemas/platform-observation.message-created.first-round-v1.schema.json": "bc3aaff3d5a928975e9ec434a74d05c7f18bffaaa1bdca46da78142552a98ace",
+      "src/continuity_engine/interfaces/security.py": "40d7f863350e1699dbb460660813adbe4f9cd590bbabe94fae28eb560dc039c9",
+      "src/continuity_engine/interfaces/skill_adapter.py": "72ae15b7ad8fbb94dbdfc3d21ec153667cdfc264d13685189e707cbd1fa65edb"
+    }
+  },
+  "formalData": {
+    "count": 7,
+    "mismatch": false,
+    "treeInventoryHash": "sha256:f9c710c6085e430a251f74463d57133f8c5a4497fe8ffa2ccb96be2db1037bb2",
+    "files": {
+      "66343283d4a54390b47b4f9ef82d62553faa3a25d9c89fb002cf9fcd626dd1b9.json": "77cd26e175a22e4078a89597a475cd5be9be2691b4a689c01838a370381c1281",
+      "a940747044d25cbbc065d4c65e6418ed7ac50c4ad85cd03fcfa6cb3560fb11ef.json": "399ce8a82c69249fe5560382319e2d87f198869de2d918858955562b4d1275f8",
+      "awakening/cycles/9206d2b588ec3f039d36855e0fdda3f1d24e66d479ab1ac71a847001996c5fce.json": "f3c472a94e1e2b4687bc8dd15025ca47592f30a91dbaca90daf25be07210430a",
+      "awakening/cycles/ad7ca61028768690c65473d3918e757c9966927a44535a964a65b188c973caa5.json": "d26a8164b0dacd647010d87330004f1d9e42172d31062a8f07293898af6d9c86",
+      "awakening/sessions/a940747044d25cbbc065d4c65e6418ed7ac50c4ad85cd03fcfa6cb3560fb11ef/14a54f0b7fca71545600cdb46d0320cc4be2659da62bf764d76500cd4531f410.json": "8d5724fac3c4b8a665c6832cea2bcb87773440d788b6a87dbee599aea1873304",
+      "awakening/sessions/a940747044d25cbbc065d4c65e6418ed7ac50c4ad85cd03fcfa6cb3560fb11ef/678ae6f20c2099e8c9bd5e8a09aa103a2361ec9e7aa14b442aefd3c74f3b4b31.json": "693efe42584b732cb0f3c1388edcce0cf144f0866194bf2dd59f2c8a2ab0913b",
+      "thinking/sessions/a940747044d25cbbc065d4c65e6418ed7ac50c4ad85cd03fcfa6cb3560fb11ef/8492dba044e1c1841b3c394d7de7d6e8469138f6263a0633d065dac7ed0bad15.json": "59beb2523a89285e3d525b63b55e45016da53fb9d609f6a13c1428677b66a982"
+    }
+  },
+  "markdown": {
+    "engineFiles": 76,
+    "engineLocalLinks": 672,
+    "engineErrors": [],
+    "assistantFiles": 3,
+    "assistantLocalLinks": 6,
+    "assistantErrors": []
+  },
+  "sensitiveScan": {
+    "files": 465,
+    "hits": []
+  },
+  "archiveClassification": {
+    "versionedTextEvidence": 406,
+    "localExecutionHelpersNotVersioned": 31,
+    "unexpectedFiles": [],
+    "localHelpers": [
+      "docs/project_memory/p10_evidence/closeout-20260904/check_stop.py",
+      "docs/project_memory/p10_evidence/closeout-20260904/closeout.py",
+      "docs/project_memory/p10_evidence/closeout-20260904/preserve_failed_closeout.py",
+      "docs/project_memory/p10_evidence/closeout-20260904/record_stop.py",
+      "docs/project_memory/p10_evidence/closeout-20260904/sync_assistant.py",
+      "docs/project_memory/p10_evidence/create_repositories.py",
+      "docs/project_memory/p10_evidence/final_audit.py",
+      "docs/project_memory/p10_evidence/fixture-case-repair-20260904/audit.py",
+      "docs/project_memory/p10_evidence/fixture-case-repair-20260904/independent/p10_fixture_repair_review_probe.py",
+      "docs/project_memory/p10_evidence/fixture-case-repair-20260904/prepare.py",
+      "docs/project_memory/p10_evidence/fixture-case-repair-20260904/run.py",
+      "docs/project_memory/p10_evidence/fixture-case-repair-20260904/sync_docs.py",
+      "docs/project_memory/p10_evidence/fixture-repair-20260904/audit.py",
+      "docs/project_memory/p10_evidence/fixture-repair-20260904/baseline.py",
+      "docs/project_memory/p10_evidence/fixture-repair-20260904/engineering.py",
+      "docs/project_memory/p10_evidence/fixture-repair-20260904/engineering_resume.py",
+      "docs/project_memory/p10_evidence/fixture-repair-20260904/run.py",
+      "docs/project_memory/p10_evidence/fixture-repair-20260904/sync_docs.py",
+      "docs/project_memory/p10_evidence/fixture-repair-20260904/temp_probe.py",
+      "docs/project_memory/p10_evidence/launcher-repair-20260905/advance.py",
+      "docs/project_memory/p10_evidence/launcher-repair-20260905/build_review_report.py",
+      "docs/project_memory/p10_evidence/launcher-repair-20260905/ci_evidence.py",
+      "docs/project_memory/p10_evidence/launcher-repair-20260905/document_check.py",
+      "docs/project_memory/p10_evidence/launcher-repair-20260905/final_audit.py",
+      "docs/project_memory/p10_evidence/launcher-repair-20260905/repair_namespace_diagnostic.py",
+      "docs/project_memory/p10_evidence/launcher-repair-20260905/temp_checkout_probe.py",
+      "docs/project_memory/p10_evidence/launcher-repair-20260905/validate_temp.py",
+      "docs/project_memory/p10_evidence/launcher-repair-20260905/workflow.py",
+      "docs/project_memory/p10_evidence/outside_temp_clone.py",
+      "docs/project_memory/p10_evidence/publish_assistant.py",
+      "docs/project_memory/p10_evidence/remote_review.py"
+    ]
+  },
+  "firstAuditHelperFailure": "first-helper-failure.md",
+  "fullRegressionRerun": "NOT_RUN: acceptance closeout changed documentation only; final independent review and exact-code CI evidence are retained",
+  "refreshedAt": "2026-09-04T20:26:57.357600+00:00",
+  "staging": {
+    "expectedFiles": 456,
+    "scope": "README.md plus docs/project_memory; all p10_evidence Python execution helpers excluded",
+    "gitAddDot": false,
+    "gitDiffCachedCheck": "PASS",
+    "firstStagingHelperFailure": "first-staging-failure.md"
+  }
+}

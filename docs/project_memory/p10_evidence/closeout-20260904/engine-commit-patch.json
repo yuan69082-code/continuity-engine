@@ -1,0 +1,18 @@
+{
+  "stage": "engine-commit-patch",
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "command": [
+    "git",
+    "commit",
+    "-m",
+    "test: isolate P08 fixtures from protected Windows paths"
+  ],
+  "start_utc": "2026-09-04T16:00:25.834507+00:00",
+  "exit_code": 0,
+  "wall_seconds": 0.526,
+  "end_utc": "2026-09-04T16:00:26.360585+00:00",
+  "logs": {
+    "stdout.log": "07d5534d109400fca8e292b94893b7f6d6079962a139bbfe60a42cf4fad20a47",
+    "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

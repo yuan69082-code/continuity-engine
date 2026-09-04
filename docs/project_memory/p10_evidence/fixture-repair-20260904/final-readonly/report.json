@@ -1,0 +1,24 @@
+{
+  "stage": "final-readonly",
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "docs/project_memory/p10_evidence/fixture-repair-20260904/audit.py",
+    "final-audit.json"
+  ],
+  "start_utc": "2026-09-04T14:48:54.322960+00:00",
+  "interruption": null,
+  "environment": {
+    "PYTHONPATH": "src",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONUTF8": "1",
+    "GIT_OPTIONAL_LOCKS": "0"
+  },
+  "exit_code": 0,
+  "end_utc": "2026-09-04T14:48:56.833094+00:00",
+  "wall_seconds": 2.5101526999933412,
+  "logs": {
+    "stdout.log": "f20e89e389f42f9c1e2345073395e044916625069754198f8bacba84d12eba84",
+    "stderr.log": "ea85e9bde9bbd1408c33587010ebb7d7e683c6beb90440511e7c18f17029d1b7"
+  }
+}

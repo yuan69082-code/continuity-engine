@@ -1,0 +1,1 @@
+First inventory helper stopped before creating evidence or launching tests: git ls-files -z trailing empty field was treated as repository directory. PermissionError [Errno 13] reading directory. Fixed helper by ignoring empty NUL-separated fields; no Engine changes and no test result involved.

@@ -1,0 +1,734 @@
+{
+  "checked_utc": "2026-09-04T13:15:44.032050+00:00",
+  "status": "PASS_WITH_RECORDED_EVIDENCE_CONFLICT",
+  "test_log_hashes_verified": 78,
+  "markdown": {
+    "files": 59,
+    "local_file_links": 508,
+    "local_anchors": 50
+  },
+  "status_gate": {
+    "P00-P09": "ACCEPTED",
+    "P10": "IMPLEMENTED_NOT_ACCEPTED",
+    "P10_rows": 12,
+    "P10_Vio_dependency": "NONE",
+    "P11-P23": "NOT_STARTED",
+    "PLANNING_CONFLICT": "NONE",
+    "EVIDENCE_CONFLICT": "PRESENT",
+    "D-056_created": false
+  },
+  "sensitive_signature_scan": {
+    "files": 115,
+    "findings": [],
+    "matched_values_logged": false
+  },
+  "git": {
+    "engine": {
+      "branch": "main",
+      "HEAD": "9d58b427ffaca2e64a268640979337e4c759d49d",
+      "upstream": "9d58b427ffaca2e64a268640979337e4c759d49d",
+      "ahead_behind": [
+        "0",
+        "0"
+      ],
+      "status": [
+        {
+          "status": " M",
+          "path": "README.md"
+        },
+        {
+          "status": " M",
+          "path": "docs/project_memory/00_项目总览.md"
+        },
+        {
+          "status": " M",
+          "path": "docs/project_memory/01_当前状态.md"
+        },
+        {
+          "status": " M",
+          "path": "docs/project_memory/02_工程路线图.md"
+        },
+        {
+          "status": " M",
+          "path": "docs/project_memory/03_施工日志.md"
+        },
+        {
+          "status": " M",
+          "path": "docs/project_memory/04_决策记录.md"
+        },
+        {
+          "status": " M",
+          "path": "docs/project_memory/05_已完成模块.md"
+        },
+        {
+          "status": " M",
+          "path": "docs/project_memory/05_核心模块架构.md"
+        },
+        {
+          "status": " M",
+          "path": "docs/project_memory/06_未完成事项.md"
+        },
+        {
+          "status": " M",
+          "path": "docs/project_memory/07_待确认事项.md"
+        },
+        {
+          "status": " M",
+          "path": "docs/project_memory/08_未来扩展.md"
+        },
+        {
+          "status": " M",
+          "path": "docs/project_memory/09_开发规范.md"
+        },
+        {
+          "status": " M",
+          "path": "docs/project_memory/10_档案修订记录.md"
+        },
+        {
+          "status": " M",
+          "path": "docs/project_memory/11_P00_全周期能力与阶段基线.md"
+        },
+        {
+          "status": " M",
+          "path": "docs/project_memory/12_P00_规划施工测试验收矩阵.md"
+        },
+        {
+          "status": " M",
+          "path": "docs/project_memory/13_P00_档案与测试索引.md"
+        },
+        {
+          "status": " M",
+          "path": "docs/project_memory/14_P00_风险回滚与用户决策入口.md"
+        },
+        {
+          "status": " M",
+          "path": "docs/project_memory/16_P01_规划施工测试验收矩阵.md"
+        },
+        {
+          "status": " M",
+          "path": "docs/project_memory/19_P02_宿主中立模型能力架构与边界.md"
+        },
+        {
+          "status": " M",
+          "path": "docs/project_memory/20_P02_规划施工测试验收矩阵.md"
+        },
+        {
+          "status": " M",
+          "path": "docs/project_memory/23_P03_Event时间与Timeline架构边界.md"
+        },
+        {
+          "status": " M",
+          "path": "docs/project_memory/24_P03_规划施工测试验收矩阵.md"
+        },
+        {
+          "status": " M",
+          "path": "docs/project_memory/27_P04_MemoryConsolidation与DerivedSummary架构边界.md"
+        },
+        {
+          "status": " M",
+          "path": "docs/project_memory/28_P04_规划施工测试验收矩阵.md"
+        },
+        {
+          "status": " M",
+          "path": "docs/project_memory/31_P05_ContextRouter架构边界.md"
+        },
+        {
+          "status": " M",
+          "path": "docs/project_memory/32_P05_规划施工测试验收矩阵.md"
+        },
+        {
+          "status": " M",
+          "path": "docs/project_memory/33_P05_权限检索预算来源失效与ContextTrace语义.md"
+        },
+        {
+          "status": " M",
+          "path": "docs/project_memory/34_P05_测试索引与验收入口.md"
+        },
+        {
+          "status": " M",
+          "path": "docs/project_memory/35_P06_ContextComposer与Authority架构边界.md"
+        },
+        {
+          "status": " M",
+          "path": "docs/project_memory/36_P06_规划施工测试验收矩阵.md"
+        },
+        {
+          "status": " M",
+          "path": "docs/project_memory/37_P06_ContextBudget去重冲突缺失与Trace语义.md"
+        },
+        {
+          "status": " M",
+          "path": "docs/project_memory/38_P06_测试索引与验收入口.md"
+        },
+        {
+          "status": " M",
+          "path": "docs/project_memory/39_P07_ContradictionDetector架构边界.md"
+        },
+        {
+          "status": " M",
+          "path": "docs/project_memory/40_P07_规划施工测试验收矩阵.md"
+        },
+        {
+          "status": " M",
+          "path": "docs/project_memory/41_P07_矛盾分类隔离核实解决与Trace语义.md"
+        },
+        {
+          "status": " M",
+          "path": "docs/project_memory/42_P07_测试索引与验收入口.md"
+        },
+        {
+          "status": " M",
+          "path": "docs/project_memory/43_P08_DirectAction与OptionalPlanner架构边界.md"
+        },
+        {
+          "status": " M",
+          "path": "docs/project_memory/44_P08_规划施工测试验收矩阵.md"
+        },
+        {
+          "status": " M",
+          "path": "docs/project_memory/45_P08_DirectPlanner执行恢复语义.md"
+        },
+        {
+          "status": " M",
+          "path": "docs/project_memory/46_P08_测试索引与验收入口.md"
+        },
+        {
+          "status": " M",
+          "path": "docs/project_memory/47_P09_C1正常运行链与架构边界.md"
+        },
+        {
+          "status": " M",
+          "path": "docs/project_memory/48_P09_规划施工测试验收矩阵.md"
+        },
+        {
+          "status": " M",
+          "path": "docs/project_memory/49_P09_恢复组合语义与施工证据.md"
+        },
+        {
+          "status": " M",
+          "path": "docs/project_memory/50_P09_测试索引与C1运行入口.md"
+        },
+        {
+          "status": " M",
+          "path": "docs/project_memory/CHANGELOG.md"
+        },
+        {
+          "status": " M",
+          "path": "docs/project_memory/工程总档案.md"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/51_P10_Assistant建仓架构与StageBrief.md"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/52_P10_规划施工测试验收矩阵.md"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/53_P10_来源Checkpoint与跨仓版本同步.md"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/54_P10_测试索引与验收入口.md"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/ci-33873568552-attempt-1/artifact-local-inventory.json"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/ci-33873568552-attempt-1/artifacts.json"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/ci-33873568552-attempt-1/job-101025052935.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/ci-33873568552-attempt-1/jobs.json"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/ci-33873568552-attempt-1/run.json"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/ci-33873568552-attempt-1/test-report/01-venv.stderr.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/ci-33873568552-attempt-1/test-report/01-venv.stdout.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/ci-33873568552-attempt-1/test-report/02-build.stderr.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/ci-33873568552-attempt-1/test-report/02-build.stdout.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/ci-33873568552-attempt-1/test-report/03-install.stderr.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/ci-33873568552-attempt-1/test-report/03-install.stdout.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/ci-33873568552-attempt-1/test-report/04-installed-smoke.stderr.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/ci-33873568552-attempt-1/test-report/04-installed-smoke.stdout.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/ci-33873568552-attempt-1/test-report/05-p10.stderr.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/ci-33873568552-attempt-1/test-report/05-p10.stdout.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/ci-33873568552-attempt-1/test-report/05b-installed-golden.stderr.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/ci-33873568552-attempt-1/test-report/05b-installed-golden.stdout.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/ci-33873568552-attempt-1/test-report/06-core.stderr.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/ci-33873568552-attempt-1/test-report/06-core.stdout.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/ci-33873568552-attempt-1/test-report/report.json"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/ci-status.jsonl"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/clean-final-20260904T125812Z/01-venv.stderr.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/clean-final-20260904T125812Z/01-venv.stdout.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/clean-final-20260904T125812Z/02-build.stderr.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/clean-final-20260904T125812Z/02-build.stdout.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/clean-final-20260904T125812Z/03-install.stderr.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/clean-final-20260904T125812Z/03-install.stdout.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/clean-final-20260904T125812Z/04-installed-smoke.stderr.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/clean-final-20260904T125812Z/04-installed-smoke.stdout.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/clean-final-20260904T125812Z/05-p10.stderr.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/clean-final-20260904T125812Z/05-p10.stdout.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/clean-final-20260904T125812Z/05b-installed-golden.stderr.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/clean-final-20260904T125812Z/05b-installed-golden.stdout.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/clean-final-20260904T125812Z/06-core.stderr.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/clean-final-20260904T125812Z/06-core.stdout.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/clean-final-20260904T125812Z/report.json"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/clean-first-20260904T124326Z/01-venv.stderr.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/clean-first-20260904T124326Z/01-venv.stdout.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/clean-first-20260904T124326Z/02-build.stderr.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/clean-first-20260904T124326Z/02-build.stdout.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/clean-first-20260904T124326Z/03-install.stderr.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/clean-first-20260904T124326Z/03-install.stdout.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/clean-first-20260904T124326Z/04-installed-smoke.stderr.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/clean-first-20260904T124326Z/04-installed-smoke.stdout.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/clean-first-20260904T124326Z/05-p10.stderr.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/clean-first-20260904T124326Z/05-p10.stdout.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/clean-first-20260904T124326Z/05b-installed-golden.stderr.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/clean-first-20260904T124326Z/05b-installed-golden.stdout.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/clean-first-20260904T124326Z/06-core.stderr.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/clean-first-20260904T124326Z/06-core.stdout.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/clean-first-20260904T124326Z/failed-clone-state.json"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/clean-first-20260904T124326Z/interpretation.md"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/clean-first-20260904T124326Z/report.json"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/create_repositories.py"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/final-audit-first-error.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/final-audit.json"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/final-readonly-checks.json"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/final_audit.py"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/line-ending-comparison.json"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/local-final-20260904T122647Z/01-venv.stderr.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/local-final-20260904T122647Z/01-venv.stdout.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/local-final-20260904T122647Z/02-build.stderr.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/local-final-20260904T122647Z/02-build.stdout.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/local-final-20260904T122647Z/03-install.stderr.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/local-final-20260904T122647Z/03-install.stdout.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/local-final-20260904T122647Z/04-installed-smoke.stderr.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/local-final-20260904T122647Z/04-installed-smoke.stdout.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/local-final-20260904T122647Z/05-p10.stderr.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/local-final-20260904T122647Z/05-p10.stdout.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/local-final-20260904T122647Z/05b-installed-golden.stderr.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/local-final-20260904T122647Z/05b-installed-golden.stdout.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/local-final-20260904T122647Z/06-core.stderr.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/local-final-20260904T122647Z/06-core.stdout.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/local-final-20260904T122647Z/report.json"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/local-first-20260904T121104Z/01-venv.stderr.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/local-first-20260904T121104Z/01-venv.stdout.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/local-first-20260904T121104Z/02-build.stderr.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/local-first-20260904T121104Z/02-build.stdout.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/local-first-20260904T121104Z/03-install.stderr.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/local-first-20260904T121104Z/03-install.stdout.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/local-first-20260904T121104Z/04-installed-smoke.stderr.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/local-first-20260904T121104Z/04-installed-smoke.stdout.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/local-first-20260904T121104Z/05-p10.stderr.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/local-first-20260904T121104Z/05-p10.stdout.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/local-first-20260904T121104Z/interpretation.md"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/local-first-20260904T121104Z/report.json"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/local-second-20260904T121656Z/01-venv.stderr.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/local-second-20260904T121656Z/01-venv.stdout.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/local-second-20260904T121656Z/02-build.stderr.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/local-second-20260904T121656Z/02-build.stdout.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/local-second-20260904T121656Z/03-install.stderr.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/local-second-20260904T121656Z/03-install.stdout.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/local-second-20260904T121656Z/04-installed-smoke.stderr.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/local-second-20260904T121656Z/04-installed-smoke.stdout.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/local-second-20260904T121656Z/05-p10.stderr.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/local-second-20260904T121656Z/05-p10.stdout.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/local-second-20260904T121656Z/06-core.stderr.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/local-second-20260904T121656Z/06-core.stdout.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/local-second-20260904T121656Z/interpretation.md"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/local-second-20260904T121656Z/report.json"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/outside_temp_clone.py"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/publish_assistant.py"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/remote-clean-clone-final.json"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/remote-clean-clone.json"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/remote_review.py"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/start-2026-09-04/action-pins.json"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/start-2026-09-04/engine-baseline.result.json"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/start-2026-09-04/engine-baseline.stderr.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/start-2026-09-04/engine-baseline.stdout.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/start-2026-09-04/engine-before.json"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/start-2026-09-04/first-push.stderr.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/start-2026-09-04/first-push.stdout.log"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/start-2026-09-04/history-scan.json"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/start-2026-09-04/preflight-helper-error.txt"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/start-2026-09-04/publish.jsonl"
+        },
+        {
+          "status": "??",
+          "path": "docs/project_memory/p10_evidence/start-2026-09-04/repository-creation.jsonl"
+        }
+      ],
+      "tracked_modified": 46,
+      "untracked": 120,
+      "staged": [],
+      "tags": []
+    },
+    "assistant": {
+      "branch": "continuity-assistant-fenzhi",
+      "HEAD": "c6dd2c0cab17337a445b64fb8611d317190242c6",
+      "upstream": "c6dd2c0cab17337a445b64fb8611d317190242c6",
+      "ahead_behind": [
+        "0",
+        "0"
+      ],
+      "status": [],
+      "tracked_modified": 0,
+      "untracked": 0,
+      "staged": [],
+      "tags": []
+    },
+    "clean_clone": {
+      "branch": "continuity-assistant-fenzhi",
+      "HEAD": "c6dd2c0cab17337a445b64fb8611d317190242c6",
+      "upstream": "c6dd2c0cab17337a445b64fb8611d317190242c6",
+      "ahead_behind": [
+        "0",
+        "0"
+      ],
+      "status": [],
+      "tracked_modified": 0,
+      "untracked": 0,
+      "staged": [],
+      "tags": []
+    }
+  }
+}

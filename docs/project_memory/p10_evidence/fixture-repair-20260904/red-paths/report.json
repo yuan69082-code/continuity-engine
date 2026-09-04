@@ -1,0 +1,20 @@
+{
+  "stage": "red-paths",
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_p08_fixture_paths",
+    "-q"
+  ],
+  "start_utc": "2026-09-04T14:25:20.559331+00:00",
+  "interruption": null,
+  "exit_code": 1,
+  "end_utc": "2026-09-04T14:25:21.988834+00:00",
+  "wall_seconds": 1.4294962999993004,
+  "logs": {
+    "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr.log": "883c0ee47686350d411617b4ed96d16bd08e616ab15e2d68c27b75b041d9a620"
+  }
+}

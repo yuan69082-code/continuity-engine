@@ -52,6 +52,7 @@ class ResourceAwareWakeScheduler:
         cycle_id: str,
         *,
         detail: str = "The scheduled wake time was reached.",
+        session_id: str | None = None,
     ) -> WakeScheduleResult:
         cycle = self._awakening.get_cycle(cycle_id)
         now = self._clock()
@@ -61,7 +62,7 @@ class ResourceAwareWakeScheduler:
             )
         if not cycle.is_due(now):
             raise WakeNotDueError(f"awake cycle is not due: {cycle_id}")
-        session_id = str(uuid4())
+        session_id = session_id or str(uuid4())
         allocation = self._resources.request_wake(
             cycle.subject_id,
             session_id,
@@ -76,7 +77,13 @@ class ResourceAwareWakeScheduler:
         )
         return WakeScheduleResult(resources=allocation, awakening=awakening)
 
-    def wake_manual(self, cycle_id: str, *, detail: str) -> WakeScheduleResult:
+    def wake_manual(
+        self,
+        cycle_id: str,
+        *,
+        detail: str,
+        session_id: str | None = None,
+    ) -> WakeScheduleResult:
         cycle = self._awakening.get_cycle(cycle_id)
         if cycle.mode is not AwakeMode.MANUAL:
             raise AwakeningValidationError(
@@ -84,7 +91,7 @@ class ResourceAwareWakeScheduler:
             )
         if not cycle.enabled:
             raise AwakeningValidationError("awake cycle is disabled")
-        session_id = str(uuid4())
+        session_id = session_id or str(uuid4())
         allocation = self._resources.request_wake(
             cycle.subject_id,
             session_id,
@@ -94,6 +101,33 @@ class ResourceAwareWakeScheduler:
             return WakeScheduleResult(resources=allocation, awakening=None)
         awakening = self._awakening.wake_manual(
             cycle_id,
+            detail=detail,
+            session_id=session_id,
+        )
+        return WakeScheduleResult(resources=allocation, awakening=awakening)
+
+    def wake_for_event(
+        self,
+        cycle_id: str,
+        *,
+        source_event_id: str,
+        detail: str,
+        session_id: str | None = None,
+    ) -> WakeScheduleResult:
+        cycle = self._awakening.get_cycle(cycle_id)
+        if not cycle.enabled:
+            raise AwakeningValidationError("awake cycle is disabled")
+        session_id = session_id or str(uuid4())
+        allocation = self._resources.request_wake(
+            cycle.subject_id,
+            session_id,
+            reason=f"Evaluate event wake cycle {cycle_id}.",
+        )
+        if allocation.decision.defer:
+            return WakeScheduleResult(resources=allocation, awakening=None)
+        awakening = self._awakening.wake_for_event(
+            cycle_id,
+            source_event_id=source_event_id,
             detail=detail,
             session_id=session_id,
         )

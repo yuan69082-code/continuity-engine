@@ -1,0 +1,899 @@
+test_combined_attempt_receipt_cancel_history_rejected_before_io (tests.test_p11_scheduler.P11SchedulerAdmissionTests.test_combined_attempt_receipt_cancel_history_rejected_before_io) ... FAIL
+test_created_task_and_persisted_retry_completion_remain_compatible (tests.test_p11_scheduler.P11SchedulerAdmissionTests.test_created_task_and_persisted_retry_completion_remain_compatible) ... ok
+test_exhausted_initial_attempt_rejected_before_enqueue (tests.test_p11_scheduler.P11SchedulerAdmissionTests.test_exhausted_initial_attempt_rejected_before_enqueue) ... FAIL
+test_initial_history_rejected_before_io_with_existing_queue (tests.test_p11_scheduler.P11SchedulerAdmissionTests.test_initial_history_rejected_before_io_with_existing_queue) ... 
+  test_initial_history_rejected_before_io_with_existing_queue (tests.test_p11_scheduler.P11SchedulerAdmissionTests.test_initial_history_rejected_before_io_with_existing_queue) (field='attempt_count') ... FAIL
+  test_initial_history_rejected_before_io_with_existing_queue (tests.test_p11_scheduler.P11SchedulerAdmissionTests.test_initial_history_rejected_before_io_with_existing_queue) (field='next_attempt_at') ... FAIL
+  test_initial_history_rejected_before_io_with_existing_queue (tests.test_p11_scheduler.P11SchedulerAdmissionTests.test_initial_history_rejected_before_io_with_existing_queue) (field='last_attempt_id') ... FAIL
+  test_initial_history_rejected_before_io_with_existing_queue (tests.test_p11_scheduler.P11SchedulerAdmissionTests.test_initial_history_rejected_before_io_with_existing_queue) (field='last_receipt_id') ... FAIL
+  test_initial_history_rejected_before_io_with_existing_queue (tests.test_p11_scheduler.P11SchedulerAdmissionTests.test_initial_history_rejected_before_io_with_existing_queue) (field='last_receipt_hash') ... FAIL
+  test_initial_history_rejected_before_io_with_existing_queue (tests.test_p11_scheduler.P11SchedulerAdmissionTests.test_initial_history_rejected_before_io_with_existing_queue) (field='last_receipt_status') ... FAIL
+  test_initial_history_rejected_before_io_with_existing_queue (tests.test_p11_scheduler.P11SchedulerAdmissionTests.test_initial_history_rejected_before_io_with_existing_queue) (field='cancel_requested_at') ... FAIL
+  test_initial_history_rejected_before_io_with_existing_queue (tests.test_p11_scheduler.P11SchedulerAdmissionTests.test_initial_history_rejected_before_io_with_existing_queue) (field='completed_at') ... FAIL
+  test_initial_history_rejected_before_io_with_existing_queue (tests.test_p11_scheduler.P11SchedulerAdmissionTests.test_initial_history_rejected_before_io_with_existing_queue) (field='reason_codes') ... FAIL
+test_initial_history_rejected_before_io_without_queue (tests.test_p11_scheduler.P11SchedulerAdmissionTests.test_initial_history_rejected_before_io_without_queue) ... 
+  test_initial_history_rejected_before_io_without_queue (tests.test_p11_scheduler.P11SchedulerAdmissionTests.test_initial_history_rejected_before_io_without_queue) (field='attempt_count') ... FAIL
+  test_initial_history_rejected_before_io_without_queue (tests.test_p11_scheduler.P11SchedulerAdmissionTests.test_initial_history_rejected_before_io_without_queue) (field='next_attempt_at') ... FAIL
+  test_initial_history_rejected_before_io_without_queue (tests.test_p11_scheduler.P11SchedulerAdmissionTests.test_initial_history_rejected_before_io_without_queue) (field='last_attempt_id') ... FAIL
+  test_initial_history_rejected_before_io_without_queue (tests.test_p11_scheduler.P11SchedulerAdmissionTests.test_initial_history_rejected_before_io_without_queue) (field='last_receipt_id') ... FAIL
+  test_initial_history_rejected_before_io_without_queue (tests.test_p11_scheduler.P11SchedulerAdmissionTests.test_initial_history_rejected_before_io_without_queue) (field='last_receipt_hash') ... FAIL
+  test_initial_history_rejected_before_io_without_queue (tests.test_p11_scheduler.P11SchedulerAdmissionTests.test_initial_history_rejected_before_io_without_queue) (field='last_receipt_status') ... FAIL
+  test_initial_history_rejected_before_io_without_queue (tests.test_p11_scheduler.P11SchedulerAdmissionTests.test_initial_history_rejected_before_io_without_queue) (field='cancel_requested_at') ... FAIL
+  test_initial_history_rejected_before_io_without_queue (tests.test_p11_scheduler.P11SchedulerAdmissionTests.test_initial_history_rejected_before_io_without_queue) (field='completed_at') ... FAIL
+  test_initial_history_rejected_before_io_without_queue (tests.test_p11_scheduler.P11SchedulerAdmissionTests.test_initial_history_rejected_before_io_without_queue) (field='reason_codes') ... FAIL
+test_noninitial_state_sequence_revision_rejected_before_io (tests.test_p11_scheduler.P11SchedulerAdmissionTests.test_noninitial_state_sequence_revision_rejected_before_io) ... ok
+
+======================================================================
+FAIL: test_combined_attempt_receipt_cancel_history_rejected_before_io (tests.test_p11_scheduler.P11SchedulerAdmissionTests.test_combined_attempt_receipt_cancel_history_rejected_before_io)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p11_scheduler.py", line 384, in test_combined_attempt_receipt_cancel_history_rejected_before_io
+    self._assert_rejected_without_io(task)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p11_scheduler.py", line 327, in _assert_rejected_without_io
+    self.assertEqual(
+    ~~~~~~~~~~~~~~~~^
+        {
+        ^
+    ...<14 lines>...
+        },
+        ^^
+    )
+    ^
+AssertionError: {'validation_error': False, 'queue_reads': 2, 'queue_writes': [69 chars]alse} != {'validation_error': True, 'queue_reads': 0, 'queue_writes': 0[67 chars]True}
+- {'files_unchanged': False,
+?                     ^^^^
+
++ {'files_unchanged': True,
+?                     ^^^
+
+   'notification_calls': 0,
+-  'queue_reads': 2,
+?                 ^
+
++  'queue_reads': 0,
+?                 ^
+
+-  'queue_writes': 1,
+?                  ^
+
++  'queue_writes': 0,
+?                  ^
+
+   'resource_calls': 0,
+-  'validation_error': False}
+?                      ^^^^
+
++  'validation_error': True}
+?                      ^^^
+
+
+======================================================================
+FAIL: test_exhausted_initial_attempt_rejected_before_enqueue (tests.test_p11_scheduler.P11SchedulerAdmissionTests.test_exhausted_initial_attempt_rejected_before_enqueue)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p11_scheduler.py", line 391, in test_exhausted_initial_attempt_rejected_before_enqueue
+    self._assert_rejected_without_io(task)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p11_scheduler.py", line 327, in _assert_rejected_without_io
+    self.assertEqual(
+    ~~~~~~~~~~~~~~~~^
+        {
+        ^
+    ...<14 lines>...
+        },
+        ^^
+    )
+    ^
+AssertionError: {'validation_error': False, 'queue_reads': 2, 'queue_writes': [69 chars]alse} != {'validation_error': True, 'queue_reads': 0, 'queue_writes': 0[67 chars]True}
+- {'files_unchanged': False,
+?                     ^^^^
+
++ {'files_unchanged': True,
+?                     ^^^
+
+   'notification_calls': 0,
+-  'queue_reads': 2,
+?                 ^
+
++  'queue_reads': 0,
+?                 ^
+
+-  'queue_writes': 1,
+?                  ^
+
++  'queue_writes': 0,
+?                  ^
+
+   'resource_calls': 0,
+-  'validation_error': False}
+?                      ^^^^
+
++  'validation_error': True}
+?                      ^^^
+
+
+======================================================================
+FAIL: test_initial_history_rejected_before_io_with_existing_queue (tests.test_p11_scheduler.P11SchedulerAdmissionTests.test_initial_history_rejected_before_io_with_existing_queue) (field='attempt_count')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p11_scheduler.py", line 375, in test_initial_history_rejected_before_io_with_existing_queue
+    self._assert_rejected_without_io(task)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p11_scheduler.py", line 327, in _assert_rejected_without_io
+    self.assertEqual(
+    ~~~~~~~~~~~~~~~~^
+        {
+        ^
+    ...<14 lines>...
+        },
+        ^^
+    )
+    ^
+AssertionError: {'validation_error': False, 'queue_reads': 2, 'queue_writes': [69 chars]alse} != {'validation_error': True, 'queue_reads': 0, 'queue_writes': 0[67 chars]True}
+- {'files_unchanged': False,
+?                     ^^^^
+
++ {'files_unchanged': True,
+?                     ^^^
+
+   'notification_calls': 0,
+-  'queue_reads': 2,
+?                 ^
+
++  'queue_reads': 0,
+?                 ^
+
+-  'queue_writes': 1,
+?                  ^
+
++  'queue_writes': 0,
+?                  ^
+
+   'resource_calls': 0,
+-  'validation_error': False}
+?                      ^^^^
+
++  'validation_error': True}
+?                      ^^^
+
+
+======================================================================
+FAIL: test_initial_history_rejected_before_io_with_existing_queue (tests.test_p11_scheduler.P11SchedulerAdmissionTests.test_initial_history_rejected_before_io_with_existing_queue) (field='next_attempt_at')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p11_scheduler.py", line 375, in test_initial_history_rejected_before_io_with_existing_queue
+    self._assert_rejected_without_io(task)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p11_scheduler.py", line 327, in _assert_rejected_without_io
+    self.assertEqual(
+    ~~~~~~~~~~~~~~~~^
+        {
+        ^
+    ...<14 lines>...
+        },
+        ^^
+    )
+    ^
+AssertionError: {'validation_error': False, 'queue_reads': 2, 'queue_writes': [69 chars]alse} != {'validation_error': True, 'queue_reads': 0, 'queue_writes': 0[67 chars]True}
+- {'files_unchanged': False,
+?                     ^^^^
+
++ {'files_unchanged': True,
+?                     ^^^
+
+   'notification_calls': 0,
+-  'queue_reads': 2,
+?                 ^
+
++  'queue_reads': 0,
+?                 ^
+
+-  'queue_writes': 1,
+?                  ^
+
++  'queue_writes': 0,
+?                  ^
+
+   'resource_calls': 0,
+-  'validation_error': False}
+?                      ^^^^
+
++  'validation_error': True}
+?                      ^^^
+
+
+======================================================================
+FAIL: test_initial_history_rejected_before_io_with_existing_queue (tests.test_p11_scheduler.P11SchedulerAdmissionTests.test_initial_history_rejected_before_io_with_existing_queue) (field='last_attempt_id')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p11_scheduler.py", line 375, in test_initial_history_rejected_before_io_with_existing_queue
+    self._assert_rejected_without_io(task)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p11_scheduler.py", line 327, in _assert_rejected_without_io
+    self.assertEqual(
+    ~~~~~~~~~~~~~~~~^
+        {
+        ^
+    ...<14 lines>...
+        },
+        ^^
+    )
+    ^
+AssertionError: {'validation_error': False, 'queue_reads': 2, 'queue_writes': [69 chars]alse} != {'validation_error': True, 'queue_reads': 0, 'queue_writes': 0[67 chars]True}
+- {'files_unchanged': False,
+?                     ^^^^
+
++ {'files_unchanged': True,
+?                     ^^^
+
+   'notification_calls': 0,
+-  'queue_reads': 2,
+?                 ^
+
++  'queue_reads': 0,
+?                 ^
+
+-  'queue_writes': 1,
+?                  ^
+
++  'queue_writes': 0,
+?                  ^
+
+   'resource_calls': 0,
+-  'validation_error': False}
+?                      ^^^^
+
++  'validation_error': True}
+?                      ^^^
+
+
+======================================================================
+FAIL: test_initial_history_rejected_before_io_with_existing_queue (tests.test_p11_scheduler.P11SchedulerAdmissionTests.test_initial_history_rejected_before_io_with_existing_queue) (field='last_receipt_id')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p11_scheduler.py", line 375, in test_initial_history_rejected_before_io_with_existing_queue
+    self._assert_rejected_without_io(task)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p11_scheduler.py", line 327, in _assert_rejected_without_io
+    self.assertEqual(
+    ~~~~~~~~~~~~~~~~^
+        {
+        ^
+    ...<14 lines>...
+        },
+        ^^
+    )
+    ^
+AssertionError: {'validation_error': False, 'queue_reads': 2, 'queue_writes': [69 chars]alse} != {'validation_error': True, 'queue_reads': 0, 'queue_writes': 0[67 chars]True}
+- {'files_unchanged': False,
+?                     ^^^^
+
++ {'files_unchanged': True,
+?                     ^^^
+
+   'notification_calls': 0,
+-  'queue_reads': 2,
+?                 ^
+
++  'queue_reads': 0,
+?                 ^
+
+-  'queue_writes': 1,
+?                  ^
+
++  'queue_writes': 0,
+?                  ^
+
+   'resource_calls': 0,
+-  'validation_error': False}
+?                      ^^^^
+
++  'validation_error': True}
+?                      ^^^
+
+
+======================================================================
+FAIL: test_initial_history_rejected_before_io_with_existing_queue (tests.test_p11_scheduler.P11SchedulerAdmissionTests.test_initial_history_rejected_before_io_with_existing_queue) (field='last_receipt_hash')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p11_scheduler.py", line 375, in test_initial_history_rejected_before_io_with_existing_queue
+    self._assert_rejected_without_io(task)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p11_scheduler.py", line 327, in _assert_rejected_without_io
+    self.assertEqual(
+    ~~~~~~~~~~~~~~~~^
+        {
+        ^
+    ...<14 lines>...
+        },
+        ^^
+    )
+    ^
+AssertionError: {'validation_error': False, 'queue_reads': 2, 'queue_writes': [69 chars]alse} != {'validation_error': True, 'queue_reads': 0, 'queue_writes': 0[67 chars]True}
+- {'files_unchanged': False,
+?                     ^^^^
+
++ {'files_unchanged': True,
+?                     ^^^
+
+   'notification_calls': 0,
+-  'queue_reads': 2,
+?                 ^
+
++  'queue_reads': 0,
+?                 ^
+
+-  'queue_writes': 1,
+?                  ^
+
++  'queue_writes': 0,
+?                  ^
+
+   'resource_calls': 0,
+-  'validation_error': False}
+?                      ^^^^
+
++  'validation_error': True}
+?                      ^^^
+
+
+======================================================================
+FAIL: test_initial_history_rejected_before_io_with_existing_queue (tests.test_p11_scheduler.P11SchedulerAdmissionTests.test_initial_history_rejected_before_io_with_existing_queue) (field='last_receipt_status')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p11_scheduler.py", line 375, in test_initial_history_rejected_before_io_with_existing_queue
+    self._assert_rejected_without_io(task)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p11_scheduler.py", line 327, in _assert_rejected_without_io
+    self.assertEqual(
+    ~~~~~~~~~~~~~~~~^
+        {
+        ^
+    ...<14 lines>...
+        },
+        ^^
+    )
+    ^
+AssertionError: {'validation_error': False, 'queue_reads': 2, 'queue_writes': [69 chars]alse} != {'validation_error': True, 'queue_reads': 0, 'queue_writes': 0[67 chars]True}
+- {'files_unchanged': False,
+?                     ^^^^
+
++ {'files_unchanged': True,
+?                     ^^^
+
+   'notification_calls': 0,
+-  'queue_reads': 2,
+?                 ^
+
++  'queue_reads': 0,
+?                 ^
+
+-  'queue_writes': 1,
+?                  ^
+
++  'queue_writes': 0,
+?                  ^
+
+   'resource_calls': 0,
+-  'validation_error': False}
+?                      ^^^^
+
++  'validation_error': True}
+?                      ^^^
+
+
+======================================================================
+FAIL: test_initial_history_rejected_before_io_with_existing_queue (tests.test_p11_scheduler.P11SchedulerAdmissionTests.test_initial_history_rejected_before_io_with_existing_queue) (field='cancel_requested_at')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p11_scheduler.py", line 375, in test_initial_history_rejected_before_io_with_existing_queue
+    self._assert_rejected_without_io(task)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p11_scheduler.py", line 327, in _assert_rejected_without_io
+    self.assertEqual(
+    ~~~~~~~~~~~~~~~~^
+        {
+        ^
+    ...<14 lines>...
+        },
+        ^^
+    )
+    ^
+AssertionError: {'validation_error': False, 'queue_reads': 2, 'queue_writes': [69 chars]alse} != {'validation_error': True, 'queue_reads': 0, 'queue_writes': 0[67 chars]True}
+- {'files_unchanged': False,
+?                     ^^^^
+
++ {'files_unchanged': True,
+?                     ^^^
+
+   'notification_calls': 0,
+-  'queue_reads': 2,
+?                 ^
+
++  'queue_reads': 0,
+?                 ^
+
+-  'queue_writes': 1,
+?                  ^
+
++  'queue_writes': 0,
+?                  ^
+
+   'resource_calls': 0,
+-  'validation_error': False}
+?                      ^^^^
+
++  'validation_error': True}
+?                      ^^^
+
+
+======================================================================
+FAIL: test_initial_history_rejected_before_io_with_existing_queue (tests.test_p11_scheduler.P11SchedulerAdmissionTests.test_initial_history_rejected_before_io_with_existing_queue) (field='completed_at')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p11_scheduler.py", line 375, in test_initial_history_rejected_before_io_with_existing_queue
+    self._assert_rejected_without_io(task)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p11_scheduler.py", line 327, in _assert_rejected_without_io
+    self.assertEqual(
+    ~~~~~~~~~~~~~~~~^
+        {
+        ^
+    ...<14 lines>...
+        },
+        ^^
+    )
+    ^
+AssertionError: {'val[32 chars]ds': 1, 'queue_writes': 0, 'notification_calls[46 chars]True} != {'val[32 chars]ds': 0, 'queue_writes': 0, 'notification_calls[46 chars]True}
+  {'files_unchanged': True,
+   'notification_calls': 0,
+-  'queue_reads': 1,
+?                 ^
+
++  'queue_reads': 0,
+?                 ^
+
+   'queue_writes': 0,
+   'resource_calls': 0,
+   'validation_error': True}
+
+======================================================================
+FAIL: test_initial_history_rejected_before_io_with_existing_queue (tests.test_p11_scheduler.P11SchedulerAdmissionTests.test_initial_history_rejected_before_io_with_existing_queue) (field='reason_codes')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p11_scheduler.py", line 375, in test_initial_history_rejected_before_io_with_existing_queue
+    self._assert_rejected_without_io(task)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p11_scheduler.py", line 327, in _assert_rejected_without_io
+    self.assertEqual(
+    ~~~~~~~~~~~~~~~~^
+        {
+        ^
+    ...<14 lines>...
+        },
+        ^^
+    )
+    ^
+AssertionError: {'validation_error': False, 'queue_reads': 2, 'queue_writes': [69 chars]alse} != {'validation_error': True, 'queue_reads': 0, 'queue_writes': 0[67 chars]True}
+- {'files_unchanged': False,
+?                     ^^^^
+
++ {'files_unchanged': True,
+?                     ^^^
+
+   'notification_calls': 0,
+-  'queue_reads': 2,
+?                 ^
+
++  'queue_reads': 0,
+?                 ^
+
+-  'queue_writes': 1,
+?                  ^
+
++  'queue_writes': 0,
+?                  ^
+
+   'resource_calls': 0,
+-  'validation_error': False}
+?                      ^^^^
+
++  'validation_error': True}
+?                      ^^^
+
+
+======================================================================
+FAIL: test_initial_history_rejected_before_io_without_queue (tests.test_p11_scheduler.P11SchedulerAdmissionTests.test_initial_history_rejected_before_io_without_queue) (field='attempt_count')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p11_scheduler.py", line 366, in test_initial_history_rejected_before_io_without_queue
+    self._assert_rejected_without_io(task)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p11_scheduler.py", line 327, in _assert_rejected_without_io
+    self.assertEqual(
+    ~~~~~~~~~~~~~~~~^
+        {
+        ^
+    ...<14 lines>...
+        },
+        ^^
+    )
+    ^
+AssertionError: {'validation_error': False, 'queue_reads': 2, 'queue_writes': [69 chars]alse} != {'validation_error': True, 'queue_reads': 0, 'queue_writes': 0[67 chars]True}
+- {'files_unchanged': False,
+?                     ^^^^
+
++ {'files_unchanged': True,
+?                     ^^^
+
+   'notification_calls': 0,
+-  'queue_reads': 2,
+?                 ^
+
++  'queue_reads': 0,
+?                 ^
+
+-  'queue_writes': 1,
+?                  ^
+
++  'queue_writes': 0,
+?                  ^
+
+   'resource_calls': 0,
+-  'validation_error': False}
+?                      ^^^^
+
++  'validation_error': True}
+?                      ^^^
+
+
+======================================================================
+FAIL: test_initial_history_rejected_before_io_without_queue (tests.test_p11_scheduler.P11SchedulerAdmissionTests.test_initial_history_rejected_before_io_without_queue) (field='next_attempt_at')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p11_scheduler.py", line 366, in test_initial_history_rejected_before_io_without_queue
+    self._assert_rejected_without_io(task)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p11_scheduler.py", line 327, in _assert_rejected_without_io
+    self.assertEqual(
+    ~~~~~~~~~~~~~~~~^
+        {
+        ^
+    ...<14 lines>...
+        },
+        ^^
+    )
+    ^
+AssertionError: {'validation_error': False, 'queue_reads': 2, 'queue_writes': [69 chars]alse} != {'validation_error': True, 'queue_reads': 0, 'queue_writes': 0[67 chars]True}
+- {'files_unchanged': False,
+?                     ^^^^
+
++ {'files_unchanged': True,
+?                     ^^^
+
+   'notification_calls': 0,
+-  'queue_reads': 2,
+?                 ^
+
++  'queue_reads': 0,
+?                 ^
+
+-  'queue_writes': 1,
+?                  ^
+
++  'queue_writes': 0,
+?                  ^
+
+   'resource_calls': 0,
+-  'validation_error': False}
+?                      ^^^^
+
++  'validation_error': True}
+?                      ^^^
+
+
+======================================================================
+FAIL: test_initial_history_rejected_before_io_without_queue (tests.test_p11_scheduler.P11SchedulerAdmissionTests.test_initial_history_rejected_before_io_without_queue) (field='last_attempt_id')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p11_scheduler.py", line 366, in test_initial_history_rejected_before_io_without_queue
+    self._assert_rejected_without_io(task)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p11_scheduler.py", line 327, in _assert_rejected_without_io
+    self.assertEqual(
+    ~~~~~~~~~~~~~~~~^
+        {
+        ^
+    ...<14 lines>...
+        },
+        ^^
+    )
+    ^
+AssertionError: {'validation_error': False, 'queue_reads': 2, 'queue_writes': [69 chars]alse} != {'validation_error': True, 'queue_reads': 0, 'queue_writes': 0[67 chars]True}
+- {'files_unchanged': False,
+?                     ^^^^
+
++ {'files_unchanged': True,
+?                     ^^^
+
+   'notification_calls': 0,
+-  'queue_reads': 2,
+?                 ^
+
++  'queue_reads': 0,
+?                 ^
+
+-  'queue_writes': 1,
+?                  ^
+
++  'queue_writes': 0,
+?                  ^
+
+   'resource_calls': 0,
+-  'validation_error': False}
+?                      ^^^^
+
++  'validation_error': True}
+?                      ^^^
+
+
+======================================================================
+FAIL: test_initial_history_rejected_before_io_without_queue (tests.test_p11_scheduler.P11SchedulerAdmissionTests.test_initial_history_rejected_before_io_without_queue) (field='last_receipt_id')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p11_scheduler.py", line 366, in test_initial_history_rejected_before_io_without_queue
+    self._assert_rejected_without_io(task)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p11_scheduler.py", line 327, in _assert_rejected_without_io
+    self.assertEqual(
+    ~~~~~~~~~~~~~~~~^
+        {
+        ^
+    ...<14 lines>...
+        },
+        ^^
+    )
+    ^
+AssertionError: {'validation_error': False, 'queue_reads': 2, 'queue_writes': [69 chars]alse} != {'validation_error': True, 'queue_reads': 0, 'queue_writes': 0[67 chars]True}
+- {'files_unchanged': False,
+?                     ^^^^
+
++ {'files_unchanged': True,
+?                     ^^^
+
+   'notification_calls': 0,
+-  'queue_reads': 2,
+?                 ^
+
++  'queue_reads': 0,
+?                 ^
+
+-  'queue_writes': 1,
+?                  ^
+
++  'queue_writes': 0,
+?                  ^
+
+   'resource_calls': 0,
+-  'validation_error': False}
+?                      ^^^^
+
++  'validation_error': True}
+?                      ^^^
+
+
+======================================================================
+FAIL: test_initial_history_rejected_before_io_without_queue (tests.test_p11_scheduler.P11SchedulerAdmissionTests.test_initial_history_rejected_before_io_without_queue) (field='last_receipt_hash')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p11_scheduler.py", line 366, in test_initial_history_rejected_before_io_without_queue
+    self._assert_rejected_without_io(task)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p11_scheduler.py", line 327, in _assert_rejected_without_io
+    self.assertEqual(
+    ~~~~~~~~~~~~~~~~^
+        {
+        ^
+    ...<14 lines>...
+        },
+        ^^
+    )
+    ^
+AssertionError: {'validation_error': False, 'queue_reads': 2, 'queue_writes': [69 chars]alse} != {'validation_error': True, 'queue_reads': 0, 'queue_writes': 0[67 chars]True}
+- {'files_unchanged': False,
+?                     ^^^^
+
++ {'files_unchanged': True,
+?                     ^^^
+
+   'notification_calls': 0,
+-  'queue_reads': 2,
+?                 ^
+
++  'queue_reads': 0,
+?                 ^
+
+-  'queue_writes': 1,
+?                  ^
+
++  'queue_writes': 0,
+?                  ^
+
+   'resource_calls': 0,
+-  'validation_error': False}
+?                      ^^^^
+
++  'validation_error': True}
+?                      ^^^
+
+
+======================================================================
+FAIL: test_initial_history_rejected_before_io_without_queue (tests.test_p11_scheduler.P11SchedulerAdmissionTests.test_initial_history_rejected_before_io_without_queue) (field='last_receipt_status')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p11_scheduler.py", line 366, in test_initial_history_rejected_before_io_without_queue
+    self._assert_rejected_without_io(task)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p11_scheduler.py", line 327, in _assert_rejected_without_io
+    self.assertEqual(
+    ~~~~~~~~~~~~~~~~^
+        {
+        ^
+    ...<14 lines>...
+        },
+        ^^
+    )
+    ^
+AssertionError: {'validation_error': False, 'queue_reads': 2, 'queue_writes': [69 chars]alse} != {'validation_error': True, 'queue_reads': 0, 'queue_writes': 0[67 chars]True}
+- {'files_unchanged': False,
+?                     ^^^^
+
++ {'files_unchanged': True,
+?                     ^^^
+
+   'notification_calls': 0,
+-  'queue_reads': 2,
+?                 ^
+
++  'queue_reads': 0,
+?                 ^
+
+-  'queue_writes': 1,
+?                  ^
+
++  'queue_writes': 0,
+?                  ^
+
+   'resource_calls': 0,
+-  'validation_error': False}
+?                      ^^^^
+
++  'validation_error': True}
+?                      ^^^
+
+
+======================================================================
+FAIL: test_initial_history_rejected_before_io_without_queue (tests.test_p11_scheduler.P11SchedulerAdmissionTests.test_initial_history_rejected_before_io_without_queue) (field='cancel_requested_at')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p11_scheduler.py", line 366, in test_initial_history_rejected_before_io_without_queue
+    self._assert_rejected_without_io(task)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p11_scheduler.py", line 327, in _assert_rejected_without_io
+    self.assertEqual(
+    ~~~~~~~~~~~~~~~~^
+        {
+        ^
+    ...<14 lines>...
+        },
+        ^^
+    )
+    ^
+AssertionError: {'validation_error': False, 'queue_reads': 2, 'queue_writes': [69 chars]alse} != {'validation_error': True, 'queue_reads': 0, 'queue_writes': 0[67 chars]True}
+- {'files_unchanged': False,
+?                     ^^^^
+
++ {'files_unchanged': True,
+?                     ^^^
+
+   'notification_calls': 0,
+-  'queue_reads': 2,
+?                 ^
+
++  'queue_reads': 0,
+?                 ^
+
+-  'queue_writes': 1,
+?                  ^
+
++  'queue_writes': 0,
+?                  ^
+
+   'resource_calls': 0,
+-  'validation_error': False}
+?                      ^^^^
+
++  'validation_error': True}
+?                      ^^^
+
+
+======================================================================
+FAIL: test_initial_history_rejected_before_io_without_queue (tests.test_p11_scheduler.P11SchedulerAdmissionTests.test_initial_history_rejected_before_io_without_queue) (field='completed_at')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p11_scheduler.py", line 366, in test_initial_history_rejected_before_io_without_queue
+    self._assert_rejected_without_io(task)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p11_scheduler.py", line 327, in _assert_rejected_without_io
+    self.assertEqual(
+    ~~~~~~~~~~~~~~~~^
+        {
+        ^
+    ...<14 lines>...
+        },
+        ^^
+    )
+    ^
+AssertionError: {'val[32 chars]ds': 1, 'queue_writes': 0, 'notification_calls[46 chars]True} != {'val[32 chars]ds': 0, 'queue_writes': 0, 'notification_calls[46 chars]True}
+  {'files_unchanged': True,
+   'notification_calls': 0,
+-  'queue_reads': 1,
+?                 ^
+
++  'queue_reads': 0,
+?                 ^
+
+   'queue_writes': 0,
+   'resource_calls': 0,
+   'validation_error': True}
+
+======================================================================
+FAIL: test_initial_history_rejected_before_io_without_queue (tests.test_p11_scheduler.P11SchedulerAdmissionTests.test_initial_history_rejected_before_io_without_queue) (field='reason_codes')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p11_scheduler.py", line 366, in test_initial_history_rejected_before_io_without_queue
+    self._assert_rejected_without_io(task)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p11_scheduler.py", line 327, in _assert_rejected_without_io
+    self.assertEqual(
+    ~~~~~~~~~~~~~~~~^
+        {
+        ^
+    ...<14 lines>...
+        },
+        ^^
+    )
+    ^
+AssertionError: {'validation_error': False, 'queue_reads': 2, 'queue_writes': [69 chars]alse} != {'validation_error': True, 'queue_reads': 0, 'queue_writes': 0[67 chars]True}
+- {'files_unchanged': False,
+?                     ^^^^
+
++ {'files_unchanged': True,
+?                     ^^^
+
+   'notification_calls': 0,
+-  'queue_reads': 2,
+?                 ^
+
++  'queue_reads': 0,
+?                 ^
+
+-  'queue_writes': 1,
+?                  ^
+
++  'queue_writes': 0,
+?                  ^
+
+   'resource_calls': 0,
+-  'validation_error': False}
+?                      ^^^^
+
++  'validation_error': True}
+?                      ^^^
+
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.406s
+
+FAILED (failures=20)

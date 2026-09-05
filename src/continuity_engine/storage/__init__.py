@@ -8,6 +8,7 @@ from .base import (
     IntegrationResultLedger,
     PermissionRepository,
     ResourceRepository,
+    SchedulerRepository,
     StateUpdateRecordRepository,
     SubjectStateRepository,
     SubjectBindingFixtureRepository,
@@ -20,6 +21,7 @@ from .json_memory_repository import JsonMemoryRepository
 from .json_contradiction_repository import JsonContradictionRepository
 from .json_permission_repository import JsonPermissionRepository
 from .json_resource_repository import JsonResourceRepository
+from .json_scheduler_repository import JsonSchedulerRepository
 from .json_thinking_repository import JsonThinkingRepository
 from .json_repository import JsonSubjectStateRepository
 from .json_integration_repository import (
@@ -49,6 +51,8 @@ __all__ = [
     "StateUpdateRecordRepository",
     "PermissionRepository",
     "ResourceRepository",
+    "SchedulerRepository",
+    "JsonSchedulerRepository",
     "SubjectStateRepository",
     "SubjectBindingFixtureRepository",
     "ThinkingRepository",

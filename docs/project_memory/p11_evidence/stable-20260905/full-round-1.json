@@ -1,0 +1,11 @@
+{
+  "phase": "Engine full stable round 1",
+  "command": "python -m unittest discover -s tests -q",
+  "startedAt": "2026-09-04T21:46:50.8683769Z",
+  "elapsedSeconds": 415.739,
+  "exitCode": 0,
+  "tests": "833",
+  "unittestSeconds": "415.083",
+  "skip": "1",
+  "log": "full-round-1.log"
+}

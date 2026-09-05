@@ -1,0 +1,13 @@
+======================================================================
+FAIL: test_crash_checkpoint_queries_delivered_fact_after_restart_without_redispatch (tests.test_p11_scheduler_recovery.P11SchedulerRecoveryTests.test_crash_checkpoint_queries_delivered_fact_after_restart_without_redispatch)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p11_scheduler_recovery.py", line 62, in test_crash_checkpoint_queries_delivered_fact_after_restart_without_redispatch
+    self.assertEqual(restarted.wake_count, 1)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 1
+
+----------------------------------------------------------------------
+Ran 1 test in 0.047s
+
+FAILED (failures=1)

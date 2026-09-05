@@ -1,0 +1,9 @@
+{
+  "phase": "P11 tests before implementation",
+  "command": "python -m unittest tests.test_p11_scheduler tests.test_p11_scheduler_recovery -q",
+  "startedAt": "2026-09-04T21:02:50.8922771Z",
+  "elapsedSeconds": 0.656,
+  "exitCode": 1,
+  "expected": "FAIL because P11 implementation modules do not exist yet",
+  "log": "p11-red-first.log"
+}

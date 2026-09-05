@@ -1,0 +1,3 @@
+Archive navigation helper first attempted brace-style file patterns in PowerShell; parser rejected the command before execution (Missing expression after unary operator comma). Corrected to rg -g file globs. This was a read-command syntax error, not an Engine test failure. No project test ran in this archive task.
+
+A later read-only rg command used a literal baseline* path on Windows; rg reported OS error 123 for that argument while returning matches from the explicit evidence directory. No mutation or test occurred. Used the exact start-20260905/before.json path instead.

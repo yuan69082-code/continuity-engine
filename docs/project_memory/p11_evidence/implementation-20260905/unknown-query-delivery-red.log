@@ -1,0 +1,13 @@
+======================================================================
+FAIL: test_unknown_then_verified_delivery_opens_one_wake_after_restart (tests.test_p11_scheduler_recovery.P11SchedulerRecoveryTests.test_unknown_then_verified_delivery_opens_one_wake_after_restart)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p11_scheduler_recovery.py", line 98, in test_unknown_then_verified_delivery_opens_one_wake_after_restart
+    self.assertEqual(restarted.wake_count, 1)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 1
+
+----------------------------------------------------------------------
+Ran 1 test in 0.098s
+
+FAILED (failures=1)

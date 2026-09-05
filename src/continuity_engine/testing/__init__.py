@@ -48,6 +48,14 @@ from .p07_contradiction_fixture import (
     p07_resolution_evidence,
     run_p07_golden_scenario,
 )
+from .p11_scheduler_fixture import (
+    FakeNotificationAdapter,
+    P11_GOLDEN_SCENARIO_VERSION,
+    P11GoldenScenarioResult,
+    P11SchedulerFixture,
+    SimulatedSchedulerProcessCrash,
+    run_p11_golden_scenario,
+)
 
 __all__ = [
     "CleanupResult",
@@ -85,4 +93,10 @@ __all__ = [
     "build_p07_detector",
     "p07_resolution_evidence",
     "run_p07_golden_scenario",
+    "FakeNotificationAdapter",
+    "P11_GOLDEN_SCENARIO_VERSION",
+    "P11GoldenScenarioResult",
+    "P11SchedulerFixture",
+    "SimulatedSchedulerProcessCrash",
+    "run_p11_golden_scenario",
 ]

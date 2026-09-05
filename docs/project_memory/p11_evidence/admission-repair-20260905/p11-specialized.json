@@ -1,0 +1,15 @@
+{
+  "phase": "p11-specialized",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_p11_scheduler",
+    "tests.test_p11_scheduler_recovery",
+    "-v"
+  ],
+  "startedAt": "2026-09-05T14:30:48.860887+00:00",
+  "endedAt": "2026-09-05T14:30:56.885352+00:00",
+  "exitCode": 0,
+  "wallSeconds": 8.024
+}

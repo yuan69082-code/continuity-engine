@@ -1,0 +1,10 @@
+{
+  "phase": "P11 crash sentinel setup correction",
+  "command": "python -m unittest tests.test_p11_scheduler_recovery.P11SchedulerRecoveryTests.test_crash_checkpoint_queries_delivered_fact_after_restart_without_redispatch -q",
+  "startedAt": "2026-09-04T21:09:50.3276206Z",
+  "elapsedSeconds": 0.595,
+  "exitCode": 1,
+  "observed": "0 PASS, 1 FAIL",
+  "failure": "test used non-Awakening fixture while asserting one WakeSession",
+  "log": "p11-crash-sentinel-second.log"
+}

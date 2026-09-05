@@ -1,0 +1,13 @@
+======================================================================
+FAIL: test_scheduled_reason_uses_existing_scheduled_wake_boundary (tests.test_p11_scheduler_recovery.P11SchedulerRecoveryTests.test_scheduled_reason_uses_existing_scheduled_wake_boundary)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p11_scheduler_recovery.py", line 262, in test_scheduled_reason_uses_existing_scheduled_wake_boundary
+    self.assertEqual(session.wake_reason, WakeReason.SCHEDULED)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: <WakeReason.MANUAL: 'manual'> != <WakeReason.SCHEDULED: 'scheduled'>
+
+----------------------------------------------------------------------
+Ran 1 test in 0.087s
+
+FAILED (failures=1)

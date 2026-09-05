@@ -1,0 +1,13 @@
+======================================================================
+FAIL: test_unresolved_unknown_does_not_starve_another_due_task (tests.test_p11_scheduler_recovery.P11SchedulerRecoveryTests.test_unresolved_unknown_does_not_starve_another_due_task)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p11_scheduler_recovery.py", line 109, in test_unresolved_unknown_does_not_starve_another_due_task
+    self.assertEqual(second.status, SchedulerTickStatus.COMPLETED)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: <SchedulerTickStatus.VERIFICATION_PENDING: 'VERIFICATION_PENDING'> != <SchedulerTickStatus.COMPLETED: 'COMPLETED'>
+
+----------------------------------------------------------------------
+Ran 1 test in 0.054s
+
+FAILED (failures=1)

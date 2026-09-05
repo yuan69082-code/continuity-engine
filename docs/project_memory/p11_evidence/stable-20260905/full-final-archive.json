@@ -1,0 +1,9 @@
+{
+  "phase": "engine-full-final-archive",
+  "command": "python -m unittest discover -s tests -q",
+  "exitCode": 0,
+  "wallSeconds": 439.525,
+  "expectedTests": 833,
+  "startedAfterDocumentation": true,
+  "log": "docs/project_memory/p11_evidence/stable-20260905/full-final-archive.log"
+}

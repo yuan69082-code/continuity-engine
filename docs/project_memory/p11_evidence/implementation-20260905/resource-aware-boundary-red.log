@@ -1,0 +1,13 @@
+======================================================================
+FAIL: test_successful_wake_reuses_resource_aware_scheduler_allocation (tests.test_p11_scheduler_recovery.P11SchedulerRecoveryTests.test_successful_wake_reuses_resource_aware_scheduler_allocation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p11_scheduler_recovery.py", line 229, in test_successful_wake_reuses_resource_aware_scheduler_allocation
+    self.assertEqual(after.revision, before.revision + 1)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 1
+
+----------------------------------------------------------------------
+Ran 1 test in 0.069s
+
+FAILED (failures=1)

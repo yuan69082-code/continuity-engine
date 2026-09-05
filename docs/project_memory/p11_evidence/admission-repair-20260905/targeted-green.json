@@ -1,0 +1,14 @@
+{
+  "phase": "targeted-green",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_p11_scheduler.P11SchedulerAdmissionTests",
+    "-v"
+  ],
+  "startedAt": "2026-09-05T14:30:48.028838+00:00",
+  "endedAt": "2026-09-05T14:30:48.860227+00:00",
+  "exitCode": 0,
+  "wallSeconds": 0.831
+}

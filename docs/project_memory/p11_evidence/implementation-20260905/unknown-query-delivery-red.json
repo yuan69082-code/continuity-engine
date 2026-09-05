@@ -1,0 +1,10 @@
+{
+  "phase": "UNKNOWN query delivery integration red",
+  "command": "python -m unittest tests.test_p11_scheduler_recovery.P11SchedulerRecoveryTests.test_unknown_then_verified_delivery_opens_one_wake_after_restart -q",
+  "startedAt": "2026-09-04T21:18:02.0124885Z",
+  "elapsedSeconds": 0.548,
+  "exitCode": 1,
+  "observed": "0 PASS, 1 FAIL",
+  "failure": "Fake query changed UNKNOWN to DELIVERED without materializing its synthetic wake effect",
+  "log": "unknown-query-delivery-red.log"
+}

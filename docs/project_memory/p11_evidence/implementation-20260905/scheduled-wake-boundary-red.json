@@ -1,0 +1,10 @@
+{
+  "phase": "Scheduled wake boundary red",
+  "command": "python -m unittest tests.test_p11_scheduler_recovery.P11SchedulerRecoveryTests.test_scheduled_reason_uses_existing_scheduled_wake_boundary -q",
+  "startedAt": "2026-09-04T21:17:04.3128075Z",
+  "elapsedSeconds": 0.534,
+  "exitCode": 1,
+  "observed": "0 PASS, 1 FAIL",
+  "failure": "P11 scheduled reason was routed to the manual test cycle instead of the existing scheduled wake boundary",
+  "log": "scheduled-wake-boundary-red.log"
+}

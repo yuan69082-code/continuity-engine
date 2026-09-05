@@ -46,6 +46,8 @@ from .resource_aware_wake_scheduler import (
     WakeScheduleResult,
     WakeScheduler,
 )
+from .scheduler_ports import NotificationAdapter
+from .scheduler_service import SchedulerService
 from .subject_state_service import SubjectStateService
 from .thinking_ports import ThinkingProvider, TokenBudgetManager
 from .thinking_service import ThinkingService
@@ -130,6 +132,8 @@ __all__ = [
     "ResourceEvaluator",
     "ResourceManager",
     "ResourceAwareWakeScheduler",
+    "NotificationAdapter",
+    "SchedulerService",
     "RiskEvaluator",
     "SubjectStateService",
     "ThinkingProvider",

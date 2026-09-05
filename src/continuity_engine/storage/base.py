@@ -40,6 +40,7 @@ from continuity_engine.domain.resources import (
     TokenUsageRecord,
 )
 from continuity_engine.domain.thinking import ThinkSession
+from continuity_engine.domain.scheduling import SchedulerQueue
 
 
 class SubjectStateRepository(Protocol):
@@ -293,6 +294,14 @@ class ResourceRepository(Protocol):
     def list_usage(self, subject_id: str) -> list[TokenUsageRecord]: ...
 
     def list_decisions(self, subject_id: str) -> list[ResourceDecision]: ...
+
+
+class SchedulerRepository(Protocol):
+    """Single P11 scheduling authority; it owns no subject or action state."""
+
+    def load_queue(self) -> SchedulerQueue: ...
+
+    def save_queue(self, queue: SchedulerQueue, *, expected_revision: int) -> None: ...
 
 
 class SubjectBindingFixtureRepository(Protocol):

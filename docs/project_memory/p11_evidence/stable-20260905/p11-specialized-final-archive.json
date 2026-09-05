@@ -1,0 +1,9 @@
+{
+  "phase": "p11-specialized-final-archive",
+  "command": "python -m unittest tests.test_p11_scheduler tests.test_p11_scheduler_recovery -q",
+  "exitCode": 0,
+  "wallSeconds": 8.266,
+  "expectedTests": 39,
+  "startedAfterDocumentation": true,
+  "log": "docs/project_memory/p11_evidence/stable-20260905/p11-specialized-final-archive.log"
+}

@@ -6,6 +6,25 @@
 
 ## [Unreleased]
 
+### P11 用户正式验收归档（D-058）— 2026-09-05
+
+- 用户明确验收 P11、Engine side 及 P11-01—P11-12；原两个反例 2/2 PASS、完整 P11 45/45 PASS（8.371 秒），独立修改范围/hash 核对通过，入队阻断关闭。
+- 仅同步直接相关验收档案和现行索引；P00—P11 ACCEPTED，P12—P23 NOT_STARTED，现行两类 conflict NONE。运行代码/测试、Assistant、正式数据、冻结边界和版本 0.1.0 不变。
+- 全部失败与修复证据保留；修复前 39/833 全量明确是历史，不重复全量，不执行 Git 写操作。准确待提交清单见 [58 验收入口](58_P11_测试索引与验收入口.md#p11-accepted)。
+
+### P11 首次 admission 纯净初态定点修复 — 2026-09-05
+
+- submit 在任何仓储访问前拒绝预填 attempt、receipt、cancel、completed、reason 等运行历史的首次任务，避免 attempt_count=max_attempts 的毒化任务持久化；抛出明确 SchedulerValidationError。
+- 只修改 SchedulerService 入口和直接回归，不收紧持久化恢复类型，不修改 Resource/Awakening。新增负向同时检查零读写、零通知/资源调用和 Fixture 文件不变；合法创建、重复提交及跨重启恢复保留。
+- 修复前 6 方法中 4 FAIL/2 PASS（20 条失败记录）保留；修复后定点 6/6、P11 45/45 PASS，均 0 SKIP。本次不复跑全量，原 39/833 是修复前历史。P11 IMPLEMENTED_NOT_ACCEPTED、D-058 未创建，无 Git 写操作。
+
+### P11 Event Priority 与 Scheduler Engine 独立施工 — 2026-09-05
+
+- 新增唯一 Scheduler Queue/Record、稳定 task/attempt/receipt identity、subject/environment 绑定和严格状态机；priority/dueAt/sequence 与 aging 形成确定且可解释的排序及防饥饿。
+- 新增原子 JSON 仓储、revision 并发保护、背压、静默时段、资源安全延迟、有界重试、UNKNOWN 可信查询、幂等取消与跨重启恢复。复用现有 Awakening/ResourceManager，不新增心理、Action、Capability 或现实副作用权威。
+- 新增 TEST Fake Notification Adapter、P11 Fixture、Golden 和 39 项专项；三轮完整回归每轮 833 项，均为 832 PASS、1 个既有环境 SKIP、0 FAIL。首次红灯、开发失败和辅助工具错误完整保留。
+- D-057 已登记；P11 / Engine side / P11-01—P11-12 = `IMPLEMENTED_NOT_ACCEPTED`，D-058 未创建，P12—P23 `NOT_STARTED`。Schema、外部契约、正式数据、pyproject/0.1.0 不变，无 Git 写操作。
+
 ### P09 用户正式验收（D-054）— 2026-09-04
 
 - 用户已明确验收；P00—P09、P09 Engine side 和十二项均 ACCEPTED，Vio dependency NONE；P10—P23 NOT_STARTED。PLANNING_CONFLICT/EVIDENCE_CONFLICT 当前 NONE，仅表示现行阻断闭合。

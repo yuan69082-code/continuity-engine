@@ -204,6 +204,26 @@ from .domain.resources import (
     RuntimeMode,
     TokenUsageRecord,
 )
+from .domain.scheduling import (
+    NotificationReceipt,
+    NotificationRequest,
+    NotificationStatus,
+    QuietHours,
+    SchedulerAdmissionResult,
+    SchedulerAdmissionStatus,
+    SchedulerCancelResult,
+    SchedulerCancelStatus,
+    SchedulerIdentityConflictError,
+    SchedulerPersistenceError,
+    SchedulerQueue,
+    SchedulerTask,
+    SchedulerTaskState,
+    SchedulerTickResult,
+    SchedulerTickStatus,
+    SchedulerValidationError,
+    SchedulerWakeReason,
+    stable_attempt_id,
+)
 from .domain.action import (
     ActionContext,
     ActionDecision,
@@ -241,6 +261,8 @@ from .services.resource_aware_wake_scheduler import (
     WakeScheduleResult,
     WakeScheduler,
 )
+from .services.scheduler_ports import NotificationAdapter
+from .services.scheduler_service import SchedulerService
 from .services.wake_perception_thinking_service import WakePerceptionThinkingService
 from .services.wake_perception_thinking_action_service import (
     WakePerceptionThinkingActionService,
@@ -309,6 +331,7 @@ from .storage.json_thinking_repository import JsonThinkingRepository
 from .storage.json_permission_repository import JsonPermissionRepository
 from .storage.json_learning_repository import JsonLearningRepository
 from .storage.json_resource_repository import JsonResourceRepository
+from .storage.json_scheduler_repository import JsonSchedulerRepository
 from .storage.in_memory_action_repository import InMemoryActionRepository
 from .storage.json_integration_repository import (
     JsonIntegrationResultLedger,
@@ -445,6 +468,26 @@ __all__ = [
     "ResourceSessionType",
     "ResourceState",
     "ResourceAwareWakeScheduler",
+    "NotificationAdapter",
+    "NotificationReceipt",
+    "NotificationRequest",
+    "NotificationStatus",
+    "QuietHours",
+    "SchedulerAdmissionResult",
+    "SchedulerAdmissionStatus",
+    "SchedulerCancelResult",
+    "SchedulerCancelStatus",
+    "SchedulerIdentityConflictError",
+    "SchedulerPersistenceError",
+    "SchedulerQueue",
+    "SchedulerService",
+    "SchedulerTask",
+    "SchedulerTaskState",
+    "SchedulerTickResult",
+    "SchedulerTickStatus",
+    "SchedulerValidationError",
+    "SchedulerWakeReason",
+    "stable_attempt_id",
     "RiskAssessment",
     "RiskEvaluator",
     "RiskLevel",
@@ -477,6 +520,7 @@ __all__ = [
     "JsonPermissionRepository",
     "JsonLearningRepository",
     "JsonResourceRepository",
+    "JsonSchedulerRepository",
     "LEARNABLE_FIELD_PATHS",
     "LearningCandidateResult",
     "LearningChangeResult",

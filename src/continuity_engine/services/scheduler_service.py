@@ -1,0 +1,525 @@
+from __future__ import annotations
+
+import hashlib
+from collections.abc import Callable
+from datetime import datetime, timedelta
+
+from continuity_engine.domain.models import utc_now
+from continuity_engine.domain.resources import ResourceRequest, ResourceSessionType
+from continuity_engine.domain.scheduling import (
+    NotificationReceipt,
+    NotificationRequest,
+    NotificationStatus,
+    QuietHours,
+    SchedulerAdmissionResult,
+    SchedulerAdmissionStatus,
+    SchedulerCancelResult,
+    SchedulerCancelStatus,
+    SchedulerIdentityConflictError,
+    SchedulerQueue,
+    SchedulerTask,
+    SchedulerTaskState,
+    SchedulerTickResult,
+    SchedulerTickStatus,
+    SchedulerValidationError,
+    TERMINAL_STATES,
+    stable_attempt_id,
+)
+from continuity_engine.services.resource_manager import ResourceManager
+from continuity_engine.storage.base import SchedulerRepository
+
+from .scheduler_ports import NotificationAdapter
+
+
+class SchedulerService:
+    """Persist and dispatch one bounded computation opportunity per tick."""
+
+    def __init__(
+        self,
+        repository: SchedulerRepository,
+        notification_adapter: NotificationAdapter,
+        resources: ResourceManager,
+        *,
+        clock: Callable[[], datetime] = utc_now,
+        capacity: int = 128,
+        aging_interval_seconds: int = 60,
+        retry_base_seconds: int = 30,
+        quiet_hours: QuietHours | None = None,
+        estimated_tokens: int = 64,
+        estimated_compute: int = 1,
+    ) -> None:
+        for value, name in (
+            (capacity, "capacity"),
+            (aging_interval_seconds, "aging_interval_seconds"),
+            (retry_base_seconds, "retry_base_seconds"),
+        ):
+            if isinstance(value, bool) or not isinstance(value, int) or value <= 0:
+                raise SchedulerValidationError(f"{name} must be positive")
+        for value, name in (
+            (estimated_tokens, "estimated_tokens"),
+            (estimated_compute, "estimated_compute"),
+        ):
+            if isinstance(value, bool) or not isinstance(value, int) or value < 0:
+                raise SchedulerValidationError(f"{name} must be non-negative")
+        self._repository = repository
+        self._notification = notification_adapter
+        self._resources = resources
+        self._clock = clock
+        self._capacity = capacity
+        self._aging_interval_seconds = aging_interval_seconds
+        self._retry_base_seconds = retry_base_seconds
+        self._quiet_hours = quiet_hours
+        self._estimated_tokens = estimated_tokens
+        self._estimated_compute = estimated_compute
+
+    def submit(self, task: SchedulerTask) -> SchedulerAdmissionResult:
+        if not isinstance(task, SchedulerTask):
+            raise SchedulerValidationError("task must be a SchedulerTask")
+        if (
+            task.state is not SchedulerTaskState.QUEUED
+            or task.sequence != 0
+            or task.revision != 0
+            or task.attempt_count != 0
+            or task.next_attempt_at is not None
+            or task.last_attempt_id is not None
+            or task.last_receipt_id is not None
+            or task.last_receipt_hash is not None
+            or task.last_receipt_status is not None
+            or task.cancel_requested_at is not None
+            or task.completed_at is not None
+            or task.reason_codes != ()
+        ):
+            raise SchedulerValidationError("new task must be a pristine unassigned queued record")
+        queue = self._repository.load_queue()
+        existing = self._find(queue, task.task_id)
+        if existing is not None:
+            if existing.identity_hash != task.identity_hash:
+                raise SchedulerIdentityConflictError("scheduler task identity is already bound")
+            return SchedulerAdmissionResult(
+                SchedulerAdmissionStatus.DUPLICATE,
+                existing.clone(),
+                queue.revision,
+                "DUPLICATE_IDENTITY",
+            )
+        active_count = sum(item.state not in TERMINAL_STATES for item in queue.tasks)
+        if active_count >= self._capacity:
+            return SchedulerAdmissionResult(
+                SchedulerAdmissionStatus.BACKPRESSURE,
+                None,
+                queue.revision,
+                "QUEUE_CAPACITY_REACHED",
+            )
+        admitted = task.clone()
+        admitted.sequence = queue.next_sequence
+        admitted.revision = 1
+        admitted.reason_codes = ("ADMITTED",)
+        admitted.__post_init__()
+        queue.next_sequence += 1
+        queue.tasks.append(admitted)
+        self._save(queue)
+        return SchedulerAdmissionResult(
+            SchedulerAdmissionStatus.ACCEPTED,
+            admitted.clone(),
+            queue.revision,
+            "ADMITTED",
+        )
+
+    def get(self, task_id: str, *, subject_id: str, environment: str) -> SchedulerTask:
+        queue = self._repository.load_queue()
+        task = self._find(queue, task_id)
+        if task is None:
+            raise SchedulerIdentityConflictError("scheduler task was not found")
+        self._require_binding(task, subject_id, environment)
+        return task.clone()
+
+    def list_tasks(self, *, subject_id: str, environment: str) -> list[SchedulerTask]:
+        queue = self._repository.load_queue()
+        return [
+            task.clone()
+            for task in sorted(queue.tasks, key=lambda item: (item.sequence, item.task_id))
+            if task.subject_id == subject_id and task.environment == environment
+        ]
+
+    def ready_tasks(self, *, subject_id: str, environment: str) -> list[SchedulerTask]:
+        now = self._now()
+        queue = self._repository.load_queue()
+        ready = [
+            task
+            for task in queue.tasks
+            if self._binding_matches(task, subject_id, environment)
+            and task.state in (SchedulerTaskState.QUEUED, SchedulerTaskState.RETRY_WAIT)
+            and task.due_at <= now
+            and (task.next_attempt_at is None or task.next_attempt_at <= now)
+        ]
+        ready.sort(key=lambda task: self._sort_key(task, now))
+        return [task.clone() for task in ready]
+
+    def tick(self, subject_id: str, environment: str) -> SchedulerTickResult:
+        now = self._now()
+        queue = self._repository.load_queue()
+
+        unknown = [
+            task
+            for task in queue.tasks
+            if self._binding_matches(task, subject_id, environment)
+            and task.state is SchedulerTaskState.UNKNOWN
+            and (task.next_attempt_at is None or task.next_attempt_at <= now)
+        ]
+        if unknown:
+            unknown.sort(key=lambda item: (item.sequence, item.task_id))
+            return self._query_unknown(unknown[0], now)
+
+        candidates = [
+            task
+            for task in queue.tasks
+            if self._binding_matches(task, subject_id, environment)
+            and task.state in (SchedulerTaskState.QUEUED, SchedulerTaskState.RETRY_WAIT)
+        ]
+        waiting_unknown = any(
+            self._binding_matches(task, subject_id, environment)
+            and task.state is SchedulerTaskState.UNKNOWN
+            for task in queue.tasks
+        )
+        if not candidates and waiting_unknown:
+            return SchedulerTickResult(
+                SchedulerTickStatus.NOT_DUE, None, queue.revision, "VERIFICATION_BACKOFF_ACTIVE"
+            )
+        if not candidates:
+            return SchedulerTickResult(
+                SchedulerTickStatus.IDLE, None, queue.revision, "NO_ACTIVE_TASK"
+            )
+        ready = [
+            task
+            for task in candidates
+            if task.due_at <= now
+            and (task.next_attempt_at is None or task.next_attempt_at <= now)
+        ]
+        if not ready:
+            return SchedulerTickResult(
+                SchedulerTickStatus.NOT_DUE,
+                None,
+                queue.revision,
+                "NO_TASK_DUE",
+            )
+        ready.sort(key=lambda task: self._sort_key(task, now))
+        task = ready[0]
+
+        if self._quiet_hours is not None and self._quiet_hours.contains(now):
+            return SchedulerTickResult(
+                SchedulerTickStatus.QUIET_HOURS,
+                task.clone(),
+                queue.revision,
+                "QUIET_HOURS_ACTIVE",
+            )
+
+        attempt_number = task.attempt_count + 1
+        attempt_id = stable_attempt_id(task.task_id, attempt_number)
+        resource_request = ResourceRequest.create(
+            request_id=self._resource_request_id(attempt_id),
+            subject_id=task.subject_id,
+            session_id=attempt_id,
+            session_type=ResourceSessionType.OTHER,
+            estimated_tokens=self._estimated_tokens,
+            estimated_compute=self._estimated_compute,
+            model_name="not-applicable",
+            reason="Evaluate one P11 scheduler computation opportunity.",
+            requested_at=now,
+        )
+        try:
+            resource_result = self._resources.preview(resource_request)
+        except Exception:
+            return SchedulerTickResult(
+                SchedulerTickStatus.RESOURCE_DEFERRED,
+                task.clone(),
+                queue.revision,
+                "RESOURCE_STATE_UNAVAILABLE",
+            )
+        if not resource_result.allowed or resource_result.defer:
+            return SchedulerTickResult(
+                SchedulerTickStatus.RESOURCE_DEFERRED,
+                task.clone(),
+                queue.revision,
+                "RESOURCE_POLICY_DEFERRED",
+            )
+
+        task.attempt_count = attempt_number
+        task.last_attempt_id = attempt_id
+        task.last_receipt_id = None
+        task.last_receipt_hash = None
+        task.last_receipt_status = None
+        task.next_attempt_at = None
+        task.state = SchedulerTaskState.UNKNOWN
+        task.revision += 1
+        task.reason_codes += ("ATTEMPT_CHECKPOINTED",)
+        task.__post_init__()
+        self._save(queue)
+
+        request = self._request(task, now)
+        try:
+            receipt = self._notification.dispatch(request)
+        except Exception:
+            return SchedulerTickResult(
+                SchedulerTickStatus.VERIFICATION_PENDING,
+                task.clone(),
+                queue.revision,
+                "DISPATCH_RESULT_UNKNOWN",
+            )
+        if not self._receipt_matches(task, receipt):
+            return SchedulerTickResult(
+                SchedulerTickStatus.VERIFICATION_PENDING,
+                task.clone(),
+                queue.revision,
+                "RECEIPT_BINDING_CONFLICT",
+            )
+        return self._apply_receipt(task.task_id, receipt, now, from_query=False)
+
+    def cancel(
+        self, task_id: str, *, subject_id: str, environment: str
+    ) -> SchedulerCancelResult:
+        now = self._now()
+        queue = self._repository.load_queue()
+        task = self._find(queue, task_id)
+        if task is None:
+            raise SchedulerIdentityConflictError("scheduler task was not found")
+        self._require_binding(task, subject_id, environment)
+        if task.state is SchedulerTaskState.COMPLETED:
+            return SchedulerCancelResult(
+                SchedulerCancelStatus.ALREADY_COMPLETED,
+                task.clone(),
+                queue.revision,
+                "COMPLETED_IS_FINAL",
+            )
+        if task.state is SchedulerTaskState.CANCELLED:
+            return SchedulerCancelResult(
+                SchedulerCancelStatus.ALREADY_CANCELLED,
+                task.clone(),
+                queue.revision,
+                "CANCEL_ALREADY_RECORDED",
+            )
+        if task.state is SchedulerTaskState.RETRY_EXHAUSTED:
+            return SchedulerCancelResult(
+                SchedulerCancelStatus.TERMINAL,
+                task.clone(),
+                queue.revision,
+                "RETRY_LIMIT_IS_FINAL",
+            )
+        if task.state is SchedulerTaskState.UNKNOWN:
+            if task.cancel_requested_at is None:
+                task.cancel_requested_at = now
+                task.next_attempt_at = None
+                task.revision += 1
+                task.reason_codes += ("CANCEL_AWAITS_RECEIPT",)
+                task.__post_init__()
+                self._save(queue)
+            return SchedulerCancelResult(
+                SchedulerCancelStatus.VERIFICATION_REQUIRED,
+                task.clone(),
+                queue.revision,
+                "CANCEL_AWAITS_RECEIPT",
+            )
+        task.state = SchedulerTaskState.CANCELLED
+        task.cancel_requested_at = now
+        task.next_attempt_at = None
+        task.revision += 1
+        task.reason_codes += ("CANCELLED_BEFORE_DISPATCH",)
+        task.__post_init__()
+        self._save(queue)
+        return SchedulerCancelResult(
+            SchedulerCancelStatus.CANCELLED,
+            task.clone(),
+            queue.revision,
+            "CANCELLED_BEFORE_DISPATCH",
+        )
+
+    def _query_unknown(self, task: SchedulerTask, now: datetime) -> SchedulerTickResult:
+        request = self._request(task, now)
+        try:
+            receipt = self._notification.query(request)
+        except Exception:
+            queue = self._repository.load_queue()
+            current = self._find(queue, task.task_id)
+            if current is not None and current.state is SchedulerTaskState.UNKNOWN:
+                current.next_attempt_at = now + timedelta(seconds=self._retry_base_seconds)
+                current.revision += 1
+                current.reason_codes += ("RECEIPT_QUERY_BACKOFF",)
+                current.__post_init__()
+                self._save(queue)
+            return SchedulerTickResult(
+                SchedulerTickStatus.VERIFICATION_PENDING,
+                current.clone() if current is not None else task.clone(),
+                queue.revision,
+                "RECEIPT_QUERY_UNAVAILABLE",
+            )
+        if not self._receipt_matches(task, receipt):
+            queue = self._repository.load_queue()
+            current = self._find(queue, task.task_id)
+            return SchedulerTickResult(
+                SchedulerTickStatus.VERIFICATION_PENDING,
+                current.clone() if current is not None else task.clone(),
+                queue.revision,
+                "RECEIPT_BINDING_CONFLICT",
+            )
+        return self._apply_receipt(task.task_id, receipt, now, from_query=True)
+
+    def _apply_receipt(
+        self,
+        task_id: str,
+        receipt: NotificationReceipt,
+        now: datetime,
+        *,
+        from_query: bool,
+    ) -> SchedulerTickResult:
+        queue = self._repository.load_queue()
+        task = self._find(queue, task_id)
+        if task is None or task.state is not SchedulerTaskState.UNKNOWN:
+            raise SchedulerIdentityConflictError("scheduler attempt is no longer pending")
+        if not self._receipt_matches(task, receipt):
+            return SchedulerTickResult(
+                SchedulerTickStatus.VERIFICATION_PENDING,
+                task.clone(),
+                queue.revision,
+                "RECEIPT_BINDING_CONFLICT",
+            )
+        task.last_receipt_id = receipt.receipt_id
+        task.last_receipt_hash = receipt.receipt_hash
+        task.last_receipt_status = receipt.status
+        task.revision += 1
+
+        if receipt.status is NotificationStatus.DELIVERED:
+            task.state = SchedulerTaskState.COMPLETED
+            task.next_attempt_at = None
+            task.completed_at = receipt.observed_at
+            task.reason_codes += (("RECEIPT_RECONCILED" if from_query else "RECEIPT_DELIVERED"),)
+            task.__post_init__()
+            self._save(queue)
+            return SchedulerTickResult(
+                SchedulerTickStatus.RECONCILED_COMPLETED if from_query else SchedulerTickStatus.COMPLETED,
+                task.clone(),
+                queue.revision,
+                task.reason_codes[-1],
+                receipt,
+            )
+
+        if receipt.status is NotificationStatus.UNKNOWN:
+            task.next_attempt_at = now + timedelta(seconds=self._retry_base_seconds)
+            task.reason_codes += ("RECEIPT_STILL_UNKNOWN",)
+            task.__post_init__()
+            self._save(queue)
+            return SchedulerTickResult(
+                SchedulerTickStatus.VERIFICATION_PENDING,
+                task.clone(),
+                queue.revision,
+                "RECEIPT_STILL_UNKNOWN",
+                receipt,
+            )
+
+        if task.cancel_requested_at is not None:
+            task.state = SchedulerTaskState.CANCELLED
+            task.next_attempt_at = None
+            task.reason_codes += ("CANCELLED_AFTER_NOT_DELIVERED",)
+            task.__post_init__()
+            self._save(queue)
+            return SchedulerTickResult(
+                SchedulerTickStatus.CANCELLED,
+                task.clone(),
+                queue.revision,
+                "CANCELLED_AFTER_NOT_DELIVERED",
+                receipt,
+            )
+
+        if task.attempt_count >= task.max_attempts:
+            task.state = SchedulerTaskState.RETRY_EXHAUSTED
+            task.next_attempt_at = None
+            task.reason_codes += ("RETRY_LIMIT_REACHED",)
+            task.__post_init__()
+            self._save(queue)
+            return SchedulerTickResult(
+                SchedulerTickStatus.RETRY_EXHAUSTED,
+                task.clone(),
+                queue.revision,
+                "RETRY_LIMIT_REACHED",
+                receipt,
+            )
+
+        delay = self._retry_base_seconds * (2 ** (task.attempt_count - 1))
+        task.state = SchedulerTaskState.RETRY_WAIT
+        task.next_attempt_at = now + timedelta(seconds=delay)
+        task.reason_codes += ("RETRY_BACKOFF_SCHEDULED",)
+        task.__post_init__()
+        self._save(queue)
+        return SchedulerTickResult(
+            SchedulerTickStatus.RETRY_SCHEDULED,
+            task.clone(),
+            queue.revision,
+            "RETRY_BACKOFF_SCHEDULED",
+            receipt,
+        )
+
+    def _request(self, task: SchedulerTask, now: datetime) -> NotificationRequest:
+        if task.last_attempt_id is None:
+            raise SchedulerValidationError("pending task has no attempt identity")
+        return NotificationRequest(
+            task_id=task.task_id,
+            attempt_id=task.last_attempt_id,
+            subject_id=task.subject_id,
+            environment=task.environment,
+            cycle_id=task.cycle_id,
+            wake_reason=task.wake_reason,
+            source_event_id=task.source_event_id,
+            requested_at=now,
+        )
+
+    @staticmethod
+    def _receipt_matches(task: SchedulerTask, receipt: object) -> bool:
+        return (
+            isinstance(receipt, NotificationReceipt)
+            and receipt.task_id == task.task_id
+            and receipt.attempt_id == task.last_attempt_id
+            and receipt.subject_id == task.subject_id
+            and receipt.environment == task.environment
+        )
+
+    @staticmethod
+    def _binding_matches(task: SchedulerTask, subject_id: str, environment: str) -> bool:
+        return task.subject_id == subject_id and task.environment == environment
+
+    @staticmethod
+    def _require_binding(task: SchedulerTask, subject_id: str, environment: str) -> None:
+        if task.subject_id != subject_id or task.environment != environment:
+            raise SchedulerIdentityConflictError("scheduler task binding does not match")
+
+    @staticmethod
+    def _find(queue: SchedulerQueue, task_id: str) -> SchedulerTask | None:
+        return next((task for task in queue.tasks if task.task_id == task_id), None)
+
+    def _save(self, queue: SchedulerQueue) -> None:
+        expected = queue.revision
+        queue.revision += 1
+        self._repository.save_queue(queue, expected_revision=expected)
+
+    def _sort_key(self, task: SchedulerTask, now: datetime) -> tuple[int, datetime, int, str]:
+        return (
+            -task.effective_priority(now, self._aging_interval_seconds),
+            task.due_at,
+            task.sequence,
+            task.task_id,
+        )
+
+    def _now(self) -> datetime:
+        value = self._clock()
+        # SchedulerTask validation centralizes the trusted UTC rule.
+        probe = SchedulerTask.create(
+            task_id="clock-probe",
+            subject_id="clock-probe",
+            environment="TEST",
+            priority=0,
+            due_at=value,
+            wake_reason="internal",
+            cycle_id="clock-probe",
+            created_at=value,
+        )
+        return probe.created_at
+
+    @staticmethod
+    def _resource_request_id(attempt_id: str) -> str:
+        return "p11-resource-" + hashlib.sha256(attempt_id.encode("utf-8")).hexdigest()

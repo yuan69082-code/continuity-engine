@@ -1,0 +1,123 @@
+{
+  "capturedAt": "2026-09-04T22:30:33.889694+00:00",
+  "status": "PASS",
+  "errors": [],
+  "basis": "The complete Engine post-final audit passed every Engine check; its only errors were an Assistant safe-directory read helper issue. The second aggregate incorrectly treated verified code commit 90f112b as current Assistant HEAD. Both helper failures are preserved. This final aggregate verifies the actual clean doc-only descendant without changing Git configuration.",
+  "engineAudit": {
+    "capturedAt": "2026-09-04T22:29:05.054123+00:00",
+    "git": {
+      "branch": "main",
+      "head": "a905853ca05edd56d9a8b0164818b4388a90b85f",
+      "upstream": "a905853ca05edd56d9a8b0164818b4388a90b85f",
+      "aheadBehind": [
+        "0",
+        "0"
+      ],
+      "staged": [],
+      "trackedEntries": 56,
+      "untrackedEntries": 86,
+      "diffCheck": "PASS"
+    },
+    "p10Helpers": {
+      "count": 31,
+      "allMatch": true
+    },
+    "frozen": {
+      "count": 25,
+      "allMatch": true
+    },
+    "formalData": {
+      "count": 7,
+      "allMatch": true,
+      "treeHash": "sha256:f9c710c6085e430a251f74463d57133f8c5a4497fe8ffa2ccb96be2db1037bb2"
+    },
+    "planningSources": {
+      "count": 3,
+      "allMatch": true
+    },
+    "sourceTest": {
+      "baselineCount": 188,
+      "changedExisting": [
+        "src/continuity_engine/__init__.py",
+        "src/continuity_engine/domain/__init__.py",
+        "src/continuity_engine/services/__init__.py",
+        "src/continuity_engine/services/resource_aware_wake_scheduler.py",
+        "src/continuity_engine/storage/__init__.py",
+        "src/continuity_engine/storage/base.py",
+        "src/continuity_engine/testing/__init__.py"
+      ],
+      "allowedExact": [
+        "src/continuity_engine/__init__.py",
+        "src/continuity_engine/domain/__init__.py",
+        "src/continuity_engine/services/__init__.py",
+        "src/continuity_engine/services/resource_aware_wake_scheduler.py",
+        "src/continuity_engine/storage/__init__.py",
+        "src/continuity_engine/storage/base.py",
+        "src/continuity_engine/testing/__init__.py"
+      ],
+      "p11Files": {
+        "src/continuity_engine/domain/scheduling.py": "fb175bd22b9c179ba1a7d23b931f4f9ba3ce65e28ef36f4e16fa156e59ce776c",
+        "src/continuity_engine/services/scheduler_ports.py": "4b6fbf942d657fed59e49f9b12fcce229b17ab4060ac592d53c61687af1d0a7b",
+        "src/continuity_engine/services/scheduler_service.py": "6f7236dde662ed115b375a9de75278a82c576a110ca13c3410b468cd630a70da",
+        "src/continuity_engine/storage/json_scheduler_repository.py": "69b941bd1fcac703117a4eb9bc6266fcaa1a2a52a1422a33995c84534174649c",
+        "src/continuity_engine/testing/p11_scheduler_fixture.py": "7db42cc0e25fcfd9fb16a56b3a3473418cf3141b8522bcfc4bb3ad933d4fe2e7",
+        "tests/test_p11_scheduler.py": "f5d667efc846e9cc3bd239f516a182cf8661e2b3fa5d64d7032870b683c91eae",
+        "tests/test_p11_scheduler_recovery.py": "2f19170d3625d9552bed64a1d9f48ff13ee63b3fa8cb89c30030b1a5118dbb4d"
+      }
+    },
+    "static": {
+      "pythonFiles": 185,
+      "astErrors": [],
+      "markdownFiles": 81,
+      "localLinks": 697,
+      "brokenLinks": []
+    },
+    "version": "0.1.0",
+    "decisions": {
+      "d057Count": 1,
+      "d058Created": false
+    },
+    "finalTests": {
+      "p11": {
+        "phase": "p11-specialized-final-archive",
+        "command": "python -m unittest tests.test_p11_scheduler tests.test_p11_scheduler_recovery -q",
+        "exitCode": 0,
+        "wallSeconds": 8.266,
+        "expectedTests": 39,
+        "startedAfterDocumentation": true,
+        "log": "docs/project_memory/p11_evidence/stable-20260905/p11-specialized-final-archive.log"
+      },
+      "full": {
+        "phase": "engine-full-final-archive",
+        "command": "python -m unittest discover -s tests -q",
+        "exitCode": 0,
+        "wallSeconds": 439.525,
+        "expectedTests": 833,
+        "startedAfterDocumentation": true,
+        "log": "docs/project_memory/p11_evidence/stable-20260905/full-final-archive.log"
+      }
+    }
+  },
+  "assistantReadOnly": {
+    "branch": "continuity-assistant-fenzhi",
+    "head": "a4d1dd250ed1934f28a7e9930e1a54190ece427d",
+    "upstream": "a4d1dd250ed1934f28a7e9930e1a54190ece427d",
+    "aheadBehind": [
+      "0",
+      "0"
+    ],
+    "status": [],
+    "verifiedCodeCommit": "90f112b8be4617feb2d6387ceb2f77603302cee6",
+    "verifiedCodeIsAncestor": true,
+    "laterDiffFiles": [
+      "README.md",
+      "docs/assistant/P10_BOUNDARIES_AND_SYNC.md",
+      "docs/assistant/P10_CHECKPOINT_SYNC.md"
+    ],
+    "laterDiffDocOnly": true
+  },
+  "preservedHelperFailures": [
+    "post-final-audit-helper-failure.json",
+    "post-final-audit-assistant-head-assumption-failure.json"
+  ]
+}

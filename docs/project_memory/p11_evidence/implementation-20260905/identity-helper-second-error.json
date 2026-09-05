@@ -1,0 +1,7 @@
+{
+  "phase": "test identity inventory helper second attempt",
+  "exitCode": 1,
+  "error": "repository root was absent from sys.path, so tests.* helper imports failed",
+  "classification": "evidence helper error, not Engine test failure",
+  "fixedBy": "prepend repository root and src before original discover -s tests semantics"
+}

@@ -1,0 +1,13 @@
+{
+  "phase": "P11 specialized final code",
+  "command": "python -m unittest tests.test_p11_scheduler tests.test_p11_scheduler_recovery -q",
+  "startedAt": "2026-09-04T21:34:30.5134519Z",
+  "elapsedSeconds": 8.18,
+  "exitCode": 0,
+  "tests": "39",
+  "pass": "39",
+  "skip": 0,
+  "fail": 0,
+  "unittestSeconds": "7.704",
+  "log": "p11-specialized-final-code.log"
+}

@@ -1,0 +1,14 @@
+{
+  "phase": "before-admission-fix",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_p11_scheduler.P11SchedulerAdmissionTests",
+    "-v"
+  ],
+  "startedAt": "2026-09-05T14:30:28.014927+00:00",
+  "endedAt": "2026-09-05T14:30:28.909183+00:00",
+  "exitCode": 1,
+  "wallSeconds": 0.894
+}

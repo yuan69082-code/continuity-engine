@@ -1,0 +1,61 @@
+{
+  "capturedAt": "2026-09-05T14:33:20.199345+00:00",
+  "status": "PASS",
+  "errors": [],
+  "changedSourceTestFiles": [
+    "src/continuity_engine/services/scheduler_service.py",
+    "tests/test_p11_scheduler.py"
+  ],
+  "currentPatchHashes": {
+    "src/continuity_engine/services/scheduler_service.py": "d4db2fbc2aeda822f841d595e9ea77efa2595eb1b512945c48b8e39e5411ecf1",
+    "tests/test_p11_scheduler.py": "c2e23811b1c2f7c9c9a0bc7f81b867a04d47cd2a779fcab09164fc2ac7aa74e4"
+  },
+  "otherSourceTestFilesUnchanged": 189,
+  "original39TestMethodsPreserved": true,
+  "addedTests": [
+    "P11SchedulerAdmissionTests.test_combined_attempt_receipt_cancel_history_rejected_before_io",
+    "P11SchedulerAdmissionTests.test_created_task_and_persisted_retry_completion_remain_compatible",
+    "P11SchedulerAdmissionTests.test_exhausted_initial_attempt_rejected_before_enqueue",
+    "P11SchedulerAdmissionTests.test_initial_history_rejected_before_io_with_existing_queue",
+    "P11SchedulerAdmissionTests.test_initial_history_rejected_before_io_without_queue",
+    "P11SchedulerAdmissionTests.test_noninitial_state_sequence_revision_rejected_before_io"
+  ],
+  "currentP11Tests": 45,
+  "protectedFiles": 63,
+  "protectedHashesUnchanged": true,
+  "formalDataFiles": 7,
+  "p10Helpers": 31,
+  "version": "0.1.0",
+  "git": {
+    "head": "a905853ca05edd56d9a8b0164818b4388a90b85f",
+    "upstream": "a905853ca05edd56d9a8b0164818b4388a90b85f",
+    "branch": "main",
+    "aheadBehind": [
+      "0",
+      "0"
+    ],
+    "staged": "",
+    "diffCheckExit": 0,
+    "trackedModifiedCount": 56,
+    "untrackedCount": 105,
+    "existingP10UntrackedCount": 31
+  },
+  "sourceASTFiles": 2,
+  "secretHits": [],
+  "documentationFiles": [
+    "README.md",
+    "docs/project_memory/01_当前状态.md",
+    "docs/project_memory/03_施工日志.md",
+    "docs/project_memory/04_决策记录.md",
+    "docs/project_memory/55_P11_EventPriority与Scheduler架构边界.md",
+    "docs/project_memory/56_P11_规划施工测试验收矩阵.md",
+    "docs/project_memory/57_P11_队列恢复重试取消与投递语义.md",
+    "docs/project_memory/58_P11_测试索引与验收入口.md",
+    "docs/project_memory/CHANGELOG.md"
+  ],
+  "d058Created": false,
+  "documentationLocalLinks": {
+    "count": 134,
+    "broken": []
+  }
+}

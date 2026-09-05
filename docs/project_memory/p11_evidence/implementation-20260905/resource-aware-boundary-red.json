@@ -1,0 +1,10 @@
+{
+  "phase": "ResourceAwareWakeScheduler integration red",
+  "command": "python -m unittest tests.test_p11_scheduler_recovery.P11SchedulerRecoveryTests.test_successful_wake_reuses_resource_aware_scheduler_allocation -q",
+  "startedAt": "2026-09-04T21:12:12.2335246Z",
+  "elapsedSeconds": 0.491,
+  "exitCode": 1,
+  "observed": "0 PASS, 1 FAIL",
+  "failure": "successful P11 fixture wake previewed but did not allocate through existing ResourceAwareWakeScheduler",
+  "log": "resource-aware-boundary-red.log"
+}

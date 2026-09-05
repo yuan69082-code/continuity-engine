@@ -1,0 +1,11 @@
+{
+  "phase": "P09 and P11 composition first run",
+  "command": "python -m unittest tests.test_p11_scheduler_recovery.P11SchedulerRecoveryTests.test_p09_normal_chain_then_scheduler_opportunity_keeps_authorities_separate -q",
+  "startedAt": "2026-09-04T21:15:56.6008801Z",
+  "elapsedSeconds": 1.173,
+  "exitCode": 1,
+  "observed": "0 PASS, 1 FAIL",
+  "failure": "assertion counted the pre-existing P09 WakeSession as P11 output",
+  "engineSemantics": "P09 created one session and P11 added exactly one, observed total 2",
+  "log": "p09-composition-first.log"
+}

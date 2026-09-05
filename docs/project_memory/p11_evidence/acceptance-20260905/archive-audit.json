@@ -1,0 +1,73 @@
+{
+  "capturedAt": "2026-09-05T14:46:57.052918+00:00",
+  "status": "PASS",
+  "errors": [],
+  "scope": "P11 formal acceptance documentation only; no test execution or Git write operation",
+  "independentReviewProvidedByUser": {
+    "originalCounterexamples": {
+      "pass": 2,
+      "total": 2,
+      "seconds": null
+    },
+    "p11": {
+      "pass": 45,
+      "total": 45,
+      "seconds": 8.371
+    },
+    "protectedScopeCheck": "PASS"
+  },
+  "sourceTestFiles": 191,
+  "sourceTestUnchanged": true,
+  "protectedFiles": 63,
+  "protectedChanges": [],
+  "formalData": {
+    "files": 7,
+    "exactInventoryAndHashesUnchanged": true,
+    "baselineInventoryTree": "sha256:f9c710c6085e430a251f74463d57133f8c5a4497fe8ffa2ccb96be2db1037bb2",
+    "treeEvidence": "Exact path/length/SHA-256 inventory matches the recorded tree baseline; no new tree-hash algorithm introduced"
+  },
+  "previousP11EvidenceFiles": 63,
+  "previousEvidenceChanges": [],
+  "p10HelpersUnchanged": true,
+  "changedMarkdownFiles": 53,
+  "newAcceptanceEvidenceFiles": 6,
+  "decision": "D-058",
+  "acceptedMatrixRows": 12,
+  "currentGateBanners": 45,
+  "localDocumentLinks": {
+    "files": 54,
+    "checked": 582,
+    "broken": [],
+    "scope": "Current changed documents and pending list; exact historical matrix snapshot retains original-relative links"
+  },
+  "sensitiveContentCheck": {
+    "patterns": "private-key headers and high-confidence API token patterns",
+    "hits": []
+  },
+  "git": {
+    "branch": "main",
+    "head": "a905853ca05edd56d9a8b0164818b4388a90b85f",
+    "localOriginMain": "a905853ca05edd56d9a8b0164818b4388a90b85f",
+    "aheadBehind": [
+      "0",
+      "0"
+    ],
+    "staged": "",
+    "diffCheckExit": 0,
+    "diffCheckStdout": "",
+    "diffCheckWarnings": "Existing LF/CRLF conversion warnings only",
+    "trackedModifiedCount": 56,
+    "untrackedCount": 111,
+    "categories": {
+      "sourceTest": 14,
+      "documentation": 53,
+      "evidence": 69,
+      "excludedP10Helpers": 31,
+      "other": 0
+    }
+  },
+  "version": "0.1.0 (pyproject hash unchanged)",
+  "testsRunThisArchive": 0,
+  "assistantAccessThisArchive": false,
+  "p12Started": false
+}

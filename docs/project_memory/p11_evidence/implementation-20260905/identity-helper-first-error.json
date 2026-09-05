@@ -1,0 +1,7 @@
+{
+  "phase": "test identity inventory helper first attempt",
+  "exitCode": 1,
+  "error": "unittest discover with top_level_dir treated tests directory without __init__.py as non-importable",
+  "classification": "evidence helper error, not Engine test failure",
+  "fixedBy": "use original discover -s tests semantics and normalize module prefixes"
+}

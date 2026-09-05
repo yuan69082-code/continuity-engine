@@ -1,0 +1,32 @@
+======================================================================
+ERROR: test_p11_scheduler (unittest.loader._FailedTest.test_p11_scheduler)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_p11_scheduler
+Traceback (most recent call last):
+  File "E:\Adobe\Lib\unittest\loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p11_scheduler.py", line 9, in <module>
+    from continuity_engine.domain.scheduling import (
+    ...<9 lines>...
+    )
+ModuleNotFoundError: No module named 'continuity_engine.domain.scheduling'
+
+
+======================================================================
+ERROR: test_p11_scheduler_recovery (unittest.loader._FailedTest.test_p11_scheduler_recovery)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_p11_scheduler_recovery
+Traceback (most recent call last):
+  File "E:\Adobe\Lib\unittest\loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p11_scheduler_recovery.py", line 9, in <module>
+    from continuity_engine.domain.scheduling import (
+    ...<5 lines>...
+    )
+ModuleNotFoundError: No module named 'continuity_engine.domain.scheduling'
+
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.000s
+
+FAILED (errors=2)

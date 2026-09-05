@@ -1,0 +1,12 @@
+{
+  "phase": "P11 direct related compatibility final code",
+  "command": "python -m unittest [Awakening Resources P03 P08 P09 P11 modules] -q",
+  "startedAt": "2026-09-04T21:34:51.8922873Z",
+  "elapsedSeconds": 318.239,
+  "exitCode": 0,
+  "tests": "238",
+  "unittestSeconds": "317.671",
+  "skip": "1",
+  "log": "direct-related-final-code.log",
+  "modules": 17
+}

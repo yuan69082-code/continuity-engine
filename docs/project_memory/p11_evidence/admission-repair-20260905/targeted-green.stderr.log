@@ -1,0 +1,11 @@
+test_combined_attempt_receipt_cancel_history_rejected_before_io (tests.test_p11_scheduler.P11SchedulerAdmissionTests.test_combined_attempt_receipt_cancel_history_rejected_before_io) ... ok
+test_created_task_and_persisted_retry_completion_remain_compatible (tests.test_p11_scheduler.P11SchedulerAdmissionTests.test_created_task_and_persisted_retry_completion_remain_compatible) ... ok
+test_exhausted_initial_attempt_rejected_before_enqueue (tests.test_p11_scheduler.P11SchedulerAdmissionTests.test_exhausted_initial_attempt_rejected_before_enqueue) ... ok
+test_initial_history_rejected_before_io_with_existing_queue (tests.test_p11_scheduler.P11SchedulerAdmissionTests.test_initial_history_rejected_before_io_with_existing_queue) ... ok
+test_initial_history_rejected_before_io_without_queue (tests.test_p11_scheduler.P11SchedulerAdmissionTests.test_initial_history_rejected_before_io_without_queue) ... ok
+test_noninitial_state_sequence_revision_rejected_before_io (tests.test_p11_scheduler.P11SchedulerAdmissionTests.test_noninitial_state_sequence_revision_rejected_before_io) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.335s
+
+OK

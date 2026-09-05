@@ -1,6 +1,6 @@
 # Continuity Engine
 
-> P10 现行门：P00—P10 = ACCEPTED；P10 / P10 Engine side / P10-01—P10-12 = ACCEPTED；P10 Vio dependency = NONE；P11—P23 = NOT_STARTED；PLANNING_CONFLICT = NONE；EVIDENCE_CONFLICT = NONE（仅表示现行 P10 验收阻断已闭合）。 D-056 与最终依据见 [最终复核及验收记录](docs/project_memory/p10_evidence/launcher-repair-20260905/REVIEW_REPORT.md#p10-accepted)。Engine checkpoint `0115733d75f854e0d7c39062d8cb328a97995354`；Assistant 最终代码提交 `90f112b8be4617feb2d6387ceb2f77603302cee6`；[CI run 33896418682](https://github.com/yuan69082-code/continuity-assistant/actions/runs/33896418682) 为 794/794 PASS、0 SKIP、0 FAIL。历史 FAIL、SKIP、旧 CI failure、辅助错误及 P09 segment 10 stderr 缺失/根因 UNKNOWN 原样保留。
+> P11 现行门：P00—P11 = ACCEPTED；P11 / P11 Engine side / P11-01—P11-12 = ACCEPTED；P11 Vio dependency = NONE；P12—P23 = NOT_STARTED；PLANNING_CONFLICT = NONE；EVIDENCE_CONFLICT = NONE（仅表示现行验收阻断已闭合）。D-058 已登记用户正式验收。监工独立原反例 2/2 PASS、P11 45/45 PASS（8.371 秒）；39/833 全量等修复前结果继续作为历史保留。本次仅验收归档，不运行全量。[P11 验收入口](docs/project_memory/58_P11_测试索引与验收入口.md#p11-accepted)。
 
 连续性引擎是位于 AI 模型之外的独立连续性层。它与 Vio 平台后端是边界独立、数据库独立的平行系统，通过正式版本化契约协作；Vio 前端只连接 Vio 平台后端。它保存的不是聊天记录，而是主体状态及其随事件发生的连续变化。模型、Tool、MCP 和设备是外部能力，不是主体状态权威。历史 Vio 连接仍受已冻结契约约束；P09 按现行独立规划使用宿主中立 Port，Vio 不是本轮运行依赖。
 
@@ -828,3 +828,13 @@ P00—P10 = ACCEPTED；P10 / P10 Engine side / P10-01—P10-12 = ACCEPTED；P10 
 规划监工最终独立核对确认 Engine checkpoint `0115733d75f854e0d7c39062d8cb328a97995354`、Assistant 最终代码提交 `90f112b8be4617feb2d6387ceb2f77603302cee6`、P10 工程检查 14/14 PASS、原 770 项与新增 24 项身份完整，以及 [CI run 33896418682](https://github.com/yuan69082-code/continuity-assistant/actions/runs/33896418682) 794/794 PASS、0 SKIP、0 FAIL。Temp 内远程干净克隆的构建、安装、Golden、来源和两个 Fixture 入口的路径隔离验证通过；冻结边界、正式 7 文件及版本 0.1.0 未变。
 
 D-056 登记的是用户此前给出的条件式验收在独立核对通过后生效。当前冲突归零不改写历史：首次 Temp 失败、Windows 大小写漏项、旧 CI failure、统计入口导入失败、辅助工具错误、各次 SKIP，以及 P09 segment 10 stderr 缺失且根因 UNKNOWN 均保留。P11—P23 未开始；不创建标签或发布。
+
+## P11 Event Priority 与 Scheduler 独立实现（2026-09-05，D-057）
+
+P11 在 Engine 内新增唯一 Scheduler Queue/Record、宿主中立 Notification Port、原子 JSON 仓储和 TEST Fixture。它按可信 UTC、priority、dueAt、稳定 sequence 与可解释 aging 安排一次 computation opportunity；背压、资源不足和静默时段只延迟，不消耗 attempt。投递后不明状态进入 UNKNOWN，按稳定 attempt/receipt 身份先查询；取消与结果恢复幂等，本地调度不重复语义不外推为生产 exactly-once。
+
+Scheduler 复用现有 `AwakeningService`、`WakeSession`、`ResourceManager` 和 `ResourceAwareWakeScheduler`，不生成 thought/emotion/desire/will/action intent，不调用模型、Planner、Action 或现实副作用。P11 专项 39/39；三轮全量每轮 833 项，均为 832 PASS、1 个既有环境 SKIP、0 FAIL。P11 仍为 `IMPLEMENTED_NOT_ACCEPTED`，D-058 未创建；详见 [架构边界](docs/project_memory/55_P11_EventPriority与Scheduler架构边界.md)、[矩阵](docs/project_memory/56_P11_规划施工测试验收矩阵.md)、[恢复语义](docs/project_memory/57_P11_队列恢复重试取消与投递语义.md)和[复核入口](docs/project_memory/58_P11_测试索引与验收入口.md)。
+
+## P11 正式验收归档（2026-09-05，D-058）
+
+用户在独立复核通过后确认验收：原两个反例 2/2 PASS，P11 45/45 PASS（8.371 秒），修改范围和受保护文件 hash 核对通过；首次入队阻断关闭。P00—P11 = ACCEPTED；P11 / P11 Engine side / P11-01—P11-12 = ACCEPTED；P11 Vio dependency = NONE；P12—P23 = NOT_STARTED；PLANNING_CONFLICT = NONE；EVIDENCE_CONFLICT = NONE（仅表示现行验收阻断已闭合）。修复前全量继续标为历史，全部失败/修复证据保留。本次仅档案归档，源码/测试不改、不复跑全量、不修改 Assistant、不进入 P12、不执行 Git 写操作。详见 [验收入口](docs/project_memory/58_P11_测试索引与验收入口.md#p11-accepted)。

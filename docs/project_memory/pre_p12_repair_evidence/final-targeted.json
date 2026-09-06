@@ -1,0 +1,19 @@
+{
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_pre_p12_repairs",
+    "-v"
+  ],
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "startedAt": "2026-09-05T16:24:56.280343+00:00",
+  "environment": {
+    "PYTHONPATH": "src",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "exitCode": 0,
+  "interrupted": false,
+  "finishedAt": "2026-09-05T16:25:00.005197+00:00",
+  "wallSeconds": 3.724
+}

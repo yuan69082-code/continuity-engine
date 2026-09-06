@@ -1,0 +1,27 @@
+{
+  "firstArchiveAudit": {
+    "result": "ERROR",
+    "rawOutput": "Traceback (most recent call last): File <stdin>, line 35, in <module>; AssertionError",
+    "cause": "The read-only archive audit launcher omitted PYTHONPATH=src. unittest discovery could not import continuity_engine; no test method was executed.",
+    "loaderErrorCount": 53,
+    "firstLoaderError": "Failed to import test module: test_action\nTraceback (most recent call last):\n  File \"E:\\Adobe\\Lib\\unittest\\loader.py\", line 426, in _find_test_path\n    module = self._get_module_from_name(name)\n  File \"E:\\Adobe\\Lib\\unittest\\loader.py\", line 367, in _get_module_from_name\n    __import__(name)\n    ~~~~~~~~~~^^^^^^\n  File \"C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_action.py\", line 5, in <module>\n    from continuity_engine.domain.action import (\n    ...<8 lines>...\n    )\nModuleNotFoundError: No module named 'continuity_engine'\n",
+    "correction": "Set PYTHONPATH=src for the audit; do not modify source or tests.",
+    "gitWritesBeforeError": false,
+    "acceptedStateBasis": "Independent review and user authorization unchanged; submitting waits for corrected audit."
+  },
+  "firstStagedWhitespaceCheck": {
+    "command": "git diff --cached --check",
+    "exitCode": 2,
+    "rawOutput": "docs/project_memory/pre_p12_repair_evidence/review-original/baseline-final-chunk.log:13: new blank line at EOF.\ndocs/project_memory/pre_p12_repair_evidence/review-original/final-readonly-audit.json:57: new blank line at EOF.\ndocs/project_memory/pre_p12_repair_evidence/review-original/probe-final.log:147: new blank line at EOF.\ndocs/project_memory/pre_p12_repair_evidence/review-original/probe-run-02.log:105: new blank line at EOF.\ndocs/project_memory/pre_p12_repair_evidence/review-original/probe-run-03.log:48: new blank line at EOF.\ndocs/project_memory/pre_p12_repair_evidence/review-original/probe-run-04.log:28: new blank line at EOF.\n",
+    "classification": "Six unchanged historical raw evidence files have pre-existing blank lines at EOF. Preserve their original bytes and hashes under the user instruction. This is not a source/test failure.",
+    "files": [
+      "docs/project_memory/pre_p12_repair_evidence/review-original/baseline-final-chunk.log",
+      "docs/project_memory/pre_p12_repair_evidence/review-original/final-readonly-audit.json",
+      "docs/project_memory/pre_p12_repair_evidence/review-original/probe-final.log",
+      "docs/project_memory/pre_p12_repair_evidence/review-original/probe-run-02.log",
+      "docs/project_memory/pre_p12_repair_evidence/review-original/probe-run-03.log",
+      "docs/project_memory/pre_p12_repair_evidence/review-original/probe-run-04.log"
+    ],
+    "resolution": "Retain default check result 2; separately require zero whitespace errors for every other staged file, plus exact blob/hash checks for all 139. No whitespace config or raw evidence is changed."
+  }
+}

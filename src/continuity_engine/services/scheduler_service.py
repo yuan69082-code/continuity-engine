@@ -165,9 +165,17 @@ class SchedulerService:
             and task.state is SchedulerTaskState.UNKNOWN
             and (task.next_attempt_at is None or task.next_attempt_at <= now)
         ]
+        verification = None
         if unknown:
-            unknown.sort(key=lambda item: (item.sequence, item.task_id))
-            return self._query_unknown(unknown[0], now)
+            # At most one fact query per tick, oldest verification due first.
+            # A pending query does not consume the healthy dispatch opportunity.
+            unknown.sort(key=lambda item: (
+                item.next_attempt_at or item.created_at, item.sequence, item.task_id
+            ))
+            verification = self._query_unknown(unknown[0], now)
+            if verification.status is not SchedulerTickStatus.VERIFICATION_PENDING:
+                return verification
+            queue = self._repository.load_queue()
 
         candidates = [
             task
@@ -180,6 +188,8 @@ class SchedulerService:
             and task.state is SchedulerTaskState.UNKNOWN
             for task in queue.tasks
         )
+        if not candidates and verification is not None:
+            return verification
         if not candidates and waiting_unknown:
             return SchedulerTickResult(
                 SchedulerTickStatus.NOT_DUE, None, queue.revision, "VERIFICATION_BACKOFF_ACTIVE"
@@ -195,6 +205,8 @@ class SchedulerService:
             and (task.next_attempt_at is None or task.next_attempt_at <= now)
         ]
         if not ready:
+            if verification is not None:
+                return verification
             return SchedulerTickResult(
                 SchedulerTickStatus.NOT_DUE,
                 None,
@@ -257,6 +269,13 @@ class SchedulerService:
         request = self._request(task, now)
         try:
             receipt = self._notification.dispatch(request)
+        except SchedulerIdentityConflictError:
+            # A binding exception explains the rejection, but is not an
+            # independent NOT_DELIVERED receipt and cannot authorize retry.
+            return SchedulerTickResult(
+                SchedulerTickStatus.VERIFICATION_PENDING,
+                task.clone(), queue.revision, "DISPATCH_BINDING_CONFLICT",
+            )
         except Exception:
             return SchedulerTickResult(
                 SchedulerTickStatus.VERIFICATION_PENDING,
@@ -353,6 +372,12 @@ class SchedulerService:
         if not self._receipt_matches(task, receipt):
             queue = self._repository.load_queue()
             current = self._find(queue, task.task_id)
+            if current is not None and current.state is SchedulerTaskState.UNKNOWN:
+                current.next_attempt_at = now + timedelta(seconds=self._retry_base_seconds)
+                current.revision += 1
+                current.reason_codes += ("RECEIPT_CONFLICT_BACKOFF",)
+                current.__post_init__()
+                self._save(queue)
             return SchedulerTickResult(
                 SchedulerTickStatus.VERIFICATION_PENDING,
                 current.clone() if current is not None else task.clone(),

@@ -1,0 +1,59 @@
+test_concurrent_events_are_not_silently_lost (__main__.RecheckProbes.test_concurrent_events_are_not_silently_lost) ... ok
+test_control_memory_disjoint_roots_merge (__main__.RecheckProbes.test_control_memory_disjoint_roots_merge) ... ok
+test_control_real_restriction_removes_capability (__main__.RecheckProbes.test_control_real_restriction_removes_capability) ... ok
+test_control_resource_once_reconciles (__main__.RecheckProbes.test_control_resource_once_reconciles) ... ok
+test_control_scheduler_unknown_allows_immediate_next_tick (__main__.RecheckProbes.test_control_scheduler_unknown_allows_immediate_next_tick) ... ok
+test_control_sequential_events_preserved (__main__.RecheckProbes.test_control_sequential_events_preserved) ... ok
+test_extra_concurrent_allowed_resource_requests_allocate_once (__main__.RecheckProbes.test_extra_concurrent_allowed_resource_requests_allocate_once) ... ok
+test_extra_concurrent_conflicting_resource_request_cannot_append_denial (__main__.RecheckProbes.test_extra_concurrent_conflicting_resource_request_cannot_append_denial) ... FAIL
+test_extra_concurrent_denied_resource_requests_reject_duplicate_identity (__main__.RecheckProbes.test_extra_concurrent_denied_resource_requests_reject_duplicate_identity) ... FAIL
+test_extra_conflicting_event_identity_is_rejected (__main__.RecheckProbes.test_extra_conflicting_event_identity_is_rejected) ... ok
+test_extra_freshly_validated_learning_with_unchanged_support_can_solidify (__main__.RecheckProbes.test_extra_freshly_validated_learning_with_unchanged_support_can_solidify) ... FAIL
+test_extra_same_event_returns_the_persisted_identity (__main__.RecheckProbes.test_extra_same_event_returns_the_persisted_identity) ... ok
+test_learning_rechecks_rejected_support_before_solidifying (__main__.RecheckProbes.test_learning_rechecks_rejected_support_before_solidifying) ... ok
+test_memory_partial_overlap_preserves_new_evidence (__main__.RecheckProbes.test_memory_partial_overlap_preserves_new_evidence) ... ok
+test_model_zero_budget_still_blocks_execute_after_crash (__main__.RecheckProbes.test_model_zero_budget_still_blocks_execute_after_crash) ... ok
+test_repeated_resource_request_remains_reconcilable (__main__.RecheckProbes.test_repeated_resource_request_remains_reconcilable) ... ok
+test_restriction_does_not_expand_capabilities (__main__.RecheckProbes.test_restriction_does_not_expand_capabilities) ... ok
+test_restriction_does_not_reactivate_revoked_permission (__main__.RecheckProbes.test_restriction_does_not_reactivate_revoked_permission) ... ok
+test_scheduler_foreign_cycle_does_not_wake_another_subject (__main__.RecheckProbes.test_scheduler_foreign_cycle_does_not_wake_another_subject) ... ok
+test_scheduler_receipt_conflict_does_not_starve_other_task (__main__.RecheckProbes.test_scheduler_receipt_conflict_does_not_starve_other_task) ... ok
+test_scheduler_unknown_does_not_starve_at_normal_poll_interval (__main__.RecheckProbes.test_scheduler_unknown_does_not_starve_at_normal_poll_interval) ... ok
+
+======================================================================
+FAIL: test_extra_concurrent_conflicting_resource_request_cannot_append_denial (__main__.RecheckProbes.test_extra_concurrent_conflicting_resource_request_cannot_append_denial)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\engine-pre-p12-recheck-20260906\recheck_probes.py", line 150, in test_extra_concurrent_conflicting_resource_request_cannot_append_denial
+    self._parallel_resources(10, 10000, allowed_first=True)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\engine-pre-p12-recheck-20260906\recheck_probes.py", line 140, in _parallel_resources
+    self.assertEqual(len(decisions), 1, "One stable request identity acquired multiple decisions")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 1 : One stable request identity acquired multiple decisions
+
+======================================================================
+FAIL: test_extra_concurrent_denied_resource_requests_reject_duplicate_identity (__main__.RecheckProbes.test_extra_concurrent_denied_resource_requests_reject_duplicate_identity)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\engine-pre-p12-recheck-20260906\recheck_probes.py", line 147, in test_extra_concurrent_denied_resource_requests_reject_duplicate_identity
+    self._parallel_resources(10000, 10000)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\engine-pre-p12-recheck-20260906\recheck_probes.py", line 140, in _parallel_resources
+    self.assertEqual(len(decisions), 1, "One stable request identity acquired multiple decisions")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 1 : One stable request identity acquired multiple decisions
+
+======================================================================
+FAIL: test_extra_freshly_validated_learning_with_unchanged_support_can_solidify (__main__.RecheckProbes.test_extra_freshly_validated_learning_with_unchanged_support_can_solidify)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\engine-pre-p12-recheck-20260906\recheck_probes.py", line 175, in test_extra_freshly_validated_learning_with_unchanged_support_can_solidify
+    self.assertIsNone(error, "Fresh validation and immediate solidification disagree without evidence changes")
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'current support no longer meets validation requirements' is not None : Fresh validation and immediate solidification disagree without evidence changes
+
+----------------------------------------------------------------------
+Ran 21 tests in 1.410s
+
+FAILED (failures=3)

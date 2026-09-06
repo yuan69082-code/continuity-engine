@@ -1,0 +1,21 @@
+{
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_pre_p12_repairs.PreP12RegressionTests.test_concurrent_same_event_is_persisted_once",
+    "tests.test_pre_p12_repairs.PreP12RegressionTests.test_learning_current_sufficient_confidence_is_not_overstated",
+    "tests.test_pre_p12_repairs.PreP12RegressionTests.test_scheduler_foreign_cycle_rejected_without_resource_wake_or_receipt_write",
+    "-v"
+  ],
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "startedAt": "2026-09-05T16:24:24.904746+00:00",
+  "environment": {
+    "PYTHONPATH": "src",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "exitCode": 1,
+  "interrupted": false,
+  "finishedAt": "2026-09-05T16:24:25.798449+00:00",
+  "wallSeconds": 0.893
+}

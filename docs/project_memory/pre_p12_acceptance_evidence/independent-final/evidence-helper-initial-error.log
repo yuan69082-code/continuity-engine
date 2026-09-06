@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\engine-pre-p12-final-review-20260906\verify_evidence.py", line 33, in <module>
+    identities = list(flatten(loader.discover(str(ROOT / "tests"), top_level_dir=str(ROOT))))
+                              ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Adobe\Lib\unittest\loader.py", line 334, in discover
+    raise ImportError('Start directory is not importable: %r' % start_dir)
+ImportError: Start directory is not importable: 'C:\\Users\\Administrator\\Documents\\continuity-engine\\tests'

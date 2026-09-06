@@ -161,6 +161,8 @@ class PermissionService:
     ) -> PermissionChangeResult:
         current = self._repository.load(subject_id, permission_id)
         self._check_revision(current, expected_revision)
+        if not current.is_available:
+            raise PermissionValidationError("restriction cannot reactivate unavailable permission")
         updated = PermissionState.from_dict(current.to_dict())
         next_scope = list(scope) if scope is not None else list(updated.scope)
         next_capabilities = (
@@ -168,6 +170,12 @@ class PermissionService:
             if capabilities is not None
             else list(updated.capabilities)
         )
+        if not set(next_capabilities).issubset(current.capabilities):
+            raise PermissionValidationError("restriction cannot add capabilities")
+        # PermissionState.allows supports the universal '*' scope, otherwise
+        # scopes are exact names. A literal string set check misses '*'.
+        if "*" not in current.scope and not set(next_scope).issubset(current.scope):
+            raise PermissionValidationError("restriction cannot expand scope")
         if (
             current.status is PermissionStatus.LIMITED
             and next_scope == current.scope

@@ -5,6 +5,7 @@ import json
 import os
 import tempfile
 from pathlib import Path
+from threading import RLock
 from typing import Any
 
 from continuity_engine.domain.errors import (
@@ -18,6 +19,10 @@ from continuity_engine.domain.models import SubjectState
 
 
 PERSISTENCE_FORMAT_VERSION = 1
+
+# Shared by repository instances: protect the complete local read/validate/write
+# transaction, including direct-save compatibility. No multi-process guarantee.
+_STATE_WRITE_LOCK = RLock()
 
 
 class JsonSubjectStateRepository:
@@ -54,53 +59,55 @@ class JsonSubjectStateRepository:
         return state
 
     def save(self, state: SubjectState) -> None:
-        path = self._path_for(state.subject_id)
-        updates: list[StateUpdateRecord] | None = None
-        if path.is_file():
-            raw = self._read_payload(path, state.subject_id)
-            if self._is_envelope(raw):
-                current, updates = self._decode_document(raw)
-                if state.to_dict() != current.to_dict():
-                    raise StateEvolutionError(
-                        "event-backed state cannot be changed with direct save; use save_transition"
-                    )
-        payload: dict[str, Any] = state.to_dict()
-        if updates is not None:
-            payload = self._envelope(state, updates)
-        self._write_payload(path, payload)
+        with _STATE_WRITE_LOCK:
+            path = self._path_for(state.subject_id)
+            updates: list[StateUpdateRecord] | None = None
+            if path.is_file():
+                raw = self._read_payload(path, state.subject_id)
+                if self._is_envelope(raw):
+                    current, updates = self._decode_document(raw)
+                    if state.to_dict() != current.to_dict():
+                        raise StateEvolutionError(
+                            "event-backed state cannot be changed with direct save; use save_transition"
+                        )
+            payload: dict[str, Any] = state.to_dict()
+            if updates is not None:
+                payload = self._envelope(state, updates)
+            self._write_payload(path, payload)
 
     def save_transition(self, state: SubjectState, update: StateUpdateRecord) -> None:
-        path = self._path_for(state.subject_id)
-        if not path.is_file():
-            raise StateNotFoundError(f"subject state not found: {state.subject_id}")
+        with _STATE_WRITE_LOCK:
+            path = self._path_for(state.subject_id)
+            if not path.is_file():
+                raise StateNotFoundError(f"subject state not found: {state.subject_id}")
 
-        current, updates = self._decode_document(self._read_payload(path, state.subject_id))
-        if current.subject_id != state.subject_id or update.subject_id != state.subject_id:
-            raise StateEvolutionError("transition subject identifiers do not match")
-        existing = next(
-            (record for record in updates if record.event.event_id == update.event.event_id),
-            None,
-        )
-        if existing is not None:
-            if existing.event.canonical_dict() != update.event.canonical_dict():
-                raise EventIdentityConflictError(
-                    f"event identity conflicts with immutable history: {update.event.event_id}"
-                )
-            if current.to_dict() != state.to_dict():
-                raise StateEvolutionError(
-                    "idempotent event replay cannot change the persisted subject state"
-                )
-            return
-        if current.revision != update.before_revision:
-            raise StateEvolutionError(
-                f"stale state revision: stored {current.revision}, event expected "
-                f"{update.before_revision}"
+            current, updates = self._decode_document(self._read_payload(path, state.subject_id))
+            if current.subject_id != state.subject_id or update.subject_id != state.subject_id:
+                raise StateEvolutionError("transition subject identifiers do not match")
+            existing = next(
+                (record for record in updates if record.event.event_id == update.event.event_id),
+                None,
             )
-        if state.revision != update.after_revision:
-            raise StateEvolutionError("updated state revision does not match its update record")
-        if any(record.update_id == update.update_id for record in updates):
-            raise StateEvolutionError(f"duplicate update record: {update.update_id}")
-        self._write_payload(path, self._envelope(state, [*updates, update]))
+            if existing is not None:
+                if existing.event.canonical_dict() != update.event.canonical_dict():
+                    raise EventIdentityConflictError(
+                        f"event identity conflicts with immutable history: {update.event.event_id}"
+                    )
+                if current.to_dict() != state.to_dict():
+                    raise StateEvolutionError(
+                        "idempotent event replay cannot change the persisted subject state"
+                    )
+                return
+            if current.revision != update.before_revision:
+                raise StateEvolutionError(
+                    f"stale state revision: stored {current.revision}, event expected "
+                    f"{update.before_revision}"
+                )
+            if state.revision != update.after_revision:
+                raise StateEvolutionError("updated state revision does not match its update record")
+            if any(record.update_id == update.update_id for record in updates):
+                raise StateEvolutionError(f"duplicate update record: {update.update_id}")
+            self._write_payload(path, self._envelope(state, [*updates, update]))
 
     def list_update_records(self, subject_id: str) -> list[StateUpdateRecord]:
         path = self._path_for(subject_id)

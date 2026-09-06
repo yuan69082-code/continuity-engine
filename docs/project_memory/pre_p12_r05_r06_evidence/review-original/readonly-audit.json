@@ -1,0 +1,23 @@
+{
+  "time": "2026-09-06T01:01:00.2547949+08:00",
+  "head": "5f25d0cef3798aa380d457ae670db30ee1b47407",
+  "localAheadBehind": "0\t0",
+  "fileCount": 933,
+  "treeSha256": "397e0979059f088c04197b0d8c7f2def7ffc123d234c888ca044a4687596c780",
+  "engineTreeUnchanged": true,
+  "gitStatusUnchanged": true,
+  "trackedChanges": 24,
+  "untracked": 87,
+  "indexChangedPaths": [],
+  "hashChecks": {
+    "protected": {
+      "count": 63,
+      "mismatches": []
+    },
+    "stableSource": {
+      "count": 192,
+      "mismatches": []
+    }
+  },
+  "diffCheckExit": 0
+}

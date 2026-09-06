@@ -1,0 +1,24 @@
+test_aggregate_does_not_corroborate_itself_again (tests.test_pre_p12_r05_r06_followup.LearningConfidenceTests.test_aggregate_does_not_corroborate_itself_again) ... ok
+test_current_target_confidence_reduction_is_respected (tests.test_pre_p12_r05_r06_followup.LearningConfidenceTests.test_current_target_confidence_reduction_is_respected) ... ok
+test_explicit_confirmation_still_required (tests.test_pre_p12_r05_r06_followup.LearningConfidenceTests.test_explicit_confirmation_still_required) ... ok
+test_high_own_confidence_cannot_replace_rejected_support (tests.test_pre_p12_r05_r06_followup.LearningConfidenceTests.test_high_own_confidence_cannot_replace_rejected_support) ... ok
+test_high_own_confidence_retains_existing_policy_with_weaker_support (tests.test_pre_p12_r05_r06_followup.LearningConfidenceTests.test_high_own_confidence_retains_existing_policy_with_weaker_support) ... ok
+test_high_own_confidence_still_rechecks_support_and_roots (tests.test_pre_p12_r05_r06_followup.LearningConfidenceTests.test_high_own_confidence_still_rechecks_support_and_roots) ... ok
+test_insufficient_current_confidence_rejects_without_writes (tests.test_pre_p12_r05_r06_followup.LearningConfidenceTests.test_insufficient_current_confidence_rejects_without_writes) ... ok
+test_unchanged_high_target_validation_can_immediately_solidify (tests.test_pre_p12_r05_r06_followup.LearningConfidenceTests.test_unchanged_high_target_validation_can_immediately_solidify) ... ok
+test_unchanged_high_target_validation_survives_restart (tests.test_pre_p12_r05_r06_followup.LearningConfidenceTests.test_unchanged_high_target_validation_survives_restart) ... ok
+test_weaker_but_sufficient_current_support_is_saved (tests.test_pre_p12_r05_r06_followup.LearningConfidenceTests.test_weaker_but_sufficient_current_support_is_saved) ... ok
+test_confidence_can_be_raised_or_lowered_without_state_change (tests.test_learning.PersonalityLearningTests.test_confidence_can_be_raised_or_lowered_without_state_change) ... ok
+test_consistent_experiences_raise_confidence_and_validate (tests.test_learning.PersonalityLearningTests.test_consistent_experiences_raise_confidence_and_validate) ... ok
+test_consolidation_requires_confirmation_and_evolution (tests.test_learning.PersonalityLearningTests.test_consolidation_requires_confirmation_and_evolution) ... ok
+test_context_extracts_only_explicit_structured_learning_evidence (tests.test_learning.PersonalityLearningTests.test_context_extracts_only_explicit_structured_learning_evidence) ... ok
+test_learning_history_preserves_experience_reason_and_diff (tests.test_learning.PersonalityLearningTests.test_learning_history_preserves_experience_reason_and_diff) ... ok
+test_learning_state_recovers_after_restart (tests.test_learning.PersonalityLearningTests.test_learning_state_recovers_after_restart) ... ok
+test_single_experience_only_creates_candidate (tests.test_learning.PersonalityLearningTests.test_single_experience_only_creates_candidate) ... ok
+test_unvalidated_learning_cannot_be_consolidated (tests.test_learning.PersonalityLearningTests.test_unvalidated_learning_cannot_be_consolidated) ... ok
+test_wrong_learning_can_be_rolled_back_through_evolution (tests.test_learning.PersonalityLearningTests.test_wrong_learning_can_be_rolled_back_through_evolution) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 0.552s
+
+OK

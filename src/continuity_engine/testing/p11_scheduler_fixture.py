@@ -17,6 +17,7 @@ from continuity_engine.domain.scheduling import (
     NotificationStatus,
     QuietHours,
     SchedulerTask,
+    SchedulerIdentityConflictError,
     SchedulerWakeReason,
 )
 from continuity_engine.services.awakening_service import AwakeningService
@@ -322,13 +323,30 @@ class P11SchedulerFixture:
                 )
 
         def on_delivered(request: NotificationRequest) -> None:
+            task = next((item for item in repository.load_queue().tasks
+                         if item.task_id == request.task_id), None)
+            if (request.subject_id != subject_id or request.environment != "TEST"
+                    or task is None or task.subject_id != request.subject_id
+                    or task.environment != request.environment
+                    or task.last_attempt_id != request.attempt_id
+                    or task.cycle_id != request.cycle_id
+                    or task.wake_reason != request.wake_reason
+                    or task.source_event_id != request.source_event_id):
+                raise SchedulerIdentityConflictError("TEST notification request/task binding conflicts")
             if awakening_service is None:
                 return
+            cycle = awakening_repository.load_cycle(request.cycle_id)
+            if cycle.subject_id != request.subject_id:
+                raise SchedulerIdentityConflictError("TEST notification cycle belongs to another subject")
             try:
-                awakening_repository.load_session(subject_id, request.attempt_id)
-                return
+                session = awakening_repository.load_session(subject_id, request.attempt_id)
             except StateNotFoundError:
-                pass
+                session = None
+            if session is not None:
+                if (session.subject_id != request.subject_id or session.cycle_id != request.cycle_id
+                        or session.session_id != request.attempt_id):
+                    raise SchedulerIdentityConflictError("TEST notification session binding conflicts")
+                return
             wake_scheduler = ResourceAwareWakeScheduler(
                 awakening_service, resource_manager, clock=clock.now
             )

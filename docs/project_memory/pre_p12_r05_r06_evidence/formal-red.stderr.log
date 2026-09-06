@@ -1,0 +1,176 @@
+test_aggregate_does_not_corroborate_itself_again (tests.test_pre_p12_r05_r06_followup.LearningConfidenceTests.test_aggregate_does_not_corroborate_itself_again) ... ok
+test_current_target_confidence_reduction_is_respected (tests.test_pre_p12_r05_r06_followup.LearningConfidenceTests.test_current_target_confidence_reduction_is_respected) ... ERROR
+test_explicit_confirmation_still_required (tests.test_pre_p12_r05_r06_followup.LearningConfidenceTests.test_explicit_confirmation_still_required) ... ok
+test_high_own_confidence_cannot_replace_rejected_support (tests.test_pre_p12_r05_r06_followup.LearningConfidenceTests.test_high_own_confidence_cannot_replace_rejected_support) ... ok
+test_high_own_confidence_retains_existing_policy_with_weaker_support (tests.test_pre_p12_r05_r06_followup.LearningConfidenceTests.test_high_own_confidence_retains_existing_policy_with_weaker_support) ... ERROR
+test_high_own_confidence_still_rechecks_support_and_roots (tests.test_pre_p12_r05_r06_followup.LearningConfidenceTests.test_high_own_confidence_still_rechecks_support_and_roots) ... ok
+test_insufficient_current_confidence_rejects_without_writes (tests.test_pre_p12_r05_r06_followup.LearningConfidenceTests.test_insufficient_current_confidence_rejects_without_writes) ... ok
+test_unchanged_high_target_validation_can_immediately_solidify (tests.test_pre_p12_r05_r06_followup.LearningConfidenceTests.test_unchanged_high_target_validation_can_immediately_solidify) ... ERROR
+test_unchanged_high_target_validation_survives_restart (tests.test_pre_p12_r05_r06_followup.LearningConfidenceTests.test_unchanged_high_target_validation_survives_restart) ... ERROR
+test_weaker_but_sufficient_current_support_is_saved (tests.test_pre_p12_r05_r06_followup.LearningConfidenceTests.test_weaker_but_sufficient_current_support_is_saved) ... ok
+test_concurrent_allowed_duplicate_charges_once_then_settles (tests.test_pre_p12_r05_r06_followup.ResourceTransactionTests.test_concurrent_allowed_duplicate_charges_once_then_settles) ... ok
+test_concurrent_allowed_then_conflicting_denial_preserves_first_result (tests.test_pre_p12_r05_r06_followup.ResourceTransactionTests.test_concurrent_allowed_then_conflicting_denial_preserves_first_result) ... FAIL
+test_concurrent_denied_duplicate_preserves_first_result (tests.test_pre_p12_r05_r06_followup.ResourceTransactionTests.test_concurrent_denied_duplicate_preserves_first_result) ... FAIL
+test_concurrent_denied_then_conflicting_allowance_preserves_first_result (tests.test_pre_p12_r05_r06_followup.ResourceTransactionTests.test_concurrent_denied_then_conflicting_allowance_preserves_first_result) ... ok
+test_concurrent_new_request_cannot_deny_an_allocated_session (tests.test_pre_p12_r05_r06_followup.ResourceTransactionTests.test_concurrent_new_request_cannot_deny_an_allocated_session) ... FAIL
+test_denials_allow_new_identity_then_allocation_and_settlement (tests.test_pre_p12_r05_r06_followup.ResourceTransactionTests.test_denials_allow_new_identity_then_allocation_and_settlement) ... ok
+
+======================================================================
+ERROR: test_current_target_confidence_reduction_is_respected (tests.test_pre_p12_r05_r06_followup.LearningConfidenceTests.test_current_target_confidence_reduction_is_respected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p12_r05_r06_followup.py", line 182, in test_current_target_confidence_reduction_is_respected
+    self.assert_confidence(0.8)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p12_r05_r06_followup.py", line 146, in assert_confidence
+    result = self.solidify()
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p12_r05_r06_followup.py", line 140, in solidify
+    return self.learning.solidify_learning("subject", self.ids[0], self.state,
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        trait_name="Concise", trait_description="Concise expression", confirmed=confirmed,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        expected_revision=self.state.revision, reason="Confirm evidence", source="review")
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\learning_service.py", line 322, in solidify_learning
+    current.confidence = min(current.confidence, self._verify_current_support(subject_id, current))
+                                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\learning_service.py", line 420, in _verify_current_support
+    raise LearningValidationError("current support no longer meets validation requirements")
+continuity_engine.domain.errors.LearningValidationError: current support no longer meets validation requirements
+
+======================================================================
+ERROR: test_high_own_confidence_retains_existing_policy_with_weaker_support (tests.test_pre_p12_r05_r06_followup.LearningConfidenceTests.test_high_own_confidence_retains_existing_policy_with_weaker_support)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p12_r05_r06_followup.py", line 187, in test_high_own_confidence_retains_existing_policy_with_weaker_support
+    self.assert_confidence(0.95)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p12_r05_r06_followup.py", line 146, in assert_confidence
+    result = self.solidify()
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p12_r05_r06_followup.py", line 140, in solidify
+    return self.learning.solidify_learning("subject", self.ids[0], self.state,
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        trait_name="Concise", trait_description="Concise expression", confirmed=confirmed,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        expected_revision=self.state.revision, reason="Confirm evidence", source="review")
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\learning_service.py", line 322, in solidify_learning
+    current.confidence = min(current.confidence, self._verify_current_support(subject_id, current))
+                                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\learning_service.py", line 420, in _verify_current_support
+    raise LearningValidationError("current support no longer meets validation requirements")
+continuity_engine.domain.errors.LearningValidationError: current support no longer meets validation requirements
+
+======================================================================
+ERROR: test_unchanged_high_target_validation_can_immediately_solidify (tests.test_pre_p12_r05_r06_followup.LearningConfidenceTests.test_unchanged_high_target_validation_can_immediately_solidify)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p12_r05_r06_followup.py", line 159, in test_unchanged_high_target_validation_can_immediately_solidify
+    self.assert_confidence(0.95)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p12_r05_r06_followup.py", line 146, in assert_confidence
+    result = self.solidify()
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p12_r05_r06_followup.py", line 140, in solidify
+    return self.learning.solidify_learning("subject", self.ids[0], self.state,
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        trait_name="Concise", trait_description="Concise expression", confirmed=confirmed,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        expected_revision=self.state.revision, reason="Confirm evidence", source="review")
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\learning_service.py", line 322, in solidify_learning
+    current.confidence = min(current.confidence, self._verify_current_support(subject_id, current))
+                                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\learning_service.py", line 420, in _verify_current_support
+    raise LearningValidationError("current support no longer meets validation requirements")
+continuity_engine.domain.errors.LearningValidationError: current support no longer meets validation requirements
+
+======================================================================
+ERROR: test_unchanged_high_target_validation_survives_restart (tests.test_pre_p12_r05_r06_followup.LearningConfidenceTests.test_unchanged_high_target_validation_survives_restart)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p12_r05_r06_followup.py", line 164, in test_unchanged_high_target_validation_survives_restart
+    self.assert_confidence(0.95)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p12_r05_r06_followup.py", line 146, in assert_confidence
+    result = self.solidify()
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p12_r05_r06_followup.py", line 140, in solidify
+    return self.learning.solidify_learning("subject", self.ids[0], self.state,
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        trait_name="Concise", trait_description="Concise expression", confirmed=confirmed,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        expected_revision=self.state.revision, reason="Confirm evidence", source="review")
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\learning_service.py", line 322, in solidify_learning
+    current.confidence = min(current.confidence, self._verify_current_support(subject_id, current))
+                                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\learning_service.py", line 420, in _verify_current_support
+    raise LearningValidationError("current support no longer meets validation requirements")
+continuity_engine.domain.errors.LearningValidationError: current support no longer meets validation requirements
+
+======================================================================
+FAIL: test_concurrent_allowed_then_conflicting_denial_preserves_first_result (tests.test_pre_p12_r05_r06_followup.ResourceTransactionTests.test_concurrent_allowed_then_conflicting_denial_preserves_first_result)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p12_r05_r06_followup.py", line 94, in test_concurrent_allowed_then_conflicting_denial_preserves_first_result
+    self.parallel_requests(10, 10000)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p12_r05_r06_followup.py", line 78, in parallel_requests
+    self.assertEqual(outcomes, ["allowed" if first_tokens <= 1000 else "denied", "identity-rejected"])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['allowed', 'denied'] != ['allowed', 'identity-rejected']
+
+First differing element 1:
+'denied'
+'identity-rejected'
+
+- ['allowed', 'denied']
++ ['allowed', 'identity-rejected']
+?              +   + +++++++++
+
+
+======================================================================
+FAIL: test_concurrent_denied_duplicate_preserves_first_result (tests.test_pre_p12_r05_r06_followup.ResourceTransactionTests.test_concurrent_denied_duplicate_preserves_first_result)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p12_r05_r06_followup.py", line 91, in test_concurrent_denied_duplicate_preserves_first_result
+    self.parallel_requests(10000, 10000)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p12_r05_r06_followup.py", line 78, in parallel_requests
+    self.assertEqual(outcomes, ["allowed" if first_tokens <= 1000 else "denied", "identity-rejected"])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['denied', 'denied'] != ['denied', 'identity-rejected']
+
+First differing element 1:
+'denied'
+'identity-rejected'
+
+- ['denied', 'denied']
++ ['denied', 'identity-rejected']
+?             +   + +++++++++
+
+
+======================================================================
+FAIL: test_concurrent_new_request_cannot_deny_an_allocated_session (tests.test_pre_p12_r05_r06_followup.ResourceTransactionTests.test_concurrent_new_request_cannot_deny_an_allocated_session)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p12_r05_r06_followup.py", line 103, in test_concurrent_new_request_cannot_deny_an_allocated_session
+    self.parallel_requests(10, 10000, second_id="new-request")
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p12_r05_r06_followup.py", line 78, in parallel_requests
+    self.assertEqual(outcomes, ["allowed" if first_tokens <= 1000 else "denied", "identity-rejected"])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['allowed', 'denied'] != ['allowed', 'identity-rejected']
+
+First differing element 1:
+'denied'
+'identity-rejected'
+
+- ['allowed', 'denied']
++ ['allowed', 'identity-rejected']
+?              +   + +++++++++
+
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.503s
+
+FAILED (failures=3, errors=4)

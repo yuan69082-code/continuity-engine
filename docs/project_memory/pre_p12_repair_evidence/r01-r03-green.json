@@ -1,0 +1,26 @@
+{
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_pre_p12_repairs.PreP12RegressionTests.test_concurrent_events_are_not_silently_lost",
+    "tests.test_pre_p12_repairs.PreP12RegressionTests.test_concurrent_same_event_is_persisted_once",
+    "tests.test_pre_p12_repairs.PreP12RegressionTests.test_concurrent_mutations_preserve_revision_conflict",
+    "tests.test_pre_p12_repairs.PreP12RegressionTests.test_control_sequential_events_preserved",
+    "tests.test_pre_p12_repairs.PreP12RegressionTests.test_restriction_does_not_expand_capabilities",
+    "tests.test_pre_p12_repairs.PreP12RegressionTests.test_restriction_does_not_reactivate_revoked_permission",
+    "tests.test_pre_p12_repairs.PreP12RegressionTests.test_control_real_restriction_removes_capability",
+    "tests.test_pre_p12_repairs.PreP12RegressionTests.test_model_zero_budget_still_blocks_execute_after_crash",
+    "-v"
+  ],
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "startedAt": "2026-09-05T16:13:37.780648+00:00",
+  "environment": {
+    "PYTHONPATH": "src",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "exitCode": 1,
+  "interrupted": false,
+  "finishedAt": "2026-09-05T16:13:40.963602+00:00",
+  "wallSeconds": 3.183
+}

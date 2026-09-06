@@ -1,0 +1,730 @@
+{
+  "capturedAt": "2026-09-05T17:26:18.920814+00:00",
+  "status": "PASS",
+  "errors": [],
+  "sourceTestFiles": 193,
+  "sourceStable": true,
+  "thisRoundChangedSource": [
+    "src/continuity_engine/services/learning_service.py",
+    "src/continuity_engine/storage/json_resource_repository.py"
+  ],
+  "existingTestsUnchanged": true,
+  "protectedFiles": 63,
+  "protectedChanges": [],
+  "protectedCurrentSHA256": {
+    "src/continuity_engine/interfaces/models.py": "bf79e56545cf3ca726139130cc827dd7cb258172af0eb3930435230ab3164056",
+    "pyproject.toml": "40703a155ab1c1626901d1b61363384e49b5c64e58303cc110fe499ff6c25419",
+    "src/continuity_engine/interfaces/ports.py": "938737f18341596802edfe953192565bd71090acce15997225d922236b15e85e",
+    "src/continuity_engine/interfaces/integration_contract_schema.py": "136765997f4314b8e4f5fb1f353ce90a6278ade0b16e1e59fbea349670c11550",
+    "src/continuity_engine/interfaces/schemas/capability-model-output.v1.schema.json": "babdf85c2aa28609d2eb16178ab0a57e3b648f686ab05def0f86dca898526426",
+    "src/continuity_engine/interfaces/local_frontend_app.py": "9649514d102e905b07ec7c2df05ce6e5bebfb94203f8fe587ec851cc9cdcd70d",
+    "src/continuity_engine/interfaces/schemas/capability-result.v1.schema.json": "3359228260eeb5a48f52c2f7ca20bf4821705aa7e50ecd41973d495e703a7001",
+    "src/continuity_engine/interfaces/schemas/capability-request.v1.schema.json": "093284bfc70d0bd5679b34c68d4197a49103680094443ac9d7d6550f9a44e949",
+    "src/continuity_engine/interfaces/core_views.py": "2b6ee55a0e08dde0d015cebc9ee49fb2a581a1f9e655f79e93834cbf93b24092",
+    "src/continuity_engine/interfaces/schemas/platform-observation.message-created.first-round-v1.schema.json": "bc3aaff3d5a928975e9ec434a74d05c7f18bffaaa1bdca46da78142552a98ace",
+    "src/continuity_engine/interfaces/__init__.py": "54565f8093e65116139496461b82f529a8e3179ccfa90bd8816e4be85db5801b",
+    "src/continuity_engine/interfaces/security.py": "40d7f863350e1699dbb460660813adbe4f9cd590bbabe94fae28eb560dc039c9",
+    "src/continuity_engine/interfaces/local_integration_app.py": "445638fced092e77b3cd600da2348061b269c94af516fe935188b610e369c1ef",
+    "src/continuity_engine/interfaces/local_model_capability_app.py": "51f18d21bb2ff5171109134f71ca05db72d91ef01db80d01c85a3c347218aef4",
+    "src/continuity_engine/interfaces/skill_adapter.py": "72ae15b7ad8fbb94dbdfc3d21ec153667cdfc264d13685189e707cbd1fa65edb",
+    "src/continuity_engine/interfaces/capability_schema.py": "474de9fd9130885e7ddd7607aa361bfed5bfb64cfbb2dc7d2b7a5103ce9e6701",
+    "src/continuity_engine/interfaces/schemas/continuity-interaction-request.first-round-v1.schema.json": "18d9656cf4a3842cc55b18411593dfc48a79522ac742b64d83a6fa17d9add656",
+    "src/continuity_engine/interfaces/integration_adapter.py": "3a6c4cd987779d3712242993baaa4c460a30f06a5e7a30fd11419a2db240d487",
+    "src/continuity_engine/interfaces/mcp_adapter.py": "2d4d01f44d10f2bcac348fdb82e56bc8bf57591dad814e80b0b02203377e4a6a",
+    "src/continuity_engine/interfaces/http_server.py": "15c7843fac6435fa3ae9194604f7993dd3ead2c67401653c2f3446dd17877786",
+    "src/continuity_engine/interfaces/api_service.py": "1a2d6f3cd5d5b1ae40c5dd081332b27bc68349f5ca3d0667063b3011bed12979",
+    "src/continuity_engine/interfaces/schemas/platform-fact.message-version.first-round-v1.schema.json": "2ccf8fea7dc69cc1d89e5da5ae8f798f3c170285e61a5d4191d3cbfad1a8746b",
+    "src/continuity_engine/interfaces/integration_config.py": "2e06bafd253c09127fa3a3b537271f84390c57d73c5f3a93909505bf97121572",
+    "src/continuity_engine/interfaces/integration_http_server.py": "131da59540ab2f3f0403f939d38528d6a964412d05643bbf7ddac47ffc418ba1",
+    "src/continuity_engine/interfaces/contract_test_adapter.py": "1c9b988fe875151570ab27215099c7f5ca0af881aee99f1139c57cc1768a3043",
+    "docs/project_memory/p10_evidence/closeout-20260904/check_stop.py": "04ba52bc0eb8467a3e81649f715a36781cced94e2141e1dd43004f0f63e64a50",
+    "docs/project_memory/p10_evidence/closeout-20260904/closeout.py": "13b25e473f2eee7c3b2dd72fe9f793f0a59d47817a08e0e8c204ca8c40652f3b",
+    "docs/project_memory/p10_evidence/closeout-20260904/preserve_failed_closeout.py": "4ad73b1f340edec31a27e9a0bb4948901ca2e8eb7b241765d5368c14c7c38c9b",
+    "docs/project_memory/p10_evidence/closeout-20260904/record_stop.py": "071010b697c3d432a002a6c5d4b6de3ecc5ed26eae06946bd24a85430c5d0d53",
+    "docs/project_memory/p10_evidence/closeout-20260904/sync_assistant.py": "7d6f95f77bb2a30243c8d915753215628eef8fc63d4ae339d81c90fca26b70bc",
+    "docs/project_memory/p10_evidence/create_repositories.py": "4496367cfa2ff990712651ef4f4c118443539b845442b5be206ccdcc83c861ed",
+    "docs/project_memory/p10_evidence/final_audit.py": "26e3e2d4e266e64258af975c746f4a73f7d5d3e990f113e0534df617a8ac4ca4",
+    "docs/project_memory/p10_evidence/fixture-case-repair-20260904/audit.py": "bc3456b46f56b80906c8e1f903ac6dc217d9645a5e4a4a338d176d54925030cc",
+    "docs/project_memory/p10_evidence/fixture-case-repair-20260904/independent/p10_fixture_repair_review_probe.py": "39ec62e764bb1876ab8d3ffa9129f1fefdb2b3e26059badf02bc5e219906873c",
+    "docs/project_memory/p10_evidence/fixture-case-repair-20260904/prepare.py": "d2c2671acd152891040527632e461d1114ac469540e7400a7004486a67e5c339",
+    "docs/project_memory/p10_evidence/fixture-case-repair-20260904/run.py": "94411ef7a5f5fe43dd0f6fc86eb56f8a922deb87703921b28693566aa780c71a",
+    "docs/project_memory/p10_evidence/fixture-case-repair-20260904/sync_docs.py": "40a7a76730fe057ec66fa195ce58464eb2da77db6d5b03745ffe53c48e9bb914",
+    "docs/project_memory/p10_evidence/fixture-repair-20260904/audit.py": "aa5289290bb2a112a64ccb79090d571e61e3f5f29f7877a03844177501f83a7f",
+    "docs/project_memory/p10_evidence/fixture-repair-20260904/baseline.py": "c5bec025138c31135289697b71445e7950389881fd6a6a0425fb919ea2fdb1f6",
+    "docs/project_memory/p10_evidence/fixture-repair-20260904/engineering_resume.py": "b090517464ec893de606b8c98a0ecf1de709ab59340523b35747907cbbc106c1",
+    "docs/project_memory/p10_evidence/fixture-repair-20260904/engineering.py": "4c2a9047fc486025fa821341054c2a5fba43a2480c8e9f88e33ddb3ff1183f73",
+    "docs/project_memory/p10_evidence/fixture-repair-20260904/run.py": "94411ef7a5f5fe43dd0f6fc86eb56f8a922deb87703921b28693566aa780c71a",
+    "docs/project_memory/p10_evidence/fixture-repair-20260904/sync_docs.py": "7dcc07b812d687f04241b9ab241a1496240bf377b2df719cd19bc4cd1424f927",
+    "docs/project_memory/p10_evidence/fixture-repair-20260904/temp_probe.py": "513c9131b46f1738d2b711eff67917dfd4e58b40572aae81a7b2653dfbce87a3",
+    "docs/project_memory/p10_evidence/launcher-repair-20260905/advance.py": "7c03e2199a0471f3375a20e91dbdbc60cfc202c88033a175f77b5f64f8a77ca1",
+    "docs/project_memory/p10_evidence/launcher-repair-20260905/build_review_report.py": "d56cb9e2396a7f511a99ef5cf97b824d96ed0097b41aa0283a4c3ebb2795ac5c",
+    "docs/project_memory/p10_evidence/launcher-repair-20260905/ci_evidence.py": "5e4478967a6b5c1eae802364f751b836fce6e3efb77fe78d2c383fbea59fd09e",
+    "docs/project_memory/p10_evidence/launcher-repair-20260905/document_check.py": "4d7f95ac7fb336631af13a168cb200e6515cca729a945861a36f896cd7f7f1cc",
+    "docs/project_memory/p10_evidence/launcher-repair-20260905/final_audit.py": "1a0bff72b2faf30a601c5fce1c5d58156be6f6b0c15f54c825d57c81880bce47",
+    "docs/project_memory/p10_evidence/launcher-repair-20260905/repair_namespace_diagnostic.py": "646bd35f3288b269bedf366375682df58e6fc3de484faecefc9e5ac7fe111b1d",
+    "docs/project_memory/p10_evidence/launcher-repair-20260905/temp_checkout_probe.py": "c18ed4b0a1d73b30940071b38ab16ef037f1f80490f29bb532a0a9275d255d31",
+    "docs/project_memory/p10_evidence/launcher-repair-20260905/validate_temp.py": "568952b47f8778ec163a73bc2d5d77e159a5140d8b6c13be13f2e9c9b8ba8664",
+    "docs/project_memory/p10_evidence/launcher-repair-20260905/workflow.py": "a5085108309375d577ba4f29d40b91ac0baf4e932282a64b6558cacad30dc067",
+    "docs/project_memory/p10_evidence/outside_temp_clone.py": "ffd885f4dee710a9f7e1b8e7d4911ac795168c8dbb9e0626cdb18c96e75b16f2",
+    "docs/project_memory/p10_evidence/publish_assistant.py": "73c6f6aa6edd0c56b9468504e8522e20383ecc9d1bf6f8c49676d9cf5be961be",
+    "docs/project_memory/p10_evidence/remote_review.py": "6b5d99bf2a8330156efd5b948874d251ceb5ad26be7e947b9bdca04c406bc34f",
+    ".continuity-data/66343283d4a54390b47b4f9ef82d62553faa3a25d9c89fb002cf9fcd626dd1b9.json": "77cd26e175a22e4078a89597a475cd5be9be2691b4a689c01838a370381c1281",
+    ".continuity-data/a940747044d25cbbc065d4c65e6418ed7ac50c4ad85cd03fcfa6cb3560fb11ef.json": "399ce8a82c69249fe5560382319e2d87f198869de2d918858955562b4d1275f8",
+    ".continuity-data/awakening/cycles/9206d2b588ec3f039d36855e0fdda3f1d24e66d479ab1ac71a847001996c5fce.json": "f3c472a94e1e2b4687bc8dd15025ca47592f30a91dbaca90daf25be07210430a",
+    ".continuity-data/awakening/cycles/ad7ca61028768690c65473d3918e757c9966927a44535a964a65b188c973caa5.json": "d26a8164b0dacd647010d87330004f1d9e42172d31062a8f07293898af6d9c86",
+    ".continuity-data/awakening/sessions/a940747044d25cbbc065d4c65e6418ed7ac50c4ad85cd03fcfa6cb3560fb11ef/14a54f0b7fca71545600cdb46d0320cc4be2659da62bf764d76500cd4531f410.json": "8d5724fac3c4b8a665c6832cea2bcb87773440d788b6a87dbee599aea1873304",
+    ".continuity-data/awakening/sessions/a940747044d25cbbc065d4c65e6418ed7ac50c4ad85cd03fcfa6cb3560fb11ef/678ae6f20c2099e8c9bd5e8a09aa103a2361ec9e7aa14b442aefd3c74f3b4b31.json": "693efe42584b732cb0f3c1388edcce0cf144f0866194bf2dd59f2c8a2ab0913b",
+    ".continuity-data/thinking/sessions/a940747044d25cbbc065d4c65e6418ed7ac50c4ad85cd03fcfa6cb3560fb11ef/8492dba044e1c1841b3c394d7de7d6e8469138f6263a0633d065dac7ed0bad15.json": "59beb2523a89285e3d525b63b55e45016da53fb9d609f6a13c1428677b66a982"
+  },
+  "frozenBoundaryFiles": 25,
+  "frozenSchemas": 6,
+  "formalDataFiles": 7,
+  "formalDataPathAndSHA256Unchanged": true,
+  "formalDataHistoricalTree": "sha256:f9c710c6085e430a251f74463d57133f8c5a4497fe8ffa2ccb96be2db1037bb2",
+  "p10Helpers": 31,
+  "historicalEvidenceFiles": 670,
+  "historicalEvidenceChanges": [],
+  "reviewOriginalChanges": [],
+  "incidentalFilesUnchanged": true,
+  "retainedTests": 878,
+  "missingTests": [],
+  "currentTests": 894,
+  "addedTests": [
+    "test_pre_p12_r05_r06_followup.LearningConfidenceTests.test_aggregate_does_not_corroborate_itself_again",
+    "test_pre_p12_r05_r06_followup.LearningConfidenceTests.test_current_target_confidence_reduction_is_respected",
+    "test_pre_p12_r05_r06_followup.LearningConfidenceTests.test_explicit_confirmation_still_required",
+    "test_pre_p12_r05_r06_followup.LearningConfidenceTests.test_high_own_confidence_cannot_replace_rejected_support",
+    "test_pre_p12_r05_r06_followup.LearningConfidenceTests.test_high_own_confidence_retains_existing_policy_with_weaker_support",
+    "test_pre_p12_r05_r06_followup.LearningConfidenceTests.test_high_own_confidence_still_rechecks_support_and_roots",
+    "test_pre_p12_r05_r06_followup.LearningConfidenceTests.test_insufficient_current_confidence_rejects_without_writes",
+    "test_pre_p12_r05_r06_followup.LearningConfidenceTests.test_unchanged_high_target_validation_can_immediately_solidify",
+    "test_pre_p12_r05_r06_followup.LearningConfidenceTests.test_unchanged_high_target_validation_survives_restart",
+    "test_pre_p12_r05_r06_followup.LearningConfidenceTests.test_weaker_but_sufficient_current_support_is_saved",
+    "test_pre_p12_r05_r06_followup.ResourceTransactionTests.test_concurrent_allowed_duplicate_charges_once_then_settles",
+    "test_pre_p12_r05_r06_followup.ResourceTransactionTests.test_concurrent_allowed_then_conflicting_denial_preserves_first_result",
+    "test_pre_p12_r05_r06_followup.ResourceTransactionTests.test_concurrent_denied_duplicate_preserves_first_result",
+    "test_pre_p12_r05_r06_followup.ResourceTransactionTests.test_concurrent_denied_then_conflicting_allowance_preserves_first_result",
+    "test_pre_p12_r05_r06_followup.ResourceTransactionTests.test_concurrent_new_request_cannot_deny_an_allocated_session",
+    "test_pre_p12_r05_r06_followup.ResourceTransactionTests.test_denials_allow_new_identity_then_allocation_and_settlement"
+  ],
+  "loaderErrors": [],
+  "pythonASTFiles": 187,
+  "markdownFiles": 16,
+  "localLinksChecked": 352,
+  "brokenLinks": [],
+  "sensitiveContentHits": [],
+  "gitDiffCheck": {
+    "exitCode": 0,
+    "stdout": ""
+  },
+  "version": "0.1.0; protected pyproject unchanged",
+  "scope": "R05/R06 Engine only; no Git writes; P12 paused",
+  "git": {
+    "head": "5f25d0cef3798aa380d457ae670db30ee1b47407",
+    "localOriginMain": "5f25d0cef3798aa380d457ae670db30ee1b47407",
+    "branch": "main",
+    "staged": "",
+    "aheadBehind": [
+      "0",
+      "0"
+    ],
+    "entries": [
+      {
+        "status": " M",
+        "path": "README.md"
+      },
+      {
+        "status": " M",
+        "path": "docs/project_memory/01_当前状态.md"
+      },
+      {
+        "status": " M",
+        "path": "docs/project_memory/03_施工日志.md"
+      },
+      {
+        "status": " M",
+        "path": "docs/project_memory/04_决策记录.md"
+      },
+      {
+        "status": " M",
+        "path": "docs/project_memory/05_已完成模块.md"
+      },
+      {
+        "status": " M",
+        "path": "docs/project_memory/06_未完成事项.md"
+      },
+      {
+        "status": " M",
+        "path": "docs/project_memory/07_待确认事项.md"
+      },
+      {
+        "status": " M",
+        "path": "docs/project_memory/10_档案修订记录.md"
+      },
+      {
+        "status": " M",
+        "path": "docs/project_memory/13_P00_档案与测试索引.md"
+      },
+      {
+        "status": " M",
+        "path": "docs/project_memory/57_P11_队列恢复重试取消与投递语义.md"
+      },
+      {
+        "status": " M",
+        "path": "docs/project_memory/58_P11_测试索引与验收入口.md"
+      },
+      {
+        "status": " M",
+        "path": "docs/project_memory/CHANGELOG.md"
+      },
+      {
+        "status": " M",
+        "path": "docs/project_memory/工程总档案.md"
+      },
+      {
+        "status": " M",
+        "path": "src/continuity_engine/services/learning_service.py"
+      },
+      {
+        "status": " M",
+        "path": "src/continuity_engine/services/memory_consolidation_service.py"
+      },
+      {
+        "status": " M",
+        "path": "src/continuity_engine/services/model_capability_service.py"
+      },
+      {
+        "status": " M",
+        "path": "src/continuity_engine/services/permission_service.py"
+      },
+      {
+        "status": " M",
+        "path": "src/continuity_engine/services/resource_manager.py"
+      },
+      {
+        "status": " M",
+        "path": "src/continuity_engine/services/scheduler_service.py"
+      },
+      {
+        "status": " M",
+        "path": "src/continuity_engine/services/subject_state_service.py"
+      },
+      {
+        "status": " M",
+        "path": "src/continuity_engine/storage/json_repository.py"
+      },
+      {
+        "status": " M",
+        "path": "src/continuity_engine/storage/json_resource_repository.py"
+      },
+      {
+        "status": " M",
+        "path": "src/continuity_engine/testing/p11_scheduler_fixture.py"
+      },
+      {
+        "status": " M",
+        "path": "tests/test_permissions.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/P12前整体审查_R01-R08修复与复核入口.md"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/P12前整体审查_R05-R06补修与复核入口.md"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/closeout-20260904/check_stop.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/closeout-20260904/closeout.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/closeout-20260904/preserve_failed_closeout.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/closeout-20260904/record_stop.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/closeout-20260904/sync_assistant.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/create_repositories.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/final_audit.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/fixture-case-repair-20260904/audit.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/fixture-case-repair-20260904/independent/p10_fixture_repair_review_probe.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/fixture-case-repair-20260904/prepare.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/fixture-case-repair-20260904/run.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/fixture-case-repair-20260904/sync_docs.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/fixture-repair-20260904/audit.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/fixture-repair-20260904/baseline.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/fixture-repair-20260904/engineering.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/fixture-repair-20260904/engineering_resume.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/fixture-repair-20260904/run.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/fixture-repair-20260904/sync_docs.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/fixture-repair-20260904/temp_probe.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/launcher-repair-20260905/advance.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/launcher-repair-20260905/build_review_report.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/launcher-repair-20260905/ci_evidence.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/launcher-repair-20260905/document_check.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/launcher-repair-20260905/final_audit.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/launcher-repair-20260905/repair_namespace_diagnostic.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/launcher-repair-20260905/temp_checkout_probe.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/launcher-repair-20260905/validate_temp.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/launcher-repair-20260905/workflow.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/outside_temp_clone.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/publish_assistant.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/remote_review.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_r05_r06_evidence/audit.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_r05_r06_evidence/before.json"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_r05_r06_evidence/final-full.json"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_r05_r06_evidence/final-full.stderr.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_r05_r06_evidence/final-full.stdout.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_r05_r06_evidence/final-targeted.json"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_r05_r06_evidence/final-targeted.stderr.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_r05_r06_evidence/final-targeted.stdout.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_r05_r06_evidence/formal-red.json"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_r05_r06_evidence/formal-red.stderr.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_r05_r06_evidence/formal-red.stdout.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_r05_r06_evidence/helper-diagnostics.json"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_r05_r06_evidence/independent-green.json"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_r05_r06_evidence/independent-green.stderr.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_r05_r06_evidence/independent-green.stdout.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_r05_r06_evidence/independent-red.json"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_r05_r06_evidence/independent-red.stderr.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_r05_r06_evidence/independent-red.stdout.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_r05_r06_evidence/r05-green.json"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_r05_r06_evidence/r05-green.stderr.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_r05_r06_evidence/r05-green.stdout.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_r05_r06_evidence/r06-green.json"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_r05_r06_evidence/r06-green.stderr.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_r05_r06_evidence/r06-green.stdout.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_r05_r06_evidence/review-original/baseline-learning-and-launcher-error.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_r05_r06_evidence/review-original/baseline-learning.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_r05_r06_evidence/review-original/baseline_learning_check.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_r05_r06_evidence/review-original/before.json"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_r05_r06_evidence/review-original/engine-full.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_r05_r06_evidence/review-original/engine-targeted.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_r05_r06_evidence/review-original/independent-probes-01.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_r05_r06_evidence/review-original/readonly-audit.json"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_r05_r06_evidence/review-original/recheck-report.md"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_r05_r06_evidence/review-original/recheck_probes.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_r05_r06_evidence/run_tests.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_r05_r06_evidence/stable-source.json"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/audit.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/before.json"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/binding-confidence-red.json"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/binding-confidence-red.stderr.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/binding-confidence-red.stdout.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/compatibility-repair-green.json"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/compatibility-repair-green.stderr.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/compatibility-repair-green.stdout.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/compatibility-repair-targeted.json"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/compatibility-repair-targeted.stderr.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/compatibility-repair-targeted.stdout.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/expanded-targeted-first.json"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/expanded-targeted-first.stderr.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/expanded-targeted-first.stdout.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/final-audit.json"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/final-full-02.json"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/final-full-02.stderr.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/final-full-02.stdout.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/final-full.json"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/final-full.stderr.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/final-full.stdout.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/final-targeted-02.json"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/final-targeted-02.stderr.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/final-targeted-02.stdout.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/final-targeted.json"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/final-targeted.stderr.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/final-targeted.stdout.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/formal-first-green.json"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/formal-first-green.stderr.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/formal-first-green.stdout.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/formal-red.json"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/formal-red.stderr.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/formal-red.stdout.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/helper-diagnostics.json"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/independent-red.json"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/independent-red.stderr.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/independent-red.stdout.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/interim-audit.json"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/pending-files.md"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/r01-r03-green.json"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/r01-r03-green.stderr.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/r01-r03-green.stdout.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/review-original/baseline-final-chunk.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/review-original/final-readonly-audit.json"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/review-original/probe-final.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/review-original/probe-run-02.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/review-original/probe-run-03.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/review-original/probe-run-04.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/review-original/review-report.md"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/review-original/review_probes.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/run_tests.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/stable-source-02.json"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/stable-source.json"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/test-results.json"
+      },
+      {
+        "status": "??",
+        "path": "tests/test_pre_p12_r05_r06_followup.py"
+      },
+      {
+        "status": "??",
+        "path": "tests/test_pre_p12_repairs.py"
+      }
+    ]
+  }
+}

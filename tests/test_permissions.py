@@ -40,14 +40,14 @@ class PermissionContinuityTests(unittest.TestCase):
             clock=lambda: self.now,
         )
 
-    def create_memory_permission(self, service: PermissionService):
+    def create_memory_permission(self, service: PermissionService, *, scope=None):
         return service.create_permission(
             "subject-1",
             permission_id="permission-memory",
             permission_type="information_access",
             name="Continuity memory access",
             description="Allows bounded requests to the external memory manager.",
-            scope=["memory_manager"],
+            scope=["memory_manager"] if scope is None else scope,
             capabilities=["memory:request"],
             source="user_authorization",
             reason="The user explicitly authorized continuity memory retrieval.",
@@ -104,7 +104,10 @@ class PermissionContinuityTests(unittest.TestCase):
     def test_limit_permission_updates_scope_capabilities_and_context(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             service = self.service(directory)
-            self.create_memory_permission(service)
+            # Scope names are exact grants (except '*'), not implicit prefixes.
+            self.create_memory_permission(
+                service, scope=["memory_manager", "memory_manager:project-only"]
+            )
 
             limited = service.restrict_permission(
                 "subject-1",
@@ -144,7 +147,9 @@ class PermissionContinuityTests(unittest.TestCase):
     def test_permission_state_and_history_survive_restart(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             first = self.service(directory)
-            self.create_memory_permission(first)
+            self.create_memory_permission(
+                first, scope=["memory_manager", "memory_manager:project-only"]
+            )
             first.restrict_permission(
                 "subject-1",
                 "permission-memory",

@@ -1,0 +1,9 @@
+{"case": "learning_rejected_support", "rejected": true, "source_status": "REJECTED", "traits": 0, "claimed_evidence": null, "evolution_event_produced": false}
+{"case": "memory_partial_overlap", "input_roots": ["event:one", "event:two"], "persisted_roots": ["event:one", "event:two"], "added": 1, "replay_roots": ["event:one", "event:two"]}
+{"case": "model_zero_budget_recovery", "provider_execute_calls": 0, "limits": [], "provider_facts": 1, "error": null}
+{"case": "resource_duplicate", "token_used": 8, "usage_records": 1, "reconciliation_error": null}
+{"case": "permission_expand", "rejected": "PermissionValidationError"}
+{"case": "permission_revocation", "rejected": "PermissionValidationError"}
+{"case": "scheduler_foreign_cycle", "task_subject": "p11-subject", "actual_cycle_subject": "other-subject", "result": "VERIFICATION_PENDING", "task_subject_wakes": 0, "foreign_subject_wakes": 0, "foreign_tokens": 0}
+{"case": "scheduler_conflict_starvation", "first": "RECEIPT_BINDING_CONFLICT", "subsequent": ["RECEIPT_DELIVERED", "RECEIPT_BINDING_CONFLICT", "RECEIPT_BINDING_CONFLICT", "RECEIPT_BINDING_CONFLICT", "RECEIPT_BINDING_CONFLICT"], "healthy_state": "COMPLETED", "dispatches": 2, "queries": 5}
+{"case": "scheduler_unknown_starvation", "healthy_state": "COMPLETED", "dispatches": 2, "queries": 5}

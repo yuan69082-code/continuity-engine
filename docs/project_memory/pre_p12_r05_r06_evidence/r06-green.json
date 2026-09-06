@@ -1,0 +1,20 @@
+{
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_pre_p12_r05_r06_followup.LearningConfidenceTests",
+    "tests.test_learning",
+    "-v"
+  ],
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "startedAt": "2026-09-05T17:20:25.253589+00:00",
+  "environment": {
+    "PYTHONPATH": "src",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "exitCode": 0,
+  "interrupted": false,
+  "finishedAt": "2026-09-05T17:20:26.251652+00:00",
+  "wallSeconds": 0.998
+}

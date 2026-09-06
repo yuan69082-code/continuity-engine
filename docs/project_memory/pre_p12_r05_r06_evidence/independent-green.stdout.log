@@ -1,0 +1,15 @@
+{"case": "recheck_events", "mode": "different", "successful": 2, "persisted": 2}
+{"case": "parallel_resource_identity", "tokens": [10, 10], "outcomes": ["duplicate-rejected", "allocated"], "decision_count": 1, "request_ids": ["same-request"], "charged": 10}
+{"case": "parallel_resource_identity", "tokens": [10, 10000], "outcomes": ["allocated", "duplicate-rejected"], "decision_count": 1, "request_ids": ["same-request"], "charged": 10}
+{"case": "parallel_resource_identity", "tokens": [10000, 10000], "outcomes": ["duplicate-rejected", "denied"], "decision_count": 1, "request_ids": ["same-request"], "charged": 0}
+{"case": "recheck_events", "mode": "conflict", "successful": 1, "persisted": 1}
+{"case": "unchanged_learning_support", "validated_confidence": 0.95, "evidence_changed": false, "error": null, "trait_count": 1}
+{"case": "recheck_events", "mode": "same", "successful": 2, "persisted": 1}
+{"case": "learning_rejected_support", "rejected": true, "source_status": "REJECTED", "traits": 0, "claimed_evidence": null, "evolution_event_produced": false}
+{"case": "memory_partial_overlap", "input_roots": ["event:one", "event:two"], "persisted_roots": ["event:one", "event:two"], "added": 1, "replay_roots": ["event:one", "event:two"]}
+{"case": "model_zero_budget_recovery", "provider_execute_calls": 0, "limits": [], "provider_facts": 1, "error": null}
+{"case": "permission_expand", "rejected": "PermissionValidationError"}
+{"case": "permission_revocation", "rejected": "PermissionValidationError"}
+{"case": "scheduler_foreign_cycle", "task_subject": "p11-subject", "actual_cycle_subject": "other-subject", "result": "VERIFICATION_PENDING", "task_subject_wakes": 0, "foreign_subject_wakes": 0, "foreign_tokens": 0}
+{"case": "scheduler_conflict_starvation", "first": "RECEIPT_BINDING_CONFLICT", "subsequent": ["RECEIPT_DELIVERED", "RECEIPT_BINDING_CONFLICT", "RECEIPT_BINDING_CONFLICT", "RECEIPT_BINDING_CONFLICT", "RECEIPT_BINDING_CONFLICT"], "healthy_state": "COMPLETED", "dispatches": 2, "queries": 5}
+{"case": "scheduler_unknown_starvation", "healthy_state": "COMPLETED", "dispatches": 2, "queries": 5}

@@ -1,0 +1,134 @@
+[
+  {
+    "label": "binding-confidence-red",
+    "tests": 3,
+    "pass": 0,
+    "fail": 3,
+    "error": 0,
+    "skip": 0,
+    "unittestSeconds": 0.29,
+    "wallSeconds": 0.893,
+    "exitCode": 1
+  },
+  {
+    "label": "compatibility-repair-green",
+    "tests": 65,
+    "pass": 65,
+    "fail": 0,
+    "error": 0,
+    "skip": 0,
+    "unittestSeconds": 4.0,
+    "wallSeconds": 4.473,
+    "exitCode": 0
+  },
+  {
+    "label": "compatibility-repair-targeted",
+    "tests": 65,
+    "pass": 64,
+    "fail": 0,
+    "error": 1,
+    "skip": 0,
+    "unittestSeconds": 4.042,
+    "wallSeconds": 4.51,
+    "exitCode": 1
+  },
+  {
+    "label": "expanded-targeted-first",
+    "tests": 37,
+    "pass": 37,
+    "fail": 0,
+    "error": 0,
+    "skip": 0,
+    "unittestSeconds": 3.65,
+    "wallSeconds": 4.2,
+    "exitCode": 0
+  },
+  {
+    "label": "final-full-02",
+    "tests": 878,
+    "pass": 877,
+    "fail": 0,
+    "error": 0,
+    "skip": 1,
+    "unittestSeconds": 420.025,
+    "wallSeconds": 420.616,
+    "exitCode": 0
+  },
+  {
+    "label": "final-full",
+    "tests": 877,
+    "pass": 873,
+    "fail": 0,
+    "error": 3,
+    "skip": 1,
+    "unittestSeconds": 402.266,
+    "wallSeconds": 402.873,
+    "exitCode": 1
+  },
+  {
+    "label": "final-targeted-02",
+    "tests": 39,
+    "pass": 39,
+    "fail": 0,
+    "error": 0,
+    "skip": 0,
+    "unittestSeconds": 3.285,
+    "wallSeconds": 3.786,
+    "exitCode": 0
+  },
+  {
+    "label": "final-targeted",
+    "tests": 38,
+    "pass": 38,
+    "fail": 0,
+    "error": 0,
+    "skip": 0,
+    "unittestSeconds": 3.259,
+    "wallSeconds": 3.724,
+    "exitCode": 0
+  },
+  {
+    "label": "formal-first-green",
+    "tests": 17,
+    "pass": 17,
+    "fail": 0,
+    "error": 0,
+    "skip": 0,
+    "unittestSeconds": 1.368,
+    "wallSeconds": 1.824,
+    "exitCode": 0
+  },
+  {
+    "label": "formal-red",
+    "tests": 17,
+    "pass": 6,
+    "fail": 11,
+    "error": 0,
+    "skip": 0,
+    "unittestSeconds": 2.879,
+    "wallSeconds": 3.325,
+    "exitCode": 1
+  },
+  {
+    "label": "independent-red",
+    "tests": 15,
+    "pass": 5,
+    "fail": 10,
+    "error": 0,
+    "skip": 0,
+    "unittestSeconds": 0.979,
+    "wallSeconds": 1.459,
+    "exitCode": 1
+  },
+  {
+    "label": "r01-r03-green",
+    "tests": 8,
+    "pass": 7,
+    "fail": 1,
+    "error": 0,
+    "skip": 0,
+    "unittestSeconds": 2.725,
+    "wallSeconds": 3.183,
+    "exitCode": 1
+  }
+]

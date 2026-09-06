@@ -1,0 +1,8 @@
+{
+  "readOnlySearchError": {
+    "command": "rg with literal docs/project_memory/12* argument",
+    "exitCode": 1,
+    "reason": "PowerShell did not expand the wildcard file argument; rg reported OS error 123. No Engine execution or mutation. Relevant sources and tests were read directly."
+  },
+  "testExpectationClarification": "Target confidence adjustment is compared exactly with 0.95 - 0.15, preserving the existing floating point representation; no runtime rounding policy was added."
+}

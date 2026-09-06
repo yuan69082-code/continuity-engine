@@ -1,0 +1,48 @@
+test_scheduler_foreign_cycle_does_not_wake_another_subject (__main__.EngineReviewProbes.test_scheduler_foreign_cycle_does_not_wake_another_subject) ... {"case": "scheduler_foreign_cycle", "task_subject": "p11-subject", "actual_cycle_subject": "other-subject", "result": "COMPLETED", "task_subject_wakes": 0, "foreign_subject_wakes": 1, "foreign_tokens": 64}
+FAIL
+test_memory_partial_overlap_preserves_new_evidence (__main__.EngineReviewProbes.test_memory_partial_overlap_preserves_new_evidence) ... {"case": "memory_partial_overlap", "input_roots": ["event:one", "event:two"], "persisted_roots": ["event:one"], "error": "MemoryPersistenceError: consolidation operation input is not traceable to its result memory"}
+FAIL
+
+======================================================================
+FAIL: test_scheduler_foreign_cycle_does_not_wake_another_subject (__main__.EngineReviewProbes.test_scheduler_foreign_cycle_does_not_wake_another_subject)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\engine-pre-p12-20260905\review_probes.py", line 258, in test_scheduler_foreign_cycle_does_not_wake_another_subject
+    self.assertEqual(len(foreign), 0)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_memory_partial_overlap_preserves_new_evidence (__main__.EngineReviewProbes.test_memory_partial_overlap_preserves_new_evidence)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\engine-pre-p12-20260905\review_probes.py", line 180, in test_memory_partial_overlap_preserves_new_evidence
+    result = service.consolidate(incoming)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\memory_consolidation_service.py", line 112, in consolidate
+    self._repository.save_consolidation(current, operation)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_memory_repository.py", line 134, in save_consolidation
+    self._write_document(path, data)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_memory_repository.py", line 929, in _write_document
+    self._validate_document(data, data["subject_id"])
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_memory_repository.py", line 779, in _validate_document
+    raise MemoryPersistenceError(
+        "consolidation operation input is not traceable to its result memory"
+    )
+continuity_engine.domain.errors.MemoryPersistenceError: consolidation operation input is not traceable to its result memory
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\engine-pre-p12-20260905\review_probes.py", line 186, in test_memory_partial_overlap_preserves_new_evidence
+    self.fail("Valid overlapping evidence cannot be consolidated: " + str(exc))
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Valid overlapping evidence cannot be consolidated: consolidation operation input is not traceable to its result memory
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.109s
+
+FAILED (failures=2)
+

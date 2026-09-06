@@ -1,0 +1,10 @@
+{"case": "concurrent_event_loss", "successful_returns": ["event-0", "event-1"], "persisted_events": ["event-0"]}
+{"case": "learning_rejected_support", "rejected": false, "source_status": "REJECTED", "traits": 1, "claimed_evidence": 3, "evolution_event_produced": true}
+{"case": "memory_partial_overlap", "input_roots": ["event:one", "event:two"], "persisted_roots": ["event:one"], "error": "MemoryPersistenceError: consolidation operation input is not traceable to its result memory"}
+{"case": "model_zero_budget_recovery", "provider_execute_calls": 1, "limits": [0], "provider_facts": 2, "error": null}
+{"case": "resource_duplicate", "token_used": 20, "usage_records": 2, "reconciliation_error": "ResourceNotFoundError: exactly one usage record is required for session: same-session"}
+{"case": "permission_expand", "added_capability_allowed": true, "status": "LIMITED"}
+{"case": "permission_revocation", "capability_reactivated": true, "status": "LIMITED"}
+{"case": "scheduler_foreign_cycle", "task_subject": "p11-subject", "actual_cycle_subject": "other-subject", "result": "COMPLETED", "task_subject_wakes": 0, "foreign_subject_wakes": 1, "foreign_tokens": 64}
+{"case": "scheduler_conflict_starvation", "first": "RECEIPT_BINDING_CONFLICT", "subsequent": ["RECEIPT_BINDING_CONFLICT", "RECEIPT_BINDING_CONFLICT", "RECEIPT_BINDING_CONFLICT", "RECEIPT_BINDING_CONFLICT", "RECEIPT_BINDING_CONFLICT"], "healthy_state": "QUEUED", "dispatches": 1, "queries": 5}
+{"case": "scheduler_unknown_starvation", "healthy_state": "QUEUED", "dispatches": 1, "queries": 5}

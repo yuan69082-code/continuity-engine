@@ -1,0 +1,23 @@
+test_extra_freshly_validated_learning_with_unchanged_support_can_solidify (recheck_probes.RecheckProbes.test_extra_freshly_validated_learning_with_unchanged_support_can_solidify) ... {"case": "unchanged_learning_support", "validated_confidence": 0.95, "evidence_changed": false, "error": null, "trait_count": 1}
+ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.035s
+
+OK
+tests (unittest.loader._FailedTest.tests) ... ERROR
+
+======================================================================
+ERROR: tests (unittest.loader._FailedTest.tests)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: tests
+Traceback (most recent call last):
+  File "E:\Adobe\Lib\unittest\loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+ModuleNotFoundError: No module named 'tests'
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (errors=1)

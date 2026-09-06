@@ -1,0 +1,36 @@
+{
+  "evidenceVerification": "PASS",
+  "fullRunWasIndependentlyReexecutedThisTurn": false,
+  "currentTestIdentities": 894,
+  "loggedFullRunPass": 893,
+  "loggedFullRunSkip": {
+    "test_p08_fixture_paths.P08FixturePathTests.test_symlink_component_rejected_without_writes": "skipped 'OS does not grant symlink creation: 1314'"
+  },
+  "sourceFilesVerified": 193,
+  "sourceMismatches": [],
+  "loaderErrors": [],
+  "snapshotRunAuditTimestampOrderValid": true,
+  "unchangedConfidenceFormulaCases": 4608,
+  "suppliedFullRun": {
+    "command": [
+      "E:\\Adobe\\python.exe",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+    "startedAt": "2026-09-05T17:21:55.206651+00:00",
+    "environment": {
+      "PYTHONPATH": "src",
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "exitCode": 0,
+    "interrupted": false,
+    "finishedAt": "2026-09-05T17:29:00.944627+00:00",
+    "wallSeconds": 425.738
+  },
+  "suppliedFullLogSHA256": "3984ee227c81215e1bf1f69cd7cd318fa6691c1290c84176a2fdaa551b06ea1f"
+}

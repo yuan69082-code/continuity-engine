@@ -1,0 +1,26 @@
+test_concurrent_events_are_not_silently_lost (__main__.RecheckProbes.test_concurrent_events_are_not_silently_lost) ... ok
+test_control_memory_disjoint_roots_merge (__main__.RecheckProbes.test_control_memory_disjoint_roots_merge) ... ok
+test_control_real_restriction_removes_capability (__main__.RecheckProbes.test_control_real_restriction_removes_capability) ... ok
+test_control_resource_once_reconciles (__main__.RecheckProbes.test_control_resource_once_reconciles) ... ok
+test_control_scheduler_unknown_allows_immediate_next_tick (__main__.RecheckProbes.test_control_scheduler_unknown_allows_immediate_next_tick) ... ok
+test_control_sequential_events_preserved (__main__.RecheckProbes.test_control_sequential_events_preserved) ... ok
+test_extra_concurrent_allowed_resource_requests_allocate_once (__main__.RecheckProbes.test_extra_concurrent_allowed_resource_requests_allocate_once) ... ok
+test_extra_concurrent_conflicting_resource_request_cannot_append_denial (__main__.RecheckProbes.test_extra_concurrent_conflicting_resource_request_cannot_append_denial) ... ok
+test_extra_concurrent_denied_resource_requests_reject_duplicate_identity (__main__.RecheckProbes.test_extra_concurrent_denied_resource_requests_reject_duplicate_identity) ... ok
+test_extra_conflicting_event_identity_is_rejected (__main__.RecheckProbes.test_extra_conflicting_event_identity_is_rejected) ... ok
+test_extra_freshly_validated_learning_with_unchanged_support_can_solidify (__main__.RecheckProbes.test_extra_freshly_validated_learning_with_unchanged_support_can_solidify) ... ok
+test_extra_same_event_returns_the_persisted_identity (__main__.RecheckProbes.test_extra_same_event_returns_the_persisted_identity) ... ok
+test_learning_rechecks_rejected_support_before_solidifying (__main__.RecheckProbes.test_learning_rechecks_rejected_support_before_solidifying) ... ok
+test_memory_partial_overlap_preserves_new_evidence (__main__.RecheckProbes.test_memory_partial_overlap_preserves_new_evidence) ... ok
+test_model_zero_budget_still_blocks_execute_after_crash (__main__.RecheckProbes.test_model_zero_budget_still_blocks_execute_after_crash) ... ok
+test_repeated_resource_request_remains_reconcilable (__main__.RecheckProbes.test_repeated_resource_request_remains_reconcilable) ... ok
+test_restriction_does_not_expand_capabilities (__main__.RecheckProbes.test_restriction_does_not_expand_capabilities) ... ok
+test_restriction_does_not_reactivate_revoked_permission (__main__.RecheckProbes.test_restriction_does_not_reactivate_revoked_permission) ... ok
+test_scheduler_foreign_cycle_does_not_wake_another_subject (__main__.RecheckProbes.test_scheduler_foreign_cycle_does_not_wake_another_subject) ... ok
+test_scheduler_receipt_conflict_does_not_starve_other_task (__main__.RecheckProbes.test_scheduler_receipt_conflict_does_not_starve_other_task) ... ok
+test_scheduler_unknown_does_not_starve_at_normal_poll_interval (__main__.RecheckProbes.test_scheduler_unknown_does_not_starve_at_normal_poll_interval) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 1.491s
+
+OK

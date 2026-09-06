@@ -237,10 +237,10 @@ class LearningService:
         if any(self._mutation_signature(item.proposed_change) != signature for item in evidence):
             raise LearningValidationError("validation evidence proposes inconsistent changes")
 
-        average = sum(item.confidence for item in evidence) / len(evidence)
-        learned_confidence = min(1.0, average + 0.1 * (len(evidence) - 1))
         updated = LearningEvent.from_dict(target.to_dict())
-        updated.confidence = round(max(target.confidence, learned_confidence), 6)
+        updated.confidence = self._validation_confidence(
+            target.confidence, [item.confidence for item in evidence]
+        )
         updated.evidence_learning_ids = evidence_ids
         updated.root_evidence_ids = sorted(seen_roots)
         updated.validation_status = (
@@ -319,6 +319,7 @@ class LearningService:
             or current.confidence < VALIDATION_CONFIDENCE
         ):
             raise LearningValidationError("validated learning lacks sufficient evidence")
+        current.confidence = min(current.confidence, self._verify_current_support(subject_id, current))
         if self._has_active_consolidation(subject_id, learning_id):
             raise LearningValidationError("learning is already consolidated")
 
@@ -382,6 +383,54 @@ class LearningService:
             trait=personality_trait,
             event=state_event,
         )
+
+    def _verify_current_support(self, subject_id: str, target: LearningEvent) -> float:
+        """Recheck the recorded validation against current supporting records.
+
+        The target's roots/confidence were aggregated by validation. Recover
+        its own roots and pre-validation confidence from existing history so
+        that the validation cannot corroborate itself a second time.
+        """
+        history = self._repository.history(subject_id, target.learning_id)
+        origins = [r for r in history if r.record_type is LearningRecordType.CANDIDATE_CREATED]
+        validations = [r for r in history if r.record_type is LearningRecordType.VALIDATED]
+        ids = target.evidence_learning_ids
+        if (len(origins) != 1 or not validations or target.learning_id not in ids
+                or len(set(ids)) != len(ids) or len(ids) < MINIMUM_EVIDENCE_COUNT):
+            raise LearningValidationError("current validation has insufficient traceable evidence")
+        roots = set(origins[0].root_evidence_ids or [target.source_identity])
+        own_confidence = min(target.confidence, float(validations[-1].before_value))
+        confidences = [own_confidence]
+        signature = self._mutation_signature(target.proposed_change)
+        for identifier in ids:
+            if identifier == target.learning_id:
+                continue
+            support = self._repository.load_learning_event(subject_id, identifier)
+            if (support.validation_status in (LearningValidationStatus.REJECTED,
+                                              LearningValidationStatus.REVOKED)
+                    or self._mutation_signature(support.proposed_change) != signature):
+                raise LearningValidationError("supporting learning is no longer valid")
+            incoming = set(support.root_evidence_ids)
+            if roots.intersection(incoming):
+                raise LearningValidationError("current support is not independent root evidence")
+            roots.update(incoming)
+            confidences.append(support.confidence)
+        confidence = self._validation_confidence(own_confidence, confidences)
+        if (roots != set(target.root_evidence_ids) or len(roots) < MINIMUM_EVIDENCE_COUNT
+                or confidence < VALIDATION_CONFIDENCE):
+            raise LearningValidationError("current support no longer meets validation requirements")
+        return confidence
+
+    @staticmethod
+    def _validation_confidence(own_confidence: float, confidences: list[float]) -> float:
+        """Use the established policy at validation and current-support review.
+
+        The target's own contribution and the aggregate are distinct: the
+        aggregate must not become its own corroborating evidence at solidify.
+        """
+        average = sum(confidences) / len(confidences)
+        learned_confidence = min(1.0, average + 0.1 * (len(confidences) - 1))
+        return round(max(own_confidence, learned_confidence), 6)
 
     def rollback_learning(
         self,

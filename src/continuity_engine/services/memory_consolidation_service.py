@@ -97,11 +97,11 @@ class MemoryConsolidationService:
             and item.scope == candidate.scope
         ]
         duplicate_roots = set(candidate.root_evidence_ids).intersection(
-            *(set(item.root_evidence_ids) for item in compatible)
-        ) if compatible else set()
+            {root for item in compatible for root in item.root_evidence_ids}
+        )
         same_content = [item for item in compatible if item.content == candidate.content]
         if duplicate_roots:
-            if same_content:
+            if same_content and set(candidate.root_evidence_ids).issubset(same_content[0].root_evidence_ids):
                 current = same_content[0]
                 operation = self._consolidation_operation(
                     candidate,
@@ -111,9 +111,12 @@ class MemoryConsolidationService:
                 )
                 self._repository.save_consolidation(current, operation)
                 return MemoryConsolidationResult(current, True, 0)
-            raise MemoryEvidenceConflictError(
-                "the same root evidence cannot support conflicting memory content"
-            )
+            if any(item.content != candidate.content
+                   and set(item.root_evidence_ids).intersection(candidate.root_evidence_ids)
+                   for item in compatible):
+                raise MemoryEvidenceConflictError(
+                    "the same root evidence cannot support conflicting memory content"
+                )
         if compatible and not same_content:
             raise MemoryEvidenceConflictError(
                 "conflicting evidence remains unresolved until the P07 boundary"
@@ -132,7 +135,13 @@ class MemoryConsolidationService:
                         dict.fromkeys([*current.source_event_ids, *candidate.source_event_ids])
                     ),
                     "source_memory_ids": list(
-                        dict.fromkeys([*current.source_memory_ids, *candidate.source_memory_ids])
+                        # The candidate may legitimately cite the old revision
+                        # of this result. Its original chain stays in the
+                        # operation and is checked against pre-merge history;
+                        # it must not become a self-edge on the new revision.
+                        dict.fromkeys(identifier for identifier in
+                                      [*current.source_memory_ids, *candidate.source_memory_ids]
+                                      if identifier != current.memory_id)
                     ),
                     "source_message_ids": list(
                         dict.fromkeys([*current.source_message_ids, *candidate.source_message_ids])
@@ -182,7 +191,7 @@ class MemoryConsolidationService:
             )
             self._repository.save_consolidation(updated, operation)
             return MemoryConsolidationResult(
-                updated, False, len(candidate.root_evidence_ids)
+                updated, False, len(set(candidate.root_evidence_ids) - set(current.root_evidence_ids))
             )
 
         decision = self._activation_policy.evaluate(candidate, now)

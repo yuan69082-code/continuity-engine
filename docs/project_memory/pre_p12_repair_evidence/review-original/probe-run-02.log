@@ -1,0 +1,105 @@
+test_concurrent_events_are_not_silently_lost (__main__.EngineReviewProbes.test_concurrent_events_are_not_silently_lost) ... {"case": "concurrent_event_loss", "successful_returns": ["event-0", "event-1"], "persisted_events": ["event-1"]}
+FAIL
+test_control_memory_disjoint_roots_merge (__main__.EngineReviewProbes.test_control_memory_disjoint_roots_merge) ... ok
+test_control_real_restriction_removes_capability (__main__.EngineReviewProbes.test_control_real_restriction_removes_capability) ... ok
+test_control_resource_once_reconciles (__main__.EngineReviewProbes.test_control_resource_once_reconciles) ... ok
+test_control_scheduler_unknown_allows_immediate_next_tick (__main__.EngineReviewProbes.test_control_scheduler_unknown_allows_immediate_next_tick) ... ok
+test_control_sequential_events_preserved (__main__.EngineReviewProbes.test_control_sequential_events_preserved) ... ok
+test_memory_partial_overlap_preserves_new_evidence (__main__.EngineReviewProbes.test_memory_partial_overlap_preserves_new_evidence) ... ERROR
+test_repeated_resource_request_remains_reconcilable (__main__.EngineReviewProbes.test_repeated_resource_request_remains_reconcilable) ... {"case": "resource_duplicate", "token_used": 20, "usage_records": 2, "reconciliation_error": "ResourceNotFoundError: exactly one usage record is required for session: same-session"}
+FAIL
+test_restriction_does_not_expand_capabilities (__main__.EngineReviewProbes.test_restriction_does_not_expand_capabilities) ... {"case": "permission_expand", "added_capability_allowed": true, "status": "LIMITED"}
+FAIL
+test_restriction_does_not_reactivate_revoked_permission (__main__.EngineReviewProbes.test_restriction_does_not_reactivate_revoked_permission) ... {"case": "permission_revocation", "capability_reactivated": true, "status": "LIMITED"}
+FAIL
+test_scheduler_receipt_conflict_does_not_starve_other_task (__main__.EngineReviewProbes.test_scheduler_receipt_conflict_does_not_starve_other_task) ... {"case": "scheduler_conflict_starvation", "first": "RECEIPT_BINDING_CONFLICT", "subsequent": ["RECEIPT_BINDING_CONFLICT", "RECEIPT_BINDING_CONFLICT", "RECEIPT_BINDING_CONFLICT", "RECEIPT_BINDING_CONFLICT", "RECEIPT_BINDING_CONFLICT"], "healthy_state": "QUEUED", "dispatches": 1, "queries": 5}
+FAIL
+test_scheduler_unknown_does_not_starve_at_normal_poll_interval (__main__.EngineReviewProbes.test_scheduler_unknown_does_not_starve_at_normal_poll_interval) ... {"case": "scheduler_unknown_starvation", "healthy_state": "QUEUED", "dispatches": 1, "queries": 5}
+FAIL
+
+======================================================================
+ERROR: test_memory_partial_overlap_preserves_new_evidence (__main__.EngineReviewProbes.test_memory_partial_overlap_preserves_new_evidence)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\engine-pre-p12-20260905\review_probes.py", line 179, in test_memory_partial_overlap_preserves_new_evidence
+    result = service.consolidate(incoming)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\memory_consolidation_service.py", line 112, in consolidate
+    self._repository.save_consolidation(current, operation)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_memory_repository.py", line 134, in save_consolidation
+    self._write_document(path, data)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_memory_repository.py", line 929, in _write_document
+    self._validate_document(data, data["subject_id"])
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_memory_repository.py", line 779, in _validate_document
+    raise MemoryPersistenceError(
+        "consolidation operation input is not traceable to its result memory"
+    )
+continuity_engine.domain.errors.MemoryPersistenceError: consolidation operation input is not traceable to its result memory
+
+======================================================================
+FAIL: test_concurrent_events_are_not_silently_lost (__main__.EngineReviewProbes.test_concurrent_events_are_not_silently_lost)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\engine-pre-p12-20260905\review_probes.py", line 159, in test_concurrent_events_are_not_silently_lost
+    self.assertTrue(set(successful).issubset(stored))
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_repeated_resource_request_remains_reconcilable (__main__.EngineReviewProbes.test_repeated_resource_request_remains_reconcilable)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\engine-pre-p12-20260905\review_probes.py", line 130, in test_repeated_resource_request_remains_reconcilable
+    self.assertIsNone(error)
+    ~~~~~~~~~~~~~~~~~^^^^^^^
+AssertionError: 'ResourceNotFoundError: exactly one usage record is required for session: same-session' is not None
+
+======================================================================
+FAIL: test_restriction_does_not_expand_capabilities (__main__.EngineReviewProbes.test_restriction_does_not_expand_capabilities)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\engine-pre-p12-20260905\review_probes.py", line 95, in test_restriction_does_not_expand_capabilities
+    self.assertFalse(allowed)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_restriction_does_not_reactivate_revoked_permission (__main__.EngineReviewProbes.test_restriction_does_not_reactivate_revoked_permission)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\engine-pre-p12-20260905\review_probes.py", line 111, in test_restriction_does_not_reactivate_revoked_permission
+    self.assertFalse(allowed)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_scheduler_receipt_conflict_does_not_starve_other_task (__main__.EngineReviewProbes.test_scheduler_receipt_conflict_does_not_starve_other_task)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\engine-pre-p12-20260905\review_probes.py", line 59, in test_scheduler_receipt_conflict_does_not_starve_other_task
+    self.assertEqual(healthy.state.value, "COMPLETED")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'QUEUED' != 'COMPLETED'
+- QUEUED
++ COMPLETED
+
+
+======================================================================
+FAIL: test_scheduler_unknown_does_not_starve_at_normal_poll_interval (__main__.EngineReviewProbes.test_scheduler_unknown_does_not_starve_at_normal_poll_interval)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\engine-pre-p12-20260905\review_probes.py", line 73, in test_scheduler_unknown_does_not_starve_at_normal_poll_interval
+    self.assertEqual(healthy.state.value, "COMPLETED")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'QUEUED' != 'COMPLETED'
+- QUEUED
++ COMPLETED
+
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.472s
+
+FAILED (failures=6, errors=1)
+

@@ -1,0 +1,153 @@
+test_concurrent_events_are_not_silently_lost (tests.test_pre_p12_repairs.PreP12RegressionTests.test_concurrent_events_are_not_silently_lost) ... FAIL
+test_concurrent_mutations_preserve_revision_conflict (tests.test_pre_p12_repairs.PreP12RegressionTests.test_concurrent_mutations_preserve_revision_conflict) ... FAIL
+test_concurrent_same_event_is_persisted_once (tests.test_pre_p12_repairs.PreP12RegressionTests.test_concurrent_same_event_is_persisted_once) ... ok
+test_control_memory_disjoint_roots_merge (tests.test_pre_p12_repairs.PreP12RegressionTests.test_control_memory_disjoint_roots_merge) ... ok
+test_control_real_restriction_removes_capability (tests.test_pre_p12_repairs.PreP12RegressionTests.test_control_real_restriction_removes_capability) ... ok
+test_control_resource_once_reconciles (tests.test_pre_p12_repairs.PreP12RegressionTests.test_control_resource_once_reconciles) ... ok
+test_control_scheduler_unknown_allows_immediate_next_tick (tests.test_pre_p12_repairs.PreP12RegressionTests.test_control_scheduler_unknown_allows_immediate_next_tick) ... ok
+test_control_sequential_events_preserved (tests.test_pre_p12_repairs.PreP12RegressionTests.test_control_sequential_events_preserved) ... ok
+test_learning_rechecks_rejected_support_before_solidifying (tests.test_pre_p12_repairs.PreP12RegressionTests.test_learning_rechecks_rejected_support_before_solidifying) ... FAIL
+test_memory_partial_overlap_preserves_new_evidence (tests.test_pre_p12_repairs.PreP12RegressionTests.test_memory_partial_overlap_preserves_new_evidence) ... FAIL
+test_model_zero_budget_still_blocks_execute_after_crash (tests.test_pre_p12_repairs.PreP12RegressionTests.test_model_zero_budget_still_blocks_execute_after_crash) ... FAIL
+test_repeated_resource_request_remains_reconcilable (tests.test_pre_p12_repairs.PreP12RegressionTests.test_repeated_resource_request_remains_reconcilable) ... FAIL
+test_restriction_does_not_expand_capabilities (tests.test_pre_p12_repairs.PreP12RegressionTests.test_restriction_does_not_expand_capabilities) ... FAIL
+test_restriction_does_not_reactivate_revoked_permission (tests.test_pre_p12_repairs.PreP12RegressionTests.test_restriction_does_not_reactivate_revoked_permission) ... FAIL
+test_scheduler_foreign_cycle_does_not_wake_another_subject (tests.test_pre_p12_repairs.PreP12RegressionTests.test_scheduler_foreign_cycle_does_not_wake_another_subject) ... FAIL
+test_scheduler_receipt_conflict_does_not_starve_other_task (tests.test_pre_p12_repairs.PreP12RegressionTests.test_scheduler_receipt_conflict_does_not_starve_other_task) ... FAIL
+test_scheduler_unknown_does_not_starve_at_normal_poll_interval (tests.test_pre_p12_repairs.PreP12RegressionTests.test_scheduler_unknown_does_not_starve_at_normal_poll_interval) ... FAIL
+
+======================================================================
+FAIL: test_concurrent_events_are_not_silently_lost (tests.test_pre_p12_repairs.PreP12RegressionTests.test_concurrent_events_are_not_silently_lost)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p12_repairs.py", line 198, in test_concurrent_events_are_not_silently_lost
+    self._concurrent_events()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p12_repairs.py", line 187, in _concurrent_events
+    self.assertTrue(successful.issubset(stored))
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_concurrent_mutations_preserve_revision_conflict (tests.test_pre_p12_repairs.PreP12RegressionTests.test_concurrent_mutations_preserve_revision_conflict)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p12_repairs.py", line 206, in test_concurrent_mutations_preserve_revision_conflict
+    service, _ = self._concurrent_events(mutating=True)
+                 ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p12_repairs.py", line 175, in _concurrent_events
+    self.assertTrue(first_at_write.wait(2))
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_learning_rechecks_rejected_support_before_solidifying (tests.test_pre_p12_repairs.PreP12RegressionTests.test_learning_rechecks_rejected_support_before_solidifying)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p12_repairs.py", line 344, in test_learning_rechecks_rejected_support_before_solidifying
+    self.assertTrue(rejected)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_memory_partial_overlap_preserves_new_evidence (tests.test_pre_p12_repairs.PreP12RegressionTests.test_memory_partial_overlap_preserves_new_evidence)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p12_repairs.py", line 232, in test_memory_partial_overlap_preserves_new_evidence
+    result = service.consolidate(incoming)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\memory_consolidation_service.py", line 112, in consolidate
+    self._repository.save_consolidation(current, operation)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_memory_repository.py", line 134, in save_consolidation
+    self._write_document(path, data)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_memory_repository.py", line 929, in _write_document
+    self._validate_document(data, data["subject_id"])
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_memory_repository.py", line 779, in _validate_document
+    raise MemoryPersistenceError(
+        "consolidation operation input is not traceable to its result memory"
+    )
+continuity_engine.domain.errors.MemoryPersistenceError: consolidation operation input is not traceable to its result memory
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p12_repairs.py", line 238, in test_memory_partial_overlap_preserves_new_evidence
+    self.fail("Valid overlapping evidence cannot be consolidated: " + str(exc))
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Valid overlapping evidence cannot be consolidated: consolidation operation input is not traceable to its result memory
+
+======================================================================
+FAIL: test_model_zero_budget_still_blocks_execute_after_crash (tests.test_pre_p12_repairs.PreP12RegressionTests.test_model_zero_budget_still_blocks_execute_after_crash)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p12_repairs.py", line 376, in test_model_zero_budget_still_blocks_execute_after_crash
+    self.assertEqual(calls, 0)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_repeated_resource_request_remains_reconcilable (tests.test_pre_p12_repairs.PreP12RegressionTests.test_repeated_resource_request_remains_reconcilable)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p12_repairs.py", line 128, in test_repeated_resource_request_remains_reconcilable
+    with self.assertRaises(ResourceValidationError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ResourceValidationError not raised
+
+======================================================================
+FAIL: test_restriction_does_not_expand_capabilities (tests.test_pre_p12_repairs.PreP12RegressionTests.test_restriction_does_not_expand_capabilities)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p12_repairs.py", line 100, in test_restriction_does_not_expand_capabilities
+    self.assertFalse(allowed)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_restriction_does_not_reactivate_revoked_permission (tests.test_pre_p12_repairs.PreP12RegressionTests.test_restriction_does_not_reactivate_revoked_permission)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p12_repairs.py", line 116, in test_restriction_does_not_reactivate_revoked_permission
+    self.assertFalse(allowed)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_scheduler_foreign_cycle_does_not_wake_another_subject (tests.test_pre_p12_repairs.PreP12RegressionTests.test_scheduler_foreign_cycle_does_not_wake_another_subject)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p12_repairs.py", line 310, in test_scheduler_foreign_cycle_does_not_wake_another_subject
+    self.assertEqual(len(foreign), 0)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_scheduler_receipt_conflict_does_not_starve_other_task (tests.test_pre_p12_repairs.PreP12RegressionTests.test_scheduler_receipt_conflict_does_not_starve_other_task)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p12_repairs.py", line 60, in test_scheduler_receipt_conflict_does_not_starve_other_task
+    self.assertEqual(healthy.state.value, "COMPLETED")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'QUEUED' != 'COMPLETED'
+- QUEUED
++ COMPLETED
+
+
+======================================================================
+FAIL: test_scheduler_unknown_does_not_starve_at_normal_poll_interval (tests.test_pre_p12_repairs.PreP12RegressionTests.test_scheduler_unknown_does_not_starve_at_normal_poll_interval)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p12_repairs.py", line 74, in test_scheduler_unknown_does_not_starve_at_normal_poll_interval
+    self.assertEqual(healthy.state.value, "COMPLETED")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'QUEUED' != 'COMPLETED'
+- QUEUED
++ COMPLETED
+
+
+----------------------------------------------------------------------
+Ran 17 tests in 2.879s
+
+FAILED (failures=11)

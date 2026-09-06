@@ -1,0 +1,526 @@
+{
+  "capturedAt": "2026-09-05T16:44:38.477439+00:00",
+  "status": "PASS",
+  "errors": [],
+  "sourceTestFiles": 192,
+  "stableSourceUnchanged": true,
+  "protectedFiles": 63,
+  "protectedChanges": [],
+  "frozenBoundaryFiles": 25,
+  "frozenSchemas": 6,
+  "formalDataFiles": 7,
+  "formalDataPathAndSHA256Unchanged": true,
+  "formalDataHistoricalTree": "sha256:f9c710c6085e430a251f74463d57133f8c5a4497fe8ffa2ccb96be2db1037bb2",
+  "p10Helpers": 31,
+  "reviewOriginalsUnchanged": true,
+  "historicalEvidenceFilesUnchanged": 585,
+  "historicalEvidenceChanges": [],
+  "originalTestIdentities": 839,
+  "missingTests": [],
+  "addedTestIdentities": [
+    "test_pre_p12_repairs.PreP12RegressionTests.test_concurrent_events_are_not_silently_lost",
+    "test_pre_p12_repairs.PreP12RegressionTests.test_concurrent_mutations_preserve_revision_conflict",
+    "test_pre_p12_repairs.PreP12RegressionTests.test_concurrent_same_event_is_persisted_once",
+    "test_pre_p12_repairs.PreP12RegressionTests.test_control_memory_disjoint_roots_merge",
+    "test_pre_p12_repairs.PreP12RegressionTests.test_control_real_restriction_removes_capability",
+    "test_pre_p12_repairs.PreP12RegressionTests.test_control_resource_once_reconciles",
+    "test_pre_p12_repairs.PreP12RegressionTests.test_control_scheduler_unknown_allows_immediate_next_tick",
+    "test_pre_p12_repairs.PreP12RegressionTests.test_control_sequential_events_preserved",
+    "test_pre_p12_repairs.PreP12RegressionTests.test_learning_confirmation_gate_remains_before_writes",
+    "test_pre_p12_repairs.PreP12RegressionTests.test_learning_current_sufficient_confidence_is_not_overstated",
+    "test_pre_p12_repairs.PreP12RegressionTests.test_learning_rechecks_rejected_support_before_solidifying",
+    "test_pre_p12_repairs.PreP12RegressionTests.test_learning_reduced_support_confidence_cannot_reuse_old_validation",
+    "test_pre_p12_repairs.PreP12RegressionTests.test_learning_support_root_overlap_and_count_are_rechecked",
+    "test_pre_p12_repairs.PreP12RegressionTests.test_learning_valid_support_survives_restart_and_requires_explicit_evolution",
+    "test_pre_p12_repairs.PreP12RegressionTests.test_memory_full_duplicate_does_not_increase_roots_or_confidence",
+    "test_pre_p12_repairs.PreP12RegressionTests.test_memory_partial_alias_uses_previous_revision_and_new_direct_evidence",
+    "test_pre_p12_repairs.PreP12RegressionTests.test_memory_partial_overlap_preserves_history_provenance_and_conflict_rejection",
+    "test_pre_p12_repairs.PreP12RegressionTests.test_memory_partial_overlap_preserves_new_evidence",
+    "test_pre_p12_repairs.PreP12RegressionTests.test_model_executed_fact_recovers_at_zero_current_budget_without_execute",
+    "test_pre_p12_repairs.PreP12RegressionTests.test_model_positive_reserved_budget_is_rechecked_after_another_request_consumes_it",
+    "test_pre_p12_repairs.PreP12RegressionTests.test_model_unknown_at_budget_gate_never_authorizes_execute",
+    "test_pre_p12_repairs.PreP12RegressionTests.test_model_zero_budget_still_blocks_execute_after_crash",
+    "test_pre_p12_repairs.PreP12RegressionTests.test_permission_capability_only_escalation_is_rejected_without_write",
+    "test_pre_p12_repairs.PreP12RegressionTests.test_permission_expiry_cannot_be_reactivated_by_restrict_but_explicit_grant_works",
+    "test_pre_p12_repairs.PreP12RegressionTests.test_permission_wildcard_scope_containment_and_zero_write_rejection",
+    "test_pre_p12_repairs.PreP12RegressionTests.test_repeated_resource_request_remains_reconcilable",
+    "test_pre_p12_repairs.PreP12RegressionTests.test_resource_denied_request_may_use_new_identity_when_resources_become_available",
+    "test_pre_p12_repairs.PreP12RegressionTests.test_resource_duplicate_and_conflict_reject_after_restart_then_settle",
+    "test_pre_p12_repairs.PreP12RegressionTests.test_restriction_does_not_expand_capabilities",
+    "test_pre_p12_repairs.PreP12RegressionTests.test_restriction_does_not_reactivate_revoked_permission",
+    "test_pre_p12_repairs.PreP12RegressionTests.test_scheduler_conflicting_query_has_backoff_without_new_attempt",
+    "test_pre_p12_repairs.PreP12RegressionTests.test_scheduler_existing_session_cycle_mismatch_rejects_before_resources",
+    "test_pre_p12_repairs.PreP12RegressionTests.test_scheduler_foreign_cycle_does_not_wake_another_subject",
+    "test_pre_p12_repairs.PreP12RegressionTests.test_scheduler_foreign_cycle_rejected_without_resource_wake_or_receipt_write",
+    "test_pre_p12_repairs.PreP12RegressionTests.test_scheduler_pending_queries_and_healthy_stream_progress_after_restart",
+    "test_pre_p12_repairs.PreP12RegressionTests.test_scheduler_receipt_conflict_does_not_starve_other_task",
+    "test_pre_p12_repairs.PreP12RegressionTests.test_scheduler_test_delivery_rejects_request_binding_changes_before_effects",
+    "test_pre_p12_repairs.PreP12RegressionTests.test_scheduler_unknown_does_not_starve_at_normal_poll_interval",
+    "test_pre_p12_repairs.PreP12RegressionTests.test_scheduler_verification_is_fair_among_multiple_unknown_tasks"
+  ],
+  "loaderErrors": [],
+  "currentTests": 878,
+  "originalTestChangedFiles": [
+    "tests/test_permissions.py"
+  ],
+  "originalPermissionAssertionsUnchanged": true,
+  "pythonASTFiles": 186,
+  "markdownFiles": 14,
+  "localLinksChecked": 329,
+  "brokenLinks": [],
+  "sensitiveContentHits": [],
+  "gitDiffCheck": {
+    "exitCode": 0,
+    "stdout": ""
+  },
+  "git": {
+    "head": "5f25d0cef3798aa380d457ae670db30ee1b47407",
+    "branch": "main",
+    "localOriginMain": "5f25d0cef3798aa380d457ae670db30ee1b47407",
+    "aheadBehind": [
+      "0",
+      "0"
+    ],
+    "staged": "",
+    "entries": [
+      {
+        "status": " M",
+        "path": "README.md"
+      },
+      {
+        "status": " M",
+        "path": "docs/project_memory/01_当前状态.md"
+      },
+      {
+        "status": " M",
+        "path": "docs/project_memory/03_施工日志.md"
+      },
+      {
+        "status": " M",
+        "path": "docs/project_memory/04_决策记录.md"
+      },
+      {
+        "status": " M",
+        "path": "docs/project_memory/05_已完成模块.md"
+      },
+      {
+        "status": " M",
+        "path": "docs/project_memory/06_未完成事项.md"
+      },
+      {
+        "status": " M",
+        "path": "docs/project_memory/07_待确认事项.md"
+      },
+      {
+        "status": " M",
+        "path": "docs/project_memory/10_档案修订记录.md"
+      },
+      {
+        "status": " M",
+        "path": "docs/project_memory/13_P00_档案与测试索引.md"
+      },
+      {
+        "status": " M",
+        "path": "docs/project_memory/57_P11_队列恢复重试取消与投递语义.md"
+      },
+      {
+        "status": " M",
+        "path": "docs/project_memory/58_P11_测试索引与验收入口.md"
+      },
+      {
+        "status": " M",
+        "path": "docs/project_memory/CHANGELOG.md"
+      },
+      {
+        "status": " M",
+        "path": "docs/project_memory/工程总档案.md"
+      },
+      {
+        "status": " M",
+        "path": "src/continuity_engine/services/learning_service.py"
+      },
+      {
+        "status": " M",
+        "path": "src/continuity_engine/services/memory_consolidation_service.py"
+      },
+      {
+        "status": " M",
+        "path": "src/continuity_engine/services/model_capability_service.py"
+      },
+      {
+        "status": " M",
+        "path": "src/continuity_engine/services/permission_service.py"
+      },
+      {
+        "status": " M",
+        "path": "src/continuity_engine/services/resource_manager.py"
+      },
+      {
+        "status": " M",
+        "path": "src/continuity_engine/services/scheduler_service.py"
+      },
+      {
+        "status": " M",
+        "path": "src/continuity_engine/services/subject_state_service.py"
+      },
+      {
+        "status": " M",
+        "path": "src/continuity_engine/storage/json_repository.py"
+      },
+      {
+        "status": " M",
+        "path": "src/continuity_engine/storage/json_resource_repository.py"
+      },
+      {
+        "status": " M",
+        "path": "src/continuity_engine/testing/p11_scheduler_fixture.py"
+      },
+      {
+        "status": " M",
+        "path": "tests/test_permissions.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/P12前整体审查_R01-R08修复与复核入口.md"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/closeout-20260904/check_stop.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/closeout-20260904/closeout.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/closeout-20260904/preserve_failed_closeout.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/closeout-20260904/record_stop.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/closeout-20260904/sync_assistant.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/create_repositories.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/final_audit.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/fixture-case-repair-20260904/audit.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/fixture-case-repair-20260904/independent/p10_fixture_repair_review_probe.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/fixture-case-repair-20260904/prepare.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/fixture-case-repair-20260904/run.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/fixture-case-repair-20260904/sync_docs.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/fixture-repair-20260904/audit.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/fixture-repair-20260904/baseline.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/fixture-repair-20260904/engineering.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/fixture-repair-20260904/engineering_resume.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/fixture-repair-20260904/run.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/fixture-repair-20260904/sync_docs.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/fixture-repair-20260904/temp_probe.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/launcher-repair-20260905/advance.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/launcher-repair-20260905/build_review_report.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/launcher-repair-20260905/ci_evidence.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/launcher-repair-20260905/document_check.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/launcher-repair-20260905/final_audit.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/launcher-repair-20260905/repair_namespace_diagnostic.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/launcher-repair-20260905/temp_checkout_probe.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/launcher-repair-20260905/validate_temp.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/launcher-repair-20260905/workflow.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/outside_temp_clone.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/publish_assistant.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/p10_evidence/remote_review.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/audit.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/before.json"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/binding-confidence-red.json"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/binding-confidence-red.stderr.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/binding-confidence-red.stdout.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/compatibility-repair-green.json"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/compatibility-repair-green.stderr.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/compatibility-repair-green.stdout.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/compatibility-repair-targeted.json"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/compatibility-repair-targeted.stderr.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/compatibility-repair-targeted.stdout.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/expanded-targeted-first.json"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/expanded-targeted-first.stderr.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/expanded-targeted-first.stdout.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/final-full-02.json"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/final-full-02.stderr.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/final-full-02.stdout.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/final-full.json"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/final-full.stderr.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/final-full.stdout.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/final-targeted-02.json"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/final-targeted-02.stderr.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/final-targeted-02.stdout.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/final-targeted.json"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/final-targeted.stderr.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/final-targeted.stdout.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/formal-first-green.json"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/formal-first-green.stderr.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/formal-first-green.stdout.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/formal-red.json"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/formal-red.stderr.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/formal-red.stdout.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/helper-diagnostics.json"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/independent-red.json"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/independent-red.stderr.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/independent-red.stdout.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/interim-audit.json"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/r01-r03-green.json"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/r01-r03-green.stderr.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/r01-r03-green.stdout.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/review-original/baseline-final-chunk.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/review-original/final-readonly-audit.json"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/review-original/probe-final.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/review-original/probe-run-02.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/review-original/probe-run-03.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/review-original/probe-run-04.log"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/review-original/review-report.md"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/review-original/review_probes.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/run_tests.py"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/stable-source-02.json"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/stable-source.json"
+      },
+      {
+        "status": "??",
+        "path": "docs/project_memory/pre_p12_repair_evidence/test-results.json"
+      },
+      {
+        "status": "??",
+        "path": "tests/test_pre_p12_repairs.py"
+      }
+    ]
+  },
+  "version": "0.1.0 (protected pyproject unchanged)",
+  "scope": "Engine only; no Git writes, no Assistant/production systems, P12 NOT_STARTED"
+}

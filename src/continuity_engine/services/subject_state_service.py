@@ -118,6 +118,16 @@ class SubjectStateService:
             )
         result = self._evolver.evolve(state, event, applied_at=applied_at)
         self._repository.save_transition(result.state, result.update)
+        # Another local writer may have persisted the identical event first.
+        # Return that authoritative update identity, never an unsaved UUID.
+        persisted = next(
+            record for record in self._repository.list_update_records(subject_id)
+            if record.event.event_id == event.event_id
+        )
+        if persisted.update_id != result.update.update_id:
+            return StateEvolutionResult(
+                state=self.load(subject_id), update=persisted, idempotent_replay=True
+            )
         return result
 
     def get_update_history(self, subject_id: str) -> list[StateUpdateRecord]:

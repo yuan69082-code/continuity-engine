@@ -108,6 +108,15 @@ class ResourceManager:
         return self._policy.evaluate(state, request, decided_at=self._clock())
 
     def request_resources(self, request: ResourceRequest) -> ResourceAllocation:
+        # Existing decisions/usages remain the only resource history. They do
+        # not retain every original request field, so reject rather than invent
+        # an exact replay, including content conflicts under the same identity.
+        if any(item.request_id == request.request_id
+               for item in self._repository.list_decisions(request.subject_id)):
+            raise ResourceValidationError("duplicate or conflicting resource request identity")
+        if any(item.session_id == request.session_id
+               for item in self._repository.list_usage(request.subject_id)):
+            raise ResourceValidationError("resource session already has an allocation")
         state = self._repository.load(request.subject_id)
         decision = self._policy.evaluate(state, request, decided_at=self._clock())
         if not decision.allowed:

@@ -1,0 +1,41 @@
+test_concurrent_same_event_is_persisted_once (tests.test_pre_p12_repairs.PreP12RegressionTests.test_concurrent_same_event_is_persisted_once) ... FAIL
+test_learning_current_sufficient_confidence_is_not_overstated (tests.test_pre_p12_repairs.PreP12RegressionTests.test_learning_current_sufficient_confidence_is_not_overstated) ... FAIL
+test_scheduler_foreign_cycle_rejected_without_resource_wake_or_receipt_write (tests.test_pre_p12_repairs.PreP12RegressionTests.test_scheduler_foreign_cycle_rejected_without_resource_wake_or_receipt_write) ... FAIL
+
+======================================================================
+FAIL: test_concurrent_same_event_is_persisted_once (tests.test_pre_p12_repairs.PreP12RegressionTests.test_concurrent_same_event_is_persisted_once)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p12_repairs.py", line 202, in test_concurrent_same_event_is_persisted_once
+    service, first = self._concurrent_events(same=True)
+                     ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p12_repairs.py", line 188, in _concurrent_events
+    self.assertTrue({r.update.update_id for r in results}.issubset({u.update_id for u in history}))
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_learning_current_sufficient_confidence_is_not_overstated (tests.test_pre_p12_repairs.PreP12RegressionTests.test_learning_current_sufficient_confidence_is_not_overstated)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p12_repairs.py", line 608, in test_learning_current_sufficient_confidence_is_not_overstated
+    self.assertEqual(result.trait.confidence, 0.75)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0.8 != 0.75
+
+======================================================================
+FAIL: test_scheduler_foreign_cycle_rejected_without_resource_wake_or_receipt_write (tests.test_pre_p12_repairs.PreP12RegressionTests.test_scheduler_foreign_cycle_rejected_without_resource_wake_or_receipt_write)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p12_repairs.py", line 691, in test_scheduler_foreign_cycle_rejected_without_resource_wake_or_receipt_write
+    self.assertEqual(result.reason_code, "DISPATCH_BINDING_CONFLICT")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'DISPATCH_RESULT_UNKNOWN' != 'DISPATCH_BINDING_CONFLICT'
+- DISPATCH_RESULT_UNKNOWN
++ DISPATCH_BINDING_CONFLICT
+
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.290s
+
+FAILED (failures=3)

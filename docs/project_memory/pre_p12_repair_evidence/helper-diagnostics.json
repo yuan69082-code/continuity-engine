@@ -1,0 +1,26 @@
+{
+  "testConstructionError": {
+    "test": "test_concurrent_mutations_preserve_revision_conflict",
+    "wrongValue": "scalar string for continuity.current_focus SET",
+    "required": "list[str]",
+    "symptom": "first_at_write Event was never signaled; wait assertion failed",
+    "correction": "single-element list; existing revision assertion preserved"
+  },
+  "laterTestEditError": {
+    "run": "compatibility-repair-targeted",
+    "error": "NameError: MemoryEvidenceConflictError",
+    "cause": "existing conflict assertion block was placed in new method with a different local import",
+    "correction": "restored assertion block to original method"
+  },
+  "readHelpers": [
+    {
+      "command": "rg included tests/test_p03_events.py",
+      "outcome": "nonexistent path; actual file tests/test_p03_event_semantics.py discovered with rg --files"
+    },
+    {
+      "command": "Get-Content tests/test_events.py",
+      "outcome": "nonexistent path; actual tests/test_event_persistence.py discovered with rg --files"
+    }
+  ],
+  "classification": "test/read helper errors; not new Engine defects; originals retained in command outputs and test logs"
+}

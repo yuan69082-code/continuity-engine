@@ -1,0 +1,35 @@
+{
+  "time": "2026-09-06T07:36:11.8190539+08:00",
+  "head": "5f25d0cef3798aa380d457ae670db30ee1b47407",
+  "localAheadBehind": "0\t0",
+  "fileCount": 976,
+  "treeSha256": "901ef8cfa943d5b0a91a9a3a5494897dbe4dce29d6f0e02c049c0355a3658455",
+  "gitStatusSha256": "7be2aeaf14987c7d56524af1e3a880b9ca457092927c283dceeb5caa882ef5ec",
+  "trackedChanges": 24,
+  "untracked": 130,
+  "indexChangedPaths": [],
+  "hashChecks": {
+    "previousRepairSource": {
+      "mismatches": [
+        "src/continuity_engine/services/learning_service.py",
+        "src/continuity_engine/storage/json_resource_repository.py"
+      ],
+      "count": 192
+    },
+    "protected": {
+      "mismatches": [],
+      "count": 63
+    },
+    "stableSource": {
+      "mismatches": [
+        "capturedAt",
+        "sourceTest",
+        "testIdentities",
+        "retainedTestCount",
+        "addedTestIdentities"
+      ],
+      "count": 5
+    }
+  },
+  "diffCheckExit": 0
+}

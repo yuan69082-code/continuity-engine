@@ -1,0 +1,21 @@
+test_concurrent_allowed_duplicate_charges_once_then_settles (tests.test_pre_p12_r05_r06_followup.ResourceTransactionTests.test_concurrent_allowed_duplicate_charges_once_then_settles) ... ok
+test_concurrent_allowed_then_conflicting_denial_preserves_first_result (tests.test_pre_p12_r05_r06_followup.ResourceTransactionTests.test_concurrent_allowed_then_conflicting_denial_preserves_first_result) ... ok
+test_concurrent_denied_duplicate_preserves_first_result (tests.test_pre_p12_r05_r06_followup.ResourceTransactionTests.test_concurrent_denied_duplicate_preserves_first_result) ... ok
+test_concurrent_denied_then_conflicting_allowance_preserves_first_result (tests.test_pre_p12_r05_r06_followup.ResourceTransactionTests.test_concurrent_denied_then_conflicting_allowance_preserves_first_result) ... ok
+test_concurrent_new_request_cannot_deny_an_allocated_session (tests.test_pre_p12_r05_r06_followup.ResourceTransactionTests.test_concurrent_new_request_cannot_deny_an_allocated_session) ... ok
+test_denials_allow_new_identity_then_allocation_and_settlement (tests.test_pre_p12_r05_r06_followup.ResourceTransactionTests.test_denials_allow_new_identity_then_allocation_and_settlement) ... ok
+test_create_resource_state (tests.test_resources.TokenAndResourceManagementTests.test_create_resource_state) ... ok
+test_learning_is_deferred_before_candidate_extraction (tests.test_resources.TokenAndResourceManagementTests.test_learning_is_deferred_before_candidate_extraction) ... ok
+test_low_remaining_resources_downgrade_normal_to_low (tests.test_resources.TokenAndResourceManagementTests.test_low_remaining_resources_downgrade_normal_to_low) ... ok
+test_over_budget_request_is_deferred_without_consumption (tests.test_resources.TokenAndResourceManagementTests.test_over_budget_request_is_deferred_without_consumption) ... ok
+test_resource_state_and_history_survive_restart (tests.test_resources.TokenAndResourceManagementTests.test_resource_state_and_history_survive_restart) ... ok
+test_runtime_modes_switch_and_cap_thinking_depth (tests.test_resources.TokenAndResourceManagementTests.test_runtime_modes_switch_and_cap_thinking_depth) ... ok
+test_thinking_uses_resource_manager_and_accepts_depth_downgrade (tests.test_resources.TokenAndResourceManagementTests.test_thinking_uses_resource_manager_and_accepts_depth_downgrade) ... ok
+test_thinking_waits_when_low_depth_cannot_be_afforded (tests.test_resources.TokenAndResourceManagementTests.test_thinking_waits_when_low_depth_cannot_be_afforded) ... ok
+test_token_budget_calculation_usage_and_actual_reconciliation (tests.test_resources.TokenAndResourceManagementTests.test_token_budget_calculation_usage_and_actual_reconciliation) ... ok
+test_wake_scheduler_checks_resources_before_starting (tests.test_resources.TokenAndResourceManagementTests.test_wake_scheduler_checks_resources_before_starting) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.341s
+
+OK

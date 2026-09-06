@@ -1,0 +1,22 @@
+test_concurrent_events_are_not_silently_lost (tests.test_pre_p12_repairs.PreP12RegressionTests.test_concurrent_events_are_not_silently_lost) ... ok
+test_concurrent_mutations_preserve_revision_conflict (tests.test_pre_p12_repairs.PreP12RegressionTests.test_concurrent_mutations_preserve_revision_conflict) ... ok
+test_concurrent_same_event_is_persisted_once (tests.test_pre_p12_repairs.PreP12RegressionTests.test_concurrent_same_event_is_persisted_once) ... ok
+test_control_memory_disjoint_roots_merge (tests.test_pre_p12_repairs.PreP12RegressionTests.test_control_memory_disjoint_roots_merge) ... ok
+test_control_real_restriction_removes_capability (tests.test_pre_p12_repairs.PreP12RegressionTests.test_control_real_restriction_removes_capability) ... ok
+test_control_resource_once_reconciles (tests.test_pre_p12_repairs.PreP12RegressionTests.test_control_resource_once_reconciles) ... ok
+test_control_scheduler_unknown_allows_immediate_next_tick (tests.test_pre_p12_repairs.PreP12RegressionTests.test_control_scheduler_unknown_allows_immediate_next_tick) ... ok
+test_control_sequential_events_preserved (tests.test_pre_p12_repairs.PreP12RegressionTests.test_control_sequential_events_preserved) ... ok
+test_learning_rechecks_rejected_support_before_solidifying (tests.test_pre_p12_repairs.PreP12RegressionTests.test_learning_rechecks_rejected_support_before_solidifying) ... ok
+test_memory_partial_overlap_preserves_new_evidence (tests.test_pre_p12_repairs.PreP12RegressionTests.test_memory_partial_overlap_preserves_new_evidence) ... ok
+test_model_zero_budget_still_blocks_execute_after_crash (tests.test_pre_p12_repairs.PreP12RegressionTests.test_model_zero_budget_still_blocks_execute_after_crash) ... ok
+test_repeated_resource_request_remains_reconcilable (tests.test_pre_p12_repairs.PreP12RegressionTests.test_repeated_resource_request_remains_reconcilable) ... ok
+test_restriction_does_not_expand_capabilities (tests.test_pre_p12_repairs.PreP12RegressionTests.test_restriction_does_not_expand_capabilities) ... ok
+test_restriction_does_not_reactivate_revoked_permission (tests.test_pre_p12_repairs.PreP12RegressionTests.test_restriction_does_not_reactivate_revoked_permission) ... ok
+test_scheduler_foreign_cycle_does_not_wake_another_subject (tests.test_pre_p12_repairs.PreP12RegressionTests.test_scheduler_foreign_cycle_does_not_wake_another_subject) ... ok
+test_scheduler_receipt_conflict_does_not_starve_other_task (tests.test_pre_p12_repairs.PreP12RegressionTests.test_scheduler_receipt_conflict_does_not_starve_other_task) ... ok
+test_scheduler_unknown_does_not_starve_at_normal_poll_interval (tests.test_pre_p12_repairs.PreP12RegressionTests.test_scheduler_unknown_does_not_starve_at_normal_poll_interval) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 1.368s
+
+OK

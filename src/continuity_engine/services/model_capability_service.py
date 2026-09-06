@@ -171,9 +171,8 @@ class ModelCapabilityService:
                 record = self._persist_fact(record, queried.fact)
             elif queried.status is ProviderQueryStatus.UNKNOWN:
                 return required
-            elif allow_new_attempt:
-                fact = self._provider.execute(attempt.request)
-                self._fault("after_provider_returned_before_fact", record)
+            elif queried.status is ProviderQueryStatus.NOT_EXECUTED and allow_new_attempt:
+                fact = self._execute_with_budget(attempt.request, record)
                 record = self._persist_fact(record, fact)
             else:
                 return required
@@ -272,28 +271,7 @@ class ModelCapabilityService:
         self._repository.save_execution(record)
         self._fault("after_provider_dispatch_reserved", record)
 
-        if maximum_tokens == 0:
-            completed_at = format_contract_datetime(now + timedelta(microseconds=1))
-            fact = ProviderExecutionFact(
-                execution_id=record.execution_id,
-                attempt_id=execution_request.attempt_id,
-                request_fingerprint=execution_request.request_fingerprint,
-                provider_id=profile.provider_id,
-                model_name=profile.model_name,
-                status=ProviderExecutionStatus.RESOURCE_EXHAUSTED,
-                response_candidate=None,
-                input_tokens=0,
-                output_tokens=0,
-                finish_reason=None,
-                error_code="RESOURCE_EXHAUSTED",
-                retry_class="never",
-                started_at=execution_request.created_at,
-                completed_at=completed_at,
-                execution_occurred=False,
-            )
-        else:
-            fact = self._provider.execute(execution_request)
-            self._fault("after_provider_returned_before_fact", record)
+        fact = self._execute_with_budget(execution_request, record)
         record = self._persist_fact(record, fact)
         record, result = self._persist_result_for_fact(
             required,
@@ -301,6 +279,34 @@ class ModelCapabilityService:
             record.attempts[-1],
         )
         return self._deliver(record, result)
+
+    def _execute_with_budget(self, request: ModelExecutionRequest, record: ModelExecutionRecord):
+        """Only for first dispatch or an independently proven NOT_EXECUTED attempt.
+
+        Keep the persisted request/fingerprint immutable. If its bound maximum
+        no longer fits the current budget, reject before calling the Provider.
+        Already executed facts take the query/persist path, outside this gate.
+        """
+        now = self._safe_time_after(request.created_at)
+        remaining = max(0, request.profile.daily_token_limit
+                        - self._daily_tokens(format_contract_datetime(now)))
+        if request.maximum_tokens == 0 or request.maximum_tokens > remaining:
+            return ProviderExecutionFact(
+                execution_id=record.execution_id,
+                attempt_id=request.attempt_id,
+                request_fingerprint=request.request_fingerprint,
+                provider_id=request.profile.provider_id,
+                model_name=request.profile.model_name,
+                status=ProviderExecutionStatus.RESOURCE_EXHAUSTED,
+                response_candidate=None, input_tokens=0, output_tokens=0,
+                finish_reason=None, error_code="RESOURCE_EXHAUSTED",
+                retry_class="never", started_at=request.created_at,
+                completed_at=format_contract_datetime(now + timedelta(microseconds=1)),
+                execution_occurred=False,
+            )
+        fact = self._provider.execute(request)
+        self._fault("after_provider_returned_before_fact", record)
+        return fact
 
     def _ensure_record(self, required, profile) -> ModelExecutionRecord:
         request = required.capability_request

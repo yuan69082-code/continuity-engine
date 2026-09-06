@@ -1,0 +1,3 @@
+{"case": "permission_expand", "rejected": "PermissionValidationError"}
+{"case": "permission_revocation", "rejected": "PermissionValidationError"}
+{"case": "model_zero_budget_recovery", "provider_execute_calls": 0, "limits": [], "provider_facts": 1, "error": null}

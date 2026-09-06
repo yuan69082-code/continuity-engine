@@ -1,6 +1,12 @@
 # Continuity Engine
 
-> P11 现行门：P00—P11 = ACCEPTED；P11 / P11 Engine side / P11-01—P11-12 = ACCEPTED；P11 Vio dependency = NONE；P12—P23 = NOT_STARTED；PLANNING_CONFLICT = NONE；EVIDENCE_CONFLICT = NONE（仅表示现行验收阻断已闭合）。D-058 已登记用户正式验收。监工独立原反例 2/2 PASS、P11 45/45 PASS（8.371 秒）；39/833 全量等修复前结果继续作为历史保留。本次仅验收归档，不运行全量。[P11 验收入口](docs/project_memory/58_P11_测试索引与验收入口.md#p11-accepted)。
+> 当前验收（2026-09-06，D-059）：用户正式接受 R01—R08 整体修复及 R05/R06 补修，现行 ACCEPTED。监工独立实跑 21/21 与 74/74 PASS；完整回归引用经身份核验的修复方 894 项结果（893 PASS、1 既有 SKIP、0 FAIL/ERROR，425.134 秒），本次未重跑。P00—P11 历史 ACCEPTED；P12—P23 NOT_STARTED；PLANNING_CONFLICT=NONE，EVIDENCE_CONFLICT=NONE，仅关闭本轮已解决阻断。已授权按精确清单完成 Engine 普通提交和推送，完成后停止。[验收矩阵与证据入口](docs/project_memory/P12前整体审查_用户验收与Git收尾.md)。
+
+> 补修完成、验收前历史快照（2026-09-06）：仅补 R05/R06；其他六项独立复核通过成果保留。R05/R06 补修已实现，等待独立复核。正式定点 55/55、原独立探针 21/21 PASS；本轮全量 894 项（893 PASS、1 既有 SKIP、0 FAIL/ERROR，425.134 秒），完整结果见[补修与复核入口](docs/project_memory/P12前整体审查_R05-R06补修与复核入口.md)。P00—P11 历史 ACCEPTED 不变，P12—P23 NOT_STARTED；PLANNING_CONFLICT=NONE，EVIDENCE_CONFLICT=PRESENT。等待独立复核，不自行验收、不执行 Git 写操作。
+
+> 首轮修复历史快照（2026-09-06，后续独立复核发现 R05/R06 未闭合）：P12 暂停；仅执行整体审查 R01—R08 内部缺陷修复。P00—P11 历史 ACCEPTED 不变，P12—P23 NOT_STARTED。本轮修复已实现，等待独立复核；定点 39/39 PASS，终局全量 878 项（877 PASS、1 既有 SKIP、0 FAIL/ERROR，420.025 秒）；PLANNING_CONFLICT=NONE，EVIDENCE_CONFLICT=PRESENT（审查问题尚待独立复核关闭）。[本轮修复与证据入口](docs/project_memory/P12前整体审查_R01-R08修复与复核入口.md)。
+
+> P11 历史验收快照（D-058）：P00—P11 = ACCEPTED；P11 / P11 Engine side / P11-01—P11-12 = ACCEPTED；P11 Vio dependency = NONE；P12—P23 = NOT_STARTED；PLANNING_CONFLICT = NONE；EVIDENCE_CONFLICT = NONE（仅表示现行验收阻断已闭合）。D-058 已登记用户正式验收。监工独立原反例 2/2 PASS、P11 45/45 PASS（8.371 秒）；39/833 全量等修复前结果继续作为历史保留。本次仅验收归档，不运行全量。[P11 验收入口](docs/project_memory/58_P11_测试索引与验收入口.md#p11-accepted)。
 
 连续性引擎是位于 AI 模型之外的独立连续性层。它与 Vio 平台后端是边界独立、数据库独立的平行系统，通过正式版本化契约协作；Vio 前端只连接 Vio 平台后端。它保存的不是聊天记录，而是主体状态及其随事件发生的连续变化。模型、Tool、MCP 和设备是外部能力，不是主体状态权威。历史 Vio 连接仍受已冻结契约约束；P09 按现行独立规划使用宿主中立 Port，Vio 不是本轮运行依赖。
 
@@ -838,3 +844,7 @@ Scheduler 复用现有 `AwakeningService`、`WakeSession`、`ResourceManager` �
 ## P11 正式验收归档（2026-09-05，D-058）
 
 用户在独立复核通过后确认验收：原两个反例 2/2 PASS，P11 45/45 PASS（8.371 秒），修改范围和受保护文件 hash 核对通过；首次入队阻断关闭。P00—P11 = ACCEPTED；P11 / P11 Engine side / P11-01—P11-12 = ACCEPTED；P11 Vio dependency = NONE；P12—P23 = NOT_STARTED；PLANNING_CONFLICT = NONE；EVIDENCE_CONFLICT = NONE（仅表示现行验收阻断已闭合）。修复前全量继续标为历史，全部失败/修复证据保留。本次仅档案归档，源码/测试不改、不复跑全量、不修改 Assistant、不进入 P12、不执行 Git 写操作。详见 [验收入口](docs/project_memory/58_P11_测试索引与验收入口.md#p11-accepted)。
+
+## 2026-09-06：P12 前 R01—R08 定点修复
+
+用户授权仅修复审查列明的八项缺陷并交回独立复核，未授权本轮自行验收或 Git 写操作；不占用后续阶段决定编号。P11 已于此前提交到 `5f25d0cef3798aa380d457ae670db30ee1b47407`，本轮以该 SHA 为开工基线。当前修复属于该提交之后尚未提交的 Engine 工作区增量，与 P11 历史验收事实分开记录。根因、文件责任、失败/修复/兼容证据与状态见 [本轮入口](docs/project_memory/P12前整体审查_R01-R08修复与复核入口.md)。保留所有历史证据，31 个 P10 辅助脚本原样排除；Assistant 不修改、P12 不开始。

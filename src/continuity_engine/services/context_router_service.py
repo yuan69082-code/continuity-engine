@@ -320,15 +320,15 @@ class MemoryContextSource:
 
     @staticmethod
     def _source_version(memories) -> str:
+        weighted=any(item.effective_weight!=1.0 for item in memories)
         return _version_hash(
-            [(item.memory_id, item.revision, item.canonical_hash()) for item in memories]
+            [(item.memory_id, item.revision, item.canonical_hash())
+             + ((item.effective_weight,) if weighted else ()) for item in memories]
         )
 
     def retrieve(self, query: ContextSourceQuery) -> ContextSourceBatch:
         ordered = self._query(query)
-        source_version = _version_hash(
-            [(item.memory_id, item.revision, item.canonical_hash()) for item in ordered]
-        )
+        source_version = self._source_version(ordered)
         return ContextSourceBatch(
             self.source_id,
             self.partition,
@@ -359,9 +359,9 @@ class MemoryContextSource:
                             item.scope,
                             item.kind.value,
                         ),
-                    ),
-                    importance=item.importance,
-                    activation=item.activation,
+                    ) * item.effective_weight,
+                    importance=item.importance * item.effective_weight,
+                    activation=item.activation * item.effective_weight,
                     tags=tuple(item.tags) + (item.kind.value, item.temperature.value),
                     scopes=(item.scope,),
                 )
@@ -391,7 +391,7 @@ class MemoryContextSource:
             and version == candidate.version
             and content_hash == candidate.content_hash
             and current.status is MemoryStatus.ACTIVE
-            and current.temperature is not MemoryTemperature.ARCHIVED
+            and (current.temperature is not MemoryTemperature.ARCHIVED or current.lifecycle is not None)
             and current.visibility is MemoryVisibility.ENGINE_PRIVATE
             and current.environment == query.environment
         )
@@ -431,21 +431,18 @@ class DerivedSummaryContextSource:
 
     @staticmethod
     def _source_version(summaries) -> str:
+        weighted=any(item.retrieval_weight!=1.0 for item in summaries)
         return _version_hash(
             [
                 (item.summary_id, item.summary_version, item.canonical_hash())
+                + ((item.retrieval_weight,) if weighted else ())
                 for item in summaries
             ]
         )
 
     def retrieve(self, query: ContextSourceQuery) -> ContextSourceBatch:
         ordered = self._query(query)
-        source_version = _version_hash(
-            [
-                (item.summary_id, item.summary_version, item.canonical_hash())
-                for item in ordered
-            ]
-        )
+        source_version = self._source_version(ordered)
         return ContextSourceBatch(
             self.source_id,
             self.partition,
@@ -472,8 +469,8 @@ class DerivedSummaryContextSource:
                         _lexical_relevance(
                             query.query_terms, item.content, item.scope, item.summary_type
                         ),
-                    ),
-                    importance=item.confidence,
+                    ) * item.retrieval_weight,
+                    importance=item.confidence * item.retrieval_weight,
                     activation=0.0,
                     tags=(item.summary_type,),
                     scopes=(item.scope,),
@@ -519,16 +516,27 @@ class TimelineContextSource:
     source_id = "engine.timeline"
     partition = ContextPartition.TIMELINE
 
-    def __init__(self, timeline: TimelineService, *, environment: str) -> None:
+    def __init__(self, timeline: TimelineService, *, environment: str, memory_repository=None) -> None:
         self._timeline = timeline
         self._environment = environment
+        self._memory = memory_repository
 
-    def _entries(self, query: ContextSourceQuery):
+    def _weights(self, query):
+        return self._memory.event_recall_weights(query.subject_id) if self._memory is not None else {}
+
+    @staticmethod
+    def _entry_identity(item, weights):
+        original=(item.update_id,item.event.event_id,item.status.value,item.event.canonical_hash())
+        return original+(weights.get(item.event.event_id,1.0),) if weights else original
+
+    def _entries(self, query: ContextSourceQuery, weights=None):
+        weights=self._weights(query) if weights is None else weights
         projection = self._timeline.rebuild(query.subject_id)
         eligible = [
             item
             for item in projection.entries
             if item.status is TimelineEventStatus.ACTIVE
+            and weights.get(item.event.event_id,1.0)>0
         ]
         return tuple(
             sorted(
@@ -551,7 +559,7 @@ class TimelineContextSource:
                             item.event.classification.value,
                             [section.value for section in item.event.impact_scope],
                         ),
-                    ),
+                    ) * weights.get(item.event.event_id,1.0),
                     -item.event.occurred_at.timestamp(),
                     item.event.event_id,
                     item.update_id,
@@ -560,10 +568,11 @@ class TimelineContextSource:
         )
 
     def retrieve(self, query: ContextSourceQuery) -> ContextSourceBatch:
-        ordered = self._entries(query)
+        weights=self._weights(query)
+        ordered = self._entries(query,weights)
         source_version = _version_hash(
             [
-                (item.update_id, item.event.event_id, item.status.value, item.event.canonical_hash())
+                self._entry_identity(item,weights)
                 for item in ordered
             ]
         )
@@ -600,8 +609,8 @@ class TimelineContextSource:
                             item.event.classification.value,
                             [section.value for section in item.event.impact_scope],
                         ),
-                    ),
-                    importance=0.5,
+                    ) * weights.get(item.event.event_id,1.0),
+                    importance=0.5 * weights.get(item.event.event_id,1.0),
                     activation=0.0,
                     tags=tuple(
                         dict.fromkeys(
@@ -620,10 +629,11 @@ class TimelineContextSource:
         candidate: ContextSourceCandidate,
         source_version: str,
     ) -> ContextSourceValidation:
-        entries = self._entries(query)
+        weights=self._weights(query)
+        entries = self._entries(query,weights)
         current_source_version = _version_hash(
             [
-                (item.update_id, item.event.event_id, item.status.value, item.event.canonical_hash())
+                self._entry_identity(item,weights)
                 for item in entries
             ]
         )

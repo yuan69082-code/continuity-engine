@@ -1,0 +1,18 @@
+{
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "docs/project_memory/p12_evidence/run_suite.py",
+    "p12",
+    "p12-stable-02"
+  ],
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "startedAt": "2026-09-06T14:53:07.557189+00:00",
+  "environment": {
+    "PYTHONPATH": "src",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "exitCode": 0,
+  "interrupted": false,
+  "finishedAt": "2026-09-06T14:53:25.427703+00:00",
+  "wallSeconds": 17.87
+}

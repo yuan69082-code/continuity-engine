@@ -1,0 +1,31 @@
+{
+  "capturedAt": "2026-09-06T18:07:27.136033+00:00",
+  "status": "BLOCKED_APPROVAL",
+  "engineTestFailure": false,
+  "attemptedCommand": [
+    "git",
+    "add",
+    "--pathspec-from-file=docs/project_memory/p12_closeout_evidence/commit-paths.txt"
+  ],
+  "executionStarted": false,
+  "gitWritesPerformed": false,
+  "commitCreated": false,
+  "pushAttempted": false,
+  "rejection": "This action was rejected due to unacceptable risk. Reason: 该命令会修改 Git 暂存区并暂存 240 个文件；用户对当前 P12 任务明确禁止 git add，后续非用户 delegation 不能覆盖这一限制。",
+  "noRetryOrWorkaround": true,
+  "requiredNextStep": "Direct user authorization in this construction conversation is required before any Git write; recheck exact scope and deadline before proceeding.",
+  "preparedManifest": "commit-files.json",
+  "preparedManifestSHA256": "84649fce82dbda9202060cc158ad803df452d4fb56519c8535f5d24610b10c92",
+  "preparedPathCount": 240,
+  "additionalUnstagedEvidence": [
+    "docs/project_memory/p12_closeout_evidence/git-stage-blocked.json"
+  ],
+  "head": "1b8020fbe687dafaaf83a629dbeee65d69a71d67",
+  "originMainLocal": "1b8020fbe687dafaaf83a629dbeee65d69a71d67",
+  "aheadBehind": "0\t0",
+  "staged": "",
+  "sourceAndProtectedHashDrift": false,
+  "phase": "P12 IMPLEMENTED_NOT_ACCEPTED",
+  "acceptanceDecisionCreated": false,
+  "nextStageStarted": false
+}

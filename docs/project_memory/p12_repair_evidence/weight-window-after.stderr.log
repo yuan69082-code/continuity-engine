@@ -1,0 +1,7 @@
+test_memory_window_weight_drift_without_identity_or_order_change (__main__.WeightWindowProbes.test_memory_window_weight_drift_without_identity_or_order_change) ... ok
+test_summary_window_weight_drift_without_identity_or_order_change (__main__.WeightWindowProbes.test_summary_window_weight_drift_without_identity_or_order_change) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.304s
+
+OK

@@ -5,6 +5,8 @@ import json
 import os
 import re
 import tempfile
+from threading import RLock
+from functools import wraps
 from pathlib import Path
 from typing import Any
 
@@ -26,11 +28,23 @@ from continuity_engine.domain.memory import (
     MemoryStatus,
     MemoryTemperature,
     MemoryVisibility,
+    MemoryLifecycle,
+    MemoryLifecycleSignal,
 )
 
 
 MEMORY_FORMAT_VERSION = 1
 _QUERY_TERM = re.compile(r"[A-Za-z0-9_]+|[\u3400-\u9fff]")
+_MEMORY_TRANSACTION = RLock()
+
+
+def _write_transaction(method):
+    @wraps(method)
+    def wrapped(*args, **kwargs):
+        # Same local process: protect read/validate/append/replace as one operation.
+        with _MEMORY_TRANSACTION:
+            return method(*args, **kwargs)
+    return wrapped
 
 
 class JsonMemoryRepository:
@@ -58,11 +72,13 @@ class JsonMemoryRepository:
     def _path(self, subject_id: str) -> Path:
         return self.root / f"{self._identity_hash(subject_id, 'subject_id')}.json"
 
+    @_write_transaction
     def initialize_empty(self, subject_id: str) -> None:
         """Explicit initialization; ordinary reads never create a document."""
         if self._load_if_exists(subject_id) is None:
             self._write_document(self._path(subject_id), self._empty_document(subject_id))
 
+    @_write_transaction
     def save_memory(self, memory: MemoryRecord) -> bool:
         self._require_boundary(memory.subject_id, memory.environment)
         path = self._path(memory.subject_id)
@@ -75,6 +91,7 @@ class JsonMemoryRepository:
         self._write_document(path, data)
         return True
 
+    @_write_transaction
     def save_consolidation(
         self,
         memory: MemoryRecord,
@@ -127,6 +144,15 @@ class JsonMemoryRepository:
                 f"consolidation identity conflict: {operation.consolidation_id}"
             )
         self._validate_operation_source_chain(operation, memories)
+        latest={m.memory_id:m for m in memories}
+        current=latest.get(memory.memory_id)
+        if current is not None and (
+                (memory.revision<=current.revision and memory.canonical_hash()!=current.canonical_hash())
+                or not self._usable_in(latest,current.memory_id)):
+            raise MemoryValidationError('new consolidation cannot alias stale or unavailable material')
+        if any(not self._usable_in(latest,m.memory_id)
+               and set(m.root_evidence_ids).intersection(memory.root_evidence_ids) for m in latest.values()):
+            raise MemoryValidationError('new consolidation uses currently unavailable root evidence')
         self._append_memory(memories, memory)
         operations.append(operation)
         data["memory_records"] = [item.to_dict() for item in memories]
@@ -135,7 +161,7 @@ class JsonMemoryRepository:
         return True
 
     def load_memory(self, subject_id: str, memory_id: str) -> MemoryRecord:
-        memories = self.memory_history(subject_id, memory_id)
+        memories = [m for m in self.list_memories(subject_id,include_inactive=True) if m.memory_id==memory_id]
         if not memories:
             raise MemoryNotFoundError(f"memory not found: {memory_id}")
         return memories[-1]
@@ -153,12 +179,17 @@ class JsonMemoryRepository:
         for raw in data["memory_records"]:
             memory = MemoryRecord.from_dict(raw)
             latest[memory.memory_id] = memory
+        self._project_consumption_weights(latest)
         records = sorted(
             latest.values(), key=lambda item: (item.occurred_at, item.memory_id)
         )
         if include_inactive:
             return records
-        return [item for item in records if item.status is MemoryStatus.ACTIVE]
+        # Legacy enumeration includes temperature archives; ordinary query/retriever
+        # still excludes them. Explicit P12 inactive states are never ordinary input.
+        return [item for item in records if item.status is MemoryStatus.ACTIVE
+                and (item.lifecycle is None and not item.source_memory_ids and item.effective_weight > 0
+                     or self._usable_in(latest,item.memory_id))]
 
     def query_memories(
         self,
@@ -207,13 +238,15 @@ class JsonMemoryRepository:
         for raw in data["memory_records"]:
             memory = MemoryRecord.from_dict(raw)
             latest[memory.memory_id] = memory
+        self._project_consumption_weights(latest)
         eligible = (
             item
             for item in latest.values()
             if item.environment == environment
             and item.status is effective_status
+            and (effective_status is not MemoryStatus.ACTIVE or self._usable_in(latest,item.memory_id))
             and item.visibility is effective_visibility
-            and item.temperature not in excluded
+            and (item.temperature not in excluded or item.lifecycle is MemoryLifecycle.ACTIVE)
         )
         return sorted(
             eligible,
@@ -227,9 +260,9 @@ class JsonMemoryRepository:
                         item.scope,
                         item.kind.value,
                     ),
-                ),
-                -item.importance,
-                -item.activation,
+                    ) * item.effective_weight,
+                    -item.importance * item.effective_weight,
+                    -item.activation * item.effective_weight,
                 -item.occurred_at.timestamp(),
                 item.memory_id,
                 item.revision,
@@ -247,6 +280,7 @@ class JsonMemoryRepository:
         ]
         return sorted(result, key=lambda item: item.revision)
 
+    @_write_transaction
     def save_summary(self, summary: DerivedSummary) -> bool:
         self._require_boundary(summary.subject_id, summary.environment)
         path = self._path(summary.subject_id)
@@ -309,13 +343,16 @@ class JsonMemoryRepository:
         if data is None:
             return []
         latest: dict[str, DerivedSummary] = {}
+        memories={m.memory_id:m for m in (MemoryRecord.from_dict(x) for x in data['memory_records'])}
         for raw in data["derived_summaries"]:
             summary = DerivedSummary.from_dict(raw)
+            summary.retrieval_weight=self._summary_weight_in(memories,summary)
             latest[summary.summary_id] = summary
         eligible = (
             item
             for item in latest.values()
             if item.environment == environment and item.status is effective_status
+            and (effective_status is not DerivedSummaryStatus.ACTIVE or item.retrieval_weight > 0)
         )
         return sorted(
             eligible,
@@ -334,7 +371,7 @@ class JsonMemoryRepository:
                         item.summary_type,
                     ),
                 ),
-                -item.confidence,
+                -item.confidence * item.retrieval_weight,
                 -item.generated_at.timestamp(),
                 item.summary_id,
                 item.summary_version,
@@ -362,6 +399,7 @@ class JsonMemoryRepository:
             return []
         return [MemoryLineageRecord.from_dict(item) for item in data["lineage_records"]]
 
+    @_write_transaction
     def apply_propagation(
         self,
         memory: MemoryRecord,
@@ -515,6 +553,8 @@ class JsonMemoryRepository:
         return round(len(terms.intersection(actual)) / len(terms), 6)
 
     def _append_memory(self, records: list[MemoryRecord], memory: MemoryRecord) -> bool:
+        if memory.historical_only:
+            raise MemoryValidationError('historical receipt is not current material')
         existing_revision = next(
             (
                 item
@@ -541,12 +581,21 @@ class JsonMemoryRepository:
             source = self._latest_memory(records, identifier)
             assert source is not None
             source_roots.update(source.root_evidence_ids)
+            if (memory.source_memory_bindings is not None
+                    and (current is None or memory.source_memory_bindings!=current.source_memory_bindings)
+                    and memory.source_memory_bindings[identifier]!=source.canonical_hash()):
+                raise MemoryValidationError('source memory current version/hash mismatch')
         if not set(memory.root_evidence_ids).issubset(source_roots):
             raise MemoryValidationError("memory root evidence is not traceable to its source chain")
         if current is None:
+            latest={m.memory_id:m for m in records}
+            if any(not item.is_available
+                   and set(item.root_evidence_ids).intersection(memory.root_evidence_ids) for item in latest.values()):
+                raise MemoryValidationError('unavailable evidence cannot create a new memory alias')
             if memory.revision != 0:
                 raise MemoryValidationError("new memory must start at revision zero")
         else:
+            self._require_lifecycle_continuity(current,memory)
             if memory.revision != current.revision + 1:
                 raise MemoryValidationError("memory revision must advance by one")
             if (
@@ -558,10 +607,17 @@ class JsonMemoryRepository:
                 raise MemoryIdentityConflictError("memory stable identity fields changed")
             if not set(current.root_evidence_ids).issubset(memory.root_evidence_ids):
                 raise MemoryValidationError("memory root evidence cannot silently disappear")
-            if current.status is not MemoryStatus.ACTIVE:
+            if current.status is not MemoryStatus.ACTIVE or current.effective_lifecycle is MemoryLifecycle.DELETED:
                 raise MemoryValidationError("terminal memory cannot be revised in place")
         records.append(memory)
         return True
+
+    @staticmethod
+    def _require_lifecycle_continuity(previous, successor):
+        fields=('lifecycle','retrieval_weight','weight_updated_at','lifecycle_command_id')
+        if (previous.lifecycle_command_id is not None
+                and any(getattr(previous,field) is not None and getattr(successor,field) is None for field in fields)):
+            raise MemoryValidationError('governed memory successor cannot discard lifecycle history')
 
     def _append_summary(
         self,
@@ -680,6 +736,7 @@ class JsonMemoryRepository:
         known_ids: set[str] = set()
         known_roots: dict[str, set[str]] = {}
         consolidation_inputs: dict[str, str] = {}
+        known_memory_hashes: dict[str, set[str]] = {}
         for memory in memories:
             if memory.subject_id != subject_id or memory.environment != self.environment:
                 raise MemoryPersistenceError(
@@ -701,6 +758,9 @@ class JsonMemoryRepository:
             }
             for identifier in memory.source_memory_ids:
                 source_roots.update(known_roots[identifier])
+                if (memory.source_memory_bindings is not None
+                        and memory.source_memory_bindings[identifier] not in known_memory_hashes.get(identifier,set())):
+                    raise MemoryPersistenceError('memory source version/hash is missing or forward')
             if not set(memory.root_evidence_ids).issubset(source_roots):
                 raise MemoryPersistenceError("memory root evidence chain is not traceable")
             previous_input = consolidation_inputs.get(memory.consolidation_id)
@@ -713,6 +773,7 @@ class JsonMemoryRepository:
             latest_revision[memory.memory_id] = memory.revision
             known_ids.add(memory.memory_id)
             known_roots.setdefault(memory.memory_id, set()).update(memory.root_evidence_ids)
+            known_memory_hashes.setdefault(memory.memory_id,set()).add(memory.canonical_hash())
         try:
             operations = [
                 MemoryConsolidationOperation.from_dict(item)
@@ -826,6 +887,10 @@ class JsonMemoryRepository:
             target_first = first_memories[record.target_memory_id]
             if target_first.consolidated_at > record.recorded_at:
                 raise MemoryPersistenceError("lineage target is forward in persistence")
+            if record.signal is MemoryLifecycleSignal.COMMAND:
+                self._validate_lifecycle_lineage(record, memory_versions)
+                seen_lineage.add(record.lineage_id)
+                continue
             source_root = (
                 record.source_event_id
                 if record.source_event_id.startswith("event:")
@@ -878,6 +943,29 @@ class JsonMemoryRepository:
                 )
             seen_lineage.add(record.lineage_id)
         for memory in memories:
+            if memory.lifecycle_command_id is not None:
+                matches = [r for r in lineage if r.lineage_id == memory.lifecycle_command_id
+                           and r.signal is MemoryLifecycleSignal.COMMAND
+                           and r.target_memory_id == memory.memory_id]
+                if len(matches) != 1:
+                    raise MemoryPersistenceError('memory lifecycle change lacks lineage')
+                if memory.revision == 0:
+                    raise MemoryPersistenceError('first memory cannot carry lifecycle history')
+                previous=memory_versions[(memory.memory_id,memory.revision-1)]
+                fields=('lifecycle','retrieval_weight','weight_updated_at','lifecycle_command_id')
+                if any(getattr(previous,f)!=getattr(memory,f) for f in fields):
+                    if matches[0].command['input']['expected_revision'] != memory.revision-1:
+                        raise MemoryPersistenceError('lifecycle transition lacks exact command binding')
+            elif any(x is not None for x in (memory.lifecycle,memory.retrieval_weight,memory.weight_updated_at)):
+                raise MemoryPersistenceError('lifecycle fields lack a command')
+            if memory.revision:
+                previous=memory_versions[(memory.memory_id,memory.revision-1)]
+                try:
+                    self._require_lifecycle_continuity(previous,memory)
+                except MemoryValidationError as exc:
+                    raise MemoryPersistenceError('governed memory history was downgraded') from exc
+                if previous.effective_lifecycle is MemoryLifecycle.DELETED:
+                    raise MemoryPersistenceError('deleted memory cannot have a subsequent revision')
             if memory.status is MemoryStatus.ACTIVE:
                 continue
             if not any(
@@ -903,6 +991,148 @@ class JsonMemoryRepository:
                 raise MemoryPersistenceError(
                     "active summary depends on an inactive source memory"
                 )
+
+    @staticmethod
+    def _validate_lifecycle_lineage(record, versions):
+        from continuity_engine.domain.memory_lifecycle import MemoryLifecycleCommand, lifecycle_result
+        try:
+            body=record.command
+            if set(body) != {'input','input_hash','result_hash'}:
+                raise MemoryValidationError('invalid lifecycle binding fields')
+            command=MemoryLifecycleCommand.from_dict(body['input'])
+            before=versions[(record.target_memory_id, command.expected_revision)]
+            after=versions[(record.target_memory_id, command.expected_revision+1)]
+            if (command.command_id!=record.lineage_id or command.subject_id!=record.subject_id
+                    or command.environment!=record.environment or body['input_hash']!=command.canonical_hash()
+                    or set(record.root_evidence_ids)!=set(before.root_evidence_ids)
+                    or not command.issued_at <= record.recorded_at < command.expires_at):
+                raise MemoryValidationError('lifecycle lineage identity mismatch')
+            expected=lifecycle_result(before,command,record.recorded_at)
+            if after.canonical_hash()!=expected.canonical_hash() or body['result_hash']!=after.canonical_hash():
+                raise MemoryValidationError('lifecycle result binding mismatch')
+        except (KeyError,TypeError,ValueError,MemoryValidationError) as exc:
+            raise MemoryPersistenceError('invalid lifecycle lineage') from exc
+
+    @staticmethod
+    def _usable_in(records, identifier, seen=frozenset(), check_self=True):
+        if not seen:
+            JsonMemoryRepository._project_consumption_weights(records)
+        m=records.get(identifier)
+        if m is None or identifier in seen or (check_self and not m.is_available): return False
+        # History/restore may disregard this item's temporary inactive state,
+        # but cannot bypass a deleted root through another surviving Memory ID.
+        if not check_self and any(item.lifecycle is MemoryLifecycle.DELETED
+                and set(item.root_evidence_ids).intersection(m.root_evidence_ids) for item in records.values()):
+            return False
+        for parent_id in m.source_memory_ids:
+            parent=records.get(parent_id)
+            if parent is None: return False
+            if m.source_memory_bindings is not None:
+                if m.source_memory_bindings[parent_id]!=parent.canonical_hash(): return False
+            elif parent.lifecycle_command_id is not None:
+                return False
+            if not JsonMemoryRepository._usable_in(records,parent_id,seen|{identifier}): return False
+        return True
+
+    def current_usable(self, subject_id: str, memory_id: str, *, include_self=True) -> bool:
+        """Recheck current transitive Memory sources; reads never persist activation."""
+        records={m.memory_id:m for m in self.list_memories(subject_id,include_inactive=True)}
+        return self._usable_in(records,memory_id,check_self=include_self)
+
+    def summary_weight(self, summary):
+        data=self._load_if_exists(summary.subject_id)
+        if data is None: return 0.0
+        records={m.memory_id:m for m in (MemoryRecord.from_dict(x) for x in data['memory_records'])}
+        return self._summary_weight_in(records,summary)
+
+    def event_recall_weights(self, subject_id):
+        """Ordinary C1 material policy only; never modify or delete raw Event history."""
+        data=self._load_if_exists(subject_id)
+        if data is None: return {}
+        latest={m.memory_id:m for m in (MemoryRecord.from_dict(x) for x in data['memory_records'])}
+        weights={}
+        for memory in latest.values():
+            if memory.lifecycle_command_id is None and memory.retrieval_weight is None and memory.status is MemoryStatus.ACTIVE:
+                continue
+            weight=memory.effective_weight if self._usable_in(latest,memory.memory_id) else 0.0
+            for root in memory.root_evidence_ids:
+                if root.startswith('event:'):
+                    weights[root[6:]]=min(weights.get(root[6:],1.0),weight)
+        return weights
+
+    @staticmethod
+    def _project_consumption_weights(records):
+        # The existing root identities share an explicit use ceiling regardless of
+        # Memory ID/scope or intermediate aliases. Do not duplicate the same root's
+        # decay factor, persist another authority, or change evidence confidence.
+        ceilings={}
+        for memory in records.values():
+            own=1.0 if memory.retrieval_weight is None else memory.retrieval_weight
+            if memory.lifecycle in (MemoryLifecycle.INACTIVE,MemoryLifecycle.ARCHIVED,MemoryLifecycle.DELETED):
+                own=0.0
+            if own<1.0:
+                for root in memory.root_evidence_ids:
+                    ceilings[root]=min(ceilings.get(root,1.0),own)
+        for memory in records.values():
+            memory.consumption_weight=min((ceilings.get(root,1.0) for root in memory.root_evidence_ids),default=1.0)
+
+    @staticmethod
+    def _summary_weight_in(records,summary):
+        JsonMemoryRepository._project_consumption_weights(records)
+        if not all(JsonMemoryRepository._usable_in(records,x) for x in summary.source_memory_ids): return 0.0
+        return min(records[x].effective_weight for x in summary.source_memory_ids)
+
+    @_write_transaction
+    def apply_lifecycle(self, command, evaluate):
+        """Reuse the one Memory document and lineage; no separate request ledger."""
+        subject_id=command.subject_id
+        self._require_boundary(subject_id,command.environment)
+        data=self._load_or_empty(subject_id)
+        memories=[MemoryRecord.from_dict(x) for x in data['memory_records']]
+        current=self._latest_memory(memories,command.memory_id)
+        if current is None: raise MemoryNotFoundError(command.memory_id)
+        lineage=[MemoryLineageRecord.from_dict(x) for x in data['lineage_records']]
+        prior=next((r for r in lineage if r.lineage_id==command.command_id),None)
+        if prior is not None:
+            if (prior.signal is not MemoryLifecycleSignal.COMMAND
+                    or prior.command['input_hash']!=command.canonical_hash()):
+                raise MemoryIdentityConflictError('lifecycle command identity conflict')
+            # Historical receipt only, with CURRENT material (never old active payload).
+            evaluate(current, replay=True)
+            if self._load_or_empty(subject_id)!=data:
+                raise MemoryValidationError('memory changed during lifecycle replay callback')
+            return current, True
+        updated,now=evaluate(current,replay=False)
+        # RLock permits a callback to commit another legitimate command. Keep that
+        # committed fact and reject this stale outer attempt before any write.
+        if self._load_or_empty(subject_id)!=data:
+            raise MemoryValidationError('memory changed during lifecycle callback; outer command not committed')
+        self._append_memory(memories,updated)
+        affected={current.memory_id}
+        if command.action.value in ('deactivate','archive','delete','restore'):
+            affected.update(m.memory_id for m in memories
+                            if set(m.root_evidence_ids).intersection(current.root_evidence_ids))
+        changed=True
+        while changed:
+            next_ids={m.memory_id for m in memories if affected.intersection(m.source_memory_ids)}
+            changed=not next_ids.issubset(affected)
+            affected.update(next_ids)
+        summaries=[DerivedSummary.from_dict(x) for x in data['derived_summaries']]
+        latest={s.summary_id:s for s in summaries}
+        for s in latest.values():
+            if s.status is DerivedSummaryStatus.ACTIVE and affected.intersection(s.source_memory_ids):
+                payload=s.to_dict()
+                payload.update(summary_version=s.summary_version+1,supersedes_version=s.summary_version,
+                               status=DerivedSummaryStatus.INVALIDATED.value,
+                               invalidation_reason='MEMORY_LIFECYCLE_CHANGED',generated_at=now.isoformat())
+                self._append_summary(summaries,DerivedSummary.from_dict(payload),memories)
+        lineage.append(MemoryLineageRecord(command.command_id,subject_id,command.environment,
+            current.memory_id,MemoryLifecycleSignal.COMMAND,None,list(current.root_evidence_ids),now,
+            command={'input':command.to_dict(),'input_hash':command.canonical_hash(),'result_hash':updated.canonical_hash()}))
+        data.update(memory_records=[m.to_dict() for m in memories],
+                    derived_summaries=[s.to_dict() for s in summaries],lineage_records=[r.to_dict() for r in lineage])
+        self._write_document(self._path(subject_id),data)
+        return updated,False
 
     def _empty_document(self, subject_id: str) -> dict[str, Any]:
         return {

@@ -1,0 +1,65 @@
+test_existing_alias_cannot_bypass_archive (__main__.P12ExistingAliasProbes.test_existing_alias_cannot_bypass_archive) ... FAIL
+test_existing_alias_cannot_bypass_deactivation (__main__.P12ExistingAliasProbes.test_existing_alias_cannot_bypass_deactivation) ... FAIL
+test_existing_alias_cannot_bypass_logical_delete (__main__.P12ExistingAliasProbes.test_existing_alias_cannot_bypass_logical_delete) ... FAIL
+test_positive_explicit_restore_reopens_existing_alias (__main__.P12ExistingAliasProbes.test_positive_explicit_restore_reopens_existing_alias) ... ok
+test_positive_nonzero_downweight_is_inherited (__main__.P12ExistingAliasProbes.test_positive_nonzero_downweight_is_inherited) ... ok
+test_positive_untouched_alias_is_legitimately_selected (__main__.P12ExistingAliasProbes.test_positive_untouched_alias_is_legitimately_selected) ... ok
+test_zero_weight_alias_cannot_be_selected_by_legacy_service (__main__.P12ExistingAliasProbes.test_zero_weight_alias_cannot_be_selected_by_legacy_service) ... FAIL
+
+======================================================================
+FAIL: test_existing_alias_cannot_bypass_archive (__main__.P12ExistingAliasProbes.test_existing_alias_cannot_bypass_archive)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\p12-recheck-20260907\neighbor_probes.py", line 51, in test_existing_alias_cannot_bypass_archive
+    self.assert_existing_alias_excluded('archive')
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\p12-recheck-20260907\neighbor_probes.py", line 44, in assert_existing_alias_excluded
+    self.assertNotIn(self.alias.memory_id, self.router_ids(),
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        f'{action} excluded the original but an existing same-root, identical-body alias remained consumable')
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'independent-existing-alias' unexpectedly found in {'memory:day2-argument-fact', 'memory:day2-reconciliation-fact', 'memory:day1-no-noodles-fact', 'independent-existing-alias'} : archive excluded the original but an existing same-root, identical-body alias remained consumable
+
+======================================================================
+FAIL: test_existing_alias_cannot_bypass_deactivation (__main__.P12ExistingAliasProbes.test_existing_alias_cannot_bypass_deactivation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\p12-recheck-20260907\neighbor_probes.py", line 48, in test_existing_alias_cannot_bypass_deactivation
+    self.assert_existing_alias_excluded('deactivate')
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\p12-recheck-20260907\neighbor_probes.py", line 44, in assert_existing_alias_excluded
+    self.assertNotIn(self.alias.memory_id, self.router_ids(),
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        f'{action} excluded the original but an existing same-root, identical-body alias remained consumable')
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'independent-existing-alias' unexpectedly found in {'memory:day2-argument-fact', 'memory:day2-reconciliation-fact', 'memory:day1-no-noodles-fact', 'independent-existing-alias'} : deactivate excluded the original but an existing same-root, identical-body alias remained consumable
+
+======================================================================
+FAIL: test_existing_alias_cannot_bypass_logical_delete (__main__.P12ExistingAliasProbes.test_existing_alias_cannot_bypass_logical_delete)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\p12-recheck-20260907\neighbor_probes.py", line 54, in test_existing_alias_cannot_bypass_logical_delete
+    self.assert_existing_alias_excluded('delete')
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\p12-recheck-20260907\neighbor_probes.py", line 44, in assert_existing_alias_excluded
+    self.assertNotIn(self.alias.memory_id, self.router_ids(),
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        f'{action} excluded the original but an existing same-root, identical-body alias remained consumable')
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'independent-existing-alias' unexpectedly found in {'memory:day2-argument-fact', 'memory:day2-reconciliation-fact', 'memory:day1-no-noodles-fact', 'independent-existing-alias'} : delete excluded the original but an existing same-root, identical-body alias remained consumable
+
+======================================================================
+FAIL: test_zero_weight_alias_cannot_be_selected_by_legacy_service (__main__.P12ExistingAliasProbes.test_zero_weight_alias_cannot_be_selected_by_legacy_service)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\p12-recheck-20260907\neighbor_probes.py", line 67, in test_zero_weight_alias_cannot_be_selected_by_legacy_service
+    self.assertNotIn(self.alias.memory_id, {m.memory_id for m in result.selected_memories},
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        'valid minimum_relevance=0 selected a zero-weight alias through the legacy service')
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'independent-existing-alias' unexpectedly found in {'memory:day2-argument-fact', 'memory:day2-reconciliation-fact', 'memory:day1-no-noodles-fact', 'independent-existing-alias'} : valid minimum_relevance=0 selected a zero-weight alias through the legacy service
+
+----------------------------------------------------------------------
+Ran 7 tests in 1.155s
+
+FAILED (failures=4)

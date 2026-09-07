@@ -135,11 +135,21 @@ class ContinuityCoreService:
     def enabled(self):
         return self.gates.enabled
 
+    def memory_lifecycle(self, permissions, *, confirmation_verifier=None, allow_test_delete=False):
+        """Explicit host-neutral maintenance entry on this Core's existing Memory."""
+        from .memory_lifecycle_service import MemoryLifecycleService, TimelineMemorySources
+        if not self.enabled or not self.gates.memory:
+            raise ValueError('C1 memory feature gate is disabled')
+        return MemoryLifecycleService(self.memory,subject_id=self.subject_id,environment=self.environment,
+            permissions=permissions,clock=self.clock,
+            source_snapshot=TimelineMemorySources(self.timeline,self.memory,self.subject_id),
+            confirmation_verifier=confirmation_verifier,allow_test_delete=allow_test_delete)
+
     def _consolidate_events(self):
         # Event history is the authoritative source; no chat-history reader exists.
         projection = self.timeline.rebuild(self.subject_id)
         by_id = {e.event.event_id: e for e in projection.entries}
-        known = {m.memory_id for m in self.memory.list_memories(self.subject_id)}
+        known = {m.memory_id for m in self.memory.list_memories(self.subject_id,include_inactive=True)}
         pending = [entry for entry in sorted(projection.entries,
             key=lambda e: (e.event.recorded_at, e.event.event_id))
             if entry.status is TimelineEventStatus.ACTIVE and "memory:" + entry.event.event_id not in known]
@@ -160,8 +170,8 @@ class ContinuityCoreService:
                 consolidation_id="c1-consolidation:" + event.event_id,
                 tags=[event.classification.value],
             ))
-        for memory in self.memory.list_memories(self.subject_id):
-            if memory.status is not MemoryStatus.ACTIVE:
+        for memory in self.memory.list_memories(self.subject_id,include_inactive=True):
+            if memory.status is not MemoryStatus.ACTIVE or memory.effective_lifecycle.value == 'deleted':
                 continue
             for event_id in memory.source_event_ids:
                 entry = by_id.get(event_id)

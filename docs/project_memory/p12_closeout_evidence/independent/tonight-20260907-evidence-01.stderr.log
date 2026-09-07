@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\p12-recheck-20260907\verify_tonight.py", line 81, in <module>
+    ast.parse((ROOT / p).read_text(encoding='utf-8-sig'), filename=p)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Adobe\Lib\ast.py", line 46, in parse
+    return compile(source, filename, mode, flags,
+                   _feature_version=feature_version, optimize=optimize)
+  File "src/continuity_engine/frontend/app.js", line 1
+    import { FrontendAPIError, FrontendClient } from "./client.js";
+           ^
+SyntaxError: invalid syntax

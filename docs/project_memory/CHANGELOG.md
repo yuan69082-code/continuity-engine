@@ -1,5 +1,29 @@
 # Changelog
 
+<!-- P12_REVIEW_CURRENT_START -->
+> P12 独立复核后现行状态（2026-09-07，D-060）：P00—P11 ACCEPTED；P12 / Engine side / P12-01—12 IMPLEMENTED_NOT_ACCEPTED；P12 Vio dependency=NONE；P13—P23 NOT_STARTED。PLANNING_CONFLICT=NONE，EVIDENCE_CONFLICT=NONE（本轮独立复核阻断已闭合，非用户正式验收）。监工实跑原 9 条 PASS（1.207 秒）、新 7 条 PASS（1.011 秒）、P12 117 PASS（27.198 秒）；核验引用施工全量 1011 项：1010 PASS、1 既有 SKIP、0 FAIL/ERROR，stderr 521.632 秒、结构化记录 521.633 秒。
+>
+> [独立复核与本次 Git 收尾范围](P12_独立复核与Git收尾_20260907.md)。今晚一次性普通提交推送已获条件放行；此档为提交前记录，实际 SHA 和推送结果由 Git 记录及施工最终报告确认。没有创建 D-061，没有授权 ACCEPTED；下方全部 FAIL/ERROR/SKIP、证据冲突及 P09 segment 10 UNKNOWN 历史保留。
+<!-- P12_REVIEW_CURRENT_END -->
+
+<!-- P12_SECOND_CURRENT_START -->
+> P12 第二轮 F1/F2 返修送审历史状态（2026-09-07，D-060）：P00—P11 ACCEPTED；P12 / Engine side / P12-01—12 IMPLEMENTED_NOT_ACCEPTED；P12 Vio dependency=NONE；P13—P23 NOT_STARTED。PLANNING_CONFLICT=NONE，EVIDENCE_CONFLICT=PRESENT，等待独立复核。本轮 P12 117/117 PASS，29.667 秒；新 7 条与原 9 条探针均 PASS（1.090 / 1.327 秒）。兼容 257 项：257 PASS、0 SKIP，58.099 秒；全量 1011 项：1010 PASS、1 既有 SKIP、0 FAIL/ERROR，521.633 秒。
+>
+> [本轮修改、失败历史与复核入口](P12_第二轮返修_F1-F2.md)。下方第一轮及初版结果均为历史，不能代替本轮。保留 117 项首次兼容失败、前轮全部 FAIL/ERROR/SKIP 和 P09 segment 10 UNKNOWN。没有用户验收决定，没有 Git 写操作。
+<!-- P12_SECOND_CURRENT_END -->
+
+<!-- P12_REPAIR_CURRENT_START -->
+> P12 第一轮返修历史状态（2026-09-07，D-060）：P00—P11 ACCEPTED；P12 / Engine side / P12-01—12 IMPLEMENTED_NOT_ACCEPTED；P12 Vio dependency=NONE；P13—P23 NOT_STARTED。PLANNING_CONFLICT=NONE，EVIDENCE_CONFLICT=PRESENT（独立复核阻断待监工确认关闭）。本轮 P12 专项 98/98 PASS（22.654 秒）。兼容 257 项：257 PASS、0 既有 SKIP，55.715 秒；稳定全量 992 项：991 PASS、1 既有 SKIP，0 FAIL/ERROR，523.914 秒。
+>
+> [五项返修、原始失败及独立复核入口](P12_独立复核返修_R1-R5.md)。初版 71/965 与其 NONE 状态作为历史保留，不能代替本轮结果。不登记用户验收，不执行 Git 写操作，不进入 P13；生产自动策略/物理删除仍未开放。
+<!-- P12_REPAIR_CURRENT_END -->
+
+<!-- P12_CURRENT_START -->
+> P12 初版施工历史状态（2026-09-06，D-060）：P00—P11 = ACCEPTED；P12 / Engine side / P12-01—P12-12 = IMPLEMENTED_NOT_ACCEPTED；P12 Vio dependency = NONE；P13—P23 = NOT_STARTED。PLANNING_CONFLICT=NONE；EVIDENCE_CONFLICT=NONE。专项 71/71 PASS（16.941 秒）；兼容 428 项：427 PASS、1 既有 SKIP（403.566 秒）；965 项：964 PASS、1 既有 SKIP、0 FAIL/ERROR，513.166 秒。本轮只施工、测试和档案同步；不自行验收、不执行 Git 写操作、不修改 Assistant、不进入 P13。
+>
+> [P12 Stage Brief](59_P12_IntentionalForgetting架构边界.md) · [十二项矩阵](60_P12_规划施工测试验收矩阵.md) · [生命周期/恢复/删除语义](61_P12_生命周期恢复删除与传播语义.md) · [独立复核与证据入口](62_P12_测试索引与验收入口.md)。正式遗忘阈值、归档年限、永久删除确认方式未决定；生产自动策略未配置，物理擦除 NOT_READY。历史失败、SKIP 和 P09 segment 10 UNKNOWN 原样保留。
+<!-- P12_CURRENT_END -->
+
 第二轮返修历史补充：Windows 换行转换的 1 FAIL（0.329 秒）及早期样本保留；二进制保存已修正，第二轮定点修复与规定回归已完成，交回独立复核。历史 segment 10 根因未知。
 
 本文件记录 continuity-engine 的版本级变化。格式参考 Keep a Changelog，但只记录可由当前代码、测试和本次档案工作确认的事实。仓库目前只有一个汇总式初始提交，早期变化无法可靠分配具体日期。
@@ -521,3 +545,26 @@ P00—P10 = ACCEPTED；P10 / P10 Engine side / P10-01—P10-12 = ACCEPTED；P10 
 规划监工最终独立核对确认 Engine checkpoint `0115733d75f854e0d7c39062d8cb328a97995354`、Assistant 最终代码提交 `90f112b8be4617feb2d6387ceb2f77603302cee6`、P10 工程检查 14/14 PASS、原 770 项与新增 24 项身份完整，以及 [CI run 33896418682](https://github.com/yuan69082-code/continuity-assistant/actions/runs/33896418682) 794/794 PASS、0 SKIP、0 FAIL。Temp 内远程干净克隆的构建、安装、Golden、来源和两个 Fixture 入口的路径隔离验证通过；冻结边界、正式 7 文件及版本 0.1.0 未变。
 
 D-056 登记的是用户此前给出的条件式验收在独立核对通过后生效。当前冲突归零不改写历史：首次 Temp 失败、Windows 大小写漏项、旧 CI failure、统计入口导入失败、辅助工具错误、各次 SKIP，以及 P09 segment 10 stderr 缺失且根因 UNKNOWN 均保留。P11—P23 未开始；不创建标签或发布。
+
+
+## P12 Intentional Forgetting（未验收，0.1.0 不变） — 2026-09-06
+
+实现 Memory 生命周期、确定性权重及跨 Summary/Context/Learning 传播；复用原 lineage/仓储和正常 C1。专项 71/71 PASS（16.941 秒）；兼容 428 项：427 PASS、1 既有 SKIP（403.566 秒）；965 项：964 PASS、1 既有 SKIP、0 FAIL/ERROR，513.166 秒。 生产自动策略/物理删除未开放。 [P12 独立复核入口](62_P12_测试索引与验收入口.md)。
+
+<!-- P12_REPAIR_FACT -->
+
+## P12 五项有界修复（未验收，版本 0.1.0）
+
+修复召回后授权/状态变化、治理后继字段丢失、重入成功提交被覆盖、首次 consolidation alias 交错和同根降权绕过。 本轮 P12 专项 98/98 PASS（22.654 秒）。兼容 257 项：257 PASS、0 既有 SKIP，55.715 秒；稳定全量 992 项：991 PASS、1 既有 SKIP，0 FAIL/ERROR，523.914 秒。 [本轮入口](P12_独立复核返修_R1-R5.md)。
+<!-- P12_REPAIR_FACT_END -->
+
+<!-- P12_SECOND_FACT_START -->
+
+## 2026-09-07 P12 第二轮修复（未提交、未验收）
+
+修复治理前同根副本绕过生命周期，以及零权重副本经旧 MemoryService 被选中；保留非零降权、授权恢复、独立新证据和旧数据兼容。版本保持 0.1.0。 本轮 P12 117/117 PASS，29.667 秒；新 7 条与原 9 条探针均 PASS（1.090 / 1.327 秒）。兼容 257 项：257 PASS、0 SKIP，58.099 秒；全量 1011 项：1010 PASS、1 既有 SKIP、0 FAIL/ERROR，521.633 秒。 [第二轮证据](P12_第二轮返修_F1-F2.md)。
+<!-- P12_SECOND_FACT_END -->
+
+## P12 独立复核通过，正式验收仍待用户确认
+
+规划监工已核对最终源码、测试、实际专项及全量引用证据，无剩余本轮阻断。放行编号 P12-TONIGHT-CLOSEOUT-20260907-01，仅允许本次现有 Engine main 普通提交和 push，截止 2026-09-07 08:00 Asia/Shanghai。没有正式阶段验收授权，不创建 D-061，P12 仍 IMPLEMENTED_NOT_ACCEPTED。所有原始失败、辅助错误和 SKIP 保留，不重跑未变化的全量。详见 [收尾档案](P12_独立复核与Git收尾_20260907.md)。

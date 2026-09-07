@@ -1,0 +1,142 @@
+test_existing_alias_cannot_bypass_archive (test_p12_memory_second_review.P12ExistingAliasProbes.test_existing_alias_cannot_bypass_archive) ... FAIL
+test_existing_alias_cannot_bypass_deactivation (test_p12_memory_second_review.P12ExistingAliasProbes.test_existing_alias_cannot_bypass_deactivation) ... FAIL
+test_existing_alias_cannot_bypass_logical_delete (test_p12_memory_second_review.P12ExistingAliasProbes.test_existing_alias_cannot_bypass_logical_delete) ... FAIL
+test_positive_explicit_restore_reopens_existing_alias (test_p12_memory_second_review.P12ExistingAliasProbes.test_positive_explicit_restore_reopens_existing_alias) ... ok
+test_positive_nonzero_downweight_is_inherited (test_p12_memory_second_review.P12ExistingAliasProbes.test_positive_nonzero_downweight_is_inherited) ... ok
+test_positive_untouched_alias_is_legitimately_selected (test_p12_memory_second_review.P12ExistingAliasProbes.test_positive_untouched_alias_is_legitimately_selected) ... ok
+test_zero_weight_alias_cannot_be_selected_by_legacy_service (test_p12_memory_second_review.P12ExistingAliasProbes.test_zero_weight_alias_cannot_be_selected_by_legacy_service) ... FAIL
+test_archive_blocks_alias_summary_exact_and_old_windows (test_p12_memory_second_review.SameRootConsumptionTests.test_archive_blocks_alias_summary_exact_and_old_windows) ... FAIL
+test_authorized_archived_history_and_event_audit_remain_read_only (test_p12_memory_second_review.SameRootConsumptionTests.test_authorized_archived_history_and_event_audit_remain_read_only) ... ok
+test_deactivate_blocks_alias_summary_exact_and_old_windows (test_p12_memory_second_review.SameRootConsumptionTests.test_deactivate_blocks_alias_summary_exact_and_old_windows) ... FAIL
+test_delete_blocks_alias_summary_exact_and_old_windows (test_p12_memory_second_review.SameRootConsumptionTests.test_delete_blocks_alias_summary_exact_and_old_windows) ... FAIL
+test_deleted_root_cannot_leak_through_archived_alias_history_or_restore (test_p12_memory_second_review.SameRootConsumptionTests.test_deleted_root_cannot_leak_through_archived_alias_history_or_restore) ... FAIL
+test_lifecycle_restriction_does_not_block_new_independent_root (test_p12_memory_second_review.SameRootConsumptionTests.test_lifecycle_restriction_does_not_block_new_independent_root) ... ok
+test_new_alias_after_governance_is_rejected_without_writes (test_p12_memory_second_review.SameRootConsumptionTests.test_new_alias_after_governance_is_rejected_without_writes) ... ok
+test_restoring_original_does_not_rebind_old_explicit_child (test_p12_memory_second_review.SameRootConsumptionTests.test_restoring_original_does_not_rebind_old_explicit_child) ... ok
+test_summary_stays_invalid_after_restore_until_explicit_rebuild (test_p12_memory_second_review.SameRootConsumptionTests.test_summary_stays_invalid_after_restore_until_explicit_rebuild) ... FAIL
+test_true_legacy_archive_temperature_enumeration_remains_compatible (test_p12_memory_second_review.SameRootConsumptionTests.test_true_legacy_archive_temperature_enumeration_remains_compatible) ... ok
+test_zero_weight_is_filtered_at_retriever_not_by_changing_zero_threshold (test_p12_memory_second_review.SameRootConsumptionTests.test_zero_weight_is_filtered_at_retriever_not_by_changing_zero_threshold) ... FAIL
+
+======================================================================
+FAIL: test_existing_alias_cannot_bypass_archive (test_p12_memory_second_review.P12ExistingAliasProbes.test_existing_alias_cannot_bypass_archive)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p12_memory_second_review.py", line 51, in test_existing_alias_cannot_bypass_archive
+    self.assert_existing_alias_excluded('archive')
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p12_memory_second_review.py", line 44, in assert_existing_alias_excluded
+    self.assertNotIn(self.alias.memory_id, self.router_ids(),
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        f'{action} excluded the original but an existing same-root, identical-body alias remained consumable')
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'independent-existing-alias' unexpectedly found in {'memory:day2-reconciliation-fact', 'independent-existing-alias', 'memory:day1-no-noodles-fact', 'memory:day2-argument-fact'} : archive excluded the original but an existing same-root, identical-body alias remained consumable
+
+======================================================================
+FAIL: test_existing_alias_cannot_bypass_deactivation (test_p12_memory_second_review.P12ExistingAliasProbes.test_existing_alias_cannot_bypass_deactivation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p12_memory_second_review.py", line 48, in test_existing_alias_cannot_bypass_deactivation
+    self.assert_existing_alias_excluded('deactivate')
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p12_memory_second_review.py", line 44, in assert_existing_alias_excluded
+    self.assertNotIn(self.alias.memory_id, self.router_ids(),
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        f'{action} excluded the original but an existing same-root, identical-body alias remained consumable')
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'independent-existing-alias' unexpectedly found in {'memory:day2-reconciliation-fact', 'independent-existing-alias', 'memory:day1-no-noodles-fact', 'memory:day2-argument-fact'} : deactivate excluded the original but an existing same-root, identical-body alias remained consumable
+
+======================================================================
+FAIL: test_existing_alias_cannot_bypass_logical_delete (test_p12_memory_second_review.P12ExistingAliasProbes.test_existing_alias_cannot_bypass_logical_delete)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p12_memory_second_review.py", line 54, in test_existing_alias_cannot_bypass_logical_delete
+    self.assert_existing_alias_excluded('delete')
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p12_memory_second_review.py", line 44, in assert_existing_alias_excluded
+    self.assertNotIn(self.alias.memory_id, self.router_ids(),
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        f'{action} excluded the original but an existing same-root, identical-body alias remained consumable')
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'independent-existing-alias' unexpectedly found in {'memory:day2-reconciliation-fact', 'independent-existing-alias', 'memory:day1-no-noodles-fact', 'memory:day2-argument-fact'} : delete excluded the original but an existing same-root, identical-body alias remained consumable
+
+======================================================================
+FAIL: test_zero_weight_alias_cannot_be_selected_by_legacy_service (test_p12_memory_second_review.P12ExistingAliasProbes.test_zero_weight_alias_cannot_be_selected_by_legacy_service)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p12_memory_second_review.py", line 67, in test_zero_weight_alias_cannot_be_selected_by_legacy_service
+    self.assertNotIn(self.alias.memory_id, {m.memory_id for m in result.selected_memories},
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        'valid minimum_relevance=0 selected a zero-weight alias through the legacy service')
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'independent-existing-alias' unexpectedly found in {'memory:day2-reconciliation-fact', 'independent-existing-alias', 'memory:day1-no-noodles-fact', 'memory:day2-argument-fact'} : valid minimum_relevance=0 selected a zero-weight alias through the legacy service
+
+======================================================================
+FAIL: test_archive_blocks_alias_summary_exact_and_old_windows (test_p12_memory_second_review.SameRootConsumptionTests.test_archive_blocks_alias_summary_exact_and_old_windows)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p12_memory_second_review.py", line 138, in test_archive_blocks_alias_summary_exact_and_old_windows
+    def test_archive_blocks_alias_summary_exact_and_old_windows(self): self.check_consumers('archive')
+                                                                       ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p12_memory_second_review.py", line 125, in check_consumers
+    self.assertFalse(self.f.repository.current_usable(self.f.subject_id,self.alias.memory_id))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_deactivate_blocks_alias_summary_exact_and_old_windows (test_p12_memory_second_review.SameRootConsumptionTests.test_deactivate_blocks_alias_summary_exact_and_old_windows)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p12_memory_second_review.py", line 139, in test_deactivate_blocks_alias_summary_exact_and_old_windows
+    def test_deactivate_blocks_alias_summary_exact_and_old_windows(self): self.check_consumers('deactivate')
+                                                                          ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p12_memory_second_review.py", line 125, in check_consumers
+    self.assertFalse(self.f.repository.current_usable(self.f.subject_id,self.alias.memory_id))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_delete_blocks_alias_summary_exact_and_old_windows (test_p12_memory_second_review.SameRootConsumptionTests.test_delete_blocks_alias_summary_exact_and_old_windows)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p12_memory_second_review.py", line 140, in test_delete_blocks_alias_summary_exact_and_old_windows
+    def test_delete_blocks_alias_summary_exact_and_old_windows(self): self.check_consumers('delete')
+                                                                      ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p12_memory_second_review.py", line 125, in check_consumers
+    self.assertFalse(self.f.repository.current_usable(self.f.subject_id,self.alias.memory_id))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_deleted_root_cannot_leak_through_archived_alias_history_or_restore (test_p12_memory_second_review.SameRootConsumptionTests.test_deleted_root_cannot_leak_through_archived_alias_history_or_restore)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p12_memory_second_review.py", line 191, in test_deleted_root_cannot_leak_through_archived_alias_history_or_restore
+    with self.assertRaises(MemoryValidationError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: MemoryValidationError not raised
+
+======================================================================
+FAIL: test_summary_stays_invalid_after_restore_until_explicit_rebuild (test_p12_memory_second_review.SameRootConsumptionTests.test_summary_stays_invalid_after_restore_until_explicit_rebuild)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p12_memory_second_review.py", line 144, in test_summary_stays_invalid_after_restore_until_explicit_rebuild
+    self.assertEqual(self.f.repository.load_summary(self.f.subject_id,summary.summary_id).status.value,'INVALIDATED')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'ACTIVE' != 'INVALIDATED'
+- ACTIVE
++ INVALIDATED
+
+
+======================================================================
+FAIL: test_zero_weight_is_filtered_at_retriever_not_by_changing_zero_threshold (test_p12_memory_second_review.SameRootConsumptionTests.test_zero_weight_is_filtered_at_retriever_not_by_changing_zero_threshold)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p12_memory_second_review.py", line 203, in test_zero_weight_is_filtered_at_retriever_not_by_changing_zero_threshold
+    self.assertNotIn(self.alias.memory_id,{c.memory_id for c in candidates})
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'independent-existing-alias' unexpectedly found in {'memory:day2-reconciliation-fact', 'independent-existing-alias', 'memory:day1-no-noodles-fact', 'memory:day2-argument-fact'}
+
+----------------------------------------------------------------------
+Ran 18 tests in 3.108s
+
+FAILED (failures=10)

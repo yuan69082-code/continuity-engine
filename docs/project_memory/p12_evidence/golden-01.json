@@ -1,0 +1,17 @@
+{
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "continuity_engine.testing.p12_memory_fixture"
+  ],
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "startedAt": "2026-09-06T14:25:04.726544+00:00",
+  "environment": {
+    "PYTHONPATH": "src",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "exitCode": 0,
+  "interrupted": false,
+  "finishedAt": "2026-09-06T14:25:05.361816+00:00",
+  "wallSeconds": 0.635
+}

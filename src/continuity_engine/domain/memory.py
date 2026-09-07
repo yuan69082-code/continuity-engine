@@ -474,6 +474,17 @@ class MemoryLineageType(str, Enum):
     DELETION = "DELETION"
 
 
+class MemoryLifecycle(str, Enum):
+    ACTIVE = "active"
+    INACTIVE = "inactive"
+    ARCHIVED = "archived"
+    DELETED = "deleted"
+
+
+class MemoryLifecycleSignal(str, Enum):
+    COMMAND = 'LIFECYCLE'
+
+
 class DerivedSummaryStatus(str, Enum):
     ACTIVE = "ACTIVE"
     INVALIDATED = "INVALIDATED"
@@ -591,6 +602,13 @@ class MemoryRecord:
     activation_explanation: list[str] = field(default_factory=list)
     lineage_event_id: str | None = None
     consolidation_input_hash: str | None = None
+    lifecycle: MemoryLifecycle | None = None
+    retrieval_weight: float | None = None
+    weight_updated_at: datetime | None = None
+    lifecycle_command_id: str | None = None
+    source_memory_bindings: dict[str, str] | None = None
+    historical_only: bool = field(default=False,repr=False,compare=False)
+    consumption_weight: float | None = field(default=None,repr=False,compare=False)
 
     def __post_init__(self) -> None:
         for value, name in (
@@ -615,6 +633,18 @@ class MemoryRecord:
             self.visibility, MemoryVisibility, "memory visibility"
         )
         self.status = _enum_value(self.status, MemoryStatus, "memory status")  # type: ignore[assignment]
+        if self.lifecycle is not None:
+            self.lifecycle = _enum_value(self.lifecycle, MemoryLifecycle, "memory lifecycle")
+        if self.retrieval_weight is not None:
+            self.retrieval_weight = _ratio(self.retrieval_weight, "retrieval weight")
+        self.weight_updated_at = _optional_utc(self.weight_updated_at, "weight_updated_at")
+        if self.lifecycle_command_id is not None:
+            _require_text(self.lifecycle_command_id, "lifecycle_command_id")
+        if self.source_memory_bindings is not None:
+            if (not isinstance(self.source_memory_bindings,dict)
+                    or set(self.source_memory_bindings)!=set(self.source_memory_ids)
+                    or any(not isinstance(h,str) or not re.fullmatch(r'sha256:[0-9a-f]{64}',h) for h in self.source_memory_bindings.values())):
+                raise MemoryValidationError('source memory version bindings invalid')
         self.root_evidence_ids = _unique_texts(
             self.root_evidence_ids, "root_evidence_ids", required=True
         )
@@ -677,8 +707,30 @@ class MemoryRecord:
     def unique_evidence_count(self) -> int:
         return len(self.root_evidence_ids)
 
+    @property
+    def effective_lifecycle(self) -> MemoryLifecycle:
+        if self.status is MemoryStatus.DELETED:
+            return MemoryLifecycle.DELETED
+        if self.lifecycle is not None:
+            return self.lifecycle
+        if self.status is not MemoryStatus.ACTIVE:
+            return MemoryLifecycle.INACTIVE
+        return (MemoryLifecycle.ARCHIVED if self.temperature is MemoryTemperature.ARCHIVED
+                else MemoryLifecycle.ACTIVE)
+
+    @property
+    def effective_weight(self) -> float:
+        own=1.0 if self.retrieval_weight is None else self.retrieval_weight
+        return own if self.consumption_weight is None else min(own,self.consumption_weight)
+
+    @property
+    def is_available(self) -> bool:
+        return (not self.historical_only and self.status is MemoryStatus.ACTIVE
+                and self.effective_lifecycle is MemoryLifecycle.ACTIVE
+                and self.effective_weight > 0)
+
     def to_dict(self) -> dict[str, JsonValue]:
-        return {
+        body = {
             "memory_id": self.memory_id,
             "subject_id": self.subject_id,
             "environment": self.environment,
@@ -715,6 +767,18 @@ class MemoryRecord:
             "consolidation_input_hash": self.consolidation_input_hash,
             "lineage_event_id": self.lineage_event_id,
         }
+        # Omit P12 fields on genuinely old records: canonical identities survive.
+        if self.lifecycle is not None:
+            body['lifecycle'] = self.lifecycle.value
+        if self.retrieval_weight is not None:
+            body['retrieval_weight'] = self.retrieval_weight
+        if self.weight_updated_at is not None:
+            body['weight_updated_at'] = _format_datetime(self.weight_updated_at)
+        if self.lifecycle_command_id is not None:
+            body['lifecycle_command_id'] = self.lifecycle_command_id
+        if self.source_memory_bindings is not None:
+            body['source_memory_bindings'] = dict(self.source_memory_bindings)
+        return body
 
     @classmethod
     def from_dict(cls, value: Any) -> MemoryRecord:
@@ -763,6 +827,11 @@ class MemoryRecord:
             consolidation_id=value.get("consolidation_id"),
             consolidation_input_hash=value.get("consolidation_input_hash"),
             lineage_event_id=value.get("lineage_event_id"),
+            lifecycle=value.get('lifecycle'), retrieval_weight=value.get('retrieval_weight'),
+            weight_updated_at=(_parse_datetime(value['weight_updated_at'], 'weight_updated_at')
+                               if value.get('weight_updated_at') is not None else None),
+            lifecycle_command_id=value.get('lifecycle_command_id'),
+            source_memory_bindings=value.get('source_memory_bindings'),
         )
 
     def canonical_hash(self) -> str:
@@ -781,6 +850,8 @@ class MemoryRecord:
             "lineage_event_id",
             "status",
             "consolidation_input_hash",
+            "lifecycle", "retrieval_weight", "weight_updated_at", "lifecycle_command_id",
+            "source_memory_bindings",
         ):
             body.pop(field_name, None)
         return _canonical_hash(body)
@@ -888,11 +959,12 @@ class MemoryLineageRecord:
     subject_id: str
     environment: str
     target_memory_id: str
-    signal: MemoryLineageType
-    source_event_id: str
+    signal: MemoryLineageType | MemoryLifecycleSignal
+    source_event_id: str | None
     root_evidence_ids: list[str]
     recorded_at: datetime
     replacement_memory_id: str | None = None
+    command: dict[str, JsonValue] | None = None
 
     def __post_init__(self) -> None:
         for value, name in (
@@ -900,12 +972,19 @@ class MemoryLineageRecord:
             (self.subject_id, "lineage subject_id"),
             (self.environment, "lineage environment"),
             (self.target_memory_id, "target_memory_id"),
-            (self.source_event_id, "lineage source_event_id"),
         ):
             _require_text(value, name)
         if self.environment not in {"ENGINE", "TEST", "RESEARCH"}:
             raise MemoryValidationError("lineage environment is unsupported")
-        self.signal = _enum_value(self.signal, MemoryLineageType, "lineage signal")  # type: ignore[assignment]
+        self.signal = (MemoryLifecycleSignal.COMMAND if self.signal == MemoryLifecycleSignal.COMMAND
+                       else _enum_value(self.signal, MemoryLineageType, "lineage signal"))
+        if self.signal is MemoryLifecycleSignal.COMMAND:
+            if self.source_event_id is not None or not isinstance(self.command, dict):
+                raise MemoryValidationError('lifecycle lineage requires a command, not an Event')
+        else:
+            _require_text(self.source_event_id, 'lineage source_event_id')
+            if self.command is not None:
+                raise MemoryValidationError('fact lineage cannot carry lifecycle command')
         self.root_evidence_ids = _unique_texts(
             self.root_evidence_ids, "lineage root_evidence_ids", required=True
         )
@@ -916,7 +995,7 @@ class MemoryLineageRecord:
                 raise MemoryValidationError("replacement memory must use a distinct identity")
 
     def to_dict(self) -> dict[str, JsonValue]:
-        return {
+        body = {
             "lineage_id": self.lineage_id,
             "subject_id": self.subject_id,
             "environment": self.environment,
@@ -927,6 +1006,9 @@ class MemoryLineageRecord:
             "recorded_at": _format_datetime(self.recorded_at),
             "replacement_memory_id": self.replacement_memory_id,
         }
+        if self.command is not None:
+            body['command'] = dict(self.command)
+        return body
 
     @classmethod
     def from_dict(cls, value: Any) -> MemoryLineageRecord:
@@ -944,6 +1026,7 @@ class MemoryLineageRecord:
             ),
             recorded_at=_parse_datetime(value.get("recorded_at"), "lineage recorded_at"),
             replacement_memory_id=value.get("replacement_memory_id"),
+            command=value.get('command'),
         )
 
     def canonical_hash(self) -> str:
@@ -971,6 +1054,7 @@ class DerivedSummary:
     content: str
     status: DerivedSummaryStatus = DerivedSummaryStatus.ACTIVE
     invalidation_reason: str | None = None
+    retrieval_weight: float = field(default=1.0,repr=False,compare=False)
     supersedes_version: int | None = None
 
     def __post_init__(self) -> None:

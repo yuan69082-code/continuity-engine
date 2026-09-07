@@ -1,0 +1,7 @@
+test_deleted_consolidation_replay_cannot_return_active_material (test_p12_memory_integration.ExistingUseRegressions.test_deleted_consolidation_replay_cannot_return_active_material) ... ok
+test_pending_learning_rechecks_revoked_memory_support (test_p12_memory_integration.ExistingUseRegressions.test_pending_learning_rechecks_revoked_memory_support) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.244s
+
+OK

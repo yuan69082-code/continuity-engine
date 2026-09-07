@@ -21,6 +21,7 @@ from continuity_engine.domain.memory import (
     MemoryRecord,
     MemoryStatus,
     MemoryTemperature,
+    MemoryLifecycle,
     MemoryTimeRange,
 )
 from continuity_engine.domain.models import utc_now
@@ -74,10 +75,23 @@ class MemoryConsolidationService:
         self._summary_generator = summary_generator or DeterministicDerivedSummaryGenerator()
 
     def consolidate(self, candidate: MemoryRecord) -> MemoryConsolidationResult:
+        if candidate.historical_only:
+            raise MemoryValidationError('historical receipt cannot be consolidated as new material')
+        if any(x is not None for x in (candidate.lifecycle,candidate.retrieval_weight,candidate.lifecycle_command_id)):
+            raise MemoryValidationError('Consolidation cannot inject lifecycle history')
         candidate_hash = candidate.consolidation_hash()
         existing_operation = self._repository.load_consolidation_operation(
             candidate.subject_id, candidate.consolidation_id
         )
+        deleted_roots={r for memory in self._repository.list_memories(candidate.subject_id,include_inactive=True)
+                       if memory.effective_lifecycle is MemoryLifecycle.DELETED for r in memory.root_evidence_ids}
+        if deleted_roots.intersection(candidate.root_evidence_ids):
+            raise MemoryValidationError('deleted memory evidence cannot be reintroduced by consolidation')
+        if existing_operation is None:
+            suppressed={r for m in self._repository.list_memories(candidate.subject_id,include_inactive=True)
+                        if not m.is_available for r in m.root_evidence_ids}
+            if suppressed.intersection(candidate.root_evidence_ids):
+                raise MemoryValidationError('inactive evidence requires explicit current restoration, not a new alias')
         if existing_operation is not None:
             if existing_operation.canonical_input_hash != candidate_hash:
                 raise MemoryIdentityConflictError(
@@ -110,7 +124,7 @@ class MemoryConsolidationService:
                     self._clock(),
                 )
                 self._repository.save_consolidation(current, operation)
-                return MemoryConsolidationResult(current, True, 0)
+                return MemoryConsolidationResult(self._load_operation_result(candidate.subject_id,operation), True, 0)
             if any(item.content != candidate.content
                    and set(item.root_evidence_ids).intersection(candidate.root_evidence_ids)
                    for item in compatible):
@@ -179,6 +193,9 @@ class MemoryConsolidationService:
                     "memory_version": current.memory_version + 1,
                 }
             )
+            if payload.get('source_memory_bindings') is not None:
+                payload['source_memory_bindings']={identifier:self._repository.load_memory(candidate.subject_id,identifier).canonical_hash()
+                                                   for identifier in payload['source_memory_ids']}
             updated = MemoryRecord.from_dict(payload)
             decision = self._activation_policy.evaluate(updated, now)
             payload = updated.to_dict()
@@ -191,7 +208,8 @@ class MemoryConsolidationService:
             )
             self._repository.save_consolidation(updated, operation)
             return MemoryConsolidationResult(
-                updated, False, len(set(candidate.root_evidence_ids) - set(current.root_evidence_ids))
+                self._load_operation_result(candidate.subject_id,operation), False,
+                len(set(candidate.root_evidence_ids) - set(current.root_evidence_ids))
             )
 
         decision = self._activation_policy.evaluate(candidate, now)
@@ -200,9 +218,14 @@ class MemoryConsolidationService:
         payload["temperature"] = decision.temperature.value
         payload["activation_explanation"] = list(decision.explanation)
         created = MemoryRecord.from_dict(payload)
+        if created.source_memory_ids:
+            payload=created.to_dict()
+            payload['source_memory_bindings']={identifier:self._repository.load_memory(candidate.subject_id,identifier).canonical_hash()
+                                               for identifier in created.source_memory_ids}
+            created=MemoryRecord.from_dict(payload)
         operation = self._consolidation_operation(candidate, created, candidate_hash, now)
         self._repository.save_consolidation(created, operation)
-        return MemoryConsolidationResult(created, False, len(created.root_evidence_ids))
+        return MemoryConsolidationResult(self._load_operation_result(candidate.subject_id,operation), False, len(created.root_evidence_ids))
 
     @staticmethod
     def _consolidation_operation(
@@ -246,6 +269,15 @@ class MemoryConsolidationService:
             raise MemoryIdentityConflictError(
                 "consolidation operation result hash does not match history"
             )
+        current = self._repository.load_memory(subject_id, operation.result_memory_id)
+        if current.effective_lifecycle is MemoryLifecycle.DELETED or (
+                current.lifecycle is not None and not current.is_available):
+            raise MemoryValidationError('consolidation replay source is no longer available')
+        # Preserve P04's exact historical revision receipt. It is not a fresh
+        # material grant when the current version differs or is unavailable.
+        result.historical_only=(current.canonical_hash()!=result.canonical_hash()
+                                or not self._repository.current_usable(subject_id,current.memory_id))
+        result.consumption_weight=current.effective_weight
         return result
 
     def recalculate_activation(self, subject_id: str) -> list[MemoryRecord]:
@@ -315,7 +347,7 @@ class MemoryConsolidationService:
         if len(set(identifiers)) != len(identifiers) or not identifiers:
             raise MemoryValidationError("summary source memories must be unique and non-empty")
         sources = [self._repository.load_memory(subject_id, item) for item in identifiers]
-        if any(item.status is not MemoryStatus.ACTIVE for item in sources):
+        if any(not item.is_available or not self._repository.current_usable(subject_id,item.memory_id) for item in sources):
             raise MemoryValidationError("summary generation requires current active memory")
         sources.sort(key=lambda item: (item.occurred_at, item.memory_id))
         content = self._summary_generator.generate(sources)

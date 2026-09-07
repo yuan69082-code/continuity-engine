@@ -1,0 +1,14 @@
+test_confirmation_reentry_does_not_overwrite_another_successful_command (__main__.P12IndependentProbes.test_confirmation_reentry_does_not_overwrite_another_successful_command) ... ok
+test_consolidation_race_cannot_return_fresh_active_material_after_archive (__main__.P12IndependentProbes.test_consolidation_race_cannot_return_fresh_active_material_after_archive) ... ok
+test_control_approved_restore_and_deleted_recovery_rejection (__main__.P12IndependentProbes.test_control_approved_restore_and_deleted_recovery_rejection) ... ok
+test_control_current_authorized_history_recall_still_works (__main__.P12IndependentProbes.test_control_current_authorized_history_recall_still_works) ... ok
+test_control_new_independent_evidence_still_creates_memory (__main__.P12IndependentProbes.test_control_new_independent_evidence_still_creates_memory) ... ok
+test_history_recall_does_not_return_body_deleted_during_lookup (__main__.P12IndependentProbes.test_history_recall_does_not_return_body_deleted_during_lookup) ... ok
+test_history_recall_rechecks_permission_after_source_port (__main__.P12IndependentProbes.test_history_recall_rechecks_permission_after_source_port) ... ok
+test_new_derived_memory_cannot_restore_downweighted_root_influence (__main__.P12IndependentProbes.test_new_derived_memory_cannot_restore_downweighted_root_influence) ... ok
+test_unbound_successor_cannot_drop_lifecycle_and_restore_archived_memory (__main__.P12IndependentProbes.test_unbound_successor_cannot_drop_lifecycle_and_restore_archived_memory) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 1.273s
+
+OK

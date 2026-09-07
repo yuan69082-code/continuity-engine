@@ -1,0 +1,16 @@
+{
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p12-independent-review-20260906\\review_probes.py"
+  ],
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "startedAt": "2026-09-06T16:02:46.462463+00:00",
+  "environment": {
+    "PYTHONPATH": "src",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "exitCode": 1,
+  "interrupted": false,
+  "finishedAt": "2026-09-06T16:02:48.011938+00:00",
+  "wallSeconds": 1.549
+}

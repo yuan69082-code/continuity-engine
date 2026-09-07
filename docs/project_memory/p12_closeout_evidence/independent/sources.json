@@ -1,0 +1,37 @@
+{
+  "tonight-final-review.source.txt": {
+    "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p12-recheck-20260907\\tonight-final-review.md",
+    "sha256": "fb4c7f4890a13889ab9721d6e1c2b4024d6f61710e59100d769c8e46ff7a0dee",
+    "bytes": 5093
+  },
+  "verify_tonight.py": {
+    "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p12-recheck-20260907\\verify_tonight.py",
+    "sha256": "d0be3d34b5db72af466d339db7dcf783b45df2efd81ad629dfb8ef9dfea13a1d",
+    "bytes": 6641
+  },
+  "tonight-20260907-original-01.stderr.log": {
+    "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p12-independent-review-20260906\\tonight-20260907-original-01.stderr.log",
+    "sha256": "d8eeb48823c9d74f29553104c23792bc097e7b3fb78a63eb56bb6b2da7ace856",
+    "bytes": 1635
+  },
+  "tonight-20260907-neighbors-01.stderr.log": {
+    "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p12-independent-review-20260906\\tonight-20260907-neighbors-01.stderr.log",
+    "sha256": "4ec595e537504d25177f5fea6d7c8432ad44d777a1247e44a289466adb15ef50",
+    "bytes": 1103
+  },
+  "tonight-20260907-p12-01.stderr.log": {
+    "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p12-independent-review-20260906\\tonight-20260907-p12-01.stderr.log",
+    "sha256": "39abcb0a2d71156d2528c3e8e58e62068bec5e89e0a90eb0441e0bf1d1f93f14",
+    "bytes": 20055
+  },
+  "tonight-20260907-evidence-03.stdout.log": {
+    "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p12-independent-review-20260906\\tonight-20260907-evidence-03.stdout.log",
+    "sha256": "dca4958a241ad1b3f837d11ef4602c903af8e0446ad60d53b1a04766f20672aa",
+    "bytes": 1926
+  },
+  "tonight-20260907-evidence-01.stderr.log": {
+    "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p12-independent-review-20260906\\tonight-20260907-evidence-01.stderr.log",
+    "sha256": "3b2d09d311c4b2ebd9302c5cfeb3500cc3e4a710e164d52bc81db2df109684df",
+    "bytes": 691
+  }
+}

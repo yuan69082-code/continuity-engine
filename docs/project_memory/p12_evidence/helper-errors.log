@@ -1,0 +1,16 @@
+2026-09-06 baseline capture, first invocation FAILED before any test execution:
+E:\Adobe\python.exe docs/project_memory/p12_evidence/capture_baseline.py
+unittest.loader.discover('tests', top_level_dir='.') raised:
+ImportError: Start directory is not importable: 'C:\Users\Administrator\Documents\continuity-engine\tests'
+Reason: tests is a discovery directory without __init__.py. Corrected capture to existing discover('tests') convention. No Engine defect or test PASS was recorded.
+
+Read-only helper errors earlier: requested nonexistent context_sources.py and test_p04_memory.py; rg located actual context_router_service.py and test_p04_memory_consolidation.py. First planning console output non-UTF8, source extraction unaffected; reread with PYTHONUTF8=1.
+
+Second baseline capture FAILED at assert not loader.errors and identity match. Script launcher did not retain repository root import context; added root to sys.path, keeping PYTHONPATH=src. No test was run by capture.
+Read-only rg wildcard argument '*.json' under PowerShell returned OS error 123; no file change.
+
+Further read-only helper observations: nonexistent testing/clock.py and context_router_ports.py paths were corrected with rg to the actual modules. PowerShell literal *.py/ *.json path arguments were not expanded by rg; no source changes resulted. Get-CimInstance Win32_Process returned access denied; Get-Process was used for read-only runtime observation instead. No process was killed or test interrupted.
+
+One apply_patch attempt on memory_consolidation_service.py did not match the existing summary error text and failed atomically. The exact lines were read and the targeted patch reapplied. This was a tooling/context error, not a test result.
+
+Baseline-reference correction: before.json baselineEvidence initially named full-stable.stderr.log. The actual unchanged accepted full evidence is ../pre_p12_r05_r06_evidence/final-full.stderr.log (894 total, 893 PASS, 1 prior symlink 1314 SKIP, 425.134s). The original baseline record is retained; docs identify the correct source. No baseline full run was performed here.

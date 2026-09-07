@@ -1,0 +1,1252 @@
+{
+  "authorization": "P12-TONIGHT-CLOSEOUT-20260907-01",
+  "deadline": "2026-09-07T08:00:00+08:00",
+  "baseHead": "1b8020fbe687dafaaf83a629dbeee65d69a71d67",
+  "branch": "main",
+  "remote": "https://github.com/yuan69082-code/continuity-engine.git",
+  "message": "feat: implement P12 memory lifecycle and reviewed repairs",
+  "files": [
+    {
+      "path": "README.md",
+      "category": "P12 直接档案和导航",
+      "sha256": "60b189601c8409a766afecec4ea8f5233c954947a8b2fe435d1ea2f121259e41"
+    },
+    {
+      "path": "docs/project_memory/00_项目总览.md",
+      "category": "P12 直接档案和导航",
+      "sha256": "6c4c256cd7dd42931e11af9c52bc18617df99bf58f3845776211c448095edc24"
+    },
+    {
+      "path": "docs/project_memory/01_当前状态.md",
+      "category": "P12 直接档案和导航",
+      "sha256": "4f9f3c8bde0c7b430deaa466aacf0e5e7474da42df3a46f23a0992cf147e0add"
+    },
+    {
+      "path": "docs/project_memory/02_工程路线图.md",
+      "category": "P12 直接档案和导航",
+      "sha256": "1c1bf424f59fff277e73c31c8835c7e0c0565fbda60d1114ce014d6c293ded4b"
+    },
+    {
+      "path": "docs/project_memory/03_施工日志.md",
+      "category": "P12 直接档案和导航",
+      "sha256": "7e1010a4ae0ad244874b30db9d3e2a7a98e94189d86eaa6a1b2c0e5dcb7a7e72"
+    },
+    {
+      "path": "docs/project_memory/04_决策记录.md",
+      "category": "P12 直接档案和导航",
+      "sha256": "8ed4cdda227630ccda14e62ea5b06b8378b9fd681f7d6817df545065fe8de410"
+    },
+    {
+      "path": "docs/project_memory/05_已完成模块.md",
+      "category": "P12 直接档案和导航",
+      "sha256": "b23419f355b831b7fd462ada5d85cbaff424992e9fcbfff9034c3bcbf9709e5e"
+    },
+    {
+      "path": "docs/project_memory/05_核心模块架构.md",
+      "category": "P12 直接档案和导航",
+      "sha256": "075be36c12d6d4fec5f07f6b21313b532fef3cfe61a925f8e9e2616a4ea49dbc"
+    },
+    {
+      "path": "docs/project_memory/06_未完成事项.md",
+      "category": "P12 直接档案和导航",
+      "sha256": "18f9fc35c45330ff005f836239bf71acfe9145e3bf6307a0b278b7d0612c499b"
+    },
+    {
+      "path": "docs/project_memory/07_待确认事项.md",
+      "category": "P12 直接档案和导航",
+      "sha256": "0c244868ea4870c0a91239a9f3cc9c8e0ad6d752e8929a09724d7a6423ae1368"
+    },
+    {
+      "path": "docs/project_memory/10_档案修订记录.md",
+      "category": "P12 直接档案和导航",
+      "sha256": "8b8966191c842a39b62ea88b23237187b46b66b9dba4e62731cb5cc6032b15f5"
+    },
+    {
+      "path": "docs/project_memory/13_P00_档案与测试索引.md",
+      "category": "P12 直接档案和导航",
+      "sha256": "d34d7adb1e263bd6ac1b9d55df94e7cfb2a0f59de877377dc771254df4e292f4"
+    },
+    {
+      "path": "docs/project_memory/59_P12_IntentionalForgetting架构边界.md",
+      "category": "P12 直接档案和导航",
+      "sha256": "0d1820aacaf2df2d2a0ae7328a2a692f2cda1b40706eb229825d6696929c4a0a"
+    },
+    {
+      "path": "docs/project_memory/60_P12_规划施工测试验收矩阵.md",
+      "category": "P12 直接档案和导航",
+      "sha256": "5c1866d74194a3639ab85a7adb5abdff85bf0d4ab52192c68f635aad0b5c9767"
+    },
+    {
+      "path": "docs/project_memory/61_P12_生命周期恢复删除与传播语义.md",
+      "category": "P12 直接档案和导航",
+      "sha256": "89014d870db2555f21873310964c296999e4bd16debdf20379af8e5b93f024fc"
+    },
+    {
+      "path": "docs/project_memory/62_P12_测试索引与验收入口.md",
+      "category": "P12 直接档案和导航",
+      "sha256": "78b8898ed0749e3a21134a763052866675d0b417099e7cabd0ba49498b320801"
+    },
+    {
+      "path": "docs/project_memory/CHANGELOG.md",
+      "category": "P12 直接档案和导航",
+      "sha256": "46ebb797688ebe046494a4b4057a56c668e43ccaf2eea730aa95c6cd0bf688eb"
+    },
+    {
+      "path": "docs/project_memory/P12_独立复核与Git收尾_20260907.md",
+      "category": "P12 直接档案和导航",
+      "sha256": "5288d38bd5f92fc250c5800f801264b927ff991db9fcb7b9f1452abae2572dd8"
+    },
+    {
+      "path": "docs/project_memory/P12_独立复核返修_R1-R5.md",
+      "category": "P12 直接档案和导航",
+      "sha256": "b40810cfec4b91dd530bce73b562c85c6c7e3af74d899fd576c6239581e6f386"
+    },
+    {
+      "path": "docs/project_memory/P12_第二轮返修_F1-F2.md",
+      "category": "P12 直接档案和导航",
+      "sha256": "2d9dd1e3e63c3dfecb7a2d9b16a39c9d9ed50c2b2880ae0c1e95f394bc98b5cd"
+    },
+    {
+      "path": "docs/project_memory/p12_closeout_evidence/before.json",
+      "category": "本次独立复核及精确 Git 收尾记录",
+      "sha256": "4d8da447f7052d307a94babdba69d4cc2651adc853425576fb47eca800e0ae2d"
+    },
+    {
+      "path": "docs/project_memory/p12_closeout_evidence/commit-files.json",
+      "category": "本次独立复核及精确 Git 收尾记录",
+      "sha256": null
+    },
+    {
+      "path": "docs/project_memory/p12_closeout_evidence/commit-files.md",
+      "category": "本次独立复核及精确 Git 收尾记录",
+      "sha256": "68620c68c55946b04cf8aac756662c162eba4efbe22a0a55f11c24af25e28452"
+    },
+    {
+      "path": "docs/project_memory/p12_closeout_evidence/commit-paths.txt",
+      "category": "本次独立复核及精确 Git 收尾记录",
+      "sha256": "2641291ecd7c3a935f27f63e13942fdf51153fec21b59900c5c51ad0e4ae6e42"
+    },
+    {
+      "path": "docs/project_memory/p12_closeout_evidence/independent/sources.json",
+      "category": "本次独立复核及精确 Git 收尾记录",
+      "sha256": "5710dc72095129878c965657e4da5177b78ea56480390068ae3f4ddac1a65882"
+    },
+    {
+      "path": "docs/project_memory/p12_closeout_evidence/independent/tonight-20260907-evidence-01.stderr.log",
+      "category": "本次独立复核及精确 Git 收尾记录",
+      "sha256": "3b2d09d311c4b2ebd9302c5cfeb3500cc3e4a710e164d52bc81db2df109684df"
+    },
+    {
+      "path": "docs/project_memory/p12_closeout_evidence/independent/tonight-20260907-evidence-03.stdout.log",
+      "category": "本次独立复核及精确 Git 收尾记录",
+      "sha256": "dca4958a241ad1b3f837d11ef4602c903af8e0446ad60d53b1a04766f20672aa"
+    },
+    {
+      "path": "docs/project_memory/p12_closeout_evidence/independent/tonight-20260907-neighbors-01.stderr.log",
+      "category": "本次独立复核及精确 Git 收尾记录",
+      "sha256": "4ec595e537504d25177f5fea6d7c8432ad44d777a1247e44a289466adb15ef50"
+    },
+    {
+      "path": "docs/project_memory/p12_closeout_evidence/independent/tonight-20260907-original-01.stderr.log",
+      "category": "本次独立复核及精确 Git 收尾记录",
+      "sha256": "d8eeb48823c9d74f29553104c23792bc097e7b3fb78a63eb56bb6b2da7ace856"
+    },
+    {
+      "path": "docs/project_memory/p12_closeout_evidence/independent/tonight-20260907-p12-01.stderr.log",
+      "category": "本次独立复核及精确 Git 收尾记录",
+      "sha256": "39abcb0a2d71156d2528c3e8e58e62068bec5e89e0a90eb0441e0bf1d1f93f14"
+    },
+    {
+      "path": "docs/project_memory/p12_closeout_evidence/independent/tonight-final-review.source.txt",
+      "category": "本次独立复核及精确 Git 收尾记录",
+      "sha256": "fb4c7f4890a13889ab9721d6e1c2b4024d6f61710e59100d769c8e46ff7a0dee"
+    },
+    {
+      "path": "docs/project_memory/p12_closeout_evidence/independent/verify_tonight.py",
+      "category": "本次独立复核及精确 Git 收尾记录",
+      "sha256": "d0be3d34b5db72af466d339db7dcf783b45df2efd81ad629dfb8ef9dfea13a1d"
+    },
+    {
+      "path": "docs/project_memory/p12_closeout_evidence/precommit-checks.json",
+      "category": "本次独立复核及精确 Git 收尾记录",
+      "sha256": "3efefec6e7eb809d5da3ff92905337d12a89c88e5b8ce717a77f2a2c372abcaa"
+    },
+    {
+      "path": "docs/project_memory/p12_closeout_evidence/prepare.py",
+      "category": "本次独立复核及精确 Git 收尾记录",
+      "sha256": "4acfa13b94b6aeaf17e765f6bddb8c5f46c287413d070790c15530d39ae6591e"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/admission-red-02.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "33199375600a0245afe75f625221ba688fb89107b6994c909865fb06d6ec5082"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/admission-red-02.stderr.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "c822a6fe18a725b67a693627c2b5f796a64a7b4f9a80a7eb068c7c42194a63b3"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/admission-red-02.stdout.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/audit.py",
+      "category": "P12 证据生成和复现辅助源码",
+      "sha256": "0fa394a4c1ddf4d7a62d719448b198ec5bc88c42718efc23d1403fba7cdabac4"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/before.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "2ef8063575e75e7663ca400592ae1aa55833a0ae8626dd7e0a52e7389acfe63d"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/bound-merge-red.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "a289b376ef15070a45038720b5017129ac8f662503e32a61235cba19b98c5999"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/bound-merge-red.stderr.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "fcead4762df5f2e72ec23f24ba7f68385695bc282cce546ee86b21723c12a692"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/bound-merge-red.stdout.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "7d9e6af84d14c95d661dbcabc09090baa9adf5d248f2a136d43187889aa63720"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/capture_baseline.py",
+      "category": "P12 证据生成和复现辅助源码",
+      "sha256": "4b8de013dd3a40a5f160a2f50ae0d9da676a3b58f578e0ad3dd5df631b0fcc9b"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/closeout_manifest.py",
+      "category": "P12 证据生成和复现辅助源码",
+      "sha256": "25bd4ab8c8e451d7731fdf3179cb984c7f3143d17164c57fc6ba0a61627b3b7d"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/compatibility-01.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "68c2123f6bc2c9ec44638ceffedc23bb6b4167b95184d39b78884719155316c5"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/compatibility-01.stderr.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "a7922eee37894f0a129f4bbaf38aaa0b3f5b3d6aed4392856bce8a03452e68a6"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/compatibility-01.stdout.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "e5af495d7d73d35ddba0e4ab730713836b65a7a01140ec93da639b0d3b3372f4"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/compatibility-01.tests.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "e52bab12a979857e5ac97102e846fd0c677aad4a1b3ef91ef4df012c9c246278"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/compatibility-final.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "2cedc9b02cf3819a2bf54d7359702e703e7af85462b3460f6566329670ed6116"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/compatibility-final.stderr.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "1d1766afb2aea11468e407d8f7f71cbdc674095c7e93104cc9b1d99a98c734e8"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/compatibility-final.stdout.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "a8d738ba831bec6bf5ce7e4af8d7ee7c644d4d22f99721999327c79993ccc337"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/compatibility-final.tests.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "0e0bfeef5f55d0387c7ace87f7f33eca338185e728545450971862675342a153"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/existing-green-01.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "4f3191b3ea23b27b0c9a4a17e6fa83c2adf17471ec873e740f1ed89d140886ea"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/existing-green-01.stderr.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "fd84574971a65667af29a0f381878b9567e906f6c7acdff1d4ff20b3010bee14"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/existing-green-01.stdout.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/existing-red.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "61c14b25844a30a62867fde9fca1f38d0312ce7d1765ec8c59b6661346ec43bd"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/existing-red.stderr.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "ee5eb07b75c9be6d55b079550e5232bdc605e20fde031abc5e42209a4c50d5d4"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/existing-red.stdout.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/final-audit.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "5f18a3a3dcdaa00ba39d585000ce1c99b7443398cc086b07b45b6a0b9384dfc2"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/full-final.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "1f38882bdfb45f633255e991261ff06abccde6dec59fc03d9f05b4f485e2b870"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/full-final.stderr.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "9573836dfda1a77c0ef953e0367ae2966e9fa0f61e14867228226407ecc8c2eb"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/full-final.stdout.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "b640e7616dc60a19bd089acdd7c5823a735b71544fd9fe146c5a9464152a56bb"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/full-final.tests.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "6d5a6de0eda9f8382e6ba7977892de72367a9e96d687255f96c161bc0b008d28"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/golden-01.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "82cd34272ea911f0513a4d6fd86b2c95d95e2d0fd49baf2fb497ac69bf541e64"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/golden-01.stderr.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/golden-01.stdout.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "48b17f18a98f3c70bb8c474f36e099da5eb967bea79737f0f6d0588ffbba0135"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/helper-errors.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "d261738e6d1743ce92e0d3936cd3d056d72fc9004c2a30aafefa3a008d1a4446"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/integration-first.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "c89db5d68d9de3e591ee4a568c3108060cbaa0216ee7f30b054a0d037a225a33"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/integration-first.stderr.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "578bbbf5c73e0bac45b719da3571865793d204ea7320e2f13e17983211e0831f"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/integration-first.stdout.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "7d9e6af84d14c95d661dbcabc09090baa9adf5d248f2a136d43187889aa63720"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/interim-audit.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "347f20d1e629b5c4aea2627a669ad427dc9f2eda327232fc97b0731628207c46"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/iterable-roots-red.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "bfa3b86d3a9eff51715c339f851136441fd6c6be2fe902b1fc815357ad118c5b"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/iterable-roots-red.stderr.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "530a414ae3b2c235a4c424213dc252a0b17c3d1d610fdd5894e38bfa585a05bc"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/iterable-roots-red.stdout.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "7d9e6af84d14c95d661dbcabc09090baa9adf5d248f2a136d43187889aa63720"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/lifecycle-first.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "0f7ea5f694c043b60c76162158d51b19b779d829ba3e038ed9b7fb5cf41992d0"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/lifecycle-first.stderr.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "54f5648de9c0cbf322b7eb858b5590bdd0ed8700bce4153008ddc3c3a9be362a"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/lifecycle-first.stdout.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/matrix-coverage.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "bb767b7598bc80e9d18abae5b3cc30ad5aef214bec2473fdd46edad939d3783c"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/p04-compat-02.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "fc46aebc6cbbe784008525d63a7bb4421444f40862eafa89f2765787da8e082a"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/p04-compat-02.stderr.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "4ba1b10781f1b576516df7e7d435e4f66b27d48c01af0bf1cdb45065426f0a27"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/p04-compat-02.stdout.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/p12-final-code.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "53c64cd551fa3631a29b51f6fb3304944046a99967808af01ef9530bf31b5538"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/p12-final-code.stderr.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "b17e9a4482a0c344213a8705f38160e3df247388e18b48d006facf18fcd6604a"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/p12-final-code.stdout.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "86fd1ff210a7626a642fd898b9f3dfd3400791b72eff4a00257a001fe83cbbc1"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/p12-final-code.tests.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "c0e530f038bcbe2ee0908c6fb2aef8e4104f7319046a090ade024bc4036b720d"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/p12-green-02.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "d0b03490bc77da18c676a83fc17c3fb93ea265540026e3acd3d01bc4f4a25b27"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/p12-green-02.stderr.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "453a96393fc7db77111fc604729665a8dd6439a0aa12e8c1268c2af1281923ca"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/p12-green-02.stdout.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "a3936d6ec56140e81cbd94525d14f86dc53e4def13e49610c8c8ede9d8b602a9"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/p12-green-02.tests.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "066c7bfbd9101430481db4287f3eb77fc5dd95496107deaf1a7c064576c5a1a7"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/p12-stable-01.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "407ee6a8020343eab81f71b90d94e34a1463360afc7777fd80600ea138b59811"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/p12-stable-01.stderr.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "453ca9bef682978cdf9ba30d807ed3d0cda353a509ac34ad4d9e90d16d2fc465"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/p12-stable-01.stdout.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "1e57eb766cb79c97eefc42ef109885e8ace0ddd11d1e8072f09ba0eca564b944"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/p12-stable-01.tests.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "32848f7cbb19884a7bac63c639a0042556f57edc2d7d8c1a81eae2ce9ebecef0"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/p12-stable-02.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "d9c8380424f32be2ee52dc94a1f1c8aa68cf525568747b0b5f7083bc6c794994"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/p12-stable-02.stderr.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "1925f1df34643bc3af329de7d22d36495149dbb04a6ee3e102b488fe169beb61"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/p12-stable-02.stdout.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "62b033a8fc4e28fd20d453cd05676b6e8473e8bad19175601076dea3eccb778c"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/p12-stable-02.tests.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "1de2657afebc38347c90740fa963f611a179658e061594caca10be0faef7c428"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/pending-files.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "cfa9af23086d9245f62f9899c5df5b98b67caae8dbce476024a41a24fb3e31bc"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/pending-files.md",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "693b4a6f364f46d6cd15e09a488b1285be0efe1b6f1adff084a28c59d8ea3393"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/planning-source.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "54205a1f2211c8bc7dcf8ccf5902dd59a96650f0ba9aa87fc540d4d50e694189"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/propagation-red-02.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "df1ae519db92697536686c513e42eae1ab31d6a9c1cacd44746da0c8e0af7bf8"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/propagation-red-02.stderr.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "aa28e8ffc32b31c4e39971f42898647691a98609a3f27e53fc4eaf5fa3f4a676"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/propagation-red-02.stdout.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "7d9e6af84d14c95d661dbcabc09090baa9adf5d248f2a136d43187889aa63720"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/raw-source-red.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "46c282a737144b3f4562bcbe964efd0c1fd9de8ff3dea48c943f1cf712086502"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/raw-source-red.stderr.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "f88f9e2512be9232ab1725e6aef5b2b8898c0bd3c9cd9e878f6fa66dee72e08b"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/raw-source-red.stdout.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "7d9e6af84d14c95d661dbcabc09090baa9adf5d248f2a136d43187889aa63720"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/run_suite.py",
+      "category": "P12 证据生成和复现辅助源码",
+      "sha256": "2e4cbb3f4c72d2ff3cf17839f12079018c0ca687c7292671e252ae4c031bb8fa"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/run_tests.py",
+      "category": "P12 证据生成和复现辅助源码",
+      "sha256": "73db5a87864adc5e65d5770845126a015a87b263349672d5ebd660be9aea97c6"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/sync_docs.py",
+      "category": "P12 证据生成和复现辅助源码",
+      "sha256": "e9199aede462d88e258469af58758d917572488f99cd686ea91588dc8b5d493a"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/timeline-weight-red.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "64e9aed01d5f26cb942b120e83b87db4059da4c7906ddbb1ff71709f3537a326"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/timeline-weight-red.stderr.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "e6a20627161974d0efb90aebc22ea791e418e270d198bf5f735892469590bc37"
+    },
+    {
+      "path": "docs/project_memory/p12_evidence/timeline-weight-red.stdout.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "42e4fde1053d7ca088a99b713fb8fa06a2cf8db978b91e26cba60e13398580d9"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/before.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "772a827e2f9ff8787b6da54cc6ca928c0c67d7be40218edfa71911e66bf9b65c"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/compatibility-affected-02.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "bbba71bb0e985eaedd30cbdb727c8e640aa49fd45e83b85a7997151f45ba0333"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/compatibility-affected-02.stderr.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "cbb4aa83e2813aa7a3580f08f52a16c80fafb5582a8f53e217d38387a19fd5c6"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/compatibility-affected-02.stdout.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "62eddb8beefc33081102f1d1eb53ba27564c8ca80f1247d46e028bc323cac09b"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/compatibility-affected-02.tests.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "de9cdc19f6c4aa5e08ac522518cd4611d81836b0f7e674799d3c9afda5c90752"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/compatibility-stable-01.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "541542f3ad1a7a38591465abaec8dc16658bff2cdc8d4f7ea2152c3640481b01"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/compatibility-stable-01.stderr.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "1c082b9d254a2c7a8960905ea295fd8481e359ddd9631b636e3c028a557c0e68"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/compatibility-stable-01.stdout.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "14cd823ee3b6eec3b4d9ca0e7ae68250baa99e11354c09df7fee56ff2813a5f4"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/compatibility-stable-01.tests.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "6095769c924707f8a5d9938b8952639d2b02ea381523347753e34b6718ac3a37"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/extended-01.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "9d3f1947138d3340dcba1eb9610f5a2978464cd0564d8720e36ac6403e8e5135"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/extended-01.stderr.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "d8a60f69b8c3210289ab404fb43a834d2e08b59576ae9a3ce6642c10e02f2afb"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/extended-01.stdout.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/extended-02.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "14a0bed6e7bff1784d104525119222cad46d28ce85eb3f515e1c80108e18e487"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/extended-02.stderr.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "367d914b5f8456e4260ee277a392d5022a6cd08301b8b8b7eea8f595956efc55"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/extended-02.stdout.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/final-audit.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "597a25267174a75c77e45009a0cbff158fc5052b726fdea1e4abe621f8e9d595"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/final_audit.py",
+      "category": "P12 证据生成和复现辅助源码",
+      "sha256": "24146f13b994ff1675f41eff906c4f931cd8c1e2944d40947751cbc644cf1d74"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/full-stable-01.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "13d74420cbc685163af31a8741b79cd0cac2bcd19243fd02d5f3a37d441a3acd"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/full-stable-01.stderr.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "956aa33725762a7c8eec9d32ca5e27245796913f184415f91e7e17cd3ab4d6bc"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/full-stable-01.stdout.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "545fe22e383b36419b244ba25b602e79e6ec0c861de0ac4ee0b8415ad2caa452"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/full-stable-01.tests.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "beca09624e1fa1a20e1b6fc2654f2df0db559a8c075d88c0a3b513bdbaef1173"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/full-stable-02.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "0c2bce98d01db87c7fdb105dcadd3ef493f6546c3f76287750b8ec42820fe248"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/full-stable-02.stderr.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "db9bfbf91e4a8eb9f1826e6a224a701f613f9ee41f85b497a9e7565269186481"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/full-stable-02.stdout.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "fa7784f1cbc68b96408becffbfe04849f84475393df4aac364d4c5420fb5ad22"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/full-stable-02.tests.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "e6eca1114c9c70840cbd97441376db9014e3f4715c509913254a58b77a635d3c"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/original-probes-after-01.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "f5364a8b966b66dfaecb9fa8a917643b7c9904c9f59bef9fe363ca3090287cdf"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/original-probes-after-01.stderr.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "e9dceb171f7e3d4b426c5da97d618a8132d55d1903eab2ab54976655acb70533"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/original-probes-after-01.stdout.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/original-probes-before.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "da029dd8286a26087e48cb2bb41bce276b6c78aa7f4542dae57b1d223e380596"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/original-probes-before.stderr.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "e990a8c87d95d5ee5a08373ed0062586c1d27ff7db2beebbcedeb6ec46a620d9"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/original-probes-before.stdout.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/original-probes-final-02.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "806fd110fbaad65a8ca9e18068ea9e052ddca3ca1c63135efeacdfdf6187ce0a"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/original-probes-final-02.stderr.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "a5a4828dd54b415f1d4d80e9260f9afca9daedd9d4949e79fc0cc0f1ac4b3fcf"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/original-probes-final-02.stdout.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/original-probes-final.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "b7e08e0b602a928a15730de4013a41a8290314b1a1a2760d0cf7feb19ed003de"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/original-probes-final.stderr.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "1546d4fa37942bdf68185ab27f45ae5c8ef658bb50f32400a061bf3026a4b668"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/original-probes-final.stdout.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/p12-stable-01.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "569a7fd3e78d79e06ac1211b1044fa02cf0d3be2da81de57cdc558a835f22359"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/p12-stable-01.stderr.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "70e395bc05195a545e08dd07b404b923c905f551b0a0d50d2bc65e3c78f7d9c7"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/p12-stable-01.stdout.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "4f305d6f5c98b71304b67258e997f044d6cd3de0121de9cd085cbbb20f1f2f61"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/p12-stable-01.tests.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "b6385587566f94c3022abbd2ce57b966c5fbaf5cbbd5ed4bce1f590171a1084d"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/p12-stable-02.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "b026e9ed0512a777c4d3895d0db41c288ed0781598ff461439f9a4fd43fdc36d"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/p12-stable-02.stderr.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "b134c7fae3834509519671a616d22a1e14e3e6f1f1f2705161e1ed850ce88184"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/p12-stable-02.stdout.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "e3f596717a6953937decf1e2b8d1dc7598d9453feb8b2bde17917a383078e4b0"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/p12-stable-02.tests.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "15c05799aa65e102420fe76229d49a100ae6156f4496070e4b176435eeded13c"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/pending-files.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "4d5e544a470958d4b3aa4c3700ee3f78da455268aec73cc885110ae81787833e"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/pending-files.md",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "d325630c1e178f9cfc95b1f6ac36d8a075927a4a64b545f83f076ad6468f1ded"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/run_suite.py",
+      "category": "P12 证据生成和复现辅助源码",
+      "sha256": "23910e546e01726ca4834ee4c62d339b0349085436bd2f8afc4f6e11185fd905"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/run_tests.py",
+      "category": "P12 证据生成和复现辅助源码",
+      "sha256": "1d5b6136cc5e249a9811da2fc9d8f5aa6074eac2f5882cb59865bee1b3b51442"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/sync_docs.py",
+      "category": "P12 证据生成和复现辅助源码",
+      "sha256": "aa4157185896e16c8788cea15f06ec266faecc6b564cc0ba1d21177251f95dd9"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/weight-window-after.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "0f3ad04a23915ac2af0de729d1e552e52c0cf20b449574a2b4e707b2d3351547"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/weight-window-after.stderr.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "759dd434a16bc4f3a73de1d0a28c9b34161aad4757f0516fe918bda046eae435"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/weight-window-after.stdout.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/weight-window-before.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "ec2ccc6f3803e7a67711513b5750ad06398d8d6bd8f249f88d79e9133d958545"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/weight-window-before.stderr.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "971b79c03c7233671ee7ed9521b7e309b77644168068eb4ac1881ca98f730e27"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/weight-window-before.stdout.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/project_memory/p12_repair_evidence/weight_window_probes.py",
+      "category": "P12 证据生成和复现辅助源码",
+      "sha256": "6d954bae00dc5d72229f689651d499be8d9b5a360f4bddc8435830ebb3ff6ec3"
+    },
+    {
+      "path": "docs/project_memory/p12_second_repair_evidence/audit-helper-01.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "3967365f0d6115565864145c232d368d8d478537497cd7e82f6638e83000d093"
+    },
+    {
+      "path": "docs/project_memory/p12_second_repair_evidence/audit-helper-01.stderr.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "7baaec98c821d87d0d2b761f79e1e51d22130cfb306b8aa8933728e94441379a"
+    },
+    {
+      "path": "docs/project_memory/p12_second_repair_evidence/audit-helper-02.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "2615c07ab585c2d3f37318ca103cbd23fa60c7b1320009c16b12cd935b6adc0b"
+    },
+    {
+      "path": "docs/project_memory/p12_second_repair_evidence/before.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "79d5ad3d42f83df82aef1cd45864ccf083ad11aa4006bc044742f7035832ee3e"
+    },
+    {
+      "path": "docs/project_memory/p12_second_repair_evidence/compatibility-final.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "7e28e03a6e1c1139d5adec95ac8eff815e1334a5202ffd06b47b033b4741a8a2"
+    },
+    {
+      "path": "docs/project_memory/p12_second_repair_evidence/compatibility-final.stderr.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "323bbd70344c8a3e5f1a2553ca84d23d5164c094e497e467c43093fe89050c36"
+    },
+    {
+      "path": "docs/project_memory/p12_second_repair_evidence/compatibility-final.stdout.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "4ec9ef3040929dec4dc9566ed53aef9f36794ad81021dd80b0abd845b07cfd28"
+    },
+    {
+      "path": "docs/project_memory/p12_second_repair_evidence/compatibility-final.tests.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "b3fce7a1b7e9c6897f3cc2e89adb82c5766a97559fe418ba0aa97e36e78fb6a9"
+    },
+    {
+      "path": "docs/project_memory/p12_second_repair_evidence/final-audit.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "c36d9199fb89fd79c966f754a99f186b633def553d76bc1337f2bbd781488760"
+    },
+    {
+      "path": "docs/project_memory/p12_second_repair_evidence/final_audit.py",
+      "category": "P12 证据生成和复现辅助源码",
+      "sha256": "09eaf69a3e0e3e24c751f8cb47981c0d6660a90eb2bf5d4040be3bf03ebe0109"
+    },
+    {
+      "path": "docs/project_memory/p12_second_repair_evidence/formal-after-01.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "449ef817e7c6f0d73d163a466657e307f7399fc13c84a727ca2095b37d47e6f4"
+    },
+    {
+      "path": "docs/project_memory/p12_second_repair_evidence/formal-after-01.stderr.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "b8f8cc805fc8eac5c26c463ba62cc92044b10b816212264fd743196897a3ec9b"
+    },
+    {
+      "path": "docs/project_memory/p12_second_repair_evidence/formal-after-01.stdout.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/project_memory/p12_second_repair_evidence/formal-before.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "4e3889f28b936520a470ed82c3327807c8c8419be46e616ea48d668d7ddc8e82"
+    },
+    {
+      "path": "docs/project_memory/p12_second_repair_evidence/formal-before.stderr.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "a788b352197aa318a6c694d07b621278e422fe5ef8589f28d881a334abac3081"
+    },
+    {
+      "path": "docs/project_memory/p12_second_repair_evidence/formal-before.stdout.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/project_memory/p12_second_repair_evidence/formal-stable.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "f87db738602333605a402675a5571e3276bc11987689d48de0ba428d5f0129b7"
+    },
+    {
+      "path": "docs/project_memory/p12_second_repair_evidence/formal-stable.stderr.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "1c92696f4109a63419555f8b9c751679a859d100d3280233486b0109ed75c4a4"
+    },
+    {
+      "path": "docs/project_memory/p12_second_repair_evidence/formal-stable.stdout.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/project_memory/p12_second_repair_evidence/full-final.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "b4d60900f08d594ea50ed5517b92ff1f07c879ad106812774574762a1ff40e6f"
+    },
+    {
+      "path": "docs/project_memory/p12_second_repair_evidence/full-final.stderr.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "2eeaa92e93dc171391d56b71b6294a979d4915203c60a4cf4a50bedf40f7fe60"
+    },
+    {
+      "path": "docs/project_memory/p12_second_repair_evidence/full-final.stdout.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "335e5ac24c76c10088e10933ce66fc1ca3b47bcf52741fbc3e8781375beef32b"
+    },
+    {
+      "path": "docs/project_memory/p12_second_repair_evidence/full-final.tests.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "02c9e5783115e7f6481d8f94ff6a3e2dc7702f4d3519f2cf35a629e0ab8936e7"
+    },
+    {
+      "path": "docs/project_memory/p12_second_repair_evidence/neighbors-after-01.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "2c8ca5019aa469428893990c2f1f8e68f546bc25efd153de079c40a32a68c470"
+    },
+    {
+      "path": "docs/project_memory/p12_second_repair_evidence/neighbors-after-01.stderr.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "97886f2d83f36ef1b6eb67d108bd19e89c2e37fc1e80b38af1410c6eddeb5dd4"
+    },
+    {
+      "path": "docs/project_memory/p12_second_repair_evidence/neighbors-after-01.stdout.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/project_memory/p12_second_repair_evidence/neighbors-before.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "b74972a15a5c861d777af384a9572870881d309dabd9dd487d2fec417a270dc9"
+    },
+    {
+      "path": "docs/project_memory/p12_second_repair_evidence/neighbors-before.stderr.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "24fec4f23cd9800d5a1c9010b29b6a23fd5f66569295be412927b1422a6f5494"
+    },
+    {
+      "path": "docs/project_memory/p12_second_repair_evidence/neighbors-before.stdout.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/project_memory/p12_second_repair_evidence/neighbors-final.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "3098a7ba8099cfbe741ff7adae8541d05486cb3afe9253ad0293b7e75099172a"
+    },
+    {
+      "path": "docs/project_memory/p12_second_repair_evidence/neighbors-final.stderr.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "684aaadd9e76ccd3984abbd76d93abb6343ace89a8777132f24548de227778d5"
+    },
+    {
+      "path": "docs/project_memory/p12_second_repair_evidence/neighbors-final.stdout.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/project_memory/p12_second_repair_evidence/original-final.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "46ee358533d8d083f9e5d3930bba7ff852e466c455f39080247328743677592c"
+    },
+    {
+      "path": "docs/project_memory/p12_second_repair_evidence/original-final.stderr.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "2ae58ea216106657a8cb1383bf529c7b866849c51c11f61dd7af38d79b7b177c"
+    },
+    {
+      "path": "docs/project_memory/p12_second_repair_evidence/original-final.stdout.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/project_memory/p12_second_repair_evidence/original-nine.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "82c90af5276c0fee0e494f0b932a6e34d74acd880cf626bef1e9f2935b8f363a"
+    },
+    {
+      "path": "docs/project_memory/p12_second_repair_evidence/original-nine.stderr.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "f24ea2ddaa7673dca87e64c71d0210c80cc4a7e4d4dbd07a3db848af596adff9"
+    },
+    {
+      "path": "docs/project_memory/p12_second_repair_evidence/original-nine.stdout.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/project_memory/p12_second_repair_evidence/p12-final.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "b475dc08e162ae9b9c82e1be5a1ec321249cf5046031dec1861101f6387ba45b"
+    },
+    {
+      "path": "docs/project_memory/p12_second_repair_evidence/p12-final.stderr.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "898ecbe2dfeec59deeb21dc8e5dd858acc21fe10d9105eb2ae2748987f60bc8b"
+    },
+    {
+      "path": "docs/project_memory/p12_second_repair_evidence/p12-final.stdout.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "ece9953a99d975969998039ecaf8d21d0e6ff9b392aa7673906b39a500badba1"
+    },
+    {
+      "path": "docs/project_memory/p12_second_repair_evidence/p12-final.tests.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "cc15e13e2dc774b20ddd54a90d7836b6278c3b7f57b8e27cbd2633df405ecca9"
+    },
+    {
+      "path": "docs/project_memory/p12_second_repair_evidence/p12-stable.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "7b5591f035744d8123161355602c9d8717e233058111920f3c028f0f5f2621cc"
+    },
+    {
+      "path": "docs/project_memory/p12_second_repair_evidence/p12-stable.stderr.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "2de5d322f9312373ce45d11013c3e3f646dcfd953d8b21e11a8b2ea03d77d618"
+    },
+    {
+      "path": "docs/project_memory/p12_second_repair_evidence/p12-stable.stdout.log",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "83415c6183932e6ad9e4a7cace091f580d53e9b0a203f1e7b1452b7c097b8633"
+    },
+    {
+      "path": "docs/project_memory/p12_second_repair_evidence/p12-stable.tests.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "884b5700c5b9a9fcc18e9d5dc20942b8714a6d6147e4756c8877c7083fc4f03d"
+    },
+    {
+      "path": "docs/project_memory/p12_second_repair_evidence/pending-files.json",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "4bdcfd7bf9403ee4a2ab2a14634021c3b5f5af1e72e5b1bae7fce326f9dd3934"
+    },
+    {
+      "path": "docs/project_memory/p12_second_repair_evidence/pending-files.md",
+      "category": "P12 原始失败/通过/身份/来源/审计证据",
+      "sha256": "5adf3962e37ea4f4391ccefc4f66d32bc2ac10fa35d7504820e25898ce815105"
+    },
+    {
+      "path": "docs/project_memory/p12_second_repair_evidence/run_suite.py",
+      "category": "P12 证据生成和复现辅助源码",
+      "sha256": "23910e546e01726ca4834ee4c62d339b0349085436bd2f8afc4f6e11185fd905"
+    },
+    {
+      "path": "docs/project_memory/p12_second_repair_evidence/run_tests.py",
+      "category": "P12 证据生成和复现辅助源码",
+      "sha256": "1d5b6136cc5e249a9811da2fc9d8f5aa6074eac2f5882cb59865bee1b3b51442"
+    },
+    {
+      "path": "docs/project_memory/p12_second_repair_evidence/sync_docs.py",
+      "category": "P12 证据生成和复现辅助源码",
+      "sha256": "0857aa575e4492b02032dabcd01320837ad479e890593af5875eabbbdf04f44d"
+    },
+    {
+      "path": "docs/project_memory/工程总档案.md",
+      "category": "P12 直接档案和导航",
+      "sha256": "7f637b154037c6b97c56b47f1edd4f4f301b782b0c5d6dd9e54b861d2a13d64b"
+    },
+    {
+      "path": "src/continuity_engine/domain/memory.py",
+      "category": "已复核 P12 实现和正式测试",
+      "sha256": "2656ee6e18b46dd2873ca7088477fe9a0934259ac8fe4cf0b5f918b72e1f2e01"
+    },
+    {
+      "path": "src/continuity_engine/domain/memory_lifecycle.py",
+      "category": "已复核 P12 实现和正式测试",
+      "sha256": "1d0351c3da4defd757f27600d7ac3152cee229365dd636be2ee998f87bc94af3"
+    },
+    {
+      "path": "src/continuity_engine/services/context_material_resolvers.py",
+      "category": "已复核 P12 实现和正式测试",
+      "sha256": "46c2ed0f8451b0ec9ac175659310052d67ff28c40a7f7634c54bd510bb9856a8"
+    },
+    {
+      "path": "src/continuity_engine/services/context_router_service.py",
+      "category": "已复核 P12 实现和正式测试",
+      "sha256": "2a3b726a0b02a0a139d70c9474547cb7dac817c9ae74bcf19cf6631336c6ff0f"
+    },
+    {
+      "path": "src/continuity_engine/services/continuity_core_runtime.py",
+      "category": "已复核 P12 实现和正式测试",
+      "sha256": "19a7866f14c48fda1f72edd01edbc81c7213b471b47c24ac4a6a37b7435f1b08"
+    },
+    {
+      "path": "src/continuity_engine/services/continuity_core_service.py",
+      "category": "已复核 P12 实现和正式测试",
+      "sha256": "f078df2bc4078bcba2e8e8f731024732513b2e12bf2c9b23adf24795b33f670a"
+    },
+    {
+      "path": "src/continuity_engine/services/learning_service.py",
+      "category": "已复核 P12 实现和正式测试",
+      "sha256": "6aff46716cc37181b91211caa144e44dcedcf2167bbd93206b109eeb72896c25"
+    },
+    {
+      "path": "src/continuity_engine/services/memory_consolidation_service.py",
+      "category": "已复核 P12 实现和正式测试",
+      "sha256": "7054c204b7f17e8316be2c6a95e76d938572a6929576a115970a5eb148878ea4"
+    },
+    {
+      "path": "src/continuity_engine/services/memory_lifecycle_service.py",
+      "category": "已复核 P12 实现和正式测试",
+      "sha256": "2e0e5c66ea48741d1136aa7ab5ca6530c443a4205414e33cf5dbedf4b0447274"
+    },
+    {
+      "path": "src/continuity_engine/services/memory_service.py",
+      "category": "已复核 P12 实现和正式测试",
+      "sha256": "e37450b6787ea866d09d609834855992d7deeec80ce8bea30f37f6a31d2a63a0"
+    },
+    {
+      "path": "src/continuity_engine/storage/base.py",
+      "category": "已复核 P12 实现和正式测试",
+      "sha256": "ff3baabeaec758ca5d33bcbdea002f74861c54830de7496d22b1c44bccc5bcd2"
+    },
+    {
+      "path": "src/continuity_engine/storage/json_learning_repository.py",
+      "category": "已复核 P12 实现和正式测试",
+      "sha256": "129c15f2e5b4d1b4dcc95dfdf2897df14769b41de7708699f529965838bc4772"
+    },
+    {
+      "path": "src/continuity_engine/storage/json_memory_repository.py",
+      "category": "已复核 P12 实现和正式测试",
+      "sha256": "e4263faa6aa9ecc64c2615db615ec167e2c169ca1695bd3724b09a8740a7bd0d"
+    },
+    {
+      "path": "src/continuity_engine/testing/p12_memory_fixture.py",
+      "category": "已复核 P12 实现和正式测试",
+      "sha256": "c67e300a3be4fbc752c19a90af40f347e5fb5c87e45e13a44d9b929f7669a85f"
+    },
+    {
+      "path": "tests/test_p12_memory_integration.py",
+      "category": "已复核 P12 实现和正式测试",
+      "sha256": "b6ec03861dd6fa841ee87d4a121a1a87a3703e5d8a133f7a475861c8e0bfb965"
+    },
+    {
+      "path": "tests/test_p12_memory_lifecycle.py",
+      "category": "已复核 P12 实现和正式测试",
+      "sha256": "35b229cb82fe702ad2cb8435702aecc11e2229c0da09c7d74e37f0f2f729dee1"
+    },
+    {
+      "path": "tests/test_p12_memory_review_regressions.py",
+      "category": "已复核 P12 实现和正式测试",
+      "sha256": "3ecb9f02647415d550dae0c740800564cc89f731ad747e930003bda0e4973bec"
+    },
+    {
+      "path": "tests/test_p12_memory_second_review.py",
+      "category": "已复核 P12 实现和正式测试",
+      "sha256": "d845b040b4f8753f2b3435cd36dbdc693b142c30c170a4f1686e3f8fa65789a6"
+    },
+    {
+      "path": "tests/test_p12_memory_weight_windows.py",
+      "category": "已复核 P12 实现和正式测试",
+      "sha256": "6d954bae00dc5d72229f689651d499be8d9b5a360f4bddc8435830ebb3ff6ec3"
+    }
+  ],
+  "selfHashNote": "Self hash is verified during staging and represented by its commit blob; no circular fabricated hash.",
+  "excludedP10": {
+    "docs/project_memory/p10_evidence/closeout-20260904/check_stop.py": "04ba52bc0eb8467a3e81649f715a36781cced94e2141e1dd43004f0f63e64a50",
+    "docs/project_memory/p10_evidence/closeout-20260904/closeout.py": "13b25e473f2eee7c3b2dd72fe9f793f0a59d47817a08e0e8c204ca8c40652f3b",
+    "docs/project_memory/p10_evidence/closeout-20260904/preserve_failed_closeout.py": "4ad73b1f340edec31a27e9a0bb4948901ca2e8eb7b241765d5368c14c7c38c9b",
+    "docs/project_memory/p10_evidence/closeout-20260904/record_stop.py": "071010b697c3d432a002a6c5d4b6de3ecc5ed26eae06946bd24a85430c5d0d53",
+    "docs/project_memory/p10_evidence/closeout-20260904/sync_assistant.py": "7d6f95f77bb2a30243c8d915753215628eef8fc63d4ae339d81c90fca26b70bc",
+    "docs/project_memory/p10_evidence/create_repositories.py": "4496367cfa2ff990712651ef4f4c118443539b845442b5be206ccdcc83c861ed",
+    "docs/project_memory/p10_evidence/final_audit.py": "26e3e2d4e266e64258af975c746f4a73f7d5d3e990f113e0534df617a8ac4ca4",
+    "docs/project_memory/p10_evidence/fixture-case-repair-20260904/audit.py": "bc3456b46f56b80906c8e1f903ac6dc217d9645a5e4a4a338d176d54925030cc",
+    "docs/project_memory/p10_evidence/fixture-case-repair-20260904/independent/p10_fixture_repair_review_probe.py": "39ec62e764bb1876ab8d3ffa9129f1fefdb2b3e26059badf02bc5e219906873c",
+    "docs/project_memory/p10_evidence/fixture-case-repair-20260904/prepare.py": "d2c2671acd152891040527632e461d1114ac469540e7400a7004486a67e5c339",
+    "docs/project_memory/p10_evidence/fixture-case-repair-20260904/run.py": "94411ef7a5f5fe43dd0f6fc86eb56f8a922deb87703921b28693566aa780c71a",
+    "docs/project_memory/p10_evidence/fixture-case-repair-20260904/sync_docs.py": "40a7a76730fe057ec66fa195ce58464eb2da77db6d5b03745ffe53c48e9bb914",
+    "docs/project_memory/p10_evidence/fixture-repair-20260904/audit.py": "aa5289290bb2a112a64ccb79090d571e61e3f5f29f7877a03844177501f83a7f",
+    "docs/project_memory/p10_evidence/fixture-repair-20260904/baseline.py": "c5bec025138c31135289697b71445e7950389881fd6a6a0425fb919ea2fdb1f6",
+    "docs/project_memory/p10_evidence/fixture-repair-20260904/engineering.py": "4c2a9047fc486025fa821341054c2a5fba43a2480c8e9f88e33ddb3ff1183f73",
+    "docs/project_memory/p10_evidence/fixture-repair-20260904/engineering_resume.py": "b090517464ec893de606b8c98a0ecf1de709ab59340523b35747907cbbc106c1",
+    "docs/project_memory/p10_evidence/fixture-repair-20260904/run.py": "94411ef7a5f5fe43dd0f6fc86eb56f8a922deb87703921b28693566aa780c71a",
+    "docs/project_memory/p10_evidence/fixture-repair-20260904/sync_docs.py": "7dcc07b812d687f04241b9ab241a1496240bf377b2df719cd19bc4cd1424f927",
+    "docs/project_memory/p10_evidence/fixture-repair-20260904/temp_probe.py": "513c9131b46f1738d2b711eff67917dfd4e58b40572aae81a7b2653dfbce87a3",
+    "docs/project_memory/p10_evidence/launcher-repair-20260905/advance.py": "7c03e2199a0471f3375a20e91dbdbc60cfc202c88033a175f77b5f64f8a77ca1",
+    "docs/project_memory/p10_evidence/launcher-repair-20260905/build_review_report.py": "d56cb9e2396a7f511a99ef5cf97b824d96ed0097b41aa0283a4c3ebb2795ac5c",
+    "docs/project_memory/p10_evidence/launcher-repair-20260905/ci_evidence.py": "5e4478967a6b5c1eae802364f751b836fce6e3efb77fe78d2c383fbea59fd09e",
+    "docs/project_memory/p10_evidence/launcher-repair-20260905/document_check.py": "4d7f95ac7fb336631af13a168cb200e6515cca729a945861a36f896cd7f7f1cc",
+    "docs/project_memory/p10_evidence/launcher-repair-20260905/final_audit.py": "1a0bff72b2faf30a601c5fce1c5d58156be6f6b0c15f54c825d57c81880bce47",
+    "docs/project_memory/p10_evidence/launcher-repair-20260905/repair_namespace_diagnostic.py": "646bd35f3288b269bedf366375682df58e6fc3de484faecefc9e5ac7fe111b1d",
+    "docs/project_memory/p10_evidence/launcher-repair-20260905/temp_checkout_probe.py": "c18ed4b0a1d73b30940071b38ab16ef037f1f80490f29bb532a0a9275d255d31",
+    "docs/project_memory/p10_evidence/launcher-repair-20260905/validate_temp.py": "568952b47f8778ec163a73bc2d5d77e159a5140d8b6c13be13f2e9c9b8ba8664",
+    "docs/project_memory/p10_evidence/launcher-repair-20260905/workflow.py": "a5085108309375d577ba4f29d40b91ac0baf4e932282a64b6558cacad30dc067",
+    "docs/project_memory/p10_evidence/outside_temp_clone.py": "ffd885f4dee710a9f7e1b8e7d4911ac795168c8dbb9e0626cdb18c96e75b16f2",
+    "docs/project_memory/p10_evidence/publish_assistant.py": "73c6f6aa6edd0c56b9468504e8522e20383ecc9d1bf6f8c49676d9cf5be961be",
+    "docs/project_memory/p10_evidence/remote_review.py": "6b5d99bf2a8330156efd5b948874d251ceb5ad26be7e947b9bdca04c406bc34f"
+  },
+  "otherExcluded": [],
+  "categories": {
+    "P12 原始失败/通过/身份/来源/审计证据": 171,
+    "P12 直接档案和导航": 21,
+    "P12 证据生成和复现辅助源码": 15,
+    "已复核 P12 实现和正式测试": 19,
+    "本次独立复核及精确 Git 收尾记录": 14
+  }
+}

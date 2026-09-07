@@ -28,6 +28,26 @@ class JsonLearningRepository:
     def __init__(self, root: Path | str) -> None:
         self.root = Path(root) / "learning"
 
+    def memory_support_snapshot(self, subject_id, memory_id, environment=None):
+        """Read the existing colocated Memory authority, never copy it into Learning."""
+        from continuity_engine.storage.json_memory_repository import JsonMemoryRepository
+        from continuity_engine.domain.errors import MemoryNotFoundError
+        if environment is not None and environment not in ('ENGINE','TEST','RESEARCH'):
+            raise LearningValidationError('unsupported memory support environment')
+        found=[]
+        for env in ((environment,) if environment else ('ENGINE','TEST','RESEARCH')):
+            repository=JsonMemoryRepository(self.root.parent,environment=env)
+            try: memory=repository.load_memory(subject_id,memory_id)
+            except MemoryNotFoundError: continue
+            if not repository.current_usable(subject_id,memory_id):
+                raise LearningValidationError('memory support is currently unavailable')
+            found.append({'memory_id':memory.memory_id,'subject_id':subject_id,'environment':env,
+                          'revision':memory.revision,'hash':memory.canonical_hash(),
+                          'root_evidence_ids':list(memory.root_evidence_ids)})
+        if len(found)>1:
+            raise LearningValidationError('ambiguous memory environment requires explicit binding')
+        return found[0] if found else None
+
     @staticmethod
     def _hash(value: str, field_name: str) -> str:
         if not isinstance(value, str) or not value.strip():

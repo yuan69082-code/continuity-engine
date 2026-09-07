@@ -46,11 +46,13 @@ def build_continuity_core(*, data_dir, binding, ledger, subject_states, action_g
     timeline = TimelineService(state)
     memory = JsonMemoryRepository(data_dir, environment=environment)
     sources = [ContextSourceBinding(SubjectStateContextSource(state, environment=environment), required=True),
-               ContextSourceBinding(TimelineContextSource(timeline, environment=environment))]
+               ContextSourceBinding(TimelineContextSource(timeline, environment=environment,
+                   memory_repository=memory if gates.memory else None))]
     resolvers = [TrustedContextResolverBinding(
         SubjectStateMaterialResolver(state, environment=environment), ContextAuthority.CONFIRMED_STATE,
         "subject_state_section", required=True), TrustedContextResolverBinding(
-        TimelineMaterialResolver(timeline, environment=environment), ContextAuthority.RAW_SOURCE, "event")]
+        TimelineMaterialResolver(timeline, environment=environment,memory_repository=memory if gates.memory else None),
+        ContextAuthority.RAW_SOURCE, "event")]
     if gates.memory:
         sources.extend([ContextSourceBinding(MemoryContextSource(memory, environment=environment)),
                         ContextSourceBinding(DerivedSummaryContextSource(memory, environment=environment))])

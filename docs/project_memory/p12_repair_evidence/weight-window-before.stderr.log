@@ -1,0 +1,35 @@
+test_memory_window_weight_drift_without_identity_or_order_change (__main__.WeightWindowProbes.test_memory_window_weight_drift_without_identity_or_order_change) ... FAIL
+test_summary_window_weight_drift_without_identity_or_order_change (__main__.WeightWindowProbes.test_summary_window_weight_drift_without_identity_or_order_change) ... FAIL
+
+======================================================================
+FAIL: test_memory_window_weight_drift_without_identity_or_order_change (__main__.WeightWindowProbes.test_memory_window_weight_drift_without_identity_or_order_change)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\docs\project_memory\p12_repair_evidence\weight_window_probes.py", line 32, in test_memory_window_weight_drift_without_identity_or_order_change
+    self.check_window(MemoryContextSource(self.f.repository,environment='TEST'),self.child.memory_id)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\docs\project_memory\p12_repair_evidence\weight_window_probes.py", line 28, in check_window
+    self.assertFalse(source.revalidate(query,first.candidates[0],first.source_version).valid,
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     'unchanged alias hash cannot validate an old full-weight candidate')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false : unchanged alias hash cannot validate an old full-weight candidate
+
+======================================================================
+FAIL: test_summary_window_weight_drift_without_identity_or_order_change (__main__.WeightWindowProbes.test_summary_window_weight_drift_without_identity_or_order_change)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\docs\project_memory\p12_repair_evidence\weight_window_probes.py", line 37, in test_summary_window_weight_drift_without_identity_or_order_change
+    self.check_window(DerivedSummaryContextSource(self.f.repository,environment='TEST'),summary.summary_id)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\docs\project_memory\p12_repair_evidence\weight_window_probes.py", line 28, in check_window
+    self.assertFalse(source.revalidate(query,first.candidates[0],first.source_version).valid,
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     'unchanged alias hash cannot validate an old full-weight candidate')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false : unchanged alias hash cannot validate an old full-weight candidate
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.305s
+
+FAILED (failures=2)

@@ -1,0 +1,11 @@
+{
+  "changedBaselineSource": [
+    "src/continuity_engine/services/memory_service.py",
+    "src/continuity_engine/storage/json_memory_repository.py"
+  ],
+  "newSource": [
+    "tests/test_p12_memory_second_review.py"
+  ],
+  "matchesFullStart": true,
+  "helperAst": "PASS"
+}

@@ -1,0 +1,15 @@
+{
+  "kind": "audit helper error, not Engine test failure",
+  "capturedFrom": "exec_command result chunk 91175f",
+  "dateLocal": "2026-09-07 Asia/Shanghai",
+  "exactStartTime": null,
+  "exitCode": 1,
+  "toolWallSeconds": 0.2057127,
+  "command": "$env:PYTHONDONTWRITEBYTECODE='1'; inline Python source through E:/Adobe/python.exe -",
+  "failingStatement": "b=json.loads((d/'before.json').read_text())",
+  "stdout": "",
+  "stderrFile": "audit-helper-01.stderr.log",
+  "cause": "Inline helper omitted UTF-8 encoding when reading Chinese before.json on Windows; it used the default GBK codec.",
+  "effect": "Read failed before comparison. Runtime, tests and original evidence were not modified. Full regression continued independently.",
+  "correction": "Use explicit encoding='utf-8' for the read-only audit helper and preserve the failed invocation."
+}

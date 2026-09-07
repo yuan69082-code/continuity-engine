@@ -163,8 +163,9 @@ class MemoryMaterialResolver:
         if memory.environment != self._environment:
             raise ContextCompositionSourceError("SOURCE_ENVIRONMENT_MISMATCH")
         if (
-            memory.status is not MemoryStatus.ACTIVE
-            or memory.temperature is MemoryTemperature.ARCHIVED
+            not memory.is_available
+            or not self._repository.current_usable(reference.subject_id,memory.memory_id)
+            or (memory.temperature is MemoryTemperature.ARCHIVED and memory.lifecycle is None)
         ):
             raise ContextCompositionSourceError("SOURCE_STATUS_INELIGIBLE")
         if memory.visibility is not MemoryVisibility.ENGINE_PRIVATE:
@@ -183,7 +184,7 @@ class MemoryMaterialResolver:
             memory.canonical_hash(),
             memory.occurred_at,
             memory.content,
-            memory.confidence,
+            memory.confidence * memory.effective_weight,
             tuple(memory.root_evidence_ids),
             conflict_markers=(
                 ("MEMORY_CONFLICT_PENDING",)
@@ -221,6 +222,8 @@ class DerivedSummaryMaterialResolver:
             raise ContextCompositionSourceError("SOURCE_ENVIRONMENT_MISMATCH")
         if summary.status is not DerivedSummaryStatus.ACTIVE:
             raise ContextCompositionSourceError("SOURCE_STATUS_INELIGIBLE")
+        if any(not self._repository.current_usable(reference.subject_id,identifier) for identifier in summary.source_memory_ids):
+            raise ContextCompositionSourceError('SUMMARY_SOURCE_INELIGIBLE')
         if version != reference.version:
             raise ContextCompositionSourceError("SOURCE_VERSION_DRIFT")
         if summary.canonical_hash() != reference.content_hash:
@@ -235,7 +238,7 @@ class DerivedSummaryMaterialResolver:
             summary.canonical_hash(),
             summary.time_range.end_at,
             summary.content,
-            summary.confidence,
+            summary.confidence * self._repository.summary_weight(summary),
             tuple(summary.root_evidence_ids),
         )
 
@@ -244,9 +247,10 @@ class TimelineMaterialResolver:
     source_id = "engine.timeline"
     partition = ContextPartition.TIMELINE
 
-    def __init__(self, timeline: TimelineService, *, environment: str) -> None:
+    def __init__(self, timeline: TimelineService, *, environment: str, memory_repository=None) -> None:
         self._timeline = timeline
         self._environment = environment
+        self._memory = memory_repository
 
     def resolve(self, reference: ContextCandidateReference) -> ExactContextPayload:
         _require_reference(
@@ -266,6 +270,10 @@ class TimelineMaterialResolver:
             raise ContextCompositionSourceError("SOURCE_SUBJECT_MISMATCH")
         if entry.status is not TimelineEventStatus.ACTIVE:
             raise ContextCompositionSourceError("SOURCE_STATUS_INELIGIBLE")
+        weight=(self._memory.event_recall_weights(reference.subject_id).get(reference.stable_id,1.0)
+                if self._memory is not None else 1.0)
+        if weight<=0:
+            raise ContextCompositionSourceError('SOURCE_MEMORY_LIFECYCLE_EXCLUDED')
         if version != reference.version:
             raise ContextCompositionSourceError("SOURCE_VERSION_DRIFT")
         if entry.event.canonical_hash() != reference.content_hash:
@@ -286,6 +294,6 @@ class TimelineMaterialResolver:
             entry.event.canonical_hash(),
             entry.event.occurred_at,
             entry.event.content,
-            1.0,
+            weight,
             roots,
         )

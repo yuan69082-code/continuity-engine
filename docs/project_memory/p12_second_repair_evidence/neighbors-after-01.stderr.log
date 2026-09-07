@@ -1,0 +1,12 @@
+test_existing_alias_cannot_bypass_archive (__main__.P12ExistingAliasProbes.test_existing_alias_cannot_bypass_archive) ... ok
+test_existing_alias_cannot_bypass_deactivation (__main__.P12ExistingAliasProbes.test_existing_alias_cannot_bypass_deactivation) ... ok
+test_existing_alias_cannot_bypass_logical_delete (__main__.P12ExistingAliasProbes.test_existing_alias_cannot_bypass_logical_delete) ... ok
+test_positive_explicit_restore_reopens_existing_alias (__main__.P12ExistingAliasProbes.test_positive_explicit_restore_reopens_existing_alias) ... ok
+test_positive_nonzero_downweight_is_inherited (__main__.P12ExistingAliasProbes.test_positive_nonzero_downweight_is_inherited) ... ok
+test_positive_untouched_alias_is_legitimately_selected (__main__.P12ExistingAliasProbes.test_positive_untouched_alias_is_legitimately_selected) ... ok
+test_zero_weight_alias_cannot_be_selected_by_legacy_service (__main__.P12ExistingAliasProbes.test_zero_weight_alias_cannot_be_selected_by_legacy_service) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 1.132s
+
+OK

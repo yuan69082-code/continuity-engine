@@ -1,0 +1,39 @@
+test_composer_exact_old_reference_blocked_after_archive (test_p12_memory_integration.ContextAndLineageTests.test_composer_exact_old_reference_blocked_after_archive) ... ok
+test_invalid_source_after_real_revocation_cannot_restore (test_p12_memory_integration.ContextAndLineageTests.test_invalid_source_after_real_revocation_cannot_restore) ... ok
+test_old_reference_stays_stale_after_restore (test_p12_memory_integration.ContextAndLineageTests.test_old_reference_stays_stale_after_restore) ... ok
+test_old_summary_reference_rejected_and_rebuild_keeps_downweight (test_p12_memory_integration.ContextAndLineageTests.test_old_summary_reference_rejected_and_rebuild_keeps_downweight) ... ok
+test_parent_restore_cannot_reactivate_old_child_version (test_p12_memory_integration.ContextAndLineageTests.test_parent_restore_cannot_reactivate_old_child_version) ... FAIL
+test_reconsolidation_cannot_recreate_deleted_evidence_under_new_identity (test_p12_memory_integration.ContextAndLineageTests.test_reconsolidation_cannot_recreate_deleted_evidence_under_new_identity) ... FAIL
+test_router_excludes_archived_and_revalidates_old_candidate (test_p12_memory_integration.ContextAndLineageTests.test_router_excludes_archived_and_revalidates_old_candidate) ... ok
+test_router_weight_changes_actual_candidate_relevance (test_p12_memory_integration.ContextAndLineageTests.test_router_weight_changes_actual_candidate_relevance) ... ok
+test_transitive_child_and_summary_disabled_by_parent (test_p12_memory_integration.ContextAndLineageTests.test_transitive_child_and_summary_disabled_by_parent) ... ok
+test_disabled_memory_entry_has_zero_component_reads (test_p12_memory_integration.CoreLifecycleTests.test_disabled_memory_entry_has_zero_component_reads) ... ok
+test_normal_context_before_after_and_no_memory_resurrection (test_p12_memory_integration.CoreLifecycleTests.test_normal_context_before_after_and_no_memory_resurrection) ... ok
+test_thirty_days_bounded_normal_entry_and_restart_invariants (test_p12_memory_integration.CoreLifecycleTests.test_thirty_days_bounded_normal_entry_and_restart_invariants) ... ok
+test_deleted_consolidation_replay_cannot_return_active_material (test_p12_memory_integration.ExistingUseRegressions.test_deleted_consolidation_replay_cannot_return_active_material) ... ok
+test_pending_learning_rechecks_revoked_memory_support (test_p12_memory_integration.ExistingUseRegressions.test_pending_learning_rechecks_revoked_memory_support) ... ok
+
+======================================================================
+FAIL: test_parent_restore_cannot_reactivate_old_child_version (test_p12_memory_integration.ContextAndLineageTests.test_parent_restore_cannot_reactivate_old_child_version)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p12_memory_integration.py", line 166, in test_parent_restore_cannot_reactivate_old_child_version
+    self.assertFalse(self.f.repository.current_usable(self.f.subject_id,child.memory_id),
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     'old child must not silently adopt the new parent version')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false : old child must not silently adopt the new parent version
+
+======================================================================
+FAIL: test_reconsolidation_cannot_recreate_deleted_evidence_under_new_identity (test_p12_memory_integration.ContextAndLineageTests.test_reconsolidation_cannot_recreate_deleted_evidence_under_new_identity)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p12_memory_integration.py", line 173, in test_reconsolidation_cannot_recreate_deleted_evidence_under_new_identity
+    with self.assertRaises(MemoryValidationError): self.f.consolidation.consolidate(MemoryRecord.from_dict(body))
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: MemoryValidationError not raised
+
+----------------------------------------------------------------------
+Ran 14 tests in 9.857s
+
+FAILED (failures=2)

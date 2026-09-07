@@ -1,0 +1,228 @@
+{
+  "P12-01": {
+    "state": "IMPLEMENTED_NOT_ACCEPTED",
+    "testIdentities": [
+      "test_p12_memory_lifecycle.LifecycleTests.test_legacy_archive_temperature_maps_without_write",
+      "test_p12_memory_lifecycle.LifecycleTests.test_legacy_roundtrip_hash_and_no_lifecycle_fields",
+      "test_p12_memory_lifecycle.LifecycleTests.test_legal_sequence_archive_restore_delete",
+      "test_p12_memory_lifecycle.LifecycleTests.test_lifecycle_is_distinct_from_temperature_and_fact_validity"
+    ],
+    "passed": 4,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "limitation": "旧记录不迁移；温度与可消费生命周期独立。",
+    "evidence": "p12-final-code.tests.json"
+  },
+  "P12-02": {
+    "state": "IMPLEMENTED_NOT_ACCEPTED",
+    "testIdentities": [
+      "test_p12_memory_lifecycle.LifecycleTests.test_confirmation_binds_entire_command",
+      "test_p12_memory_lifecycle.LifecycleTests.test_current_permission_revocation_denied",
+      "test_p12_memory_lifecycle.LifecycleTests.test_expiry_boundary_and_future_time_rejected",
+      "test_p12_memory_lifecycle.LifecycleTests.test_expiry_rechecked_after_confirmation_callback",
+      "test_p12_memory_lifecycle.LifecycleTests.test_hash_mismatch_rejected",
+      "test_p12_memory_lifecycle.LifecycleTests.test_history_recall_requires_current_permission",
+      "test_p12_memory_lifecycle.LifecycleTests.test_missing_confirmation_denied",
+      "test_p12_memory_lifecycle.LifecycleTests.test_permission_rechecked_after_confirmation_callback",
+      "test_p12_memory_lifecycle.LifecycleTests.test_permission_revision_change_denied",
+      "test_p12_memory_lifecycle.LifecycleTests.test_permission_scope_denied",
+      "test_p12_memory_lifecycle.LifecycleTests.test_stale_version_rejected",
+      "test_p12_memory_lifecycle.LifecycleTests.test_wrong_subject_and_environment_before_repository_read"
+    ],
+    "passed": 12,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "limitation": "确认方式仅 TEST 绑定输入；正式策略未决定。",
+    "evidence": "p12-final-code.tests.json"
+  },
+  "P12-03": {
+    "state": "IMPLEMENTED_NOT_ACCEPTED",
+    "testIdentities": [
+      "test_p12_memory_integration.ContextAndLineageTests.test_normal_timeline_material_honors_weight_without_rewriting_event",
+      "test_p12_memory_integration.ContextAndLineageTests.test_router_weight_changes_actual_candidate_relevance",
+      "test_p12_memory_lifecycle.LifecycleTests.test_decay_clock_rollback_rejected",
+      "test_p12_memory_lifecycle.LifecycleTests.test_downweight_affects_actual_retrieval_score",
+      "test_p12_memory_lifecycle.LifecycleTests.test_elapsed_decay_repeat_same_time_does_not_compound",
+      "test_p12_memory_lifecycle.LifecycleTests.test_invalid_decay_policy_not_defaulted",
+      "test_p12_memory_lifecycle.LifecycleTests.test_zero_weight_excluded_without_becoming_deleted"
+    ],
+    "passed": 7,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "limitation": "显式策略；读取不自动衰减，无正式默认阈值。",
+    "evidence": "p12-final-code.tests.json"
+  },
+  "P12-04": {
+    "state": "IMPLEMENTED_NOT_ACCEPTED",
+    "testIdentities": [
+      "test_p12_memory_integration.ContextAndLineageTests.test_new_alias_cannot_bypass_inactive_or_archived_state",
+      "test_p12_memory_integration.ContextAndLineageTests.test_router_excludes_archived_and_revalidates_old_candidate",
+      "test_p12_memory_integration.CoreLifecycleTests.test_normal_context_before_after_and_no_memory_resurrection",
+      "test_p12_memory_lifecycle.LifecycleTests.test_inactive_and_archived_exit_ordinary_retrieval",
+      "test_p12_memory_lifecycle.LifecycleTests.test_zero_weight_excluded_without_becoming_deleted"
+    ],
+    "passed": 5,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "limitation": "退出普通检索；历史审计保持。",
+    "evidence": "p12-final-code.tests.json"
+  },
+  "P12-05": {
+    "state": "IMPLEMENTED_NOT_ACCEPTED",
+    "testIdentities": [
+      "test_p12_memory_integration.ContextAndLineageTests.test_invalid_source_after_real_revocation_cannot_restore",
+      "test_p12_memory_lifecycle.LifecycleTests.test_authorized_trace_is_read_only_and_no_body",
+      "test_p12_memory_lifecycle.LifecycleTests.test_history_recall_requires_current_permission",
+      "test_p12_memory_lifecycle.LifecycleTests.test_restore_active_rejected_zero_writes",
+      "test_p12_memory_lifecycle.LifecycleTests.test_restore_invalid_source_denied",
+      "test_p12_memory_lifecycle.LifecycleTests.test_restore_resets_explicit_use_weight_and_preserves_history",
+      "test_p12_memory_lifecycle.LifecycleTests.test_restore_source_hash_drift_denied",
+      "test_p12_memory_lifecycle.LifecycleTests.test_strong_history_recall_is_bounded_and_never_restores"
+    ],
+    "passed": 8,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "limitation": "历史召回为确定性强词匹配，最多 5 条，不自动恢复。",
+    "evidence": "p12-final-code.tests.json"
+  },
+  "P12-06": {
+    "state": "IMPLEMENTED_NOT_ACCEPTED",
+    "testIdentities": [
+      "test_p12_memory_integration.ContextAndLineageTests.test_invalid_source_after_real_revocation_cannot_restore",
+      "test_p12_memory_integration.ContextAndLineageTests.test_reconsolidation_cannot_recreate_deleted_evidence_under_new_identity",
+      "test_p12_memory_integration.ExistingUseRegressions.test_deleted_consolidation_replay_cannot_return_active_material",
+      "test_p12_memory_lifecycle.LifecycleTests.test_actual_fresh_process_recovers_deleted_receipt_without_write",
+      "test_p12_memory_lifecycle.LifecycleTests.test_archive_delete_keep_event_and_subject_state_bytes",
+      "test_p12_memory_lifecycle.LifecycleTests.test_delete_replay_returns_tombstone_without_writes",
+      "test_p12_memory_lifecycle.LifecycleTests.test_deleted_cannot_restore_after_restart",
+      "test_p12_memory_lifecycle.LifecycleTests.test_legal_sequence_archive_restore_delete",
+      "test_p12_memory_lifecycle.LifecycleTests.test_lifecycle_is_distinct_from_temperature_and_fact_validity",
+      "test_p12_memory_lifecycle.LifecycleTests.test_old_archive_replay_after_delete_never_restores",
+      "test_p12_memory_lifecycle.LifecycleTests.test_production_delete_not_ready_without_read_or_write",
+      "test_p12_memory_lifecycle.LifecycleTests.test_raw_save_cannot_resurrect_deleted",
+      "test_p12_memory_lifecycle.LifecycleTests.test_seven_day_golden_actual_recall_difference_and_delete_replay",
+      "test_p12_memory_lifecycle.LifecycleTests.test_zero_weight_excluded_without_becoming_deleted"
+    ],
+    "passed": 14,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "limitation": "逻辑 tombstone 不可恢复；物理擦除和生产删除 NOT_READY。",
+    "evidence": "p12-final-code.tests.json"
+  },
+  "P12-07": {
+    "state": "IMPLEMENTED_NOT_ACCEPTED",
+    "testIdentities": [
+      "test_p12_memory_integration.ContextAndLineageTests.test_old_summary_reference_rejected_and_rebuild_keeps_downweight",
+      "test_p12_memory_integration.ContextAndLineageTests.test_parent_restore_cannot_reactivate_old_child_version",
+      "test_p12_memory_integration.ContextAndLineageTests.test_partial_root_merge_retains_source_bindings_and_new_evidence",
+      "test_p12_memory_integration.ContextAndLineageTests.test_transitive_child_and_summary_disabled_by_parent",
+      "test_p12_memory_lifecycle.FixtureIsolationTests.test_protected_names_case_variants_self_and_children_zero_write",
+      "test_p12_memory_lifecycle.LifecycleTests.test_summary_invalidated_atomically_then_rebuilt_only_after_restore"
+    ],
+    "passed": 6,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "limitation": "旧子版本不随父恢复复活；须以新有效来源重建。",
+    "evidence": "p12-final-code.tests.json"
+  },
+  "P12-08": {
+    "state": "IMPLEMENTED_NOT_ACCEPTED",
+    "testIdentities": [
+      "test_p12_memory_integration.ContextAndLineageTests.test_composer_exact_old_reference_blocked_after_archive",
+      "test_p12_memory_integration.ContextAndLineageTests.test_normal_timeline_material_honors_weight_without_rewriting_event",
+      "test_p12_memory_integration.ContextAndLineageTests.test_old_reference_stays_stale_after_restore",
+      "test_p12_memory_integration.ContextAndLineageTests.test_router_excludes_archived_and_revalidates_old_candidate",
+      "test_p12_memory_integration.ContextAndLineageTests.test_router_weight_changes_actual_candidate_relevance",
+      "test_p12_memory_integration.CoreLifecycleTests.test_disabled_memory_entry_has_zero_component_reads",
+      "test_p12_memory_integration.CoreLifecycleTests.test_normal_context_before_after_and_no_memory_resurrection"
+    ],
+    "passed": 7,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "limitation": "来源版本和当前状态重验；不写 Event/SubjectState。",
+    "evidence": "p12-final-code.tests.json"
+  },
+  "P12-09": {
+    "state": "IMPLEMENTED_NOT_ACCEPTED",
+    "testIdentities": [
+      "test_p12_memory_integration.ExistingUseRegressions.test_pending_learning_rechecks_revoked_memory_support",
+      "test_p12_memory_integration.MemoryLearningTests.test_iterable_roots_retained_without_double_consumption",
+      "test_p12_memory_integration.MemoryLearningTests.test_missing_bound_memory_never_falls_back_to_legacy",
+      "test_p12_memory_integration.MemoryLearningTests.test_pending_support_rejects_archive_and_old_version_after_restore",
+      "test_p12_memory_integration.MemoryLearningTests.test_pending_support_rejects_downweight_and_zero_learning_write",
+      "test_p12_memory_integration.MemoryLearningTests.test_valid_memory_learning_preserves_confidence_policy_and_evolution_boundary",
+      "test_p12_memory_integration.MemoryLearningTests.test_valid_memory_learning_restart_can_solidify"
+    ],
+    "passed": 7,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "limitation": "保留既有置信度及 Evolution 边界，不直接改主体。",
+    "evidence": "p12-final-code.tests.json"
+  },
+  "P12-10": {
+    "state": "IMPLEMENTED_NOT_ACCEPTED",
+    "testIdentities": [
+      "test_p12_memory_integration.CoreLifecycleTests.test_thirty_days_bounded_normal_entry_and_restart_invariants",
+      "test_p12_memory_integration.ExistingUseRegressions.test_deleted_consolidation_replay_cannot_return_active_material",
+      "test_p12_memory_integration.MemoryLearningTests.test_valid_memory_learning_restart_can_solidify",
+      "test_p12_memory_lifecycle.LifecycleTests.test_actual_fresh_process_recovers_deleted_receipt_without_write",
+      "test_p12_memory_lifecycle.LifecycleTests.test_atomic_replace_failure_preserves_document_and_no_receipt",
+      "test_p12_memory_lifecycle.LifecycleTests.test_command_identity_conflict_no_write",
+      "test_p12_memory_lifecycle.LifecycleTests.test_concurrent_conflicting_commands_one_winner",
+      "test_p12_memory_lifecycle.LifecycleTests.test_concurrent_duplicate_single_revision",
+      "test_p12_memory_lifecycle.LifecycleTests.test_delete_replay_returns_tombstone_without_writes",
+      "test_p12_memory_lifecycle.LifecycleTests.test_deleted_cannot_restore_after_restart",
+      "test_p12_memory_lifecycle.LifecycleTests.test_duplicate_command_replays_exactly_without_revision_increment",
+      "test_p12_memory_lifecycle.LifecycleTests.test_old_archive_replay_after_delete_never_restores",
+      "test_p12_memory_lifecycle.LifecycleTests.test_restart_after_saved_result_replays_once",
+      "test_p12_memory_lifecycle.LifecycleTests.test_seven_day_golden_actual_recall_difference_and_delete_replay",
+      "test_p12_memory_lifecycle.LifecycleTests.test_tampered_lifecycle_binding_fails_closed_even_with_document_hash"
+    ],
+    "passed": 15,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "limitation": "本机同进程事务并发；跨进程串行恢复，不宣称分布式事务。",
+    "evidence": "p12-final-code.tests.json"
+  },
+  "P12-11": {
+    "state": "IMPLEMENTED_NOT_ACCEPTED",
+    "testIdentities": [
+      "test_p12_memory_lifecycle.FixtureIsolationTests.test_link_components_rejected_without_writes",
+      "test_p12_memory_lifecycle.FixtureIsolationTests.test_protected_names_case_variants_self_and_children_zero_write",
+      "test_p12_memory_lifecycle.FixtureIsolationTests.test_repository_overlap_in_temp_rejected_before_writes",
+      "test_p12_memory_lifecycle.LifecycleTests.test_production_delete_not_ready_without_read_or_write",
+      "test_p12_memory_lifecycle.LifecycleTests.test_wrong_subject_and_environment_before_repository_read"
+    ],
+    "passed": 5,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "limitation": "新链接传感器为受控测试；真实 P08 symlink 1314 SKIP 在全量中保留。",
+    "evidence": "p12-final-code.tests.json"
+  },
+  "P12-12": {
+    "state": "IMPLEMENTED_NOT_ACCEPTED",
+    "testIdentities": [
+      "test_p12_memory_integration.CoreLifecycleTests.test_normal_context_before_after_and_no_memory_resurrection",
+      "test_p12_memory_integration.CoreLifecycleTests.test_thirty_days_bounded_normal_entry_and_restart_invariants",
+      "test_p12_memory_lifecycle.LifecycleTests.test_archive_delete_keep_event_and_subject_state_bytes",
+      "test_p12_memory_lifecycle.LifecycleTests.test_seven_day_golden_actual_recall_difference_and_delete_replay"
+    ],
+    "passed": 4,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "limitation": "30 逻辑日/12 新事件/6 交互/2 次 runtime 重开；另有真实新进程重放。",
+    "evidence": "p12-final-code.tests.json"
+  }
+}

@@ -128,6 +128,18 @@ class LearningService:
         root_evidence_ids: Iterable[str] = (),
     ) -> LearningCandidateResult:
         now = self._clock()
+        root_evidence_ids=list(root_evidence_ids)
+        if source_memory_id is not None:
+            resolver=getattr(self._repository,'memory_support_snapshot',None)
+            metadata=(original_experience.get('metadata',{}) if isinstance(original_experience,dict) else {})
+            binding=resolver(subject_id,source_memory_id,metadata.get('memory_environment')) if resolver else None
+            if metadata.get('memory_hash') is not None:
+                if binding is None or binding['hash']!=metadata['memory_hash'] or binding['revision']!=metadata.get('memory_revision'):
+                    raise LearningValidationError('memory influence source version/hash drift')
+            if binding is not None:
+                if set(root_evidence_ids)!=set(binding['root_evidence_ids']):
+                    raise LearningValidationError('memory support root evidence mismatch')
+                original_experience={'experience':original_experience,'p12_memory_binding':binding}
         candidate = LearningEvent(
             learning_id=learning_id or str(uuid4()),
             subject_id=subject_id,
@@ -227,6 +239,7 @@ class LearningService:
             raise LearningValidationError("rejected or revoked evidence cannot validate learning")
         seen_roots: set[str] = set()
         for item in evidence:
+            self._verify_memory_support(subject_id,item)
             roots = set(item.root_evidence_ids)
             if seen_roots.intersection(roots):
                 raise LearningValidationError(
@@ -391,6 +404,7 @@ class LearningService:
         its own roots and pre-validation confidence from existing history so
         that the validation cannot corroborate itself a second time.
         """
+        self._verify_memory_support(subject_id,target)
         history = self._repository.history(subject_id, target.learning_id)
         origins = [r for r in history if r.record_type is LearningRecordType.CANDIDATE_CREATED]
         validations = [r for r in history if r.record_type is LearningRecordType.VALIDATED]
@@ -406,6 +420,7 @@ class LearningService:
             if identifier == target.learning_id:
                 continue
             support = self._repository.load_learning_event(subject_id, identifier)
+            self._verify_memory_support(subject_id,support)
             if (support.validation_status in (LearningValidationStatus.REJECTED,
                                               LearningValidationStatus.REVOKED)
                     or self._mutation_signature(support.proposed_change) != signature):
@@ -420,6 +435,20 @@ class LearningService:
                 or confidence < VALIDATION_CONFIDENCE):
             raise LearningValidationError("current support no longer meets validation requirements")
         return confidence
+
+    def _verify_memory_support(self, subject_id, candidate):
+        if candidate.source_memory_id is None: return
+        origins=[r for r in self._repository.history(subject_id,candidate.learning_id)
+                 if r.record_type is LearningRecordType.CANDIDATE_CREATED]
+        if len(origins)!=1: raise LearningValidationError('memory support lacks origin')
+        origin=origins[0].original_experience
+        binding=origin.get('p12_memory_binding') if isinstance(origin,dict) else None
+        resolver=getattr(self._repository,'memory_support_snapshot',None)
+        actual=resolver(subject_id,candidate.source_memory_id,binding['environment'] if binding else None) if resolver else None
+        if binding is not None and actual!=binding:
+            raise LearningValidationError('memory support was removed or its version/hash changed')
+        # Genuinely old unversioned ports retain compatibility. A locally present
+        # Memory is still checked above; missing captured P12 bindings fail closed.
 
     @staticmethod
     def _validation_confidence(own_confidence: float, confidences: list[float]) -> float:

@@ -32,6 +32,7 @@ _FORMAL_PROVENANCE_FIELDS = frozenset(
         "memory_temperature",
         "memory_revision",
         "memory_version",
+        "memory_environment", "memory_hash", "memory_lifecycle", "memory_weight",
     }
 )
 
@@ -165,13 +166,15 @@ class RepositoryMemoryRetriever:
         }
         candidates: list[MemoryCandidate] = []
         for memory in self._repository.list_memories(request.subject_id):
-            if memory.temperature is MemoryTemperature.ARCHIVED:
+            if not memory.is_available:
+                continue
+            if memory.temperature is MemoryTemperature.ARCHIVED and memory.lifecycle is None:
                 continue
             searchable = {item.casefold() for item in memory.content.split()}
             searchable.update(item.casefold() for item in memory.tags)
             overlap = len(query_terms.intersection(searchable))
             lexical = min(1.0, overlap / max(1, len(query_terms)))
-            relevance = round(max(memory.activation, lexical), 6)
+            relevance = round(max(memory.activation, lexical) * memory.effective_weight, 6)
             candidates.append(
                 MemoryCandidate(
                     memory_id=memory.memory_id,
@@ -194,6 +197,10 @@ class RepositoryMemoryRetriever:
                         "memory_temperature": memory.temperature.value,
                         "memory_revision": memory.revision,
                         "memory_version": memory.memory_version,
+                        "memory_environment": memory.environment,
+                        "memory_hash": memory.canonical_hash(),
+                        "memory_lifecycle": memory.effective_lifecycle.value,
+                        "memory_weight": memory.effective_weight,
                     },
                 )
             )

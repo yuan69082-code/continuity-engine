@@ -1,6 +1,31 @@
 # Continuity Engine
 
-> 当前验收（2026-09-06，D-059）：用户正式接受 R01—R08 整体修复及 R05/R06 补修，现行 ACCEPTED。监工独立实跑 21/21 与 74/74 PASS；完整回归引用经身份核验的修复方 894 项结果（893 PASS、1 既有 SKIP、0 FAIL/ERROR，425.134 秒），本次未重跑。P00—P11 历史 ACCEPTED；P12—P23 NOT_STARTED；PLANNING_CONFLICT=NONE，EVIDENCE_CONFLICT=NONE，仅关闭本轮已解决阻断。已授权按精确清单完成 Engine 普通提交和推送，完成后停止。[验收矩阵与证据入口](docs/project_memory/P12前整体审查_用户验收与Git收尾.md)。
+<!-- P12_REVIEW_CURRENT_START -->
+> P12 独立复核后现行状态（2026-09-07，D-060）：P00—P11 ACCEPTED；P12 / Engine side / P12-01—12 IMPLEMENTED_NOT_ACCEPTED；P12 Vio dependency=NONE；P13—P23 NOT_STARTED。PLANNING_CONFLICT=NONE，EVIDENCE_CONFLICT=NONE（本轮独立复核阻断已闭合，非用户正式验收）。监工实跑原 9 条 PASS（1.207 秒）、新 7 条 PASS（1.011 秒）、P12 117 PASS（27.198 秒）；核验引用施工全量 1011 项：1010 PASS、1 既有 SKIP、0 FAIL/ERROR，stderr 521.632 秒、结构化记录 521.633 秒。
+>
+> [独立复核与本次 Git 收尾范围](docs/project_memory/P12_独立复核与Git收尾_20260907.md)。今晚一次性普通提交推送已获条件放行；此档为提交前记录，实际 SHA 和推送结果由 Git 记录及施工最终报告确认。没有创建 D-061，没有授权 ACCEPTED；下方全部 FAIL/ERROR/SKIP、证据冲突及 P09 segment 10 UNKNOWN 历史保留。
+<!-- P12_REVIEW_CURRENT_END -->
+
+<!-- P12_SECOND_CURRENT_START -->
+> P12 第二轮 F1/F2 返修送审历史状态（2026-09-07，D-060）：P00—P11 ACCEPTED；P12 / Engine side / P12-01—12 IMPLEMENTED_NOT_ACCEPTED；P12 Vio dependency=NONE；P13—P23 NOT_STARTED。PLANNING_CONFLICT=NONE，EVIDENCE_CONFLICT=PRESENT，等待独立复核。本轮 P12 117/117 PASS，29.667 秒；新 7 条与原 9 条探针均 PASS（1.090 / 1.327 秒）。兼容 257 项：257 PASS、0 SKIP，58.099 秒；全量 1011 项：1010 PASS、1 既有 SKIP、0 FAIL/ERROR，521.633 秒。
+>
+> [本轮修改、失败历史与复核入口](docs/project_memory/P12_第二轮返修_F1-F2.md)。下方第一轮及初版结果均为历史，不能代替本轮。保留 117 项首次兼容失败、前轮全部 FAIL/ERROR/SKIP 和 P09 segment 10 UNKNOWN。没有用户验收决定，没有 Git 写操作。
+<!-- P12_SECOND_CURRENT_END -->
+
+<!-- P12_REPAIR_CURRENT_START -->
+> P12 第一轮返修历史状态（2026-09-07，D-060）：P00—P11 ACCEPTED；P12 / Engine side / P12-01—12 IMPLEMENTED_NOT_ACCEPTED；P12 Vio dependency=NONE；P13—P23 NOT_STARTED。PLANNING_CONFLICT=NONE，EVIDENCE_CONFLICT=PRESENT（独立复核阻断待监工确认关闭）。本轮 P12 专项 98/98 PASS（22.654 秒）。兼容 257 项：257 PASS、0 既有 SKIP，55.715 秒；稳定全量 992 项：991 PASS、1 既有 SKIP，0 FAIL/ERROR，523.914 秒。
+>
+> [五项返修、原始失败及独立复核入口](docs/project_memory/P12_独立复核返修_R1-R5.md)。初版 71/965 与其 NONE 状态作为历史保留，不能代替本轮结果。不登记用户验收，不执行 Git 写操作，不进入 P13；生产自动策略/物理删除仍未开放。
+<!-- P12_REPAIR_CURRENT_END -->
+
+
+<!-- P12_CURRENT_START -->
+> P12 初版施工历史状态（2026-09-06，D-060）：P00—P11 = ACCEPTED；P12 / Engine side / P12-01—P12-12 = IMPLEMENTED_NOT_ACCEPTED；P12 Vio dependency = NONE；P13—P23 = NOT_STARTED。PLANNING_CONFLICT=NONE；EVIDENCE_CONFLICT=NONE。专项 71/71 PASS（16.941 秒）；兼容 428 项：427 PASS、1 既有 SKIP（403.566 秒）；965 项：964 PASS、1 既有 SKIP、0 FAIL/ERROR，513.166 秒。本轮只施工、测试和档案同步；不自行验收、不执行 Git 写操作、不修改 Assistant、不进入 P13。
+>
+> [P12 Stage Brief](docs/project_memory/59_P12_IntentionalForgetting架构边界.md) · [十二项矩阵](docs/project_memory/60_P12_规划施工测试验收矩阵.md) · [生命周期/恢复/删除语义](docs/project_memory/61_P12_生命周期恢复删除与传播语义.md) · [独立复核与证据入口](docs/project_memory/62_P12_测试索引与验收入口.md)。正式遗忘阈值、归档年限、永久删除确认方式未决定；生产自动策略未配置，物理擦除 NOT_READY。历史失败、SKIP 和 P09 segment 10 UNKNOWN 原样保留。
+<!-- P12_CURRENT_END -->
+
+> P12 开工前验收历史（2026-09-06，D-059）：用户正式接受 R01—R08 整体修复及 R05/R06 补修，现行 ACCEPTED。监工独立实跑 21/21 与 74/74 PASS；完整回归引用经身份核验的修复方 894 项结果（893 PASS、1 既有 SKIP、0 FAIL/ERROR，425.134 秒），本次未重跑。P00—P11 历史 ACCEPTED；P12—P23 NOT_STARTED；PLANNING_CONFLICT=NONE，EVIDENCE_CONFLICT=NONE，仅关闭本轮已解决阻断。已授权按精确清单完成 Engine 普通提交和推送，完成后停止。[验收矩阵与证据入口](docs/project_memory/P12前整体审查_用户验收与Git收尾.md)。
 
 > 补修完成、验收前历史快照（2026-09-06）：仅补 R05/R06；其他六项独立复核通过成果保留。R05/R06 补修已实现，等待独立复核。正式定点 55/55、原独立探针 21/21 PASS；本轮全量 894 项（893 PASS、1 既有 SKIP、0 FAIL/ERROR，425.134 秒），完整结果见[补修与复核入口](docs/project_memory/P12前整体审查_R05-R06补修与复核入口.md)。P00—P11 历史 ACCEPTED 不变，P12—P23 NOT_STARTED；PLANNING_CONFLICT=NONE，EVIDENCE_CONFLICT=PRESENT。等待独立复核，不自行验收、不执行 Git 写操作。
 
@@ -19,7 +44,7 @@
 - `SubjectState`：六个状态分区、revision、JSON 保存与重启恢复。
 - `Event / Evolution`：Event 分类/来源/证据、occurred/observed/recorded 三时间、内部/来源/关联身份、追加式 correction/revocation、精确幂等与冲突保护；状态变化仍只经 before/after、`StateUpdateRecord`、expected_revision 和 Action Gate/Evolution。
 - `Timeline`：只从 Event/StateUpdateRecord 历史重建的只读 UTC 投影，支持确定性排序、范围、first/last、间距、链及来源/分类/correlation 过滤；没有第二 Event Store 或写入权。
-- Memory 管理层：P04 在既有检索/影响接口上新增正式 Memory 领域模型、单一原子 JSON `MemoryRepository`、根证据去重、可解释 HOT/WARM/COLD/ARCHIVED 生命周期、追加式纠错传播和可重建 `DerivedSummary`；普通召回排除但不删除 ARCHIVED，正式 provenance 被密封，consolidation operation、Summary 语义输入与 lineage 来源根均在同一仓储边界加载期验真；Summary 无 Event/StateMutation/SubjectState 写权限。
+- Memory 管理层：P04 在既有检索/影响接口上新增正式 Memory 领域模型、单一原子 JSON `MemoryRepository`、根证据去重、可解释 HOT/WARM/COLD/ARCHIVED 温度、追加式纠错传播和可重建 `DerivedSummary`；普通召回排除但不删除 ARCHIVED，正式 provenance 被密封，consolidation operation、Summary 语义输入与 lineage 来源根均在同一仓储边界加载期验真；Summary 无 Event/StateMutation/SubjectState 写权限。
 - Context Router：P05 在结构化 `PerceptionResult` 之后先按 purpose/signals 选择逻辑分区，再在读取前把默认 50（可配置 30—80）的独立 Retrieval Budget 确定性分配给已打开、获授权的 SubjectState、P04 Memory/DerivedSummary、P03 Timeline/Event 及 Engine 本地版本化来源；未打开来源零读取，Memory/Summary 在仓储边界有界查询，Timeline 使用可重验的近期相关稳定窗口。它生成只读 `RoutePlan`、`CandidateManifest` 与 `ContextTrace`；必需来源失败时 Manifest 为空，结果只含稳定引用和原因，不复制正文、不写任何 Store，也不提前实现 P06 Composer。
 - Context Composer：P06 只消费 P05 的可消费 Manifest，通过可信 exact resolver 密封 `confirmed_state`、`confirmed_memory`、`derived_summary`、`retrieved_candidate`、`raw_source` 五类 Authority；候选自报标签不能提权。Composer 验证 subject/environment/version/revision/hash 后精确去重、稳定排序，并使用独立 Context Budget 保护 identity/continuity/relationship；必需材料失效或预算不足时失败关闭。`CompositionTrace` 将 Manifest candidate missing、P05 upstream notice 与 Composer 自有 resolver 读取次数分开审计，并保留具体稳定失败原因。输出仍为 Thinking-ready `ComposedContextSnapshot` 和不含正文/秘密的 Trace，不建立 Context Store，不写任何权威状态，P06 单阶段交付不修改 Thinking/E5-A；P09 本轮在既有正常交互服务中接线，见下述 C1 入口。
 - Contradiction Detector：P07 只消费完整、可消费且 hash 封印通过的 P06 `ContextCompositionResult`，通过可信结构化 claim resolver 发现 `EPISTEMIC`、`EVIDENTIAL`、`COGNITIVE` 三类矛盾；无法形成可信 claim 的材料保持未评估，LOVE/HATE 等心理矛盾明确排除。检测结果只追加 contested/isolated disposition、verification task、resolution/reopen/supersession 审计与未来 Evolution referral；不选择赢家、不写 SubjectState/Event/Memory/Timeline/P06 snapshot，P07 单阶段交付不进入后续阶段；P09 本轮复用其非权威检测/核实边界。

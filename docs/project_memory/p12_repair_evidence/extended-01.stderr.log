@@ -1,0 +1,107 @@
+test_confirmation_reentry_does_not_overwrite_another_successful_command (test_p12_memory_review_regressions.P12IndependentProbes.test_confirmation_reentry_does_not_overwrite_another_successful_command) ... ok
+test_consolidation_race_cannot_return_fresh_active_material_after_archive (test_p12_memory_review_regressions.P12IndependentProbes.test_consolidation_race_cannot_return_fresh_active_material_after_archive) ... ok
+test_control_approved_restore_and_deleted_recovery_rejection (test_p12_memory_review_regressions.P12IndependentProbes.test_control_approved_restore_and_deleted_recovery_rejection) ... ok
+test_control_current_authorized_history_recall_still_works (test_p12_memory_review_regressions.P12IndependentProbes.test_control_current_authorized_history_recall_still_works) ... ok
+test_control_new_independent_evidence_still_creates_memory (test_p12_memory_review_regressions.P12IndependentProbes.test_control_new_independent_evidence_still_creates_memory) ... ok
+test_history_recall_does_not_return_body_deleted_during_lookup (test_p12_memory_review_regressions.P12IndependentProbes.test_history_recall_does_not_return_body_deleted_during_lookup) ... ok
+test_history_recall_rechecks_permission_after_source_port (test_p12_memory_review_regressions.P12IndependentProbes.test_history_recall_rechecks_permission_after_source_port) ... ok
+test_new_derived_memory_cannot_restore_downweighted_root_influence (test_p12_memory_review_regressions.P12IndependentProbes.test_new_derived_memory_cannot_restore_downweighted_root_influence) ... ok
+test_unbound_successor_cannot_drop_lifecycle_and_restore_archived_memory (test_p12_memory_review_regressions.P12IndependentProbes.test_unbound_successor_cannot_drop_lifecycle_and_restore_archived_memory) ... ok
+test_r1_later_candidate_deletes_earlier_match_no_body (test_p12_memory_review_regressions.P12ReviewInterleavingTests.test_r1_later_candidate_deletes_earlier_match_no_body) ... FAIL
+test_r1_legal_history_reopen_zero_write (test_p12_memory_review_regressions.P12ReviewInterleavingTests.test_r1_legal_history_reopen_zero_write) ... ok
+test_r1_restore_during_lookup_rejects_old_version (test_p12_memory_review_regressions.P12ReviewInterleavingTests.test_r1_restore_during_lookup_rejects_old_version) ... ok
+test_r1_source_binding_changed_between_checks_zero_write (test_p12_memory_review_regressions.P12ReviewInterleavingTests.test_r1_source_binding_changed_between_checks_zero_write) ... ok
+test_r2_each_missing_field_rejected_at_save_zero_write (test_p12_memory_review_regressions.P12ReviewInterleavingTests.test_r2_each_missing_field_rejected_at_save_zero_write) ... 
+  test_r2_each_missing_field_rejected_at_save_zero_write (test_p12_memory_review_regressions.P12ReviewInterleavingTests.test_r2_each_missing_field_rejected_at_save_zero_write) (field='retrieval_weight') ... ERROR
+  test_r2_each_missing_field_rejected_at_save_zero_write (test_p12_memory_review_regressions.P12ReviewInterleavingTests.test_r2_each_missing_field_rejected_at_save_zero_write) (field='weight_updated_at') ... ERROR
+test_r2_governed_ordinary_successor_preserves_archive (test_p12_memory_review_regressions.P12ReviewInterleavingTests.test_r2_governed_ordinary_successor_preserves_archive) ... ERROR
+test_r2_hash_consistent_downgrade_rejected_on_load_zero_write (test_p12_memory_review_regressions.P12ReviewInterleavingTests.test_r2_hash_consistent_downgrade_rejected_on_load_zero_write) ... ERROR
+test_r2_legacy_successor_retains_missing_fields_and_hash (test_p12_memory_review_regressions.P12ReviewInterleavingTests.test_r2_legacy_successor_retains_missing_fields_and_hash) ... ok
+test_r3_same_target_nested_fact_survives_outer_rejection (test_p12_memory_review_regressions.P12ReviewInterleavingTests.test_r3_same_target_nested_fact_survives_outer_rejection) ... ok
+test_r3_source_callback_nested_other_commit_survives_and_outer_retry (test_p12_memory_review_regressions.P12ReviewInterleavingTests.test_r3_source_callback_nested_other_commit_survives_and_outer_retry) ... ok
+test_r4_after_commit_archive_blocks_body_but_preserves_true_operation (test_p12_memory_review_regressions.P12ReviewInterleavingTests.test_r4_after_commit_archive_blocks_body_but_preserves_true_operation) ... ok
+test_r4_first_alias_archive_interleaving_does_not_append_operation (test_p12_memory_review_regressions.P12ReviewInterleavingTests.test_r4_first_alias_archive_interleaving_does_not_append_operation) ... ok
+test_r4_legal_new_alias_and_exact_replay_remain_compatible (test_p12_memory_review_regressions.P12ReviewInterleavingTests.test_r4_legal_new_alias_and_exact_replay_remain_compatible) ... ok
+test_r5_composer_summary_and_legacy_retriever_use_current_ceiling (test_p12_memory_review_regressions.P12ReviewInterleavingTests.test_r5_composer_summary_and_legacy_retriever_use_current_ceiling) ... ERROR
+test_r5_raw_root_new_scope_and_transitive_chain_retain_ceiling_after_restart (test_p12_memory_review_regressions.P12ReviewInterleavingTests.test_r5_raw_root_new_scope_and_transitive_chain_retain_ceiling_after_restart) ... ok
+test_r5_same_root_alias_before_downweight_revalidated_without_hash_rewrite (test_p12_memory_review_regressions.P12ReviewInterleavingTests.test_r5_same_root_alias_before_downweight_revalidated_without_hash_rewrite) ... ok
+
+======================================================================
+ERROR: test_r2_each_missing_field_rejected_at_save_zero_write (test_p12_memory_review_regressions.P12ReviewInterleavingTests.test_r2_each_missing_field_rejected_at_save_zero_write) (field='retrieval_weight')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p12_memory_review_regressions.py", line 236, in test_r2_each_missing_field_rejected_at_save_zero_write
+    body=current.to_dict(); body.pop(field)
+                            ~~~~~~~~^^^^^^^
+KeyError: 'retrieval_weight'
+
+======================================================================
+ERROR: test_r2_each_missing_field_rejected_at_save_zero_write (test_p12_memory_review_regressions.P12ReviewInterleavingTests.test_r2_each_missing_field_rejected_at_save_zero_write) (field='weight_updated_at')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p12_memory_review_regressions.py", line 236, in test_r2_each_missing_field_rejected_at_save_zero_write
+    body=current.to_dict(); body.pop(field)
+                            ~~~~~~~~^^^^^^^
+KeyError: 'weight_updated_at'
+
+======================================================================
+ERROR: test_r2_governed_ordinary_successor_preserves_archive (test_p12_memory_review_regressions.P12ReviewInterleavingTests.test_r2_governed_ordinary_successor_preserves_archive)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p12_memory_review_regressions.py", line 267, in test_r2_governed_ordinary_successor_preserves_archive
+    self.f.repository.save_memory(MemoryRecord.from_dict(body)); self.f.reopen()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_memory_repository.py", line 46, in wrapped
+    return method(*args, **kwargs)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_memory_repository.py", line 87, in save_memory
+    changed = self._append_memory(memories, memory)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_memory_repository.py", line 598, in _append_memory
+    self._require_lifecycle_continuity(current,memory)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_memory_repository.py", line 620, in _require_lifecycle_continuity
+    raise MemoryValidationError('governed memory successor cannot discard lifecycle history')
+continuity_engine.domain.errors.MemoryValidationError: governed memory successor cannot discard lifecycle history
+
+======================================================================
+ERROR: test_r2_hash_consistent_downgrade_rejected_on_load_zero_write (test_p12_memory_review_regressions.P12ReviewInterleavingTests.test_r2_hash_consistent_downgrade_rejected_on_load_zero_write)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p12_memory_review_regressions.py", line 248, in test_r2_hash_consistent_downgrade_rejected_on_load_zero_write
+    for field in ('lifecycle','retrieval_weight','weight_updated_at','lifecycle_command_id'): body.pop(field)
+                                                                                              ~~~~~~~~^^^^^^^
+KeyError: 'retrieval_weight'
+
+======================================================================
+ERROR: test_r5_composer_summary_and_legacy_retriever_use_current_ceiling (test_p12_memory_review_regressions.P12ReviewInterleavingTests.test_r5_composer_summary_and_legacy_retriever_use_current_ceiling)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p12_memory_review_regressions.py", line 372, in test_r5_composer_summary_and_legacy_retriever_use_current_ceiling
+    summary=self.f.consolidation.generate_summary(self.f.subject_id,summary_id='r5-summary',summary_type='TEST',
+        scope='TEST',source_memory_ids=[child.memory_id],confidence=.8)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\memory_consolidation_service.py", line 406, in generate_summary
+    summary = DerivedSummary(
+        summary_id=summary_id,
+    ...<14 lines>...
+        supersedes_version=version - 1 if version > 1 else None,
+    )
+  File "<string>", line 21, in __init__
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\domain\memory.py", line 1073, in __post_init__
+    raise MemoryValidationError("summary_type must be a validated extensible identifier")
+continuity_engine.domain.errors.MemoryValidationError: summary_type must be a validated extensible identifier
+
+======================================================================
+FAIL: test_r1_later_candidate_deletes_earlier_match_no_body (test_p12_memory_review_regressions.P12ReviewInterleavingTests.test_r1_later_candidate_deletes_earlier_match_no_body)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p12_memory_review_regressions.py", line 198, in test_r1_later_candidate_deletes_earlier_match_no_body
+    self.assertEqual(self.current().effective_lifecycle.value,'deleted')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'archived' != 'deleted'
+- archived
++ deleted
+
+
+----------------------------------------------------------------------
+Ran 25 tests in 3.516s
+
+FAILED (failures=1, errors=5)

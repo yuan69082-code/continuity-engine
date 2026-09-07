@@ -1,0 +1,13 @@
+{
+  "version": "p12-memory-golden-v1",
+  "environment": "TEST",
+  "logicalDays": 7,
+  "initialRecall": 4,
+  "archivedRecall": 3,
+  "weightAfterDownweightAndDecay": 0.25,
+  "restartPoints": 2,
+  "finalLifecycle": "deleted",
+  "deleteReplay": true,
+  "physicalErasure": "NOT_READY",
+  "productionPolicy": "UNCONFIGURED"
+}

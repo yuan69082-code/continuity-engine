@@ -1,0 +1,50 @@
+# P12 F1/F2 第二轮返修：今晚独立复核结果
+
+2026-09-07，Asia/Shanghai。结论：**本轮两类阻断已通过独立复核，可以按用户今晚的一次性条件授权安排 Engine 正常提交和 push。** 这不是登记正式 ACCEPTED 的授权，不开始 P13。
+
+## 本任务实际运行
+
+| 验证 | 本轮结果 | unittest 用时 |
+|---|---|---|
+| 原 9 条 R1—R5 独立探针，原件未改 | 9/9 PASS | 1.207 秒 |
+| 新 7 条 F1/F2 独立探针，原件未改 | 7/7 PASS | 1.011 秒 |
+| 完整 P12 专项 | 117/117 PASS，0 FAIL/ERROR/SKIP | 27.198 秒 |
+
+已检查本轮两个运行文件的实际修复与新增正式回归：同根停用、归档和删除进入当前消费限制；普通旧 Retriever 排除不可用/零权重材料。回归覆盖原副本反例、旧入口阈值 0、Summary、exact resolver、旧窗口、重启和正常 C1，并保留合法非零降权、显式恢复、旧温度枚举、独立新根及历史审计的正向对照。本轮未发现需要继续返修的阻断；不作整个引擎绝对无 bug 的承诺。
+
+## 核验施工全量证据，不冒称本轮重新全量实跑
+
+- 施工方最终全量 `p12_second_repair_evidence/full-final`：1011 项，1010 PASS、1 个原有 Windows symlink 1314 SKIP，0 FAIL/ERROR。
+- 原始 unittest stderr 用时 **521.632 秒**；结构化 runner 记录 **521.633 秒**，为计时精度/范围差异，两个原值均保留。
+- 当前 discovery 的 1011 个测试身份、全量逐项日志和记录完全对应。原 992 项、最初 894 项全部保留。
+- 205 个当前源码/测试文件与施工最终全量及专项、兼容、两套探针记录的 hash 全部一致；相对修复前仅 2 个运行文件改变，新增 1 个正式测试文件。原 60 个测试文件未改。
+- 195 个 Python 文件 AST 解析通过；63 个保护文件、31 个 P10 辅助脚本、47 个监工原件和 3 份规划源 hash 核验无漂移。
+- 224 个被施工终局审计覆盖的内容文件未变化，因此其文档/链接/敏感内容检查仍对应当前内容；本任务另实跑 `git diff --check` 通过。
+- 正式数据仍为 7 个文件，逐文件 hash 不变，树指纹仍为 `sha256:f9c710c6085e430a251f74463d57133f8c5a4497fe8ffa2ccb96be2db1037bb2`。
+- 每组监工检查前后 Engine 快照均为 1201 个文件且变动为空，排除 `.git` 和 `__pycache__`。没有修改 Engine/Assistant。
+
+## 真实辅助错误保留
+
+本任务的第一次证据核验脚本错误地把源码清单内的 `frontend/app.js` 也交给 Python AST，产生 SyntaxError。这是监工核验工具的文件类型筛选错误，不是 Engine 新缺陷或测试失败。修正为仅对 `.py` 运行 AST 后另用新标签验证通过，仍对全部 205 个源码/测试文件校验 hash；没有改变 Engine 或任何测试断言。
+
+原错误保留在 `tonight-20260907-evidence-01.stderr.log`；`evidence-02` 是首次完成的核验，`evidence-03` 另增加三份规划源及终局审计内容 hash 核对。它们不是重复全量测试，也没有覆盖旧记录。
+
+## 提交前范围和条件
+
+- 复核时 main，HEAD/本地 origin/main 均为 `1b8020fbe687dafaaf83a629dbeee65d69a71d67`，本地 ahead/behind 0/0，暂存区空。
+- 工作区 25 个 tracked 修改、231 个 untracked；225 个 P12 路径与精确分类清单完全对应：19 个源码/测试、20 个档案/导航、186 个 P12 证据及辅助文件。另 31 个原 P10 辅助脚本必须排除并原样保留。
+- 此数量是交付工作区清单，不是盲目暂存命令。施工需逐项审阅，连同必要本次复核/Git 收尾记录形成精确提交清单，排除任何无关/敏感/正式数据/缓存/Temp 产物。
+- 只向核实无变更的原 origin/main 正常推送，不强推、不合并/rebase、不改远端、标签或发布，不修改 Assistant 或保护边界。
+- 实际远端核查与 push 由接续 Git 收尾执行；本报告不把本地 tracking ref 当成本轮实际远端核验。
+- 未取得单独正式验收授权，仍保持 IMPLEMENTED_NOT_ACCEPTED；可如实登记本次独立复核阻断关闭，不自行创建 D-061 或改为 ACCEPTED。P13 未开始，生产自动策略/物理擦除/备份清理仍未开放。
+- 收尾最晚只能在 2026-09-07 08:00 前新执行 Git 写操作；出现新问题、审批阻断或远端分叉即停，不擅自新增返修。今晚例外结束后恢复用户先确认模式。
+
+## 证据
+
+- [9 条原探针实跑日志](../p12-independent-review-20260906/tonight-20260907-original-01.stderr.log)
+- [7 条新探针实跑日志](../p12-independent-review-20260906/tonight-20260907-neighbors-01.stderr.log)
+- [117 项 P12 实跑日志](../p12-independent-review-20260906/tonight-20260907-p12-01.stderr.log)
+- [本轮独立证据核验脚本](verify_tonight.py)
+- [最后完整核验结果](../p12-independent-review-20260906/tonight-20260907-evidence-03.stdout.log)
+- [第一次辅助错误原输出](../p12-independent-review-20260906/tonight-20260907-evidence-01.stderr.log)
+- [今晚授权及进度](tonight-authorization.md)

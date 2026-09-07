@@ -1,0 +1,109 @@
+test_confirmation_reentry_does_not_overwrite_another_successful_command (__main__.P12IndependentProbes.test_confirmation_reentry_does_not_overwrite_another_successful_command) ... FAIL
+test_consolidation_race_cannot_return_fresh_active_material_after_archive (__main__.P12IndependentProbes.test_consolidation_race_cannot_return_fresh_active_material_after_archive) ... FAIL
+test_control_approved_restore_and_deleted_recovery_rejection (__main__.P12IndependentProbes.test_control_approved_restore_and_deleted_recovery_rejection) ... ok
+test_control_current_authorized_history_recall_still_works (__main__.P12IndependentProbes.test_control_current_authorized_history_recall_still_works) ... ok
+test_control_new_independent_evidence_still_creates_memory (__main__.P12IndependentProbes.test_control_new_independent_evidence_still_creates_memory) ... ok
+test_history_recall_does_not_return_body_deleted_during_lookup (__main__.P12IndependentProbes.test_history_recall_does_not_return_body_deleted_during_lookup) ... FAIL
+test_history_recall_rechecks_permission_after_source_port (__main__.P12IndependentProbes.test_history_recall_rechecks_permission_after_source_port) ... FAIL
+test_new_derived_memory_cannot_restore_downweighted_root_influence (__main__.P12IndependentProbes.test_new_derived_memory_cannot_restore_downweighted_root_influence) ... FAIL
+test_unbound_successor_cannot_drop_lifecycle_and_restore_archived_memory (__main__.P12IndependentProbes.test_unbound_successor_cannot_drop_lifecycle_and_restore_archived_memory) ... FAIL
+
+======================================================================
+FAIL: test_confirmation_reentry_does_not_overwrite_another_successful_command (__main__.P12IndependentProbes.test_confirmation_reentry_does_not_overwrite_another_successful_command)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\p12-independent-review-20260906\review_probes.py", line 144, in test_confirmation_reentry_does_not_overwrite_another_successful_command
+    self.assertEqual(self.f.repository.load_memory(self.f.subject_id, other.memory_id).effective_lifecycle.value,
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     'archived', 'outer transaction erased an already successful nested archive command')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'active' != 'archived'
+- active
+?   ^
++ archived
+?  + ^   +
+ : outer transaction erased an already successful nested archive command
+
+======================================================================
+FAIL: test_consolidation_race_cannot_return_fresh_active_material_after_archive (__main__.P12IndependentProbes.test_consolidation_race_cannot_return_fresh_active_material_after_archive)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\p12-independent-review-20260906\review_probes.py", line 112, in test_consolidation_race_cannot_return_fresh_active_material_after_archive
+    self.assertFalse(result.memory.is_available,
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        'consolidation returned old active payload as fresh material after transaction observed archive')
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false : consolidation returned old active payload as fresh material after transaction observed archive
+
+======================================================================
+FAIL: test_history_recall_does_not_return_body_deleted_during_lookup (__main__.P12IndependentProbes.test_history_recall_does_not_return_body_deleted_during_lookup)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\p12-independent-review-20260906\review_probes.py", line 58, in test_history_recall_does_not_return_body_deleted_during_lookup
+    self.assertEqual(result, (), 'recall returned deleted body from its stale initial snapshot')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: ({'memory_id': 'memory:day1-noodle-intenti[297 chars]se},) != ()
+
+First tuple contains 1 additional elements.
+First extra element 0:
+{'memory_id': 'memory:day1-noodle-intention', 'content': 'The subject intended to eat noodles.', 'revision': 1, 'hash': 'sha256:5a2e2de50b6a403f46f3e7b2e453946c1f7ed5ca7f0a38ca43e740611576ebe9', 'lifecycle': 'archived', 'root_evidence_ids': ('event:day1-noodle-intention',), 'reason_code': 'EXACT_STRONG_CUE_HISTORY_ONLY', 'restored': False}
+
++ ()
+- ({'content': 'The subject intended to eat noodles.',
+-   'hash': 'sha256:5a2e2de50b6a403f46f3e7b2e453946c1f7ed5ca7f0a38ca43e740611576ebe9',
+-   'lifecycle': 'archived',
+-   'memory_id': 'memory:day1-noodle-intention',
+-   'reason_code': 'EXACT_STRONG_CUE_HISTORY_ONLY',
+-   'restored': False,
+-   'revision': 1,
+-   'root_evidence_ids': ('event:day1-noodle-intention',)},) : recall returned deleted body from its stale initial snapshot
+
+======================================================================
+FAIL: test_history_recall_rechecks_permission_after_source_port (__main__.P12IndependentProbes.test_history_recall_rechecks_permission_after_source_port)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\p12-independent-review-20260906\review_probes.py", line 43, in test_history_recall_rechecks_permission_after_source_port
+    self.assertEqual(result, (), 'recall returned archived body after its permission was revoked')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: ({'memory_id': 'memory:day1-noodle-intenti[297 chars]se},) != ()
+
+First tuple contains 1 additional elements.
+First extra element 0:
+{'memory_id': 'memory:day1-noodle-intention', 'content': 'The subject intended to eat noodles.', 'revision': 1, 'hash': 'sha256:5a2e2de50b6a403f46f3e7b2e453946c1f7ed5ca7f0a38ca43e740611576ebe9', 'lifecycle': 'archived', 'root_evidence_ids': ('event:day1-noodle-intention',), 'reason_code': 'EXACT_STRONG_CUE_HISTORY_ONLY', 'restored': False}
+
++ ()
+- ({'content': 'The subject intended to eat noodles.',
+-   'hash': 'sha256:5a2e2de50b6a403f46f3e7b2e453946c1f7ed5ca7f0a38ca43e740611576ebe9',
+-   'lifecycle': 'archived',
+-   'memory_id': 'memory:day1-noodle-intention',
+-   'reason_code': 'EXACT_STRONG_CUE_HISTORY_ONLY',
+-   'restored': False,
+-   'revision': 1,
+-   'root_evidence_ids': ('event:day1-noodle-intention',)},) : recall returned archived body after its permission was revoked
+
+======================================================================
+FAIL: test_new_derived_memory_cannot_restore_downweighted_root_influence (__main__.P12IndependentProbes.test_new_derived_memory_cannot_restore_downweighted_root_influence)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\p12-independent-review-20260906\review_probes.py", line 90, in test_new_derived_memory_cannot_restore_downweighted_root_influence
+    self.assertLessEqual(candidate.relevance, .1,
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+        'same downweighted root became a full-weight derived memory without new independent evidence')
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1.0 not less than or equal to 0.1 : same downweighted root became a full-weight derived memory without new independent evidence
+
+======================================================================
+FAIL: test_unbound_successor_cannot_drop_lifecycle_and_restore_archived_memory (__main__.P12IndependentProbes.test_unbound_successor_cannot_drop_lifecycle_and_restore_archived_memory)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\p12-independent-review-20260906\review_probes.py", line 74, in test_unbound_successor_cannot_drop_lifecycle_and_restore_archived_memory
+    self.assertFalse(self.current().is_available,
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        'an unconfirmed successor stripped P12 fields and revived archived memory after restart')
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false : an unconfirmed successor stripped P12 fields and revived archived memory after restart
+
+----------------------------------------------------------------------
+Ran 9 tests in 1.081s
+
+FAILED (failures=6)

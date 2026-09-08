@@ -1,0 +1,291 @@
+test_all_four_local_provider_kinds_really_execute (test_p16_providers.ProviderTests.test_all_four_local_provider_kinds_really_execute) ... 
+  test_all_four_local_provider_kinds_really_execute (test_p16_providers.ProviderTests.test_all_four_local_provider_kinds_really_execute) (kind='memory') ... ERROR
+  test_all_four_local_provider_kinds_really_execute (test_p16_providers.ProviderTests.test_all_four_local_provider_kinds_really_execute) (kind='knowledge') ... ERROR
+  test_all_four_local_provider_kinds_really_execute (test_p16_providers.ProviderTests.test_all_four_local_provider_kinds_really_execute) (kind='mcp') ... ERROR
+  test_all_four_local_provider_kinds_really_execute (test_p16_providers.ProviderTests.test_all_four_local_provider_kinds_really_execute) (kind='skill') ... ERROR
+test_all_four_local_provider_kinds_really_execute (test_p16_providers.ProviderTests.test_all_four_local_provider_kinds_really_execute) ... FAIL
+test_feature_gate_off_does_not_call_or_read_external_components (test_p16_providers.ProviderTests.test_feature_gate_off_does_not_call_or_read_external_components) ... ok
+test_memory_information_need_calls_fake_then_normal_context_consumes_candidate (test_p16_providers.ProviderTests.test_memory_information_need_calls_fake_then_normal_context_consumes_candidate) ... ERROR
+test_registry_same_version_changed_content_is_conflict (test_p16_providers.ProviderTests.test_registry_same_version_changed_content_is_conflict) ... ok
+test_revoke_before_query_has_no_external_call_or_subject_write (test_p16_providers.ProviderTests.test_revoke_before_query_has_no_external_call_or_subject_write) ... ok
+
+======================================================================
+ERROR: test_all_four_local_provider_kinds_really_execute (test_p16_providers.ProviderTests.test_all_four_local_provider_kinds_really_execute) (kind='memory')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\thinking_service.py", line 174, in handle_perception
+    result = self._provider.think(perception, budget)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p16_provider_fixture.py", line 97, in think
+    return ThinkingResult.create(provider_id=self.provider_id,result_summary='Local structured information need',
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        rationale_summary='P16 bounded external candidate query',generated_new_thought=True,update_subject_state=False,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        request_more_memory=True,additional_memory_query=self.fixture.query,token_budget=budget)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: ThinkingResult.create() missing 2 required keyword-only arguments: 'should_wait' and 'suggest_future_user_contact'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 265, in submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 735, in _run_domain
+    thinking = self._thinking.handle_perception(
+        perception,
+    ...<5 lines>...
+           if self._continuity_core is not None and (self._continuity_core.mind is not None or self._continuity_core.growth is not None) else {}),
+    )
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\thinking_service.py", line 205, in handle_perception
+    raise ThinkingExecutionError(
+    ...<2 lines>...
+    ) from exc
+continuity_engine.domain.errors.ThinkingExecutionError: ThinkSession failed and was logged: f5994f55-91ab-5e86-8bda-fff4f8bd4ebf
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p16_providers.py", line 27, in test_all_four_local_provider_kinds_really_execute
+    f=self.f;f.query=kind+':continuity';f.next_round()
+                                        ~~~~~~~~~~~~^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p16_provider_fixture.py", line 164, in next_round
+    self.runtime.clock.advance(timedelta(seconds=1));return self.submit()
+                                                            ~~~~~~~~~~~^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p16_provider_fixture.py", line 158, in submit
+    request=request or self.request();value=self.app.adapter.submit(request)
+                                            ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 277, in submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.
+
+======================================================================
+ERROR: test_all_four_local_provider_kinds_really_execute (test_p16_providers.ProviderTests.test_all_four_local_provider_kinds_really_execute) (kind='knowledge')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\thinking_service.py", line 174, in handle_perception
+    result = self._provider.think(perception, budget)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p16_provider_fixture.py", line 97, in think
+    return ThinkingResult.create(provider_id=self.provider_id,result_summary='Local structured information need',
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        rationale_summary='P16 bounded external candidate query',generated_new_thought=True,update_subject_state=False,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        request_more_memory=True,additional_memory_query=self.fixture.query,token_budget=budget)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: ThinkingResult.create() missing 2 required keyword-only arguments: 'should_wait' and 'suggest_future_user_contact'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 265, in submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 735, in _run_domain
+    thinking = self._thinking.handle_perception(
+        perception,
+    ...<5 lines>...
+           if self._continuity_core is not None and (self._continuity_core.mind is not None or self._continuity_core.growth is not None) else {}),
+    )
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\thinking_service.py", line 205, in handle_perception
+    raise ThinkingExecutionError(
+    ...<2 lines>...
+    ) from exc
+continuity_engine.domain.errors.ThinkingExecutionError: ThinkSession failed and was logged: 22c2766b-4133-5f83-9170-2bfc7ea35d3f
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p16_providers.py", line 27, in test_all_four_local_provider_kinds_really_execute
+    f=self.f;f.query=kind+':continuity';f.next_round()
+                                        ~~~~~~~~~~~~^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p16_provider_fixture.py", line 164, in next_round
+    self.runtime.clock.advance(timedelta(seconds=1));return self.submit()
+                                                            ~~~~~~~~~~~^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p16_provider_fixture.py", line 158, in submit
+    request=request or self.request();value=self.app.adapter.submit(request)
+                                            ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 277, in submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.
+
+======================================================================
+ERROR: test_all_four_local_provider_kinds_really_execute (test_p16_providers.ProviderTests.test_all_four_local_provider_kinds_really_execute) (kind='mcp')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\thinking_service.py", line 174, in handle_perception
+    result = self._provider.think(perception, budget)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p16_provider_fixture.py", line 97, in think
+    return ThinkingResult.create(provider_id=self.provider_id,result_summary='Local structured information need',
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        rationale_summary='P16 bounded external candidate query',generated_new_thought=True,update_subject_state=False,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        request_more_memory=True,additional_memory_query=self.fixture.query,token_budget=budget)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: ThinkingResult.create() missing 2 required keyword-only arguments: 'should_wait' and 'suggest_future_user_contact'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 265, in submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 735, in _run_domain
+    thinking = self._thinking.handle_perception(
+        perception,
+    ...<5 lines>...
+           if self._continuity_core is not None and (self._continuity_core.mind is not None or self._continuity_core.growth is not None) else {}),
+    )
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\thinking_service.py", line 205, in handle_perception
+    raise ThinkingExecutionError(
+    ...<2 lines>...
+    ) from exc
+continuity_engine.domain.errors.ThinkingExecutionError: ThinkSession failed and was logged: a6a2cfcc-3e8a-5e21-ac2f-a362a438574b
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p16_providers.py", line 27, in test_all_four_local_provider_kinds_really_execute
+    f=self.f;f.query=kind+':continuity';f.next_round()
+                                        ~~~~~~~~~~~~^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p16_provider_fixture.py", line 164, in next_round
+    self.runtime.clock.advance(timedelta(seconds=1));return self.submit()
+                                                            ~~~~~~~~~~~^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p16_provider_fixture.py", line 158, in submit
+    request=request or self.request();value=self.app.adapter.submit(request)
+                                            ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 277, in submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.
+
+======================================================================
+ERROR: test_all_four_local_provider_kinds_really_execute (test_p16_providers.ProviderTests.test_all_four_local_provider_kinds_really_execute) (kind='skill')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\thinking_service.py", line 174, in handle_perception
+    result = self._provider.think(perception, budget)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p16_provider_fixture.py", line 97, in think
+    return ThinkingResult.create(provider_id=self.provider_id,result_summary='Local structured information need',
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        rationale_summary='P16 bounded external candidate query',generated_new_thought=True,update_subject_state=False,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        request_more_memory=True,additional_memory_query=self.fixture.query,token_budget=budget)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: ThinkingResult.create() missing 2 required keyword-only arguments: 'should_wait' and 'suggest_future_user_contact'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 265, in submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 735, in _run_domain
+    thinking = self._thinking.handle_perception(
+        perception,
+    ...<5 lines>...
+           if self._continuity_core is not None and (self._continuity_core.mind is not None or self._continuity_core.growth is not None) else {}),
+    )
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\thinking_service.py", line 205, in handle_perception
+    raise ThinkingExecutionError(
+    ...<2 lines>...
+    ) from exc
+continuity_engine.domain.errors.ThinkingExecutionError: ThinkSession failed and was logged: d434768f-a3e9-5eb1-9b14-88e19b82a98c
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p16_providers.py", line 27, in test_all_four_local_provider_kinds_really_execute
+    f=self.f;f.query=kind+':continuity';f.next_round()
+                                        ~~~~~~~~~~~~^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p16_provider_fixture.py", line 164, in next_round
+    self.runtime.clock.advance(timedelta(seconds=1));return self.submit()
+                                                            ~~~~~~~~~~~^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p16_provider_fixture.py", line 158, in submit
+    request=request or self.request();value=self.app.adapter.submit(request)
+                                            ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 277, in submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.
+
+======================================================================
+ERROR: test_memory_information_need_calls_fake_then_normal_context_consumes_candidate (test_p16_providers.ProviderTests.test_memory_information_need_calls_fake_then_normal_context_consumes_candidate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\thinking_service.py", line 174, in handle_perception
+    result = self._provider.think(perception, budget)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p16_provider_fixture.py", line 97, in think
+    return ThinkingResult.create(provider_id=self.provider_id,result_summary='Local structured information need',
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        rationale_summary='P16 bounded external candidate query',generated_new_thought=True,update_subject_state=False,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        request_more_memory=True,additional_memory_query=self.fixture.query,token_budget=budget)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: ThinkingResult.create() missing 2 required keyword-only arguments: 'should_wait' and 'suggest_future_user_contact'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 265, in submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 735, in _run_domain
+    thinking = self._thinking.handle_perception(
+        perception,
+    ...<5 lines>...
+           if self._continuity_core is not None and (self._continuity_core.mind is not None or self._continuity_core.growth is not None) else {}),
+    )
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\thinking_service.py", line 205, in handle_perception
+    raise ThinkingExecutionError(
+    ...<2 lines>...
+    ) from exc
+continuity_engine.domain.errors.ThinkingExecutionError: ThinkSession failed and was logged: 33938cb5-ec31-5dfc-852d-4b91257c263a
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p16_providers.py", line 14, in test_memory_information_need_calls_fake_then_normal_context_consumes_candidate
+    f=self.f;before=f.state.to_dict();request=f.request();f.submit(request)
+                                                          ~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p16_provider_fixture.py", line 158, in submit
+    request=request or self.request();value=self.app.adapter.submit(request)
+                                            ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 277, in submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.
+
+======================================================================
+FAIL: test_all_four_local_provider_kinds_really_execute (test_p16_providers.ProviderTests.test_all_four_local_provider_kinds_really_execute)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p16_providers.py", line 30, in test_all_four_local_provider_kinds_really_execute
+    self.assertEqual(self.f.external_calls,4)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 4
+
+----------------------------------------------------------------------
+Ran 5 tests in 3.597s
+
+FAILED (failures=1, errors=5)

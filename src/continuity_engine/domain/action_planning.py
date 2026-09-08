@@ -36,6 +36,7 @@ class ActionSpecification:
     target: str
     argument_hash: str
     dependencies: tuple[str, ...] = ()
+    input_payload: dict | None = None
 
     def __post_init__(self) -> None:
         for value in (self.step_id, self.capability, self.target):
@@ -49,13 +50,21 @@ class ActionSpecification:
             raise CapabilityValidationError("self dependency")
         if self.capability == "model.generate":
             raise CapabilityValidationError("MODEL_GENERATE_REMAINS_THINKING_DIRECT")
+        if self.input_payload is not None:
+            from .external_capabilities import QueryInput
+            if not self.capability.startswith('external.') or digest(QueryInput.from_dict(self.input_payload).to_dict())!=self.argument_hash:
+                raise CapabilityValidationError('EXTERNAL_INPUT_BINDING_INVALID')
 
     def to_dict(self) -> dict:
-        return {**asdict(self), "dependencies": list(self.dependencies)}
+        value={**asdict(self), "dependencies": list(self.dependencies)}
+        if self.input_payload is None:value.pop('input_payload')
+        return value
 
     @classmethod
     def from_dict(cls, value: dict) -> ActionSpecification:
-        data = exact(value, {"step_id", "capability", "target", "argument_hash", "dependencies"})
+        keys={"step_id", "capability", "target", "argument_hash", "dependencies"}
+        if isinstance(value,dict) and 'input_payload' in value:keys.add('input_payload')
+        data = exact(value, keys)
         if not isinstance(data["dependencies"], list):
             raise CapabilityValidationError("dependencies must be an array")
         return cls(**{**data, "dependencies": tuple(data["dependencies"])})

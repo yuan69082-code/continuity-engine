@@ -1,0 +1,25 @@
+test_p12_archived_internal_memory_stays_absent_with_external_queries_enabled (test_p16_context.ContextTests.test_p12_archived_internal_memory_stays_absent_with_external_queries_enabled) ... ok
+test_p15_growth_does_not_promote_external_candidates_to_experience (test_p16_context.ContextTests.test_p15_growth_does_not_promote_external_candidates_to_experience) ... FAIL
+test_router_source_limit_is_separate_from_composer_budget (test_p16_context.ContextTests.test_router_source_limit_is_separate_from_composer_budget) ... ok
+test_secret_in_result_and_material_denial_never_reach_cache_or_state (test_p16_context.ContextTests.test_secret_in_result_and_material_denial_never_reach_cache_or_state) ... ok
+test_normal_local_queries_use_no_socket (test_p16_providers.ProviderTests.test_normal_local_queries_use_no_socket) ... ok
+
+======================================================================
+FAIL: test_p15_growth_does_not_promote_external_candidates_to_experience (test_p16_context.ContextTests.test_p15_growth_does_not_promote_external_candidates_to_experience)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p16_context.py", line 164, in test_p15_growth_does_not_promote_external_candidates_to_experience
+    self.assertEqual(f.core.growth.learning.list_learning_events(f.state.subject_id),[])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: [LearningEvent(learning_id='p01-learning-2[745 chars]9'])] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+LearningEvent(learning_id='p01-learning-2ce7dff869024764', subject_id='sub-2ba0108ed7514d77', source_event_id='p01-fixture-event-0ce669f1ff0e4c59', source_memory_id=None, related_state_revision=1, observation='A synthetic fixture supplied explicit learning evidence.', hypothesis='The test branch must preserve and restore learning candidates.', proposed_change=StateMutation(field_path='identity.expression_preferences', operation=<ChangeOperation.APPEND: 'append'>, value='concise', reason='Synthetic P01 learning candidate.'), confidence=0.5, validation_status=<LearningValidationStatus.PENDING: 'PENDING'>, created_at=datetime.datetime(2026, 9, 4, 8, 0, tzinfo=datetime.timezone.utc), revision=0, evidence_learning_ids=[], root_evidence_ids=['event:p01-fixture-event-0ce669f1ff0e4c59'])
+
+Diff is 1282 characters long. Set self.maxDiff to None to see it.
+
+----------------------------------------------------------------------
+Ran 5 tests in 10.230s
+
+FAILED (failures=1)

@@ -1,0 +1,15 @@
+test_same_root_candidates_deduplicate_without_promoting_authority (test_p16_context.ContextTests.test_same_root_candidates_deduplicate_without_promoting_authority) ... FAIL
+
+======================================================================
+FAIL: test_same_root_candidates_deduplicate_without_promoting_authority (test_p16_context.ContextTests.test_same_root_candidates_deduplicate_without_promoting_authority)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p16_context.py", line 98, in test_same_root_candidates_deduplicate_without_promoting_authority
+    self.assertEqual(len(fragments),1)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 1
+
+----------------------------------------------------------------------
+Ran 1 test in 3.999s
+
+FAILED (failures=1)

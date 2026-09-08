@@ -1,0 +1,98 @@
+{
+  "checks": {
+    "source243MatchesRepairAuditAndFull": true,
+    "allFourCitedRunsMatchAndAreClean": true,
+    "original1261IdentitiesRetained": true,
+    "exact25NewTestIdentities": true,
+    "originalTestFilesUnchanged": true,
+    "exactFiveSourceTestRepairPaths": true,
+    "originalReviewSourceSnapshotMatchesRepairBaseline": true,
+    "protected63Unchanged": true,
+    "planning3Unchanged": true,
+    "formal7AndTreeUnchanged": true,
+    "excluded31Unchanged": true,
+    "otherPreservedReportUnchanged": true,
+    "historicalEvidence78Unchanged": true,
+    "independentOriginalsAnd30ArchivedCopiesUnchanged": true,
+    "formalNineProbeCopyByteExact": true,
+    "pending192Plus32ExclusionsExactlyMatch": true,
+    "prior118PendingPreserved": true,
+    "recorded191PendingHashesMatch": true,
+    "python233SyntaxValid": true,
+    "headAndTrackingUnchanged": true,
+    "stagingEmpty": true,
+    "diffCheckClean": true
+  },
+  "allIdentityChecksPass": true,
+  "notFormalAcceptance": true,
+  "citedRunsNotIndependent": {
+    "independent-after-01": {
+      "identityMatches": true,
+      "completed": true,
+      "countConsistent": true,
+      "rawOutputsPresent": true,
+      "run": 9,
+      "passed": 9,
+      "skips": [],
+      "seconds": 9.197
+    },
+    "p16-final-01": {
+      "identityMatches": true,
+      "completed": true,
+      "countConsistent": true,
+      "rawOutputsPresent": true,
+      "run": 78,
+      "passed": 78,
+      "skips": [],
+      "seconds": 112.609
+    },
+    "compatibility-final-01": {
+      "identityMatches": true,
+      "completed": true,
+      "countConsistent": true,
+      "rawOutputsPresent": true,
+      "run": 676,
+      "passed": 675,
+      "skips": [
+        [
+          "test_p08_fixture_paths.P08FixturePathTests.test_symlink_component_rejected_without_writes",
+          "OS does not grant symlink creation: 1314"
+        ]
+      ],
+      "seconds": 501.254
+    },
+    "full-final-01": {
+      "identityMatches": true,
+      "completed": true,
+      "countConsistent": true,
+      "rawOutputsPresent": true,
+      "run": 1286,
+      "passed": 1285,
+      "skips": [
+        [
+          "test_p08_fixture_paths.P08FixturePathTests.test_symlink_component_rejected_without_writes",
+          "OS does not grant symlink creation: 1314"
+        ]
+      ],
+      "seconds": 1072.026
+    }
+  },
+  "sourceTestCount": 243,
+  "repairSourceDelta": [
+    "src/continuity_engine/services/continuity_interaction_service.py",
+    "src/continuity_engine/services/external_capability_service.py",
+    "src/continuity_engine/services/thinking_service.py",
+    "tests/test_p16_repair_edges.py",
+    "tests/test_p16_review_regressions.py"
+  ],
+  "trackedModifiedCount": 29,
+  "untrackedCount": 195,
+  "branch": "main",
+  "head": "a41a733635b0f5978c19b287274b4c63925b8979",
+  "aheadBehindLocal": "0\t0",
+  "formalTreeHash": "sha256:f9c710c6085e430a251f74463d57133f8c5a4497fe8ffa2ccb96be2db1037bb2",
+  "syntaxErrors": [],
+  "archiveDrift": [],
+  "gitWrites": false,
+  "remoteNetworkChecked": false
+}

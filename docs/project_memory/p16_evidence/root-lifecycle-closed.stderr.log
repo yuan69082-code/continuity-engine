@@ -1,0 +1,11 @@
+test_distinct_roots_survive_and_same_root_conflict_never_selects_authority (test_p16_context.ContextTests.test_distinct_roots_survive_and_same_root_conflict_never_selects_authority) ... ok
+test_same_root_candidates_deduplicate_without_promoting_authority (test_p16_context.ContextTests.test_same_root_candidates_deduplicate_without_promoting_authority) ... ok
+test_same_root_conflicting_content_is_preserved_as_non_independent_candidates (test_p16_context.ContextTests.test_same_root_conflicting_content_is_preserved_as_non_independent_candidates) ... ok
+test_disabled_c1_gate_does_not_touch_installed_external_ports (test_p16_providers.ProviderTests.test_disabled_c1_gate_does_not_touch_installed_external_ports) ... ok
+test_upper_mixed_protected_roots_and_children_are_zero_write (test_p16_providers.ProviderTests.test_upper_mixed_protected_roots_and_children_are_zero_write) ... ok
+test_paused_subject_blocks_new_query_and_current_cache_but_recovers_fact (test_p16_recovery.RecoveryTests.test_paused_subject_blocks_new_query_and_current_cache_but_recovers_fact) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 13.632s
+
+OK

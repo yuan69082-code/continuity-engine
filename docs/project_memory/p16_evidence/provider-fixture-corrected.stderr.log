@@ -1,0 +1,19 @@
+test_all_four_local_provider_kinds_really_execute (test_p16_providers.ProviderTests.test_all_four_local_provider_kinds_really_execute) ... ok
+test_feature_gate_off_does_not_call_or_read_external_components (test_p16_providers.ProviderTests.test_feature_gate_off_does_not_call_or_read_external_components) ... ok
+test_memory_information_need_calls_fake_then_normal_context_consumes_candidate (test_p16_providers.ProviderTests.test_memory_information_need_calls_fake_then_normal_context_consumes_candidate) ... FAIL
+test_registry_same_version_changed_content_is_conflict (test_p16_providers.ProviderTests.test_registry_same_version_changed_content_is_conflict) ... ok
+test_revoke_before_query_has_no_external_call_or_subject_write (test_p16_providers.ProviderTests.test_revoke_before_query_has_no_external_call_or_subject_write) ... ok
+
+======================================================================
+FAIL: test_memory_information_need_calls_fake_then_normal_context_consumes_candidate (test_p16_providers.ProviderTests.test_memory_information_need_calls_fake_then_normal_context_consumes_candidate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p16_providers.py", line 19, in test_memory_information_need_calls_fake_then_normal_context_consumes_candidate
+    self.assertTrue(external)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^
+AssertionError: [] is not true
+
+----------------------------------------------------------------------
+Ran 5 tests in 7.621s
+
+FAILED (failures=1)

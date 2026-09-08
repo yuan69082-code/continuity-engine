@@ -1,0 +1,115 @@
+test_archived_and_deleted_subjects_do_not_consume_or_execute (test_p16_recovery.RecoveryTests.test_archived_and_deleted_subjects_do_not_consume_or_execute) ... 
+  test_archived_and_deleted_subjects_do_not_consume_or_execute (test_p16_recovery.RecoveryTests.test_archived_and_deleted_subjects_do_not_consume_or_execute) (operation='ARCHIVE') ... ERROR
+  test_archived_and_deleted_subjects_do_not_consume_or_execute (test_p16_recovery.RecoveryTests.test_archived_and_deleted_subjects_do_not_consume_or_execute) (operation='DELETE') ... ERROR
+test_paused_subject_blocks_new_query_and_current_cache_but_recovers_fact (test_p16_recovery.RecoveryTests.test_paused_subject_blocks_new_query_and_current_cache_but_recovers_fact) ... ERROR
+test_three_real_process_golden_recovers_replaces_and_revokes (test_p16_recovery.RecoveryTests.test_three_real_process_golden_recovers_replaces_and_revokes) ... FAIL
+
+======================================================================
+ERROR: test_archived_and_deleted_subjects_do_not_consume_or_execute (test_p16_recovery.RecoveryTests.test_archived_and_deleted_subjects_do_not_consume_or_execute) (operation='ARCHIVE')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p16_recovery.py", line 123, in test_archived_and_deleted_subjects_do_not_consume_or_execute
+    self.assertEqual(f.external.cached(),())
+                     ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\external_capability_service.py", line 146, in cached
+    try:value=self._verified(r,consume=True)
+              ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\external_capability_service.py", line 108, in _verified
+    if consume:self.require_current(d,'consume')
+               ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\external_capability_service.py", line 90, in require_current
+    c=self.core;c.subject_states.require_active(c.subject_id,c.environment)
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\subject_state_service.py", line 49, in require_active
+    raise LifecycleError('SUBJECT_NOT_ACTIVE')
+continuity_engine.domain.subject_lifecycle.LifecycleError: SUBJECT_NOT_ACTIVE
+
+======================================================================
+ERROR: test_archived_and_deleted_subjects_do_not_consume_or_execute (test_p16_recovery.RecoveryTests.test_archived_and_deleted_subjects_do_not_consume_or_execute) (operation='DELETE')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p16_recovery.py", line 123, in test_archived_and_deleted_subjects_do_not_consume_or_execute
+    self.assertEqual(f.external.cached(),())
+                     ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\external_capability_service.py", line 146, in cached
+    try:value=self._verified(r,consume=True)
+              ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\external_capability_service.py", line 108, in _verified
+    if consume:self.require_current(d,'consume')
+               ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\external_capability_service.py", line 90, in require_current
+    c=self.core;c.subject_states.require_active(c.subject_id,c.environment)
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\subject_state_service.py", line 49, in require_active
+    raise LifecycleError('SUBJECT_NOT_ACTIVE')
+continuity_engine.domain.subject_lifecycle.LifecycleError: SUBJECT_NOT_ACTIVE
+
+======================================================================
+ERROR: test_paused_subject_blocks_new_query_and_current_cache_but_recovers_fact (test_p16_recovery.RecoveryTests.test_paused_subject_blocks_new_query_and_current_cache_but_recovers_fact)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 265, in submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 771, in _run_domain
+    return self._complete_domain_after_thinking(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        operation,
+        ^^^^^^^^^^
+    ...<2 lines>...
+        thinking,
+        ^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 998, in _complete_domain_after_thinking
+    self._continuity_core.after_action(operation, thinking, action)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 375, in after_action
+    self.external_capabilities.collect(self.last_action)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\external_capability_service.py", line 127, in collect
+    try:value=self._verified(r,consume=True)
+              ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\external_capability_service.py", line 108, in _verified
+    if consume:self.require_current(d,'consume')
+               ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\external_capability_service.py", line 90, in require_current
+    c=self.core;c.subject_states.require_active(c.subject_id,c.environment)
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\subject_state_service.py", line 49, in require_active
+    raise LifecycleError('SUBJECT_NOT_ACTIVE')
+continuity_engine.domain.subject_lifecycle.LifecycleError: SUBJECT_NOT_ACTIVE
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p16_recovery.py", line 111, in test_paused_subject_blocks_new_query_and_current_cache_but_recovers_fact
+    f.lifecycle('SUSPEND');state=f.state.to_dict();f.reopen();f.submit(r)
+                                                              ~~~~~~~~^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p16_provider_fixture.py", line 160, in submit
+    request=request or self.request();value=self.app.adapter.submit(request)
+                                            ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 277, in submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.
+
+======================================================================
+FAIL: test_three_real_process_golden_recovers_replaces_and_revokes (test_p16_recovery.RecoveryTests.test_three_real_process_golden_recovers_replaces_and_revokes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p16_recovery.py", line 104, in test_three_real_process_golden_recovers_replaces_and_revokes
+    records=run_golden(Path(self.temp.name)/'child-golden')
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p16_provider_fixture.py", line 241, in run_golden
+    if completed.returncode:raise AssertionError('P16 Golden child failed: '+phase)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: P16 Golden child failed: prepare
+
+----------------------------------------------------------------------
+Ran 3 tests in 3.380s
+
+FAILED (failures=1, errors=3)

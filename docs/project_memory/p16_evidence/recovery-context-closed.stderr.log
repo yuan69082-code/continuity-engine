@@ -1,0 +1,26 @@
+test_cache_expiry_excludes_candidate_without_refresh_call (test_p16_context.ContextTests.test_cache_expiry_excludes_candidate_without_refresh_call) ... ok
+test_cache_rehashed_payload_tamper_still_checks_original_fact (test_p16_context.ContextTests.test_cache_rehashed_payload_tamper_still_checks_original_fact) ... ok
+test_credential_revocation_excludes_current_cache (test_p16_context.ContextTests.test_credential_revocation_excludes_current_cache) ... ok
+test_cross_subject_result_rejected_even_from_local_provider (test_p16_context.ContextTests.test_cross_subject_result_rejected_even_from_local_provider) ... ok
+test_external_event_identity_cannot_be_internal_root (test_p16_context.ContextTests.test_external_event_identity_cannot_be_internal_root) ... ok
+test_malicious_mutation_field_rejected_before_cache (test_p16_context.ContextTests.test_malicious_mutation_field_rejected_before_cache) ... ok
+test_offline_timeout_cancel_and_empty_are_explicit_results (test_p16_context.ContextTests.test_offline_timeout_cancel_and_empty_are_explicit_results) ... ok
+test_registry_wrong_environment_rejected_without_write (test_p16_context.ContextTests.test_registry_wrong_environment_rejected_without_write) ... ok
+test_revocation_invalidates_already_composed_context (test_p16_context.ContextTests.test_revocation_invalidates_already_composed_context) ... ok
+test_revoke_during_result_read_blocks_consumption_and_cache_write (test_p16_context.ContextTests.test_revoke_during_result_read_blocks_consumption_and_cache_write) ... ok
+test_same_request_payload_hash_conflict_is_rejected (test_p16_context.ContextTests.test_same_request_payload_hash_conflict_is_rejected) ... ok
+test_atomic_registry_failure_keeps_original_bytes (test_p16_recovery.RecoveryTests.test_atomic_registry_failure_keeps_original_bytes) ... ok
+test_completed_replay_rechecks_receipt_without_reexecution (test_p16_recovery.RecoveryTests.test_completed_replay_rechecks_receipt_without_reexecution) ... ok
+test_completed_replay_survives_revocation_without_new_consumption (test_p16_recovery.RecoveryTests.test_completed_replay_survives_revocation_without_new_consumption) ... ok
+test_historical_success_unknown_query_cannot_replay_completed (test_p16_recovery.RecoveryTests.test_historical_success_unknown_query_cannot_replay_completed) ... ok
+test_lost_response_after_receipt_can_close_after_revocation_without_consuming (test_p16_recovery.RecoveryTests.test_lost_response_after_receipt_can_close_after_revocation_without_consuming) ... ok
+test_p01_snapshot_covers_registry_cache_and_receipts (test_p16_recovery.RecoveryTests.test_p01_snapshot_covers_registry_cache_and_receipts) ... ok
+test_provider_error_secret_never_enters_engine_files (test_p16_recovery.RecoveryTests.test_provider_error_secret_never_enters_engine_files) ... ok
+test_reserved_not_executed_after_revocation_cannot_dispatch (test_p16_recovery.RecoveryTests.test_reserved_not_executed_after_revocation_cannot_dispatch) ... ok
+test_string_not_executed_is_unknown (test_p16_recovery.RecoveryTests.test_string_not_executed_is_unknown) ... ok
+test_unknown_does_not_execute_even_with_explicit_retry (test_p16_recovery.RecoveryTests.test_unknown_does_not_execute_even_with_explicit_retry) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 19.945s
+
+OK

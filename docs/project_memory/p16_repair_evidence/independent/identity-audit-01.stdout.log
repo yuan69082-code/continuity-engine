@@ -1,0 +1,78 @@
+{
+  "checks": {
+    "source241MatchesFinalAuditAndFull": true,
+    "allThreeCitedRunsMatchAndAreClean": true,
+    "original1208IdentitiesRetained": true,
+    "exact53NewTestIdentities": true,
+    "originalTestFilesUnchanged": true,
+    "protected63Unchanged": true,
+    "planning3Unchanged": true,
+    "formal7AndTreeUnchanged": true,
+    "excluded31Unchanged": true,
+    "otherPreservedReportUnchanged": true,
+    "pending118Plus32ExclusionsExactlyMatch": true,
+    "recordedPendingHashesMatch": true,
+    "python231SyntaxValid": true,
+    "headAndTrackingUnchanged": true,
+    "stagingEmpty": true,
+    "diffCheckClean": true
+  },
+  "allIdentityChecksPass": true,
+  "notBehavioralAcceptance": true,
+  "citedRunsNotIndependent": {
+    "p16-final": {
+      "identityMatches": true,
+      "completed": true,
+      "countConsistent": true,
+      "stdoutPresent": true,
+      "stderrSummaryPresent": true,
+      "run": 53,
+      "passed": 53,
+      "skips": [],
+      "seconds": 86.849
+    },
+    "compatibility-final": {
+      "identityMatches": true,
+      "completed": true,
+      "countConsistent": true,
+      "stdoutPresent": true,
+      "stderrSummaryPresent": true,
+      "run": 538,
+      "passed": 537,
+      "skips": [
+        [
+          "test_p08_fixture_paths.P08FixturePathTests.test_symlink_component_rejected_without_writes",
+          "OS does not grant symlink creation: 1314"
+        ]
+      ],
+      "seconds": 362.2
+    },
+    "full-final": {
+      "identityMatches": true,
+      "completed": true,
+      "countConsistent": true,
+      "stdoutPresent": true,
+      "stderrSummaryPresent": true,
+      "run": 1261,
+      "passed": 1260,
+      "skips": [
+        [
+          "test_p08_fixture_paths.P08FixturePathTests.test_symlink_component_rejected_without_writes",
+          "OS does not grant symlink creation: 1314"
+        ]
+      ],
+      "seconds": 1081.872
+    }
+  },
+  "sourceTestCount": 241,
+  "pendingHashCount": 117,
+  "trackedModifiedCount": 27,
+  "untrackedCount": 123,
+  "branch": "main",
+  "head": "a41a733635b0f5978c19b287274b4c63925b8979",
+  "aheadBehindLocal": "0\t0",
+  "formalTreeHash": "sha256:f9c710c6085e430a251f74463d57133f8c5a4497fe8ffa2ccb96be2db1037bb2",
+  "syntaxErrors": [],
+  "gitWrites": false,
+  "remoteNetworkChecked": false
+}

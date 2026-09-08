@@ -67,6 +67,7 @@ class ThinkingService:
         result_id: str | None = None,
         preserve_perception_snapshot: bool = False,
         result_processor=None,
+        result_validator=None,
     ) -> ThinkingExecutionResult:
         if not isinstance(perception, PerceptionResult):
             raise ThinkingValidationError("thinking requires a PerceptionResult")
@@ -170,13 +171,26 @@ class ThinkingService:
                 session=session,
                 state_update=None,
             )
+        material_error = None
         try:
             result = self._provider.think(perception, budget)
+            if result_validator is not None:
+                try:
+                    result_validator(perception, result)
+                except Exception as exc:
+                    material_error = exc
+                    raise
             if result_id is not None:
                 result = replace(result, result_id=result_id)
             self._validate_provider_result(result, budget)
             if result_processor is not None:
                 result = result_processor(perception, result)
+                if result_validator is not None:
+                    try:
+                        result_validator(perception, result)
+                    except Exception as exc:
+                        material_error = exc
+                        raise
             session.complete(
                 ended_at=self._clock(),
                 result=result,
@@ -202,6 +216,11 @@ class ThinkingService:
                 state_written_back=False,
             )
             self._repository.save_think_session(session)
+            if material_error is exc:
+                # The optional boundary returns a safe, static rejection. Keep
+                # it visible to the caller, while persisting only the failure
+                # summary above, never the rejected result.
+                raise
             raise ThinkingExecutionError(
                 session.think_id,
                 f"ThinkSession failed and was logged: {session.think_id}",
@@ -268,10 +287,15 @@ class ThinkingService:
         result: ThinkingResult,
         ended_at: datetime,
         result_processor=None,
+        result_validator=None,
     ) -> ThinkingExecutionResult:
         """Complete the original waiting session from a validated execution fact."""
 
         session = self.get_session(perception.subject_id, think_id)
+        if result_validator is not None:
+            result_validator(perception, result)
+            if session.result is not None:
+                result_validator(perception, session.result)
         if session.status is ThinkSessionStatus.COMPLETED:
             if session.result != result:
                 raise ThinkingValidationError(
@@ -295,6 +319,8 @@ class ThinkingService:
         self._validate_provider_result(result, session.token_budget)
         if result_processor is not None:
             result = result_processor(perception, result)
+            if result_validator is not None:
+                result_validator(perception, result)
         session.complete(
             ended_at=ended_at,
             result=result,

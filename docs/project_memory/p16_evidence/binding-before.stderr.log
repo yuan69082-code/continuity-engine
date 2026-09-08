@@ -1,0 +1,25 @@
+test_invalid_cache_timestamp_is_corruption_not_freshness (test_p16_context.ContextTests.test_invalid_cache_timestamp_is_corruption_not_freshness) ... FAIL
+test_replacement_descriptor_cannot_reuse_old_exact_reference (test_p16_context.ContextTests.test_replacement_descriptor_cannot_reuse_old_exact_reference) ... FAIL
+
+======================================================================
+FAIL: test_invalid_cache_timestamp_is_corruption_not_freshness (test_p16_context.ContextTests.test_invalid_cache_timestamp_is_corruption_not_freshness)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p16_context.py", line 89, in test_invalid_cache_timestamp_is_corruption_not_freshness
+    with self.assertRaisesRegex(ExternalCapabilityError,'EXTERNAL_STORE_CORRUPT'):f.external.cached()
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ExternalCapabilityError not raised
+
+======================================================================
+FAIL: test_replacement_descriptor_cannot_reuse_old_exact_reference (test_p16_context.ContextTests.test_replacement_descriptor_cannot_reuse_old_exact_reference)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p16_context.py", line 82, in test_replacement_descriptor_cannot_reuse_old_exact_reference
+    self.assertNotEqual(original,current)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+AssertionError: {'external-candidate:ca069b54c91bbe8f8155ab417977e0e287d305bf91df41fa93bf2a0692b5c8cf': (ExternalCandidate(source_id='item:continuity', source_version='v1', content='continuity: local memory knowledge about continuity', content_hash='sha256:3a79df8c9c76fd9a727e0f702a930b873b74f664b4fd52833172cc9e25a4c7a4', observed_at='2026-09-04T08:00:00Z', expires_at='2026-09-04T08:05:00Z', confidence=0.7, roots=('external:shared-source:continuity',), uncertainty='UNVERIFIED_EXTERNAL'), '{"candidate":{"confidence":0.7,"content":"continuity: local memory knowledge about continuity","content_hash":"sha256:3a79df8c9c76fd9a727e0f702a930b873b74f664b4fd52833172cc9e25a4c7a4","expires_at":"2026-09-04T08:05:00Z","observed_at":"2026-09-04T08:00:00Z","roots":["external:shared-source:continuity"],"source_id":"item:continuity","source_version":"v1","uncertainty":"UNVERIFIED_EXTERNAL"},"connector":"local.memory","kind":"memory","permission":"test:lookup"}')} == {'external-candidate:ca069b54c91bbe8f8155ab417977e0e287d305bf91df41fa93bf2a0692b5c8cf': (ExternalCandidate(source_id='item:continuity', source_version='v1', content='continuity: local memory knowledge about continuity', content_hash='sha256:3a79df8c9c76fd9a727e0f702a930b873b74f664b4fd52833172cc9e25a4c7a4', observed_at='2026-09-04T08:00:00Z', expires_at='2026-09-04T08:05:00Z', confidence=0.7, roots=('external:shared-source:continuity',), uncertainty='UNVERIFIED_EXTERNAL'), '{"candidate":{"confidence":0.7,"content":"continuity: local memory knowledge about continuity","content_hash":"sha256:3a79df8c9c76fd9a727e0f702a930b873b74f664b4fd52833172cc9e25a4c7a4","expires_at":"2026-09-04T08:05:00Z","observed_at":"2026-09-04T08:00:00Z","roots":["external:shared-source:continuity"],"source_id":"item:continuity","source_version":"v1","uncertainty":"UNVERIFIED_EXTERNAL"},"connector":"local.memory","kind":"memory","permission":"test:lookup"}')}
+
+----------------------------------------------------------------------
+Ran 2 tests in 1.702s
+
+FAILED (failures=2)

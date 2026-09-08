@@ -46,6 +46,7 @@ class ActionCapabilityBinding:
     cost: int = 1
     atomic: bool = True
     version: str = "v1"
+    max_attempts: int | None = None
 
     def __post_init__(self) -> None:
         identifier(self.capability)
@@ -56,10 +57,14 @@ class ActionCapabilityBinding:
             raise CapabilityValidationError("P08 cannot take over Thinking or Evolution")
         if type(self.cost) is not int or self.cost < 0 or type(self.atomic) is not bool:
             raise CapabilityValidationError("invalid capability policy")
+        if self.max_attempts is not None and (type(self.max_attempts) is not int or not 1<=self.max_attempts<=3):
+            raise CapabilityValidationError('invalid bounded attempt policy')
 
     def canonical_hash(self) -> str:
-        return digest([self.capability, self.adapter.adapter_id, self.version,
-                       self.action_type.value, self.permission, self.cost, self.atomic])
+        policy=[self.capability, self.adapter.adapter_id, self.version,
+                self.action_type.value, self.permission, self.cost, self.atomic]
+        if self.max_attempts is not None:policy.append(self.max_attempts)
+        return digest(policy)
 
 
 @dataclass(frozen=True)
@@ -195,6 +200,11 @@ class ActionPlanningService:
         if reason:
             status = CapabilityStatus.EXPIRED if reason == "CHOICE_EXPIRED" else CapabilityStatus.UNKNOWN
             return self._save(InternalActionResult(request, status, reason, now, gate_reasons=gates), binding.adapter)
+        if binding.max_attempts is not None:
+            dispatches=sum(a.result.status is CapabilityStatus.PROPOSED for a in attempts)
+            if dispatches>=binding.max_attempts:
+                return self._save(InternalActionResult(request,CapabilityStatus.UNKNOWN,'ATTEMPT_LIMIT',now),binding.adapter)
+            gates=(*gates,'DISPATCH_ATTEMPT_'+str(dispatches+1))
         self._save(InternalActionResult(request, CapabilityStatus.PROPOSED, "READY_TO_EXECUTE", now,
                                        gate_reasons=gates), binding.adapter)
         self.fault("before_adapter")

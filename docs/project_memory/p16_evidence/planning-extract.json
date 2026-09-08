@@ -1,0 +1,183 @@
+{
+  "Continuity Assistant 分支构想 v0.1_P10实际建仓同步版_2026-08-26.docx": {
+    "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\outputs\\Continuity Assistant 分支构想 v0.1_P10实际建仓同步版_2026-08-26.docx",
+    "sha256": "5513e8241a96f4d661d9520cbcb3c2ea9914ca8d430b2db4dacc13ba3dd744a1",
+    "blocks": []
+  },
+  "Continuity Engine（数字连续性引擎）全周期工程监工规划_v1.1_Engine独立施工与P10实际建仓同步版_2026-08-26.docx": {
+    "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\outputs\\Continuity Engine（数字连续性引擎）全周期工程监工规划_v1.1_Engine独立施工与P10实际建仓同步版_2026-08-26.docx",
+    "sha256": "9cbc30b5beb7f12c046556bd9461b59d5d4e45c2315dc2da4f07c8bd132ae1a1",
+    "blocks": [
+      {
+        "index": 65,
+        "text": "阶段 P16：外部长记忆、知识库、MCP 与 Skill"
+      },
+      {
+        "index": 78,
+        "text": "- P16→P22 为外部能力、主动运行、安全和产品化。"
+      },
+      {
+        "index": 205,
+        "text": "P16　外部长期记忆、知识、MCP 与 Skill"
+      },
+      {
+        "index": 207,
+        "text": "引擎施工：建立 Memory Provider、Knowledge Provider、MCP（模型上下文协议）、Skill（技能）、Connector（连接器）注册表、Credential Broker（凭据代理）与宿主中立端口；Engine 只保存 capabilityRef（能力引用）与结构化结果，永不保存原始 API Key。外部检索结果只能作为 retrieved_candidate，必须带来源、权限、时效和内容 hash，不能直接改 SubjectState。"
+      },
+      {
+        "index": 210,
+        "text": "Engine 独立施工边界：P16 只建设宿主中立 Memory/Knowledge/MCP/Skill/Connector/Credential Port、注册表和本地 Fake Adapter；测试不得使用真实密钥、外网或 Vio。真实连接器与 Adapter 生产接入留到 P22。"
+      },
+      {
+        "index": 272,
+        "text": "七、所有阶段统一验收门槛"
+      },
+      {
+        "index": 349,
+        "text": "1. OVERRIDE-01：P08 Planner 是复杂行动的可选工具；简单、原子、边界清楚的主体行动走 Natural/Direct Action，不强制创建 Goal/Plan。现实副作用仍通过 Action/Capability/Reality 链。"
+      },
+      {
+        "index": 350,
+        "text": "2. OVERRIDE-02：Vio 不再是唯一 Reality Executor。长期由 World/Capability Layer → Platform/Reality Gate Port → Adapter → World 执行；Vio 是第一实现。"
+      },
+      {
+        "index": 351,
+        "text": "3. OVERRIDE-03：Engine Runtime Lifecycle 属于 Engine；Vio 断线、停止或被替换，不等于主体停止存在。"
+      },
+      {
+        "index": 352,
+        "text": "4. OVERRIDE-04：Vio Platform Gate 泛化为 Platform/Reality Gate Port；现有 v1.1 Vio 接口保持兼容，不回写旧契约。"
+      },
+      {
+        "index": 353,
+        "text": "5. OVERRIDE-05：Subject 可提出 SUSPEND_INTENT / ARCHIVE_INTENT，Owner 可发出生命周期命令；主体意图、账号删除、解绑、暂停、归档和永久删除保持分离。"
+      },
+      {
+        "index": 354,
+        "text": "6. OVERRIDE-06：P17 可先建设执行核心和现实边界接口；Recoverability Gate 可以复用 P01 的恢复设计和验证方式，但不能依赖 P01 作为正式主体恢复能力。凡依赖 P20/P21 正式恢复或安全硬边界的现实能力，在验收前必须 FEATURE_GATED / NOT_READY / Disabled，并在恢复地基未就绪时返回 RECOVERABILITY_NOT_READY。"
+      },
+      {
+        "index": 355,
+        "text": "7. KEEP-01：P00 是 Engine/Vio 断开运行并各自升级的起点；P10 只从稳定 C1 建立 Continuity Assistant 分支与独立仓库。"
+      },
+      {
+        "index": 356,
+        "text": "8. KEEP-02：P01 Snapshot/Branch 只回滚测试、实验与 Research Sandbox，不能重写正式 Subject 生命历史，也不能作为 Owner Domain 的生产恢复能力；正式 Subject、Owner Domain 与生产恢复属于 P20/P21。"
+      },
+      {
+        "index": 357,
+        "text": "9. KEEP-03：SubjectState 是当前主体状态唯一权威。"
+      },
+      {
+        "index": 358,
+        "text": "10. KEEP-04：Event 是客观事实历史权威；Timeline 只计算，Memory 只记忆，Self-Narrative 只解释。"
+      },
+      {
+        "index": 359,
+        "text": "11. KEEP-05：人格、关系、Desire、Will、Self-Narrative、Psychological Conflict、Dynamic Mind 与 Somatic 的长期变化仍只经 Evolution/revision。"
+      },
+      {
+        "index": 360,
+        "text": "12. KEEP-06：C1 保留简化 Emotion；完整心理冲突、欲望/意志动力、疲惫/躯体影响、持续念头和主观时间在 P14/C3 实现。"
+      },
+      {
+        "index": 361,
+        "text": "13. KEEP-07：测试身份、分支、数据根目录与正式生命历史严格隔离；测试主体不得晋升为正式主体。"
+      },
+      {
+        "index": 362,
+        "text": "14. KEEP-08：Inspector 不保存或展示 Provider 原始隐藏 Chain-of-Thought，只展示结构状态、可审计事实、主体允许持久化的内容和理由摘要。"
+      }
+    ]
+  },
+  "连续性引擎长期能力增补规划_v6.7_Engine独立施工与P10实际建仓同步版_2026-08-26.docx": {
+    "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\outputs\\连续性引擎长期能力增补规划_v6.7_Engine独立施工与P10实际建仓同步版_2026-08-26.docx",
+    "sha256": "a47bfb5e19092ee11963c0554897fbb29cbbba775183bddecb284c24f3788027",
+    "blocks": [
+      {
+        "index": 459,
+        "text": "OVERRIDE-01 Planner：P08 Planner 是复杂行动的可选工具。表达、沉默、联系、停止和简单明确能力可以走 Natural/Direct Action；现实副作用仍必须结构化、可审计，并遵循 Subject → Thought → Desire → Will → Decision → Structured Action → Capability Resolution → Permission / Resource / Recoverability Check → Reality Boundary → World Adapter → Reality Effect。"
+      },
+      {
+        "index": 460,
+        "text": "OVERRIDE-02 World Adapter：Vio 不再是唯一 Reality Executor。长期架构为 Engine → World/Capability Layer → Platform/Reality Gate Port → Adapter → World；Vio 是第一实现，未来可接 Browser、Mail、Device、Robot、Vehicle 或其他 Host Adapter。"
+      },
+      {
+        "index": 461,
+        "text": "OVERRIDE-03 Runtime Ownership：Engine Runtime Lifecycle 归 Engine；状态至少包含 START、RUNNING、PAUSED、SUSPENDED、RESUME、RECOVER、STOP、ARCHIVED。Vio 停止不等于 Subject 生命终止。"
+      },
+      {
+        "index": 462,
+        "text": "OVERRIDE-04 Platform Gate：Vio Platform Gate 泛化为 Platform/Reality Gate Port。当前 Vio 部署保持兼容，但新核心接口不得硬编码 Vio。"
+      },
+      {
+        "index": 463,
+        "text": "OVERRIDE-05 Subject Lifecycle Intent：Subject 可以发出 SUSPEND_INTENT / ARCHIVE_INTENT（initiator=SUBJECT）；Owner 命令标记 initiator=OWNER。意图不等于物理删除权，DELETED 保持独立。"
+      },
+      {
+        "index": 464,
+        "text": "OVERRIDE-06 P17/P21 Gate：P17 可独立建设 Execution Engine、Resolver、世界分类、现实边界接口、行动结果吸收、Research/Test World 与 Fake Adapter；P01—P21 不接 Vio。凡依赖 P20/P21 硬边界的能力，在验收前保持 FEATURE_GATED / NOT_READY / Disabled。"
+      },
+      {
+        "index": 465,
+        "text": "KEEP-01：P00 是 Engine/Vio 运行断开、接口冻结和独立升级起点；P01—P21 Engine 独立施工与验收；P10 从 P09 已验收的稳定 C1 commit 实际创建 Assistant Git 分支和独立仓库；P22 才首次正式重连 Vio/PWA。"
+      },
+      {
+        "index": 466,
+        "text": "KEEP-02：P01 Snapshot/Branch 只属于测试、实验与 Research Sandbox；不得用 P01 改写正式生命历史，也不得将其作为 Owner Domain 的生产恢复能力。正式 Subject、Owner Domain 与生产恢复归 P20/P21。"
+      },
+      {
+        "index": 467,
+        "text": "KEEP-03：SubjectState 仍是当前主体状态唯一权威。"
+      },
+      {
+        "index": 468,
+        "text": "KEEP-04：Event 仍是客观事实历史权威；Timeline 只计算，Memory 只记忆，Self-Narrative 只解释。"
+      },
+      {
+        "index": 469,
+        "text": "KEEP-05：人格、关系、Desire、Will、Self-Narrative、Psychological Conflict、Dynamic Mind 与 Somatic 的长期变化仍只经 Evolution/revision。"
+      },
+      {
+        "index": 470,
+        "text": "KEEP-06：C1 保留 current_state / intensity / updated_at / confidence 与简单 elapsed decay；完整多情绪、驱力、疲惫、躯体与持续念头在 P14/C3。"
+      },
+      {
+        "index": 471,
+        "text": "KEEP-07：测试身份、分支、数据根目录与正式生命历史严格隔离，测试主体不得晋升为正式主体。"
+      },
+      {
+        "index": 472,
+        "text": "KEEP-08：Inspector 不保存或展示 Provider 原始隐藏 Chain-of-Thought；只展示结构状态、可审计事实、主体允许持久化的内容和理由摘要。"
+      },
+      {
+        "index": 491,
+        "text": "Credential Broker 使用真实凭据执行并返回最小必要结果；原始秘密永不进入 SubjectState、Memory、Prompt、Context、日志、Inspector、Git 或普通备份明文。"
+      },
+      {
+        "index": 515,
+        "text": "P16：外部记忆/知识/MCP/Skill/Connector + Credential Broker；Host-neutral，Vio 为第一实现。"
+      },
+      {
+        "index": 573,
+        "text": "附录 E：Planning Conflict 边界确认同步（2026-08-24）"
+      },
+      {
+        "index": 579,
+        "text": "附录 E：2026-08-26 Engine 独立施工与 P10 实际建仓同步（OVERRIDE）"
+      },
+      {
+        "index": 580,
+        "text": "E-1 优先级：v1.1 管理 P00—P23 施工顺序与验收。本附录与 v1.1 同步；若 v6.7 旧正文仍含 P01—P21 需要 Vio 协调、双仓测试、真实 Provider、UI 或 Adapter 的表述，以本附录为准。"
+      },
+      {
+        "index": 581,
+        "text": "E-2 P00：冻结接口、切断 Engine/Vio 运行依赖并建立独立升级基线。P01—P21：Engine 在 Vio process、repository、data root、network 和 credentials 均不可用时独立施工、测试、验收。"
+      },
+      {
+        "index": 582,
+        "text": "E-3 P01—P21 的外部能力仅使用宿主中立 Port、版本化 Schema、Engine 内 Fixture/Fake Adapter、Research/Test World 与独立数据根；真实 Vio/PWA Adapter 在 P22 首次接入，P23 才进行最终跨仓总验收。"
+      }
+    ]
+  }
+}

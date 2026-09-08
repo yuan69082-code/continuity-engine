@@ -1,0 +1,50 @@
+test_all_four_local_provider_kinds_really_execute (test_p16_providers.ProviderTests.test_all_four_local_provider_kinds_really_execute) ... ERROR
+test_feature_gate_off_does_not_call_or_read_external_components (test_p16_providers.ProviderTests.test_feature_gate_off_does_not_call_or_read_external_components) ... ERROR
+test_memory_information_need_calls_fake_then_normal_context_consumes_candidate (test_p16_providers.ProviderTests.test_memory_information_need_calls_fake_then_normal_context_consumes_candidate) ... ERROR
+test_registry_same_version_changed_content_is_conflict (test_p16_providers.ProviderTests.test_registry_same_version_changed_content_is_conflict) ... ERROR
+test_revoke_before_query_has_no_external_call_or_subject_write (test_p16_providers.ProviderTests.test_revoke_before_query_has_no_external_call_or_subject_write) ... ERROR
+
+======================================================================
+ERROR: test_all_four_local_provider_kinds_really_execute (test_p16_providers.ProviderTests.test_all_four_local_provider_kinds_really_execute)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p16_providers.py", line 9, in setUp
+    from continuity_engine.testing.p16_provider_fixture import P16Fixture
+ModuleNotFoundError: No module named 'continuity_engine.testing.p16_provider_fixture'
+
+======================================================================
+ERROR: test_feature_gate_off_does_not_call_or_read_external_components (test_p16_providers.ProviderTests.test_feature_gate_off_does_not_call_or_read_external_components)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p16_providers.py", line 9, in setUp
+    from continuity_engine.testing.p16_provider_fixture import P16Fixture
+ModuleNotFoundError: No module named 'continuity_engine.testing.p16_provider_fixture'
+
+======================================================================
+ERROR: test_memory_information_need_calls_fake_then_normal_context_consumes_candidate (test_p16_providers.ProviderTests.test_memory_information_need_calls_fake_then_normal_context_consumes_candidate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p16_providers.py", line 9, in setUp
+    from continuity_engine.testing.p16_provider_fixture import P16Fixture
+ModuleNotFoundError: No module named 'continuity_engine.testing.p16_provider_fixture'
+
+======================================================================
+ERROR: test_registry_same_version_changed_content_is_conflict (test_p16_providers.ProviderTests.test_registry_same_version_changed_content_is_conflict)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p16_providers.py", line 9, in setUp
+    from continuity_engine.testing.p16_provider_fixture import P16Fixture
+ModuleNotFoundError: No module named 'continuity_engine.testing.p16_provider_fixture'
+
+======================================================================
+ERROR: test_revoke_before_query_has_no_external_call_or_subject_write (test_p16_providers.ProviderTests.test_revoke_before_query_has_no_external_call_or_subject_write)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p16_providers.py", line 9, in setUp
+    from continuity_engine.testing.p16_provider_fixture import P16Fixture
+ModuleNotFoundError: No module named 'continuity_engine.testing.p16_provider_fixture'
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.003s
+
+FAILED (errors=5)

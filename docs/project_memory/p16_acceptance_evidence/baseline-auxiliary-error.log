@@ -1,0 +1,6 @@
+Initial read-only inline verifier, exit 1; before any archive write:
+Traceback (most recent call last):
+  File "<stdin>", line 25, in <module>
+KeyError: 'exit_code'
+
+Actual original JSON uses exitCode. This is verifier metadata handling, not an Engine test failure.

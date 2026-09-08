@@ -112,7 +112,7 @@ class ContinuityCoreService:
                  coordination, action_gate, constraints, capabilities, clock,
                  permission_policy, policy=None, gates=None, retrieval_budget=None,
                  context_budget=None, context_ttl=timedelta(minutes=10), planner=None, limits=None, fault=None, expression_policy=None,
-                 dynamic_mind=False, subject_growth=False, growth_repository=None):
+                 dynamic_mind=False, subject_growth=False, growth_repository=None, external_capabilities=None):
         if environment not in {"TEST", "RESEARCH"}:
             raise ValueError("P09 requires a TEST/RESEARCH boundary")
         self.subject_id, self.environment = subject_id, environment
@@ -139,6 +139,7 @@ class ContinuityCoreService:
             self.mind = None
         self.last_trace = None
         self.last_action = None
+        self.external_capabilities=external_capabilities
         if type(subject_growth) is not bool:
             raise ValueError('subject_growth must be an explicit feature gate')
         self.growth = None
@@ -265,6 +266,11 @@ class ContinuityCoreService:
             "contradictions": context.contradictions.trace.to_dict(),
             "consolidation_pending_events": context.pending_event_count,
             "direct_state_write_allowed": False}
+        if self.external_capabilities is not None:
+            self.last_trace['external_source']=dict(self.external_capabilities.projection_audit)
+            entry=self.external_capabilities.last_trace_entry
+            if entry is not None and entry['snapshot_hash']==context.composition.snapshot.snapshot_hash:
+                self.last_trace['external_result']=dict(entry)
 
     def current(self, context):
         """Re-resolve the exact selected sources before NEW work; never rewrite them."""
@@ -366,4 +372,6 @@ class ContinuityCoreService:
         self.last_action = service.run(choice, context.composition, retry=retry)
         if self.last_action.status != "COMPLETED":
             raise CapabilityValidationError("C1_ACTION_" + self.last_action.status)
+        if self.external_capabilities is not None:
+            self.external_capabilities.collect(self.last_action)
         return self.last_action

@@ -1,0 +1,194 @@
+test_cache_expiry_excludes_candidate_without_refresh_call (test_p16_context.ContextTests.test_cache_expiry_excludes_candidate_without_refresh_call) ... ok
+test_cache_rehashed_payload_tamper_still_checks_original_fact (test_p16_context.ContextTests.test_cache_rehashed_payload_tamper_still_checks_original_fact) ... ok
+test_credential_revocation_excludes_current_cache (test_p16_context.ContextTests.test_credential_revocation_excludes_current_cache) ... ok
+test_cross_subject_result_rejected_even_from_local_provider (test_p16_context.ContextTests.test_cross_subject_result_rejected_even_from_local_provider) ... ok
+test_exact_ttl_boundary_is_excluded_just_before_is_valid (test_p16_context.ContextTests.test_exact_ttl_boundary_is_excluded_just_before_is_valid) ... ok
+test_external_event_identity_cannot_be_internal_root (test_p16_context.ContextTests.test_external_event_identity_cannot_be_internal_root) ... ok
+test_invalid_cache_timestamp_is_corruption_not_freshness (test_p16_context.ContextTests.test_invalid_cache_timestamp_is_corruption_not_freshness) ... ok
+test_malicious_mutation_field_rejected_before_cache (test_p16_context.ContextTests.test_malicious_mutation_field_rejected_before_cache) ... ok
+test_offline_timeout_cancel_and_empty_are_explicit_results (test_p16_context.ContextTests.test_offline_timeout_cancel_and_empty_are_explicit_results) ... ok
+test_registry_wrong_environment_rejected_without_write (test_p16_context.ContextTests.test_registry_wrong_environment_rejected_without_write) ... ok
+test_replacement_descriptor_cannot_reuse_old_exact_reference (test_p16_context.ContextTests.test_replacement_descriptor_cannot_reuse_old_exact_reference) ... ok
+test_replacement_preserves_old_fact_but_invalidates_old_material (test_p16_context.ContextTests.test_replacement_preserves_old_fact_but_invalidates_old_material) ... ok
+test_revocation_invalidates_already_composed_context (test_p16_context.ContextTests.test_revocation_invalidates_already_composed_context) ... ok
+test_revoke_during_result_read_blocks_consumption_and_cache_write (test_p16_context.ContextTests.test_revoke_during_result_read_blocks_consumption_and_cache_write) ... ok
+test_same_request_payload_hash_conflict_is_rejected (test_p16_context.ContextTests.test_same_request_payload_hash_conflict_is_rejected) ... ok
+test_same_root_candidates_deduplicate_without_promoting_authority (test_p16_context.ContextTests.test_same_root_candidates_deduplicate_without_promoting_authority) ... FAIL
+test_strict_result_shape_version_hash_environment_and_bounds (test_p16_context.ContextTests.test_strict_result_shape_version_hash_environment_and_bounds) ... ok
+test_all_four_local_provider_kinds_really_execute (test_p16_providers.ProviderTests.test_all_four_local_provider_kinds_really_execute) ... ok
+test_credential_reference_cannot_be_reused_by_other_connector (test_p16_providers.ProviderTests.test_credential_reference_cannot_be_reused_by_other_connector) ... ok
+test_disable_replay_is_idempotent_and_cannot_reregister_same_version (test_p16_providers.ProviderTests.test_disable_replay_is_idempotent_and_cannot_reregister_same_version) ... ok
+test_existing_768_token_budget_explicitly_excludes_external_material (test_p16_providers.ProviderTests.test_existing_768_token_budget_explicitly_excludes_external_material) ... ok
+test_feature_gate_off_does_not_call_or_read_external_components (test_p16_providers.ProviderTests.test_feature_gate_off_does_not_call_or_read_external_components) ... ok
+test_memory_information_need_calls_fake_then_normal_context_consumes_candidate (test_p16_providers.ProviderTests.test_memory_information_need_calls_fake_then_normal_context_consumes_candidate) ... ok
+test_missing_expired_and_cross_subject_credentials_refuse_before_call (test_p16_providers.ProviderTests.test_missing_expired_and_cross_subject_credentials_refuse_before_call) ... ok
+test_registry_concurrent_revision_allows_only_one_write (test_p16_providers.ProviderTests.test_registry_concurrent_revision_allows_only_one_write) ... ok
+test_registry_same_version_changed_content_is_conflict (test_p16_providers.ProviderTests.test_registry_same_version_changed_content_is_conflict) ... ok
+test_revoke_before_query_has_no_external_call_or_subject_write (test_p16_providers.ProviderTests.test_revoke_before_query_has_no_external_call_or_subject_write) ... ok
+test_upper_mixed_protected_roots_and_children_are_zero_write (test_p16_providers.ProviderTests.test_upper_mixed_protected_roots_and_children_are_zero_write) ... 
+  test_upper_mixed_protected_roots_and_children_are_zero_write (test_p16_providers.ProviderTests.test_upper_mixed_protected_roots_and_children_are_zero_write) (name='.CONTINUITY-DATA', suffix='') ... ERROR
+  test_upper_mixed_protected_roots_and_children_are_zero_write (test_p16_providers.ProviderTests.test_upper_mixed_protected_roots_and_children_are_zero_write) (name='.CONTINUITY-DATA', suffix='child') ... ERROR
+  test_upper_mixed_protected_roots_and_children_are_zero_write (test_p16_providers.ProviderTests.test_upper_mixed_protected_roots_and_children_are_zero_write) (name='.Continuity-Data', suffix='') ... ERROR
+  test_upper_mixed_protected_roots_and_children_are_zero_write (test_p16_providers.ProviderTests.test_upper_mixed_protected_roots_and_children_are_zero_write) (name='.Continuity-Data', suffix='child') ... ERROR
+  test_upper_mixed_protected_roots_and_children_are_zero_write (test_p16_providers.ProviderTests.test_upper_mixed_protected_roots_and_children_are_zero_write) (name='.ASSISTANT-DATA', suffix='') ... ERROR
+  test_upper_mixed_protected_roots_and_children_are_zero_write (test_p16_providers.ProviderTests.test_upper_mixed_protected_roots_and_children_are_zero_write) (name='.ASSISTANT-DATA', suffix='child') ... ERROR
+  test_upper_mixed_protected_roots_and_children_are_zero_write (test_p16_providers.ProviderTests.test_upper_mixed_protected_roots_and_children_are_zero_write) (name='.Assistant-Data', suffix='') ... ERROR
+  test_upper_mixed_protected_roots_and_children_are_zero_write (test_p16_providers.ProviderTests.test_upper_mixed_protected_roots_and_children_are_zero_write) (name='.Assistant-Data', suffix='child') ... ERROR
+test_archived_and_deleted_subjects_do_not_consume_or_execute (test_p16_recovery.RecoveryTests.test_archived_and_deleted_subjects_do_not_consume_or_execute) ... ok
+test_atomic_registry_failure_keeps_original_bytes (test_p16_recovery.RecoveryTests.test_atomic_registry_failure_keeps_original_bytes) ... ok
+test_completed_replay_rechecks_receipt_without_reexecution (test_p16_recovery.RecoveryTests.test_completed_replay_rechecks_receipt_without_reexecution) ... ok
+test_completed_replay_survives_revocation_without_new_consumption (test_p16_recovery.RecoveryTests.test_completed_replay_survives_revocation_without_new_consumption) ... ok
+test_explicit_retry_uses_original_attempts_and_stops_at_bound (test_p16_recovery.RecoveryTests.test_explicit_retry_uses_original_attempts_and_stops_at_bound) ... ok
+test_historical_success_unknown_query_cannot_replay_completed (test_p16_recovery.RecoveryTests.test_historical_success_unknown_query_cannot_replay_completed) ... ok
+test_lost_response_after_receipt_can_close_after_revocation_without_consuming (test_p16_recovery.RecoveryTests.test_lost_response_after_receipt_can_close_after_revocation_without_consuming) ... ok
+test_p01_branch_replays_original_receipt_without_polluting_parent (test_p16_recovery.RecoveryTests.test_p01_branch_replays_original_receipt_without_polluting_parent) ... ok
+test_p01_snapshot_covers_registry_cache_and_receipts (test_p16_recovery.RecoveryTests.test_p01_snapshot_covers_registry_cache_and_receipts) ... ok
+test_paused_subject_blocks_new_query_and_current_cache_but_recovers_fact (test_p16_recovery.RecoveryTests.test_paused_subject_blocks_new_query_and_current_cache_but_recovers_fact) ... ok
+test_provider_error_secret_never_enters_engine_files (test_p16_recovery.RecoveryTests.test_provider_error_secret_never_enters_engine_files) ... ok
+test_query_exception_never_authorizes_dispatch_or_exposes_secret (test_p16_recovery.RecoveryTests.test_query_exception_never_authorizes_dispatch_or_exposes_secret) ... ok
+test_reserved_not_executed_after_revocation_cannot_dispatch (test_p16_recovery.RecoveryTests.test_reserved_not_executed_after_revocation_cannot_dispatch) ... ok
+test_string_not_executed_is_unknown (test_p16_recovery.RecoveryTests.test_string_not_executed_is_unknown) ... ok
+test_three_real_process_golden_recovers_replaces_and_revokes (test_p16_recovery.RecoveryTests.test_three_real_process_golden_recovers_replaces_and_revokes) ... ok
+test_unknown_does_not_execute_even_with_explicit_retry (test_p16_recovery.RecoveryTests.test_unknown_does_not_execute_even_with_explicit_retry) ... ok
+
+======================================================================
+ERROR: test_upper_mixed_protected_roots_and_children_are_zero_write (test_p16_providers.ProviderTests.test_upper_mixed_protected_roots_and_children_are_zero_write) (name='.CONTINUITY-DATA', suffix='')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p16_providers.py", line 108, in test_upper_mixed_protected_roots_and_children_are_zero_write
+    with self.assertRaises((ValueError,CapabilityValidationError)):P16Fixture(path)
+                                                                   ~~~~~~~~~~^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p16_provider_fixture.py", line 114, in __init__
+    self.root=_validate_fixture_root(Path(root));self.base=P09Fixture(self.root,runtime=runtime,manager=manager)
+              ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p08_action_fixture.py", line 50, in _validate_fixture_root
+    raise SandboxOperationError(
+    ...<2 lines>...
+    )
+continuity_engine.testing.models.SandboxOperationError: SANDBOX_PATH_FORBIDDEN: P08 Fixture root overlaps a repository, formal data, or protected path
+
+======================================================================
+ERROR: test_upper_mixed_protected_roots_and_children_are_zero_write (test_p16_providers.ProviderTests.test_upper_mixed_protected_roots_and_children_are_zero_write) (name='.CONTINUITY-DATA', suffix='child')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p16_providers.py", line 108, in test_upper_mixed_protected_roots_and_children_are_zero_write
+    with self.assertRaises((ValueError,CapabilityValidationError)):P16Fixture(path)
+                                                                   ~~~~~~~~~~^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p16_provider_fixture.py", line 114, in __init__
+    self.root=_validate_fixture_root(Path(root));self.base=P09Fixture(self.root,runtime=runtime,manager=manager)
+              ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p08_action_fixture.py", line 50, in _validate_fixture_root
+    raise SandboxOperationError(
+    ...<2 lines>...
+    )
+continuity_engine.testing.models.SandboxOperationError: SANDBOX_PATH_FORBIDDEN: P08 Fixture root overlaps a repository, formal data, or protected path
+
+======================================================================
+ERROR: test_upper_mixed_protected_roots_and_children_are_zero_write (test_p16_providers.ProviderTests.test_upper_mixed_protected_roots_and_children_are_zero_write) (name='.Continuity-Data', suffix='')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p16_providers.py", line 108, in test_upper_mixed_protected_roots_and_children_are_zero_write
+    with self.assertRaises((ValueError,CapabilityValidationError)):P16Fixture(path)
+                                                                   ~~~~~~~~~~^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p16_provider_fixture.py", line 114, in __init__
+    self.root=_validate_fixture_root(Path(root));self.base=P09Fixture(self.root,runtime=runtime,manager=manager)
+              ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p08_action_fixture.py", line 50, in _validate_fixture_root
+    raise SandboxOperationError(
+    ...<2 lines>...
+    )
+continuity_engine.testing.models.SandboxOperationError: SANDBOX_PATH_FORBIDDEN: P08 Fixture root overlaps a repository, formal data, or protected path
+
+======================================================================
+ERROR: test_upper_mixed_protected_roots_and_children_are_zero_write (test_p16_providers.ProviderTests.test_upper_mixed_protected_roots_and_children_are_zero_write) (name='.Continuity-Data', suffix='child')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p16_providers.py", line 108, in test_upper_mixed_protected_roots_and_children_are_zero_write
+    with self.assertRaises((ValueError,CapabilityValidationError)):P16Fixture(path)
+                                                                   ~~~~~~~~~~^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p16_provider_fixture.py", line 114, in __init__
+    self.root=_validate_fixture_root(Path(root));self.base=P09Fixture(self.root,runtime=runtime,manager=manager)
+              ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p08_action_fixture.py", line 50, in _validate_fixture_root
+    raise SandboxOperationError(
+    ...<2 lines>...
+    )
+continuity_engine.testing.models.SandboxOperationError: SANDBOX_PATH_FORBIDDEN: P08 Fixture root overlaps a repository, formal data, or protected path
+
+======================================================================
+ERROR: test_upper_mixed_protected_roots_and_children_are_zero_write (test_p16_providers.ProviderTests.test_upper_mixed_protected_roots_and_children_are_zero_write) (name='.ASSISTANT-DATA', suffix='')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p16_providers.py", line 108, in test_upper_mixed_protected_roots_and_children_are_zero_write
+    with self.assertRaises((ValueError,CapabilityValidationError)):P16Fixture(path)
+                                                                   ~~~~~~~~~~^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p16_provider_fixture.py", line 114, in __init__
+    self.root=_validate_fixture_root(Path(root));self.base=P09Fixture(self.root,runtime=runtime,manager=manager)
+              ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p08_action_fixture.py", line 50, in _validate_fixture_root
+    raise SandboxOperationError(
+    ...<2 lines>...
+    )
+continuity_engine.testing.models.SandboxOperationError: SANDBOX_PATH_FORBIDDEN: P08 Fixture root overlaps a repository, formal data, or protected path
+
+======================================================================
+ERROR: test_upper_mixed_protected_roots_and_children_are_zero_write (test_p16_providers.ProviderTests.test_upper_mixed_protected_roots_and_children_are_zero_write) (name='.ASSISTANT-DATA', suffix='child')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p16_providers.py", line 108, in test_upper_mixed_protected_roots_and_children_are_zero_write
+    with self.assertRaises((ValueError,CapabilityValidationError)):P16Fixture(path)
+                                                                   ~~~~~~~~~~^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p16_provider_fixture.py", line 114, in __init__
+    self.root=_validate_fixture_root(Path(root));self.base=P09Fixture(self.root,runtime=runtime,manager=manager)
+              ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p08_action_fixture.py", line 50, in _validate_fixture_root
+    raise SandboxOperationError(
+    ...<2 lines>...
+    )
+continuity_engine.testing.models.SandboxOperationError: SANDBOX_PATH_FORBIDDEN: P08 Fixture root overlaps a repository, formal data, or protected path
+
+======================================================================
+ERROR: test_upper_mixed_protected_roots_and_children_are_zero_write (test_p16_providers.ProviderTests.test_upper_mixed_protected_roots_and_children_are_zero_write) (name='.Assistant-Data', suffix='')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p16_providers.py", line 108, in test_upper_mixed_protected_roots_and_children_are_zero_write
+    with self.assertRaises((ValueError,CapabilityValidationError)):P16Fixture(path)
+                                                                   ~~~~~~~~~~^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p16_provider_fixture.py", line 114, in __init__
+    self.root=_validate_fixture_root(Path(root));self.base=P09Fixture(self.root,runtime=runtime,manager=manager)
+              ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p08_action_fixture.py", line 50, in _validate_fixture_root
+    raise SandboxOperationError(
+    ...<2 lines>...
+    )
+continuity_engine.testing.models.SandboxOperationError: SANDBOX_PATH_FORBIDDEN: P08 Fixture root overlaps a repository, formal data, or protected path
+
+======================================================================
+ERROR: test_upper_mixed_protected_roots_and_children_are_zero_write (test_p16_providers.ProviderTests.test_upper_mixed_protected_roots_and_children_are_zero_write) (name='.Assistant-Data', suffix='child')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p16_providers.py", line 108, in test_upper_mixed_protected_roots_and_children_are_zero_write
+    with self.assertRaises((ValueError,CapabilityValidationError)):P16Fixture(path)
+                                                                   ~~~~~~~~~~^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p16_provider_fixture.py", line 114, in __init__
+    self.root=_validate_fixture_root(Path(root));self.base=P09Fixture(self.root,runtime=runtime,manager=manager)
+              ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p08_action_fixture.py", line 50, in _validate_fixture_root
+    raise SandboxOperationError(
+    ...<2 lines>...
+    )
+continuity_engine.testing.models.SandboxOperationError: SANDBOX_PATH_FORBIDDEN: P08 Fixture root overlaps a repository, formal data, or protected path
+
+======================================================================
+FAIL: test_same_root_candidates_deduplicate_without_promoting_authority (test_p16_context.ContextTests.test_same_root_candidates_deduplicate_without_promoting_authority)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p16_context.py", line 97, in test_same_root_candidates_deduplicate_without_promoting_authority
+    self.assertEqual(len(fragments),1)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 1
+
+----------------------------------------------------------------------
+Ran 44 tests in 69.772s
+
+FAILED (failures=1, errors=8)

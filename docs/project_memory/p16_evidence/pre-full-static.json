@@ -1,0 +1,31 @@
+{
+  "sourceMatchesSpecialized": true,
+  "sourceMatchesCompatibility": true,
+  "sourceMatchesFullStart": true,
+  "protected": {
+    "count": 63,
+    "changed": []
+  },
+  "plans": {
+    "count": 3,
+    "changed": []
+  },
+  "formalFiles": {
+    "count": 7,
+    "changed": []
+  },
+  "excludedP10": {
+    "count": 31,
+    "changed": []
+  },
+  "otherPreserved": {
+    "count": 1,
+    "changed": []
+  },
+  "sourceTestCount": 241,
+  "astFiles": 231,
+  "at": "2026-09-08T18:01:52.116676+00:00",
+  "fullStillRunning": true,
+  "gitHead": "a41a733635b0f5978c19b287274b4c63925b8979",
+  "staged": ""
+}

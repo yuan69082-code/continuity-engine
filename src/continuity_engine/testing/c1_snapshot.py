@@ -65,3 +65,33 @@ def permission_additions(data_root, subject_id):
             raise SandboxOperationError('SNAPSHOT_INCOMPLETE', 'permission subject mismatch')
         result.append((path, document))
     return result
+
+
+def external_additions(data_root,subject_id):
+    """P16's explicitly provisioned TEST components on the original P01 inventory."""
+    marker=data_root/'fixture/p16-profile.json'
+    if not marker.exists():return []
+    expected={'version':'p16-test-v1','subject_id':subject_id,'environment':'TEST'}
+    if is_link_like(marker) or read_json(marker)!=expected:
+        raise SandboxOperationError('SNAPSHOT_INCOMPLETE','invalid P16 profile')
+    from continuity_engine.storage.json_external_provider_repository import JsonExternalProviderRepository
+    from continuity_engine.domain.action_capability import ActionReceipt
+    from continuity_engine.domain.external_capabilities import ProviderResult
+    from continuity_engine.domain.action_planning import digest
+    repo=JsonExternalProviderRepository(data_root,subject_id=subject_id,environment='TEST')
+    paths=[('state_fixture',marker),('state_fixture',repo.registry_path),('test_trace',repo.cache_path),
+           ('state_fixture',data_root/'fixture/p16-control.json'),('action_sessions',data_root/'p16-fake/facts.json')]
+    if any(not p.is_file() or is_link_like(p) for _,p in paths):
+        raise SandboxOperationError('SNAPSHOT_INCOMPLETE','missing P16 component')
+    repo.descriptors();repo.cached()
+    control=read_json(data_root/'fixture/p16-control.json')
+    if (control.get('subject_id'),control.get('environment'))!=(subject_id,'TEST'):
+        raise SandboxOperationError('SNAPSHOT_INCOMPLETE','invalid P16 control binding')
+    data=read_json(data_root/'p16-fake/facts.json')
+    if data.get('version')!='p16-fake-receipts-v1' or data.get('hash')!=digest(data.get('facts')):
+        raise SandboxOperationError('SNAPSHOT_INCOMPLETE','invalid P16 facts')
+    for entry in data['facts']:
+        fact=ActionReceipt.from_dict(entry['receipt']);value=ProviderResult.from_dict(entry['result'])
+        if (fact.subject_id,value.subject_id,fact.environment,value.environment)!=(subject_id,subject_id,'TEST','TEST') or fact.output_hash!=digest(value.to_dict()):
+            raise SandboxOperationError('SNAPSHOT_INCOMPLETE','invalid P16 fact binding')
+    return [(name,path,read_json(path)) for name,path in paths]

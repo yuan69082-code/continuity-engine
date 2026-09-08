@@ -1,0 +1,496 @@
+{
+  "route": {
+    "trace_id": "trace:p01-request-b27dbb7ca7c84606bbb203b40de4c7d5",
+    "request_id": "p01-request-b27dbb7ca7c84606bbb203b40de4c7d5",
+    "perception_id": "a2366182-7c6e-589f-8cff-346b8d3348ee",
+    "subject_id": "sub-9982e94e4b5847ad",
+    "source_revision": 1,
+    "routed_at": "2026-09-04T08:00:01Z",
+    "purpose": [
+      "continuity",
+      "fact",
+      "internal_drive",
+      "memory",
+      "relationship",
+      "subject_state",
+      "topic"
+    ],
+    "route_plan_hash": "sha256:a6d1bb6c5e8342411fcd2439b05b25fe158deabcfaa8eccb8ff0c5b65703945c",
+    "manifest_hash": "sha256:6166e03f2ab8571bf576a78f028cd03f9aad612ee0181108befb78fdd39e19f0",
+    "route_status": "COMPLETE",
+    "feature_gate_version": "p05-context-router-v1",
+    "partition_traces": [
+      {
+        "partition": "subject_state",
+        "status": "OPENED",
+        "reason_code": "BOUNDED_READ_COMPLETE",
+        "requested_limit": 10,
+        "source_ids": [
+          "engine.subject-state"
+        ],
+        "source_versions": {
+          "engine.subject-state": "revision:1"
+        },
+        "candidate_count": 6,
+        "retrieved_count": 6,
+        "evaluated_count": 6,
+        "retained_count": 5,
+        "rejected_count": 1
+      },
+      {
+        "partition": "memory",
+        "status": "OPENED",
+        "reason_code": "BOUNDED_READ_COMPLETE",
+        "requested_limit": 20,
+        "source_ids": [
+          "engine.external-candidates",
+          "engine.memory"
+        ],
+        "source_versions": {
+          "engine.external-candidates": "p16:37f1352147fdf06a5ebafb3006c300f01fdb53134babb0f4eee4d5258de9fa06",
+          "engine.memory": "v-9b1d5e561e875733a857d2b911a02d72cd3f12d27e0f6e0f08ead454da5eec40"
+        },
+        "candidate_count": 2,
+        "retrieved_count": 2,
+        "evaluated_count": 2,
+        "retained_count": 2,
+        "rejected_count": 0
+      },
+      {
+        "partition": "derived_summary",
+        "status": "OPENED",
+        "reason_code": "BOUNDED_READ_COMPLETE",
+        "requested_limit": 10,
+        "source_ids": [
+          "engine.derived-summary"
+        ],
+        "source_versions": {
+          "engine.derived-summary": "v-4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "candidate_count": 0,
+        "retrieved_count": 0,
+        "evaluated_count": 0,
+        "retained_count": 0,
+        "rejected_count": 0
+      },
+      {
+        "partition": "timeline",
+        "status": "OPENED",
+        "reason_code": "BOUNDED_READ_COMPLETE",
+        "requested_limit": 10,
+        "source_ids": [
+          "engine.timeline"
+        ],
+        "source_versions": {
+          "engine.timeline": "v-3630108f982f631138c5d535445530e0cb61aba4fe06070732cebec3fb5f802e"
+        },
+        "candidate_count": 1,
+        "retrieved_count": 1,
+        "evaluated_count": 1,
+        "retained_count": 1,
+        "rejected_count": 0
+      },
+      {
+        "partition": "local_fact",
+        "status": "UNAVAILABLE",
+        "reason_code": "SOURCE_NOT_CONFIGURED",
+        "requested_limit": 0,
+        "source_ids": [],
+        "source_versions": {},
+        "candidate_count": 0,
+        "retrieved_count": 0,
+        "evaluated_count": 0,
+        "retained_count": 0,
+        "rejected_count": 0
+      },
+      {
+        "partition": "attention",
+        "status": "NOT_OPENED",
+        "reason_code": "PURPOSE_NOT_SELECTED",
+        "requested_limit": 0,
+        "source_ids": [],
+        "source_versions": {},
+        "candidate_count": 0,
+        "retrieved_count": 0,
+        "evaluated_count": 0,
+        "retained_count": 0,
+        "rejected_count": 0
+      },
+      {
+        "partition": "desire",
+        "status": "NOT_OPENED",
+        "reason_code": "PURPOSE_NOT_SELECTED",
+        "requested_limit": 0,
+        "source_ids": [],
+        "source_versions": {},
+        "candidate_count": 0,
+        "retrieved_count": 0,
+        "evaluated_count": 0,
+        "retained_count": 0,
+        "rejected_count": 0
+      },
+      {
+        "partition": "conflict",
+        "status": "NOT_OPENED",
+        "reason_code": "PURPOSE_NOT_SELECTED",
+        "requested_limit": 0,
+        "source_ids": [],
+        "source_versions": {},
+        "candidate_count": 0,
+        "retrieved_count": 0,
+        "evaluated_count": 0,
+        "retained_count": 0,
+        "rejected_count": 0
+      },
+      {
+        "partition": "somatic",
+        "status": "NOT_OPENED",
+        "reason_code": "PURPOSE_NOT_SELECTED",
+        "requested_limit": 0,
+        "source_ids": [],
+        "source_versions": {},
+        "candidate_count": 0,
+        "retrieved_count": 0,
+        "evaluated_count": 0,
+        "retained_count": 0,
+        "rejected_count": 0
+      },
+      {
+        "partition": "expression",
+        "status": "NOT_OPENED",
+        "reason_code": "PURPOSE_NOT_SELECTED",
+        "requested_limit": 0,
+        "source_ids": [],
+        "source_versions": {},
+        "candidate_count": 0,
+        "retrieved_count": 0,
+        "evaluated_count": 0,
+        "retained_count": 0,
+        "rejected_count": 0
+      }
+    ],
+    "source_traces": [
+      {
+        "source_id": "engine.subject-state",
+        "partition": "subject_state",
+        "status": "OPENED",
+        "reason_code": "BOUNDED_READ_COMPLETE",
+        "requested_limit": 10,
+        "source_version": "revision:1",
+        "permission_policy_version": "p09-test-v1",
+        "candidate_count": 6,
+        "retrieved_count": 6,
+        "evaluated_count": 6,
+        "retained_count": 5,
+        "rejected_count": 1
+      },
+      {
+        "source_id": "engine.external-candidates",
+        "partition": "memory",
+        "status": "OPENED",
+        "reason_code": "BOUNDED_READ_COMPLETE",
+        "requested_limit": 10,
+        "source_version": "p16:37f1352147fdf06a5ebafb3006c300f01fdb53134babb0f4eee4d5258de9fa06",
+        "permission_policy_version": "p09-test-v1",
+        "candidate_count": 1,
+        "retrieved_count": 1,
+        "evaluated_count": 1,
+        "retained_count": 1,
+        "rejected_count": 0
+      },
+      {
+        "source_id": "engine.memory",
+        "partition": "memory",
+        "status": "OPENED",
+        "reason_code": "BOUNDED_READ_COMPLETE",
+        "requested_limit": 10,
+        "source_version": "v-9b1d5e561e875733a857d2b911a02d72cd3f12d27e0f6e0f08ead454da5eec40",
+        "permission_policy_version": "p09-test-v1",
+        "candidate_count": 1,
+        "retrieved_count": 1,
+        "evaluated_count": 1,
+        "retained_count": 1,
+        "rejected_count": 0
+      },
+      {
+        "source_id": "engine.derived-summary",
+        "partition": "derived_summary",
+        "status": "OPENED",
+        "reason_code": "BOUNDED_READ_COMPLETE",
+        "requested_limit": 10,
+        "source_version": "v-4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "permission_policy_version": "p09-test-v1",
+        "candidate_count": 0,
+        "retrieved_count": 0,
+        "evaluated_count": 0,
+        "retained_count": 0,
+        "rejected_count": 0
+      },
+      {
+        "source_id": "engine.timeline",
+        "partition": "timeline",
+        "status": "OPENED",
+        "reason_code": "BOUNDED_READ_COMPLETE",
+        "requested_limit": 10,
+        "source_version": "v-3630108f982f631138c5d535445530e0cb61aba4fe06070732cebec3fb5f802e",
+        "permission_policy_version": "p09-test-v1",
+        "candidate_count": 1,
+        "retrieved_count": 1,
+        "evaluated_count": 1,
+        "retained_count": 1,
+        "rejected_count": 0
+      }
+    ],
+    "candidate_decisions": [
+      {
+        "source_id": "engine.external-candidates",
+        "partition": "memory",
+        "stable_id": "external-candidate:ca069b54c91bbe8f8155ab417977e0e287d305bf91df41fa93bf2a0692b5c8cf",
+        "status": "RETAINED",
+        "reason_code": "VERIFIED_AND_RETAINED",
+        "score": 0.7675
+      },
+      {
+        "source_id": "engine.memory",
+        "partition": "memory",
+        "stable_id": "memory:p01-fixture-event-ccc6ff78ec7045da",
+        "status": "RETAINED",
+        "reason_code": "VERIFIED_AND_RETAINED",
+        "score": 0.6515
+      },
+      {
+        "source_id": "engine.subject-state",
+        "partition": "subject_state",
+        "stable_id": "sub-9982e94e4b5847ad:continuity",
+        "status": "RETAINED",
+        "reason_code": "VERIFIED_AND_RETAINED",
+        "score": 0.895
+      },
+      {
+        "source_id": "engine.subject-state",
+        "partition": "subject_state",
+        "stable_id": "sub-9982e94e4b5847ad:emotion_state",
+        "status": "RETAINED",
+        "reason_code": "VERIFIED_AND_RETAINED",
+        "score": 0.805
+      },
+      {
+        "source_id": "engine.subject-state",
+        "partition": "subject_state",
+        "stable_id": "sub-9982e94e4b5847ad:identity",
+        "status": "RETAINED",
+        "reason_code": "VERIFIED_AND_RETAINED",
+        "score": 0.865
+      },
+      {
+        "source_id": "engine.subject-state",
+        "partition": "subject_state",
+        "stable_id": "sub-9982e94e4b5847ad:intentions",
+        "status": "RETAINED",
+        "reason_code": "VERIFIED_AND_RETAINED",
+        "score": 0.85
+      },
+      {
+        "source_id": "engine.subject-state",
+        "partition": "subject_state",
+        "stable_id": "sub-9982e94e4b5847ad:relationship",
+        "status": "RETAINED",
+        "reason_code": "VERIFIED_AND_RETAINED",
+        "score": 1.0
+      },
+      {
+        "source_id": "engine.subject-state",
+        "partition": "subject_state",
+        "stable_id": "sub-9982e94e4b5847ad:temporal",
+        "status": "REJECTED",
+        "reason_code": "BELOW_RELEVANCE_THRESHOLD",
+        "score": 0.49
+      },
+      {
+        "source_id": "engine.timeline",
+        "partition": "timeline",
+        "stable_id": "p01-fixture-event-ccc6ff78ec7045da",
+        "status": "RETAINED",
+        "reason_code": "VERIFIED_AND_RETAINED",
+        "score": 0.705
+      }
+    ],
+    "budget_limit": 50,
+    "budget_used": 9
+  },
+  "composition": {
+    "trace_id": "composition-trace:p01-request-b27dbb7ca7c84606bbb203b40de4c7d5",
+    "request_id": "p01-request-b27dbb7ca7c84606bbb203b40de4c7d5",
+    "subject_id": "sub-9982e94e4b5847ad",
+    "environment": "TEST",
+    "source_revision": 1,
+    "composed_at": "2026-09-04T08:00:01Z",
+    "status": "COMPLETE",
+    "route_result_hash": "sha256:e3fc8eab72185e07f5f2731d42726459d4d1b4016edf6ba78d511baddc267397",
+    "route_plan_hash": "sha256:a6d1bb6c5e8342411fcd2439b05b25fe158deabcfaa8eccb8ff0c5b65703945c",
+    "manifest_hash": "sha256:6166e03f2ab8571bf576a78f028cd03f9aad612ee0181108befb78fdd39e19f0",
+    "p05_trace_hash": "sha256:767664bb4aa02c6d91da5e5ead846f7c44dbd3935c119b9d22d4ac9269d09030",
+    "feature_gate_version": "p06-context-composer-v1",
+    "budget": {
+      "core_fragment_limit": 10,
+      "token_limit": 768
+    },
+    "candidate_count": 8,
+    "resolved_count": 8,
+    "retained_count": 7,
+    "deduplicated_count": 0,
+    "excluded_count": 1,
+    "missing_count": 0,
+    "upstream_notice_count": 7,
+    "resolver_read_count": 8,
+    "resolver_read_counts": [
+      {
+        "source_id": "engine.derived-summary",
+        "read_count": 0
+      },
+      {
+        "source_id": "engine.external-candidates",
+        "read_count": 1
+      },
+      {
+        "source_id": "engine.memory",
+        "read_count": 1
+      },
+      {
+        "source_id": "engine.subject-state",
+        "read_count": 5
+      },
+      {
+        "source_id": "engine.timeline",
+        "read_count": 1
+      }
+    ],
+    "tokens_used": 763,
+    "decisions": [
+      {
+        "reference_id": "sha256:89f5b1f9ea4aba6d13d87221b641aeb6cac712429717b48344dea617701abecf",
+        "source_id": "engine.subject-state",
+        "stable_source_id": "sub-9982e94e4b5847ad:relationship",
+        "status": "RETAINED",
+        "reason_code": "PROTECTED_CONTEXT_RETAINED",
+        "authority": "confirmed_state",
+        "estimated_tokens": 123
+      },
+      {
+        "reference_id": "sha256:63c66b0a7e9b930cdf65e81b102cbba187e9993bfd5e1ecaf633ff5fc83aa466",
+        "source_id": "engine.subject-state",
+        "stable_source_id": "sub-9982e94e4b5847ad:continuity",
+        "status": "RETAINED",
+        "reason_code": "PROTECTED_CONTEXT_RETAINED",
+        "authority": "confirmed_state",
+        "estimated_tokens": 107
+      },
+      {
+        "reference_id": "sha256:defff2003dd75d884cec2064e94e193e9d2520d29e435788f72f2898c396801a",
+        "source_id": "engine.subject-state",
+        "stable_source_id": "sub-9982e94e4b5847ad:identity",
+        "status": "RETAINED",
+        "reason_code": "PROTECTED_CONTEXT_RETAINED",
+        "authority": "confirmed_state",
+        "estimated_tokens": 117
+      },
+      {
+        "reference_id": "sha256:1c975d183eafcfdf1a8b03911af5547b8437d35bc3276d87bc5a7391b0759fde",
+        "source_id": "engine.subject-state",
+        "stable_source_id": "sub-9982e94e4b5847ad:intentions",
+        "status": "RETAINED",
+        "reason_code": "VERIFIED_CONTEXT_RETAINED",
+        "authority": "confirmed_state",
+        "estimated_tokens": 104
+      },
+      {
+        "reference_id": "sha256:e6ce30da3fd56dc7bd51c212ce24c88a5657ca91c7eb5e5a15cf75e5aef053d8",
+        "source_id": "engine.subject-state",
+        "stable_source_id": "sub-9982e94e4b5847ad:emotion_state",
+        "status": "RETAINED",
+        "reason_code": "VERIFIED_CONTEXT_RETAINED",
+        "authority": "confirmed_state",
+        "estimated_tokens": 105
+      },
+      {
+        "reference_id": "sha256:ebcd7f47c51578e60d5bc47c70f41aec3d2d58b1bc318814350c9bc35fa937b2",
+        "source_id": "engine.external-candidates",
+        "stable_source_id": "external-candidate:ca069b54c91bbe8f8155ab417977e0e287d305bf91df41fa93bf2a0692b5c8cf",
+        "status": "EXCLUDED",
+        "reason_code": "CONTEXT_TOKEN_BUDGET_EXHAUSTED",
+        "authority": "retrieved_candidate",
+        "estimated_tokens": 220
+      },
+      {
+        "reference_id": "sha256:8608465fe420fd3db2617d9b5131d29b2ceec14443b8554b9e5a0e75c859b1b6",
+        "source_id": "engine.timeline",
+        "stable_source_id": "p01-fixture-event-ccc6ff78ec7045da",
+        "status": "RETAINED",
+        "reason_code": "VERIFIED_CONTEXT_RETAINED",
+        "authority": "raw_source",
+        "estimated_tokens": 105
+      },
+      {
+        "reference_id": "sha256:ac94fbf5d5052e87b8bb18482f739a42c7072be588f50abff683843f1b917b7d",
+        "source_id": "engine.memory",
+        "stable_source_id": "memory:p01-fixture-event-ccc6ff78ec7045da",
+        "status": "RETAINED",
+        "reason_code": "VERIFIED_CONTEXT_RETAINED",
+        "authority": "confirmed_memory",
+        "estimated_tokens": 102
+      }
+    ],
+    "upstream_notices": [
+      {
+        "reference_id": "sha256:e2a913f2256771da1421c917f5cde72154a62b6762c8abe4d7bfdea93ee0c307",
+        "source_id": "p05.route",
+        "stable_source_id": "partition:derived_summary",
+        "required": false,
+        "reason_code": "ROUTER_PARTITION_EMPTY"
+      },
+      {
+        "reference_id": "sha256:df7b32d6f7e4d0231a3ccba0a70651221c0e6f493134119da9805ceb4fc3d04f",
+        "source_id": "p05.route",
+        "stable_source_id": "partition:local_fact",
+        "required": false,
+        "reason_code": "ROUTER_PARTITION_UNAVAILABLE"
+      },
+      {
+        "reference_id": "sha256:a0ca0f7e159ed20e08904da0ec3a6754acf5797073a425dccc234d1feb5a0633",
+        "source_id": "p05.route",
+        "stable_source_id": "partition:attention",
+        "required": false,
+        "reason_code": "ROUTER_PARTITION_NOT_OPENED"
+      },
+      {
+        "reference_id": "sha256:422c57f2b44e5e55bcd91e8474878c004dacf0e746ab05840ebb93f9e4513f3e",
+        "source_id": "p05.route",
+        "stable_source_id": "partition:desire",
+        "required": false,
+        "reason_code": "ROUTER_PARTITION_NOT_OPENED"
+      },
+      {
+        "reference_id": "sha256:4676880790619db12597f80674df1b86d9c941aa126d79e9154f3e3bdfa0bc1d",
+        "source_id": "p05.route",
+        "stable_source_id": "partition:conflict",
+        "required": false,
+        "reason_code": "ROUTER_PARTITION_NOT_OPENED"
+      },
+      {
+        "reference_id": "sha256:49a5de380b798746d01d40c3bc8c573430c5302255610f45647360e358ab84d3",
+        "source_id": "p05.route",
+        "stable_source_id": "partition:somatic",
+        "required": false,
+        "reason_code": "ROUTER_PARTITION_NOT_OPENED"
+      },
+      {
+        "reference_id": "sha256:2825e7308a2ee60bfd6b152c307d9c7bbd3e43212101dd7e5cdd844fba693aea",
+        "source_id": "p05.route",
+        "stable_source_id": "partition:expression",
+        "required": false,
+        "reason_code": "ROUTER_PARTITION_NOT_OPENED"
+      }
+    ],
+    "trace_hash": "sha256:b08ac103c7affd2a1466907a347bd88878585bc58a470eb4f4b2c008ac001814"
+  }
+}

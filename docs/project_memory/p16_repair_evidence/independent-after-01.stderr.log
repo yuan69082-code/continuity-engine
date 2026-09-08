@@ -1,0 +1,14 @@
+test_broker_authorization_exception_must_not_leak_in_diagnostics (test_independent_edges.IndependentEdges.test_broker_authorization_exception_must_not_leak_in_diagnostics) ... ok
+test_broker_material_exception_must_not_leak_in_diagnostics (test_independent_edges.IndependentEdges.test_broker_material_exception_must_not_leak_in_diagnostics) ... ok
+test_denied_external_query_is_not_copied_into_new_persistent_material (test_independent_edges.IndependentEdges.test_denied_external_query_is_not_copied_into_new_persistent_material) ... ok
+test_permission_port_exception_must_not_leak_in_diagnostics (test_independent_edges.IndependentEdges.test_permission_port_exception_must_not_leak_in_diagnostics) ... ok
+test_positive_normal_query_still_consumes_candidate (test_independent_edges.IndependentEdges.test_positive_normal_query_still_consumes_candidate) ... ok
+test_positive_ordinary_psychological_query_is_not_censored (test_independent_edges.IndependentEdges.test_positive_ordinary_psychological_query_is_not_censored) ... ok
+test_positive_provider_result_exception_is_sanitized (test_independent_edges.IndependentEdges.test_positive_provider_result_exception_is_sanitized) ... ok
+test_positive_safe_provider_receipt_id_remains_recoverable (test_independent_edges.IndependentEdges.test_positive_safe_provider_receipt_id_remains_recoverable) ... ok
+test_secret_receipt_identifier_must_not_be_persisted_by_engine (test_independent_edges.IndependentEdges.test_secret_receipt_identifier_must_not_be_persisted_by_engine) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 8.479s
+
+OK

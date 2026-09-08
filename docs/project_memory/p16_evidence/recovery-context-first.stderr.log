@@ -1,0 +1,170 @@
+test_cache_expiry_excludes_candidate_without_refresh_call (test_p16_context.ContextTests.test_cache_expiry_excludes_candidate_without_refresh_call) ... ok
+test_cache_rehashed_payload_tamper_still_checks_original_fact (test_p16_context.ContextTests.test_cache_rehashed_payload_tamper_still_checks_original_fact) ... ok
+test_credential_revocation_excludes_current_cache (test_p16_context.ContextTests.test_credential_revocation_excludes_current_cache) ... ok
+test_cross_subject_result_rejected_even_from_local_provider (test_p16_context.ContextTests.test_cross_subject_result_rejected_even_from_local_provider) ... ok
+test_external_event_identity_cannot_be_internal_root (test_p16_context.ContextTests.test_external_event_identity_cannot_be_internal_root) ... ok
+test_malicious_mutation_field_rejected_before_cache (test_p16_context.ContextTests.test_malicious_mutation_field_rejected_before_cache) ... ok
+test_offline_timeout_cancel_and_empty_are_explicit_results (test_p16_context.ContextTests.test_offline_timeout_cancel_and_empty_are_explicit_results) ... 
+  test_offline_timeout_cancel_and_empty_are_explicit_results (test_p16_context.ContextTests.test_offline_timeout_cancel_and_empty_are_explicit_results) (mode='offline') ... ERROR
+  test_offline_timeout_cancel_and_empty_are_explicit_results (test_p16_context.ContextTests.test_offline_timeout_cancel_and_empty_are_explicit_results) (mode='timeout') ... ERROR
+  test_offline_timeout_cancel_and_empty_are_explicit_results (test_p16_context.ContextTests.test_offline_timeout_cancel_and_empty_are_explicit_results) (mode='cancelled') ... ERROR
+  test_offline_timeout_cancel_and_empty_are_explicit_results (test_p16_context.ContextTests.test_offline_timeout_cancel_and_empty_are_explicit_results) (mode='empty') ... ERROR
+test_registry_wrong_environment_rejected_without_write (test_p16_context.ContextTests.test_registry_wrong_environment_rejected_without_write) ... ok
+test_revocation_invalidates_already_composed_context (test_p16_context.ContextTests.test_revocation_invalidates_already_composed_context) ... ok
+test_revoke_during_result_read_blocks_consumption_and_cache_write (test_p16_context.ContextTests.test_revoke_during_result_read_blocks_consumption_and_cache_write) ... ok
+test_same_request_payload_hash_conflict_is_rejected (test_p16_context.ContextTests.test_same_request_payload_hash_conflict_is_rejected) ... ok
+test_atomic_registry_failure_keeps_original_bytes (test_p16_recovery.RecoveryTests.test_atomic_registry_failure_keeps_original_bytes) ... ok
+test_completed_replay_rechecks_receipt_without_reexecution (test_p16_recovery.RecoveryTests.test_completed_replay_rechecks_receipt_without_reexecution) ... ok
+test_completed_replay_survives_revocation_without_new_consumption (test_p16_recovery.RecoveryTests.test_completed_replay_survives_revocation_without_new_consumption) ... ok
+test_historical_success_unknown_query_cannot_replay_completed (test_p16_recovery.RecoveryTests.test_historical_success_unknown_query_cannot_replay_completed) ... ERROR
+test_lost_response_after_receipt_can_close_after_revocation_without_consuming (test_p16_recovery.RecoveryTests.test_lost_response_after_receipt_can_close_after_revocation_without_consuming) ... ERROR
+test_p01_snapshot_covers_registry_cache_and_receipts (test_p16_recovery.RecoveryTests.test_p01_snapshot_covers_registry_cache_and_receipts) ... ERROR
+test_provider_error_secret_never_enters_engine_files (test_p16_recovery.RecoveryTests.test_provider_error_secret_never_enters_engine_files) ... ok
+test_reserved_not_executed_after_revocation_cannot_dispatch (test_p16_recovery.RecoveryTests.test_reserved_not_executed_after_revocation_cannot_dispatch) ... ok
+test_string_not_executed_is_unknown (test_p16_recovery.RecoveryTests.test_string_not_executed_is_unknown) ... ok
+test_unknown_does_not_execute_even_with_explicit_retry (test_p16_recovery.RecoveryTests.test_unknown_does_not_execute_even_with_explicit_retry) ... ok
+
+======================================================================
+ERROR: test_offline_timeout_cancel_and_empty_are_explicit_results (test_p16_context.ContextTests.test_offline_timeout_cancel_and_empty_are_explicit_results) (mode='offline')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p16_context.py", line 63, in test_offline_timeout_cancel_and_empty_are_explicit_results
+    self.assertEqual(f.core.last_trace['external_result']['candidate_count'],0)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+KeyError: 'external_result'
+
+======================================================================
+ERROR: test_offline_timeout_cancel_and_empty_are_explicit_results (test_p16_context.ContextTests.test_offline_timeout_cancel_and_empty_are_explicit_results) (mode='timeout')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p16_context.py", line 63, in test_offline_timeout_cancel_and_empty_are_explicit_results
+    self.assertEqual(f.core.last_trace['external_result']['candidate_count'],0)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+KeyError: 'external_result'
+
+======================================================================
+ERROR: test_offline_timeout_cancel_and_empty_are_explicit_results (test_p16_context.ContextTests.test_offline_timeout_cancel_and_empty_are_explicit_results) (mode='cancelled')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p16_context.py", line 63, in test_offline_timeout_cancel_and_empty_are_explicit_results
+    self.assertEqual(f.core.last_trace['external_result']['candidate_count'],0)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+KeyError: 'external_result'
+
+======================================================================
+ERROR: test_offline_timeout_cancel_and_empty_are_explicit_results (test_p16_context.ContextTests.test_offline_timeout_cancel_and_empty_are_explicit_results) (mode='empty')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p16_context.py", line 63, in test_offline_timeout_cancel_and_empty_are_explicit_results
+    self.assertEqual(f.core.last_trace['external_result']['candidate_count'],0)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+KeyError: 'external_result'
+
+======================================================================
+ERROR: test_historical_success_unknown_query_cannot_replay_completed (test_p16_recovery.RecoveryTests.test_historical_success_unknown_query_cannot_replay_completed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 213, in submit
+    self._verify_core_completed(completed_operation, lookup.result)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 1076, in _verify_core_completed
+    core.after_action(operation, thinking, progress.action, replay=True)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 363, in after_action
+    attempts = self.coordination.action_attempts(request, receipt_verifier=binding.adapter)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\capability_coordination_service.py", line 78, in action_attempts
+    self._verify_action_result_evidence(attempt.result, receipt_verifier)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\capability_coordination_service.py", line 98, in _verify_action_result_evidence
+    cls._verify_action_receipt(checked.request, checked.receipt, verifier)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\capability_coordination_service.py", line 111, in _verify_action_receipt
+    raise CapabilityValidationError("EXECUTION_FACT_UNVERIFIED_OR_DRIFTED")
+continuity_engine.domain.errors.CapabilityValidationError: EXECUTION_FACT_UNVERIFIED_OR_DRIFTED
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p16_recovery.py", line 46, in test_historical_success_unknown_query_cannot_replay_completed
+    with self.assertRaises(CapabilityValidationError):f.submit(r)
+                                                      ~~~~~~~~^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p16_provider_fixture.py", line 160, in submit
+    request=request or self.request();value=self.app.adapter.submit(request)
+                                            ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 277, in submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during ledger.
+
+======================================================================
+ERROR: test_lost_response_after_receipt_can_close_after_revocation_without_consuming (test_p16_recovery.RecoveryTests.test_lost_response_after_receipt_can_close_after_revocation_without_consuming)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 265, in submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 771, in _run_domain
+    return self._complete_domain_after_thinking(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        operation,
+        ^^^^^^^^^^
+    ...<2 lines>...
+        thinking,
+        ^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 998, in _complete_domain_after_thinking
+    self._continuity_core.after_action(operation, thinking, action)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 371, in after_action
+    self.external_capabilities.collect(self.last_action)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\external_capability_service.py", line 127, in collect
+    value=self._verified(r,consume=True);self.last_outcome=value.status
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\external_capability_service.py", line 108, in _verified
+    if consume:self.require_current(d,'consume')
+               ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\external_capability_service.py", line 93, in require_current
+    if not self.permissions.authorize(d,at=c.clock(),purpose=purpose):raise ExternalCapabilityError('EXTERNAL_PERMISSION_DENIED')
+                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+continuity_engine.domain.external_capabilities.ExternalCapabilityError: EXTERNAL_PERMISSION_DENIED
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p16_recovery.py", line 29, in test_lost_response_after_receipt_can_close_after_revocation_without_consuming
+    self.assertEqual(f.external_calls,1);f.revoke();f.reopen();f.submit(r)
+                                                               ~~~~~~~~^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p16_provider_fixture.py", line 160, in submit
+    request=request or self.request();value=self.app.adapter.submit(request)
+                                            ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 277, in submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.
+
+======================================================================
+ERROR: test_p01_snapshot_covers_registry_cache_and_receipts (test_p16_recovery.RecoveryTests.test_p01_snapshot_covers_registry_cache_and_receipts)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p16_recovery.py", line 60, in test_p01_snapshot_covers_registry_cache_and_receipts
+    f=self.f;f.submit();snapshot=f.manager.create_snapshot(f.runtime.descriptor.sandbox_id,expected_revision=f.state.revision)
+                                 ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\sandbox.py", line 901, in create_snapshot
+    raise SandboxOperationError(
+    ...<2 lines>...
+    )
+continuity_engine.testing.models.SandboxOperationError: SNAPSHOT_INCOMPLETE: snapshot physical inventory contains missing or unmapped files
+
+----------------------------------------------------------------------
+Ran 21 tests in 20.972s
+
+FAILED (errors=7)

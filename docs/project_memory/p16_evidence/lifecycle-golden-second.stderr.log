@@ -1,0 +1,50 @@
+test_archived_and_deleted_subjects_do_not_consume_or_execute (test_p16_recovery.RecoveryTests.test_archived_and_deleted_subjects_do_not_consume_or_execute) ... ok
+test_paused_subject_blocks_new_query_and_current_cache_but_recovers_fact (test_p16_recovery.RecoveryTests.test_paused_subject_blocks_new_query_and_current_cache_but_recovers_fact) ... ERROR
+test_three_real_process_golden_recovers_replaces_and_revokes (test_p16_recovery.RecoveryTests.test_three_real_process_golden_recovers_replaces_and_revokes) ... FAIL
+
+======================================================================
+ERROR: test_paused_subject_blocks_new_query_and_current_cache_but_recovers_fact (test_p16_recovery.RecoveryTests.test_paused_subject_blocks_new_query_and_current_cache_but_recovers_fact)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 273, in submit
+    return self._finish_operation(binding, operation, thinking_execution)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 481, in _finish_operation
+    result = self._build_result(binding, operation)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 1568, in _build_result
+    raise RuntimeError("authoritative SubjectState no longer matches the operation checkpoint")
+RuntimeError: authoritative SubjectState no longer matches the operation checkpoint
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p16_recovery.py", line 111, in test_paused_subject_blocks_new_query_and_current_cache_but_recovers_fact
+    f.lifecycle('SUSPEND');state=f.state.to_dict();f.reopen();f.submit(r)
+                                                              ~~~~~~~~^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p16_provider_fixture.py", line 160, in submit
+    request=request or self.request();value=self.app.adapter.submit(request)
+                                            ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 277, in submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during completion.
+
+======================================================================
+FAIL: test_three_real_process_golden_recovers_replaces_and_revokes (test_p16_recovery.RecoveryTests.test_three_real_process_golden_recovers_replaces_and_revokes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p16_recovery.py", line 104, in test_three_real_process_golden_recovers_replaces_and_revokes
+    records=run_golden(Path(self.temp.name)/'child-golden')
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p16_provider_fixture.py", line 242, in run_golden
+    if completed.returncode:raise AssertionError('P16 Golden child failed: '+phase)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: P16 Golden child failed: prepare
+
+----------------------------------------------------------------------
+Ran 3 tests in 3.270s
+
+FAILED (failures=1, errors=1)

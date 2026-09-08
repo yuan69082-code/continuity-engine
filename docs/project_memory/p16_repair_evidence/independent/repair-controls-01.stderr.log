@@ -1,0 +1,9 @@
+test_alternate_exception_text_is_sanitized_at_registration_and_consumption (test_repair_independent_controls.RepairControls.test_alternate_exception_text_is_sanitized_at_registration_and_consumption) ... ok
+test_alternate_prohibited_receipt_stays_unknown_without_redispatch (test_repair_independent_controls.RepairControls.test_alternate_prohibited_receipt_stays_unknown_without_redispatch) ... ok
+test_non_boolean_truthy_answers_do_not_authorize (test_repair_independent_controls.RepairControls.test_non_boolean_truthy_answers_do_not_authorize) ... ok
+test_processor_output_is_checked_again_before_think_session_save (test_repair_independent_controls.RepairControls.test_processor_output_is_checked_again_before_think_session_save) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 3.843s
+
+OK

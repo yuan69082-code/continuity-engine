@@ -1,0 +1,17 @@
+test_archived_and_deleted_subjects_do_not_consume_or_execute (test_p16_recovery.RecoveryTests.test_archived_and_deleted_subjects_do_not_consume_or_execute) ... ok
+test_paused_subject_blocks_new_query_and_current_cache_but_recovers_fact (test_p16_recovery.RecoveryTests.test_paused_subject_blocks_new_query_and_current_cache_but_recovers_fact) ... ERROR
+test_three_real_process_golden_recovers_replaces_and_revokes (test_p16_recovery.RecoveryTests.test_three_real_process_golden_recovers_replaces_and_revokes) ... ok
+
+======================================================================
+ERROR: test_paused_subject_blocks_new_query_and_current_cache_but_recovers_fact (test_p16_recovery.RecoveryTests.test_paused_subject_blocks_new_query_and_current_cache_but_recovers_fact)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p16_recovery.py", line 118, in test_paused_subject_blocks_new_query_and_current_cache_but_recovers_fact
+    attempts=f.core.coordination.action_attempts(original,receipt_verifier=f.core.action_planning.capabilities[original.capability_type].adapter)
+                                                                           ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ContinuityCoreService' object has no attribute 'action_planning'
+
+----------------------------------------------------------------------
+Ran 3 tests in 11.071s
+
+FAILED (errors=1)

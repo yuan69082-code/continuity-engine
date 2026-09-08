@@ -292,6 +292,7 @@ class ContinuityInteractionService:
         assert self._capabilities is not None
         self.last_call_log = []
         self._record("capability_result_validation")
+        self._validate_capability_material(payload)
         validated_result = self._capabilities.validator.validate_result(payload)
         request_id = validated_result.request_id
         operation = self._ledger.load_operation(request_id)
@@ -414,6 +415,8 @@ class ContinuityInteractionService:
                 latest = self._capabilities.latest_attempt(
                     request.capability_request_id
                 )
+                if latest is not None:
+                    self._validate_capability_material(latest.result.to_dict())
                 if latest is None or latest.result.status.requires_capability:
                     return self._capability_required(operation, request)
                 if latest.result.status.failed_terminally:
@@ -738,6 +741,7 @@ class ContinuityInteractionService:
                 think_id=progress.think_session_id,
                 result_id=progress.thinking_result_id,
                 preserve_perception_snapshot=True,
+                **self._thinking_material_options(),
                 **({'result_processor': self._continuity_core.process_thinking}
                    if self._continuity_core is not None and (self._continuity_core.mind is not None or self._continuity_core.growth is not None) else {}),
             )
@@ -820,6 +824,8 @@ class ContinuityInteractionService:
             )
 
         latest = self._capabilities.latest_attempt(request.capability_request_id)
+        if latest is not None:
+            self._validate_capability_material(latest.result.to_dict())
         checkpoint = IntegrationCapabilityCheckpoint(
             capability_request_id=request.capability_request_id,
             status=(latest.result.status if latest is not None else CapabilityStatus.PROPOSED),
@@ -861,6 +867,7 @@ class ContinuityInteractionService:
         awakening: AwakeningResult | None = None,
     ) -> tuple[IntegrationOperationRecord, ThinkingExecutionResult]:
         assert self._capabilities is not None
+        self._validate_capability_material(result.to_dict())
         progress = operation.domain_progress
         if progress is None or progress.perception is None:
             raise CapabilityValidationError(
@@ -907,6 +914,7 @@ class ContinuityInteractionService:
                 think_id=progress.think_session_id,
                 result=thinking_result,
                 ended_at=_contract_datetime(result.completed_at),
+                **self._thinking_material_options(),
                 **({'result_processor': self._continuity_core.process_thinking}
                    if self._continuity_core is not None and (self._continuity_core.mind is not None or self._continuity_core.growth is not None) else {}),
             )
@@ -1154,6 +1162,8 @@ class ContinuityInteractionService:
                 "waiting operation is missing its CapabilityRequest"
             )
         latest = self._capabilities.latest_attempt(request.capability_request_id)
+        if latest is not None:
+            self._validate_capability_material(latest.result.to_dict())
         if latest is not None and latest.result.status.failed_terminally:
             return self._capability_failed(operation, latest.result)
         return self._capability_required(operation, request)
@@ -1388,6 +1398,17 @@ class ContinuityInteractionService:
                 "persisted ThinkSession observation does not match PerceptionResult"
             )
 
+    def _thinking_material_options(self):
+        core = self._continuity_core
+        if core is not None and core.enabled and core.external_capabilities is not None:
+            return {'result_validator': core.external_capabilities.validate_thinking_material}
+        return {}
+
+    def _validate_capability_material(self, material):
+        core = self._continuity_core
+        if core is not None and core.enabled and core.external_capabilities is not None:
+            core.external_capabilities.validate_input_material(material)
+
     def _validate_completed_thinking(
         self,
         session: ThinkSession,
@@ -1396,6 +1417,9 @@ class ContinuityInteractionService:
         progress: IntegrationDomainProgress,
         perception: PerceptionResult,
     ) -> None:
+        validator = self._thinking_material_options().get('result_validator')
+        if validator is not None and session.result is not None:
+            validator(perception, session.result)
         if (
             session.think_id != progress.think_session_id
             or session.wake_session_id != progress.wake_session_id

@@ -1,0 +1,67 @@
+test_c1_capability_ingress_rejects_before_original_ledger_write (test_p16_repair_edges.RepairEdges.test_c1_capability_ingress_rejects_before_original_ledger_write) ... ok
+test_c1_capability_restore_rechecks_material_before_checkpoint (test_p16_repair_edges.RepairEdges.test_c1_capability_restore_rechecks_material_before_checkpoint) ... ok
+test_c1_capability_safe_result_replay_preserves_fact_hash (test_p16_repair_edges.RepairEdges.test_c1_capability_safe_result_replay_preserves_fact_hash) ... ERROR
+test_completed_replay_rejects_material_without_rewriting_fact_or_ledger (test_p16_repair_edges.RepairEdges.test_completed_replay_rejects_material_without_rewriting_fact_or_ledger) ... ok
+test_newly_prohibited_completed_material_is_not_replayed_or_rewritten (test_p16_repair_edges.RepairEdges.test_newly_prohibited_completed_material_is_not_replayed_or_rewritten) ... ok
+test_normal_permission_and_reference_denial_still_reject (test_p16_repair_edges.RepairEdges.test_normal_permission_and_reference_denial_still_reject) ... ok
+test_optional_thinking_check_precedes_growth_and_preserves_gate_off (test_p16_repair_edges.RepairEdges.test_optional_thinking_check_precedes_growth_and_preserves_gate_off) ... ok
+test_query_is_rejected_before_any_think_result_save_or_processor (test_p16_repair_edges.RepairEdges.test_query_is_rejected_before_any_think_result_save_or_processor) ... ok
+test_recovery_broker_failure_is_unknown_not_permission_or_execution (test_p16_repair_edges.RepairEdges.test_recovery_broker_failure_is_unknown_not_permission_or_execution) ... ok
+test_registration_port_exceptions_are_static_and_zero_write (test_p16_repair_edges.RepairEdges.test_registration_port_exceptions_are_static_and_zero_write) ... ok
+test_rejected_execution_receipt_is_unknown_and_recovers_without_redispatch (test_p16_repair_edges.RepairEdges.test_rejected_execution_receipt_is_unknown_and_recovers_without_redispatch) ... ok
+test_selection_execution_consumption_port_exceptions_fail_closed (test_p16_repair_edges.RepairEdges.test_selection_execution_consumption_port_exceptions_fail_closed) ... ok
+test_wait_completion_and_completed_replay_keep_original_result_identity (test_p16_repair_edges.RepairEdges.test_wait_completion_and_completed_replay_keep_original_result_identity) ... ok
+test_wait_completion_rejects_before_resume_write_or_processing (test_p16_repair_edges.RepairEdges.test_wait_completion_rejects_before_resume_write_or_processing) ... ok
+test_whole_receipt_is_checked_on_query_and_execute (test_p16_repair_edges.RepairEdges.test_whole_receipt_is_checked_on_query_and_execute) ... ok
+test_whole_thinking_material_not_only_query_is_checked (test_p16_repair_edges.RepairEdges.test_whole_thinking_material_not_only_query_is_checked) ... ok
+test_broker_authorization_exception_must_not_leak_in_diagnostics (test_p16_review_regressions.IndependentEdges.test_broker_authorization_exception_must_not_leak_in_diagnostics) ... ok
+test_broker_material_exception_must_not_leak_in_diagnostics (test_p16_review_regressions.IndependentEdges.test_broker_material_exception_must_not_leak_in_diagnostics) ... ok
+test_denied_external_query_is_not_copied_into_new_persistent_material (test_p16_review_regressions.IndependentEdges.test_denied_external_query_is_not_copied_into_new_persistent_material) ... ok
+test_permission_port_exception_must_not_leak_in_diagnostics (test_p16_review_regressions.IndependentEdges.test_permission_port_exception_must_not_leak_in_diagnostics) ... ok
+test_positive_normal_query_still_consumes_candidate (test_p16_review_regressions.IndependentEdges.test_positive_normal_query_still_consumes_candidate) ... ok
+test_positive_ordinary_psychological_query_is_not_censored (test_p16_review_regressions.IndependentEdges.test_positive_ordinary_psychological_query_is_not_censored) ... ok
+test_positive_provider_result_exception_is_sanitized (test_p16_review_regressions.IndependentEdges.test_positive_provider_result_exception_is_sanitized) ... ok
+test_positive_safe_provider_receipt_id_remains_recoverable (test_p16_review_regressions.IndependentEdges.test_positive_safe_provider_receipt_id_remains_recoverable) ... ok
+test_secret_receipt_identifier_must_not_be_persisted_by_engine (test_p16_review_regressions.IndependentEdges.test_secret_receipt_identifier_must_not_be_persisted_by_engine) ... ok
+
+======================================================================
+ERROR: test_c1_capability_safe_result_replay_preserves_fact_hash (test_p16_repair_edges.RepairEdges.test_c1_capability_safe_result_replay_preserves_fact_hash)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p16_repair_edges.py", line 290, in test_c1_capability_safe_result_replay_preserves_fact_hash
+    result = f.app.adapter.submit_capability_result(payload)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 55, in submit_capability_result
+    return self._service.submit_capability_result(payload)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 357, in submit_capability_result
+    operation, thinking = self._resume_capability_domain(
+                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        operation,
+        ^^^^^^^^^^
+        binding,
+        ^^^^^^^^
+        result,
+        ^^^^^^^
+    )
+    ^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 961, in _resume_capability_domain
+    return self._complete_domain_after_thinking(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        operation,
+        ^^^^^^^^^^
+    ...<2 lines>...
+        thinking,
+        ^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 1006, in _complete_domain_after_thinking
+    self._continuity_core.after_action(operation, thinking, action)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 374, in after_action
+    raise CapabilityValidationError("C1_ACTION_" + self.last_action.status)
+continuity_engine.domain.errors.CapabilityValidationError: C1_ACTION_WAITING_CAPABILITY
+
+----------------------------------------------------------------------
+Ran 25 tests in 22.672s
+
+FAILED (errors=1)

@@ -62,12 +62,21 @@ def build_continuity_core(*, data_dir, binding, ledger, subject_states, action_g
             "derived_summary")])
     sources.extend(extra_sources)
     resolvers.extend(extra_resolvers)
+    external=options.pop('external_capabilities',None)
+    if external is not None and gates.enabled:
+        from .external_context_source import ExternalContextSource
+        source=ExternalContextSource(external)
+        sources.append(ContextSourceBinding(source))
+        resolvers.append(TrustedContextResolverBinding(source,ContextAuthority.RETRIEVED_CANDIDATE,'external_candidate'))
+        capabilities=(*capabilities,*external.bindings())
+        options['policy']=external.policy(options.get('policy'))
+    else:external=None
     repository = JsonContradictionRepository(data_dir, environment=environment,
                                               resolution_evidence_verifier=resolution_verifier)
     if options.get('subject_growth'):
         from continuity_engine.storage.json_learning_repository import JsonLearningRepository
         options['growth_repository']=JsonLearningRepository(data_dir)
-    return ContinuityCoreService(subject_id=binding.subject_id, environment=environment,
+    core=ContinuityCoreService(subject_id=binding.subject_id, environment=environment,
         router=ContextRouterService(sources, permission_policy=permission, enabled=gates.enabled),
         composer=ContextComposerService(resolvers, clock=clock, enabled=gates.enabled,
                                         material_token_cost=model_material_tokens),
@@ -76,4 +85,7 @@ def build_continuity_core(*, data_dir, binding, ledger, subject_states, action_g
         timeline=timeline, memory_repository=memory,
         consolidation=MemoryConsolidationService(memory, clock=clock), subject_states=subject_states,
         coordination=CapabilityCoordinationService(ledger), action_gate=action_gate, constraints=constraints,
-        capabilities=capabilities, clock=clock, permission_policy=permission, gates=gates, **options)
+        capabilities=capabilities, clock=clock, permission_policy=permission, gates=gates,
+        external_capabilities=external, **options)
+    if external is not None:external.bind(core)
+    return core

@@ -1,0 +1,95 @@
+test_broker_authorization_exception_must_not_leak_in_diagnostics (test_independent_edges.IndependentEdges.test_broker_authorization_exception_must_not_leak_in_diagnostics) ... ok
+test_broker_material_exception_must_not_leak_in_diagnostics (test_independent_edges.IndependentEdges.test_broker_material_exception_must_not_leak_in_diagnostics) ... ok
+test_denied_external_query_is_not_copied_into_new_persistent_material (test_independent_edges.IndependentEdges.test_denied_external_query_is_not_copied_into_new_persistent_material) ... ok
+test_permission_port_exception_must_not_leak_in_diagnostics (test_independent_edges.IndependentEdges.test_permission_port_exception_must_not_leak_in_diagnostics) ... ok
+test_positive_normal_query_still_consumes_candidate (test_independent_edges.IndependentEdges.test_positive_normal_query_still_consumes_candidate) ... ERROR
+test_positive_provider_result_exception_is_sanitized (test_independent_edges.IndependentEdges.test_positive_provider_result_exception_is_sanitized) ... ok
+test_secret_receipt_identifier_must_not_be_persisted_by_engine (test_independent_edges.IndependentEdges.test_secret_receipt_identifier_must_not_be_persisted_by_engine) ... ok
+
+======================================================================
+ERROR: test_positive_normal_query_still_consumes_candidate (test_independent_edges.IndependentEdges.test_positive_normal_query_still_consumes_candidate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 602, in _run_domain
+    wake_session = self._awakening.get_session(
+        operation.subject_id,
+        progress.wake_session_id,
+    )
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\awakening_service.py", line 162, in get_session
+    return self._repository.load_session(subject_id, session_id)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_awakening_repository.py", line 86, in load_session
+    raise StateNotFoundError(f"wake session not found: {session_id}")
+continuity_engine.domain.errors.StateNotFoundError: wake session not found: e2c915ac-973e-5934-97ce-f3f90eca1d69
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 265, in submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 607, in _run_domain
+    awakening = self._awakening.wake_manual(
+        binding.cycle_id,
+    ...<3 lines>...
+        preserve_recovery_context=True,
+    )
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\awakening_service.py", line 109, in wake_manual
+    return self._run(
+           ~~~~~~~~~^
+        cycle,
+        ^^^^^^
+    ...<3 lines>...
+        preserve_recovery_context=preserve_recovery_context,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\awakening_service.py", line 266, in _run
+    self._repository.save_session(session)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_awakening_repository.py", line 81, in save_session
+    self._write_json(path, session.to_dict())
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_awakening_repository.py", line 118, in _write_json
+    with tempfile.NamedTemporaryFile(
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        mode="w",
+        ^^^^^^^^^
+    ...<5 lines>...
+        delete=False,
+        ^^^^^^^^^^^^^
+    ) as temporary:
+    ^
+  File "E:\Adobe\Lib\tempfile.py", line 603, in NamedTemporaryFile
+    file = _io.open(dir, mode, buffering=buffering,
+                    newline=newline, encoding=encoding, errors=errors,
+                    opener=opener)
+  File "E:\Adobe\Lib\tempfile.py", line 600, in opener
+    fd, name = _mkstemp_inner(dir, prefix, suffix, flags, output_type)
+               ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Adobe\Lib\tempfile.py", line 255, in _mkstemp_inner
+    fd = _os.open(file, flags, 0o600)
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\Administrator\\AppData\\Local\\Temp\\p16-independent-k56trpoy\\s\\s\\s59a13c26\\b\\bc3e39c41\\data\\awakening\\sessions\\10179069031b9f7b799e1eff9cab1d5bc9959241dd9522fa98518e7886efa5f6\\.30729edce824ea2f73a8ccdd8f731378e8dc31a7e7f07d27eea82dbec350cde2.inhql_vw.tmp'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\p16-independent-review-20260909\test_independent_edges.py", line 38, in test_positive_normal_query_still_consumes_candidate
+    f.submit()
+    ~~~~~~~~^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p16_provider_fixture.py", line 163, in submit
+    request=request or self.request();value=self.app.adapter.submit(request)
+                                            ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 277, in submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.
+
+----------------------------------------------------------------------
+Ran 7 tests in 3.142s
+
+FAILED (errors=1)

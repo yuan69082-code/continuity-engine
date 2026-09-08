@@ -1,0 +1,35 @@
+<!-- P16_REPAIR_CURRENT_START -->
+当前有效任务：P16 R1/R2/R3 返修已实现，等待独立复核。P16 / Engine side / 十二项 IMPLEMENTED_NOT_ACCEPTED；P00—P15 ACCEPTED；P17—P23 NOT_STARTED；Vio dependency = NONE。PLANNING_CONFLICT = NONE；EVIDENCE_CONFLICT = PRESENT，独立确认前不关闭。D-068 追加返修事实，D-069 未创建/未使用。
+
+本轮 P16：78 项，78 PASS、0 SKIP、0 FAIL、0 ERROR，112.609 秒，退出码 0；兼容：676 项，675 PASS、1 SKIP、0 FAIL、0 ERROR，501.254 秒，退出码 0；最终全量：1286 项，1285 PASS、1 SKIP、0 FAIL、0 ERROR，1072.026 秒，退出码 0。下方此前施工结论及数字保留为历史。
+
+见 [返修报告](p16_repair_evidence/final-report.md)、[接续记录](P16_独立复核返修_R1-R3.md)。
+<!-- P16_REPAIR_CURRENT_END -->
+
+# P16施工测试验收矩阵
+
+本表是对原规划的施工分解，不冒充原件编号。十二项均 IMPLEMENTED_NOT_ACCEPTED，等待独立复核和用户验收；未就绪生产能力见[恢复语义](77_P16_外部候选凭据缓存与恢复语义.md)。
+
+本轮专项53 项：53 PASS、0 SKIP、0 FAIL、0 ERROR，86.849 秒，退出码 0；受影响兼容538 项：537 PASS、1 SKIP、0 FAIL、0 ERROR，362.200 秒，退出码 0；稳定全量1261 项：1260 PASS、1 SKIP、0 FAIL、0 ERROR，1081.872 秒，退出码 0。完整方法身份、命令及原始输出见[测试入口](78_P16_测试索引与验收入口.md)。不重复相加。
+
+| 项 | 范围 / 实现位置 | 状态 | 正常/反例与真实证据 |
+|---|---|---|---|
+| P16-01 | Memory Provider正常Context入口：external_provider_ports / external_capability_service / external_context_source | IMPLEMENTED_NOT_ACCEPTED | ProviderTests.test_memory_information_need_calls_fake_then_normal_context_consumes_candidate；test_revoke_before_query_has_no_external_call_or_subject_write；[本轮53项原始结果](p16_evidence/p16-final.json) |
+| P16-02 | Knowledge候选与经历/判断分层：external_capabilities / 原SubjectGrowthService | IMPLEMENTED_NOT_ACCEPTED | ProviderTests.test_all_four_local_provider_kinds_really_execute；ContextTests.test_p15_growth_does_not_promote_external_candidates_to_experience / test_external_event_identity_cannot_be_internal_root；[本轮53项原始结果](p16_evidence/p16-final.json) |
+| P16-03 | Connector注册/禁用/版本替换：JsonExternalProviderRepository / ExternalCapabilityService | IMPLEMENTED_NOT_ACCEPTED | ProviderTests.test_registry_concurrent_revision_allows_only_one_write / test_disable_replay_is_idempotent_and_cannot_reregister_same_version；ContextTests.test_replacement_preserves_old_fact_but_invalidates_old_material；[本轮53项原始结果](p16_evidence/p16-final.json) |
+| P16-04 | MCP/Skill有界本地查询：QueryInput / ProviderResult / LocalMCPQueryProvider / LocalSkillQueryProvider | IMPLEMENTED_NOT_ACCEPTED | ProviderTests.test_all_four_local_provider_kinds_really_execute；ContextTests.test_same_request_payload_hash_conflict_is_rejected / test_strict_result_shape_version_hash_environment_and_bounds；[本轮53项原始结果](p16_evidence/p16-final.json) |
+| P16-05 | Credential引用绑定与秘密隔离：CredentialBroker / FakeBroker / 当前门禁 | IMPLEMENTED_NOT_ACCEPTED | ProviderTests.test_credential_reference_cannot_be_reused_by_other_connector / test_missing_expired_and_cross_subject_credentials_refuse_before_call；ContextTests.test_secret_in_result_and_material_denial_never_reach_cache_or_state；[本轮53项原始结果](p16_evidence/p16-final.json) |
+| P16-06 | 结果来源/hash/时间/根与恶意拒绝：ExternalCandidate / ProviderResult / 精确Resolver | IMPLEMENTED_NOT_ACCEPTED | ContextTests.test_malicious_mutation_field_rejected_before_cache / test_cross_subject_result_rejected_even_from_local_provider / test_strict_result_shape_version_hash_environment_and_bounds；正常四类查询对照；[本轮53项原始结果](p16_evidence/p16-final.json) |
+| P16-07 | 调用/消费/恢复当前权限与生命周期：ExternalCapabilityService.require_current / 原P15 | IMPLEMENTED_NOT_ACCEPTED | ContextTests.test_revoke_during_result_read_blocks_consumption_and_cache_write；RecoveryTests.test_paused_subject_blocks_new_query_and_current_cache_but_recovers_fact / test_archived_and_deleted_subjects_do_not_consume_or_execute；[本轮53项原始结果](p16_evidence/p16-final.json) |
+| P16-08 | Router/Composer预算/根去重/旧记忆语义：ExternalContextSource / 原Router/Composer/P12/P15 | IMPLEMENTED_NOT_ACCEPTED | ContextTests.test_router_source_limit_is_separate_from_composer_budget / test_same_root_candidates_deduplicate_without_promoting_authority / test_distinct_roots_survive_and_same_root_conflict_never_selects_authority / test_p12_archived_internal_memory_stays_absent_with_external_queries_enabled；[本轮53项原始结果](p16_evidence/p16-final.json) |
+| P16-09 | 离线/超时/取消/空结果/有界重试：ProviderResult状态 / 原ActionPlanningService可选上限 | IMPLEMENTED_NOT_ACCEPTED | ContextTests.test_offline_timeout_cancel_and_empty_are_explicit_results；RecoveryTests.test_explicit_retry_uses_original_attempts_and_stops_at_bound / test_query_exception_never_authorizes_dispatch_or_exposes_secret；[本轮53项原始结果](p16_evidence/p16-final.json) |
+| P16-10 | 可重建缓存当前绑定及失效：JsonExternalProviderRepository / ExternalCapabilityService.cached | IMPLEMENTED_NOT_ACCEPTED | ContextTests.test_exact_ttl_boundary_is_excluded_just_before_is_valid / test_cache_rehashed_payload_tamper_still_checks_original_fact / test_replacement_descriptor_cannot_reuse_old_exact_reference / test_invalid_cache_timestamp_is_corruption_not_freshness；[本轮53项原始结果](p16_evidence/p16-final.json) |
+| P16-11 | 唯一E5-A恢复/回执/UNKNOWN分离：原CapabilityCoordination / P08 Adapter桥 | IMPLEMENTED_NOT_ACCEPTED | RecoveryTests.test_completed_replay_rechecks_receipt_without_reexecution / test_lost_response_after_receipt_can_close_after_revocation_without_consuming / test_historical_success_unknown_query_cannot_replay_completed / test_unknown_does_not_execute_even_with_explicit_retry / test_string_not_executed_is_unknown；[本轮53项原始结果](p16_evidence/p16-final.json) |
+| P16-12 | 正常C1/跨进程/P01/Feature Gate及旧格式：continuity_core_runtime / P16Fixture / 原P01组件 | IMPLEMENTED_NOT_ACCEPTED | RecoveryTests.test_three_real_process_golden_recovers_replaces_and_revokes / test_p01_branch_replays_original_receipt_without_polluting_parent；ProviderTests.test_disabled_c1_gate_does_not_touch_installed_external_ports / test_upper_mixed_protected_roots_and_children_are_zero_write；原1208身份兼容；[本轮53项原始结果](p16_evidence/p16-final.json) |
+
+实现精确路径见[完整源码增量](p16_evidence/final.audit.json)；测试在[test_p16_providers.py](../../tests/test_p16_providers.py)、[test_p16_context.py](../../tests/test_p16_context.py)、[test_p16_recovery.py](../../tests/test_p16_recovery.py)。[首次失败与辅助错误](p16_evidence/test-history.md)全部保留。
+
+
+## 本次修复与十二项对应
+
+R1 → P16-05/06/09/11：完整回执、UNKNOWN 和可信恢复；R2 → P16-01/04/05/08/12：真实 C1/Thinking/模型结果首次入账及恢复材料边界；R3 → P16-03/05/07/10/11：注册、选择、执行、消费、恢复异常。其余原项由本次完整 P16 专项重新运行覆盖。各项仍 IMPLEMENTED_NOT_ACCEPTED，EVIDENCE_CONFLICT=PRESENT。[新增正式 25 项与原 53 项完整身份](p16_repair_evidence/p16-final-01.json)。

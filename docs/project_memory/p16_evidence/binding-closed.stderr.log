@@ -1,0 +1,32 @@
+test_invalid_cache_timestamp_is_corruption_not_freshness (test_p16_context.ContextTests.test_invalid_cache_timestamp_is_corruption_not_freshness) ... ERROR
+test_replacement_descriptor_cannot_reuse_old_exact_reference (test_p16_context.ContextTests.test_replacement_descriptor_cannot_reuse_old_exact_reference) ... ok
+
+======================================================================
+ERROR: test_invalid_cache_timestamp_is_corruption_not_freshness (test_p16_context.ContextTests.test_invalid_cache_timestamp_is_corruption_not_freshness)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p16_context.py", line 89, in test_invalid_cache_timestamp_is_corruption_not_freshness
+    with self.assertRaisesRegex(ExternalCapabilityError,'EXTERNAL_STORE_CORRUPT'):f.external.cached()
+                                                                                  ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\external_capability_service.py", line 143, in cached
+    for entry in self.registry.cached():
+                 ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_external_provider_repository.py", line 104, in cached
+    def cached(self):return tuple(self._read('cache')['entries'])
+                                  ~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_external_provider_repository.py", line 40, in _read
+    parse_capability_datetime(entry['cached_at'])
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\domain\capability.py", line 745, in parse_capability_datetime
+    _utc(value, "capability timestamp")
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\domain\capability.py", line 73, in _utc
+    raise CapabilityValidationError(
+        f"{name} must be an RFC 3339 UTC timestamp ending in uppercase Z"
+    )
+continuity_engine.domain.errors.CapabilityValidationError: capability timestamp must be an RFC 3339 UTC timestamp ending in uppercase Z
+
+----------------------------------------------------------------------
+Ran 2 tests in 1.731s
+
+FAILED (errors=1)

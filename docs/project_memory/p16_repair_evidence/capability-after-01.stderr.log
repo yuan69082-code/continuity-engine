@@ -1,0 +1,8 @@
+test_c1_capability_ingress_rejects_before_original_ledger_write (test_p16_repair_edges.RepairEdges.test_c1_capability_ingress_rejects_before_original_ledger_write) ... ok
+test_c1_capability_restore_rechecks_material_before_checkpoint (test_p16_repair_edges.RepairEdges.test_c1_capability_restore_rechecks_material_before_checkpoint) ... ok
+test_c1_capability_safe_result_replay_preserves_fact_hash (test_p16_repair_edges.RepairEdges.test_c1_capability_safe_result_replay_preserves_fact_hash) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 2.238s
+
+OK

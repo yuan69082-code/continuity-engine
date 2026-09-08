@@ -1,0 +1,12 @@
+{
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p13-independent-review-20260908\\repair_neighbor_probes.py"
+  ],
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "exitCode": 0,
+  "elapsedSeconds": 3.589881799998693,
+  "beforeCount": 1364,
+  "afterCount": 1364,
+  "changed": []
+}

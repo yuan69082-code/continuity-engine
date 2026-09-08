@@ -1,0 +1,37 @@
+test_crash_after_domain_recovers_artifact_without_presentation (tests.test_p13_expression_recovery.ExpressionRecoveryTests.test_crash_after_domain_recovers_artifact_without_presentation) ... ok
+test_crash_after_thinking_reuses_original_result_not_new_mode (tests.test_p13_expression_recovery.ExpressionRecoveryTests.test_crash_after_thinking_reuses_original_result_not_new_mode) ... ok
+test_current_approved_evolution_keeps_proposal_and_revision_semantics (tests.test_p13_expression_recovery.ExpressionRecoveryTests.test_current_approved_evolution_keeps_proposal_and_revision_semantics) ... ok
+test_direct_and_optional_planner_preserve_expression_mode (tests.test_p13_expression_recovery.ExpressionRecoveryTests.test_direct_and_optional_planner_preserve_expression_mode) ... ok
+test_expired_context_blocks_text_but_keeps_original_receipts (tests.test_p13_expression_recovery.ExpressionRecoveryTests.test_expired_context_blocks_text_but_keeps_original_receipts) ... ok
+test_formal_relationship_and_compact_preference_change_format_only (tests.test_p13_expression_recovery.ExpressionRecoveryTests.test_formal_relationship_and_compact_preference_change_format_only) ... ERROR
+test_generation_failure_retry_does_not_rethink_or_duplicate_action (tests.test_p13_expression_recovery.ExpressionRecoveryTests.test_generation_failure_retry_does_not_rethink_or_duplicate_action) ... ok
+test_missing_completed_artifact_cannot_downgrade_to_legacy (tests.test_p13_expression_recovery.ExpressionRecoveryTests.test_missing_completed_artifact_cannot_downgrade_to_legacy) ... ok
+test_model_waiting_remains_waiting_not_subject_silence (tests.test_p13_expression_recovery.ExpressionRecoveryTests.test_model_waiting_remains_waiting_not_subject_silence) ... ok
+test_real_evolution_recovers_after_expiry_without_releasing_old_text (tests.test_p13_expression_recovery.ExpressionRecoveryTests.test_real_evolution_recovers_after_expiry_without_releasing_old_text) ... ok
+test_removing_original_gate_cannot_remove_expression_ownership (tests.test_p13_expression_recovery.ExpressionRecoveryTests.test_removing_original_gate_cannot_remove_expression_ownership) ... ok
+test_restart_repeat_submit_and_query_do_not_regenerate_or_execute (tests.test_p13_expression_recovery.ExpressionRecoveryTests.test_restart_repeat_submit_and_query_do_not_regenerate_or_execute) ... ok
+test_revoked_exact_permission_blocks_completed_replay_zero_writes (tests.test_p13_expression_recovery.ExpressionRecoveryTests.test_revoked_exact_permission_blocks_completed_replay_zero_writes) ... ok
+test_unknown_historical_receipt_cannot_be_expression_success (tests.test_p13_expression_recovery.ExpressionRecoveryTests.test_unknown_historical_receipt_cannot_be_expression_success) ... ok
+
+======================================================================
+ERROR: test_formal_relationship_and_compact_preference_change_format_only (tests.test_p13_expression_recovery.ExpressionRecoveryTests.test_formal_relationship_and_compact_preference_change_format_only)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p13_expression_recovery.py", line 158, in test_formal_relationship_and_compact_preference_change_format_only
+    f.event('p13-formal',mutations=[StateMutation('relationship.interaction_preferences',
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        ChangeOperation.SET,['formal'],'Explicit TEST relationship preference.')])
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p09_core_fixture.py", line 181, in event
+    return self.runtime.subject_states.apply_event(self.runtime.descriptor.subject_id, event)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\subject_state_service.py", line 109, in apply_event
+    raise EventReferenceError(
+    ...<3 lines>...
+    )
+continuity_engine.domain.errors.EventReferenceError: fact, observation, intention, correction, and revocation events cannot mutate current SubjectState; append the history without mutations and use an Action-Gate-approved state_change event
+
+----------------------------------------------------------------------
+Ran 14 tests in 8.833s
+
+FAILED (errors=1)

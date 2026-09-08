@@ -1,0 +1,61 @@
+{
+  "fixture": "p13-expression-golden-v1",
+  "scenarios": [
+    {
+      "mode": "RESPOND",
+      "status": "SUBJECT_EXPRESSION",
+      "content": "I do not agree with this claim.",
+      "revision": 1,
+      "sameReplay": true,
+      "externalDeliveryClaimed": false
+    },
+    {
+      "mode": "SILENCE",
+      "status": "SUBJECT_SILENCE",
+      "content": "",
+      "revision": 1,
+      "sameReplay": true,
+      "externalDeliveryClaimed": false
+    },
+    {
+      "mode": "REFUSE",
+      "status": "SUBJECT_EXPRESSION",
+      "content": "I do not agree with this claim.",
+      "revision": 1,
+      "sameReplay": true,
+      "externalDeliveryClaimed": false
+    },
+    {
+      "mode": "QUESTION",
+      "status": "SUBJECT_EXPRESSION",
+      "content": "I do not agree with this claim.",
+      "revision": 1,
+      "sameReplay": true,
+      "externalDeliveryClaimed": false
+    },
+    {
+      "mode": "CONFRONT",
+      "status": "SUBJECT_EXPRESSION",
+      "content": "I do not agree with this claim.",
+      "revision": 1,
+      "sameReplay": true,
+      "externalDeliveryClaimed": false
+    },
+    {
+      "mode": "DEFER",
+      "status": "SUBJECT_EXPRESSION",
+      "content": "I do not agree with this claim.",
+      "revision": 1,
+      "sameReplay": true,
+      "externalDeliveryClaimed": false
+    },
+    {
+      "mode": "PURSUE",
+      "status": "SUBJECT_EXPRESSION",
+      "content": "I do not agree with this claim.",
+      "revision": 1,
+      "sameReplay": true,
+      "externalDeliveryClaimed": false
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "scope": "Read-only helper lookup errors, not Engine test defects",
+  "preservedToolChunks": [
+    {"chunk": "83dacd", "attempt": "Get-Content src/continuity_engine/services/action_gate_service.py", "result": "path does not exist", "corrected": "rg enumerated services/action_service.py"},
+    {"chunk": "87c65a", "attempt": "Get-Content src/continuity_engine/services/action_planning_ports.py", "result": "path does not exist", "corrected": "protocols are in services/action_planning_service.py"},
+    {"chunk": "2d418e", "attempt": "rg class EmotionState src/continuity_engine/domain/*.py", "result": "Windows literal wildcard path error 123", "corrected": "rg searched directory with -g '*.py'; domain/models.py"},
+    {"chunk": "f92dc6", "attempt": "rg def query_request src/continuity_engine/interfaces/local_integration_adapter.py", "result": "path does not exist", "corrected": "rg searched interfaces directory with -g '*.py'"}
+  ],
+  "runtimeEditsFromTheseErrors": false,
+  "testFailureEvidence": "Separate original stdout/stderr and structured run records retain actual failures."
+}

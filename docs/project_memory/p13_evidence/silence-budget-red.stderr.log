@@ -1,0 +1,47 @@
+test_silence_does_not_require_visible_output_budget_or_presentation (tests.test_p13_expression_policy.ExpressionPolicyTests.test_silence_does_not_require_visible_output_budget_or_presentation) ... ERROR
+
+======================================================================
+ERROR: test_silence_does_not_require_visible_output_budget_or_presentation (tests.test_p13_expression_policy.ExpressionPolicyTests.test_silence_does_not_require_visible_output_budget_or_presentation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 251, in submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 752, in _run_domain
+    return self._complete_domain_after_thinking(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        operation,
+        ^^^^^^^^^^
+    ...<2 lines>...
+        thinking,
+        ^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 984, in _complete_domain_after_thinking
+    expression = policy.compose(self._continuity_core, operation, thinking, action)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\expression_policy_service.py", line 79, in compose
+    raise ExpressionGenerationError('EXPRESSION_BUDGET_REQUIRES_NEW_UPSTREAM_DECISION')
+continuity_engine.domain.expression.ExpressionGenerationError: EXPRESSION_BUDGET_REQUIRES_NEW_UPSTREAM_DECISION
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p13_expression_policy.py", line 126, in test_silence_does_not_require_visible_output_budget_or_presentation
+    r=f.request();f.submit(r)
+                  ~~~~~~~~^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p09_core_fixture.py", line 165, in submit
+    return self.app.adapter.submit(request or self.request())
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 263, in submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.
+
+----------------------------------------------------------------------
+Ran 1 test in 0.458s
+
+FAILED (errors=1)

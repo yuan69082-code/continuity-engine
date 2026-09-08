@@ -38,11 +38,12 @@ class ContinuityCoreContext:
     actions_enabled: bool = True
     pending_event_count: int = 0
     version: str = "c1-context-v1"
+    expression_enabled: bool = False
 
     def __post_init__(self):
         snapshot = self.composition.snapshot
         trace = self.contradictions.trace
-        if (self.version != "c1-context-v1" or type(self.actions_enabled) is not bool
+        if (type(self.expression_enabled) is not bool or self.version != "c1-context-v1" or type(self.actions_enabled) is not bool
                 or type(self.pending_event_count) is not int or self.pending_event_count < 0
                 or self.composition.status is not CompositionStatus.COMPLETE
                 or snapshot is None or not snapshot.consumable
@@ -68,7 +69,8 @@ class ContinuityCoreContext:
                 "route": self.route.to_dict(), "composition": self.composition.to_dict(),
                 "contradictions": self.contradictions.to_dict(),
                 "effective_emotion": self.effective_emotion, "actions_enabled": self.actions_enabled,
-                "pending_event_count": self.pending_event_count}
+                "pending_event_count": self.pending_event_count,
+                **({"expression_enabled": True} if self.expression_enabled else {})}
 
     def binding_hash(self):
         """Bind the full input and original gates, not the truth of a receipt."""
@@ -76,14 +78,14 @@ class ContinuityCoreContext:
 
     @classmethod
     def from_dict(cls, value):
-        if not isinstance(value, dict) or set(value) != {
+        if not isinstance(value, dict) or set(value)-{"expression_enabled"} != {
                 "version", "perception_hash", "route", "composition", "contradictions",
                 "effective_emotion", "actions_enabled", "pending_event_count"}:
             raise CapabilityValidationError("C1_CONTEXT_SHAPE_INVALID")
         return cls(value["perception_hash"], ContextRouteResult.from_dict(value["route"]),
                    ContextCompositionResult.from_dict(value["composition"]),
                    ContradictionDetectionResult.from_dict(value["contradictions"]),
-                   value["effective_emotion"], value["actions_enabled"], value["pending_event_count"], value["version"])
+                   value["effective_emotion"], value["actions_enabled"], value["pending_event_count"], value["version"], value.get("expression_enabled",False))
 
     def model_summary(self):
         """Bounded content belongs to model input, not to the structural Trace."""

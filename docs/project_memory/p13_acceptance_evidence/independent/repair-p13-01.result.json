@@ -1,0 +1,17 @@
+{
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_p13_expression_policy",
+    "tests.test_p13_expression_recovery",
+    "tests.test_p13_review_regressions",
+    "-v"
+  ],
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "exitCode": 0,
+  "elapsedSeconds": 56.18503819999751,
+  "beforeCount": 1364,
+  "afterCount": 1364,
+  "changed": []
+}

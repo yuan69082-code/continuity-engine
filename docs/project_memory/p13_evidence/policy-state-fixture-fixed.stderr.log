@@ -1,0 +1,17 @@
+test_disabled_normal_core_accepts_explicit_expression_configuration (tests.test_p13_expression_policy.ExpressionInputTests.test_disabled_normal_core_accepts_explicit_expression_configuration) ... ok
+test_formed_seven_modes_roundtrip_without_mutating_judgment (tests.test_p13_expression_policy.ExpressionInputTests.test_formed_seven_modes_roundtrip_without_mutating_judgment) ... ok
+test_old_thinking_serialization_omits_extension (tests.test_p13_expression_policy.ExpressionInputTests.test_old_thinking_serialization_omits_extension) ... ok
+test_unknown_mode_rejected (tests.test_p13_expression_policy.ExpressionInputTests.test_unknown_mode_rejected) ... ok
+test_budget_rejection_keeps_whole_original_body (tests.test_p13_expression_policy.ExpressionPolicyTests.test_budget_rejection_keeps_whole_original_body) ... ok
+test_expression_gate_off_no_port_call_no_extension (tests.test_p13_expression_policy.ExpressionPolicyTests.test_expression_gate_off_no_port_call_no_extension) ... ok
+test_generation_failure_is_not_subject_silence_or_refusal (tests.test_p13_expression_policy.ExpressionPolicyTests.test_generation_failure_is_not_subject_silence_or_refusal) ... ok
+test_invalidation_inside_presentation_cannot_complete (tests.test_p13_expression_policy.ExpressionPolicyTests.test_invalidation_inside_presentation_cannot_complete) ... ok
+test_mode_and_binding_changes_rejected (tests.test_p13_expression_policy.ExpressionPolicyTests.test_mode_and_binding_changes_rejected) ... ok
+test_protected_root_rejected_zero_writes (tests.test_p13_expression_policy.ExpressionPolicyTests.test_protected_root_rejected_zero_writes) ... ok
+test_reversing_provider_rejected_no_final_result (tests.test_p13_expression_policy.ExpressionPolicyTests.test_reversing_provider_rejected_no_final_result) ... ok
+test_seven_modes_normal_entry_persist_and_keep_authorities (tests.test_p13_expression_policy.ExpressionPolicyTests.test_seven_modes_normal_entry_persist_and_keep_authorities) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 8.562s
+
+OK

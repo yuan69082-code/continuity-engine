@@ -186,8 +186,13 @@ class ThinkingResult:
     suggest_tool_use: bool = False
     tool_target: str | None = None
     request_more_thinking: bool = False
+    expression_mode: str | None = None
 
     def __post_init__(self) -> None:
+        if self.expression_mode is not None:
+            from .expression import ExpressionMode
+            if self.expression_mode not in {mode.value for mode in ExpressionMode}:
+                raise ThinkingValidationError("unsupported formed expression mode")
         _require_text(self.result_id, "thinking result_id")
         _require_text(self.provider_id, "thinking provider_id")
         _require_text(self.result_summary, "thinking result_summary")
@@ -256,6 +261,7 @@ class ThinkingResult:
         suggest_tool_use: bool = False,
         tool_target: str | None = None,
         request_more_thinking: bool = False,
+        expression_mode: str | None = None,
         result_id: str | None = None,
     ) -> ThinkingResult:
         return cls(
@@ -274,6 +280,7 @@ class ThinkingResult:
             suggest_tool_use=suggest_tool_use,
             tool_target=tool_target,
             request_more_thinking=request_more_thinking,
+            expression_mode=expression_mode,
         )
 
     def to_dict(self) -> dict[str, JsonValue]:
@@ -293,6 +300,7 @@ class ThinkingResult:
             "suggest_tool_use": self.suggest_tool_use,
             "tool_target": self.tool_target,
             "request_more_thinking": self.request_more_thinking,
+            **({"expression_mode": self.expression_mode} if self.expression_mode is not None else {}),
         }
 
     @classmethod
@@ -318,6 +326,7 @@ class ThinkingResult:
             suggest_tool_use=value.get("suggest_tool_use", False),
             tool_target=value.get("tool_target"),
             request_more_thinking=value.get("request_more_thinking", False),
+            expression_mode=value.get("expression_mode"),
         )
 
 

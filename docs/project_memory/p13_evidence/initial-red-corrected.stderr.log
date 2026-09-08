@@ -1,0 +1,178 @@
+======================================================================
+ERROR: test_disabled_normal_core_accepts_explicit_expression_configuration (tests.test_p13_expression_policy.ExpressionInputTests.test_disabled_normal_core_accepts_explicit_expression_configuration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\local_integration_app.py", line 364, in build_local_integration_app
+    core = (continuity_core_factory(data_dir=root, binding=binding, ledger=ledger,
+            ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            subject_states=subject_states, action_gate=action, clock=clock)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p09_core_fixture.py", line 149, in factory
+    self.core = build_continuity_core(**kwargs, environment="TEST", constraints=self.constraints,
+                ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        capabilities=bindings, claim_resolver=CoreClaims(), permission_policy=self.permission,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        gates=self.gates, policy=ConfirmedFixturePolicy(self.constraints, bindings), **self.core_options)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_runtime.py", line 67, in build_continuity_core
+    return ContinuityCoreService(subject_id=binding.subject_id, environment=environment,
+        router=ContextRouterService(sources, permission_policy=permission, enabled=gates.enabled),
+    ...<6 lines>...
+        coordination=CapabilityCoordinationService(ledger), action_gate=action_gate, constraints=constraints,
+        capabilities=capabilities, clock=clock, permission_policy=permission, gates=gates, **options)
+TypeError: ContinuityCoreService.__init__() got an unexpected keyword argument 'expression_policy'. Did you mean 'permission_policy'?
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p13_expression_policy.py", line 32, in test_disabled_normal_core_accepts_explicit_expression_configuration
+    fixture=P09Fixture(Path(tmp), expression_policy=None)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p09_core_fixture.py", line 134, in __init__
+    self.reopen()
+    ~~~~~~~~~~~^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p09_core_fixture.py", line 153, in reopen
+    self.app = build_local_integration_app(self.runtime.data_root, clock=self.runtime.clock.now,
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        thinking_mode=self.thinking_mode, capability_thinking_provider_id="p09-model-capability-fixture-v1",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        result_factory=SandboxFirstRoundResultFactory(), available_permissions=(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            "subject_state:update", "memory:request", "user:contact", "expression:emit", "action:silence", "test:lookup"))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\local_integration_app.py", line 403, in build_local_integration_app
+    raise LocalIntegrationInitializationError(
+        "formal local integration data is incomplete, corrupt, or inconsistent"
+    ) from exc
+continuity_engine.interfaces.local_integration_app.LocalIntegrationInitializationError: formal local integration data is incomplete, corrupt, or inconsistent
+
+======================================================================
+ERROR: test_formed_seven_modes_roundtrip_without_mutating_judgment (tests.test_p13_expression_policy.ExpressionInputTests.test_formed_seven_modes_roundtrip_without_mutating_judgment) (mode='RESPOND')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p13_expression_policy.py", line 24, in test_formed_seven_modes_roundtrip_without_mutating_judgment
+    original=formed_result(mode)
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p13_expression_policy.py", line 11, in formed_result
+    return ThinkingResult.create(provider_id='p13-test-thinking', result_summary=body,
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        rationale_summary='Explicit synthetic Engine decision; not hidden reasoning.',
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        token_budget=TokenBudget(100,100,50,ThinkingDepth.LOW),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        expression_mode=mode)
+        ^^^^^^^^^^^^^^^^^^^^^
+TypeError: ThinkingResult.create() got an unexpected keyword argument 'expression_mode'
+
+======================================================================
+ERROR: test_formed_seven_modes_roundtrip_without_mutating_judgment (tests.test_p13_expression_policy.ExpressionInputTests.test_formed_seven_modes_roundtrip_without_mutating_judgment) (mode='SILENCE')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p13_expression_policy.py", line 24, in test_formed_seven_modes_roundtrip_without_mutating_judgment
+    original=formed_result(mode)
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p13_expression_policy.py", line 11, in formed_result
+    return ThinkingResult.create(provider_id='p13-test-thinking', result_summary=body,
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        rationale_summary='Explicit synthetic Engine decision; not hidden reasoning.',
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        token_budget=TokenBudget(100,100,50,ThinkingDepth.LOW),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        expression_mode=mode)
+        ^^^^^^^^^^^^^^^^^^^^^
+TypeError: ThinkingResult.create() got an unexpected keyword argument 'expression_mode'
+
+======================================================================
+ERROR: test_formed_seven_modes_roundtrip_without_mutating_judgment (tests.test_p13_expression_policy.ExpressionInputTests.test_formed_seven_modes_roundtrip_without_mutating_judgment) (mode='REFUSE')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p13_expression_policy.py", line 24, in test_formed_seven_modes_roundtrip_without_mutating_judgment
+    original=formed_result(mode)
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p13_expression_policy.py", line 11, in formed_result
+    return ThinkingResult.create(provider_id='p13-test-thinking', result_summary=body,
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        rationale_summary='Explicit synthetic Engine decision; not hidden reasoning.',
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        token_budget=TokenBudget(100,100,50,ThinkingDepth.LOW),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        expression_mode=mode)
+        ^^^^^^^^^^^^^^^^^^^^^
+TypeError: ThinkingResult.create() got an unexpected keyword argument 'expression_mode'
+
+======================================================================
+ERROR: test_formed_seven_modes_roundtrip_without_mutating_judgment (tests.test_p13_expression_policy.ExpressionInputTests.test_formed_seven_modes_roundtrip_without_mutating_judgment) (mode='QUESTION')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p13_expression_policy.py", line 24, in test_formed_seven_modes_roundtrip_without_mutating_judgment
+    original=formed_result(mode)
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p13_expression_policy.py", line 11, in formed_result
+    return ThinkingResult.create(provider_id='p13-test-thinking', result_summary=body,
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        rationale_summary='Explicit synthetic Engine decision; not hidden reasoning.',
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        token_budget=TokenBudget(100,100,50,ThinkingDepth.LOW),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        expression_mode=mode)
+        ^^^^^^^^^^^^^^^^^^^^^
+TypeError: ThinkingResult.create() got an unexpected keyword argument 'expression_mode'
+
+======================================================================
+ERROR: test_formed_seven_modes_roundtrip_without_mutating_judgment (tests.test_p13_expression_policy.ExpressionInputTests.test_formed_seven_modes_roundtrip_without_mutating_judgment) (mode='CONFRONT')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p13_expression_policy.py", line 24, in test_formed_seven_modes_roundtrip_without_mutating_judgment
+    original=formed_result(mode)
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p13_expression_policy.py", line 11, in formed_result
+    return ThinkingResult.create(provider_id='p13-test-thinking', result_summary=body,
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        rationale_summary='Explicit synthetic Engine decision; not hidden reasoning.',
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        token_budget=TokenBudget(100,100,50,ThinkingDepth.LOW),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        expression_mode=mode)
+        ^^^^^^^^^^^^^^^^^^^^^
+TypeError: ThinkingResult.create() got an unexpected keyword argument 'expression_mode'
+
+======================================================================
+ERROR: test_formed_seven_modes_roundtrip_without_mutating_judgment (tests.test_p13_expression_policy.ExpressionInputTests.test_formed_seven_modes_roundtrip_without_mutating_judgment) (mode='DEFER')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p13_expression_policy.py", line 24, in test_formed_seven_modes_roundtrip_without_mutating_judgment
+    original=formed_result(mode)
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p13_expression_policy.py", line 11, in formed_result
+    return ThinkingResult.create(provider_id='p13-test-thinking', result_summary=body,
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        rationale_summary='Explicit synthetic Engine decision; not hidden reasoning.',
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        token_budget=TokenBudget(100,100,50,ThinkingDepth.LOW),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        expression_mode=mode)
+        ^^^^^^^^^^^^^^^^^^^^^
+TypeError: ThinkingResult.create() got an unexpected keyword argument 'expression_mode'
+
+======================================================================
+ERROR: test_formed_seven_modes_roundtrip_without_mutating_judgment (tests.test_p13_expression_policy.ExpressionInputTests.test_formed_seven_modes_roundtrip_without_mutating_judgment) (mode='PURSUE')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p13_expression_policy.py", line 24, in test_formed_seven_modes_roundtrip_without_mutating_judgment
+    original=formed_result(mode)
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p13_expression_policy.py", line 11, in formed_result
+    return ThinkingResult.create(provider_id='p13-test-thinking', result_summary=body,
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        rationale_summary='Explicit synthetic Engine decision; not hidden reasoning.',
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        token_budget=TokenBudget(100,100,50,ThinkingDepth.LOW),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        expression_mode=mode)
+        ^^^^^^^^^^^^^^^^^^^^^
+TypeError: ThinkingResult.create() got an unexpected keyword argument 'expression_mode'
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.229s
+
+FAILED (errors=8)

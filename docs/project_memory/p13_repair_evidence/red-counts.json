@@ -1,0 +1,11 @@
+{
+  "source": "adjacent-before.stderr.log",
+  "method": "Count distinct method names in original unittest FAIL headers; no rerun and no alteration of raw output.",
+  "run": 19,
+  "passed": 6,
+  "failedMethods": 13,
+  "failureEntriesIncludingSubtests": 19,
+  "errors": 0,
+  "skips": 0,
+  "seconds": 20.303
+}

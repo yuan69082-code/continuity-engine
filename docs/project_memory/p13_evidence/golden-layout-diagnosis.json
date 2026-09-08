@@ -1,0 +1,10 @@
+{
+  "phase": "P13 Golden CLI first execution",
+  "sourceLog": "docs/project_memory/p13_evidence/golden-final.stderr.log",
+  "exception": "FileNotFoundError: [Errno 2] No such file or directory: 'C:\\\\Users\\\\Administrator\\\\AppData\\\\Local\\\\Temp\\\\p13-golden-8uye_zvn\\\\RESPOND\\\\s\\\\s\\\\s1f0d04cb\\\\b\\\\bb6786133\\\\data\\\\awakening\\\\sessions\\\\38b0f6062fea870dd28a4b28dcc886d1c2b2b66ffac8f0002f4127cdf022e3c3\\\\.5d900610fd51949f7e226f7900a5e4a84a02ede9469f89b808a86430688cab41.kj42avdf.tmp'",
+  "pathCharacters": 263,
+  "legacyMaxPathExceeded": true,
+  "change": "Removed unnecessary per-mode subdirectory; P01 retains independent sandbox identities.",
+  "successfulRerun": "golden-layout-fixed.json",
+  "legacyStorageModified": false
+}

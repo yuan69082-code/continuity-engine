@@ -1,0 +1,11 @@
+{
+  "toolChunk": "87b499",
+  "command": ["E:/Adobe/python.exe", "docs/project_memory/p13_repair_evidence/audit.py", "final"],
+  "exitCode": 1,
+  "stdout": "",
+  "stderr": "warning: in the working copy of 'src/continuity_engine/services/continuity_interaction_service.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'src/continuity_engine/services/continuity_interaction_service.py', LF will be replaced by CRLF the next time Git touches it\nTraceback (most recent call last):\n  File \"C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p13_repair_evidence\\audit.py\", line 98, in <module>\n    assert len(rows)==12 and all(status in row for row in rows)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+  "diagnosis": "Audit helper matched both the 12 current state rows and 12 historical evidence rows in each P12/P13 matrix. Actual current states were correct. Fixed to check the first contiguous current table, exact terminal state and complete unique 01-12 identities; historical rows remain untouched.",
+  "runtimeOrTestChanges": false,
+  "auditOutputsCreatedByFailedAttempt": false,
+  "capture": "Original tool output transcribed; no invented separate audit timing. close_docs.py completed successfully before this audit failed."
+}

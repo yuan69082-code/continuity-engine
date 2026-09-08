@@ -1,0 +1,52 @@
+test_context_rejection_and_platform_denial_are_distinct_from_subject_refusal (tests.test_p13_expression_recovery.ExpressionRecoveryTests.test_context_rejection_and_platform_denial_are_distinct_from_subject_refusal) ... ERROR
+test_crash_after_domain_recovers_artifact_without_presentation (tests.test_p13_expression_recovery.ExpressionRecoveryTests.test_crash_after_domain_recovers_artifact_without_presentation) ... ok
+test_crash_after_thinking_reuses_original_result_not_new_mode (tests.test_p13_expression_recovery.ExpressionRecoveryTests.test_crash_after_thinking_reuses_original_result_not_new_mode) ... ok
+test_cross_subject_and_environment_composition_rejects_before_port_or_writes (tests.test_p13_expression_recovery.ExpressionRecoveryTests.test_cross_subject_and_environment_composition_rejects_before_port_or_writes) ... ok
+test_current_approved_evolution_keeps_proposal_and_revision_semantics (tests.test_p13_expression_recovery.ExpressionRecoveryTests.test_current_approved_evolution_keeps_proposal_and_revision_semantics) ... ok
+test_direct_and_optional_planner_preserve_expression_mode (tests.test_p13_expression_recovery.ExpressionRecoveryTests.test_direct_and_optional_planner_preserve_expression_mode) ... ok
+test_expired_context_blocks_text_but_keeps_original_receipts (tests.test_p13_expression_recovery.ExpressionRecoveryTests.test_expired_context_blocks_text_but_keeps_original_receipts) ... ok
+test_formal_relationship_and_compact_preference_change_format_only (tests.test_p13_expression_recovery.ExpressionRecoveryTests.test_formal_relationship_and_compact_preference_change_format_only) ... ok
+test_generation_failure_retry_does_not_rethink_or_duplicate_action (tests.test_p13_expression_recovery.ExpressionRecoveryTests.test_generation_failure_retry_does_not_rethink_or_duplicate_action) ... ok
+test_missing_completed_artifact_cannot_downgrade_to_legacy (tests.test_p13_expression_recovery.ExpressionRecoveryTests.test_missing_completed_artifact_cannot_downgrade_to_legacy) ... ok
+test_model_result_restart_expression_uses_one_original_capability_ledger (tests.test_p13_expression_recovery.ExpressionRecoveryTests.test_model_result_restart_expression_uses_one_original_capability_ledger) ... ERROR
+test_model_waiting_remains_waiting_not_subject_silence (tests.test_p13_expression_recovery.ExpressionRecoveryTests.test_model_waiting_remains_waiting_not_subject_silence) ... ok
+test_p12_archive_invalidates_saved_expression_and_normal_future_context (tests.test_p13_expression_recovery.ExpressionRecoveryTests.test_p12_archive_invalidates_saved_expression_and_normal_future_context) ... ok
+test_real_evolution_recovers_after_expiry_without_releasing_old_text (tests.test_p13_expression_recovery.ExpressionRecoveryTests.test_real_evolution_recovers_after_expiry_without_releasing_old_text) ... ok
+test_removing_original_gate_cannot_remove_expression_ownership (tests.test_p13_expression_recovery.ExpressionRecoveryTests.test_removing_original_gate_cannot_remove_expression_ownership) ... ok
+test_restart_repeat_submit_and_query_do_not_regenerate_or_execute (tests.test_p13_expression_recovery.ExpressionRecoveryTests.test_restart_repeat_submit_and_query_do_not_regenerate_or_execute) ... ok
+test_revoked_exact_permission_blocks_completed_replay_zero_writes (tests.test_p13_expression_recovery.ExpressionRecoveryTests.test_revoked_exact_permission_blocks_completed_replay_zero_writes) ... ok
+test_snapshot_branch_preserves_artifact_and_does_not_touch_original (tests.test_p13_expression_recovery.ExpressionRecoveryTests.test_snapshot_branch_preserves_artifact_and_does_not_touch_original) ... ok
+test_unknown_historical_receipt_cannot_be_expression_success (tests.test_p13_expression_recovery.ExpressionRecoveryTests.test_unknown_historical_receipt_cannot_be_expression_success) ... ok
+
+======================================================================
+ERROR: test_context_rejection_and_platform_denial_are_distinct_from_subject_refusal (tests.test_p13_expression_recovery.ExpressionRecoveryTests.test_context_rejection_and_platform_denial_are_distinct_from_subject_refusal)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p13_expression_recovery.py", line 239, in test_context_rejection_and_platform_denial_are_distinct_from_subject_refusal
+    denied=replace(action,decision=replace(action.decision,approved=False))
+                                   ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Adobe\Lib\dataclasses.py", line 1770, in replace
+    return _replace(obj, **changes)
+  File "E:\Adobe\Lib\dataclasses.py", line 1804, in _replace
+    return self.__class__(**changes)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "<string>", line 13, in __init__
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\domain\action.py", line 658, in __post_init__
+    _require_text(self.rejection_reason, "rejection_reason")
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\domain\action.py", line 49, in _require_text
+    raise ActionValidationError(f"{field_name} must be a non-empty string")
+continuity_engine.domain.errors.ActionValidationError: rejection_reason must be a non-empty string
+
+======================================================================
+ERROR: test_model_result_restart_expression_uses_one_original_capability_ledger (tests.test_p13_expression_recovery.ExpressionRecoveryTests.test_model_result_restart_expression_uses_one_original_capability_ledger)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p13_expression_recovery.py", line 192, in test_model_result_restart_expression_uses_one_original_capability_ledger
+    from continuity_engine.testing.capability_fixture import capability_result_payload
+ModuleNotFoundError: No module named 'continuity_engine.testing.capability_fixture'
+
+----------------------------------------------------------------------
+Ran 19 tests in 13.750s
+
+FAILED (errors=2)

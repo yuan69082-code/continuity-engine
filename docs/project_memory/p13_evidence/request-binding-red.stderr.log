@@ -1,0 +1,15 @@
+test_original_router_request_cannot_be_rebound_to_another_operation (tests.test_p13_expression_recovery.ExpressionRecoveryTests.test_original_router_request_cannot_be_rebound_to_another_operation) ... FAIL
+
+======================================================================
+FAIL: test_original_router_request_cannot_be_rebound_to_another_operation (tests.test_p13_expression_recovery.ExpressionRecoveryTests.test_original_router_request_cannot_be_rebound_to_another_operation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p13_expression_recovery.py", line 271, in test_original_router_request_cannot_be_rebound_to_another_operation
+    with self.assertRaises(ExpressionValidationError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ExpressionValidationError not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 0.620s
+
+FAILED (failures=1)

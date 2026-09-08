@@ -16,6 +16,7 @@ from .integration_hashing import (
     verify_declared_hash,
 )
 from .perception import PerceptionResult
+from .expression import ExpressionArtifact
 
 
 CONTRACT_VERSION = "continuity-integration/v1.1"
@@ -730,8 +731,12 @@ class IntegrationDomainCheckpoint:
     action_requires_confirmation: bool
     action_plan_status: str
     approved_state_action: ApprovedStateAction | None
+    expression: ExpressionArtifact | None = None
 
     def __post_init__(self) -> None:
+        if self.expression is not None:
+            if not isinstance(self.expression, ExpressionArtifact) or self.expression.content != self.response_content:
+                raise MachineContractValidationError("expression must match checkpoint response")
         for value, name in (
             (self.response_id, "operation domain responseId"),
             (self.wake_session_id, "operation domain wakeSessionId"),
@@ -776,6 +781,7 @@ class IntegrationDomainCheckpoint:
 
     def to_dict(self) -> dict[str, JsonValue]:
         return {
+            **({"expression": self.expression.to_dict()} if self.expression is not None else {}),
             "responseId": self.response_id,
             "responseContent": self.response_content,
             "responseCompletedAt": self.response_completed_at,
@@ -800,7 +806,7 @@ class IntegrationDomainCheckpoint:
     @classmethod
     def from_dict(cls, value: Any) -> IntegrationDomainCheckpoint:
         data = _object(
-            value,
+            {k:v for k,v in value.items() if k != "expression"} if isinstance(value,dict) else value,
             "operation domain checkpoint",
             {
                 "responseId",
@@ -822,6 +828,7 @@ class IntegrationDomainCheckpoint:
         )
         approved = data["approvedStateAction"]
         return cls(
+            expression=ExpressionArtifact.from_dict(value["expression"]) if "expression" in value else None,
             response_id=_text(data["responseId"], "operation domain responseId"),
             response_content=_text(
                 data["responseContent"],

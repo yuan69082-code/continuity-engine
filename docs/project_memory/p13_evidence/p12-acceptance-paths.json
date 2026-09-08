@@ -1,0 +1,20 @@
+[
+  "README.md",
+  "docs/project_memory/00_项目总览.md",
+  "docs/project_memory/01_当前状态.md",
+  "docs/project_memory/02_工程路线图.md",
+  "docs/project_memory/03_施工日志.md",
+  "docs/project_memory/04_决策记录.md",
+  "docs/project_memory/05_已完成模块.md",
+  "docs/project_memory/05_核心模块架构.md",
+  "docs/project_memory/06_未完成事项.md",
+  "docs/project_memory/07_待确认事项.md",
+  "docs/project_memory/10_档案修订记录.md",
+  "docs/project_memory/13_P00_档案与测试索引.md",
+  "docs/project_memory/CHANGELOG.md",
+  "docs/project_memory/工程总档案.md",
+  "docs/project_memory/59_P12_IntentionalForgetting架构边界.md",
+  "docs/project_memory/60_P12_规划施工测试验收矩阵.md",
+  "docs/project_memory/61_P12_生命周期恢复删除与传播语义.md",
+  "docs/project_memory/62_P12_测试索引与验收入口.md"
+]

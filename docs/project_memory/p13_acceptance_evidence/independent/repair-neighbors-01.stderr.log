@@ -1,0 +1,10 @@
+test_all_style_sources_omitted_preserves_unstyled_body (__main__.RepairNeighbors.test_all_style_sources_omitted_preserves_unstyled_body) ... ok
+test_emotion_feature_off_does_not_add_emphasis (__main__.RepairNeighbors.test_emotion_feature_off_does_not_add_emphasis) ... ok
+test_interrupted_materialization_can_recover_after_explicit_reauthorization (__main__.RepairNeighbors.test_interrupted_materialization_can_recover_after_explicit_reauthorization) ... ok
+test_original_action_confirmation_does_not_replace_expression_confirmation (__main__.RepairNeighbors.test_original_action_confirmation_does_not_replace_expression_confirmation) ... ok
+test_silence_does_not_need_visible_expression_grant (__main__.RepairNeighbors.test_silence_does_not_need_visible_expression_grant) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 3.070s
+
+OK

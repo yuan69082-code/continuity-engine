@@ -111,7 +111,7 @@ class ContinuityCoreService:
                  timeline, memory_repository, consolidation, subject_states,
                  coordination, action_gate, constraints, capabilities, clock,
                  permission_policy, policy=None, gates=None, retrieval_budget=None,
-                 context_budget=None, context_ttl=timedelta(minutes=10), planner=None, limits=None, fault=None):
+                 context_budget=None, context_ttl=timedelta(minutes=10), planner=None, limits=None, fault=None, expression_policy=None):
         if environment not in {"TEST", "RESEARCH"}:
             raise ValueError("P09 requires a TEST/RESEARCH boundary")
         self.subject_id, self.environment = subject_id, environment
@@ -128,6 +128,7 @@ class ContinuityCoreService:
             raise ValueError("C1 context TTL must be positive")
         self.context_ttl = context_ttl
         self.planner, self.limits, self.fault = planner, limits, fault
+        self.expression_policy = expression_policy
         self.last_trace = None
         self.last_action = None
 
@@ -223,7 +224,8 @@ class ContinuityCoreService:
         emotion = (self.subject_states.load(self.subject_id).emotion_state.effective_at(perception.perceived_at)
                    if self.gates.emotion_decay else {"status": "FEATURE_GATED"})
         context = ContinuityCoreContext(digest(perception.to_dict()), route, composition, detection,
-                                        emotion, self.gates.actions, pending_events)
+                                        emotion, self.gates.actions, pending_events,
+                                        expression_enabled=self.expression_policy is not None)
         enriched = replace(perception, continuity_context=context)
         context.validate_perception(enriched)
         self._trace(context)

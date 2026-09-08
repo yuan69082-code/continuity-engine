@@ -1,0 +1,7 @@
+test_disabled_normal_core_accepts_explicit_expression_configuration (tests.test_p13_expression_policy.ExpressionInputTests.test_disabled_normal_core_accepts_explicit_expression_configuration) ... ok
+test_formed_seven_modes_roundtrip_without_mutating_judgment (tests.test_p13_expression_policy.ExpressionInputTests.test_formed_seven_modes_roundtrip_without_mutating_judgment) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.489s
+
+OK

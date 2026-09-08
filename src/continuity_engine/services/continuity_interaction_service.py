@@ -412,6 +412,40 @@ class ContinuityInteractionService:
             result=None,
         )
 
+    def expression_outcome(self, request_id: str):
+        """Engine-native read view: distinguish access from already verified facts.
+
+        Does not change the frozen first-round API or release expired expression
+        text. A missing binding is corruption, not a legacy/disabled fallback.
+        """
+        core = self._continuity_core
+        if core is None or not core.enabled or core.expression_policy is None:
+            return {"status": "FEATURE_DISABLED", "artifact": None}
+        operation = self._ledger.load_operation(request_id)
+        if operation is None:
+            return {"status": "NOT_FOUND", "artifact": None}
+        if operation.domain is None:
+            return {"status": ("WAITING_CAPABILITY" if operation.capability is not None
+                              and operation.capability.status.requires_capability else "NOT_MATERIALIZED"),
+                    "artifact": None, "request_id": request_id}
+        completed = self._ledger.load_completed(request_id)
+        self._verify_core_completed(operation, completed, expression_current=False)
+        if operation.domain.expression is None:
+            return {"status": "LEGACY_NO_EXPRESSION", "artifact": None}
+        if completed is None:
+            return {"status": "PENDING_COMPLETION", "artifact": None, "request_id": request_id}
+        thinking = self._restore_domain_thinking(operation)
+        facts = {"request_id": request_id, "operation_id": operation.operation_id,
+                 "state_revision": completed.state_projection.current_revision,
+                 "update_id": completed.state_projection.engine_update_id}
+        from ..domain.expression import ExpressionAccessError
+        try:
+            artifact = core.expression_policy.verify(core, operation, thinking,
+                operation.domain_progress.action, current=True)
+        except ExpressionAccessError:
+            return {"status": "CURRENTLY_UNAVAILABLE", "artifact": None, "verified_facts": facts}
+        return {"status": artifact.decision.status, "artifact": artifact.to_dict(), "verified_facts": facts}
+
     def _finish_operation(
         self,
         binding: SubjectBinding,
@@ -419,7 +453,15 @@ class ContinuityInteractionService:
         thinking: ThinkingExecutionResult | None,
     ) -> FirstRoundSuccessResult:
         assert operation.domain is not None
-        self._verify_core_completed(operation)
+        self._verify_core_completed(operation, expression_current=False)
+        expression_consumable = True
+        if operation.domain.expression is not None:
+            from ..domain.expression import ExpressionAccessError
+            try:
+                self._continuity_core.expression_policy.verify(self._continuity_core,operation,thinking,
+                    operation.domain_progress.action,current=True)
+            except ExpressionAccessError:
+                expression_consumable = False
         if operation.domain.approved_state_action is not None and operation.evolution is None:
             operation = self._complete_evolution(operation, thinking)
         result = self._build_result(binding, operation)
@@ -442,6 +484,9 @@ class ContinuityInteractionService:
             )
         )
         self._record("completed")
+        if not expression_consumable:
+            from ..domain.expression import ExpressionValidationError
+            raise ExpressionValidationError("EXPRESSION_CONTEXT_STALE_OR_UNAUTHORIZED_FACTS_RECOVERED")
         return result
 
     @staticmethod
@@ -934,7 +979,15 @@ class ContinuityInteractionService:
                 raise CapabilityValidationError("C1_PENDING_FEATURE_DISABLED")
             self._continuity_core.after_action(operation, thinking, action)
             self._fault("after_c1_action_completed", operation)
-        response_content = self._reply_composer.compose(thinking, action)
+        expression = None
+        if perception.continuity_context is not None and perception.continuity_context.expression_enabled:
+            policy = self._continuity_core.expression_policy
+            if policy is None:
+                raise CapabilityValidationError("P13_PENDING_FEATURE_DISABLED")
+            expression = policy.compose(self._continuity_core, operation, thinking, action)
+            response_content = expression.content
+        else:
+            response_content = self._reply_composer.compose(thinking, action)
         approved = ApprovedStateAction.from_execution(action)
         checkpoint = IntegrationDomainCheckpoint(
             response_id=progress.response_id,
@@ -952,6 +1005,7 @@ class ContinuityInteractionService:
             action_requires_confirmation=action.decision.requires_confirmation,
             action_plan_status=action.plan.status.value,
             approved_state_action=approved,
+            expression=expression,
         )
         return (
             replace(
@@ -969,7 +1023,7 @@ class ContinuityInteractionService:
                 raise CapabilityValidationError("C1_PENDING_FEATURE_DISABLED")
             self._continuity_core.before_thinking(perception)
 
-    def _verify_core_completed(self, operation, completed=None):
+    def _verify_core_completed(self, operation, completed=None, *, expression_current=True):
         core = self._continuity_core
         if operation is None:
             return
@@ -1003,6 +1057,13 @@ class ContinuityInteractionService:
                 raise CapabilityValidationError("C1_PENDING_FEATURE_DISABLED")
             core.after_action(operation, thinking, progress.action, replay=True)
             self._verify_core_evolution(operation, thinking, completed)
+            context = progress.perception.continuity_context
+            if context.expression_enabled:
+                if core.expression_policy is None:
+                    raise CapabilityValidationError("P13_PENDING_FEATURE_DISABLED")
+                core.expression_policy.verify(core,operation,thinking,progress.action,current=expression_current)
+            elif operation.domain.expression is not None:
+                raise CapabilityValidationError("P13_ARTIFACT_WITHOUT_ORIGINAL_CONTEXT")
 
     def _verify_core_evolution(self, operation, thinking, completed=None):
         """Validate existing state facts from all original evidence, not a nullable cache.

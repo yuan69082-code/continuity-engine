@@ -1,0 +1,12 @@
+test_historical_receipts_do_not_authorize_new_consumption_after_grant_revocation (__main__.P13ReviewProbes.test_historical_receipts_do_not_authorize_new_consumption_after_grant_revocation) ... ok
+test_old_context_revocation_control_still_blocks (__main__.P13ReviewProbes.test_old_context_revocation_control_still_blocks) ... ok
+test_omitted_relationship_source_does_not_influence_expression (__main__.P13ReviewProbes.test_omitted_relationship_source_does_not_influence_expression) ... ok
+test_revoked_expression_grant_after_action_blocks_first_presentation (__main__.P13ReviewProbes.test_revoked_expression_grant_after_action_blocks_first_presentation) ... ok
+test_revoked_expression_grant_before_action_control_blocks (__main__.P13ReviewProbes.test_revoked_expression_grant_before_action_control_blocks) ... ok
+test_revoked_expression_grant_during_presentation_blocks_new_artifact (__main__.P13ReviewProbes.test_revoked_expression_grant_during_presentation_blocks_new_artifact) ... ok
+test_unchanged_restart_control_preserves_body_and_zero_new_effect (__main__.P13ReviewProbes.test_unchanged_restart_control_preserves_body_and_zero_new_effect) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 4.065s
+
+OK

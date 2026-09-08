@@ -1,0 +1,58 @@
+test_pending_growth_can_be_reauthorized_after_unrelated_revision (p15_review_probe.GrowthRecoveryReview.test_pending_growth_can_be_reauthorized_after_unrelated_revision) ... FAIL
+test_existing_mind_projection_rechecks_same_revocation (p15_review_probe.GrowthVisibilityReview.test_existing_mind_projection_rechecks_same_revocation) ... ok
+test_growth_projection_rechecks_revocation_before_returning_details (p15_review_probe.GrowthVisibilityReview.test_growth_projection_rechecks_revocation_before_returning_details) ... FAIL
+test_unchanged_permission_allows_growth_without_state_writes (p15_review_probe.GrowthVisibilityReview.test_unchanged_permission_allows_growth_without_state_writes) ... ERROR
+test_deleted_history_cannot_be_reopened_by_stale_active_projection (p15_review_probe.LifecyclePersistenceReview.test_deleted_history_cannot_be_reopened_by_stale_active_projection) ... FAIL
+test_genuine_legacy_without_lifecycle_history_stays_compatible (p15_review_probe.LifecyclePersistenceReview.test_genuine_legacy_without_lifecycle_history_stays_compatible) ... ok
+test_suspended_history_cannot_downgrade_to_legacy_by_missing_field (p15_review_probe.LifecyclePersistenceReview.test_suspended_history_cannot_downgrade_to_legacy_by_missing_field) ... FAIL
+test_unmodified_suspended_state_stays_blocked (p15_review_probe.LifecyclePersistenceReview.test_unmodified_suspended_state_stays_blocked) ... ok
+
+======================================================================
+ERROR: test_unchanged_permission_allows_growth_without_state_writes (p15_review_probe.GrowthVisibilityReview.test_unchanged_permission_allows_growth_without_state_writes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\p15-independent-review-20260908\p15_review_probe.py", line 154, in test_unchanged_permission_allows_growth_without_state_writes
+    self.assertEqual(value['relationships']['entries'][0]['object_id'], 'peer')
+                     ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+
+======================================================================
+FAIL: test_pending_growth_can_be_reauthorized_after_unrelated_revision (p15_review_probe.GrowthRecoveryReview.test_pending_growth_can_be_reauthorized_after_unrelated_revision)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\p15-independent-review-20260908\p15_review_probe.py", line 110, in test_pending_growth_can_be_reauthorized_after_unrelated_revision
+    self.assertIsNone(caught, 'fresh authorized recovery is blocked by an uncommitted active consolidation')
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'learning is already consolidated' is not None : fresh authorized recovery is blocked by an uncommitted active consolidation
+
+======================================================================
+FAIL: test_growth_projection_rechecks_revocation_before_returning_details (p15_review_probe.GrowthVisibilityReview.test_growth_projection_rechecks_revocation_before_returning_details)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\p15-independent-review-20260908\p15_review_probe.py", line 142, in test_growth_projection_rechecks_revocation_before_returning_details
+    with self.assertRaises(MindAccessError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+AssertionError: MindAccessError not raised
+
+======================================================================
+FAIL: test_deleted_history_cannot_be_reopened_by_stale_active_projection (p15_review_probe.LifecyclePersistenceReview.test_deleted_history_cannot_be_reopened_by_stale_active_projection)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\p15-independent-review-20260908\p15_review_probe.py", line 56, in test_deleted_history_cannot_be_reopened_by_stale_active_projection
+    with self.assertRaises((StateValidationError, LifecycleError)):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (<class 'continuity_engine.domain.errors.StateValidationError'>, <class 'continuity_engine.domain.subject_lifecycle.LifecycleError'>) not raised
+
+======================================================================
+FAIL: test_suspended_history_cannot_downgrade_to_legacy_by_missing_field (p15_review_probe.LifecyclePersistenceReview.test_suspended_history_cannot_downgrade_to_legacy_by_missing_field)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\p15-independent-review-20260908\p15_review_probe.py", line 44, in test_suspended_history_cannot_downgrade_to_legacy_by_missing_field
+    with self.assertRaises((StateValidationError, LifecycleError)):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (<class 'continuity_engine.domain.errors.StateValidationError'>, <class 'continuity_engine.domain.subject_lifecycle.LifecycleError'>) not raised
+
+----------------------------------------------------------------------
+Ran 8 tests in 10.863s
+
+FAILED (failures=4, errors=1)

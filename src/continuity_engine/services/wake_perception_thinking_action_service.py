@@ -212,7 +212,7 @@ class WakePerceptionThinkingActionService:
             core.before_thinking(perception)
             thinking = self._thinking.handle_perception(perception, depth=depth, think_id=think_id,
                 result_id=str(uuid5(NAMESPACE_URL, 'p14-result|' + wake.session_id)),
-                preserve_perception_snapshot=True, result_processor=core.mind.process)
+                preserve_perception_snapshot=True, result_processor=core.process_thinking)
             session = thinking.session
         else:
             perception = session.perception_snapshot

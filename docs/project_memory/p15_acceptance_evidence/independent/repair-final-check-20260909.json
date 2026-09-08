@@ -1,0 +1,13 @@
+{
+  "engineFilesStillUnchanged": true,
+  "fileCount": 1757,
+  "changed": [],
+  "reportPresent": true,
+  "auxiliaryCheckErrorPreserved": {
+    "attempt": "An initial final-check one-liner imported snapshot directly from run_review.",
+    "error": "ImportError: cannot import name 'snapshot' from 'run_review'",
+    "cause": "The existing harness exposes snapshot as base.snapshot, not as a top-level symbol.",
+    "effect": "No Engine code ran or changed; not an Engine defect or behavioral test failure.",
+    "correction": "This separate checker uses the actual base.snapshot entry point."
+  }
+}

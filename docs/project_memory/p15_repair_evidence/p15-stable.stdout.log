@@ -1,0 +1,2 @@
+{"probe": "pending_growth_after_revision", "fresh_error": null, "state_traits": ["continuity", "unrelated later trait", "consider evidence"], "active_learning_traits": ["consider evidence", "consider evidence"]}
+{'scenario': 'paused-model-not-executed', 'facts_before': 0, 'facts_after': 0, 'exception': 'LifecycleError'}

@@ -1,0 +1,42 @@
+test_paused_pending_not_executed_model_cannot_dispatch (test_p15_subject_recovery.P15RecoveryTests.test_paused_pending_not_executed_model_cannot_dispatch) ... ERROR
+
+======================================================================
+ERROR: test_paused_pending_not_executed_model_cannot_dispatch (test_p15_subject_recovery.P15RecoveryTests.test_paused_pending_not_executed_model_cannot_dispatch)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 350, in submit_capability_result
+    return self._finish_operation(binding, operation, thinking)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 468, in _finish_operation
+    result = self._build_result(binding, operation)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 1555, in _build_result
+    raise RuntimeError("authoritative SubjectState no longer matches the operation checkpoint")
+RuntimeError: authoritative SubjectState no longer matches the operation checkpoint
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p15_subject_recovery.py", line 132, in test_paused_pending_not_executed_model_cannot_dispatch
+    with self.assertRaises(LifecycleError):app.models.recover(request['requestId'])
+                                           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\model_capability_service.py", line 107, in recover
+    return self._drive(outcome, allow_new_attempt=True, explicit_retry=False)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\model_capability_service.py", line 227, in _drive
+    return self._deliver(record, result_for_attempt)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\model_capability_service.py", line 502, in _deliver
+    outcome = self._integration.submit_capability_result(result.to_dict())
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 55, in submit_capability_result
+    return self._service.submit_capability_result(payload)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 360, in submit_capability_result
+    raise IntegrationExecutionError(
+    ...<7 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during capability_result.
+
+----------------------------------------------------------------------
+Ran 1 test in 0.252s
+
+FAILED (errors=1)

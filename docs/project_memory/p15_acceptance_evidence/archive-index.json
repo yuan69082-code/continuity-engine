@@ -1,0 +1,128 @@
+[
+  {
+    "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p15-independent-review-20260908\\repair-review-report-20260909.md",
+    "path": "docs/project_memory/p15_acceptance_evidence/independent/repair-review-report-20260909.md",
+    "sha256": "d18f731d2c4678b646e223c81d9b4435f9cba9172e4f1467f3584ba29583d153",
+    "bytes": 9321
+  },
+  {
+    "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p15-independent-review-20260908\\repair-identity-check-20260909.json",
+    "path": "docs/project_memory/p15_acceptance_evidence/independent/repair-identity-check-20260909.json",
+    "sha256": "4fb06b317312d54832fccf37f246abae91a1b2231d51a938309aa1e389ef1221",
+    "bytes": 3389
+  },
+  {
+    "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p15-independent-review-20260908\\repair-final-check-20260909.json",
+    "path": "docs/project_memory/p15_acceptance_evidence/independent/repair-final-check-20260909.json",
+    "sha256": "b2e25b30d136e98f449324c1e115f41f8b12feba9ef82f15a5ab5adbcdcda271",
+    "bytes": 608
+  },
+  {
+    "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p15-independent-review-20260908\\p15_repair_review_probe.py",
+    "path": "docs/project_memory/p15_acceptance_evidence/independent/p15_repair_review_probe.py",
+    "sha256": "fddfa5b3511506594817e5815b3e633e607de5709097daba52b457e52652d37e",
+    "bytes": 7568
+  },
+  {
+    "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p15-independent-review-20260908\\verify_repair_evidence.py",
+    "path": "docs/project_memory/p15_acceptance_evidence/independent/verify_repair_evidence.py",
+    "sha256": "8fee3627276541a7ad9cfde92f593b253283f2d25cfe3da9fba20e3f715db2fe",
+    "bytes": 6482
+  },
+  {
+    "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p15-independent-review-20260908\\repair_final_check.py",
+    "path": "docs/project_memory/p15_acceptance_evidence/independent/repair_final_check.py",
+    "sha256": "183e481c724083656ce54aa3022839e65805c70f9f8c7fc1559000cbe1a9ee5e",
+    "bytes": 1348
+  },
+  {
+    "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p15-independent-review-20260908\\repair-original-probes-20260909-01.result.json",
+    "path": "docs/project_memory/p15_acceptance_evidence/independent/repair-original-probes-20260909-01.result.json",
+    "sha256": "0ea92abb793c3d80157c8bd0e9699599183c70ad24117502717c808e8933d76f",
+    "bytes": 310
+  },
+  {
+    "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p15-independent-review-20260908\\repair-original-probes-20260909-01.stdout.log",
+    "path": "docs/project_memory/p15_acceptance_evidence/independent/repair-original-probes-20260909-01.stdout.log",
+    "sha256": "13c6f3acc6363692c3bea9d4a9ddfca275ef19cb47abfb5cf32b47fa10a4243c",
+    "bytes": 213
+  },
+  {
+    "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p15-independent-review-20260908\\repair-original-probes-20260909-01.stderr.log",
+    "path": "docs/project_memory/p15_acceptance_evidence/independent/repair-original-probes-20260909-01.stderr.log",
+    "sha256": "a93d3756b1f1ce2f060becfad355dae38d90d58f417a526eac510a36f9447217",
+    "bytes": 1501
+  },
+  {
+    "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p15-independent-review-20260908\\repair-original-probes-20260909-01.before.json",
+    "path": "docs/project_memory/p15_acceptance_evidence/independent/repair-original-probes-20260909-01.before.json",
+    "sha256": "9e4d1c2be06fb390fd6a39e5e3443041c438ae33d1d924c2d67a9253f7338d90",
+    "bytes": 250798
+  },
+  {
+    "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p15-independent-review-20260908\\repair-original-probes-20260909-01.after.json",
+    "path": "docs/project_memory/p15_acceptance_evidence/independent/repair-original-probes-20260909-01.after.json",
+    "sha256": "9e4d1c2be06fb390fd6a39e5e3443041c438ae33d1d924c2d67a9253f7338d90",
+    "bytes": 250798
+  },
+  {
+    "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p15-independent-review-20260908\\repair-p15-20260909-01.result.json",
+    "path": "docs/project_memory/p15_acceptance_evidence/independent/repair-p15-20260909-01.result.json",
+    "sha256": "b6d535a1338b3a9171201925dd8a98f1f5ed520569bf4732a12f4aff253fd16b",
+    "bytes": 359
+  },
+  {
+    "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p15-independent-review-20260908\\repair-p15-20260909-01.stdout.log",
+    "path": "docs/project_memory/p15_acceptance_evidence/independent/repair-p15-20260909-01.stdout.log",
+    "sha256": "7261c773b06a09f301e2ddac941aafc21b47c2e5588da21fb5b02e07d82fd9b0",
+    "bytes": 324
+  },
+  {
+    "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p15-independent-review-20260908\\repair-p15-20260909-01.stderr.log",
+    "path": "docs/project_memory/p15_acceptance_evidence/independent/repair-p15-20260909-01.stderr.log",
+    "sha256": "2d02368e1a2f7568c300a82f2d9dbc66f17d51ade31ece0298208c841e64af27",
+    "bytes": 12855
+  },
+  {
+    "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p15-independent-review-20260908\\repair-p15-20260909-01.before.json",
+    "path": "docs/project_memory/p15_acceptance_evidence/independent/repair-p15-20260909-01.before.json",
+    "sha256": "9e4d1c2be06fb390fd6a39e5e3443041c438ae33d1d924c2d67a9253f7338d90",
+    "bytes": 250798
+  },
+  {
+    "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p15-independent-review-20260908\\repair-p15-20260909-01.after.json",
+    "path": "docs/project_memory/p15_acceptance_evidence/independent/repair-p15-20260909-01.after.json",
+    "sha256": "9e4d1c2be06fb390fd6a39e5e3443041c438ae33d1d924c2d67a9253f7338d90",
+    "bytes": 250798
+  },
+  {
+    "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p15-independent-review-20260908\\repair-extra-probes-20260909-01.result.json",
+    "path": "docs/project_memory/p15_acceptance_evidence/independent/repair-extra-probes-20260909-01.result.json",
+    "sha256": "04bd2598281c761ca787d01ba8da2d4947d3095fcc411f5e23e7bff3a555c196",
+    "bytes": 317
+  },
+  {
+    "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p15-independent-review-20260908\\repair-extra-probes-20260909-01.stdout.log",
+    "path": "docs/project_memory/p15_acceptance_evidence/independent/repair-extra-probes-20260909-01.stdout.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p15-independent-review-20260908\\repair-extra-probes-20260909-01.stderr.log",
+    "path": "docs/project_memory/p15_acceptance_evidence/independent/repair-extra-probes-20260909-01.stderr.log",
+    "sha256": "b23d3ab173c166b0644b60359725a1a4594503aa4137124574f8a4f7131cb217",
+    "bytes": 1532
+  },
+  {
+    "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p15-independent-review-20260908\\repair-extra-probes-20260909-01.before.json",
+    "path": "docs/project_memory/p15_acceptance_evidence/independent/repair-extra-probes-20260909-01.before.json",
+    "sha256": "9e4d1c2be06fb390fd6a39e5e3443041c438ae33d1d924c2d67a9253f7338d90",
+    "bytes": 250798
+  },
+  {
+    "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p15-independent-review-20260908\\repair-extra-probes-20260909-01.after.json",
+    "path": "docs/project_memory/p15_acceptance_evidence/independent/repair-extra-probes-20260909-01.after.json",
+    "sha256": "9e4d1c2be06fb390fd6a39e5e3443041c438ae33d1d924c2d67a9253f7338d90",
+    "bytes": 250798
+  }
+]

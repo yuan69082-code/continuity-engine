@@ -1,0 +1,22 @@
+{
+  "at": "2026-09-08T10:37:04.271872+00:00",
+  "checks": {
+    "protected": {
+      "count": 63,
+      "changed": []
+    },
+    "plans": {
+      "count": 3,
+      "changed": []
+    },
+    "formalFiles": {
+      "count": 7,
+      "changed": []
+    },
+    "excludedP10": {
+      "count": 31,
+      "changed": []
+    }
+  },
+  "originalTestFileChanges": []
+}

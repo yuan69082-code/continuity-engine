@@ -1,0 +1,13 @@
+test_committed_rollback_crash_recovers_after_revocation_once (p15_repair_review_probe.GrowthFollowup.test_committed_rollback_crash_recovers_after_revocation_once) ... ok
+test_replacement_identity_cannot_change_after_supersession_crash (p15_repair_review_probe.GrowthFollowup.test_replacement_identity_cannot_change_after_supersession_crash) ... ok
+test_replay_old_solidify_after_completed_rollback_does_not_reactivate (p15_repair_review_probe.GrowthFollowup.test_replay_old_solidify_after_completed_rollback_does_not_reactivate) ... ok
+test_revocation_after_preparation_blocks_evolution_until_fresh_confirmation (p15_repair_review_probe.GrowthFollowup.test_revocation_after_preparation_blocks_evolution_until_fresh_confirmation) ... ok
+test_history_command_revision_drift_rejected_zero_writes (p15_repair_review_probe.LifecycleFollowup.test_history_command_revision_drift_rejected_zero_writes) ... ok
+test_subject_intent_then_pause_resume_replays_without_state_changes (p15_repair_review_probe.LifecycleFollowup.test_subject_intent_then_pause_resume_replays_without_state_changes) ... ok
+test_owner_binding_change_mid_read_rejects_old_details (p15_repair_review_probe.ProjectionFollowup.test_owner_binding_change_mid_read_rejects_old_details) ... ok
+test_visibility_policy_change_mid_read_rejects_old_details (p15_repair_review_probe.ProjectionFollowup.test_visibility_policy_change_mid_read_rejects_old_details) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 25.741s
+
+OK

@@ -62,6 +62,7 @@ class ResourceAwareWakeScheduler:
             )
         if not cycle.is_due(now):
             raise WakeNotDueError(f"awake cycle is not due: {cycle_id}")
+        self._awakening._subject_states.require_active(cycle.subject_id)
         session_id = session_id or str(uuid4())
         allocation = self._resources.request_wake(
             cycle.subject_id,
@@ -91,6 +92,7 @@ class ResourceAwareWakeScheduler:
             )
         if not cycle.enabled:
             raise AwakeningValidationError("awake cycle is disabled")
+        self._awakening._subject_states.require_active(cycle.subject_id)
         session_id = session_id or str(uuid4())
         allocation = self._resources.request_wake(
             cycle.subject_id,
@@ -117,6 +119,7 @@ class ResourceAwareWakeScheduler:
         cycle = self._awakening.get_cycle(cycle_id)
         if not cycle.enabled:
             raise AwakeningValidationError("awake cycle is disabled")
+        self._awakening._subject_states.require_active(cycle.subject_id)
         session_id = session_id or str(uuid4())
         allocation = self._resources.request_wake(
             cycle.subject_id,

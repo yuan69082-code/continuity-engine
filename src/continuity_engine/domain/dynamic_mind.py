@@ -239,6 +239,13 @@ def context_state_document(state):
     """
     from .action_planning import digest
     value = state.to_dict()
+    for section,key in [('identity','self_narrative'),('relationship','objects')]:
+        growth=value[section].get(key)
+        if growth is not None:
+            value[section][key]={'version':growth['version'],'state_hash':digest(growth),
+                'authority':growth['authority'],'entry_count':len(growth['entries']),
+                'recent_interpretation':growth['entries'][-1]['interpretation'][:160] if growth['entries'] else '',
+                'detail':'bounded subjective projection; full roots remain in SubjectState/Evolution'}
     mind = value['intentions'].get('dynamic_mind')
     if mind is not None:
         value['intentions']['dynamic_mind'] = {

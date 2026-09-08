@@ -47,6 +47,7 @@ class SchedulerService:
         quiet_hours: QuietHours | None = None,
         estimated_tokens: int = 64,
         estimated_compute: int = 1,
+        subject_states=None,
     ) -> None:
         for value, name in (
             (capacity, "capacity"),
@@ -71,6 +72,7 @@ class SchedulerService:
         self._quiet_hours = quiet_hours
         self._estimated_tokens = estimated_tokens
         self._estimated_compute = estimated_compute
+        self._subject_states = subject_states
 
     def submit(self, task: SchedulerTask) -> SchedulerAdmissionResult:
         if not isinstance(task, SchedulerTask):
@@ -215,6 +217,14 @@ class SchedulerService:
             )
         ready.sort(key=lambda task: self._sort_key(task, now))
         task = ready[0]
+
+        if self._subject_states is not None:
+            from continuity_engine.domain.subject_lifecycle import LifecycleError
+            try:
+                self._subject_states.require_active(subject_id, environment)
+            except LifecycleError as exc:
+                return SchedulerTickResult(SchedulerTickStatus.RESOURCE_DEFERRED,
+                    task.clone(), queue.revision, str(exc))
 
         if self._quiet_hours is not None and self._quiet_hours.contains(now):
             return SchedulerTickResult(

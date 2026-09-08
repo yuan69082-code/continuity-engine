@@ -45,10 +45,12 @@ class LearningService:
         *,
         resource_manager: ResourceManager | None = None,
         clock: Callable[[], datetime] = utc_now,
+        current_source_verifier=None,
     ) -> None:
         self._repository = repository
         self._resource_manager = resource_manager
         self._clock = clock
+        self._current_source_verifier = current_source_verifier
 
     def extract_candidates(self, context: LearningContext) -> LearningResult:
         """Extract only explicitly annotated learning evidence.
@@ -321,6 +323,7 @@ class LearningService:
         confirmed: bool,
         expected_revision: int,
         trait_id: str | None = None,
+        growth_operation: dict | None = None,
     ) -> LearningChangeResult:
         self._require_confirmation(confirmed)
         self._check_state(subject_id, current_state, expected_revision)
@@ -354,6 +357,7 @@ class LearningService:
             evidence_count=len(current.root_evidence_ids),
         )
         state_event = Event.create(
+            event_id=('p15-growth:' + str(growth_operation['command']['command_id']) if growth_operation else None),
             occurred_at=now,
             source=source,
             event_type="learning_consolidation",
@@ -367,6 +371,7 @@ class LearningService:
                 "evidence_count": personality_trait.evidence_count,
                 "learning_confidence": current.confidence,
                 "explicitly_confirmed": True,
+                **({'p15_growth_operation':growth_operation} if growth_operation is not None else {}),
             },
         )
         updated = LearningEvent.from_dict(current.to_dict())
@@ -384,6 +389,12 @@ class LearningService:
             trait_id=personality_trait.trait_id,
             state_event_id=state_event.event_id,
         )
+        if growth_operation is not None:
+            record.pending_state_event = state_event.to_dict()
+            record.growth_operation = dict(growth_operation)
+            record.record_type = LearningRecordType.GROWTH_PREPARED
+            record.permanently_consolidated = False
+            personality_trait.active = False  # Proposal, not an already committed Trait.
         self._repository.save_change(
             subject_id,
             updated,
@@ -437,6 +448,17 @@ class LearningService:
         return confidence
 
     def _verify_memory_support(self, subject_id, candidate):
+        origins = [r for r in self._repository.history(subject_id,candidate.learning_id)
+                   if r.record_type is LearningRecordType.CANDIDATE_CREATED]
+        binding = (origins[0].original_experience.get('p15_source_binding')
+                   if len(origins)==1 and isinstance(origins[0].original_experience,dict) else None)
+        if binding is None and (candidate.learning_id.startswith('p15-learning:') or
+                any(r.source=='p15-c1-experience' for r in origins)):
+            raise LearningValidationError('P15 captured source binding missing; cannot downgrade to legacy')
+        if binding is not None:
+            if self._current_source_verifier is None:
+                raise LearningValidationError('P15 current source verifier required')
+            self._current_source_verifier(candidate, binding)
         if candidate.source_memory_id is None: return
         origins=[r for r in self._repository.history(subject_id,candidate.learning_id)
                  if r.record_type is LearningRecordType.CANDIDATE_CREATED]
@@ -472,6 +494,7 @@ class LearningService:
         source: str,
         confirmed: bool,
         expected_revision: int,
+        growth_operation: dict | None = None,
     ) -> LearningChangeResult:
         self._require_confirmation(confirmed)
         self._check_state(subject_id, current_state, expected_revision)
@@ -512,6 +535,9 @@ class LearningService:
                 "explicitly_confirmed": True,
             },
         )
+        if growth_operation is not None:
+            state_event.event_id = 'p15-growth:' + str(growth_operation['command']['command_id'])
+            state_event.metadata['p15_growth_operation'] = growth_operation
         updated_learning = LearningEvent.from_dict(current.to_dict())
         updated_learning.validation_status = LearningValidationStatus.REVOKED
         updated_learning.revision += 1
@@ -533,6 +559,13 @@ class LearningService:
             trait_id=trait_id,
             state_event_id=state_event.event_id,
         )
+        if growth_operation is not None:
+            record.pending_state_event = state_event.to_dict()
+            record.growth_operation = dict(growth_operation)
+            record.record_type = LearningRecordType.GROWTH_PREPARED
+            updated_learning.validation_status = current.validation_status
+            record.validation_status = current.validation_status
+            updated_trait.active = trait.active  # Original contribution remains until Evolution.
         self._repository.save_change(
             subject_id,
             updated_learning,
@@ -675,6 +708,7 @@ class LearningService:
         source: str,
         trait_id: str | None = None,
         state_event_id: str | None = None,
+        growth_resolution: dict | None = None,
     ) -> LearningRecord:
         return LearningRecord(
             record_id=str(uuid4()),
@@ -702,6 +736,7 @@ class LearningService:
             root_evidence_ids=list(learning.root_evidence_ids),
             trait_id=trait_id,
             state_event_id=state_event_id,
+            growth_resolution=growth_resolution,
         )
 
     def _original_experience(self, subject_id: str, learning_id: str) -> JsonValue:

@@ -261,6 +261,7 @@ class AwakeningService:
         context_id: str | None = None,
         preserve_recovery_context: bool = False,
     ) -> AwakeningResult:
+        self._subject_states.require_active(cycle.subject_id)
         session = WakeSession.start(cycle, trigger, session_id=session_id)
         self._repository.save_session(session)
         state: SubjectState | None = None

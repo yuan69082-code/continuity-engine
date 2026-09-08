@@ -1,0 +1,39 @@
+test_legacy_state_is_active_without_rewriting_serialization (test_p15_subject_lifecycle.SubjectLifecycleModelTests.test_legacy_state_is_active_without_rewriting_serialization) ... ok
+test_policy_is_unconfigured_until_explicit_test_decision (test_p15_subject_lifecycle.SubjectLifecycleModelTests.test_policy_is_unconfigured_until_explicit_test_decision) ... ok
+test_subject_intent_is_not_owner_command_or_deletion (test_p15_subject_lifecycle.SubjectLifecycleModelTests.test_subject_intent_is_not_owner_command_or_deletion) ... ok
+test_transition_table_preserves_terminal_deleted (test_p15_subject_lifecycle.SubjectLifecycleModelTests.test_transition_table_preserves_terminal_deleted) ... ok
+test_action_gate_denial_is_zero_write (test_p15_subject_lifecycle.SubjectLifecycleServiceTests.test_action_gate_denial_is_zero_write) ... ok
+test_archive_unconfigured_and_deleted_terminal (test_p15_subject_lifecycle.SubjectLifecycleServiceTests.test_archive_unconfigured_and_deleted_terminal) ... ok
+test_c1_new_request_paused_zero_journal_provider_or_receipt (test_p15_subject_lifecycle.SubjectLifecycleServiceTests.test_c1_new_request_paused_zero_journal_provider_or_receipt) ... FAIL
+test_create_suspend_restart_resume_and_replay (test_p15_subject_lifecycle.SubjectLifecycleServiceTests.test_create_suspend_restart_resume_and_replay) ... ok
+test_paused_state_cannot_be_changed_by_ordinary_event (test_p15_subject_lifecycle.SubjectLifecycleServiceTests.test_paused_state_cannot_be_changed_by_ordinary_event) ... ok
+test_revoked_confirmation_and_stale_command_zero_writes (test_p15_subject_lifecycle.SubjectLifecycleServiceTests.test_revoked_confirmation_and_stale_command_zero_writes) ... ok
+test_same_command_identity_different_contents_is_conflict (test_p15_subject_lifecycle.SubjectLifecycleServiceTests.test_same_command_identity_different_contents_is_conflict) ... ok
+test_scheduler_paused_zero_attempt_resource_notification_then_resume (test_p15_subject_lifecycle.SubjectLifecycleServiceTests.test_scheduler_paused_zero_attempt_resource_notification_then_resume) ... FAIL
+test_subject_intent_preserves_state_and_owner_identity (test_p15_subject_lifecycle.SubjectLifecycleServiceTests.test_subject_intent_preserves_state_and_owner_identity) ... ok
+
+======================================================================
+FAIL: test_c1_new_request_paused_zero_journal_provider_or_receipt (test_p15_subject_lifecycle.SubjectLifecycleServiceTests.test_c1_new_request_paused_zero_journal_provider_or_receipt)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p15_subject_lifecycle.py", line 144, in test_c1_new_request_paused_zero_journal_provider_or_receipt
+    with self.assertRaises(Exception):c1.submit(request)
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: Exception not raised
+
+======================================================================
+FAIL: test_scheduler_paused_zero_attempt_resource_notification_then_resume (test_p15_subject_lifecycle.SubjectLifecycleServiceTests.test_scheduler_paused_zero_attempt_resource_notification_then_resume)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p15_subject_lifecycle.py", line 163, in test_scheduler_paused_zero_attempt_resource_notification_then_resume
+    self.assertEqual(result.reason_code,'SUBJECT_NOT_ACTIVE')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'RECEIPT_DELIVERED' != 'SUBJECT_NOT_ACTIVE'
+- RECEIPT_DELIVERED
++ SUBJECT_NOT_ACTIVE
+
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.748s
+
+FAILED (failures=2)

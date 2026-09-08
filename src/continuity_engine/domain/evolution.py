@@ -22,6 +22,7 @@ class FieldRule:
     section: StateSection
     value_type: type
     list_item_type: type | None = None
+    document_type: str = "mind"
 
 
 FIELD_RULES: dict[str, FieldRule] = {
@@ -29,6 +30,8 @@ FIELD_RULES: dict[str, FieldRule] = {
     "identity.expression_preferences": FieldRule(StateSection.IDENTITY, list, str),
     "identity.judgment_principles": FieldRule(StateSection.IDENTITY, list, str),
     "identity.self_concept": FieldRule(StateSection.IDENTITY, str),
+    "identity.self_narrative": FieldRule(StateSection.IDENTITY, dict, document_type="narrative"),
+    "relationship.objects": FieldRule(StateSection.RELATIONSHIP, dict, document_type="relationships"),
     "relationship.definition": FieldRule(StateSection.RELATIONSHIP, str),
     "relationship.interaction_preferences": FieldRule(StateSection.RELATIONSHIP, list, str),
     "relationship.important_moments": FieldRule(StateSection.RELATIONSHIP, list, str),
@@ -37,6 +40,7 @@ FIELD_RULES: dict[str, FieldRule] = {
     "continuity.current_focus": FieldRule(StateSection.CONTINUITY, list, str),
     "continuity.recent_changes": FieldRule(StateSection.CONTINUITY, list, str),
     "temporal.lifecycle_events": FieldRule(StateSection.TEMPORAL, list, str),
+    "temporal.subject_lifecycle": FieldRule(StateSection.TEMPORAL, dict, document_type="lifecycle"),
     "intentions.emerging_thoughts": FieldRule(StateSection.INTENTIONS, list, str),
     "intentions.judgments": FieldRule(StateSection.INTENTIONS, list, str),
     "intentions.action_tendencies": FieldRule(StateSection.INTENTIONS, list, str),
@@ -179,6 +183,12 @@ class SubjectStateEvolver:
     ) -> JsonValue:
         if operation is ChangeOperation.SET:
             if rule.value_type is dict:
+                if rule.document_type in {'narrative', 'relationships'}:
+                    from .subject_growth import growth_document
+                    return growth_document(value,kind=rule.document_type)
+                if rule.document_type == "lifecycle":
+                    from .subject_lifecycle import SubjectLifecycle
+                    return SubjectLifecycle.from_dict(value).to_dict()
                 from .dynamic_mind import MindState
                 # One typed internal field, not an arbitrary object mutation escape.
                 return MindState.from_dict(value).to_dict()

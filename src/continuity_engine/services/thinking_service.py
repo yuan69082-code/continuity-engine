@@ -70,6 +70,7 @@ class ThinkingService:
     ) -> ThinkingExecutionResult:
         if not isinstance(perception, PerceptionResult):
             raise ThinkingValidationError("thinking requires a PerceptionResult")
+        self._subject_states.require_active(perception.subject_id)
         thinking_reason = (
             "Perception identified information requiring internal thought: "
             f"{perception.summary}"
@@ -220,6 +221,7 @@ class ThinkingService:
 
         if not isinstance(perception, PerceptionResult):
             raise ThinkingValidationError("thinking requires a PerceptionResult")
+        self._subject_states.require_active(perception.subject_id)
         created_at = started_at or self._clock()
         reason = (
             "Perception requires an external model capability before Thinking can "
@@ -354,6 +356,9 @@ class ThinkingService:
             )
         if any(m.field_path == 'intentions.dynamic_mind' for m in result.proposed_mutations):
             raise ThinkingValidationError('Provider cannot supply P14 internal state directly')
+        if any(m.field_path in {'temporal.subject_lifecycle',
+                               'identity.self_narrative','relationship.objects'} for m in result.proposed_mutations):
+            raise ThinkingValidationError('Provider cannot supply internal subject state directly')
 
     @staticmethod
     def _depth_rank(depth: ThinkingDepth) -> int:

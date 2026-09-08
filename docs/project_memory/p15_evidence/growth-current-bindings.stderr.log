@@ -1,0 +1,11 @@
+test_duplicate_root_wrappers_do_not_validate (test_p15_subject_growth.SubjectGrowthTests.test_duplicate_root_wrappers_do_not_validate) ... ok
+test_normal_chain_forms_subjective_narrative_and_object_relationship (test_p15_subject_growth.SubjectGrowthTests.test_normal_chain_forms_subjective_narrative_and_object_relationship) ... ok
+test_pending_learning_record_recovers_after_restart_without_second_revision (test_p15_subject_growth.SubjectGrowthTests.test_pending_learning_record_recovers_after_restart_without_second_revision) ... ok
+test_rejected_support_and_permission_revocation_zero_state_change (test_p15_subject_growth.SubjectGrowthTests.test_rejected_support_and_permission_revocation_zero_state_change) ... ok
+test_rollback_preserves_later_unrelated_trait (test_p15_subject_growth.SubjectGrowthTests.test_rollback_preserves_later_unrelated_trait) ... ok
+test_three_current_independent_experiences_form_trait_and_next_context (test_p15_subject_growth.SubjectGrowthTests.test_three_current_independent_experiences_form_trait_and_next_context) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 49.864s
+
+OK

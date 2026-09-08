@@ -1,0 +1,53 @@
+test_export_permission_revoked_during_read_is_rechecked (test_p15_repair_edges.GrowthProjectionRepairTests.test_export_permission_revoked_during_read_is_rechecked) ... ok
+test_same_revision_growth_content_change_is_rechecked (test_p15_repair_edges.GrowthProjectionRepairTests.test_same_revision_growth_content_change_is_rechecked) ... ok
+test_ordinary_legacy_event_type_name_is_not_lifecycle_authority (test_p15_repair_edges.LifecycleArchiveRepairTests.test_ordinary_legacy_event_type_name_is_not_lifecycle_authority) ... ERROR
+test_committed_resolution_without_actual_evolution_is_not_replayed (test_p15_repair_edges.PendingGrowthRepairTests.test_committed_resolution_without_actual_evolution_is_not_replayed) ... FAIL
+test_old_format_pending_rollback_can_be_reconfirmed (test_p15_repair_edges.PendingGrowthRepairTests.test_old_format_pending_rollback_can_be_reconfirmed) ... ok
+test_old_format_pending_solidify_can_be_reconfirmed (test_p15_repair_edges.PendingGrowthRepairTests.test_old_format_pending_solidify_can_be_reconfirmed) ... ok
+
+======================================================================
+ERROR: test_ordinary_legacy_event_type_name_is_not_lifecycle_authority (test_p15_repair_edges.LifecycleArchiveRepairTests.test_ordinary_legacy_event_type_name_is_not_lifecycle_authority)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_repository.py", line 221, in _advance_lifecycle
+    command=LifecycleCommand.from_dict(metadata['command'])
+                                       ~~~~~~~~^^^^^^^^^^^
+KeyError: 'command'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p15_repair_edges.py", line 67, in test_ordinary_legacy_event_type_name_is_not_lifecycle_authority
+    f.states.apply_event(f.subject_id,event);before=f.inventory();f.reopen()
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\subject_state_service.py", line 79, in apply_event
+    return self._apply_event(subject_id, event, expected_revision=expected_revision)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\subject_state_service.py", line 149, in _apply_event
+    self._repository.save_transition(result.state, result.update)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_repository.py", line 111, in save_transition
+    self._write_payload(path, self._envelope(state, [*updates, update]))
+                              ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_repository.py", line 141, in _envelope
+    JsonSubjectStateRepository._validate_history(state, updates)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_repository.py", line 202, in _validate_history
+    lifecycle = JsonSubjectStateRepository._advance_lifecycle(state.subject_id, lifecycle, update)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_repository.py", line 259, in _advance_lifecycle
+    raise StateValidationError('invalid lifecycle history: '+str(exc)) from exc
+continuity_engine.domain.errors.StateValidationError: invalid lifecycle history: 'command'
+
+======================================================================
+FAIL: test_committed_resolution_without_actual_evolution_is_not_replayed (test_p15_repair_edges.PendingGrowthRepairTests.test_committed_resolution_without_actual_evolution_is_not_replayed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p15_repair_edges.py", line 192, in test_committed_resolution_without_actual_evolution_is_not_replayed
+    with self.assertRaisesRegex(LearningValidationError,'FACT_MISSING'):f.replay('committed')
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: LearningValidationError not raised
+
+----------------------------------------------------------------------
+Ran 6 tests in 20.014s
+
+FAILED (failures=1, errors=1)

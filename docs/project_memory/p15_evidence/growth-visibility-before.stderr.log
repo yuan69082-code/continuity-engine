@@ -1,0 +1,15 @@
+test_growth_permission_policy_is_required_and_owner_read_is_read_only (test_p15_subject_growth.SubjectGrowthTests.test_growth_permission_policy_is_required_and_owner_read_is_read_only) ... ERROR
+
+======================================================================
+ERROR: test_growth_permission_policy_is_required_and_owner_read_is_read_only (test_p15_subject_growth.SubjectGrowthTests.test_growth_permission_policy_is_required_and_owner_read_is_read_only)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p15_subject_growth.py", line 108, in test_growth_permission_policy_is_required_and_owner_read_is_read_only
+    with self.assertRaisesRegex(MindAccessError,'NOT_READY'):projection.read_growth('test-owner-session')
+                                                             ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MindProjectionService' object has no attribute 'read_growth'
+
+----------------------------------------------------------------------
+Ran 1 test in 2.493s
+
+FAILED (errors=1)

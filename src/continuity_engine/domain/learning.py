@@ -46,6 +46,8 @@ class LearningRecordType(str, Enum):
     REJECTED = "REJECTED"
     CONSOLIDATED = "CONSOLIDATED"
     ROLLED_BACK = "ROLLED_BACK"
+    GROWTH_PREPARED = "GROWTH_PREPARED"
+    GROWTH_SUPERSEDED = "GROWTH_SUPERSEDED"
 
 
 def _require_text(value: Any, field_name: str) -> str:
@@ -326,6 +328,9 @@ class LearningRecord:
     root_evidence_ids: list[str] = field(default_factory=list)
     trait_id: str | None = None
     state_event_id: str | None = None
+    pending_state_event: dict | None = None
+    growth_operation: dict | None = None
+    growth_resolution: dict | None = None
 
     def __post_init__(self) -> None:
         for value, name in (
@@ -377,6 +382,45 @@ class LearningRecord:
         self.state_event_id = _optional_text(
             self.state_event_id, "record state_event_id"
         )
+        if self.pending_state_event is not None:
+            from .events import Event
+            from .subject_growth import GrowthCommand
+            event = Event.from_dict(self.pending_state_event)
+            operation = self.growth_operation
+            if not isinstance(operation,dict) or set(operation)!={'command','principal_id'}:
+                raise LearningValidationError('growth operation binding missing')
+            command = GrowthCommand(**operation['command'])
+            if (command.subject_id!=self.subject_id or command.learning_id!=self.learning_id
+                    or event.event_id!=self.state_event_id or event.reason!=self.reason
+                    or event.metadata.get('p15_growth_operation')!=operation
+                    or len(event.mutations)!=1 or event.mutations[0].field_path!=self.field_path
+                    or event.metadata.get('trait_id')!=self.trait_id):
+                raise LearningValidationError('growth pending Evolution binding invalid')
+        elif self.growth_operation is not None:
+            raise LearningValidationError('growth operation lacks pending Evolution')
+        if self.record_type is LearningRecordType.GROWTH_PREPARED and (
+                self.pending_state_event is None or self.permanently_consolidated
+                or self.growth_resolution is not None):
+            raise LearningValidationError('growth preparation must remain bound and uncommitted')
+        if self.record_type is LearningRecordType.GROWTH_SUPERSEDED and self.growth_resolution is None:
+            raise LearningValidationError('growth supersession requires original preparation binding')
+        if self.growth_resolution is not None:
+            resolution=self.growth_resolution
+            if (not isinstance(resolution,dict) or set(resolution)!={
+                    'prepared_record_id','prepared_hash','outcome','replacement_command'}
+                    or resolution['outcome'] not in {'COMMITTED','SUPERSEDED'}
+                    or self.growth_operation is not None):
+                raise LearningValidationError('growth resolution binding invalid')
+            _require_text(resolution['prepared_record_id'],'prepared record identity')
+            _require_text(resolution['prepared_hash'],'prepared record hash')
+            if resolution['outcome']=='SUPERSEDED':
+                from .subject_growth import GrowthCommand
+                command=GrowthCommand(**resolution['replacement_command'])
+                if (command.subject_id!=self.subject_id or command.learning_id!=self.learning_id
+                        or self.record_type is not LearningRecordType.GROWTH_SUPERSEDED):
+                    raise LearningValidationError('growth supersession target invalid')
+            elif resolution['replacement_command'] is not None:
+                raise LearningValidationError('committed growth cannot change command')
 
     def to_dict(self) -> dict[str, JsonValue]:
         return {
@@ -399,6 +443,9 @@ class LearningRecord:
             "root_evidence_ids": list(self.root_evidence_ids),
             "trait_id": self.trait_id,
             "state_event_id": self.state_event_id,
+            **({'pending_state_event': self.pending_state_event, 'growth_operation': self.growth_operation}
+               if self.pending_state_event is not None else {}),
+            **({'growth_resolution':self.growth_resolution} if self.growth_resolution is not None else {}),
         }
 
     @classmethod
@@ -431,6 +478,9 @@ class LearningRecord:
             ),
             trait_id=value.get("trait_id"),
             state_event_id=value.get("state_event_id"),
+            pending_state_event=value.get("pending_state_event"),
+            growth_operation=value.get("growth_operation"),
+            growth_resolution=value.get("growth_resolution"),
         )
 
 

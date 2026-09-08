@@ -163,6 +163,19 @@ class ContinuityInteractionService:
     def thinking_mode(self) -> IntegrationThinkingMode:
         return self._thinking_mode
 
+    def authorize_new_computation(self, request):
+        """Internal P15 gate; a saved model attempt is not perpetual permission."""
+        operation=self._ledger.load_operation(request.request_id)
+        original=self._ledger.find_capability_request_by_operation(request.operation_id)
+        if (operation is None or original is None or operation.operation_id!=request.operation_id
+                or original.capability_request_id!=request.capability_request_id
+                or original.input_hash!=request.input_hash or original.request_id!=request.request_id):
+            raise CapabilityValidationError('MODEL_COMPUTATION_OPERATION_BINDING_INVALID')
+        self._subject_states.require_active(operation.subject_id)
+        progress=operation.domain_progress
+        if progress is not None and progress.perception is not None:
+            self._validate_core_before_thinking(progress.perception)
+
     def submit(
         self,
         payload: Any,
@@ -216,6 +229,7 @@ class ContinuityInteractionService:
 
             operation = self._ledger.load_operation(request.request_id)
             if operation is None:
+                self._subject_states.require_active(binding.subject_id)
                 stage = "revision"
                 self._record("revision")
                 state = self._subject_states.load(binding.subject_id)
@@ -724,8 +738,8 @@ class ContinuityInteractionService:
                 think_id=progress.think_session_id,
                 result_id=progress.thinking_result_id,
                 preserve_perception_snapshot=True,
-                **({'result_processor': self._continuity_core.mind.process}
-                   if self._continuity_core is not None and self._continuity_core.mind is not None else {}),
+                **({'result_processor': self._continuity_core.process_thinking}
+                   if self._continuity_core is not None and (self._continuity_core.mind is not None or self._continuity_core.growth is not None) else {}),
             )
         else:
             self._validate_completed_thinking(
@@ -893,8 +907,8 @@ class ContinuityInteractionService:
                 think_id=progress.think_session_id,
                 result=thinking_result,
                 ended_at=_contract_datetime(result.completed_at),
-                **({'result_processor': self._continuity_core.mind.process}
-                   if self._continuity_core is not None and self._continuity_core.mind is not None else {}),
+                **({'result_processor': self._continuity_core.process_thinking}
+                   if self._continuity_core is not None and (self._continuity_core.mind is not None or self._continuity_core.growth is not None) else {}),
             )
         else:
             self._validate_completed_thinking(

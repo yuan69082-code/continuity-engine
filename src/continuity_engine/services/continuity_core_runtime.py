@@ -64,6 +64,9 @@ def build_continuity_core(*, data_dir, binding, ledger, subject_states, action_g
     resolvers.extend(extra_resolvers)
     repository = JsonContradictionRepository(data_dir, environment=environment,
                                               resolution_evidence_verifier=resolution_verifier)
+    if options.get('subject_growth'):
+        from continuity_engine.storage.json_learning_repository import JsonLearningRepository
+        options['growth_repository']=JsonLearningRepository(data_dir)
     return ContinuityCoreService(subject_id=binding.subject_id, environment=environment,
         router=ContextRouterService(sources, permission_policy=permission, enabled=gates.enabled),
         composer=ContextComposerService(resolvers, clock=clock, enabled=gates.enabled,

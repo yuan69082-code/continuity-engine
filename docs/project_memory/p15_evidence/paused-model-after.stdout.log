@@ -1,0 +1,1 @@
+{'scenario': 'paused-model-not-executed', 'facts_before': 0, 'facts_after': 0, 'exception': 'LifecycleError'}

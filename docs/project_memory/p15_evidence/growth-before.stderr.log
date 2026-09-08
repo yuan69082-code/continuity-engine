@@ -1,0 +1,59 @@
+test_duplicate_root_wrappers_do_not_validate (test_p15_subject_growth.SubjectGrowthTests.test_duplicate_root_wrappers_do_not_validate) ... ERROR
+test_normal_chain_forms_subjective_narrative_and_object_relationship (test_p15_subject_growth.SubjectGrowthTests.test_normal_chain_forms_subjective_narrative_and_object_relationship) ... ERROR
+test_pending_learning_record_recovers_after_restart_without_second_revision (test_p15_subject_growth.SubjectGrowthTests.test_pending_learning_record_recovers_after_restart_without_second_revision) ... ERROR
+test_rejected_support_and_permission_revocation_zero_state_change (test_p15_subject_growth.SubjectGrowthTests.test_rejected_support_and_permission_revocation_zero_state_change) ... ERROR
+test_rollback_preserves_later_unrelated_trait (test_p15_subject_growth.SubjectGrowthTests.test_rollback_preserves_later_unrelated_trait) ... ERROR
+test_three_current_independent_experiences_form_trait_and_next_context (test_p15_subject_growth.SubjectGrowthTests.test_three_current_independent_experiences_form_trait_and_next_context) ... ERROR
+
+======================================================================
+ERROR: test_duplicate_root_wrappers_do_not_validate (test_p15_subject_growth.SubjectGrowthTests.test_duplicate_root_wrappers_do_not_validate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p15_subject_growth.py", line 10, in setUp
+    from continuity_engine.testing.p15_subject_fixture import P15GrowthFixture
+ImportError: cannot import name 'P15GrowthFixture' from 'continuity_engine.testing.p15_subject_fixture' (C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p15_subject_fixture.py)
+
+======================================================================
+ERROR: test_normal_chain_forms_subjective_narrative_and_object_relationship (test_p15_subject_growth.SubjectGrowthTests.test_normal_chain_forms_subjective_narrative_and_object_relationship)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p15_subject_growth.py", line 10, in setUp
+    from continuity_engine.testing.p15_subject_fixture import P15GrowthFixture
+ImportError: cannot import name 'P15GrowthFixture' from 'continuity_engine.testing.p15_subject_fixture' (C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p15_subject_fixture.py)
+
+======================================================================
+ERROR: test_pending_learning_record_recovers_after_restart_without_second_revision (test_p15_subject_growth.SubjectGrowthTests.test_pending_learning_record_recovers_after_restart_without_second_revision)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p15_subject_growth.py", line 10, in setUp
+    from continuity_engine.testing.p15_subject_fixture import P15GrowthFixture
+ImportError: cannot import name 'P15GrowthFixture' from 'continuity_engine.testing.p15_subject_fixture' (C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p15_subject_fixture.py)
+
+======================================================================
+ERROR: test_rejected_support_and_permission_revocation_zero_state_change (test_p15_subject_growth.SubjectGrowthTests.test_rejected_support_and_permission_revocation_zero_state_change)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p15_subject_growth.py", line 10, in setUp
+    from continuity_engine.testing.p15_subject_fixture import P15GrowthFixture
+ImportError: cannot import name 'P15GrowthFixture' from 'continuity_engine.testing.p15_subject_fixture' (C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p15_subject_fixture.py)
+
+======================================================================
+ERROR: test_rollback_preserves_later_unrelated_trait (test_p15_subject_growth.SubjectGrowthTests.test_rollback_preserves_later_unrelated_trait)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p15_subject_growth.py", line 10, in setUp
+    from continuity_engine.testing.p15_subject_fixture import P15GrowthFixture
+ImportError: cannot import name 'P15GrowthFixture' from 'continuity_engine.testing.p15_subject_fixture' (C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p15_subject_fixture.py)
+
+======================================================================
+ERROR: test_three_current_independent_experiences_form_trait_and_next_context (test_p15_subject_growth.SubjectGrowthTests.test_three_current_independent_experiences_form_trait_and_next_context)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p15_subject_growth.py", line 10, in setUp
+    from continuity_engine.testing.p15_subject_fixture import P15GrowthFixture
+ImportError: cannot import name 'P15GrowthFixture' from 'continuity_engine.testing.p15_subject_fixture' (C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p15_subject_fixture.py)
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.010s
+
+FAILED (errors=6)

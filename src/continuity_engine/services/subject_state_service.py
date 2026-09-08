@@ -42,12 +42,29 @@ class SubjectStateService:
     def load(self, subject_id: str) -> SubjectState:
         return self._repository.load(subject_id)
 
+    def require_active(self, subject_id: str, environment: str | None = None) -> SubjectState:
+        from continuity_engine.domain.subject_lifecycle import LifecycleError, SubjectLifecycle, lifecycle_status
+        state = self.load(subject_id)
+        if lifecycle_status(state) != 'ACTIVE':
+            raise LifecycleError('SUBJECT_NOT_ACTIVE')
+        if state.temporal.subject_lifecycle is not None and environment is not None:
+            if SubjectLifecycle.from_dict(state.temporal.subject_lifecycle).environment != environment:
+                raise LifecycleError('SUBJECT_ENVIRONMENT_MISMATCH')
+        return state
+
     def save(self, state: SubjectState) -> SubjectState:
         """Persist direct edits retained for first-stage compatibility.
 
         New state changes should normally use apply_event so their causes and
         before/after differences are recorded.
         """
+        from continuity_engine.domain.subject_lifecycle import LifecycleError
+        prior = self.require_active(state.subject_id) if self._repository.exists(state.subject_id) else None
+        if any(getattr(owner,field) != (getattr(old,field) if old is not None else None)
+               for owner,old,field in [(state.temporal,prior.temporal if prior else None,'subject_lifecycle'),
+                                      (state.identity,prior.identity if prior else None,'self_narrative'),
+                                      (state.relationship,prior.relationship if prior else None,'objects')]):
+            raise LifecycleError('SUBJECT_INTERNAL_STATE_REQUIRES_EVOLUTION')
         state.mark_updated(self._clock())
         self._repository.save(state)
         return state
@@ -59,6 +76,9 @@ class SubjectStateService:
         *,
         expected_revision: int | None = None,
     ) -> StateEvolutionResult:
+        return self._apply_event(subject_id, event, expected_revision=expected_revision)
+
+    def _apply_event(self, subject_id, event, *, expected_revision=None, lifecycle_authorization=None):
         state = self.load(subject_id)
         history = self._repository.list_update_records(subject_id)
         existing = next(
@@ -75,6 +95,15 @@ class SubjectStateService:
                 update=existing,
                 idempotent_replay=True,
             )
+
+        from continuity_engine.domain.subject_lifecycle import LifecycleError
+        lifecycle_write = any(m.field_path == 'temporal.subject_lifecycle' for m in event.mutations)
+        if lifecycle_authorization is not None:
+            lifecycle_authorization(state)
+        else:
+            if lifecycle_write:
+                raise LifecycleError('SUBJECT_MANAGEMENT_AUTHORIZATION_REQUIRED')
+            self.require_active(subject_id)
 
         applied_at = self._clock()
         if applied_at.tzinfo is None or applied_at.utcoffset() is None:

@@ -387,6 +387,7 @@ class P11SchedulerFixture:
             aging_interval_seconds=aging_interval_seconds,
             retry_base_seconds=retry_base_seconds,
             quiet_hours=quiet_hours,
+            subject_states=awakening_service._subject_states if awakening_service is not None else None,
         )
         return cls(
             root=base,

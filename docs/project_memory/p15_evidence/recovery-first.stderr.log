@@ -1,0 +1,77 @@
+test_atomic_creation_failure_does_not_leave_active_subject (test_p15_subject_recovery.P15RecoveryTests.test_atomic_creation_failure_does_not_leave_active_subject) ... ok
+test_concurrent_lifecycle_commands_preserve_one_transition (test_p15_subject_recovery.P15RecoveryTests.test_concurrent_lifecycle_commands_preserve_one_transition) ... ERROR
+test_cross_process_golden (test_p15_subject_recovery.P15RecoveryTests.test_cross_process_golden) ... ERROR
+test_cross_subject_environment_and_direct_lifecycle_mutation_rejected (test_p15_subject_recovery.P15RecoveryTests.test_cross_subject_environment_and_direct_lifecycle_mutation_rejected) ... ok
+test_host_binding_switch_and_unbind_do_not_change_subject_revision (test_p15_subject_recovery.P15RecoveryTests.test_host_binding_switch_and_unbind_do_not_change_subject_revision) ... ERROR
+test_new_genesis_isolated_from_old_learning_mind_relationships (test_p15_subject_recovery.P15RecoveryTests.test_new_genesis_isolated_from_old_learning_mind_relationships) ... ok
+test_protected_fixture_root_rejects_before_any_write (test_p15_subject_recovery.P15RecoveryTests.test_protected_fixture_root_rejects_before_any_write) ... ok
+test_public_test_migration_requires_exact_confirmation_and_never_copies_personality (test_p15_subject_recovery.P15RecoveryTests.test_public_test_migration_requires_exact_confirmation_and_never_copies_personality) ... ERROR
+
+======================================================================
+ERROR: test_concurrent_lifecycle_commands_preserve_one_transition (test_p15_subject_recovery.P15RecoveryTests.test_concurrent_lifecycle_commands_preserve_one_transition)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p15_subject_recovery.py", line 23, in test_concurrent_lifecycle_commands_preserve_one_transition
+    with ThreadPoolExecutor(2) as executor:results=list(executor.map(submit,[a,b]))
+                                                   ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Adobe\Lib\concurrent\futures\_base.py", line 639, in result_iterator
+    yield _result_or_cancel(fs.pop())
+          ~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "E:\Adobe\Lib\concurrent\futures\_base.py", line 311, in _result_or_cancel
+    return fut.result(timeout)
+           ~~~~~~~~~~^^^^^^^^^
+  File "E:\Adobe\Lib\concurrent\futures\_base.py", line 450, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "E:\Adobe\Lib\concurrent\futures\_base.py", line 395, in __get_result
+    raise self._exception
+  File "E:\Adobe\Lib\concurrent\futures\thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "E:\Adobe\Lib\concurrent\futures\thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p15_subject_recovery.py", line 21, in submit
+    try:return f.lifecycle.submit(*value)
+               ~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\subject_lifecycle_service.py", line 102, in submit
+    return self.states._apply_event(command.subject_id, event,
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        expected_revision=command.expected_revision, lifecycle_authorization=authorize).update
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\subject_state_service.py", line 149, in _apply_event
+    self._repository.save_transition(result.state, result.update)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_repository.py", line 102, in save_transition
+    raise StateEvolutionError(
+    ...<2 lines>...
+    )
+continuity_engine.domain.errors.StateEvolutionError: stale state revision: stored 3, event expected 2
+
+======================================================================
+ERROR: test_cross_process_golden (test_p15_subject_recovery.P15RecoveryTests.test_cross_process_golden)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p15_subject_recovery.py", line 107, in test_cross_process_golden
+    from continuity_engine.testing.p15_subject_fixture import run_p15_golden
+ImportError: cannot import name 'run_p15_golden' from 'continuity_engine.testing.p15_subject_fixture' (C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p15_subject_fixture.py)
+
+======================================================================
+ERROR: test_host_binding_switch_and_unbind_do_not_change_subject_revision (test_p15_subject_recovery.P15RecoveryTests.test_host_binding_switch_and_unbind_do_not_change_subject_revision)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p15_subject_recovery.py", line 53, in test_host_binding_switch_and_unbind_do_not_change_subject_revision
+    from continuity_engine.testing.p15_subject_fixture import P15Fixture, TestSubjectSelection
+ImportError: cannot import name 'TestSubjectSelection' from 'continuity_engine.testing.p15_subject_fixture' (C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p15_subject_fixture.py)
+
+======================================================================
+ERROR: test_public_test_migration_requires_exact_confirmation_and_never_copies_personality (test_p15_subject_recovery.P15RecoveryTests.test_public_test_migration_requires_exact_confirmation_and_never_copies_personality)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p15_subject_recovery.py", line 75, in test_public_test_migration_requires_exact_confirmation_and_never_copies_personality
+    with self.assertRaises(LifecycleError):b.import_observation(a,event,confirmed=False)
+                                           ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'P15Fixture' object has no attribute 'import_observation'
+
+----------------------------------------------------------------------
+Ran 8 tests in 1.493s
+
+FAILED (errors=4)

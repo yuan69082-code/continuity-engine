@@ -221,6 +221,12 @@ class ThinkingResult:
                 "proposed mutations require update_subject_state to be true"
             )
         for mutation in self.proposed_mutations:
+            if mutation.field_path in {'identity.self_narrative','relationship.objects'}:
+                from .subject_growth import growth_document
+                if mutation.operation.value != 'set':
+                    raise ThinkingValidationError('internal growth requires a typed SET proposal')
+                growth_document(mutation.value,kind='narrative' if mutation.field_path=='identity.self_narrative' else 'relationships')
+                continue  # Rejected at Provider ingress; Engine processor only, still Action/Evolution gated.
             section_name = mutation.field_path.split(".", 1)[0]
             try:
                 section = StateSection(section_name)

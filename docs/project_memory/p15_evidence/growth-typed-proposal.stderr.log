@@ -1,0 +1,46 @@
+test_duplicate_root_wrappers_do_not_validate (test_p15_subject_growth.SubjectGrowthTests.test_duplicate_root_wrappers_do_not_validate) ... ok
+test_normal_chain_forms_subjective_narrative_and_object_relationship (test_p15_subject_growth.SubjectGrowthTests.test_normal_chain_forms_subjective_narrative_and_object_relationship) ... ERROR
+test_pending_learning_record_recovers_after_restart_without_second_revision (test_p15_subject_growth.SubjectGrowthTests.test_pending_learning_record_recovers_after_restart_without_second_revision) ... ok
+test_rejected_support_and_permission_revocation_zero_state_change (test_p15_subject_growth.SubjectGrowthTests.test_rejected_support_and_permission_revocation_zero_state_change) ... ok
+test_rollback_preserves_later_unrelated_trait (test_p15_subject_growth.SubjectGrowthTests.test_rollback_preserves_later_unrelated_trait) ... ok
+test_three_current_independent_experiences_form_trait_and_next_context (test_p15_subject_growth.SubjectGrowthTests.test_three_current_independent_experiences_form_trait_and_next_context) ... ok
+
+======================================================================
+ERROR: test_normal_chain_forms_subjective_narrative_and_object_relationship (test_p15_subject_growth.SubjectGrowthTests.test_normal_chain_forms_subjective_narrative_and_object_relationship)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 200, in submit
+    self._verify_core_completed(completed_operation, lookup.result)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 1069, in _verify_core_completed
+    core.expression_policy.verify(core,operation,thinking,progress.action,current=expression_current)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\expression_policy_service.py", line 179, in verify
+    if current and decision!=self.decide(core,operation,thinking,action,context):
+                             ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\expression_policy_service.py", line 120, in decide
+    raise ExpressionAccessError('EXPRESSION_CONTEXT_STALE_OR_UNAUTHORIZED')
+continuity_engine.domain.expression.ExpressionAccessError: EXPRESSION_CONTEXT_STALE_OR_UNAUTHORIZED
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p15_subject_growth.py", line 79, in test_normal_chain_forms_subjective_narrative_and_object_relationship
+    original=f.state.to_dict(); f.submit(request)
+                                ~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p09_core_fixture.py", line 165, in submit
+    return self.app.adapter.submit(request or self.request())
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 264, in submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during ledger.
+
+----------------------------------------------------------------------
+Ran 6 tests in 29.865s
+
+FAILED (errors=1)

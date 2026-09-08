@@ -1,0 +1,63 @@
+test_legacy_state_is_active_without_rewriting_serialization (test_p15_subject_lifecycle.SubjectLifecycleModelTests.test_legacy_state_is_active_without_rewriting_serialization) ... ok
+test_policy_is_unconfigured_until_explicit_test_decision (test_p15_subject_lifecycle.SubjectLifecycleModelTests.test_policy_is_unconfigured_until_explicit_test_decision) ... ok
+test_subject_intent_is_not_owner_command_or_deletion (test_p15_subject_lifecycle.SubjectLifecycleModelTests.test_subject_intent_is_not_owner_command_or_deletion) ... ok
+test_transition_table_preserves_terminal_deleted (test_p15_subject_lifecycle.SubjectLifecycleModelTests.test_transition_table_preserves_terminal_deleted) ... ok
+test_archive_unconfigured_and_deleted_terminal (test_p15_subject_lifecycle.SubjectLifecycleServiceTests.test_archive_unconfigured_and_deleted_terminal) ... ERROR
+test_create_suspend_restart_resume_and_replay (test_p15_subject_lifecycle.SubjectLifecycleServiceTests.test_create_suspend_restart_resume_and_replay) ... ERROR
+test_paused_state_cannot_be_changed_by_ordinary_event (test_p15_subject_lifecycle.SubjectLifecycleServiceTests.test_paused_state_cannot_be_changed_by_ordinary_event) ... ERROR
+test_revoked_confirmation_and_stale_command_zero_writes (test_p15_subject_lifecycle.SubjectLifecycleServiceTests.test_revoked_confirmation_and_stale_command_zero_writes) ... ERROR
+test_same_command_identity_different_contents_is_conflict (test_p15_subject_lifecycle.SubjectLifecycleServiceTests.test_same_command_identity_different_contents_is_conflict) ... ERROR
+test_subject_intent_preserves_state_and_owner_identity (test_p15_subject_lifecycle.SubjectLifecycleServiceTests.test_subject_intent_preserves_state_and_owner_identity) ... ERROR
+
+======================================================================
+ERROR: test_archive_unconfigured_and_deleted_terminal (test_p15_subject_lifecycle.SubjectLifecycleServiceTests.test_archive_unconfigured_and_deleted_terminal)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p15_subject_lifecycle.py", line 49, in setUp
+    from continuity_engine.testing.p15_subject_fixture import P15Fixture
+ModuleNotFoundError: No module named 'continuity_engine.testing.p15_subject_fixture'
+
+======================================================================
+ERROR: test_create_suspend_restart_resume_and_replay (test_p15_subject_lifecycle.SubjectLifecycleServiceTests.test_create_suspend_restart_resume_and_replay)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p15_subject_lifecycle.py", line 49, in setUp
+    from continuity_engine.testing.p15_subject_fixture import P15Fixture
+ModuleNotFoundError: No module named 'continuity_engine.testing.p15_subject_fixture'
+
+======================================================================
+ERROR: test_paused_state_cannot_be_changed_by_ordinary_event (test_p15_subject_lifecycle.SubjectLifecycleServiceTests.test_paused_state_cannot_be_changed_by_ordinary_event)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p15_subject_lifecycle.py", line 49, in setUp
+    from continuity_engine.testing.p15_subject_fixture import P15Fixture
+ModuleNotFoundError: No module named 'continuity_engine.testing.p15_subject_fixture'
+
+======================================================================
+ERROR: test_revoked_confirmation_and_stale_command_zero_writes (test_p15_subject_lifecycle.SubjectLifecycleServiceTests.test_revoked_confirmation_and_stale_command_zero_writes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p15_subject_lifecycle.py", line 49, in setUp
+    from continuity_engine.testing.p15_subject_fixture import P15Fixture
+ModuleNotFoundError: No module named 'continuity_engine.testing.p15_subject_fixture'
+
+======================================================================
+ERROR: test_same_command_identity_different_contents_is_conflict (test_p15_subject_lifecycle.SubjectLifecycleServiceTests.test_same_command_identity_different_contents_is_conflict)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p15_subject_lifecycle.py", line 49, in setUp
+    from continuity_engine.testing.p15_subject_fixture import P15Fixture
+ModuleNotFoundError: No module named 'continuity_engine.testing.p15_subject_fixture'
+
+======================================================================
+ERROR: test_subject_intent_preserves_state_and_owner_identity (test_p15_subject_lifecycle.SubjectLifecycleServiceTests.test_subject_intent_preserves_state_and_owner_identity)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p15_subject_lifecycle.py", line 49, in setUp
+    from continuity_engine.testing.p15_subject_fixture import P15Fixture
+ModuleNotFoundError: No module named 'continuity_engine.testing.p15_subject_fixture'
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.007s
+
+FAILED (errors=6)

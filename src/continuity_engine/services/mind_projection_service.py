@@ -46,6 +46,44 @@ class MindProjectionService:
         return type(self)(self.states, self.permissions, self.identity, subject_id=self.subject_id,
                           environment=self.environment, owner_principal_id=self.owner, policy=policy)
 
+    def read_growth(self, session_handle, *, allowed_objects=None, export=False):
+        """Explicit TEST/Research relationship policy; never a production default.
+
+        Uses the existing authenticated Owner/permission gate. The caller is the
+        trusted host policy composer, not model text or an external owner flag.
+        History is structural here: a full Event may include other objects.
+        """
+        if allowed_objects is None:
+            raise MindAccessError('GROWTH_VISIBILITY_POLICY_NOT_READY')
+        if (not isinstance(allowed_objects,tuple) or type(export) is not bool
+                or any(not isinstance(x,str) or not x for x in allowed_objects)):
+            raise MindAccessError('GROWTH_VISIBILITY_POLICY_INVALID')
+        policy=self.policy
+        binding=(self.subject_id,self.environment,self.owner)
+        self._authorize(session_handle,export)
+        state=self.states.load(self.subject_id)
+        if state.subject_id!=self.subject_id:
+            raise MindAccessError('GROWTH_PROJECTION_SUBJECT_MISMATCH')
+        snapshot_hash=digest(state.to_dict())
+        result={'subject_id':self.subject_id,'environment':self.environment,'source_revision':state.revision,
+                'read_only':True,'policy_scope':list(allowed_objects),'physical_erasure_claimed':False}
+        for name,value in [('narrative',state.identity.self_narrative),('relationships',state.relationship.objects)]:
+            if value is not None and (value['subject_id'],value['environment'])!=(self.subject_id,self.environment):
+                raise MindAccessError('GROWTH_PROJECTION_BOUNDARY_INVALID')
+            projected=deepcopy(value)
+            if projected is not None:
+                projected['entries']=[entry for entry in projected['entries'] if entry['object_id'] in allowed_objects]
+            if self.policy.mode=='SUMMARY':
+                projected=None if projected is None else {'entry_count':len(projected['entries']),'authority':projected['authority']}
+            result[name]=projected
+        result['source_hash']=digest([state.identity.self_narrative,state.relationship.objects])
+        current=self.states.load(self.subject_id)
+        if (current.subject_id!=self.subject_id or digest(current.to_dict())!=snapshot_hash
+                or self.policy!=policy or (self.subject_id,self.environment,self.owner)!=binding):
+            raise MindAccessError('GROWTH_PROJECTION_CHANGED_DURING_READ')
+        self._authorize(session_handle,export)
+        return result
+
     def _authorize(self, session_handle, export):
         principal = self.identity.resolve(session_handle)
         if (not isinstance(principal, VerifiedMindReader) or principal.principal_id != self.owner

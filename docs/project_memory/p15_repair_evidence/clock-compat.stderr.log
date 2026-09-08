@@ -1,0 +1,6 @@
+test_paused_pending_not_executed_model_cannot_dispatch (test_p15_subject_recovery.P15RecoveryTests.test_paused_pending_not_executed_model_cannot_dispatch) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.180s
+
+OK

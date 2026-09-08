@@ -263,6 +263,7 @@ class ModelCapabilityService:
             maximum_tokens=maximum_tokens,
             created_at=format_contract_datetime(now),
         )
+        self._integration.service.authorize_new_computation(execution_request)
         record = replace(
             record,
             updated_at=execution_request.created_at,
@@ -287,6 +288,7 @@ class ModelCapabilityService:
         no longer fits the current budget, reject before calling the Provider.
         Already executed facts take the query/persist path, outside this gate.
         """
+        self._integration.service.authorize_new_computation(request)
         now = self._safe_time_after(request.created_at)
         remaining = max(0, request.profile.daily_token_limit
                         - self._daily_tokens(format_contract_datetime(now)))

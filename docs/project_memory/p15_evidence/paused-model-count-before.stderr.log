@@ -1,0 +1,15 @@
+test_paused_pending_not_executed_model_cannot_dispatch (test_p15_subject_recovery.P15RecoveryTests.test_paused_pending_not_executed_model_cannot_dispatch) ... FAIL
+
+======================================================================
+FAIL: test_paused_pending_not_executed_model_cannot_dispatch (test_p15_subject_recovery.P15RecoveryTests.test_paused_pending_not_executed_model_cannot_dispatch)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p15_subject_recovery.py", line 137, in test_paused_pending_not_executed_model_cannot_dispatch
+    self.assertEqual(len(provider.facts()),count,'paused subject must not call Provider')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : paused subject must not call Provider
+
+----------------------------------------------------------------------
+Ran 1 test in 0.292s
+
+FAILED (failures=1)

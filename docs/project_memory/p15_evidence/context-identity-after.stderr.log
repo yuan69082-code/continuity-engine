@@ -1,0 +1,6 @@
+test_cross_subject_and_environment_contexts_fail_closed (test_p09_boundaries.P09BoundaryTests.test_cross_subject_and_environment_contexts_fail_closed) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.627s
+
+OK

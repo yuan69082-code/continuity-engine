@@ -1,0 +1,25 @@
+test_cross_subject_and_environment_contexts_fail_closed (test_p09_boundaries.P09BoundaryTests.test_cross_subject_and_environment_contexts_fail_closed) ... ERROR
+
+======================================================================
+ERROR: test_cross_subject_and_environment_contexts_fail_closed (test_p09_boundaries.P09BoundaryTests.test_cross_subject_and_environment_contexts_fail_closed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p09_boundaries.py", line 108, in test_cross_subject_and_environment_contexts_fail_closed
+    self.assertFalse(f.core.current(context))
+                     ~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 273, in current
+    self.subject_states.require_active(self.subject_id, self.environment)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\subject_state_service.py", line 47, in require_active
+    state = self.load(subject_id)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\subject_state_service.py", line 43, in load
+    return self._repository.load(subject_id)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_repository.py", line 55, in load
+    raise StateNotFoundError(f"subject state not found: {subject_id}")
+continuity_engine.domain.errors.StateNotFoundError: subject state not found: different-subject
+
+----------------------------------------------------------------------
+Ran 1 test in 0.647s
+
+FAILED (errors=1)

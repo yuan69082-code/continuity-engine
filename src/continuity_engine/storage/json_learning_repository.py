@@ -6,6 +6,7 @@ import os
 import tempfile
 from pathlib import Path
 from typing import Any
+from threading import RLock
 
 from continuity_engine.domain.errors import (
     LearningAlreadyExistsError,
@@ -20,6 +21,7 @@ from continuity_engine.domain.learning import (
 
 
 LEARNING_FORMAT_VERSION = 1
+_LEARNING_WRITE_LOCK = RLock()
 
 
 class JsonLearningRepository:
@@ -64,6 +66,11 @@ class JsonLearningRepository:
         record: LearningRecord,
         trait: PersonalityTrait | None = None,
     ) -> None:
+        with _LEARNING_WRITE_LOCK:
+            self._save_change(subject_id, learning_event, record, trait)
+
+    def _save_change(self, subject_id, learning_event, record, trait=None):
+        record.__post_init__()
         if (
             learning_event.subject_id != subject_id
             or record.subject_id != subject_id
@@ -175,6 +182,7 @@ class JsonLearningRepository:
                 traits[trait_index] = trait
 
         records.append(record)
+        self._validate_growth_resolutions([item.to_dict() for item in records])
 
         events.sort(key=lambda item: (item.created_at, item.learning_id))
         traits.sort(key=lambda item: (item.created_at, item.trait_id))
@@ -303,7 +311,35 @@ class JsonLearningRepository:
                 event.root_evidence_ids
             ):
                 raise LearningValidationError("learning record root evidence is inconsistent")
+        JsonLearningRepository._validate_growth_resolutions(data['records'])
         return data
+
+    @staticmethod
+    def _validate_growth_resolutions(raw_records):
+        from continuity_engine.domain.action_planning import digest
+        records=[LearningRecord.from_dict(raw) for raw in raw_records]
+        resolved=set()
+        for index,record in enumerate(records):
+            resolution=record.growth_resolution
+            if resolution is None:continue
+            originals=[(i,r) for i,r in enumerate(records) if r.record_id==resolution['prepared_record_id']]
+            if len(originals)!=1:raise LearningValidationError('growth resolution lacks unique original record')
+            original_index,original=originals[0]
+            if (original.growth_operation is None or digest(original.to_dict())!=resolution['prepared_hash']
+                    or original.record_id in resolved or original_index>=index
+                    or (record.learning_id,record.subject_id,record.trait_id,record.state_event_id,record.field_path)
+                    !=(original.learning_id,original.subject_id,original.trait_id,original.state_event_id,original.field_path)):
+                raise LearningValidationError('growth resolution conflicts with immutable preparation')
+            operation=original.growth_operation['command']['operation']
+            expected='GROWTH_SUPERSEDED' if resolution['outcome']=='SUPERSEDED' else (
+                'CONSOLIDATED' if operation=='SOLIDIFY' else 'ROLLED_BACK')
+            if record.record_type.value!=expected:
+                raise LearningValidationError('growth resolution outcome mismatch')
+            if resolution['outcome']=='SUPERSEDED' and (
+                    resolution['replacement_command']['command_id']==original.growth_operation['command']['command_id']
+                    or resolution['replacement_command']['environment']!=original.growth_operation['command']['environment']):
+                raise LearningValidationError('growth supersession cannot rebind original identity')
+            resolved.add(original.record_id)
 
     @staticmethod
     def _write_document(path: Path, data: dict[str, Any]) -> None:

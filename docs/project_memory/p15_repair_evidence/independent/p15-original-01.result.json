@@ -1,0 +1,17 @@
+{
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "-v",
+    "test_p15_subject_growth",
+    "test_p15_subject_lifecycle",
+    "test_p15_subject_recovery"
+  ],
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "exitCode": 0,
+  "elapsedSeconds": 116.26329869999608,
+  "beforeCount": 1690,
+  "afterCount": 1690,
+  "changed": []
+}

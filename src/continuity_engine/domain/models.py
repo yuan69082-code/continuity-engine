@@ -62,6 +62,7 @@ class IdentityState:
     expression_preferences: list[str] = field(default_factory=list)
     judgment_principles: list[str] = field(default_factory=list)
     self_concept: str = ""
+    self_narrative: dict | None = None
 
     @classmethod
     def from_dict(cls, value: Any) -> IdentityState:
@@ -75,6 +76,7 @@ class IdentityState:
                 data.get("judgment_principles"), "identity.judgment_principles"
             ),
             self_concept=_string(data.get("self_concept"), "identity.self_concept"),
+            self_narrative=data.get("self_narrative"),
         )
 
 
@@ -84,6 +86,7 @@ class RelationshipState:
     interaction_preferences: list[str] = field(default_factory=list)
     important_moments: list[str] = field(default_factory=list)
     current_status: str = ""
+    objects: dict | None = None
 
     @classmethod
     def from_dict(cls, value: Any) -> RelationshipState:
@@ -97,6 +100,7 @@ class RelationshipState:
                 data.get("important_moments"), "relationship.important_moments"
             ),
             current_status=_string(data.get("current_status"), "relationship.current_status"),
+            objects=data.get("objects"),
         )
 
 
@@ -124,6 +128,7 @@ class TemporalState:
     updated_at: datetime = field(default_factory=utc_now)
     last_interaction_at: datetime | None = None
     lifecycle_events: list[str] = field(default_factory=list)
+    subject_lifecycle: dict | None = None
 
     def seconds_since_last_interaction(self, now: datetime | None = None) -> float | None:
         if self.last_interaction_at is None:
@@ -143,6 +148,7 @@ class TemporalState:
         last_interaction_at = data.get("last_interaction_at")
         return cls(
             created_at=_parse_datetime(created_at, "temporal.created_at"),
+            subject_lifecycle=data.get("subject_lifecycle"),
             updated_at=_parse_datetime(updated_at, "temporal.updated_at"),
             last_interaction_at=(
                 _parse_datetime(last_interaction_at, "temporal.last_interaction_at")
@@ -266,6 +272,13 @@ class SubjectState:
             from .dynamic_mind import MindState
             if MindState.from_dict(self.intentions.dynamic_mind).subject_id != self.subject_id:
                 raise StateValidationError("dynamic mind subject mismatch")
+        if self.temporal.subject_lifecycle is not None:
+            from .subject_lifecycle import SubjectLifecycle
+            if SubjectLifecycle.from_dict(self.temporal.subject_lifecycle).subject_id != self.subject_id:
+                raise StateValidationError("lifecycle subject mismatch")
+        from .subject_growth import growth_document
+        for value,kind in [(self.identity.self_narrative,'narrative'),(self.relationship.objects,'relationships')]:
+            if value is not None:growth_document(value,kind=kind,subject_id=self.subject_id)
 
     @classmethod
     def create(cls, subject_id: str, now: datetime | None = None) -> SubjectState:
@@ -285,6 +298,18 @@ class SubjectState:
 
     def to_dict(self) -> dict[str, Any]:
         mind = self.intentions.dynamic_mind
+        from .subject_growth import growth_document
+        narrative = (growth_document(self.identity.self_narrative,kind='narrative',subject_id=self.subject_id)
+                     if self.identity.self_narrative is not None else None)
+        relationships = (growth_document(self.relationship.objects,kind='relationships',subject_id=self.subject_id)
+                         if self.relationship.objects is not None else None)
+        lifecycle = self.temporal.subject_lifecycle
+        if lifecycle is not None:
+            from .subject_lifecycle import SubjectLifecycle
+            lifecycle = SubjectLifecycle.from_dict(lifecycle)
+            if lifecycle.subject_id != self.subject_id:
+                raise StateValidationError("lifecycle subject mismatch")
+            lifecycle = lifecycle.to_dict()
         if mind is not None:
             from .dynamic_mind import MindState
             parsed = MindState.from_dict(mind)
@@ -300,12 +325,14 @@ class SubjectState:
                 "expression_preferences": list(self.identity.expression_preferences),
                 "judgment_principles": list(self.identity.judgment_principles),
                 "self_concept": self.identity.self_concept,
+                **({'self_narrative':narrative} if narrative is not None else {}),
             },
             "relationship": {
                 "definition": self.relationship.definition,
                 "interaction_preferences": list(self.relationship.interaction_preferences),
                 "important_moments": list(self.relationship.important_moments),
                 "current_status": self.relationship.current_status,
+                **({'objects':relationships} if relationships is not None else {}),
             },
             "continuity": {
                 "unfinished_items": list(self.continuity.unfinished_items),
@@ -321,6 +348,7 @@ class SubjectState:
                     else None
                 ),
                 "lifecycle_events": list(self.temporal.lifecycle_events),
+                **({"subject_lifecycle": lifecycle} if lifecycle is not None else {}),
             },
             "intentions": {
                 "emerging_thoughts": list(self.intentions.emerging_thoughts),

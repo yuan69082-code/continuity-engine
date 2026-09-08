@@ -112,7 +112,7 @@ class ContinuityCoreService:
                  coordination, action_gate, constraints, capabilities, clock,
                  permission_policy, policy=None, gates=None, retrieval_budget=None,
                  context_budget=None, context_ttl=timedelta(minutes=10), planner=None, limits=None, fault=None, expression_policy=None,
-                 dynamic_mind=False):
+                 dynamic_mind=False, subject_growth=False, growth_repository=None):
         if environment not in {"TEST", "RESEARCH"}:
             raise ValueError("P09 requires a TEST/RESEARCH boundary")
         self.subject_id, self.environment = subject_id, environment
@@ -139,6 +139,19 @@ class ContinuityCoreService:
             self.mind = None
         self.last_trace = None
         self.last_action = None
+        if type(subject_growth) is not bool:
+            raise ValueError('subject_growth must be an explicit feature gate')
+        self.growth = None
+        if subject_growth and self.gates.enabled:
+            if growth_repository is None:
+                raise ValueError('P15 requires the existing Learning repository')
+            from .subject_growth_service import SubjectGrowthService
+            self.growth = SubjectGrowthService(self,growth_repository)
+
+    def process_thinking(self,perception,result):
+        if self.mind is not None:result=self.mind.process(perception,result)
+        if self.growth is not None:result=self.growth.process(perception,result)
+        return result
 
     @property
     def enabled(self):
@@ -207,6 +220,7 @@ class ContinuityCoreService:
         return max(0, len(pending) - 64)
 
     def prepare(self, perception, operation):
+        self.subject_states.require_active(self.subject_id, self.environment)
         if not self.enabled:
             return perception
         if perception.subject_id != self.subject_id or operation.subject_id != self.subject_id:
@@ -237,7 +251,8 @@ class ContinuityCoreService:
                    if self.gates.emotion_decay else {"status": "FEATURE_GATED"})
         context = ContinuityCoreContext(digest(perception.to_dict()), route, composition, detection,
                                         emotion, self.gates.actions, pending_events,
-                                        expression_enabled=self.expression_policy is not None, mind=mind)
+                                        expression_enabled=self.expression_policy is not None, mind=mind,
+                                        growth_enabled=self.growth is not None)
         enriched = replace(perception, continuity_context=context)
         context.validate_perception(enriched)
         self._trace(context)
@@ -255,6 +270,13 @@ class ContinuityCoreService:
         """Re-resolve the exact selected sources before NEW work; never rewrite them."""
         snapshot = context.composition.snapshot
         if (snapshot.subject_id, snapshot.environment) != (self.subject_id, self.environment):
+            return False
+        from continuity_engine.domain.subject_lifecycle import LifecycleError
+        try:
+            self.subject_states.require_active(self.subject_id, self.environment)
+        except LifecycleError:
+            return False
+        if context.growth_enabled and self.growth is None:
             return False
         if self.clock() >= snapshot.composed_at + self.context_ttl:
             return False

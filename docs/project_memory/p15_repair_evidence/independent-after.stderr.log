@@ -1,0 +1,13 @@
+test_pending_growth_can_be_reauthorized_after_unrelated_revision (p15_review_probe.GrowthRecoveryReview.test_pending_growth_can_be_reauthorized_after_unrelated_revision) ... ok
+test_existing_mind_projection_rechecks_same_revocation (p15_review_probe.GrowthVisibilityReview.test_existing_mind_projection_rechecks_same_revocation) ... ok
+test_growth_projection_rechecks_revocation_before_returning_details (p15_review_probe.GrowthVisibilityReview.test_growth_projection_rechecks_revocation_before_returning_details) ... ok
+test_unchanged_permission_allows_growth_without_state_writes (p15_review_probe.GrowthVisibilityReview.test_unchanged_permission_allows_growth_without_state_writes) ... ok
+test_deleted_history_cannot_be_reopened_by_stale_active_projection (p15_review_probe.LifecyclePersistenceReview.test_deleted_history_cannot_be_reopened_by_stale_active_projection) ... ok
+test_genuine_legacy_without_lifecycle_history_stays_compatible (p15_review_probe.LifecyclePersistenceReview.test_genuine_legacy_without_lifecycle_history_stays_compatible) ... ok
+test_suspended_history_cannot_downgrade_to_legacy_by_missing_field (p15_review_probe.LifecyclePersistenceReview.test_suspended_history_cannot_downgrade_to_legacy_by_missing_field) ... ok
+test_unmodified_suspended_state_stays_blocked (p15_review_probe.LifecyclePersistenceReview.test_unmodified_suspended_state_stays_blocked) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 8.789s
+
+OK

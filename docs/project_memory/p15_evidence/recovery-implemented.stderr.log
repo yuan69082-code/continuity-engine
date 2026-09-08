@@ -1,0 +1,13 @@
+test_atomic_creation_failure_does_not_leave_active_subject (test_p15_subject_recovery.P15RecoveryTests.test_atomic_creation_failure_does_not_leave_active_subject) ... ok
+test_concurrent_lifecycle_commands_preserve_one_transition (test_p15_subject_recovery.P15RecoveryTests.test_concurrent_lifecycle_commands_preserve_one_transition) ... ok
+test_cross_process_golden (test_p15_subject_recovery.P15RecoveryTests.test_cross_process_golden) ... ok
+test_cross_subject_environment_and_direct_lifecycle_mutation_rejected (test_p15_subject_recovery.P15RecoveryTests.test_cross_subject_environment_and_direct_lifecycle_mutation_rejected) ... ok
+test_host_binding_switch_and_unbind_do_not_change_subject_revision (test_p15_subject_recovery.P15RecoveryTests.test_host_binding_switch_and_unbind_do_not_change_subject_revision) ... ok
+test_new_genesis_isolated_from_old_learning_mind_relationships (test_p15_subject_recovery.P15RecoveryTests.test_new_genesis_isolated_from_old_learning_mind_relationships) ... ok
+test_protected_fixture_root_rejects_before_any_write (test_p15_subject_recovery.P15RecoveryTests.test_protected_fixture_root_rejects_before_any_write) ... ok
+test_public_test_migration_requires_exact_confirmation_and_never_copies_personality (test_p15_subject_recovery.P15RecoveryTests.test_public_test_migration_requires_exact_confirmation_and_never_copies_personality) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 28.615s
+
+OK

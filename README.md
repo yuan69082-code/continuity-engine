@@ -1,3 +1,23 @@
+<!-- P15_ACCEPTED_START -->
+> 2026-09-09 用户正式验收P15（D-067），覆盖初版及R1/R2/R3返修。P00—P15 ACCEPTED；P15 / Engine side / P15-01—P15-12 ACCEPTED；P15 Vio dependency=NONE；P16—P23 NOT_STARTED。现行PLANNING_CONFLICT=NONE、EVIDENCE_CONFLICT=NONE，仅表示独立复核覆盖范围内的已知阻断闭合，不保证不存在其他缺陷。
+>
+> 监工独立实跑8/8、71/71、额外8/8 PASS；原8项包含在71项中，不能重复相加；额外8项不增加Engine正式测试总数。全量核验引用施工方1208项：1207 PASS、1既有WinError 1314 SKIP、0 FAIL/ERROR，1024.585秒；本次只做归档检查，没有重跑测试。
+>
+> [正式验收、来源及精确提交清单](docs/project_memory/P15_用户正式验收_20260909.md)。用户已授权本阶段精确清单普通提交并推送现有origin/main；实际提交身份与推送结果在完成后单独核对。下方此前IMPLEMENTED_NOT_ACCEPTED、PRESENT、未使用D-067及无Git授权说明为历史快照，全部失败、辅助错误和P09 segment 10 UNKNOWN保留。正式归档/删除/可见性政策仍NOT_READY，不进入P16。
+<!-- P15_ACCEPTED_END -->
+
+<!-- P15_REPAIR_CURRENT_START -->
+> P15-R1/R2/R3 合并返修已获用户授权，本轮实现与测试完成，交回独立复核。P15/Engine side/十二项保持 IMPLEMENTED_NOT_ACCEPTED；P00—P14 ACCEPTED；P16—P23 NOT_STARTED；Vio dependency=NONE。PLANNING_CONFLICT=NONE，EVIDENCE_CONFLICT=PRESENT，等待返修后独立复核。不自行验收、不使用D-067、不执行Git写操作。本轮有效范围及进度见[返修入口](docs/project_memory/P15_独立复核返修_R1-R3.md)；下方原本地NONE和通过结果保留为历史，不能覆盖独立4 FAIL。
+<!-- P15_REPAIR_CURRENT_END -->
+
+<!-- P15_CURRENT_START -->
+> 2026-09-08 P15本轮施工与测试完成（D-066）：P00—P14 ACCEPTED；P15 / Engine side / P15-01—12 IMPLEMENTED_NOT_ACCEPTED，Vio dependency=NONE；P16—P23 NOT_STARTED。等待独立复核，未自行验收。PLANNING_CONFLICT=NONE、EVIDENCE_CONFLICT=NONE仅指本地已知施工缺口闭合。
+>
+> 当前专项：39 项：39 PASS、0 SKIP、0 FAIL、0 ERROR；runner 108.134 秒；直接兼容：311 项：311 PASS、0 SKIP、0 FAIL、0 ERROR；runner 229.353 秒；最终稳定全量：1176 项：1175 PASS、1 SKIP、0 FAIL、0 ERROR；runner 994.964 秒。1个既有SKIP为Windows symlink权限1314，不计PASS；原1137项开工结果仅引用，未重新执行。
+>
+> [实际成果、首次失败与限制](docs/project_memory/p15_evidence/final-report.md) · [十二项矩阵](docs/project_memory/72_P15_规划施工测试验收矩阵.md) · [独立复核入口](docs/project_memory/74_P15_测试索引与验收入口.md)。HEAD仍f1185d20da06f52e7e85015bc6b963cf9769d08c，本轮成果尚未提交，未执行Git写操作或修改Assistant。正式归档/删除/关系可见性策略NOT_READY。下方历次未开工/失败/验收为历史，P14已验收并push，不重做；全部FAIL/ERROR/SKIP及P09 segment 10 UNKNOWN保留。
+<!-- P15_CURRENT_END -->
+
 <!-- P14_ACCEPTED_START -->
 > 2026-09-08 用户正式验收P14（D-065），覆盖初版及R1/R2。P00—P14 ACCEPTED；P14 / Engine side / P14-01—P14-12 ACCEPTED；P14 Vio dependency=NONE；P15—P23 NOT_STARTED。现行PLANNING_CONFLICT=NONE、EVIDENCE_CONFLICT=NONE，仅表示本轮已知阻断闭合。
 >

@@ -1,0 +1,79 @@
+test_export_permission_revoked_during_read_is_rechecked (test_p15_repair_edges.GrowthProjectionRepairTests.test_export_permission_revoked_during_read_is_rechecked) ... ok
+test_same_revision_growth_content_change_is_rechecked (test_p15_repair_edges.GrowthProjectionRepairTests.test_same_revision_growth_content_change_is_rechecked) ... ok
+test_ordinary_legacy_event_type_name_is_not_lifecycle_authority (test_p15_repair_edges.LifecycleArchiveRepairTests.test_ordinary_legacy_event_type_name_is_not_lifecycle_authority) ... ok
+test_committed_resolution_without_actual_evolution_is_not_replayed (test_p15_repair_edges.PendingGrowthRepairTests.test_committed_resolution_without_actual_evolution_is_not_replayed) ... ok
+test_old_format_pending_rollback_can_be_reconfirmed (test_p15_repair_edges.PendingGrowthRepairTests.test_old_format_pending_rollback_can_be_reconfirmed) ... ERROR
+test_old_format_pending_solidify_can_be_reconfirmed (test_p15_repair_edges.PendingGrowthRepairTests.test_old_format_pending_solidify_can_be_reconfirmed) ... ERROR
+
+======================================================================
+ERROR: test_old_format_pending_rollback_can_be_reconfirmed (test_p15_repair_edges.PendingGrowthRepairTests.test_old_format_pending_rollback_can_be_reconfirmed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p15_repair_edges.py", line 183, in test_old_format_pending_rollback_can_be_reconfirmed
+    f.rollback(self.ids[0],trait,identity='fresh')
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p15_subject_fixture.py", line 181, in rollback
+    return self._growth_command('ROLLBACK',learning_id,trait_id,identity)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p15_subject_fixture.py", line 189, in _growth_command
+    return self.growth.submit(command,token)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\subject_growth_service.py", line 110, in submit
+    return self._submit(command,credential)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\subject_growth_service.py", line 184, in _submit
+    self._finish_record(prior,'SUPERSEDED',replacement=command)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\subject_growth_service.py", line 278, in _finish_record
+    resolved=self.learning._record_for(target,record_type=kind,validation_status=target.validation_status,
+        permanently_consolidated=trait.active,before_value=record.before_value,after_value=record.after_value,
+        reason=reason,source='p15-growth-resolution',trait_id=record.trait_id,state_event_id=record.state_event_id)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\learning_service.py", line 712, in _record_for
+    return LearningRecord(
+        record_id=str(uuid4()),
+    ...<23 lines>...
+        state_event_id=state_event_id,
+    )
+  File "<string>", line 25, in __init__
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\domain\learning.py", line 406, in __post_init__
+    raise LearningValidationError('growth supersession requires original preparation binding')
+continuity_engine.domain.errors.LearningValidationError: growth supersession requires original preparation binding
+
+======================================================================
+ERROR: test_old_format_pending_solidify_can_be_reconfirmed (test_p15_repair_edges.PendingGrowthRepairTests.test_old_format_pending_solidify_can_be_reconfirmed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p15_repair_edges.py", line 176, in test_old_format_pending_solidify_can_be_reconfirmed
+    f.solidify(self.ids[0],identity='fresh')
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p15_subject_fixture.py", line 178, in solidify
+    return self._growth_command('SOLIDIFY',learning_id,None,identity)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p15_subject_fixture.py", line 189, in _growth_command
+    return self.growth.submit(command,token)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\subject_growth_service.py", line 110, in submit
+    return self._submit(command,credential)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\subject_growth_service.py", line 184, in _submit
+    self._finish_record(prior,'SUPERSEDED',replacement=command)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\subject_growth_service.py", line 278, in _finish_record
+    resolved=self.learning._record_for(target,record_type=kind,validation_status=target.validation_status,
+        permanently_consolidated=trait.active,before_value=record.before_value,after_value=record.after_value,
+        reason=reason,source='p15-growth-resolution',trait_id=record.trait_id,state_event_id=record.state_event_id)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\learning_service.py", line 712, in _record_for
+    return LearningRecord(
+        record_id=str(uuid4()),
+    ...<23 lines>...
+        state_event_id=state_event_id,
+    )
+  File "<string>", line 25, in __init__
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\domain\learning.py", line 406, in __post_init__
+    raise LearningValidationError('growth supersession requires original preparation binding')
+continuity_engine.domain.errors.LearningValidationError: growth supersession requires original preparation binding
+
+----------------------------------------------------------------------
+Ran 6 tests in 19.343s
+
+FAILED (errors=2)

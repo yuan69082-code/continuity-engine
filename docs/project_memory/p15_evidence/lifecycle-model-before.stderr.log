@@ -1,0 +1,41 @@
+test_legacy_state_is_active_without_rewriting_serialization (test_p15_subject_lifecycle.SubjectLifecycleModelTests.test_legacy_state_is_active_without_rewriting_serialization) ... ERROR
+test_policy_is_unconfigured_until_explicit_test_decision (test_p15_subject_lifecycle.SubjectLifecycleModelTests.test_policy_is_unconfigured_until_explicit_test_decision) ... ERROR
+test_subject_intent_is_not_owner_command_or_deletion (test_p15_subject_lifecycle.SubjectLifecycleModelTests.test_subject_intent_is_not_owner_command_or_deletion) ... ERROR
+test_transition_table_preserves_terminal_deleted (test_p15_subject_lifecycle.SubjectLifecycleModelTests.test_transition_table_preserves_terminal_deleted) ... ERROR
+
+======================================================================
+ERROR: test_legacy_state_is_active_without_rewriting_serialization (test_p15_subject_lifecycle.SubjectLifecycleModelTests.test_legacy_state_is_active_without_rewriting_serialization)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p15_subject_lifecycle.py", line 7, in test_legacy_state_is_active_without_rewriting_serialization
+    from continuity_engine.domain.subject_lifecycle import lifecycle_status
+ModuleNotFoundError: No module named 'continuity_engine.domain.subject_lifecycle'
+
+======================================================================
+ERROR: test_policy_is_unconfigured_until_explicit_test_decision (test_p15_subject_lifecycle.SubjectLifecycleModelTests.test_policy_is_unconfigured_until_explicit_test_decision)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p15_subject_lifecycle.py", line 38, in test_policy_is_unconfigured_until_explicit_test_decision
+    from continuity_engine.domain.subject_lifecycle import LifecyclePolicy,LifecycleError
+ModuleNotFoundError: No module named 'continuity_engine.domain.subject_lifecycle'
+
+======================================================================
+ERROR: test_subject_intent_is_not_owner_command_or_deletion (test_p15_subject_lifecycle.SubjectLifecycleModelTests.test_subject_intent_is_not_owner_command_or_deletion)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p15_subject_lifecycle.py", line 28, in test_subject_intent_is_not_owner_command_or_deletion
+    from continuity_engine.domain.subject_lifecycle import LifecycleCommand,LifecycleError
+ModuleNotFoundError: No module named 'continuity_engine.domain.subject_lifecycle'
+
+======================================================================
+ERROR: test_transition_table_preserves_terminal_deleted (test_p15_subject_lifecycle.SubjectLifecycleModelTests.test_transition_table_preserves_terminal_deleted)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p15_subject_lifecycle.py", line 16, in test_transition_table_preserves_terminal_deleted
+    from continuity_engine.domain.subject_lifecycle import transition, LifecycleError
+ModuleNotFoundError: No module named 'continuity_engine.domain.subject_lifecycle'
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.004s
+
+FAILED (errors=4)

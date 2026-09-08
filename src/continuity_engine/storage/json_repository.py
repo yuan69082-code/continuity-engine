@@ -71,6 +71,7 @@ class JsonSubjectStateRepository:
                             "event-backed state cannot be changed with direct save; use save_transition"
                         )
             payload: dict[str, Any] = state.to_dict()
+            self._validate_history(state, updates or [])
             if updates is not None:
                 payload = self._envelope(state, updates)
             self._write_payload(path, payload)
@@ -109,6 +110,16 @@ class JsonSubjectStateRepository:
                 raise StateEvolutionError(f"duplicate update record: {update.update_id}")
             self._write_payload(path, self._envelope(state, [*updates, update]))
 
+    def save_initial_transition(self, state: SubjectState, update: StateUpdateRecord) -> None:
+        """Create once with its original Evolution record; no ACTIVE crash window."""
+        with _STATE_WRITE_LOCK:
+            path = self._path_for(state.subject_id)
+            if path.exists():
+                raise StateEvolutionError("subject identity already exists")
+            self._validate_history(state, [update])
+            state.to_dict()  # Validate typed internal subject bindings before any write.
+            self._write_payload(path, self._envelope(state, [update]))
+
     def list_update_records(self, subject_id: str) -> list[StateUpdateRecord]:
         path = self._path_for(subject_id)
         if not path.is_file():
@@ -127,6 +138,7 @@ class JsonSubjectStateRepository:
         state: SubjectState,
         updates: list[StateUpdateRecord],
     ) -> dict[str, Any]:
+        JsonSubjectStateRepository._validate_history(state, updates)
         return {
             "persistence_format_version": PERSISTENCE_FORMAT_VERSION,
             "state": state.to_dict(),
@@ -151,7 +163,9 @@ class JsonSubjectStateRepository:
                 state,
                 updates,
             )
-        return SubjectState.from_dict(data), []
+        state = SubjectState.from_dict(data)
+        JsonSubjectStateRepository._validate_history(state, [])
+        return state, []
 
     @staticmethod
     def _validate_history(
@@ -161,6 +175,7 @@ class JsonSubjectStateRepository:
         update_ids: set[str] = set()
         event_ids: set[str] = set()
         revision = 0
+        lifecycle = None
         for update in updates:
             if update.subject_id != state.subject_id:
                 raise StateValidationError("update history crosses subject boundaries")
@@ -184,8 +199,65 @@ class JsonSubjectStateRepository:
             update_ids.add(update.update_id)
             event_ids.add(update.event.event_id)
             revision = update.after_revision
+            lifecycle = JsonSubjectStateRepository._advance_lifecycle(state.subject_id, lifecycle, update)
         if updates and revision != state.revision:
             raise StateValidationError("update history does not reach the current state revision")
+        if state.temporal.subject_lifecycle != lifecycle:
+            raise StateValidationError("current lifecycle disagrees with original Evolution history")
+
+    @staticmethod
+    def _advance_lifecycle(subject_id, previous, update):
+        """Validate existing lifecycle facts, without repairing or creating state."""
+        from continuity_engine.domain.subject_lifecycle import LifecycleCommand, SubjectLifecycle, transition
+        from continuity_engine.domain.action_planning import digest
+        from continuity_engine.domain.events import ChangeOperation, EventClassification
+        event=update.event
+        mutations=[m for m in event.mutations if m.field_path=='temporal.subject_lifecycle']
+        changes=[c for c in update.changes if c.field_path=='temporal.subject_lifecycle']
+        managed=(event.event_type=='subject_lifecycle' and event.source=='subject_lifecycle_service') or event.event_id.startswith('p15-lifecycle:')
+        if not mutations and not changes and not managed:
+            return previous
+        try:
+            metadata=event.metadata
+            command=LifecycleCommand.from_dict(metadata['command'])
+            principal=metadata['principal_id']
+            if (event.event_type!='subject_lifecycle' or event.source!='subject_lifecycle_service'
+                    or command.subject_id!=subject_id or command.expected_revision!=update.before_revision
+                    or metadata['environment']!=command.environment or event.reason!=command.reason
+                    or event.occurred_at!=command.requested_at
+                    or event.event_id!='p15-lifecycle:'+digest([subject_id,command.command_id])[7:]):
+                raise ValueError('lifecycle command identity mismatch')
+            if command.initiator=='SUBJECT':
+                if (principal!=subject_id or mutations or changes or update.before_revision!=update.after_revision
+                        or event.classification is not EventClassification.INTENTION
+                        or previous is not None and previous['status']!='ACTIVE'):
+                    raise ValueError('subject intent cannot change lifecycle')
+                return previous
+            if (len(mutations)!=1 or len(changes)!=1 or len(event.mutations)!=1
+                    or mutations[0].operation is not ChangeOperation.SET
+                    or changes[0].operation is not ChangeOperation.SET
+                    or changes[0].before!=previous or changes[0].after!=mutations[0].value
+                    or changes[0].reason!=command.reason or mutations[0].reason!=command.reason
+                    or event.classification is not EventClassification.STATE_CHANGE
+                    or update.after_revision!=update.before_revision+1):
+                raise ValueError('lifecycle mutation/change mismatch')
+            value=SubjectLifecycle.from_dict(mutations[0].value)
+            if (value.subject_id!=subject_id or value.environment!=command.environment
+                    or value.owner_principal_id!=principal or value.reason!=command.reason
+                    or value.changed_at<command.requested_at):
+                raise ValueError('lifecycle value binding mismatch')
+            if previous is not None and (previous['environment']!=value.environment
+                    or previous['owner_principal_id']!=principal
+                    or value.changed_at<SubjectLifecycle.from_dict(previous).changed_at):
+                raise ValueError('lifecycle historical binding changed')
+            if command.operation=='CREATE':
+                if previous is not None or update.before_revision!=0:raise ValueError('duplicate lifecycle creation')
+                target='CREATE'
+            else:target=transition(previous['status'] if previous else 'ACTIVE',command.operation)
+            if value.status!=target:raise ValueError('lifecycle transition disagrees with command')
+            return value.to_dict()
+        except (ValueError,KeyError,TypeError) as exc:
+            raise StateValidationError('invalid lifecycle history: '+str(exc)) from exc
 
     @staticmethod
     def _read_payload(path: Path, subject_id: str) -> Any:

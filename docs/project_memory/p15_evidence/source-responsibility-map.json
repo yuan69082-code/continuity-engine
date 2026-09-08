@@ -1,0 +1,333 @@
+{
+  "head": "f1185d20da06f52e7e85015bc6b963cf9769d08c",
+  "scope": "P15 source/test AST method navigation; not a replacement for full diff or authorization",
+  "files": [
+    {
+      "file": "src/continuity_engine/domain/continuity_core.py",
+      "newFile": false,
+      "changedOrNewMethods": [
+        "ContinuityCoreContext.__post_init__",
+        "ContinuityCoreContext.to_dict",
+        "ContinuityCoreContext.from_dict"
+      ]
+    },
+    {
+      "file": "src/continuity_engine/domain/dynamic_mind.py",
+      "newFile": false,
+      "changedOrNewMethods": [
+        "context_state_document"
+      ]
+    },
+    {
+      "file": "src/continuity_engine/domain/evolution.py",
+      "newFile": false,
+      "changedOrNewMethods": [
+        "SubjectStateEvolver._apply_mutation"
+      ]
+    },
+    {
+      "file": "src/continuity_engine/domain/learning.py",
+      "newFile": false,
+      "changedOrNewMethods": [
+        "LearningRecord.__post_init__",
+        "LearningRecord.to_dict",
+        "LearningRecord.from_dict"
+      ]
+    },
+    {
+      "file": "src/continuity_engine/domain/models.py",
+      "newFile": false,
+      "changedOrNewMethods": [
+        "IdentityState.from_dict",
+        "RelationshipState.from_dict",
+        "TemporalState.from_dict",
+        "SubjectState.__post_init__",
+        "SubjectState.to_dict"
+      ]
+    },
+    {
+      "file": "src/continuity_engine/domain/subject_growth.py",
+      "newFile": true,
+      "changedOrNewMethods": [
+        "growth_document",
+        "GrowthCommand.__post_init__",
+        "GrowthCommand.to_dict"
+      ]
+    },
+    {
+      "file": "src/continuity_engine/domain/subject_lifecycle.py",
+      "newFile": true,
+      "changedOrNewMethods": [
+        "transition",
+        "lifecycle_status",
+        "LifecyclePolicy.__post_init__",
+        "LifecycleCommand.__post_init__",
+        "LifecycleCommand.to_dict",
+        "LifecycleCommand.from_dict",
+        "SubjectLifecycle.__post_init__",
+        "SubjectLifecycle.to_dict",
+        "SubjectLifecycle.from_dict",
+        "TestMigrationCommand.__post_init__",
+        "TestMigrationCommand.to_dict"
+      ]
+    },
+    {
+      "file": "src/continuity_engine/domain/thinking.py",
+      "newFile": false,
+      "changedOrNewMethods": [
+        "ThinkingResult.__post_init__"
+      ]
+    },
+    {
+      "file": "src/continuity_engine/services/awakening_service.py",
+      "newFile": false,
+      "changedOrNewMethods": [
+        "AwakeningService._run"
+      ]
+    },
+    {
+      "file": "src/continuity_engine/services/continuity_core_runtime.py",
+      "newFile": false,
+      "changedOrNewMethods": [
+        "build_continuity_core"
+      ]
+    },
+    {
+      "file": "src/continuity_engine/services/continuity_core_service.py",
+      "newFile": false,
+      "changedOrNewMethods": [
+        "ContinuityCoreService.__init__",
+        "ContinuityCoreService.process_thinking",
+        "ContinuityCoreService.prepare",
+        "ContinuityCoreService.current"
+      ]
+    },
+    {
+      "file": "src/continuity_engine/services/continuity_interaction_service.py",
+      "newFile": false,
+      "changedOrNewMethods": [
+        "ContinuityInteractionService.authorize_new_computation",
+        "ContinuityInteractionService.submit",
+        "ContinuityInteractionService._run_domain",
+        "ContinuityInteractionService._resume_capability_domain"
+      ]
+    },
+    {
+      "file": "src/continuity_engine/services/learning_service.py",
+      "newFile": false,
+      "changedOrNewMethods": [
+        "LearningService.__init__",
+        "LearningService.solidify_learning",
+        "LearningService._verify_memory_support",
+        "LearningService.rollback_learning"
+      ]
+    },
+    {
+      "file": "src/continuity_engine/services/mind_projection_service.py",
+      "newFile": false,
+      "changedOrNewMethods": [
+        "MindProjectionService.read_growth"
+      ]
+    },
+    {
+      "file": "src/continuity_engine/services/model_capability_service.py",
+      "newFile": false,
+      "changedOrNewMethods": [
+        "ModelCapabilityService._drive",
+        "ModelCapabilityService._execute_with_budget"
+      ]
+    },
+    {
+      "file": "src/continuity_engine/services/resource_aware_wake_scheduler.py",
+      "newFile": false,
+      "changedOrNewMethods": [
+        "ResourceAwareWakeScheduler.wake_scheduled",
+        "ResourceAwareWakeScheduler.wake_manual",
+        "ResourceAwareWakeScheduler.wake_for_event"
+      ]
+    },
+    {
+      "file": "src/continuity_engine/services/scheduler_service.py",
+      "newFile": false,
+      "changedOrNewMethods": [
+        "SchedulerService.__init__",
+        "SchedulerService.tick"
+      ]
+    },
+    {
+      "file": "src/continuity_engine/services/subject_growth_service.py",
+      "newFile": true,
+      "changedOrNewMethods": [
+        "SubjectGrowthService.__init__",
+        "SubjectGrowthService.verify_source",
+        "SubjectGrowthService.capture",
+        "SubjectGrowthService.validate",
+        "SubjectGrowthService.submit",
+        "SubjectGrowthService._submit",
+        "SubjectGrowthService.process"
+      ]
+    },
+    {
+      "file": "src/continuity_engine/services/subject_lifecycle_ports.py",
+      "newFile": true,
+      "changedOrNewMethods": [
+        "LifecycleAuthority.identify",
+        "LifecycleAuthority.authorize",
+        "SubjectSelectionPort.select",
+        "SubjectSelectionPort.unbind"
+      ]
+    },
+    {
+      "file": "src/continuity_engine/services/subject_lifecycle_service.py",
+      "newFile": true,
+      "changedOrNewMethods": [
+        "SubjectLifecycleService.__init__",
+        "SubjectLifecycleService.import_test_observation",
+        "SubjectLifecycleService.submit"
+      ]
+    },
+    {
+      "file": "src/continuity_engine/services/subject_state_service.py",
+      "newFile": false,
+      "changedOrNewMethods": [
+        "SubjectStateService.require_active",
+        "SubjectStateService.save",
+        "SubjectStateService.apply_event",
+        "SubjectStateService._apply_event"
+      ]
+    },
+    {
+      "file": "src/continuity_engine/services/thinking_service.py",
+      "newFile": false,
+      "changedOrNewMethods": [
+        "ThinkingService.handle_perception",
+        "ThinkingService.begin_capability_wait",
+        "ThinkingService._validate_provider_result"
+      ]
+    },
+    {
+      "file": "src/continuity_engine/services/wake_perception_thinking_action_service.py",
+      "newFile": false,
+      "changedOrNewMethods": [
+        "WakePerceptionThinkingActionService._continue_mind"
+      ]
+    },
+    {
+      "file": "src/continuity_engine/storage/json_learning_repository.py",
+      "newFile": false,
+      "changedOrNewMethods": [
+        "JsonLearningRepository.save_change",
+        "JsonLearningRepository._save_change"
+      ]
+    },
+    {
+      "file": "src/continuity_engine/storage/json_repository.py",
+      "newFile": false,
+      "changedOrNewMethods": [
+        "JsonSubjectStateRepository.save_initial_transition"
+      ]
+    },
+    {
+      "file": "src/continuity_engine/testing/p11_scheduler_fixture.py",
+      "newFile": false,
+      "changedOrNewMethods": [
+        "P11SchedulerFixture.create"
+      ]
+    },
+    {
+      "file": "src/continuity_engine/testing/p15_subject_fixture.py",
+      "newFile": true,
+      "changedOrNewMethods": [
+        "TestLifecycleAuthority.__init__",
+        "TestLifecycleAuthority.confirm",
+        "TestLifecycleAuthority.identify",
+        "TestLifecycleAuthority.authorize",
+        "P15Fixture.__init__",
+        "P15Fixture.clock",
+        "P15Fixture.reopen",
+        "P15Fixture.state",
+        "P15Fixture.status",
+        "P15Fixture.prepare",
+        "P15Fixture.command",
+        "P15Fixture.replay",
+        "P15Fixture.import_observation",
+        "P15Fixture.inventory",
+        "TestSubjectSelection.__init__",
+        "TestSubjectSelection.select",
+        "TestSubjectSelection.unbind",
+        "TestSubjectSelection.selected",
+        "P15GrowthFixture.__init__",
+        "P15GrowthFixture.reopen",
+        "P15GrowthFixture.experiences",
+        "P15GrowthFixture.solidify",
+        "P15GrowthFixture.rollback",
+        "P15GrowthFixture._growth_command",
+        "P15GrowthFixture.replay",
+        "P15GrowthFixture.inventory",
+        "_p15_worker",
+        "run_p15_golden",
+        "main"
+      ]
+    },
+    {
+      "file": "tests/test_p15_subject_growth.py",
+      "newFile": true,
+      "changedOrNewMethods": [
+        "SubjectGrowthTests.setUp",
+        "SubjectGrowthTests.test_three_current_independent_experiences_form_trait_and_next_context",
+        "SubjectGrowthTests.test_rejected_support_and_permission_revocation_zero_state_change",
+        "SubjectGrowthTests.test_duplicate_root_wrappers_do_not_validate",
+        "SubjectGrowthTests.test_rollback_preserves_later_unrelated_trait",
+        "SubjectGrowthTests.test_pending_learning_record_recovers_after_restart_without_second_revision",
+        "SubjectGrowthTests.test_normal_chain_forms_subjective_narrative_and_object_relationship",
+        "SubjectGrowthTests.test_current_confidence_policy_095_02_02_and_reduced_support",
+        "SubjectGrowthTests.test_current_reference_revocation_prevents_solidify_without_writes",
+        "SubjectGrowthTests.test_growth_permission_policy_is_required_and_owner_read_is_read_only",
+        "SubjectGrowthTests.test_growth_feature_disabled_has_no_learning_read_or_write",
+        "SubjectGrowthTests.test_current_source_binding_cannot_be_replaced_with_forged_roots",
+        "SubjectGrowthTests.test_weaker_still_sufficient_support_records_current_confidence",
+        "SubjectGrowthTests.test_revoked_event_blocks_pending_commit_but_does_not_rewrite_existing_trait",
+        "SubjectGrowthTests.test_rollback_pending_record_recovers_and_does_not_remove_twice",
+        "SubjectGrowthTests.test_completed_growth_recovers_after_authority_revoked",
+        "SubjectGrowthTests.test_reinterpreted_experience_preserves_opposite_stances_and_versions"
+      ]
+    },
+    {
+      "file": "tests/test_p15_subject_lifecycle.py",
+      "newFile": true,
+      "changedOrNewMethods": [
+        "SubjectLifecycleModelTests.test_legacy_state_is_active_without_rewriting_serialization",
+        "SubjectLifecycleModelTests.test_transition_table_preserves_terminal_deleted",
+        "SubjectLifecycleModelTests.test_subject_intent_is_not_owner_command_or_deletion",
+        "SubjectLifecycleModelTests.test_policy_is_unconfigured_until_explicit_test_decision",
+        "SubjectLifecycleServiceTests.setUp",
+        "SubjectLifecycleServiceTests.test_create_suspend_restart_resume_and_replay",
+        "SubjectLifecycleServiceTests.test_subject_intent_preserves_state_and_owner_identity",
+        "SubjectLifecycleServiceTests.test_revoked_confirmation_and_stale_command_zero_writes",
+        "SubjectLifecycleServiceTests.test_archive_unconfigured_and_deleted_terminal",
+        "SubjectLifecycleServiceTests.test_paused_state_cannot_be_changed_by_ordinary_event",
+        "SubjectLifecycleServiceTests.test_same_command_identity_different_contents_is_conflict",
+        "SubjectLifecycleServiceTests.test_action_gate_denial_is_zero_write",
+        "SubjectLifecycleServiceTests.test_c1_new_request_paused_zero_journal_provider_or_receipt",
+        "SubjectLifecycleServiceTests.test_scheduler_paused_zero_attempt_resource_notification_then_resume"
+      ]
+    },
+    {
+      "file": "tests/test_p15_subject_recovery.py",
+      "newFile": true,
+      "changedOrNewMethods": [
+        "P15RecoveryTests.setUp",
+        "P15RecoveryTests.test_concurrent_lifecycle_commands_preserve_one_transition",
+        "P15RecoveryTests.test_atomic_creation_failure_does_not_leave_active_subject",
+        "P15RecoveryTests.test_cross_subject_environment_and_direct_lifecycle_mutation_rejected",
+        "P15RecoveryTests.test_host_binding_switch_and_unbind_do_not_change_subject_revision",
+        "P15RecoveryTests.test_public_test_migration_requires_exact_confirmation_and_never_copies_personality",
+        "P15RecoveryTests.test_new_genesis_isolated_from_old_learning_mind_relationships",
+        "P15RecoveryTests.test_protected_fixture_root_rejects_before_any_write",
+        "P15RecoveryTests.test_cross_process_golden",
+        "P15RecoveryTests.test_paused_pending_not_executed_model_cannot_dispatch",
+        "P15RecoveryTests.test_p01_snapshot_branch_keeps_growth_and_does_not_pollute_original"
+      ]
+    }
+  ]
+}

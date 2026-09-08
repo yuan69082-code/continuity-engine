@@ -1,0 +1,70 @@
+test_duplicate_root_wrappers_do_not_validate (test_p15_subject_growth.SubjectGrowthTests.test_duplicate_root_wrappers_do_not_validate) ... ok
+test_normal_chain_forms_subjective_narrative_and_object_relationship (test_p15_subject_growth.SubjectGrowthTests.test_normal_chain_forms_subjective_narrative_and_object_relationship) ... ERROR
+test_pending_learning_record_recovers_after_restart_without_second_revision (test_p15_subject_growth.SubjectGrowthTests.test_pending_learning_record_recovers_after_restart_without_second_revision) ... ok
+test_rejected_support_and_permission_revocation_zero_state_change (test_p15_subject_growth.SubjectGrowthTests.test_rejected_support_and_permission_revocation_zero_state_change) ... ok
+test_rollback_preserves_later_unrelated_trait (test_p15_subject_growth.SubjectGrowthTests.test_rollback_preserves_later_unrelated_trait) ... ok
+test_three_current_independent_experiences_form_trait_and_next_context (test_p15_subject_growth.SubjectGrowthTests.test_three_current_independent_experiences_form_trait_and_next_context) ... ok
+
+======================================================================
+ERROR: test_normal_chain_forms_subjective_narrative_and_object_relationship (test_p15_subject_growth.SubjectGrowthTests.test_normal_chain_forms_subjective_narrative_and_object_relationship)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\thinking_service.py", line 179, in handle_perception
+    result = result_processor(perception, result)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 153, in process_thinking
+    if self.growth is not None:result=self.growth.process(perception,result)
+                                      ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\subject_growth_service.py", line 182, in process
+    return replace(result,proposed_mutations=mutations,update_subject_state=bool(mutations))
+  File "E:\Adobe\Lib\dataclasses.py", line 1770, in replace
+    return _replace(obj, **changes)
+  File "E:\Adobe\Lib\dataclasses.py", line 1804, in _replace
+    return self.__class__(**changes)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "<string>", line 19, in __init__
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\domain\thinking.py", line 230, in __post_init__
+    raise ThinkingValidationError(
+        "thinking writeback is limited to continuity and intentions"
+    )
+continuity_engine.domain.errors.ThinkingValidationError: thinking writeback is limited to continuity and intentions
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 252, in submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 722, in _run_domain
+    thinking = self._thinking.handle_perception(
+        perception,
+    ...<5 lines>...
+           if self._continuity_core is not None and (self._continuity_core.mind is not None or self._continuity_core.growth is not None) else {}),
+    )
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\thinking_service.py", line 205, in handle_perception
+    raise ThinkingExecutionError(
+    ...<2 lines>...
+    ) from exc
+continuity_engine.domain.errors.ThinkingExecutionError: ThinkSession failed and was logged: 1333268a-ac9c-5818-bf81-ed823ef735f1
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p15_subject_growth.py", line 72, in test_normal_chain_forms_subjective_narrative_and_object_relationship
+    request=f.request(); f.submit(request)
+                         ~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p09_core_fixture.py", line 165, in submit
+    return self.app.adapter.submit(request or self.request())
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 264, in submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.
+
+----------------------------------------------------------------------
+Ran 6 tests in 26.750s
+
+FAILED (errors=1)

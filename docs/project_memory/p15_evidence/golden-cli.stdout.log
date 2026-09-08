@@ -1,0 +1,66 @@
+{
+  "fixture": "p15-golden-v1",
+  "process_ids": [
+    25228,
+    29208
+  ],
+  "retained_trait": true,
+  "retained_will_ids": true,
+  "duplicate_revision_delta": 0,
+  "logical_seconds": 7203,
+  "event_rounds": 3,
+  "native_opportunities": 2,
+  "restarts": 2,
+  "segments": [
+    {
+      "process_id": 25228,
+      "revision_before": 5,
+      "revision_after": 6,
+      "retained_trait": true,
+      "retained_will_ids": true,
+      "duplicate_revision_delta": 0,
+      "provider_calls": 1,
+      "thoughts": 7,
+      "subject_id": "sub-dc48198cdc7e47e5",
+      "objective_time": "2026-09-04T09:00:03+00:00",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.testing.p15_subject_fixture",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\g15-qhb4kce2",
+        "--worker",
+        "0",
+        "--sandbox-id",
+        "sb-318a3dc5b404452b"
+      ],
+      "seconds": 2.3711859000031836
+    },
+    {
+      "process_id": 29208,
+      "revision_before": 6,
+      "revision_after": 7,
+      "retained_trait": true,
+      "retained_will_ids": true,
+      "duplicate_revision_delta": 0,
+      "provider_calls": 1,
+      "thoughts": 7,
+      "subject_id": "sub-dc48198cdc7e47e5",
+      "objective_time": "2026-09-04T10:00:03+00:00",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.testing.p15_subject_fixture",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\g15-qhb4kce2",
+        "--worker",
+        "1",
+        "--sandbox-id",
+        "sb-318a3dc5b404452b"
+      ],
+      "seconds": 3.12025249999715
+    }
+  ],
+  "production_adapter_calls": 0,
+  "production_lifecycle_policy": "NOT_READY"
+}

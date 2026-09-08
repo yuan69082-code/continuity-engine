@@ -1,0 +1,6 @@
+test_growth_permission_policy_is_required_and_owner_read_is_read_only (test_p15_subject_growth.SubjectGrowthTests.test_growth_permission_policy_is_required_and_owner_read_is_read_only) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 1.061s
+
+OK

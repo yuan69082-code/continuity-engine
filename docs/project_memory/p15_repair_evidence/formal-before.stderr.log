@@ -1,0 +1,254 @@
+test_export_requires_both_explicit_policy_and_current_permission (test_p15_repair_edges.GrowthProjectionRepairTests.test_export_requires_both_explicit_policy_and_current_permission) ... ok
+test_permission_expiration_during_read_denies_without_observer_writes (test_p15_repair_edges.GrowthProjectionRepairTests.test_permission_expiration_during_read_denies_without_observer_writes) ... FAIL
+test_state_revision_change_during_read_denies_without_writes (test_p15_repair_edges.GrowthProjectionRepairTests.test_state_revision_change_during_read_denies_without_writes) ... FAIL
+test_wrong_subject_from_state_port_denied_without_writes (test_p15_repair_edges.GrowthProjectionRepairTests.test_wrong_subject_from_state_port_denied_without_writes) ... FAIL
+test_current_owner_environment_and_subject_tampering_rejected_without_writes (test_p15_repair_edges.LifecycleArchiveRepairTests.test_current_owner_environment_and_subject_tampering_rejected_without_writes) ... 
+  test_current_owner_environment_and_subject_tampering_rejected_without_writes (test_p15_repair_edges.LifecycleArchiveRepairTests.test_current_owner_environment_and_subject_tampering_rejected_without_writes) (key='owner_principal_id') ... FAIL
+  test_current_owner_environment_and_subject_tampering_rejected_without_writes (test_p15_repair_edges.LifecycleArchiveRepairTests.test_current_owner_environment_and_subject_tampering_rejected_without_writes) (key='environment') ... FAIL
+test_direct_save_rejects_current_snapshot_with_missing_lifecycle (test_p15_repair_edges.LifecycleArchiveRepairTests.test_direct_save_rejects_current_snapshot_with_missing_lifecycle) ... ok
+test_event_and_change_lifecycle_disagreement_rejected (test_p15_repair_edges.LifecycleArchiveRepairTests.test_event_and_change_lifecycle_disagreement_rejected) ... FAIL
+test_history_command_identity_cannot_rebind_owner (test_p15_repair_edges.LifecycleArchiveRepairTests.test_history_command_identity_cannot_rebind_owner) ... FAIL
+test_lifecycle_change_before_value_must_follow_original_history (test_p15_repair_edges.LifecycleArchiveRepairTests.test_lifecycle_change_before_value_must_follow_original_history) ... FAIL
+test_true_legacy_can_introduce_lifecycle_and_replay_after_resume (test_p15_repair_edges.LifecycleArchiveRepairTests.test_true_legacy_can_introduce_lifecycle_and_replay_after_resume) ... ok
+test_committed_evolution_finalizes_after_crash_without_current_confirmation (test_p15_repair_edges.PendingGrowthRepairTests.test_committed_evolution_finalizes_after_crash_without_current_confirmation) ... ok
+test_new_confirmation_does_not_bypass_current_source_revocation (test_p15_repair_edges.PendingGrowthRepairTests.test_new_confirmation_does_not_bypass_current_source_revocation) ... ok
+test_new_confirmation_does_not_bypass_revoked_owner (test_p15_repair_edges.PendingGrowthRepairTests.test_new_confirmation_does_not_bypass_revoked_owner) ... ok
+test_prepare_rollback_retains_actual_trait_until_evolution (test_p15_repair_edges.PendingGrowthRepairTests.test_prepare_rollback_retains_actual_trait_until_evolution) ... FAIL
+test_prepare_solidify_is_not_active_or_completed_before_evolution (test_p15_repair_edges.PendingGrowthRepairTests.test_prepare_solidify_is_not_active_or_completed_before_evolution) ... FAIL
+test_rollback_can_be_reconfirmed_after_unrelated_revision (test_p15_repair_edges.PendingGrowthRepairTests.test_rollback_can_be_reconfirmed_after_unrelated_revision) ... ERROR
+test_superseded_original_command_stays_terminal_and_auditable (test_p15_repair_edges.PendingGrowthRepairTests.test_superseded_original_command_stays_terminal_and_auditable) ... ERROR
+test_supersession_interruption_can_continue_with_original_fresh_identity (test_p15_repair_edges.PendingGrowthRepairTests.test_supersession_interruption_can_continue_with_original_fresh_identity) ... ERROR
+test_pending_growth_can_be_reauthorized_after_unrelated_revision (test_p15_review_regressions.GrowthRecoveryReview.test_pending_growth_can_be_reauthorized_after_unrelated_revision) ... FAIL
+test_existing_mind_projection_rechecks_same_revocation (test_p15_review_regressions.GrowthVisibilityReview.test_existing_mind_projection_rechecks_same_revocation) ... ok
+test_growth_projection_rechecks_revocation_before_returning_details (test_p15_review_regressions.GrowthVisibilityReview.test_growth_projection_rechecks_revocation_before_returning_details) ... FAIL
+test_unchanged_permission_allows_growth_without_state_writes (test_p15_review_regressions.GrowthVisibilityReview.test_unchanged_permission_allows_growth_without_state_writes) ... ok
+test_deleted_history_cannot_be_reopened_by_stale_active_projection (test_p15_review_regressions.LifecyclePersistenceReview.test_deleted_history_cannot_be_reopened_by_stale_active_projection) ... FAIL
+test_genuine_legacy_without_lifecycle_history_stays_compatible (test_p15_review_regressions.LifecyclePersistenceReview.test_genuine_legacy_without_lifecycle_history_stays_compatible) ... ok
+test_suspended_history_cannot_downgrade_to_legacy_by_missing_field (test_p15_review_regressions.LifecyclePersistenceReview.test_suspended_history_cannot_downgrade_to_legacy_by_missing_field) ... FAIL
+test_unmodified_suspended_state_stays_blocked (test_p15_review_regressions.LifecyclePersistenceReview.test_unmodified_suspended_state_stays_blocked) ... ok
+
+======================================================================
+ERROR: test_rollback_can_be_reconfirmed_after_unrelated_revision (test_p15_repair_edges.PendingGrowthRepairTests.test_rollback_can_be_reconfirmed_after_unrelated_revision)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p15_repair_edges.py", line 106, in test_rollback_can_be_reconfirmed_after_unrelated_revision
+    before=f.state.revision;f.rollback(self.ids[0],trait,identity='fresh-rollback')
+                            ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p15_subject_fixture.py", line 181, in rollback
+    return self._growth_command('ROLLBACK',learning_id,trait_id,identity)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p15_subject_fixture.py", line 189, in _growth_command
+    return self.growth.submit(command,token)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\subject_growth_service.py", line 110, in submit
+    return self._submit(command,credential)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\subject_growth_service.py", line 168, in _submit
+    change=self.learning.rollback_learning(c.subject_id,command.learning_id,command.trait_id,state,
+        reason=command.reason,source='p15-growth',confirmed=True,
+        expected_revision=command.expected_revision,growth_operation=operation)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\learning_service.py", line 501, in rollback_learning
+    raise LearningValidationError("personality trait is already inactive")
+continuity_engine.domain.errors.LearningValidationError: personality trait is already inactive
+
+======================================================================
+ERROR: test_superseded_original_command_stays_terminal_and_auditable (test_p15_repair_edges.PendingGrowthRepairTests.test_superseded_original_command_stays_terminal_and_auditable)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p15_repair_edges.py", line 114, in test_superseded_original_command_stays_terminal_and_auditable
+    self.unrelated();f.solidify(self.ids[0],identity='fresh');before=f.inventory()
+                     ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p15_subject_fixture.py", line 178, in solidify
+    return self._growth_command('SOLIDIFY',learning_id,None,identity)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p15_subject_fixture.py", line 189, in _growth_command
+    return self.growth.submit(command,token)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\subject_growth_service.py", line 110, in submit
+    return self._submit(command,credential)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\subject_growth_service.py", line 163, in _submit
+    change=self.learning.solidify_learning(c.subject_id,command.learning_id,state,
+        trait_name=str(target.proposed_change.value),trait_description=target.hypothesis,
+        reason=command.reason,source='p15-growth',confirmed=True,
+        expected_revision=command.expected_revision,growth_operation=operation)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\learning_service.py", line 340, in solidify_learning
+    raise LearningValidationError("learning is already consolidated")
+continuity_engine.domain.errors.LearningValidationError: learning is already consolidated
+
+======================================================================
+ERROR: test_supersession_interruption_can_continue_with_original_fresh_identity (test_p15_repair_edges.PendingGrowthRepairTests.test_supersession_interruption_can_continue_with_original_fresh_identity)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p15_repair_edges.py", line 135, in test_supersession_interruption_can_continue_with_original_fresh_identity
+    self.interrupt('SOLIDIFY',identity='fresh',stage='after_pending_superseded')
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p15_repair_edges.py", line 74, in interrupt
+    if operation=='SOLIDIFY':f.solidify(self.ids[0],identity=identity)
+                             ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p15_subject_fixture.py", line 178, in solidify
+    return self._growth_command('SOLIDIFY',learning_id,None,identity)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p15_subject_fixture.py", line 189, in _growth_command
+    return self.growth.submit(command,token)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\subject_growth_service.py", line 110, in submit
+    return self._submit(command,credential)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\subject_growth_service.py", line 163, in _submit
+    change=self.learning.solidify_learning(c.subject_id,command.learning_id,state,
+        trait_name=str(target.proposed_change.value),trait_description=target.hypothesis,
+        reason=command.reason,source='p15-growth',confirmed=True,
+        expected_revision=command.expected_revision,growth_operation=operation)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\learning_service.py", line 340, in solidify_learning
+    raise LearningValidationError("learning is already consolidated")
+continuity_engine.domain.errors.LearningValidationError: learning is already consolidated
+
+======================================================================
+FAIL: test_permission_expiration_during_read_denies_without_observer_writes (test_p15_repair_edges.GrowthProjectionRepairTests.test_permission_expiration_during_read_denies_without_observer_writes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p15_repair_edges.py", line 167, in test_permission_expiration_during_read_denies_without_observer_writes
+    with self.assertRaises(MindAccessError):self.view.read_growth('test-owner-session',allowed_objects=('peer-a',))
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+AssertionError: MindAccessError not raised
+
+======================================================================
+FAIL: test_state_revision_change_during_read_denies_without_writes (test_p15_repair_edges.GrowthProjectionRepairTests.test_state_revision_change_during_read_denies_without_writes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p15_repair_edges.py", line 178, in test_state_revision_change_during_read_denies_without_writes
+    with self.assertRaises(MindAccessError):self.view.read_growth('test-owner-session',allowed_objects=('peer-a',))
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+AssertionError: MindAccessError not raised
+
+======================================================================
+FAIL: test_wrong_subject_from_state_port_denied_without_writes (test_p15_repair_edges.GrowthProjectionRepairTests.test_wrong_subject_from_state_port_denied_without_writes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p15_repair_edges.py", line 185, in test_wrong_subject_from_state_port_denied_without_writes
+    with self.assertRaises(MindAccessError):self.view.read_growth('test-owner-session',allowed_objects=('peer-a',))
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+AssertionError: MindAccessError not raised
+
+======================================================================
+FAIL: test_current_owner_environment_and_subject_tampering_rejected_without_writes (test_p15_repair_edges.LifecycleArchiveRepairTests.test_current_owner_environment_and_subject_tampering_rejected_without_writes) (key='owner_principal_id')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p15_repair_edges.py", line 34, in test_current_owner_environment_and_subject_tampering_rejected_without_writes
+    self.corrupt_and_reject(lambda d:d['state']['temporal']['subject_lifecycle'].__setitem__(key,value))
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p15_repair_edges.py", line 25, in corrupt_and_reject
+    with self.assertRaises((LifecycleError,StateValidationError)):f.states.load(f.subject_id)
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (<class 'continuity_engine.domain.subject_lifecycle.LifecycleError'>, <class 'continuity_engine.domain.errors.StateValidationError'>) not raised
+
+======================================================================
+FAIL: test_current_owner_environment_and_subject_tampering_rejected_without_writes (test_p15_repair_edges.LifecycleArchiveRepairTests.test_current_owner_environment_and_subject_tampering_rejected_without_writes) (key='environment')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p15_repair_edges.py", line 34, in test_current_owner_environment_and_subject_tampering_rejected_without_writes
+    self.corrupt_and_reject(lambda d:d['state']['temporal']['subject_lifecycle'].__setitem__(key,value))
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p15_repair_edges.py", line 25, in corrupt_and_reject
+    with self.assertRaises((LifecycleError,StateValidationError)):f.states.load(f.subject_id)
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (<class 'continuity_engine.domain.subject_lifecycle.LifecycleError'>, <class 'continuity_engine.domain.errors.StateValidationError'>) not raised
+
+======================================================================
+FAIL: test_event_and_change_lifecycle_disagreement_rejected (test_p15_repair_edges.LifecycleArchiveRepairTests.test_event_and_change_lifecycle_disagreement_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p15_repair_edges.py", line 37, in test_event_and_change_lifecycle_disagreement_rejected
+    self.corrupt_and_reject(lambda d:d['updates'][-1]['changes'][0]['after'].__setitem__('status','SUSPENDED'))
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p15_repair_edges.py", line 25, in corrupt_and_reject
+    with self.assertRaises((LifecycleError,StateValidationError)):f.states.load(f.subject_id)
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (<class 'continuity_engine.domain.subject_lifecycle.LifecycleError'>, <class 'continuity_engine.domain.errors.StateValidationError'>) not raised
+
+======================================================================
+FAIL: test_history_command_identity_cannot_rebind_owner (test_p15_repair_edges.LifecycleArchiveRepairTests.test_history_command_identity_cannot_rebind_owner)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p15_repair_edges.py", line 44, in test_history_command_identity_cannot_rebind_owner
+    self.corrupt_and_reject(lambda d:d['updates'][-1]['event']['metadata'].__setitem__('principal_id','other'))
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p15_repair_edges.py", line 25, in corrupt_and_reject
+    with self.assertRaises((LifecycleError,StateValidationError)):f.states.load(f.subject_id)
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (<class 'continuity_engine.domain.subject_lifecycle.LifecycleError'>, <class 'continuity_engine.domain.errors.StateValidationError'>) not raised
+
+======================================================================
+FAIL: test_lifecycle_change_before_value_must_follow_original_history (test_p15_repair_edges.LifecycleArchiveRepairTests.test_lifecycle_change_before_value_must_follow_original_history)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p15_repair_edges.py", line 41, in test_lifecycle_change_before_value_must_follow_original_history
+    self.corrupt_and_reject(lambda d:d['updates'][-1]['changes'][0]['before'].__setitem__('owner_principal_id','other'))
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p15_repair_edges.py", line 25, in corrupt_and_reject
+    with self.assertRaises((LifecycleError,StateValidationError)):f.states.load(f.subject_id)
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (<class 'continuity_engine.domain.subject_lifecycle.LifecycleError'>, <class 'continuity_engine.domain.errors.StateValidationError'>) not raised
+
+======================================================================
+FAIL: test_prepare_rollback_retains_actual_trait_until_evolution (test_p15_repair_edges.PendingGrowthRepairTests.test_prepare_rollback_retains_actual_trait_until_evolution)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p15_repair_edges.py", line 97, in test_prepare_rollback_retains_actual_trait_until_evolution
+    self.assertTrue(f.growth.learning.get_trait(f.state.subject_id,trait).active)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_prepare_solidify_is_not_active_or_completed_before_evolution (test_p15_repair_edges.PendingGrowthRepairTests.test_prepare_solidify_is_not_active_or_completed_before_evolution)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p15_repair_edges.py", line 88, in test_prepare_solidify_is_not_active_or_completed_before_evolution
+    self.assertEqual(record.record_type.value,'GROWTH_PREPARED')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'CONSOLIDATED' != 'GROWTH_PREPARED'
+- CONSOLIDATED
++ GROWTH_PREPARED
+
+
+======================================================================
+FAIL: test_pending_growth_can_be_reauthorized_after_unrelated_revision (test_p15_review_regressions.GrowthRecoveryReview.test_pending_growth_can_be_reauthorized_after_unrelated_revision)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p15_review_regressions.py", line 110, in test_pending_growth_can_be_reauthorized_after_unrelated_revision
+    self.assertIsNone(caught, 'fresh authorized recovery is blocked by an uncommitted active consolidation')
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'learning is already consolidated' is not None : fresh authorized recovery is blocked by an uncommitted active consolidation
+
+======================================================================
+FAIL: test_growth_projection_rechecks_revocation_before_returning_details (test_p15_review_regressions.GrowthVisibilityReview.test_growth_projection_rechecks_revocation_before_returning_details)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p15_review_regressions.py", line 143, in test_growth_projection_rechecks_revocation_before_returning_details
+    with self.assertRaises(MindAccessError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+AssertionError: MindAccessError not raised
+
+======================================================================
+FAIL: test_deleted_history_cannot_be_reopened_by_stale_active_projection (test_p15_review_regressions.LifecyclePersistenceReview.test_deleted_history_cannot_be_reopened_by_stale_active_projection)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p15_review_regressions.py", line 56, in test_deleted_history_cannot_be_reopened_by_stale_active_projection
+    with self.assertRaises((StateValidationError, LifecycleError)):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (<class 'continuity_engine.domain.errors.StateValidationError'>, <class 'continuity_engine.domain.subject_lifecycle.LifecycleError'>) not raised
+
+======================================================================
+FAIL: test_suspended_history_cannot_downgrade_to_legacy_by_missing_field (test_p15_review_regressions.LifecyclePersistenceReview.test_suspended_history_cannot_downgrade_to_legacy_by_missing_field)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p15_review_regressions.py", line 44, in test_suspended_history_cannot_downgrade_to_legacy_by_missing_field
+    with self.assertRaises((StateValidationError, LifecycleError)):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (<class 'continuity_engine.domain.errors.StateValidationError'>, <class 'continuity_engine.domain.subject_lifecycle.LifecycleError'>) not raised
+
+----------------------------------------------------------------------
+Ran 26 tests in 59.096s
+
+FAILED (failures=14, errors=3)

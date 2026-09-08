@@ -1,0 +1,109 @@
+{
+  "checks": {
+    "source232MatchesFinalAuditAndFull": true,
+    "fiveCitedRunsMatchAndAreClean": true,
+    "original1176IdentitiesRetained": true,
+    "exact32NewIdentities": true,
+    "allOriginalTestFilesUnchanged": true,
+    "onlySixApprovedSourcesAndTwoNewTests": true,
+    "originalIndependentMaterialUnchanged": true,
+    "formalRegressionEqualsOriginalProbeBytes": true,
+    "independentEvidenceCopiesExact": true,
+    "historicalP14P15EvidencePreserved": true,
+    "protected63Unchanged": true,
+    "plans3Unchanged": true,
+    "formal7AndTreeUnchanged": true,
+    "excluded31Unchanged": true,
+    "pending218Plus32ExclusionsExactlyMatch": true,
+    "recordedPending217HashesMatch": true,
+    "otherPreservedUnchanged": true,
+    "pythonSyntaxValid": true,
+    "headAndTrackingUnchanged": true,
+    "stagingEmpty": true,
+    "diffCheckClean": true
+  },
+  "allIdentityChecksPass": true,
+  "notBehavioralAcceptance": true,
+  "citedRunsNotIndependent": {
+    "independent-stable": {
+      "identityMatches": true,
+      "completed": true,
+      "countConsistent": true,
+      "stderrSummaryPresent": true,
+      "stdoutPresent": true,
+      "run": 8,
+      "passed": 8,
+      "skips": [],
+      "seconds": 10.804
+    },
+    "targeted-stable": {
+      "identityMatches": true,
+      "completed": true,
+      "countConsistent": true,
+      "stderrSummaryPresent": true,
+      "stdoutPresent": true,
+      "run": 32,
+      "passed": 32,
+      "skips": [],
+      "seconds": 86.372
+    },
+    "p15-stable": {
+      "identityMatches": true,
+      "completed": true,
+      "countConsistent": true,
+      "stderrSummaryPresent": true,
+      "stdoutPresent": true,
+      "run": 71,
+      "passed": 71,
+      "skips": [],
+      "seconds": 181.709
+    },
+    "compatibility-final": {
+      "identityMatches": true,
+      "completed": true,
+      "countConsistent": true,
+      "stderrSummaryPresent": true,
+      "stdoutPresent": true,
+      "run": 293,
+      "passed": 293,
+      "skips": [],
+      "seconds": 212.998
+    },
+    "full-final": {
+      "identityMatches": true,
+      "completed": true,
+      "countConsistent": true,
+      "stderrSummaryPresent": true,
+      "stdoutPresent": true,
+      "run": 1208,
+      "passed": 1207,
+      "skips": [
+        [
+          "test_p08_fixture_paths.P08FixturePathTests.test_symlink_component_rejected_without_writes",
+          "OS does not grant symlink creation: 1314"
+        ]
+      ],
+      "seconds": 1024.585
+    }
+  },
+  "sourceCount": 232,
+  "pythonCount": 222,
+  "repairDelta": [
+    "src/continuity_engine/domain/learning.py",
+    "src/continuity_engine/services/learning_service.py",
+    "src/continuity_engine/services/mind_projection_service.py",
+    "src/continuity_engine/services/subject_growth_service.py",
+    "src/continuity_engine/storage/json_learning_repository.py",
+    "src/continuity_engine/storage/json_repository.py",
+    "tests/test_p15_repair_edges.py",
+    "tests/test_p15_review_regressions.py"
+  ],
+  "trackedModifiedCount": 37,
+  "untrackedCount": 213,
+  "branch": "main",
+  "head": "f1185d20da06f52e7e85015bc6b963cf9769d08c",
+  "formalTreeHash": "sha256:f9c710c6085e430a251f74463d57133f8c5a4497fe8ffa2ccb96be2db1037bb2",
+  "syntaxErrors": [],
+  "gitWrites": false,
+  "remoteNetworkChecked": false
+}

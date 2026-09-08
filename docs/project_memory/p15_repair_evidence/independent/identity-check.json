@@ -1,0 +1,72 @@
+{
+  "checks": {
+    "source230MatchesFinalAuditAndFull": true,
+    "allThreeCitedRunsMatchAndAreClean": true,
+    "original1137IdentitiesRetained": true,
+    "exact39NewTestIdentities": true,
+    "originalTestFilesUnchanged": true,
+    "protected63Unchanged": true,
+    "planning3Unchanged": true,
+    "formal7AndTreeUnchanged": true,
+    "excluded31Unchanged": true,
+    "pending151Plus32ExclusionsExactlyMatch": true,
+    "pending150RecordedHashesMatch": true,
+    "pythonSyntaxValid": true,
+    "headAndTrackingUnchanged": true,
+    "stagingEmpty": true,
+    "diffCheckClean": true
+  },
+  "allIdentityChecksPass": true,
+  "notBehavioralAcceptance": true,
+  "citedRunsNotIndependent": {
+    "p15-final-2": {
+      "identityMatches": true,
+      "completed": true,
+      "countConsistent": true,
+      "stdoutPresent": true,
+      "stderrSummaryPresent": true,
+      "run": 39,
+      "passed": 39,
+      "skips": [],
+      "seconds": 108.134
+    },
+    "compatibility-final-2": {
+      "identityMatches": true,
+      "completed": true,
+      "countConsistent": true,
+      "stdoutPresent": true,
+      "stderrSummaryPresent": true,
+      "run": 311,
+      "passed": 311,
+      "skips": [],
+      "seconds": 229.353
+    },
+    "full-final-2": {
+      "identityMatches": true,
+      "completed": true,
+      "countConsistent": true,
+      "stdoutPresent": true,
+      "stderrSummaryPresent": true,
+      "run": 1176,
+      "passed": 1175,
+      "skips": [
+        [
+          "test_p08_fixture_paths.P08FixturePathTests.test_symlink_component_rejected_without_writes",
+          "OS does not grant symlink creation: 1314"
+        ]
+      ],
+      "seconds": 994.964
+    }
+  },
+  "sourceTestCount": 230,
+  "pythonCount": 220,
+  "trackedModifiedCount": 37,
+  "untrackedCount": 146,
+  "branch": "main",
+  "head": "f1185d20da06f52e7e85015bc6b963cf9769d08c",
+  "aheadBehindLocal": "0\t0",
+  "formalTreeHash": "sha256:f9c710c6085e430a251f74463d57133f8c5a4497fe8ffa2ccb96be2db1037bb2",
+  "syntaxErrors": [],
+  "gitWrites": false,
+  "remoteNetworkChecked": false
+}

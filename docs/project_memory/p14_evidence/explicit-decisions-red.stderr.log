@@ -1,0 +1,53 @@
+test_explicit_subject_confrontation_is_retained (test_p14_mind_recovery.MindCoreIntegrationTests.test_explicit_subject_confrontation_is_retained) ... FAIL
+test_explicit_subject_refusal_is_not_erased_by_generic_drive (test_p14_mind_recovery.MindCoreIntegrationTests.test_explicit_subject_refusal_is_not_erased_by_generic_drive) ... FAIL
+test_explicit_subject_silence_is_not_relabelled_pursuit (test_p14_mind_recovery.MindCoreIntegrationTests.test_explicit_subject_silence_is_not_relabelled_pursuit) ... FAIL
+
+======================================================================
+FAIL: test_explicit_subject_confrontation_is_retained (test_p14_mind_recovery.MindCoreIntegrationTests.test_explicit_subject_confrontation_is_retained)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p14_mind_recovery.py", line 389, in test_explicit_subject_confrontation_is_retained
+    self.explicit_decision_control('CONFRONT')
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p14_mind_recovery.py", line 377, in explicit_decision_control
+    self.assertEqual(f.artifact(request).decision.mode,mode)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'PURSUE' != 'CONFRONT'
+- PURSUE
++ CONFRONT
+
+
+======================================================================
+FAIL: test_explicit_subject_refusal_is_not_erased_by_generic_drive (test_p14_mind_recovery.MindCoreIntegrationTests.test_explicit_subject_refusal_is_not_erased_by_generic_drive)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p14_mind_recovery.py", line 383, in test_explicit_subject_refusal_is_not_erased_by_generic_drive
+    self.explicit_decision_control('REFUSE')
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p14_mind_recovery.py", line 377, in explicit_decision_control
+    self.assertEqual(f.artifact(request).decision.mode,mode)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'PURSUE' != 'REFUSE'
+- PURSUE
++ REFUSE
+
+
+======================================================================
+FAIL: test_explicit_subject_silence_is_not_relabelled_pursuit (test_p14_mind_recovery.MindCoreIntegrationTests.test_explicit_subject_silence_is_not_relabelled_pursuit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p14_mind_recovery.py", line 386, in test_explicit_subject_silence_is_not_relabelled_pursuit
+    self.explicit_decision_control('SILENCE')
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p14_mind_recovery.py", line 377, in explicit_decision_control
+    self.assertEqual(f.artifact(request).decision.mode,mode)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'PURSUE' != 'SILENCE'
+- PURSUE
++ SILENCE
+
+
+----------------------------------------------------------------------
+Ran 3 tests in 3.279s
+
+FAILED (failures=3)

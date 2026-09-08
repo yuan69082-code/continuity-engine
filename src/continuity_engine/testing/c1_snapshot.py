@@ -37,3 +37,31 @@ def additions(data_root, subject_id):
     if any(not p.is_file() or is_link_like(p) for p in paths.values()):
         raise SandboxOperationError("SNAPSHOT_INCOMPLETE", "missing C1 component")
     return {key: (path, read_json(path)) for key, path in paths.items()}
+
+
+def permission_additions(data_root, subject_id):
+    """Exact existing permission records in a TEST C1 fixture, not a new store."""
+    from continuity_engine.storage.json_permission_repository import JsonPermissionRepository
+    if not (data_root / PROFILE).exists():
+        return []
+    repository = JsonPermissionRepository(data_root)
+    folder = repository._subject_dir(subject_id)
+    for parent in (repository.root, folder):
+        if is_link_like(parent):
+            raise SandboxOperationError('SNAPSHOT_INCOMPLETE', 'unsafe permission component')
+    if not folder.exists():
+        return []
+    result = []
+    for path in sorted(folder.iterdir()):
+        if not path.is_file() or is_link_like(path) or path.suffix != '.json':
+            raise SandboxOperationError('SNAPSHOT_INCOMPLETE', 'unmapped permission entry')
+        document = read_json(path)
+        identity = document.get('state', {}).get('permission_id')
+        if not identity or repository._path(subject_id, identity) != path:
+            raise SandboxOperationError('SNAPSHOT_INCOMPLETE', 'permission path identity mismatch')
+        permission = repository.load(subject_id, identity)
+        repository.history(subject_id, identity)
+        if permission.subject_id != subject_id:
+            raise SandboxOperationError('SNAPSHOT_INCOMPLETE', 'permission subject mismatch')
+        result.append((path, document))
+    return result

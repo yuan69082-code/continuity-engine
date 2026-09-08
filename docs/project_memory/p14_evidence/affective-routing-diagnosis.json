@@ -1,0 +1,450 @@
+{
+  "fragments": [
+    [
+      "engine.subject-state",
+      "sub-8b7201e418874b62:relationship",
+      "{\"current_status\":\"testing continuity\",\"definition\":\"\",\"important_moments\":[\"synthetic genesis\"],\"interaction_preference"
+    ],
+    [
+      "engine.subject-state",
+      "sub-8b7201e418874b62:continuity",
+      "{\"current_focus\":[\"continuity\"],\"recent_changes\":[],\"unfinished_items\":[]}"
+    ],
+    [
+      "engine.subject-state",
+      "sub-8b7201e418874b62:identity",
+      "{\"expression_preferences\":[\"concise\"],\"judgment_principles\":[],\"self_concept\":\"\",\"stable_traits\":[\"continuity\"]}"
+    ],
+    [
+      "engine.subject-state",
+      "sub-8b7201e418874b62:intentions",
+      "{\"action_tendencies\":[],\"emerging_thoughts\":[],\"judgments\":[]}"
+    ],
+    [
+      "engine.subject-state",
+      "sub-8b7201e418874b62:emotion_state",
+      "{\"continuity_notes\":[],\"emotions\":[],\"interaction_state\":\"\"}"
+    ],
+    [
+      "engine.timeline",
+      "p01-fixture-event-f06d90c059d1466f",
+      "Apply a synthetic P01 State Fixture through Event/Evolution."
+    ],
+    [
+      "engine.memory",
+      "memory:p01-fixture-event-f06d90c059d1466f",
+      "legacy: Apply a synthetic P01 State Fixture through Event/Evolution."
+    ]
+  ],
+  "missing": [
+    {
+      "reference_id": "sha256:df7b32d6f7e4d0231a3ccba0a70651221c0e6f493134119da9805ceb4fc3d04f",
+      "source_id": "p05.route",
+      "stable_source_id": "partition:local_fact",
+      "required": false,
+      "reason_code": "ROUTER_PARTITION_UNAVAILABLE"
+    },
+    {
+      "reference_id": "sha256:a0ca0f7e159ed20e08904da0ec3a6754acf5797073a425dccc234d1feb5a0633",
+      "source_id": "p05.route",
+      "stable_source_id": "partition:attention",
+      "required": false,
+      "reason_code": "ROUTER_PARTITION_NOT_OPENED"
+    },
+    {
+      "reference_id": "sha256:422c57f2b44e5e55bcd91e8474878c004dacf0e746ab05840ebb93f9e4513f3e",
+      "source_id": "p05.route",
+      "stable_source_id": "partition:desire",
+      "required": false,
+      "reason_code": "ROUTER_PARTITION_NOT_OPENED"
+    },
+    {
+      "reference_id": "sha256:4676880790619db12597f80674df1b86d9c941aa126d79e9154f3e3bdfa0bc1d",
+      "source_id": "p05.route",
+      "stable_source_id": "partition:conflict",
+      "required": false,
+      "reason_code": "ROUTER_PARTITION_NOT_OPENED"
+    },
+    {
+      "reference_id": "sha256:49a5de380b798746d01d40c3bc8c573430c5302255610f45647360e358ab84d3",
+      "source_id": "p05.route",
+      "stable_source_id": "partition:somatic",
+      "required": false,
+      "reason_code": "ROUTER_PARTITION_NOT_OPENED"
+    },
+    {
+      "reference_id": "sha256:2825e7308a2ee60bfd6b152c307d9c7bbd3e43212101dd7e5cdd844fba693aea",
+      "source_id": "p05.route",
+      "stable_source_id": "partition:expression",
+      "required": false,
+      "reason_code": "ROUTER_PARTITION_NOT_OPENED"
+    }
+  ],
+  "candidates": [
+    [
+      "engine.subject-state",
+      "sub-8b7201e418874b62:relationship",
+      1.0
+    ],
+    [
+      "engine.subject-state",
+      "sub-8b7201e418874b62:continuity",
+      0.895
+    ],
+    [
+      "engine.subject-state",
+      "sub-8b7201e418874b62:identity",
+      0.865
+    ],
+    [
+      "engine.subject-state",
+      "sub-8b7201e418874b62:intentions",
+      0.85
+    ],
+    [
+      "engine.subject-state",
+      "sub-8b7201e418874b62:emotion_state",
+      0.805
+    ],
+    [
+      "engine.timeline",
+      "p01-fixture-event-f06d90c059d1466f",
+      0.705
+    ],
+    [
+      "engine.memory",
+      "memory:boundary-one",
+      0.6515
+    ],
+    [
+      "engine.memory",
+      "memory:p01-fixture-event-f06d90c059d1466f",
+      0.6515
+    ],
+    [
+      "engine.derived-summary",
+      "c1-summary:24bfc59dc32d55a8586b1bc1cc5b3719ae2a309805eec09c92b80390922b56be",
+      0.63
+    ]
+  ],
+  "episodes": [],
+  "route": {
+    "trace_id": "trace:p01-request-87a4f3aeebc442beac6811dd2a8df4dc",
+    "request_id": "p01-request-87a4f3aeebc442beac6811dd2a8df4dc",
+    "perception_id": "e03d17a1-b5a7-5e77-9f95-63add36e4b7c",
+    "subject_id": "sub-8b7201e418874b62",
+    "source_revision": 1,
+    "routed_at": "2026-09-04T08:01:00Z",
+    "purpose": [
+      "continuity",
+      "fact",
+      "internal_drive",
+      "memory",
+      "relationship",
+      "subject_state",
+      "topic"
+    ],
+    "route_plan_hash": "sha256:44977aae9eba21c8df90685f8b2242da9a45ac6ba37675f2f8c32c1daa1ff19e",
+    "manifest_hash": "sha256:ea7881c84f9a99cf8db38e2030dba72d562e56b1530828b7784c7a52489b398e",
+    "route_status": "COMPLETE",
+    "feature_gate_version": "p05-context-router-v1",
+    "partition_traces": [
+      {
+        "partition": "subject_state",
+        "status": "OPENED",
+        "reason_code": "BOUNDED_READ_COMPLETE",
+        "requested_limit": 13,
+        "source_ids": [
+          "engine.subject-state"
+        ],
+        "source_versions": {
+          "engine.subject-state": "revision:1"
+        },
+        "candidate_count": 6,
+        "retrieved_count": 6,
+        "evaluated_count": 6,
+        "retained_count": 5,
+        "rejected_count": 1
+      },
+      {
+        "partition": "memory",
+        "status": "OPENED",
+        "reason_code": "BOUNDED_READ_COMPLETE",
+        "requested_limit": 13,
+        "source_ids": [
+          "engine.memory"
+        ],
+        "source_versions": {
+          "engine.memory": "v-80725a323263c495b1b2490d8d2b33aae51000e13c21cfc22ac86d8b7a8be816"
+        },
+        "candidate_count": 2,
+        "retrieved_count": 2,
+        "evaluated_count": 2,
+        "retained_count": 2,
+        "rejected_count": 0
+      },
+      {
+        "partition": "derived_summary",
+        "status": "OPENED",
+        "reason_code": "BOUNDED_READ_COMPLETE",
+        "requested_limit": 12,
+        "source_ids": [
+          "engine.derived-summary"
+        ],
+        "source_versions": {
+          "engine.derived-summary": "v-2eacc995a316caca086bfe85ed3369a90b0a3cef4bc19e6b44e836883cf415d7"
+        },
+        "candidate_count": 1,
+        "retrieved_count": 1,
+        "evaluated_count": 1,
+        "retained_count": 1,
+        "rejected_count": 0
+      },
+      {
+        "partition": "timeline",
+        "status": "OPENED",
+        "reason_code": "BOUNDED_READ_COMPLETE",
+        "requested_limit": 12,
+        "source_ids": [
+          "engine.timeline"
+        ],
+        "source_versions": {
+          "engine.timeline": "v-fad928a8ae4525f5516825f44ddb7ef74a9a7b4457e3e7263822bfefe3958b06"
+        },
+        "candidate_count": 2,
+        "retrieved_count": 2,
+        "evaluated_count": 2,
+        "retained_count": 1,
+        "rejected_count": 1
+      },
+      {
+        "partition": "local_fact",
+        "status": "UNAVAILABLE",
+        "reason_code": "SOURCE_NOT_CONFIGURED",
+        "requested_limit": 0,
+        "source_ids": [],
+        "source_versions": {},
+        "candidate_count": 0,
+        "retrieved_count": 0,
+        "evaluated_count": 0,
+        "retained_count": 0,
+        "rejected_count": 0
+      },
+      {
+        "partition": "attention",
+        "status": "NOT_OPENED",
+        "reason_code": "PURPOSE_NOT_SELECTED",
+        "requested_limit": 0,
+        "source_ids": [],
+        "source_versions": {},
+        "candidate_count": 0,
+        "retrieved_count": 0,
+        "evaluated_count": 0,
+        "retained_count": 0,
+        "rejected_count": 0
+      },
+      {
+        "partition": "desire",
+        "status": "NOT_OPENED",
+        "reason_code": "PURPOSE_NOT_SELECTED",
+        "requested_limit": 0,
+        "source_ids": [],
+        "source_versions": {},
+        "candidate_count": 0,
+        "retrieved_count": 0,
+        "evaluated_count": 0,
+        "retained_count": 0,
+        "rejected_count": 0
+      },
+      {
+        "partition": "conflict",
+        "status": "NOT_OPENED",
+        "reason_code": "PURPOSE_NOT_SELECTED",
+        "requested_limit": 0,
+        "source_ids": [],
+        "source_versions": {},
+        "candidate_count": 0,
+        "retrieved_count": 0,
+        "evaluated_count": 0,
+        "retained_count": 0,
+        "rejected_count": 0
+      },
+      {
+        "partition": "somatic",
+        "status": "NOT_OPENED",
+        "reason_code": "PURPOSE_NOT_SELECTED",
+        "requested_limit": 0,
+        "source_ids": [],
+        "source_versions": {},
+        "candidate_count": 0,
+        "retrieved_count": 0,
+        "evaluated_count": 0,
+        "retained_count": 0,
+        "rejected_count": 0
+      },
+      {
+        "partition": "expression",
+        "status": "NOT_OPENED",
+        "reason_code": "PURPOSE_NOT_SELECTED",
+        "requested_limit": 0,
+        "source_ids": [],
+        "source_versions": {},
+        "candidate_count": 0,
+        "retrieved_count": 0,
+        "evaluated_count": 0,
+        "retained_count": 0,
+        "rejected_count": 0
+      }
+    ],
+    "source_traces": [
+      {
+        "source_id": "engine.subject-state",
+        "partition": "subject_state",
+        "status": "OPENED",
+        "reason_code": "BOUNDED_READ_COMPLETE",
+        "requested_limit": 13,
+        "source_version": "revision:1",
+        "permission_policy_version": "p09-test-v1",
+        "candidate_count": 6,
+        "retrieved_count": 6,
+        "evaluated_count": 6,
+        "retained_count": 5,
+        "rejected_count": 1
+      },
+      {
+        "source_id": "engine.memory",
+        "partition": "memory",
+        "status": "OPENED",
+        "reason_code": "BOUNDED_READ_COMPLETE",
+        "requested_limit": 13,
+        "source_version": "v-80725a323263c495b1b2490d8d2b33aae51000e13c21cfc22ac86d8b7a8be816",
+        "permission_policy_version": "p09-test-v1",
+        "candidate_count": 2,
+        "retrieved_count": 2,
+        "evaluated_count": 2,
+        "retained_count": 2,
+        "rejected_count": 0
+      },
+      {
+        "source_id": "engine.derived-summary",
+        "partition": "derived_summary",
+        "status": "OPENED",
+        "reason_code": "BOUNDED_READ_COMPLETE",
+        "requested_limit": 12,
+        "source_version": "v-2eacc995a316caca086bfe85ed3369a90b0a3cef4bc19e6b44e836883cf415d7",
+        "permission_policy_version": "p09-test-v1",
+        "candidate_count": 1,
+        "retrieved_count": 1,
+        "evaluated_count": 1,
+        "retained_count": 1,
+        "rejected_count": 0
+      },
+      {
+        "source_id": "engine.timeline",
+        "partition": "timeline",
+        "status": "OPENED",
+        "reason_code": "BOUNDED_READ_COMPLETE",
+        "requested_limit": 12,
+        "source_version": "v-fad928a8ae4525f5516825f44ddb7ef74a9a7b4457e3e7263822bfefe3958b06",
+        "permission_policy_version": "p09-test-v1",
+        "candidate_count": 2,
+        "retrieved_count": 2,
+        "evaluated_count": 2,
+        "retained_count": 1,
+        "rejected_count": 1
+      }
+    ],
+    "candidate_decisions": [
+      {
+        "source_id": "engine.derived-summary",
+        "partition": "derived_summary",
+        "stable_id": "c1-summary:24bfc59dc32d55a8586b1bc1cc5b3719ae2a309805eec09c92b80390922b56be",
+        "status": "RETAINED",
+        "reason_code": "VERIFIED_AND_RETAINED",
+        "score": 0.63
+      },
+      {
+        "source_id": "engine.memory",
+        "partition": "memory",
+        "stable_id": "memory:boundary-one",
+        "status": "RETAINED",
+        "reason_code": "VERIFIED_AND_RETAINED",
+        "score": 0.6515
+      },
+      {
+        "source_id": "engine.memory",
+        "partition": "memory",
+        "stable_id": "memory:p01-fixture-event-f06d90c059d1466f",
+        "status": "RETAINED",
+        "reason_code": "VERIFIED_AND_RETAINED",
+        "score": 0.6515
+      },
+      {
+        "source_id": "engine.subject-state",
+        "partition": "subject_state",
+        "stable_id": "sub-8b7201e418874b62:continuity",
+        "status": "RETAINED",
+        "reason_code": "VERIFIED_AND_RETAINED",
+        "score": 0.895
+      },
+      {
+        "source_id": "engine.subject-state",
+        "partition": "subject_state",
+        "stable_id": "sub-8b7201e418874b62:emotion_state",
+        "status": "RETAINED",
+        "reason_code": "VERIFIED_AND_RETAINED",
+        "score": 0.805
+      },
+      {
+        "source_id": "engine.subject-state",
+        "partition": "subject_state",
+        "stable_id": "sub-8b7201e418874b62:identity",
+        "status": "RETAINED",
+        "reason_code": "VERIFIED_AND_RETAINED",
+        "score": 0.865
+      },
+      {
+        "source_id": "engine.subject-state",
+        "partition": "subject_state",
+        "stable_id": "sub-8b7201e418874b62:intentions",
+        "status": "RETAINED",
+        "reason_code": "VERIFIED_AND_RETAINED",
+        "score": 0.85
+      },
+      {
+        "source_id": "engine.subject-state",
+        "partition": "subject_state",
+        "stable_id": "sub-8b7201e418874b62:relationship",
+        "status": "RETAINED",
+        "reason_code": "VERIFIED_AND_RETAINED",
+        "score": 1.0
+      },
+      {
+        "source_id": "engine.subject-state",
+        "partition": "subject_state",
+        "stable_id": "sub-8b7201e418874b62:temporal",
+        "status": "REJECTED",
+        "reason_code": "BELOW_RELEVANCE_THRESHOLD",
+        "score": 0.49
+      },
+      {
+        "source_id": "engine.timeline",
+        "partition": "timeline",
+        "stable_id": "boundary-one",
+        "status": "REJECTED",
+        "reason_code": "BELOW_RELEVANCE_THRESHOLD",
+        "score": 0.3
+      },
+      {
+        "source_id": "engine.timeline",
+        "partition": "timeline",
+        "stable_id": "p01-fixture-event-f06d90c059d1466f",
+        "status": "RETAINED",
+        "reason_code": "VERIFIED_AND_RETAINED",
+        "score": 0.705
+      }
+    ],
+    "budget_limit": 50,
+    "budget_used": 11
+  }
+}

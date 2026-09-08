@@ -1,0 +1,18 @@
+test_batched_composer_uses_event_order_not_fragment_or_processing_order (test_p14_review_repair.P14ReviewRepairTests.test_batched_composer_uses_event_order_not_fragment_or_processing_order) ... ok
+test_control_without_transform_updates_all_active_desires (test_p14_review_repair.P14ReviewRepairTests.test_control_without_transform_updates_all_active_desires) ... ok
+test_equal_time_support_is_not_proof_of_subsequent_repair (test_p14_review_repair.P14ReviewRepairTests.test_equal_time_support_is_not_proof_of_subsequent_repair) ... ok
+test_legacy_episode_mapping_and_new_basis_validation (test_p14_review_repair.P14ReviewRepairTests.test_legacy_episode_mapping_and_new_basis_validation) ... ok
+test_new_harm_is_not_resolved_by_old_pre_harm_support (test_p14_review_repair.P14ReviewRepairTests.test_new_harm_is_not_resolved_by_old_pre_harm_support) ... ok
+test_projection_mutation_does_not_write_through (test_p14_review_repair.P14ReviewRepairTests.test_projection_mutation_does_not_write_through) ... ok
+test_reopen_reload_repeat_then_new_support_resolves (test_p14_review_repair.P14ReviewRepairTests.test_reopen_reload_repeat_then_new_support_resolves) ... ok
+test_reopened_harm_is_not_resolved_by_previous_repair_evidence (test_p14_review_repair.P14ReviewRepairTests.test_reopened_harm_is_not_resolved_by_previous_repair_evidence) ... ok
+test_revocation_during_history_read_prevents_return (test_p14_review_repair.P14ReviewRepairTests.test_revocation_during_history_read_prevents_return) ... ok
+test_same_root_memory_raw_is_one_support_and_cannot_raise_confidence (test_p14_review_repair.P14ReviewRepairTests.test_same_root_memory_raw_is_one_support_and_cannot_raise_confidence) ... ok
+test_subsequent_independent_support_still_resolves (test_p14_review_repair.P14ReviewRepairTests.test_subsequent_independent_support_still_resolves) ... ok
+test_transform_keeps_both_desires_evolving_after_reload (test_p14_review_repair.P14ReviewRepairTests.test_transform_keeps_both_desires_evolving_after_reload) ... ok
+test_transform_list_order_continuous_trajectory_will_and_thought_bindings (test_p14_review_repair.P14ReviewRepairTests.test_transform_list_order_continuous_trajectory_will_and_thought_bindings) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 67.802s
+
+OK

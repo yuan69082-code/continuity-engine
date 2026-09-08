@@ -1,0 +1,90 @@
+test_apology_is_new_evidence_not_automatic_resolution (test_p14_dynamic_mind.DynamicMindMechanismTests.test_apology_is_new_evidence_not_automatic_resolution) ... ok
+test_clock_regression_and_cross_environment_are_rejected (test_p14_dynamic_mind.DynamicMindMechanismTests.test_clock_regression_and_cross_environment_are_rejected) ... ok
+test_duplicate_appraisal_does_not_reinforce_same_time (test_p14_dynamic_mind.DynamicMindMechanismTests.test_duplicate_appraisal_does_not_reinforce_same_time) ... ok
+test_no_observation_forms_endogenous_desire (test_p14_dynamic_mind.DynamicMindMechanismTests.test_no_observation_forms_endogenous_desire) ... ok
+test_persisted_state_restores_without_reset (test_p14_dynamic_mind.DynamicMindMechanismTests.test_persisted_state_restores_without_reset) ... ok
+test_psychological_opposites_remain_together (test_p14_dynamic_mind.DynamicMindMechanismTests.test_psychological_opposites_remain_together) ... ok
+test_resolution_then_new_harm_reopens_same_concern (test_p14_dynamic_mind.DynamicMindMechanismTests.test_resolution_then_new_harm_reopens_same_concern) ... FAIL
+test_same_time_replay_has_no_extra_dynamic_change (test_p14_dynamic_mind.DynamicMindMechanismTests.test_same_time_replay_has_no_extra_dynamic_change) ... ok
+test_subjective_time_depends_on_attention_and_somatic_state (test_p14_dynamic_mind.DynamicMindMechanismTests.test_subjective_time_depends_on_attention_and_somatic_state) ... ok
+test_suppression_can_fail_without_erasing_concern (test_p14_dynamic_mind.DynamicMindMechanismTests.test_suppression_can_fail_without_erasing_concern) ... ok
+test_transformed_desire_can_continue_without_identity_collision (test_p14_dynamic_mind.DynamicMindMechanismTests.test_transformed_desire_can_continue_without_identity_collision) ... ERROR
+test_unbound_will_and_thought_references_fail_closed (test_p14_dynamic_mind.DynamicMindMechanismTests.test_unbound_will_and_thought_references_fail_closed) ... FAIL
+test_unknown_nested_reasoning_fields_are_rejected (test_p14_dynamic_mind.DynamicMindMechanismTests.test_unknown_nested_reasoning_fields_are_rejected) ... ok
+test_weaken_and_transform_change_desire_not_only_phase (test_p14_dynamic_mind.DynamicMindMechanismTests.test_weaken_and_transform_change_desire_not_only_phase) ... ok
+test_will_records_deliberation_not_scheduler_priority (test_p14_dynamic_mind.DynamicMindMechanismTests.test_will_records_deliberation_not_scheduler_priority) ... ok
+test_completed_replay_does_not_advance_revision_or_repeat_effect (test_p14_mind_recovery.MindCoreIntegrationTests.test_completed_replay_does_not_advance_revision_or_repeat_effect) ... ok
+test_feature_off_keeps_legacy_serialization_and_behavior (test_p14_mind_recovery.MindCoreIntegrationTests.test_feature_off_keeps_legacy_serialization_and_behavior) ... ok
+test_native_opportunity_without_observation_creates_desire_and_restores (test_p14_mind_recovery.MindCoreIntegrationTests.test_native_opportunity_without_observation_creates_desire_and_restores) ... ok
+test_normal_c1_appraises_sources_and_apology_does_not_reset_episode (test_p14_mind_recovery.MindCoreIntegrationTests.test_normal_c1_appraises_sources_and_apology_does_not_reset_episode) ... ok
+test_normal_c1_commits_mind_through_original_evolution (test_p14_mind_recovery.MindCoreIntegrationTests.test_normal_c1_commits_mind_through_original_evolution) ... ok
+test_normal_chain_attempts_regulation_without_erasing_episode (test_p14_mind_recovery.MindCoreIntegrationTests.test_normal_chain_attempts_regulation_without_erasing_episode) ... FAIL
+test_two_sessions_and_reopen_continue_one_mind (test_p14_mind_recovery.MindCoreIntegrationTests.test_two_sessions_and_reopen_continue_one_mind) ... ok
+test_unsettled_interpretation_changes_actual_information_need (test_p14_mind_recovery.MindCoreIntegrationTests.test_unsettled_interpretation_changes_actual_information_need) ... FAIL
+
+======================================================================
+ERROR: test_transformed_desire_can_continue_without_identity_collision (test_p14_dynamic_mind.DynamicMindMechanismTests.test_transformed_desire_can_continue_without_identity_collision)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p14_dynamic_mind.py", line 134, in test_transformed_desire_can_continue_without_identity_collision
+    continued = self.dynamics.advance(transformed, at=transformed.updated_at + timedelta(hours=1)).state
+                ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\dynamic_mind_service.py", line 181, in advance
+    proposed = replace(state, updated_at=at, drives=drives, fatigue=fatigue, arousal=arousal,
+                       somatic=somatic, episodes=episodes, desires=desires, conflicts=conflicts,
+                       will=will, thoughts=thoughts, regulation=reg,
+                       subjective_seconds=round(state.subjective_seconds + elapsed * experience, 6))
+  File "E:\Adobe\Lib\dataclasses.py", line 1770, in replace
+    return _replace(obj, **changes)
+  File "E:\Adobe\Lib\dataclasses.py", line 1804, in _replace
+    return self.__class__(**changes)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "<string>", line 19, in __init__
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\domain\dynamic_mind.py", line 117, in __post_init__
+    raise MindValidationError('MIND_RECORD_IDENTITY_CONFLICT')
+continuity_engine.domain.dynamic_mind.MindValidationError: MIND_RECORD_IDENTITY_CONFLICT
+
+======================================================================
+FAIL: test_resolution_then_new_harm_reopens_same_concern (test_p14_dynamic_mind.DynamicMindMechanismTests.test_resolution_then_new_harm_reopens_same_concern)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p14_dynamic_mind.py", line 149, in test_resolution_then_new_harm_reopens_same_concern
+    self.assertEqual(again.episodes[0]['status'], 'unresolved')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'resolved' != 'unresolved'
+- resolved
++ unresolved
+? ++
+
+
+======================================================================
+FAIL: test_unbound_will_and_thought_references_fail_closed (test_p14_dynamic_mind.DynamicMindMechanismTests.test_unbound_will_and_thought_references_fail_closed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p14_dynamic_mind.py", line 156, in test_unbound_will_and_thought_references_fail_closed
+    with self.assertRaises(MindValidationError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+AssertionError: MindValidationError not raised
+
+======================================================================
+FAIL: test_normal_chain_attempts_regulation_without_erasing_episode (test_p14_mind_recovery.MindCoreIntegrationTests.test_normal_chain_attempts_regulation_without_erasing_episode)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p14_mind_recovery.py", line 115, in test_normal_chain_attempts_regulation_without_erasing_episode
+    self.assertIn(mind['regulation'].get('outcome'), {'success', 'failure'})
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: None not found in {'failure', 'success'}
+
+======================================================================
+FAIL: test_unsettled_interpretation_changes_actual_information_need (test_p14_mind_recovery.MindCoreIntegrationTests.test_unsettled_interpretation_changes_actual_information_need)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p14_mind_recovery.py", line 106, in test_unsettled_interpretation_changes_actual_information_need
+    self.assertTrue(session.result.request_more_memory)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 23 tests in 9.625s
+
+FAILED (failures=4, errors=1)

@@ -1,0 +1,57 @@
+{
+  "episode": {
+    "id": "episode:a50f304e5cd93f50193aea211cdc41d887c26d014a2681c3f3ec0d0e61a2d8e6",
+    "object": "peer",
+    "kind": "anger",
+    "source_keys": [
+      "event:hurt-1",
+      "event:support-old-1",
+      "event:support-old-2",
+      "event:hurt-2",
+      "event:support-new-1",
+      "event:support-new-2"
+    ],
+    "interpretation": "Current experience of peer is consistent with the previously unmet expectation; retain the original experience in relation to mutual respect",
+    "unresolved": "Whether subsequent experience changes this understanding of peer",
+    "status": "processing",
+    "intensity": 0.868,
+    "created_at": "2026-09-04T08:01:01Z",
+    "updated_at": "2026-09-04T08:06:08Z",
+    "trajectory": [
+      {
+        "at": "2026-09-04T08:01:01Z",
+        "reason": "appraised-source",
+        "source_key": "event:hurt-1"
+      },
+      {
+        "at": "2026-09-04T08:04:04Z",
+        "reason": "appraised-source",
+        "source_key": "event:hurt-2"
+      }
+    ],
+    "resolution": {
+      "episode_id": "episode:a50f304e5cd93f50193aea211cdc41d887c26d014a2681c3f3ec0d0e61a2d8e6",
+      "interpretation": "Current experience of peer is consistent with the previously unmet expectation; retain the original experience in relation to mutual respect",
+      "reason": "Compare the unresolved expectation with 1 independently identified, currently composed instances after concern event:hurt-2 at 2026-09-04T08:04:03Z; one instance leaves uncertainty.",
+      "source_keys": [
+        "event:support-new-2"
+      ],
+      "resolve": false
+    },
+    "concern_basis": {
+      "source_key": "event:hurt-2",
+      "occurred_at": "2026-09-04T08:04:03Z"
+    }
+  },
+  "fragments": [
+    {
+      "root": [
+        "event:support-new-2"
+      ],
+      "confidence": 0.8,
+      "source": "engine.memory",
+      "occurred": "2026-09-04 08:06:07+00:00",
+      "body": "interaction: {\"experienced\": {\"object\": \"peer\", \"observation\": \"expectation_met\", \"expectation\": \"mutual respect\", \"consequence\": \"expectation met\", \"impact\": 0.7}}"
+    }
+  ]
+}

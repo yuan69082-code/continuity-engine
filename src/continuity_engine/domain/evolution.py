@@ -40,6 +40,7 @@ FIELD_RULES: dict[str, FieldRule] = {
     "intentions.emerging_thoughts": FieldRule(StateSection.INTENTIONS, list, str),
     "intentions.judgments": FieldRule(StateSection.INTENTIONS, list, str),
     "intentions.action_tendencies": FieldRule(StateSection.INTENTIONS, list, str),
+    "intentions.dynamic_mind": FieldRule(StateSection.INTENTIONS, dict),
     "emotion_state.current_state": FieldRule(StateSection.EMOTION_STATE, str),
     "emotion_state.intensity": FieldRule(StateSection.EMOTION_STATE, float),
     "emotion_state.updated_at": FieldRule(StateSection.EMOTION_STATE, str),
@@ -177,6 +178,10 @@ class SubjectStateEvolver:
         rule: FieldRule,
     ) -> JsonValue:
         if operation is ChangeOperation.SET:
+            if rule.value_type is dict:
+                from .dynamic_mind import MindState
+                # One typed internal field, not an arbitrary object mutation escape.
+                return MindState.from_dict(value).to_dict()
             if rule.value_type is float:
                 import math
                 if type(value) not in (float, int) or not math.isfinite(value) or not 0 <= value <= 1:

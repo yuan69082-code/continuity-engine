@@ -39,8 +39,26 @@ class ContinuityCoreContext:
     pending_event_count: int = 0
     version: str = "c1-context-v1"
     expression_enabled: bool = False
+    mind: dict | None = None
 
     def __post_init__(self):
+        if self.mind is not None:
+            from .dynamic_mind import MindState
+            if not isinstance(self.mind, dict) or set(self.mind) != {
+                    'version', 'reference', 'source_revision', 'before_hash', 'base',
+                    'appraisal_sources', 'proposal', 'influence', 'change_reasons', 'authority'}:
+                raise CapabilityValidationError('C1_MIND_INPUT_SHAPE_INVALID')
+            if (self.mind['version'] != 'p14-cognition-input-v1'
+                    or self.mind['authority'] != 'UNCOMMITTED_INTERNAL_CANDIDATE'):
+                raise CapabilityValidationError('C1_MIND_INPUT_KIND_INVALID')
+            parsed = MindState.from_dict(self.mind['proposal'])
+            base = MindState.from_dict(self.mind['base'])
+            if (parsed.subject_id, parsed.environment) != (self.composition.snapshot.subject_id,
+                                                           self.composition.snapshot.environment):
+                raise CapabilityValidationError('C1_MIND_BOUNDARY_INVALID')
+            if ((base.subject_id, base.environment) != (parsed.subject_id, parsed.environment)
+                    or self.mind['source_revision'] != self.composition.snapshot.source_revision):
+                raise CapabilityValidationError('C1_MIND_BASE_BINDING_INVALID')
         snapshot = self.composition.snapshot
         trace = self.contradictions.trace
         if (type(self.expression_enabled) is not bool or self.version != "c1-context-v1" or type(self.actions_enabled) is not bool
@@ -70,7 +88,8 @@ class ContinuityCoreContext:
                 "contradictions": self.contradictions.to_dict(),
                 "effective_emotion": self.effective_emotion, "actions_enabled": self.actions_enabled,
                 "pending_event_count": self.pending_event_count,
-                **({"expression_enabled": True} if self.expression_enabled else {})}
+                **({"expression_enabled": True} if self.expression_enabled else {}),
+                **({"mind": self.mind} if self.mind is not None else {})}
 
     def binding_hash(self):
         """Bind the full input and original gates, not the truth of a receipt."""
@@ -78,14 +97,14 @@ class ContinuityCoreContext:
 
     @classmethod
     def from_dict(cls, value):
-        if not isinstance(value, dict) or set(value)-{"expression_enabled"} != {
+        if not isinstance(value, dict) or set(value)-{"expression_enabled", "mind"} != {
                 "version", "perception_hash", "route", "composition", "contradictions",
                 "effective_emotion", "actions_enabled", "pending_event_count"}:
             raise CapabilityValidationError("C1_CONTEXT_SHAPE_INVALID")
         return cls(value["perception_hash"], ContextRouteResult.from_dict(value["route"]),
                    ContextCompositionResult.from_dict(value["composition"]),
                    ContradictionDetectionResult.from_dict(value["contradictions"]),
-                   value["effective_emotion"], value["actions_enabled"], value["pending_event_count"], value["version"], value.get("expression_enabled",False))
+                   value["effective_emotion"], value["actions_enabled"], value["pending_event_count"], value["version"], value.get("expression_enabled",False), value.get('mind'))
 
     def model_summary(self):
         """Bounded content belongs to model input, not to the structural Trace."""
@@ -99,6 +118,12 @@ class ContinuityCoreContext:
         }
         if self.pending_event_count:
             payload["missing"]["C1_CONSOLIDATION_BACKLOG"] = self.pending_event_count
+        if self.mind is not None:
+            payload['mind'] = {'authority': 'INTERNAL_COGNITIVE_INPUT_NOT_FACT',
+                               'basis': self.mind['reference']['content_hash'],
+                               'attention': self.mind['influence']['attention'],
+                               'decisions': self.mind['influence']['decisions'],
+                               'regulation': self.mind['influence']['regulation']}
         text = json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
         if len(text) > 4096:
             raise CapabilityValidationError("C1_MODEL_INPUT_BUDGET_EXCEEDED")

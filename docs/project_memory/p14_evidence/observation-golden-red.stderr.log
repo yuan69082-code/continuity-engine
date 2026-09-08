@@ -1,0 +1,114 @@
+test_bounded_golden_survives_real_process_restarts (test_p14_mind_recovery.MindCoreIntegrationTests.test_bounded_golden_survives_real_process_restarts) ... ERROR
+test_capability_wait_resumes_mind_in_original_think_session (test_p14_mind_recovery.MindCoreIntegrationTests.test_capability_wait_resumes_mind_in_original_think_session) ... ok
+test_cognitive_resolution_requires_new_consistent_experience (test_p14_mind_recovery.MindCoreIntegrationTests.test_cognitive_resolution_requires_new_consistent_experience) ... FAIL
+test_completed_mind_facts_still_require_real_adapter_receipt (test_p14_mind_recovery.MindCoreIntegrationTests.test_completed_mind_facts_still_require_real_adapter_receipt) ... ok
+test_completed_replay_does_not_advance_revision_or_repeat_effect (test_p14_mind_recovery.MindCoreIntegrationTests.test_completed_replay_does_not_advance_revision_or_repeat_effect) ... ok
+test_current_candidate_tampering_and_cross_subject_are_rejected (test_p14_mind_recovery.MindCoreIntegrationTests.test_current_candidate_tampering_and_cross_subject_are_rejected) ... ok
+test_feature_off_keeps_legacy_serialization_and_behavior (test_p14_mind_recovery.MindCoreIntegrationTests.test_feature_off_keeps_legacy_serialization_and_behavior) ... ok
+test_internal_body_changes_real_choice_with_same_provider_output (test_p14_mind_recovery.MindCoreIntegrationTests.test_internal_body_changes_real_choice_with_same_provider_output) ... ERROR
+test_native_opportunity_without_observation_creates_desire_and_restores (test_p14_mind_recovery.MindCoreIntegrationTests.test_native_opportunity_without_observation_creates_desire_and_restores) ... ok
+test_new_commit_expired_or_revoked_after_thinking_is_blocked (test_p14_mind_recovery.MindCoreIntegrationTests.test_new_commit_expired_or_revoked_after_thinking_is_blocked) ... ok
+test_normal_c1_appraises_sources_and_apology_does_not_reset_episode (test_p14_mind_recovery.MindCoreIntegrationTests.test_normal_c1_appraises_sources_and_apology_does_not_reset_episode) ... ok
+test_normal_c1_commits_mind_through_original_evolution (test_p14_mind_recovery.MindCoreIntegrationTests.test_normal_c1_commits_mind_through_original_evolution) ... ok
+test_normal_chain_attempts_regulation_without_erasing_episode (test_p14_mind_recovery.MindCoreIntegrationTests.test_normal_chain_attempts_regulation_without_erasing_episode) ... ok
+test_path_protection_before_any_fixture_write (test_p14_mind_recovery.MindCoreIntegrationTests.test_path_protection_before_any_fixture_write) ... ERROR
+test_raw_provider_cannot_supply_dynamic_mind_mutation (test_p14_mind_recovery.MindCoreIntegrationTests.test_raw_provider_cannot_supply_dynamic_mind_mutation) ... ok
+test_snapshot_branch_includes_mind_without_polluting_parent (test_p14_mind_recovery.MindCoreIntegrationTests.test_snapshot_branch_includes_mind_without_polluting_parent) ... ok
+test_two_sessions_and_reopen_continue_one_mind (test_p14_mind_recovery.MindCoreIntegrationTests.test_two_sessions_and_reopen_continue_one_mind) ... ok
+test_unsettled_interpretation_changes_actual_information_need (test_p14_mind_recovery.MindCoreIntegrationTests.test_unsettled_interpretation_changes_actual_information_need) ... ok
+test_export_and_current_permission_are_separate (test_p14_mind_visibility.MindVisibilityTests.test_export_and_current_permission_are_separate) ... ok
+test_export_requires_current_grant_even_when_policy_allows (test_p14_mind_visibility.MindVisibilityTests.test_export_requires_current_grant_even_when_policy_allows) ... ok
+test_identity_change_during_read_denies_result (test_p14_mind_visibility.MindVisibilityTests.test_identity_change_during_read_denies_result) ... ok
+test_owner_detailed_projection_is_real_and_zero_write (test_p14_mind_visibility.MindVisibilityTests.test_owner_detailed_projection_is_real_and_zero_write) ... ok
+test_privacy_switch_does_not_change_normal_native_cognition (test_p14_mind_visibility.MindVisibilityTests.test_privacy_switch_does_not_change_normal_native_cognition) ... ERROR
+test_private_mode_does_not_delete_or_change_cognition (test_p14_mind_visibility.MindVisibilityTests.test_private_mode_does_not_delete_or_change_cognition) ... ok
+test_self_claimed_owner_and_non_owner_are_rejected_without_write (test_p14_mind_visibility.MindVisibilityTests.test_self_claimed_owner_and_non_owner_are_rejected_without_write) ... ok
+test_summary_hides_detail_and_denial_has_zero_state_reads (test_p14_mind_visibility.MindVisibilityTests.test_summary_hides_detail_and_denial_has_zero_state_reads) ... ok
+
+======================================================================
+ERROR: test_bounded_golden_survives_real_process_restarts (test_p14_mind_recovery.MindCoreIntegrationTests.test_bounded_golden_survives_real_process_restarts)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p14_mind_recovery.py", line 260, in test_bounded_golden_survives_real_process_restarts
+    from continuity_engine.testing.p14_mind_fixture import run_golden
+ImportError: cannot import name 'run_golden' from 'continuity_engine.testing.p14_mind_fixture' (C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p14_mind_fixture.py)
+
+======================================================================
+ERROR: test_internal_body_changes_real_choice_with_same_provider_output (test_p14_mind_recovery.MindCoreIntegrationTests.test_internal_body_changes_real_choice_with_same_provider_output)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 251, in submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 720, in _run_domain
+    self._validate_core_before_thinking(perception)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 1028, in _validate_core_before_thinking
+    self._continuity_core.before_thinking(perception)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 295, in before_thinking
+    raise CapabilityValidationError("C1_CONTEXT_STALE_OR_UNAUTHORIZED")
+continuity_engine.domain.errors.CapabilityValidationError: C1_CONTEXT_STALE_OR_UNAUTHORIZED
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p14_mind_recovery.py", line 217, in test_internal_body_changes_real_choice_with_same_provider_output
+    f.runtime.clock.advance(timedelta(minutes=1));r=f.request();f.submit(r)
+                                                                ~~~~~~~~^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p09_core_fixture.py", line 165, in submit
+    return self.app.adapter.submit(request or self.request())
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 263, in submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.
+
+======================================================================
+ERROR: test_path_protection_before_any_fixture_write (test_p14_mind_recovery.MindCoreIntegrationTests.test_path_protection_before_any_fixture_write)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p14_mind_recovery.py", line 255, in test_path_protection_before_any_fixture_write
+    with self.assertRaises(ValueError):P14Fixture(root/'child')
+                                       ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p14_mind_fixture.py", line 9, in __init__
+    _validate_fixture_root(root)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p08_action_fixture.py", line 50, in _validate_fixture_root
+    raise SandboxOperationError(
+    ...<2 lines>...
+    )
+continuity_engine.testing.models.SandboxOperationError: SANDBOX_PATH_FORBIDDEN: P08 Fixture root overlaps a repository, formal data, or protected path
+
+======================================================================
+ERROR: test_privacy_switch_does_not_change_normal_native_cognition (test_p14_mind_visibility.MindVisibilityTests.test_privacy_switch_does_not_change_normal_native_cognition)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p14_mind_visibility.py", line 104, in test_privacy_switch_does_not_change_normal_native_cognition
+    snapshot=f.manager.create_snapshot(f.runtime.descriptor.sandbox_id,expected_revision=f.state.revision)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\sandbox.py", line 894, in create_snapshot
+    raise SandboxOperationError(
+    ...<2 lines>...
+    )
+continuity_engine.testing.models.SandboxOperationError: SNAPSHOT_INCOMPLETE: snapshot physical inventory contains missing or unmapped files
+
+======================================================================
+FAIL: test_cognitive_resolution_requires_new_consistent_experience (test_p14_mind_recovery.MindCoreIntegrationTests.test_cognitive_resolution_requires_new_consistent_experience)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p14_mind_recovery.py", line 232, in test_cognitive_resolution_requires_new_consistent_experience
+    self.assertEqual(episode['status'],'processing' if index==1 else 'resolved')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'unresolved' != 'processing'
+- unresolved
++ processing
+
+
+----------------------------------------------------------------------
+Ran 26 tests in 23.673s
+
+FAILED (failures=1, errors=4)

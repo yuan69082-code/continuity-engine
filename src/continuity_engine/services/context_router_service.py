@@ -210,7 +210,8 @@ class SubjectStateContextSource:
         state = self._repository.load(query.subject_id)
         if state.revision != query.source_revision:
             raise ContextRoutingSourceError("subject state revision changed before routing")
-        document = state.to_dict()
+        from continuity_engine.domain.dynamic_mind import context_state_document
+        document = context_state_document(state)
         sections = (
             "identity",
             "relationship",
@@ -270,7 +271,8 @@ class SubjectStateContextSource:
     ) -> ContextSourceValidation:
         state = self._repository.load(query.subject_id)
         section = candidate.stable_id.rsplit(":", 1)[-1]
-        document = state.to_dict()
+        from continuity_engine.domain.dynamic_mind import context_state_document
+        document = context_state_document(state)
         if section not in document:
             return ContextSourceValidation(
                 False, "SOURCE_MISSING", f"revision:{state.revision}", "missing", candidate.content_hash
@@ -692,10 +694,23 @@ class ContextRouterService:
         environment: str,
         budget: RetrievalBudget | None = None,
         required_partitions: Sequence[ContextPartition] = (ContextPartition.SUBJECT_STATE,),
+        attention: dict | None = None,
     ) -> ContextRouteResult:
         if not isinstance(perception, PerceptionResult):
             raise ContextRoutingValidationError("routing requires a PerceptionResult")
         purposes, signals, query_terms = self._derive_signals(perception)
+        if attention is not None:
+            if set(attention) != {'themes', 'breadth', 'narrowing'}:
+                raise ContextRoutingValidationError('P14 attention shape invalid')
+            terms = _terms(attention['themes'])
+            if terms:
+                # This changes real retrieval; permission, lifecycle and budgets
+                # remain in the same _execute transaction below.
+                query_terms = terms
+                purposes = tuple(sorted(set(purposes) | {'memory', 'internal_drive'}))
+                signals = (*signals, RoutingSignal(
+                    signal_id=f'signal:{perception.perception_id}:mind', signal_kind='internal_drive',
+                    value_hash=hash_signal('|'.join(terms)), weight=1 - attention['narrowing'] / 2))
         request = ContextRoutingRequest(
             request_id=request_id,
             perception_id=perception.perception_id,

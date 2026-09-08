@@ -1,0 +1,77 @@
+test_clock_regression_and_cross_environment_are_rejected (test_p14_dynamic_mind.DynamicMindMechanismTests.test_clock_regression_and_cross_environment_are_rejected) ... ERROR
+test_no_observation_forms_endogenous_desire (test_p14_dynamic_mind.DynamicMindMechanismTests.test_no_observation_forms_endogenous_desire) ... ERROR
+test_persisted_state_restores_without_reset (test_p14_dynamic_mind.DynamicMindMechanismTests.test_persisted_state_restores_without_reset) ... ERROR
+test_psychological_opposites_remain_together (test_p14_dynamic_mind.DynamicMindMechanismTests.test_psychological_opposites_remain_together) ... ERROR
+test_same_time_replay_has_no_extra_dynamic_change (test_p14_dynamic_mind.DynamicMindMechanismTests.test_same_time_replay_has_no_extra_dynamic_change) ... ERROR
+test_subjective_time_depends_on_attention_and_somatic_state (test_p14_dynamic_mind.DynamicMindMechanismTests.test_subjective_time_depends_on_attention_and_somatic_state) ... ERROR
+test_suppression_can_fail_without_erasing_concern (test_p14_dynamic_mind.DynamicMindMechanismTests.test_suppression_can_fail_without_erasing_concern) ... ERROR
+test_will_records_deliberation_not_scheduler_priority (test_p14_dynamic_mind.DynamicMindMechanismTests.test_will_records_deliberation_not_scheduler_priority) ... ERROR
+
+======================================================================
+ERROR: test_clock_regression_and_cross_environment_are_rejected (test_p14_dynamic_mind.DynamicMindMechanismTests.test_clock_regression_and_cross_environment_are_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p14_dynamic_mind.py", line 9, in setUp
+    from continuity_engine.domain.dynamic_mind import MindState
+ModuleNotFoundError: No module named 'continuity_engine.domain.dynamic_mind'
+
+======================================================================
+ERROR: test_no_observation_forms_endogenous_desire (test_p14_dynamic_mind.DynamicMindMechanismTests.test_no_observation_forms_endogenous_desire)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p14_dynamic_mind.py", line 9, in setUp
+    from continuity_engine.domain.dynamic_mind import MindState
+ModuleNotFoundError: No module named 'continuity_engine.domain.dynamic_mind'
+
+======================================================================
+ERROR: test_persisted_state_restores_without_reset (test_p14_dynamic_mind.DynamicMindMechanismTests.test_persisted_state_restores_without_reset)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p14_dynamic_mind.py", line 9, in setUp
+    from continuity_engine.domain.dynamic_mind import MindState
+ModuleNotFoundError: No module named 'continuity_engine.domain.dynamic_mind'
+
+======================================================================
+ERROR: test_psychological_opposites_remain_together (test_p14_dynamic_mind.DynamicMindMechanismTests.test_psychological_opposites_remain_together)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p14_dynamic_mind.py", line 9, in setUp
+    from continuity_engine.domain.dynamic_mind import MindState
+ModuleNotFoundError: No module named 'continuity_engine.domain.dynamic_mind'
+
+======================================================================
+ERROR: test_same_time_replay_has_no_extra_dynamic_change (test_p14_dynamic_mind.DynamicMindMechanismTests.test_same_time_replay_has_no_extra_dynamic_change)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p14_dynamic_mind.py", line 9, in setUp
+    from continuity_engine.domain.dynamic_mind import MindState
+ModuleNotFoundError: No module named 'continuity_engine.domain.dynamic_mind'
+
+======================================================================
+ERROR: test_subjective_time_depends_on_attention_and_somatic_state (test_p14_dynamic_mind.DynamicMindMechanismTests.test_subjective_time_depends_on_attention_and_somatic_state)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p14_dynamic_mind.py", line 9, in setUp
+    from continuity_engine.domain.dynamic_mind import MindState
+ModuleNotFoundError: No module named 'continuity_engine.domain.dynamic_mind'
+
+======================================================================
+ERROR: test_suppression_can_fail_without_erasing_concern (test_p14_dynamic_mind.DynamicMindMechanismTests.test_suppression_can_fail_without_erasing_concern)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p14_dynamic_mind.py", line 9, in setUp
+    from continuity_engine.domain.dynamic_mind import MindState
+ModuleNotFoundError: No module named 'continuity_engine.domain.dynamic_mind'
+
+======================================================================
+ERROR: test_will_records_deliberation_not_scheduler_priority (test_p14_dynamic_mind.DynamicMindMechanismTests.test_will_records_deliberation_not_scheduler_priority)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p14_dynamic_mind.py", line 9, in setUp
+    from continuity_engine.domain.dynamic_mind import MindState
+ModuleNotFoundError: No module named 'continuity_engine.domain.dynamic_mind'
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.004s
+
+FAILED (errors=8)

@@ -1,0 +1,9 @@
+test_export_and_current_permission_are_separate (test_p14_mind_visibility.MindVisibilityTests.test_export_and_current_permission_are_separate) ... ok
+test_owner_detailed_projection_is_real_and_zero_write (test_p14_mind_visibility.MindVisibilityTests.test_owner_detailed_projection_is_real_and_zero_write) ... ok
+test_private_mode_does_not_delete_or_change_cognition (test_p14_mind_visibility.MindVisibilityTests.test_private_mode_does_not_delete_or_change_cognition) ... ok
+test_self_claimed_owner_and_non_owner_are_rejected_without_write (test_p14_mind_visibility.MindVisibilityTests.test_self_claimed_owner_and_non_owner_are_rejected_without_write) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 2.001s
+
+OK

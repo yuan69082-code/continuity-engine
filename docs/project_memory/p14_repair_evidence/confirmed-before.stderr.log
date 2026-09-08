@@ -1,0 +1,49 @@
+test_control_without_transform_updates_all_active_desires (confirmed_probes.P14ConfirmedProbes.test_control_without_transform_updates_all_active_desires) ... ok
+test_new_harm_is_not_resolved_by_old_pre_harm_support (confirmed_probes.P14ConfirmedProbes.test_new_harm_is_not_resolved_by_old_pre_harm_support) ... FAIL
+test_projection_mutation_does_not_write_through (confirmed_probes.P14ConfirmedProbes.test_projection_mutation_does_not_write_through) ... ok
+test_reopened_harm_is_not_resolved_by_previous_repair_evidence (confirmed_probes.P14ConfirmedProbes.test_reopened_harm_is_not_resolved_by_previous_repair_evidence) ... FAIL
+test_revocation_during_history_read_prevents_return (confirmed_probes.P14ConfirmedProbes.test_revocation_during_history_read_prevents_return) ... ok
+test_subsequent_independent_support_still_resolves (confirmed_probes.P14ConfirmedProbes.test_subsequent_independent_support_still_resolves) ... ok
+test_transform_keeps_both_desires_evolving_after_reload (confirmed_probes.P14ConfirmedProbes.test_transform_keeps_both_desires_evolving_after_reload) ... FAIL
+
+======================================================================
+FAIL: test_new_harm_is_not_resolved_by_old_pre_harm_support (confirmed_probes.P14ConfirmedProbes.test_new_harm_is_not_resolved_by_old_pre_harm_support)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\p14-independent-review-20260908\review_probes.py", line 37, in test_new_harm_is_not_resolved_by_old_pre_harm_support
+    self.assertNotEqual(episode['status'], 'resolved',
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        'A newly appraised harm was resolved using only support predating that harm: ' + repr(episode['resolution']))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'resolved' == 'resolved' : A newly appraised harm was resolved using only support predating that harm: {'episode_id': 'episode:a50f304e5cd93f50193aea211cdc41d887c26d014a2681c3f3ec0d0e61a2d8e6', 'interpretation': 'Current experience of peer is consistent with the previously unmet expectation; retain the original experience in relation to mutual respect', 'reason': 'Compare the unresolved expectation with 2 independently identified, currently composed instances; one instance leaves uncertainty.', 'source_keys': ['event:old-support-2', 'event:old-support-1'], 'resolve': True}
+
+======================================================================
+FAIL: test_reopened_harm_is_not_resolved_by_previous_repair_evidence (confirmed_probes.P14ConfirmedProbes.test_reopened_harm_is_not_resolved_by_previous_repair_evidence)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\p14-independent-review-20260908\review_probes.py", line 49, in test_reopened_harm_is_not_resolved_by_previous_repair_evidence
+    self.assertEqual(reopened['status'], 'unresolved',
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        'Old repair evidence immediately re-resolved a new harm: ' + repr(reopened['resolution']))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'resolved' != 'unresolved'
+- resolved
++ unresolved
+? ++
+ : Old repair evidence immediately re-resolved a new harm: {'episode_id': 'episode:a50f304e5cd93f50193aea211cdc41d887c26d014a2681c3f3ec0d0e61a2d8e6', 'interpretation': 'Current experience of peer is consistent with the previously unmet expectation; retain the original experience in relation to mutual respect', 'reason': 'Compare the unresolved expectation with 2 independently identified, currently composed instances; one instance leaves uncertainty.', 'source_keys': ['event:repair-first-2', 'event:repair-first-1'], 'resolve': True}
+
+======================================================================
+FAIL: test_transform_keeps_both_desires_evolving_after_reload (confirmed_probes.P14ConfirmedProbes.test_transform_keeps_both_desires_evolving_after_reload)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\p14-independent-review-20260908\confirmed_probes.py", line 36, in test_transform_keeps_both_desires_evolving_after_reload
+    self.assertNotEqual(original['strength'], before['exploration']['strength'],
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        'A still-active desire remained numerically frozen across two elapsed opportunities')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0.283468689 == 0.283468689 : A still-active desire remained numerically frozen across two elapsed opportunities
+
+----------------------------------------------------------------------
+Ran 7 tests in 19.926s
+
+FAILED (failures=3)

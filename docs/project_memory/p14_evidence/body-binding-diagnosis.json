@@ -1,0 +1,2557 @@
+[
+  {
+    "mind": {
+      "appraisal_sources": [],
+      "authority": "UNCOMMITTED_INTERNAL_CANDIDATE",
+      "base": {
+        "arousal": 0.0,
+        "conflicts": [],
+        "desires": [],
+        "dispositions": [],
+        "drives": {
+          "exploration": 0.0,
+          "expression": 0.0,
+          "intimacy": 0.0,
+          "protection": 0.0,
+          "rest": 0.0,
+          "sexual": 0.0,
+          "solitude": 0.0
+        },
+        "environment": "TEST",
+        "episodes": [],
+        "fatigue": 0.95,
+        "regulation": {},
+        "somatic": {
+          "excitement": 0.0,
+          "heaviness": 0.0,
+          "relaxation": 0.0,
+          "restlessness": 0.95,
+          "tension": 0.95,
+          "warmth": 0.0
+        },
+        "subject_id": "sub-271e8846985d41cc",
+        "subjective_seconds": 0.0,
+        "thoughts": [],
+        "updated_at": "2026-09-04T08:00:00Z",
+        "version": "p14-mind-v1",
+        "will": []
+      },
+      "before_hash": "sha256:b75235f39de651042716b0a2b3e69333d55760d925d2f4b5eeecfd3602566efb",
+      "change_reasons": [],
+      "influence": {
+        "action_tendencies": [
+          "wait",
+          "rest"
+        ],
+        "attention": {
+          "breadth": 3,
+          "narrowing": 0.570679936,
+          "themes": [
+            "intimacy",
+            "exploration",
+            "sexual"
+          ]
+        },
+        "decisions": [
+          "DEFER",
+          "PURSUE"
+        ],
+        "interpretations": [],
+        "not_factual_evidence": true,
+        "regulation": "not-attempted",
+        "subjective_seconds": 122.658588
+      },
+      "proposal": {
+        "arousal": 0.379736294,
+        "conflicts": [],
+        "desires": [
+          {
+            "created_at": "2026-09-04T08:01:00Z",
+            "drive": "intimacy",
+            "id": "desire:intimacy",
+            "object": "self",
+            "origin": "ENDOGENOUS",
+            "phase": "arise",
+            "reason": "elapsed need: intimacy",
+            "strength": 0.002773923,
+            "trajectory": [
+              {
+                "at": "2026-09-04T08:01:00Z",
+                "phase": "arise",
+                "reason": "elapsed/body/need integration"
+              }
+            ],
+            "updated_at": "2026-09-04T08:01:00Z"
+          },
+          {
+            "created_at": "2026-09-04T08:01:00Z",
+            "drive": "exploration",
+            "id": "desire:exploration",
+            "object": "self",
+            "origin": "ENDOGENOUS",
+            "phase": "arise",
+            "reason": "elapsed need: exploration",
+            "strength": 0.005540152,
+            "trajectory": [
+              {
+                "at": "2026-09-04T08:01:00Z",
+                "phase": "arise",
+                "reason": "elapsed/body/need integration"
+              }
+            ],
+            "updated_at": "2026-09-04T08:01:00Z"
+          },
+          {
+            "created_at": "2026-09-04T08:01:00Z",
+            "drive": "sexual",
+            "id": "desire:sexual",
+            "object": "self",
+            "origin": "ENDOGENOUS",
+            "phase": "arise",
+            "reason": "elapsed need: sexual",
+            "strength": 0.001387925,
+            "trajectory": [
+              {
+                "at": "2026-09-04T08:01:00Z",
+                "phase": "arise",
+                "reason": "elapsed/body/need integration"
+              }
+            ],
+            "updated_at": "2026-09-04T08:01:00Z"
+          },
+          {
+            "created_at": "2026-09-04T08:01:00Z",
+            "drive": "solitude",
+            "id": "desire:solitude",
+            "object": "self",
+            "origin": "ENDOGENOUS",
+            "phase": "arise",
+            "reason": "elapsed need: solitude",
+            "strength": 0.003327784,
+            "trajectory": [
+              {
+                "at": "2026-09-04T08:01:00Z",
+                "phase": "arise",
+                "reason": "elapsed/body/need integration"
+              }
+            ],
+            "updated_at": "2026-09-04T08:01:00Z"
+          },
+          {
+            "created_at": "2026-09-04T08:01:00Z",
+            "drive": "expression",
+            "id": "desire:expression",
+            "object": "self",
+            "origin": "ENDOGENOUS",
+            "phase": "arise",
+            "reason": "elapsed need: expression",
+            "strength": 0.004157998,
+            "trajectory": [
+              {
+                "at": "2026-09-04T08:01:00Z",
+                "phase": "arise",
+                "reason": "elapsed/body/need integration"
+              }
+            ],
+            "updated_at": "2026-09-04T08:01:00Z"
+          },
+          {
+            "created_at": "2026-09-04T08:01:00Z",
+            "drive": "protection",
+            "id": "desire:protection",
+            "object": "self",
+            "origin": "ENDOGENOUS",
+            "phase": "arise",
+            "reason": "elapsed need: protection",
+            "strength": 0.004053476,
+            "trajectory": [
+              {
+                "at": "2026-09-04T08:01:00Z",
+                "phase": "arise",
+                "reason": "elapsed/body/need integration"
+              }
+            ],
+            "updated_at": "2026-09-04T08:01:00Z"
+          },
+          {
+            "created_at": "2026-09-04T08:01:00Z",
+            "drive": "rest",
+            "id": "desire:rest",
+            "object": "self",
+            "origin": "ENDOGENOUS",
+            "phase": "arise",
+            "reason": "elapsed need: rest",
+            "strength": 0.004749083,
+            "trajectory": [
+              {
+                "at": "2026-09-04T08:01:00Z",
+                "phase": "arise",
+                "reason": "elapsed/body/need integration"
+              }
+            ],
+            "updated_at": "2026-09-04T08:01:00Z"
+          }
+        ],
+        "dispositions": [],
+        "drives": {
+          "exploration": 0.005540152,
+          "expression": 0.004157998,
+          "intimacy": 0.002773923,
+          "protection": 0.004053476,
+          "rest": 0.004749083,
+          "sexual": 0.001387925,
+          "solitude": 0.003327784
+        },
+        "environment": "TEST",
+        "episodes": [],
+        "fatigue": 0.950052056,
+        "regulation": {},
+        "somatic": {
+          "excitement": 0.0,
+          "heaviness": 0.950052056,
+          "relaxation": 0.050633236,
+          "restlessness": 0.95,
+          "tension": 0.948681471,
+          "warmth": 0.0
+        },
+        "subject_id": "sub-271e8846985d41cc",
+        "subjective_seconds": 122.658588,
+        "thoughts": [
+          {
+            "conflict_ids": [],
+            "content": "I keep considering intimacy in relation to my need for intimacy.",
+            "created_at": "2026-09-04T08:01:00Z",
+            "desire_ids": [
+              "desire:intimacy"
+            ],
+            "id": "thought:desire:intimacy",
+            "last_recurred_at": "2026-09-04T08:01:00Z",
+            "reason": "Engine deliberation retains an unresolved internal concern.",
+            "recurrences": 1,
+            "theme": "intimacy",
+            "unresolved": true
+          },
+          {
+            "conflict_ids": [],
+            "content": "I keep considering exploration in relation to my need for exploration.",
+            "created_at": "2026-09-04T08:01:00Z",
+            "desire_ids": [
+              "desire:exploration"
+            ],
+            "id": "thought:desire:exploration",
+            "last_recurred_at": "2026-09-04T08:01:00Z",
+            "reason": "Engine deliberation retains an unresolved internal concern.",
+            "recurrences": 1,
+            "theme": "exploration",
+            "unresolved": true
+          },
+          {
+            "conflict_ids": [],
+            "content": "I keep considering sexual in relation to my need for sexual.",
+            "created_at": "2026-09-04T08:01:00Z",
+            "desire_ids": [
+              "desire:sexual"
+            ],
+            "id": "thought:desire:sexual",
+            "last_recurred_at": "2026-09-04T08:01:00Z",
+            "reason": "Engine deliberation retains an unresolved internal concern.",
+            "recurrences": 1,
+            "theme": "sexual",
+            "unresolved": true
+          },
+          {
+            "conflict_ids": [],
+            "content": "I keep considering solitude in relation to my need for solitude.",
+            "created_at": "2026-09-04T08:01:00Z",
+            "desire_ids": [
+              "desire:solitude"
+            ],
+            "id": "thought:desire:solitude",
+            "last_recurred_at": "2026-09-04T08:01:00Z",
+            "reason": "Engine deliberation retains an unresolved internal concern.",
+            "recurrences": 1,
+            "theme": "solitude",
+            "unresolved": true
+          },
+          {
+            "conflict_ids": [],
+            "content": "I keep considering expression in relation to my need for expression.",
+            "created_at": "2026-09-04T08:01:00Z",
+            "desire_ids": [
+              "desire:expression"
+            ],
+            "id": "thought:desire:expression",
+            "last_recurred_at": "2026-09-04T08:01:00Z",
+            "reason": "Engine deliberation retains an unresolved internal concern.",
+            "recurrences": 1,
+            "theme": "expression",
+            "unresolved": true
+          },
+          {
+            "conflict_ids": [],
+            "content": "I keep considering protection in relation to my need for protection.",
+            "created_at": "2026-09-04T08:01:00Z",
+            "desire_ids": [
+              "desire:protection"
+            ],
+            "id": "thought:desire:protection",
+            "last_recurred_at": "2026-09-04T08:01:00Z",
+            "reason": "Engine deliberation retains an unresolved internal concern.",
+            "recurrences": 1,
+            "theme": "protection",
+            "unresolved": true
+          },
+          {
+            "conflict_ids": [],
+            "content": "I keep considering rest in relation to my need for rest.",
+            "created_at": "2026-09-04T08:01:00Z",
+            "desire_ids": [
+              "desire:rest"
+            ],
+            "id": "thought:desire:rest",
+            "last_recurred_at": "2026-09-04T08:01:00Z",
+            "reason": "Engine deliberation retains an unresolved internal concern.",
+            "recurrences": 1,
+            "theme": "rest",
+            "unresolved": true
+          }
+        ],
+        "updated_at": "2026-09-04T08:01:00Z",
+        "version": "p14-mind-v1",
+        "will": [
+          {
+            "action_tendency": "wait",
+            "alternatives": [
+              "reconsider after new understanding",
+              "continue without resolving the conflict",
+              "defer"
+            ],
+            "commitment": "Keep this desire distinct from deciding to perform a reality action.",
+            "decision": "DEFER",
+            "desire_id": "desire:intimacy",
+            "opposing_reasons": [
+              "continuing now competes with recovery of attention"
+            ],
+            "stance": "hold",
+            "supporting_reasons": [
+              "felt need for intimacy",
+              "elapsed need: intimacy"
+            ]
+          },
+          {
+            "action_tendency": "wait",
+            "alternatives": [
+              "reconsider after new understanding",
+              "continue without resolving the conflict",
+              "defer"
+            ],
+            "commitment": "Keep this desire distinct from deciding to perform a reality action.",
+            "decision": "DEFER",
+            "desire_id": "desire:exploration",
+            "opposing_reasons": [
+              "continuing now competes with recovery of attention"
+            ],
+            "stance": "hold",
+            "supporting_reasons": [
+              "felt need for exploration",
+              "elapsed need: exploration"
+            ]
+          },
+          {
+            "action_tendency": "wait",
+            "alternatives": [
+              "reconsider after new understanding",
+              "continue without resolving the conflict",
+              "defer"
+            ],
+            "commitment": "Keep this desire distinct from deciding to perform a reality action.",
+            "decision": "DEFER",
+            "desire_id": "desire:sexual",
+            "opposing_reasons": [
+              "continuing now competes with recovery of attention"
+            ],
+            "stance": "hold",
+            "supporting_reasons": [
+              "felt need for sexual",
+              "elapsed need: sexual"
+            ]
+          },
+          {
+            "action_tendency": "wait",
+            "alternatives": [
+              "reconsider after new understanding",
+              "continue without resolving the conflict",
+              "defer"
+            ],
+            "commitment": "Keep this desire distinct from deciding to perform a reality action.",
+            "decision": "DEFER",
+            "desire_id": "desire:solitude",
+            "opposing_reasons": [
+              "continuing now competes with recovery of attention"
+            ],
+            "stance": "hold",
+            "supporting_reasons": [
+              "felt need for solitude",
+              "elapsed need: solitude"
+            ]
+          },
+          {
+            "action_tendency": "wait",
+            "alternatives": [
+              "reconsider after new understanding",
+              "continue without resolving the conflict",
+              "defer"
+            ],
+            "commitment": "Keep this desire distinct from deciding to perform a reality action.",
+            "decision": "DEFER",
+            "desire_id": "desire:expression",
+            "opposing_reasons": [
+              "continuing now competes with recovery of attention"
+            ],
+            "stance": "hold",
+            "supporting_reasons": [
+              "felt need for expression",
+              "elapsed need: expression"
+            ]
+          },
+          {
+            "action_tendency": "wait",
+            "alternatives": [
+              "reconsider after new understanding",
+              "continue without resolving the conflict",
+              "defer"
+            ],
+            "commitment": "Keep this desire distinct from deciding to perform a reality action.",
+            "decision": "DEFER",
+            "desire_id": "desire:protection",
+            "opposing_reasons": [
+              "continuing now competes with recovery of attention"
+            ],
+            "stance": "hold",
+            "supporting_reasons": [
+              "felt need for protection",
+              "elapsed need: protection"
+            ]
+          },
+          {
+            "action_tendency": "rest",
+            "alternatives": [
+              "reconsider after new understanding",
+              "continue without resolving the conflict",
+              "defer"
+            ],
+            "commitment": "Keep this desire distinct from deciding to perform a reality action.",
+            "decision": "PURSUE",
+            "desire_id": "desire:rest",
+            "opposing_reasons": [],
+            "stance": "pursue",
+            "supporting_reasons": [
+              "felt need for rest",
+              "elapsed need: rest"
+            ]
+          }
+        ]
+      },
+      "reference": {
+        "authority_label": "SUBJECT_STATE_PARTITION",
+        "content_hash": "sha256:5979a74d8b1875eaba6486d7b796c3ccf89e9885b7c436bf74485f471dfca413",
+        "environment": "TEST",
+        "explanation_codes": [
+          "P14_CURRENT_MIND_BASIS"
+        ],
+        "occurred_at": "2026-09-04T08:00:00Z",
+        "partition": "subject_state",
+        "rank": 1,
+        "score": 1.0,
+        "source_id": "engine.subject-state",
+        "stable_id": "sub-271e8846985d41cc:intentions",
+        "subject_id": "sub-271e8846985d41cc",
+        "version": "revision:2"
+      },
+      "source_revision": 2,
+      "version": "p14-cognition-input-v1"
+    },
+    "rebuilt": {
+      "version": "p14-cognition-input-v1",
+      "reference": {
+        "source_id": "engine.subject-state",
+        "partition": "subject_state",
+        "stable_id": "sub-271e8846985d41cc:intentions",
+        "subject_id": "sub-271e8846985d41cc",
+        "environment": "TEST",
+        "version": "revision:2",
+        "content_hash": "sha256:5979a74d8b1875eaba6486d7b796c3ccf89e9885b7c436bf74485f471dfca413",
+        "authority_label": "SUBJECT_STATE_PARTITION",
+        "rank": 1,
+        "score": 1.0,
+        "occurred_at": "2026-09-04T08:00:00Z",
+        "explanation_codes": [
+          "P14_CURRENT_MIND_BASIS"
+        ]
+      },
+      "source_revision": 2,
+      "before_hash": "sha256:b75235f39de651042716b0a2b3e69333d55760d925d2f4b5eeecfd3602566efb",
+      "base": {
+        "subject_id": "sub-271e8846985d41cc",
+        "environment": "TEST",
+        "updated_at": "2026-09-04T08:00:00Z",
+        "drives": {
+          "intimacy": 0.0,
+          "exploration": 0.0,
+          "sexual": 0.0,
+          "solitude": 0.0,
+          "expression": 0.0,
+          "protection": 0.0,
+          "rest": 0.0
+        },
+        "fatigue": 0.95,
+        "arousal": 0.0,
+        "somatic": {
+          "tension": 0.95,
+          "relaxation": 0.0,
+          "restlessness": 0.95,
+          "heaviness": 0.0,
+          "excitement": 0.0,
+          "warmth": 0.0
+        },
+        "episodes": [],
+        "dispositions": [],
+        "desires": [],
+        "conflicts": [],
+        "will": [],
+        "thoughts": [],
+        "regulation": {},
+        "subjective_seconds": 0.0,
+        "version": "p14-mind-v1"
+      },
+      "appraisal_sources": [],
+      "proposal": {
+        "subject_id": "sub-271e8846985d41cc",
+        "environment": "TEST",
+        "updated_at": "2026-09-04T08:01:00Z",
+        "drives": {
+          "intimacy": 0.002773923,
+          "exploration": 0.005540152,
+          "sexual": 0.001387925,
+          "solitude": 0.003327784,
+          "expression": 0.004157998,
+          "protection": 0.004053476,
+          "rest": 0.004749083
+        },
+        "fatigue": 0.950052056,
+        "arousal": 0.379736294,
+        "somatic": {
+          "tension": 0.948681471,
+          "relaxation": 0.050633236,
+          "restlessness": 0.95,
+          "heaviness": 0.950052056,
+          "excitement": 0.0,
+          "warmth": 0.0
+        },
+        "episodes": [],
+        "dispositions": [],
+        "desires": [
+          {
+            "id": "desire:intimacy",
+            "drive": "intimacy",
+            "object": "self",
+            "origin": "ENDOGENOUS",
+            "phase": "arise",
+            "strength": 0.002773923,
+            "reason": "elapsed need: intimacy",
+            "created_at": "2026-09-04T08:01:00Z",
+            "updated_at": "2026-09-04T08:01:00Z",
+            "trajectory": [
+              {
+                "at": "2026-09-04T08:01:00Z",
+                "phase": "arise",
+                "reason": "elapsed/body/need integration"
+              }
+            ]
+          },
+          {
+            "id": "desire:exploration",
+            "drive": "exploration",
+            "object": "self",
+            "origin": "ENDOGENOUS",
+            "phase": "arise",
+            "strength": 0.005540152,
+            "reason": "elapsed need: exploration",
+            "created_at": "2026-09-04T08:01:00Z",
+            "updated_at": "2026-09-04T08:01:00Z",
+            "trajectory": [
+              {
+                "at": "2026-09-04T08:01:00Z",
+                "phase": "arise",
+                "reason": "elapsed/body/need integration"
+              }
+            ]
+          },
+          {
+            "id": "desire:sexual",
+            "drive": "sexual",
+            "object": "self",
+            "origin": "ENDOGENOUS",
+            "phase": "arise",
+            "strength": 0.001387925,
+            "reason": "elapsed need: sexual",
+            "created_at": "2026-09-04T08:01:00Z",
+            "updated_at": "2026-09-04T08:01:00Z",
+            "trajectory": [
+              {
+                "at": "2026-09-04T08:01:00Z",
+                "phase": "arise",
+                "reason": "elapsed/body/need integration"
+              }
+            ]
+          },
+          {
+            "id": "desire:solitude",
+            "drive": "solitude",
+            "object": "self",
+            "origin": "ENDOGENOUS",
+            "phase": "arise",
+            "strength": 0.003327784,
+            "reason": "elapsed need: solitude",
+            "created_at": "2026-09-04T08:01:00Z",
+            "updated_at": "2026-09-04T08:01:00Z",
+            "trajectory": [
+              {
+                "at": "2026-09-04T08:01:00Z",
+                "phase": "arise",
+                "reason": "elapsed/body/need integration"
+              }
+            ]
+          },
+          {
+            "id": "desire:expression",
+            "drive": "expression",
+            "object": "self",
+            "origin": "ENDOGENOUS",
+            "phase": "arise",
+            "strength": 0.004157998,
+            "reason": "elapsed need: expression",
+            "created_at": "2026-09-04T08:01:00Z",
+            "updated_at": "2026-09-04T08:01:00Z",
+            "trajectory": [
+              {
+                "at": "2026-09-04T08:01:00Z",
+                "phase": "arise",
+                "reason": "elapsed/body/need integration"
+              }
+            ]
+          },
+          {
+            "id": "desire:protection",
+            "drive": "protection",
+            "object": "self",
+            "origin": "ENDOGENOUS",
+            "phase": "arise",
+            "strength": 0.004053476,
+            "reason": "elapsed need: protection",
+            "created_at": "2026-09-04T08:01:00Z",
+            "updated_at": "2026-09-04T08:01:00Z",
+            "trajectory": [
+              {
+                "at": "2026-09-04T08:01:00Z",
+                "phase": "arise",
+                "reason": "elapsed/body/need integration"
+              }
+            ]
+          },
+          {
+            "id": "desire:rest",
+            "drive": "rest",
+            "object": "self",
+            "origin": "ENDOGENOUS",
+            "phase": "arise",
+            "strength": 0.004749083,
+            "reason": "elapsed need: rest",
+            "created_at": "2026-09-04T08:01:00Z",
+            "updated_at": "2026-09-04T08:01:00Z",
+            "trajectory": [
+              {
+                "at": "2026-09-04T08:01:00Z",
+                "phase": "arise",
+                "reason": "elapsed/body/need integration"
+              }
+            ]
+          }
+        ],
+        "conflicts": [],
+        "will": [
+          {
+            "desire_id": "desire:intimacy",
+            "stance": "hold",
+            "supporting_reasons": [
+              "felt need for intimacy",
+              "elapsed need: intimacy"
+            ],
+            "opposing_reasons": [
+              "continuing now competes with recovery of attention"
+            ],
+            "alternatives": [
+              "reconsider after new understanding",
+              "continue without resolving the conflict",
+              "defer"
+            ],
+            "commitment": "Keep this desire distinct from deciding to perform a reality action.",
+            "decision": "DEFER",
+            "action_tendency": "wait"
+          },
+          {
+            "desire_id": "desire:exploration",
+            "stance": "hold",
+            "supporting_reasons": [
+              "felt need for exploration",
+              "elapsed need: exploration"
+            ],
+            "opposing_reasons": [
+              "continuing now competes with recovery of attention"
+            ],
+            "alternatives": [
+              "reconsider after new understanding",
+              "continue without resolving the conflict",
+              "defer"
+            ],
+            "commitment": "Keep this desire distinct from deciding to perform a reality action.",
+            "decision": "DEFER",
+            "action_tendency": "wait"
+          },
+          {
+            "desire_id": "desire:sexual",
+            "stance": "hold",
+            "supporting_reasons": [
+              "felt need for sexual",
+              "elapsed need: sexual"
+            ],
+            "opposing_reasons": [
+              "continuing now competes with recovery of attention"
+            ],
+            "alternatives": [
+              "reconsider after new understanding",
+              "continue without resolving the conflict",
+              "defer"
+            ],
+            "commitment": "Keep this desire distinct from deciding to perform a reality action.",
+            "decision": "DEFER",
+            "action_tendency": "wait"
+          },
+          {
+            "desire_id": "desire:solitude",
+            "stance": "hold",
+            "supporting_reasons": [
+              "felt need for solitude",
+              "elapsed need: solitude"
+            ],
+            "opposing_reasons": [
+              "continuing now competes with recovery of attention"
+            ],
+            "alternatives": [
+              "reconsider after new understanding",
+              "continue without resolving the conflict",
+              "defer"
+            ],
+            "commitment": "Keep this desire distinct from deciding to perform a reality action.",
+            "decision": "DEFER",
+            "action_tendency": "wait"
+          },
+          {
+            "desire_id": "desire:expression",
+            "stance": "hold",
+            "supporting_reasons": [
+              "felt need for expression",
+              "elapsed need: expression"
+            ],
+            "opposing_reasons": [
+              "continuing now competes with recovery of attention"
+            ],
+            "alternatives": [
+              "reconsider after new understanding",
+              "continue without resolving the conflict",
+              "defer"
+            ],
+            "commitment": "Keep this desire distinct from deciding to perform a reality action.",
+            "decision": "DEFER",
+            "action_tendency": "wait"
+          },
+          {
+            "desire_id": "desire:protection",
+            "stance": "hold",
+            "supporting_reasons": [
+              "felt need for protection",
+              "elapsed need: protection"
+            ],
+            "opposing_reasons": [
+              "continuing now competes with recovery of attention"
+            ],
+            "alternatives": [
+              "reconsider after new understanding",
+              "continue without resolving the conflict",
+              "defer"
+            ],
+            "commitment": "Keep this desire distinct from deciding to perform a reality action.",
+            "decision": "DEFER",
+            "action_tendency": "wait"
+          },
+          {
+            "desire_id": "desire:rest",
+            "stance": "pursue",
+            "supporting_reasons": [
+              "felt need for rest",
+              "elapsed need: rest"
+            ],
+            "opposing_reasons": [],
+            "alternatives": [
+              "reconsider after new understanding",
+              "continue without resolving the conflict",
+              "defer"
+            ],
+            "commitment": "Keep this desire distinct from deciding to perform a reality action.",
+            "decision": "PURSUE",
+            "action_tendency": "rest"
+          }
+        ],
+        "thoughts": [
+          {
+            "id": "thought:desire:intimacy",
+            "theme": "intimacy",
+            "content": "I keep considering intimacy in relation to my need for intimacy.",
+            "reason": "Engine deliberation retains an unresolved internal concern.",
+            "desire_ids": [
+              "desire:intimacy"
+            ],
+            "conflict_ids": [],
+            "created_at": "2026-09-04T08:01:00Z",
+            "last_recurred_at": "2026-09-04T08:01:00Z",
+            "recurrences": 1,
+            "unresolved": true
+          },
+          {
+            "id": "thought:desire:exploration",
+            "theme": "exploration",
+            "content": "I keep considering exploration in relation to my need for exploration.",
+            "reason": "Engine deliberation retains an unresolved internal concern.",
+            "desire_ids": [
+              "desire:exploration"
+            ],
+            "conflict_ids": [],
+            "created_at": "2026-09-04T08:01:00Z",
+            "last_recurred_at": "2026-09-04T08:01:00Z",
+            "recurrences": 1,
+            "unresolved": true
+          },
+          {
+            "id": "thought:desire:sexual",
+            "theme": "sexual",
+            "content": "I keep considering sexual in relation to my need for sexual.",
+            "reason": "Engine deliberation retains an unresolved internal concern.",
+            "desire_ids": [
+              "desire:sexual"
+            ],
+            "conflict_ids": [],
+            "created_at": "2026-09-04T08:01:00Z",
+            "last_recurred_at": "2026-09-04T08:01:00Z",
+            "recurrences": 1,
+            "unresolved": true
+          },
+          {
+            "id": "thought:desire:solitude",
+            "theme": "solitude",
+            "content": "I keep considering solitude in relation to my need for solitude.",
+            "reason": "Engine deliberation retains an unresolved internal concern.",
+            "desire_ids": [
+              "desire:solitude"
+            ],
+            "conflict_ids": [],
+            "created_at": "2026-09-04T08:01:00Z",
+            "last_recurred_at": "2026-09-04T08:01:00Z",
+            "recurrences": 1,
+            "unresolved": true
+          },
+          {
+            "id": "thought:desire:expression",
+            "theme": "expression",
+            "content": "I keep considering expression in relation to my need for expression.",
+            "reason": "Engine deliberation retains an unresolved internal concern.",
+            "desire_ids": [
+              "desire:expression"
+            ],
+            "conflict_ids": [],
+            "created_at": "2026-09-04T08:01:00Z",
+            "last_recurred_at": "2026-09-04T08:01:00Z",
+            "recurrences": 1,
+            "unresolved": true
+          },
+          {
+            "id": "thought:desire:protection",
+            "theme": "protection",
+            "content": "I keep considering protection in relation to my need for protection.",
+            "reason": "Engine deliberation retains an unresolved internal concern.",
+            "desire_ids": [
+              "desire:protection"
+            ],
+            "conflict_ids": [],
+            "created_at": "2026-09-04T08:01:00Z",
+            "last_recurred_at": "2026-09-04T08:01:00Z",
+            "recurrences": 1,
+            "unresolved": true
+          },
+          {
+            "id": "thought:desire:rest",
+            "theme": "rest",
+            "content": "I keep considering rest in relation to my need for rest.",
+            "reason": "Engine deliberation retains an unresolved internal concern.",
+            "desire_ids": [
+              "desire:rest"
+            ],
+            "conflict_ids": [],
+            "created_at": "2026-09-04T08:01:00Z",
+            "last_recurred_at": "2026-09-04T08:01:00Z",
+            "recurrences": 1,
+            "unresolved": true
+          }
+        ],
+        "regulation": {},
+        "subjective_seconds": 122.658588,
+        "version": "p14-mind-v1"
+      },
+      "influence": {
+        "attention": {
+          "breadth": 3,
+          "narrowing": 0.570679936,
+          "themes": [
+            "intimacy",
+            "exploration",
+            "sexual"
+          ]
+        },
+        "interpretations": [],
+        "action_tendencies": [
+          "wait",
+          "rest"
+        ],
+        "decisions": [
+          "DEFER",
+          "PURSUE"
+        ],
+        "subjective_seconds": 122.658588,
+        "regulation": "not-attempted",
+        "not_factual_evidence": true
+      },
+      "change_reasons": [],
+      "authority": "UNCOMMITTED_INTERNAL_CANDIDATE"
+    },
+    "context": {
+      "version": "c1-context-v1",
+      "perception_hash": "sha256:38d6c03f9b38c5a3cf295f0d4f9b5978198a7b04bf1a7e774e0672a634225014",
+      "route": {
+        "plan": {
+          "request": {
+            "request_id": "p01-request-954c1838a3e84cb19e3c1192d622797e",
+            "perception_id": "68431873-d206-5396-8a63-391b7ef55bd5",
+            "subject_id": "sub-271e8846985d41cc",
+            "environment": "TEST",
+            "source_revision": 2,
+            "routed_at": "2026-09-04T08:01:00Z",
+            "purpose": [
+              "continuity",
+              "fact",
+              "internal_drive",
+              "memory",
+              "relationship",
+              "subject_state",
+              "topic"
+            ],
+            "budget": {
+              "total_candidate_limit": 50,
+              "per_source_limits": {},
+              "context_budget_hint": null
+            }
+          },
+          "signals": [
+            {
+              "signal_id": "signal:68431873-d206-5396-8a63-391b7ef55bd5:1",
+              "signal_kind": "focus",
+              "value_hash": "sha256:004a6f5061660ec4ecb47d29d20d738efdf99b0718903b6efa031ab5a609376a",
+              "weight": 0.9
+            },
+            {
+              "signal_id": "signal:68431873-d206-5396-8a63-391b7ef55bd5:2",
+              "signal_kind": "relationship",
+              "value_hash": "sha256:86d6d8bf48af3c71a3bfb2de89b259ad15f181ae903405e863eed9eacb281803",
+              "weight": 1.0
+            },
+            {
+              "signal_id": "signal:68431873-d206-5396-8a63-391b7ef55bd5:3",
+              "signal_kind": "memory",
+              "value_hash": "sha256:0d84c1e6bdb2adf5e60e010d80ccc341dd7c69518cae1bdc381e24f6f021ba0c",
+              "weight": 0.9
+            },
+            {
+              "signal_id": "signal:68431873-d206-5396-8a63-391b7ef55bd5:4",
+              "signal_kind": "fact",
+              "value_hash": "sha256:fcb066c61cb1f111a92ace716a09560d65008316039e3c0fbbf03248437cb5a0",
+              "weight": 0.8
+            },
+            {
+              "signal_id": "signal:68431873-d206-5396-8a63-391b7ef55bd5:5",
+              "signal_kind": "internal_drive",
+              "value_hash": "sha256:cad23e23f70930a0159429532efaadb3c8f9b81c962fda3b562d66e86ae1fe75",
+              "weight": 0.7
+            },
+            {
+              "signal_id": "signal:68431873-d206-5396-8a63-391b7ef55bd5:mind",
+              "signal_kind": "internal_drive",
+              "value_hash": "sha256:129343f8916609a651663fee2e9c0561f171be57591bfca21b401e857696baeb",
+              "weight": 0.7146600320000001
+            }
+          ],
+          "partitions": [
+            {
+              "partition": "subject_state",
+              "required": true,
+              "source_ids": [
+                "engine.subject-state"
+              ],
+              "candidate_limit": 13,
+              "reason_code": "REQUIRED_PARTITION_SELECTED",
+              "selected": true
+            },
+            {
+              "partition": "memory",
+              "required": false,
+              "source_ids": [
+                "engine.memory"
+              ],
+              "candidate_limit": 13,
+              "reason_code": "PURPOSE_SELECTED",
+              "selected": true
+            },
+            {
+              "partition": "derived_summary",
+              "required": false,
+              "source_ids": [
+                "engine.derived-summary"
+              ],
+              "candidate_limit": 12,
+              "reason_code": "PURPOSE_SELECTED",
+              "selected": true
+            },
+            {
+              "partition": "timeline",
+              "required": false,
+              "source_ids": [
+                "engine.timeline"
+              ],
+              "candidate_limit": 12,
+              "reason_code": "PURPOSE_SELECTED",
+              "selected": true
+            },
+            {
+              "partition": "local_fact",
+              "required": false,
+              "source_ids": [],
+              "candidate_limit": 0,
+              "reason_code": "SOURCE_NOT_CONFIGURED",
+              "selected": true
+            },
+            {
+              "partition": "attention",
+              "required": false,
+              "source_ids": [],
+              "candidate_limit": 0,
+              "reason_code": "PURPOSE_NOT_SELECTED",
+              "selected": false
+            },
+            {
+              "partition": "desire",
+              "required": false,
+              "source_ids": [],
+              "candidate_limit": 0,
+              "reason_code": "PURPOSE_NOT_SELECTED",
+              "selected": false
+            },
+            {
+              "partition": "conflict",
+              "required": false,
+              "source_ids": [],
+              "candidate_limit": 0,
+              "reason_code": "PURPOSE_NOT_SELECTED",
+              "selected": false
+            },
+            {
+              "partition": "somatic",
+              "required": false,
+              "source_ids": [],
+              "candidate_limit": 0,
+              "reason_code": "PURPOSE_NOT_SELECTED",
+              "selected": false
+            },
+            {
+              "partition": "expression",
+              "required": false,
+              "source_ids": [],
+              "candidate_limit": 0,
+              "reason_code": "PURPOSE_NOT_SELECTED",
+              "selected": false
+            }
+          ],
+          "feature_gate_version": "p05-context-router-v1"
+        },
+        "manifest": {
+          "request_id": "p01-request-954c1838a3e84cb19e3c1192d622797e",
+          "route_plan_hash": "sha256:53765dcf22ff4b2483b090fe2f3af9ef7fa07308c8c5de3b663b3d2843b0eb8c",
+          "candidates": [
+            {
+              "source_id": "engine.subject-state",
+              "partition": "subject_state",
+              "stable_id": "sub-271e8846985d41cc:relationship",
+              "subject_id": "sub-271e8846985d41cc",
+              "environment": "TEST",
+              "version": "revision:2",
+              "content_hash": "sha256:679b951babe86c25aba0a2a691639426fe3ef8f65624828de92a9cd990da6826",
+              "authority_label": "SUBJECT_STATE_PARTITION",
+              "rank": 1,
+              "score": 1.0,
+              "occurred_at": "2026-09-04T08:00:00Z",
+              "explanation_codes": [
+                "PURPOSE_RELEVANCE",
+                "RECENCY",
+                "IMPORTANCE",
+                "ACTIVATION",
+                "STABLE_TIE_BREAK"
+              ]
+            },
+            {
+              "source_id": "engine.subject-state",
+              "partition": "subject_state",
+              "stable_id": "sub-271e8846985d41cc:continuity",
+              "subject_id": "sub-271e8846985d41cc",
+              "environment": "TEST",
+              "version": "revision:2",
+              "content_hash": "sha256:9fc7dcdb5db93fab5c77a4fb7b266f39d022a53463338c2c84fc7a87d1f18adb",
+              "authority_label": "SUBJECT_STATE_PARTITION",
+              "rank": 2,
+              "score": 0.895,
+              "occurred_at": "2026-09-04T08:00:00Z",
+              "explanation_codes": [
+                "PURPOSE_RELEVANCE",
+                "RECENCY",
+                "IMPORTANCE",
+                "ACTIVATION",
+                "STABLE_TIE_BREAK"
+              ]
+            },
+            {
+              "source_id": "engine.subject-state",
+              "partition": "subject_state",
+              "stable_id": "sub-271e8846985d41cc:identity",
+              "subject_id": "sub-271e8846985d41cc",
+              "environment": "TEST",
+              "version": "revision:2",
+              "content_hash": "sha256:1842e52dac172ee2c9f1dd1a92f7e2cd5b8dad135789625db4c658cc808a0220",
+              "authority_label": "SUBJECT_STATE_PARTITION",
+              "rank": 3,
+              "score": 0.865,
+              "occurred_at": "2026-09-04T08:00:00Z",
+              "explanation_codes": [
+                "PURPOSE_RELEVANCE",
+                "RECENCY",
+                "IMPORTANCE",
+                "ACTIVATION",
+                "STABLE_TIE_BREAK"
+              ]
+            },
+            {
+              "source_id": "engine.subject-state",
+              "partition": "subject_state",
+              "stable_id": "sub-271e8846985d41cc:intentions",
+              "subject_id": "sub-271e8846985d41cc",
+              "environment": "TEST",
+              "version": "revision:2",
+              "content_hash": "sha256:4a935e3570d7fcda7abd88e8426227100c4f3dbd08d80e2bf6e1ac57448a837a",
+              "authority_label": "SUBJECT_STATE_PARTITION",
+              "rank": 4,
+              "score": 0.85,
+              "occurred_at": "2026-09-04T08:00:00Z",
+              "explanation_codes": [
+                "PURPOSE_RELEVANCE",
+                "RECENCY",
+                "IMPORTANCE",
+                "ACTIVATION",
+                "STABLE_TIE_BREAK"
+              ]
+            },
+            {
+              "source_id": "engine.subject-state",
+              "partition": "subject_state",
+              "stable_id": "sub-271e8846985d41cc:emotion_state",
+              "subject_id": "sub-271e8846985d41cc",
+              "environment": "TEST",
+              "version": "revision:2",
+              "content_hash": "sha256:83f76d7bbaf86d0ae22f5c1cc53c06e21e6107f87a8064f4c518d2d9ccec9fe8",
+              "authority_label": "SUBJECT_STATE_PARTITION",
+              "rank": 5,
+              "score": 0.805,
+              "occurred_at": "2026-09-04T08:00:00Z",
+              "explanation_codes": [
+                "PURPOSE_RELEVANCE",
+                "RECENCY",
+                "IMPORTANCE",
+                "ACTIVATION",
+                "STABLE_TIE_BREAK"
+              ]
+            },
+            {
+              "source_id": "engine.timeline",
+              "partition": "timeline",
+              "stable_id": "p01-fixture-event-4ce95e7654684541",
+              "subject_id": "sub-271e8846985d41cc",
+              "environment": "TEST",
+              "version": "update:c8689235-9f72-4728-878a-b3980572c80f",
+              "content_hash": "sha256:4feb2e93e6a4cd7b544dc553604d4e808f0a1cc91d4ec1e5bda1dbc11eeafe80",
+              "authority_label": "TIMELINE_EVENT_PROJECTION",
+              "rank": 6,
+              "score": 0.705,
+              "occurred_at": "2026-09-04T08:00:00Z",
+              "explanation_codes": [
+                "PURPOSE_RELEVANCE",
+                "RECENCY",
+                "IMPORTANCE",
+                "ACTIVATION",
+                "STABLE_TIE_BREAK"
+              ]
+            },
+            {
+              "source_id": "engine.memory",
+              "partition": "memory",
+              "stable_id": "memory:body-seed",
+              "subject_id": "sub-271e8846985d41cc",
+              "environment": "TEST",
+              "version": "revision:0",
+              "content_hash": "sha256:23d6e05e7adf7043ff589b15c45116d0b3c46695e5ed38c08081387fbe857578",
+              "authority_label": "MEMORY_RECORD",
+              "rank": 7,
+              "score": 0.6515,
+              "occurred_at": "2026-09-04T08:00:00Z",
+              "explanation_codes": [
+                "PURPOSE_RELEVANCE",
+                "RECENCY",
+                "IMPORTANCE",
+                "ACTIVATION",
+                "STABLE_TIE_BREAK"
+              ]
+            },
+            {
+              "source_id": "engine.memory",
+              "partition": "memory",
+              "stable_id": "memory:p01-fixture-event-4ce95e7654684541",
+              "subject_id": "sub-271e8846985d41cc",
+              "environment": "TEST",
+              "version": "revision:0",
+              "content_hash": "sha256:89fbc0e2d1ae056e8e87b9361b29dd373432af9b4e0035f30d22155ed5e64603",
+              "authority_label": "MEMORY_RECORD",
+              "rank": 8,
+              "score": 0.6515,
+              "occurred_at": "2026-09-04T08:00:00Z",
+              "explanation_codes": [
+                "PURPOSE_RELEVANCE",
+                "RECENCY",
+                "IMPORTANCE",
+                "ACTIVATION",
+                "STABLE_TIE_BREAK"
+              ]
+            },
+            {
+              "source_id": "engine.derived-summary",
+              "partition": "derived_summary",
+              "stable_id": "c1-summary:c2f08f7b44793f5bb7c600a6b3ede6d38c841da0c05c4016e6f86f2663c6abc7",
+              "subject_id": "sub-271e8846985d41cc",
+              "environment": "TEST",
+              "version": "version:1",
+              "content_hash": "sha256:5e61d471d3bb84e875f3c1f6d06dd231d3d313f5d40b634cd7d234a8b6cda88a",
+              "authority_label": "DERIVED_MEMORY_VIEW",
+              "rank": 9,
+              "score": 0.63,
+              "occurred_at": "2026-09-04T08:00:00Z",
+              "explanation_codes": [
+                "PURPOSE_RELEVANCE",
+                "RECENCY",
+                "IMPORTANCE",
+                "ACTIVATION",
+                "STABLE_TIE_BREAK"
+              ]
+            }
+          ],
+          "manifest_hash": "sha256:83cec3dcf84c020fcb9a96c4bb191ac60b44d44f87daf0fb63a9216cf8a01fb5"
+        },
+        "trace": {
+          "trace_id": "trace:p01-request-954c1838a3e84cb19e3c1192d622797e",
+          "request_id": "p01-request-954c1838a3e84cb19e3c1192d622797e",
+          "perception_id": "68431873-d206-5396-8a63-391b7ef55bd5",
+          "subject_id": "sub-271e8846985d41cc",
+          "source_revision": 2,
+          "routed_at": "2026-09-04T08:01:00Z",
+          "purpose": [
+            "continuity",
+            "fact",
+            "internal_drive",
+            "memory",
+            "relationship",
+            "subject_state",
+            "topic"
+          ],
+          "route_plan_hash": "sha256:53765dcf22ff4b2483b090fe2f3af9ef7fa07308c8c5de3b663b3d2843b0eb8c",
+          "manifest_hash": "sha256:83cec3dcf84c020fcb9a96c4bb191ac60b44d44f87daf0fb63a9216cf8a01fb5",
+          "route_status": "COMPLETE",
+          "feature_gate_version": "p05-context-router-v1",
+          "partition_traces": [
+            {
+              "partition": "subject_state",
+              "status": "OPENED",
+              "reason_code": "BOUNDED_READ_COMPLETE",
+              "requested_limit": 13,
+              "source_ids": [
+                "engine.subject-state"
+              ],
+              "source_versions": {
+                "engine.subject-state": "revision:2"
+              },
+              "candidate_count": 6,
+              "retrieved_count": 6,
+              "evaluated_count": 6,
+              "retained_count": 5,
+              "rejected_count": 1
+            },
+            {
+              "partition": "memory",
+              "status": "OPENED",
+              "reason_code": "BOUNDED_READ_COMPLETE",
+              "requested_limit": 13,
+              "source_ids": [
+                "engine.memory"
+              ],
+              "source_versions": {
+                "engine.memory": "v-8bc44b88c6f32a7bf6094e2fa3f6c2967bdb62f336e0192d85b28915d5ae8836"
+              },
+              "candidate_count": 2,
+              "retrieved_count": 2,
+              "evaluated_count": 2,
+              "retained_count": 2,
+              "rejected_count": 0
+            },
+            {
+              "partition": "derived_summary",
+              "status": "OPENED",
+              "reason_code": "BOUNDED_READ_COMPLETE",
+              "requested_limit": 12,
+              "source_ids": [
+                "engine.derived-summary"
+              ],
+              "source_versions": {
+                "engine.derived-summary": "v-5e528814ce435e6a681aa92bb42a32354def9b5b4dea11679db96f24012bd685"
+              },
+              "candidate_count": 1,
+              "retrieved_count": 1,
+              "evaluated_count": 1,
+              "retained_count": 1,
+              "rejected_count": 0
+            },
+            {
+              "partition": "timeline",
+              "status": "OPENED",
+              "reason_code": "BOUNDED_READ_COMPLETE",
+              "requested_limit": 12,
+              "source_ids": [
+                "engine.timeline"
+              ],
+              "source_versions": {
+                "engine.timeline": "v-bc355dc74d5547e6986744ded39241c20b247b981d588de6c1388b08d0160242"
+              },
+              "candidate_count": 2,
+              "retrieved_count": 2,
+              "evaluated_count": 2,
+              "retained_count": 1,
+              "rejected_count": 1
+            },
+            {
+              "partition": "local_fact",
+              "status": "UNAVAILABLE",
+              "reason_code": "SOURCE_NOT_CONFIGURED",
+              "requested_limit": 0,
+              "source_ids": [],
+              "source_versions": {},
+              "candidate_count": 0,
+              "retrieved_count": 0,
+              "evaluated_count": 0,
+              "retained_count": 0,
+              "rejected_count": 0
+            },
+            {
+              "partition": "attention",
+              "status": "NOT_OPENED",
+              "reason_code": "PURPOSE_NOT_SELECTED",
+              "requested_limit": 0,
+              "source_ids": [],
+              "source_versions": {},
+              "candidate_count": 0,
+              "retrieved_count": 0,
+              "evaluated_count": 0,
+              "retained_count": 0,
+              "rejected_count": 0
+            },
+            {
+              "partition": "desire",
+              "status": "NOT_OPENED",
+              "reason_code": "PURPOSE_NOT_SELECTED",
+              "requested_limit": 0,
+              "source_ids": [],
+              "source_versions": {},
+              "candidate_count": 0,
+              "retrieved_count": 0,
+              "evaluated_count": 0,
+              "retained_count": 0,
+              "rejected_count": 0
+            },
+            {
+              "partition": "conflict",
+              "status": "NOT_OPENED",
+              "reason_code": "PURPOSE_NOT_SELECTED",
+              "requested_limit": 0,
+              "source_ids": [],
+              "source_versions": {},
+              "candidate_count": 0,
+              "retrieved_count": 0,
+              "evaluated_count": 0,
+              "retained_count": 0,
+              "rejected_count": 0
+            },
+            {
+              "partition": "somatic",
+              "status": "NOT_OPENED",
+              "reason_code": "PURPOSE_NOT_SELECTED",
+              "requested_limit": 0,
+              "source_ids": [],
+              "source_versions": {},
+              "candidate_count": 0,
+              "retrieved_count": 0,
+              "evaluated_count": 0,
+              "retained_count": 0,
+              "rejected_count": 0
+            },
+            {
+              "partition": "expression",
+              "status": "NOT_OPENED",
+              "reason_code": "PURPOSE_NOT_SELECTED",
+              "requested_limit": 0,
+              "source_ids": [],
+              "source_versions": {},
+              "candidate_count": 0,
+              "retrieved_count": 0,
+              "evaluated_count": 0,
+              "retained_count": 0,
+              "rejected_count": 0
+            }
+          ],
+          "source_traces": [
+            {
+              "source_id": "engine.subject-state",
+              "partition": "subject_state",
+              "status": "OPENED",
+              "reason_code": "BOUNDED_READ_COMPLETE",
+              "requested_limit": 13,
+              "source_version": "revision:2",
+              "permission_policy_version": "p09-test-v1",
+              "candidate_count": 6,
+              "retrieved_count": 6,
+              "evaluated_count": 6,
+              "retained_count": 5,
+              "rejected_count": 1
+            },
+            {
+              "source_id": "engine.memory",
+              "partition": "memory",
+              "status": "OPENED",
+              "reason_code": "BOUNDED_READ_COMPLETE",
+              "requested_limit": 13,
+              "source_version": "v-8bc44b88c6f32a7bf6094e2fa3f6c2967bdb62f336e0192d85b28915d5ae8836",
+              "permission_policy_version": "p09-test-v1",
+              "candidate_count": 2,
+              "retrieved_count": 2,
+              "evaluated_count": 2,
+              "retained_count": 2,
+              "rejected_count": 0
+            },
+            {
+              "source_id": "engine.derived-summary",
+              "partition": "derived_summary",
+              "status": "OPENED",
+              "reason_code": "BOUNDED_READ_COMPLETE",
+              "requested_limit": 12,
+              "source_version": "v-5e528814ce435e6a681aa92bb42a32354def9b5b4dea11679db96f24012bd685",
+              "permission_policy_version": "p09-test-v1",
+              "candidate_count": 1,
+              "retrieved_count": 1,
+              "evaluated_count": 1,
+              "retained_count": 1,
+              "rejected_count": 0
+            },
+            {
+              "source_id": "engine.timeline",
+              "partition": "timeline",
+              "status": "OPENED",
+              "reason_code": "BOUNDED_READ_COMPLETE",
+              "requested_limit": 12,
+              "source_version": "v-bc355dc74d5547e6986744ded39241c20b247b981d588de6c1388b08d0160242",
+              "permission_policy_version": "p09-test-v1",
+              "candidate_count": 2,
+              "retrieved_count": 2,
+              "evaluated_count": 2,
+              "retained_count": 1,
+              "rejected_count": 1
+            }
+          ],
+          "candidate_decisions": [
+            {
+              "source_id": "engine.derived-summary",
+              "partition": "derived_summary",
+              "stable_id": "c1-summary:c2f08f7b44793f5bb7c600a6b3ede6d38c841da0c05c4016e6f86f2663c6abc7",
+              "status": "RETAINED",
+              "reason_code": "VERIFIED_AND_RETAINED",
+              "score": 0.63
+            },
+            {
+              "source_id": "engine.memory",
+              "partition": "memory",
+              "stable_id": "memory:body-seed",
+              "status": "RETAINED",
+              "reason_code": "VERIFIED_AND_RETAINED",
+              "score": 0.6515
+            },
+            {
+              "source_id": "engine.memory",
+              "partition": "memory",
+              "stable_id": "memory:p01-fixture-event-4ce95e7654684541",
+              "status": "RETAINED",
+              "reason_code": "VERIFIED_AND_RETAINED",
+              "score": 0.6515
+            },
+            {
+              "source_id": "engine.subject-state",
+              "partition": "subject_state",
+              "stable_id": "sub-271e8846985d41cc:continuity",
+              "status": "RETAINED",
+              "reason_code": "VERIFIED_AND_RETAINED",
+              "score": 0.895
+            },
+            {
+              "source_id": "engine.subject-state",
+              "partition": "subject_state",
+              "stable_id": "sub-271e8846985d41cc:emotion_state",
+              "status": "RETAINED",
+              "reason_code": "VERIFIED_AND_RETAINED",
+              "score": 0.805
+            },
+            {
+              "source_id": "engine.subject-state",
+              "partition": "subject_state",
+              "stable_id": "sub-271e8846985d41cc:identity",
+              "status": "RETAINED",
+              "reason_code": "VERIFIED_AND_RETAINED",
+              "score": 0.865
+            },
+            {
+              "source_id": "engine.subject-state",
+              "partition": "subject_state",
+              "stable_id": "sub-271e8846985d41cc:intentions",
+              "status": "RETAINED",
+              "reason_code": "VERIFIED_AND_RETAINED",
+              "score": 0.85
+            },
+            {
+              "source_id": "engine.subject-state",
+              "partition": "subject_state",
+              "stable_id": "sub-271e8846985d41cc:relationship",
+              "status": "RETAINED",
+              "reason_code": "VERIFIED_AND_RETAINED",
+              "score": 1.0
+            },
+            {
+              "source_id": "engine.subject-state",
+              "partition": "subject_state",
+              "stable_id": "sub-271e8846985d41cc:temporal",
+              "status": "REJECTED",
+              "reason_code": "BELOW_RELEVANCE_THRESHOLD",
+              "score": 0.49
+            },
+            {
+              "source_id": "engine.timeline",
+              "partition": "timeline",
+              "stable_id": "body-seed",
+              "status": "REJECTED",
+              "reason_code": "BELOW_RELEVANCE_THRESHOLD",
+              "score": 0.3
+            },
+            {
+              "source_id": "engine.timeline",
+              "partition": "timeline",
+              "stable_id": "p01-fixture-event-4ce95e7654684541",
+              "status": "RETAINED",
+              "reason_code": "VERIFIED_AND_RETAINED",
+              "score": 0.705
+            }
+          ],
+          "budget_limit": 50,
+          "budget_used": 11
+        }
+      },
+      "composition": {
+        "status": "COMPLETE",
+        "trace": {
+          "trace_id": "composition-trace:p01-request-954c1838a3e84cb19e3c1192d622797e",
+          "request_id": "p01-request-954c1838a3e84cb19e3c1192d622797e",
+          "subject_id": "sub-271e8846985d41cc",
+          "environment": "TEST",
+          "source_revision": 2,
+          "composed_at": "2026-09-04T08:01:00Z",
+          "status": "COMPLETE",
+          "route_result_hash": "sha256:cc34375072dcdd791beb96deb5af80d6ced00460d203bc23da45022d7ace05e8",
+          "route_plan_hash": "sha256:53765dcf22ff4b2483b090fe2f3af9ef7fa07308c8c5de3b663b3d2843b0eb8c",
+          "manifest_hash": "sha256:83cec3dcf84c020fcb9a96c4bb191ac60b44d44f87daf0fb63a9216cf8a01fb5",
+          "p05_trace_hash": "sha256:8b9dede67b4c9220f650b6835e0739ddab788172f8fa7fbc13a012c51276c57b",
+          "feature_gate_version": "p06-context-composer-v1",
+          "budget": {
+            "core_fragment_limit": 10,
+            "token_limit": 768
+          },
+          "candidate_count": 9,
+          "resolved_count": 9,
+          "retained_count": 6,
+          "deduplicated_count": 0,
+          "excluded_count": 3,
+          "missing_count": 0,
+          "upstream_notice_count": 6,
+          "resolver_read_count": 9,
+          "resolver_read_counts": [
+            {
+              "source_id": "engine.derived-summary",
+              "read_count": 1
+            },
+            {
+              "source_id": "engine.memory",
+              "read_count": 2
+            },
+            {
+              "source_id": "engine.subject-state",
+              "read_count": 5
+            },
+            {
+              "source_id": "engine.timeline",
+              "read_count": 1
+            }
+          ],
+          "tokens_used": 747,
+          "decisions": [
+            {
+              "reference_id": "sha256:28518250d914f36ca0631251b8709a3d5d0e519130d7dc4504f63a49dc550a04",
+              "source_id": "engine.subject-state",
+              "stable_source_id": "sub-271e8846985d41cc:relationship",
+              "status": "RETAINED",
+              "reason_code": "PROTECTED_CONTEXT_RETAINED",
+              "authority": "confirmed_state",
+              "estimated_tokens": 123
+            },
+            {
+              "reference_id": "sha256:aef48022a1ddd8e3327dab211ff9d8713643aae070dfac3e577c4496e90cb902",
+              "source_id": "engine.subject-state",
+              "stable_source_id": "sub-271e8846985d41cc:continuity",
+              "status": "RETAINED",
+              "reason_code": "PROTECTED_CONTEXT_RETAINED",
+              "authority": "confirmed_state",
+              "estimated_tokens": 107
+            },
+            {
+              "reference_id": "sha256:c4ddde6574c6f7e3175afac48706896185950f996db6f736638d037e3f69e228",
+              "source_id": "engine.subject-state",
+              "stable_source_id": "sub-271e8846985d41cc:identity",
+              "status": "RETAINED",
+              "reason_code": "PROTECTED_CONTEXT_RETAINED",
+              "authority": "confirmed_state",
+              "estimated_tokens": 117
+            },
+            {
+              "reference_id": "sha256:d2c7ef73e33a572ce34a9501628b1b58d510e3f8530b06accd3885113c5407a7",
+              "source_id": "engine.subject-state",
+              "stable_source_id": "sub-271e8846985d41cc:intentions",
+              "status": "RETAINED",
+              "reason_code": "VERIFIED_CONTEXT_RETAINED",
+              "authority": "confirmed_state",
+              "estimated_tokens": 212
+            },
+            {
+              "reference_id": "sha256:ebd7f7f48ec780ec18a14f8bfb336ca2c4fe11938cd5ab367afea10966723a16",
+              "source_id": "engine.subject-state",
+              "stable_source_id": "sub-271e8846985d41cc:emotion_state",
+              "status": "RETAINED",
+              "reason_code": "VERIFIED_CONTEXT_RETAINED",
+              "authority": "confirmed_state",
+              "estimated_tokens": 105
+            },
+            {
+              "reference_id": "sha256:279781633dc31ade5bf6d89026f7385acabf69bd363577f556e823dc1ca820e3",
+              "source_id": "engine.timeline",
+              "stable_source_id": "p01-fixture-event-4ce95e7654684541",
+              "status": "EXCLUDED",
+              "reason_code": "CONTEXT_TOKEN_BUDGET_EXHAUSTED",
+              "authority": "raw_source",
+              "estimated_tokens": 105
+            },
+            {
+              "reference_id": "sha256:04e94a045759d8f9a05b0539afa64c65746431d2e8aab54be28a9d330d1fe721",
+              "source_id": "engine.memory",
+              "stable_source_id": "memory:body-seed",
+              "status": "RETAINED",
+              "reason_code": "VERIFIED_CONTEXT_RETAINED",
+              "authority": "confirmed_memory",
+              "estimated_tokens": 83
+            },
+            {
+              "reference_id": "sha256:641179da4db749021dfeda83cbc1f5d74009da36becfe6d5f1bb3d00672e4fea",
+              "source_id": "engine.memory",
+              "stable_source_id": "memory:p01-fixture-event-4ce95e7654684541",
+              "status": "EXCLUDED",
+              "reason_code": "CONTEXT_TOKEN_BUDGET_EXHAUSTED",
+              "authority": "confirmed_memory",
+              "estimated_tokens": 102
+            },
+            {
+              "reference_id": "sha256:f1e23135c8c00deeda8ccb96f49657814c85baec2133f18487f22df944968ec7",
+              "source_id": "engine.derived-summary",
+              "stable_source_id": "c1-summary:c2f08f7b44793f5bb7c600a6b3ede6d38c841da0c05c4016e6f86f2663c6abc7",
+              "status": "EXCLUDED",
+              "reason_code": "CONTEXT_TOKEN_BUDGET_EXHAUSTED",
+              "authority": "derived_summary",
+              "estimated_tokens": 137
+            }
+          ],
+          "upstream_notices": [
+            {
+              "reference_id": "sha256:df7b32d6f7e4d0231a3ccba0a70651221c0e6f493134119da9805ceb4fc3d04f",
+              "source_id": "p05.route",
+              "stable_source_id": "partition:local_fact",
+              "required": false,
+              "reason_code": "ROUTER_PARTITION_UNAVAILABLE"
+            },
+            {
+              "reference_id": "sha256:a0ca0f7e159ed20e08904da0ec3a6754acf5797073a425dccc234d1feb5a0633",
+              "source_id": "p05.route",
+              "stable_source_id": "partition:attention",
+              "required": false,
+              "reason_code": "ROUTER_PARTITION_NOT_OPENED"
+            },
+            {
+              "reference_id": "sha256:422c57f2b44e5e55bcd91e8474878c004dacf0e746ab05840ebb93f9e4513f3e",
+              "source_id": "p05.route",
+              "stable_source_id": "partition:desire",
+              "required": false,
+              "reason_code": "ROUTER_PARTITION_NOT_OPENED"
+            },
+            {
+              "reference_id": "sha256:4676880790619db12597f80674df1b86d9c941aa126d79e9154f3e3bdfa0bc1d",
+              "source_id": "p05.route",
+              "stable_source_id": "partition:conflict",
+              "required": false,
+              "reason_code": "ROUTER_PARTITION_NOT_OPENED"
+            },
+            {
+              "reference_id": "sha256:49a5de380b798746d01d40c3bc8c573430c5302255610f45647360e358ab84d3",
+              "source_id": "p05.route",
+              "stable_source_id": "partition:somatic",
+              "required": false,
+              "reason_code": "ROUTER_PARTITION_NOT_OPENED"
+            },
+            {
+              "reference_id": "sha256:2825e7308a2ee60bfd6b152c307d9c7bbd3e43212101dd7e5cdd844fba693aea",
+              "source_id": "p05.route",
+              "stable_source_id": "partition:expression",
+              "required": false,
+              "reason_code": "ROUTER_PARTITION_NOT_OPENED"
+            }
+          ],
+          "trace_hash": "sha256:b4c13b59a604ab4992401339bdbe7b4136af436c33cf8a680308b46e9a68fbb8"
+        },
+        "snapshot": {
+          "snapshot_id": "context-snapshot:p01-request-954c1838a3e84cb19e3c1192d622797e",
+          "request_id": "p01-request-954c1838a3e84cb19e3c1192d622797e",
+          "subject_id": "sub-271e8846985d41cc",
+          "environment": "TEST",
+          "source_revision": 2,
+          "composed_at": "2026-09-04T08:01:00Z",
+          "route_result_hash": "sha256:cc34375072dcdd791beb96deb5af80d6ced00460d203bc23da45022d7ace05e8",
+          "route_plan_hash": "sha256:53765dcf22ff4b2483b090fe2f3af9ef7fa07308c8c5de3b663b3d2843b0eb8c",
+          "manifest_hash": "sha256:83cec3dcf84c020fcb9a96c4bb191ac60b44d44f87daf0fb63a9216cf8a01fb5",
+          "budget": {
+            "core_fragment_limit": 10,
+            "token_limit": 768
+          },
+          "fragments": [
+            {
+              "fragment_id": "sha256:9eff3876215ac417099416fcca03f3251a2eb9d938e2475d0c28362f285ed179",
+              "reference_id": "sha256:28518250d914f36ca0631251b8709a3d5d0e519130d7dc4504f63a49dc550a04",
+              "subject_id": "sub-271e8846985d41cc",
+              "environment": "TEST",
+              "authority": "confirmed_state",
+              "source_id": "engine.subject-state",
+              "source_type": "subject_state_section",
+              "stable_source_id": "sub-271e8846985d41cc:relationship",
+              "version": "revision:2",
+              "content_hash": "sha256:679b951babe86c25aba0a2a691639426fe3ef8f65624828de92a9cd990da6826",
+              "occurred_at": "2026-09-04T08:00:00Z",
+              "relevance": 1.0,
+              "confidence": 1.0,
+              "provenance_roots": [
+                "subject-state:sub-271e8846985d41cc:revision:2:relationship"
+              ],
+              "conflict_markers": [],
+              "missing_markers": [],
+              "estimated_tokens": 123,
+              "rank": 1,
+              "retained_reason": "PROTECTED_CONTEXT_RETAINED",
+              "content": "{\"current_status\":\"testing continuity\",\"definition\":\"\",\"important_moments\":[\"synthetic genesis\"],\"interaction_preferences\":[]}",
+              "protected": true,
+              "protection_role": "relationship",
+              "direct_state_write_allowed": false
+            },
+            {
+              "fragment_id": "sha256:1d991472105f188d40ff002d8960753ef6bb0f1430d723a80e581f05445eaf6c",
+              "reference_id": "sha256:aef48022a1ddd8e3327dab211ff9d8713643aae070dfac3e577c4496e90cb902",
+              "subject_id": "sub-271e8846985d41cc",
+              "environment": "TEST",
+              "authority": "confirmed_state",
+              "source_id": "engine.subject-state",
+              "source_type": "subject_state_section",
+              "stable_source_id": "sub-271e8846985d41cc:continuity",
+              "version": "revision:2",
+              "content_hash": "sha256:9fc7dcdb5db93fab5c77a4fb7b266f39d022a53463338c2c84fc7a87d1f18adb",
+              "occurred_at": "2026-09-04T08:00:00Z",
+              "relevance": 0.895,
+              "confidence": 1.0,
+              "provenance_roots": [
+                "subject-state:sub-271e8846985d41cc:revision:2:continuity"
+              ],
+              "conflict_markers": [],
+              "missing_markers": [],
+              "estimated_tokens": 107,
+              "rank": 2,
+              "retained_reason": "PROTECTED_CONTEXT_RETAINED",
+              "content": "{\"current_focus\":[\"continuity\"],\"recent_changes\":[],\"unfinished_items\":[]}",
+              "protected": true,
+              "protection_role": "continuity",
+              "direct_state_write_allowed": false
+            },
+            {
+              "fragment_id": "sha256:46202158cb7735e33811d9c0ac937f6e0f5ff59c017b145f29ba2e85c7383249",
+              "reference_id": "sha256:c4ddde6574c6f7e3175afac48706896185950f996db6f736638d037e3f69e228",
+              "subject_id": "sub-271e8846985d41cc",
+              "environment": "TEST",
+              "authority": "confirmed_state",
+              "source_id": "engine.subject-state",
+              "source_type": "subject_state_section",
+              "stable_source_id": "sub-271e8846985d41cc:identity",
+              "version": "revision:2",
+              "content_hash": "sha256:1842e52dac172ee2c9f1dd1a92f7e2cd5b8dad135789625db4c658cc808a0220",
+              "occurred_at": "2026-09-04T08:00:00Z",
+              "relevance": 0.865,
+              "confidence": 1.0,
+              "provenance_roots": [
+                "subject-state:sub-271e8846985d41cc:revision:2:identity"
+              ],
+              "conflict_markers": [],
+              "missing_markers": [],
+              "estimated_tokens": 117,
+              "rank": 3,
+              "retained_reason": "PROTECTED_CONTEXT_RETAINED",
+              "content": "{\"expression_preferences\":[\"concise\"],\"judgment_principles\":[],\"self_concept\":\"\",\"stable_traits\":[\"continuity\"]}",
+              "protected": true,
+              "protection_role": "identity",
+              "direct_state_write_allowed": false
+            },
+            {
+              "fragment_id": "sha256:d3ac8bc4e3577a7547013de22f5e8f8df43c1eb49de9e541a02e236099d371f1",
+              "reference_id": "sha256:d2c7ef73e33a572ce34a9501628b1b58d510e3f8530b06accd3885113c5407a7",
+              "subject_id": "sub-271e8846985d41cc",
+              "environment": "TEST",
+              "authority": "confirmed_state",
+              "source_id": "engine.subject-state",
+              "source_type": "subject_state_section",
+              "stable_source_id": "sub-271e8846985d41cc:intentions",
+              "version": "revision:2",
+              "content_hash": "sha256:4a935e3570d7fcda7abd88e8426227100c4f3dbd08d80e2bf6e1ac57448a837a",
+              "occurred_at": "2026-09-04T08:00:00Z",
+              "relevance": 0.85,
+              "confidence": 1.0,
+              "provenance_roots": [
+                "subject-state:sub-271e8846985d41cc:revision:2:intentions"
+              ],
+              "conflict_markers": [],
+              "missing_markers": [],
+              "estimated_tokens": 212,
+              "rank": 4,
+              "retained_reason": "VERIFIED_CONTEXT_RETAINED",
+              "content": "{\"action_tendencies\":[],\"dynamic_mind\":{\"conflict_count\":0,\"desire_count\":0,\"detail\":\"authorized-current-state-projection; not the complete private record\",\"environment\":\"TEST\",\"episode_count\":0,\"state_hash\":\"sha256:b75235f39de651042716b0a2b3e69333d55760d925d2f4b5eeecfd3602566efb\",\"subject_id\":\"sub-271e8846985d41cc\",\"subjective_seconds\":0.0,\"thought_count\":0,\"updated_at\":\"2026-09-04T08:00:00Z\",\"version\":\"p14-mind-v1\"},\"emerging_thoughts\":[],\"judgments\":[]}",
+              "protected": false,
+              "protection_role": null,
+              "direct_state_write_allowed": false
+            },
+            {
+              "fragment_id": "sha256:ef35df7d77fa70403f24fabe2811fc7a477a2844a441aa1f26f55a7b9b5227be",
+              "reference_id": "sha256:ebd7f7f48ec780ec18a14f8bfb336ca2c4fe11938cd5ab367afea10966723a16",
+              "subject_id": "sub-271e8846985d41cc",
+              "environment": "TEST",
+              "authority": "confirmed_state",
+              "source_id": "engine.subject-state",
+              "source_type": "subject_state_section",
+              "stable_source_id": "sub-271e8846985d41cc:emotion_state",
+              "version": "revision:2",
+              "content_hash": "sha256:83f76d7bbaf86d0ae22f5c1cc53c06e21e6107f87a8064f4c518d2d9ccec9fe8",
+              "occurred_at": "2026-09-04T08:00:00Z",
+              "relevance": 0.805,
+              "confidence": 1.0,
+              "provenance_roots": [
+                "subject-state:sub-271e8846985d41cc:revision:2:emotion_state"
+              ],
+              "conflict_markers": [],
+              "missing_markers": [],
+              "estimated_tokens": 105,
+              "rank": 5,
+              "retained_reason": "VERIFIED_CONTEXT_RETAINED",
+              "content": "{\"continuity_notes\":[],\"emotions\":[],\"interaction_state\":\"\"}",
+              "protected": false,
+              "protection_role": null,
+              "direct_state_write_allowed": false
+            },
+            {
+              "fragment_id": "sha256:1ed46f626024af34411fd29c667cfe0cb4dfa0f97881a6abff4dc03f3c3b7bed",
+              "reference_id": "sha256:04e94a045759d8f9a05b0539afa64c65746431d2e8aab54be28a9d330d1fe721",
+              "subject_id": "sub-271e8846985d41cc",
+              "environment": "TEST",
+              "authority": "confirmed_memory",
+              "source_id": "engine.memory",
+              "source_type": "memory_record",
+              "stable_source_id": "memory:body-seed",
+              "version": "revision:0",
+              "content_hash": "sha256:23d6e05e7adf7043ff589b15c45116d0b3c46695e5ed38c08081387fbe857578",
+              "occurred_at": "2026-09-04T08:00:00Z",
+              "relevance": 0.6515,
+              "confidence": 0.8,
+              "provenance_roots": [
+                "event:body-seed"
+              ],
+              "conflict_markers": [],
+              "missing_markers": [],
+              "estimated_tokens": 83,
+              "rank": 6,
+              "retained_reason": "VERIFIED_CONTEXT_RETAINED",
+              "content": "state_change: continuity synthetic event",
+              "protected": false,
+              "protection_role": null,
+              "direct_state_write_allowed": false
+            }
+          ],
+          "missing_notices": [
+            {
+              "reference_id": "sha256:df7b32d6f7e4d0231a3ccba0a70651221c0e6f493134119da9805ceb4fc3d04f",
+              "source_id": "p05.route",
+              "stable_source_id": "partition:local_fact",
+              "required": false,
+              "reason_code": "ROUTER_PARTITION_UNAVAILABLE"
+            },
+            {
+              "reference_id": "sha256:a0ca0f7e159ed20e08904da0ec3a6754acf5797073a425dccc234d1feb5a0633",
+              "source_id": "p05.route",
+              "stable_source_id": "partition:attention",
+              "required": false,
+              "reason_code": "ROUTER_PARTITION_NOT_OPENED"
+            },
+            {
+              "reference_id": "sha256:422c57f2b44e5e55bcd91e8474878c004dacf0e746ab05840ebb93f9e4513f3e",
+              "source_id": "p05.route",
+              "stable_source_id": "partition:desire",
+              "required": false,
+              "reason_code": "ROUTER_PARTITION_NOT_OPENED"
+            },
+            {
+              "reference_id": "sha256:4676880790619db12597f80674df1b86d9c941aa126d79e9154f3e3bdfa0bc1d",
+              "source_id": "p05.route",
+              "stable_source_id": "partition:conflict",
+              "required": false,
+              "reason_code": "ROUTER_PARTITION_NOT_OPENED"
+            },
+            {
+              "reference_id": "sha256:49a5de380b798746d01d40c3bc8c573430c5302255610f45647360e358ab84d3",
+              "source_id": "p05.route",
+              "stable_source_id": "partition:somatic",
+              "required": false,
+              "reason_code": "ROUTER_PARTITION_NOT_OPENED"
+            },
+            {
+              "reference_id": "sha256:2825e7308a2ee60bfd6b152c307d9c7bbd3e43212101dd7e5cdd844fba693aea",
+              "source_id": "p05.route",
+              "stable_source_id": "partition:expression",
+              "required": false,
+              "reason_code": "ROUTER_PARTITION_NOT_OPENED"
+            }
+          ],
+          "consumable": true,
+          "snapshot_hash": "sha256:169d74271e0ebe8424bf081e198dc5b23aa80d42db5e6f1b092863222ad89e1b"
+        },
+        "error_code": null
+      },
+      "contradictions": {
+        "status": "COMPLETE",
+        "trace": {
+          "trace_id": "p07-trace-6912796b79fffbb561501ad7",
+          "request_id": "p01-request-954c1838a3e84cb19e3c1192d622797e",
+          "subject_id": "sub-271e8846985d41cc",
+          "environment": "TEST",
+          "source_revision": 2,
+          "source_snapshot_hash": "sha256:169d74271e0ebe8424bf081e198dc5b23aa80d42db5e6f1b092863222ad89e1b",
+          "detector_version": "p07-contradiction-detector-v1",
+          "detected_at": "2026-09-04T08:01:00Z",
+          "fragment_count": 6,
+          "evaluated_count": 1,
+          "unassessed_count": 5,
+          "psychological_excluded_count": 0,
+          "candidate_missing_count": 0,
+          "upstream_notice_count": 6,
+          "contradiction_count": 0,
+          "evaluations": [
+            {
+              "fragment_id": "sha256:9eff3876215ac417099416fcca03f3251a2eb9d938e2475d0c28362f285ed179",
+              "status": "EVALUATED",
+              "reason_code": "STRUCTURED_CLAIM_SEALED",
+              "claim_id": "claim-533a4ea6a98657dc9b102664c30040f6"
+            },
+            {
+              "fragment_id": "sha256:1d991472105f188d40ff002d8960753ef6bb0f1430d723a80e581f05445eaf6c",
+              "status": "UNASSESSED",
+              "reason_code": "NO_TRUSTED_STRUCTURED_CLAIM",
+              "claim_id": null
+            },
+            {
+              "fragment_id": "sha256:46202158cb7735e33811d9c0ac937f6e0f5ff59c017b145f29ba2e85c7383249",
+              "status": "UNASSESSED",
+              "reason_code": "NO_TRUSTED_STRUCTURED_CLAIM",
+              "claim_id": null
+            },
+            {
+              "fragment_id": "sha256:d3ac8bc4e3577a7547013de22f5e8f8df43c1eb49de9e541a02e236099d371f1",
+              "status": "UNASSESSED",
+              "reason_code": "NO_TRUSTED_STRUCTURED_CLAIM",
+              "claim_id": null
+            },
+            {
+              "fragment_id": "sha256:ef35df7d77fa70403f24fabe2811fc7a477a2844a441aa1f26f55a7b9b5227be",
+              "status": "UNASSESSED",
+              "reason_code": "NO_TRUSTED_STRUCTURED_CLAIM",
+              "claim_id": null
+            },
+            {
+              "fragment_id": "sha256:1ed46f626024af34411fd29c667cfe0cb4dfa0f97881a6abff4dc03f3c3b7bed",
+              "status": "UNASSESSED",
+              "reason_code": "NO_TRUSTED_STRUCTURED_CLAIM",
+              "claim_id": null
+            }
+          ],
+          "case_ids": [],
+          "trace_hash": "sha256:84d3480ddf5c7b17da3a2b861acd42b501f4a34c08a8a97c72c703da7b079465"
+        },
+        "cases": [],
+        "error_code": null,
+        "direct_state_write_allowed": false,
+        "evolution_commit_allowed": false
+      },
+      "effective_emotion": {
+        "confidence": 0.0,
+        "current_state": "",
+        "elapsed_seconds": 0.0,
+        "intensity": 0.0
+      },
+      "actions_enabled": true,
+      "pending_event_count": 0,
+      "expression_enabled": true,
+      "mind": {
+        "appraisal_sources": [],
+        "authority": "UNCOMMITTED_INTERNAL_CANDIDATE",
+        "base": {
+          "arousal": 0.0,
+          "conflicts": [],
+          "desires": [],
+          "dispositions": [],
+          "drives": {
+            "exploration": 0.0,
+            "expression": 0.0,
+            "intimacy": 0.0,
+            "protection": 0.0,
+            "rest": 0.0,
+            "sexual": 0.0,
+            "solitude": 0.0
+          },
+          "environment": "TEST",
+          "episodes": [],
+          "fatigue": 0.95,
+          "regulation": {},
+          "somatic": {
+            "excitement": 0.0,
+            "heaviness": 0.0,
+            "relaxation": 0.0,
+            "restlessness": 0.95,
+            "tension": 0.95,
+            "warmth": 0.0
+          },
+          "subject_id": "sub-271e8846985d41cc",
+          "subjective_seconds": 0.0,
+          "thoughts": [],
+          "updated_at": "2026-09-04T08:00:00Z",
+          "version": "p14-mind-v1",
+          "will": []
+        },
+        "before_hash": "sha256:b75235f39de651042716b0a2b3e69333d55760d925d2f4b5eeecfd3602566efb",
+        "change_reasons": [],
+        "influence": {
+          "action_tendencies": [
+            "wait",
+            "rest"
+          ],
+          "attention": {
+            "breadth": 3,
+            "narrowing": 0.570679936,
+            "themes": [
+              "intimacy",
+              "exploration",
+              "sexual"
+            ]
+          },
+          "decisions": [
+            "DEFER",
+            "PURSUE"
+          ],
+          "interpretations": [],
+          "not_factual_evidence": true,
+          "regulation": "not-attempted",
+          "subjective_seconds": 122.658588
+        },
+        "proposal": {
+          "arousal": 0.379736294,
+          "conflicts": [],
+          "desires": [
+            {
+              "created_at": "2026-09-04T08:01:00Z",
+              "drive": "intimacy",
+              "id": "desire:intimacy",
+              "object": "self",
+              "origin": "ENDOGENOUS",
+              "phase": "arise",
+              "reason": "elapsed need: intimacy",
+              "strength": 0.002773923,
+              "trajectory": [
+                {
+                  "at": "2026-09-04T08:01:00Z",
+                  "phase": "arise",
+                  "reason": "elapsed/body/need integration"
+                }
+              ],
+              "updated_at": "2026-09-04T08:01:00Z"
+            },
+            {
+              "created_at": "2026-09-04T08:01:00Z",
+              "drive": "exploration",
+              "id": "desire:exploration",
+              "object": "self",
+              "origin": "ENDOGENOUS",
+              "phase": "arise",
+              "reason": "elapsed need: exploration",
+              "strength": 0.005540152,
+              "trajectory": [
+                {
+                  "at": "2026-09-04T08:01:00Z",
+                  "phase": "arise",
+                  "reason": "elapsed/body/need integration"
+                }
+              ],
+              "updated_at": "2026-09-04T08:01:00Z"
+            },
+            {
+              "created_at": "2026-09-04T08:01:00Z",
+              "drive": "sexual",
+              "id": "desire:sexual",
+              "object": "self",
+              "origin": "ENDOGENOUS",
+              "phase": "arise",
+              "reason": "elapsed need: sexual",
+              "strength": 0.001387925,
+              "trajectory": [
+                {
+                  "at": "2026-09-04T08:01:00Z",
+                  "phase": "arise",
+                  "reason": "elapsed/body/need integration"
+                }
+              ],
+              "updated_at": "2026-09-04T08:01:00Z"
+            },
+            {
+              "created_at": "2026-09-04T08:01:00Z",
+              "drive": "solitude",
+              "id": "desire:solitude",
+              "object": "self",
+              "origin": "ENDOGENOUS",
+              "phase": "arise",
+              "reason": "elapsed need: solitude",
+              "strength": 0.003327784,
+              "trajectory": [
+                {
+                  "at": "2026-09-04T08:01:00Z",
+                  "phase": "arise",
+                  "reason": "elapsed/body/need integration"
+                }
+              ],
+              "updated_at": "2026-09-04T08:01:00Z"
+            },
+            {
+              "created_at": "2026-09-04T08:01:00Z",
+              "drive": "expression",
+              "id": "desire:expression",
+              "object": "self",
+              "origin": "ENDOGENOUS",
+              "phase": "arise",
+              "reason": "elapsed need: expression",
+              "strength": 0.004157998,
+              "trajectory": [
+                {
+                  "at": "2026-09-04T08:01:00Z",
+                  "phase": "arise",
+                  "reason": "elapsed/body/need integration"
+                }
+              ],
+              "updated_at": "2026-09-04T08:01:00Z"
+            },
+            {
+              "created_at": "2026-09-04T08:01:00Z",
+              "drive": "protection",
+              "id": "desire:protection",
+              "object": "self",
+              "origin": "ENDOGENOUS",
+              "phase": "arise",
+              "reason": "elapsed need: protection",
+              "strength": 0.004053476,
+              "trajectory": [
+                {
+                  "at": "2026-09-04T08:01:00Z",
+                  "phase": "arise",
+                  "reason": "elapsed/body/need integration"
+                }
+              ],
+              "updated_at": "2026-09-04T08:01:00Z"
+            },
+            {
+              "created_at": "2026-09-04T08:01:00Z",
+              "drive": "rest",
+              "id": "desire:rest",
+              "object": "self",
+              "origin": "ENDOGENOUS",
+              "phase": "arise",
+              "reason": "elapsed need: rest",
+              "strength": 0.004749083,
+              "trajectory": [
+                {
+                  "at": "2026-09-04T08:01:00Z",
+                  "phase": "arise",
+                  "reason": "elapsed/body/need integration"
+                }
+              ],
+              "updated_at": "2026-09-04T08:01:00Z"
+            }
+          ],
+          "dispositions": [],
+          "drives": {
+            "exploration": 0.005540152,
+            "expression": 0.004157998,
+            "intimacy": 0.002773923,
+            "protection": 0.004053476,
+            "rest": 0.004749083,
+            "sexual": 0.001387925,
+            "solitude": 0.003327784
+          },
+          "environment": "TEST",
+          "episodes": [],
+          "fatigue": 0.950052056,
+          "regulation": {},
+          "somatic": {
+            "excitement": 0.0,
+            "heaviness": 0.950052056,
+            "relaxation": 0.050633236,
+            "restlessness": 0.95,
+            "tension": 0.948681471,
+            "warmth": 0.0
+          },
+          "subject_id": "sub-271e8846985d41cc",
+          "subjective_seconds": 122.658588,
+          "thoughts": [
+            {
+              "conflict_ids": [],
+              "content": "I keep considering intimacy in relation to my need for intimacy.",
+              "created_at": "2026-09-04T08:01:00Z",
+              "desire_ids": [
+                "desire:intimacy"
+              ],
+              "id": "thought:desire:intimacy",
+              "last_recurred_at": "2026-09-04T08:01:00Z",
+              "reason": "Engine deliberation retains an unresolved internal concern.",
+              "recurrences": 1,
+              "theme": "intimacy",
+              "unresolved": true
+            },
+            {
+              "conflict_ids": [],
+              "content": "I keep considering exploration in relation to my need for exploration.",
+              "created_at": "2026-09-04T08:01:00Z",
+              "desire_ids": [
+                "desire:exploration"
+              ],
+              "id": "thought:desire:exploration",
+              "last_recurred_at": "2026-09-04T08:01:00Z",
+              "reason": "Engine deliberation retains an unresolved internal concern.",
+              "recurrences": 1,
+              "theme": "exploration",
+              "unresolved": true
+            },
+            {
+              "conflict_ids": [],
+              "content": "I keep considering sexual in relation to my need for sexual.",
+              "created_at": "2026-09-04T08:01:00Z",
+              "desire_ids": [
+                "desire:sexual"
+              ],
+              "id": "thought:desire:sexual",
+              "last_recurred_at": "2026-09-04T08:01:00Z",
+              "reason": "Engine deliberation retains an unresolved internal concern.",
+              "recurrences": 1,
+              "theme": "sexual",
+              "unresolved": true
+            },
+            {
+              "conflict_ids": [],
+              "content": "I keep considering solitude in relation to my need for solitude.",
+              "created_at": "2026-09-04T08:01:00Z",
+              "desire_ids": [
+                "desire:solitude"
+              ],
+              "id": "thought:desire:solitude",
+              "last_recurred_at": "2026-09-04T08:01:00Z",
+              "reason": "Engine deliberation retains an unresolved internal concern.",
+              "recurrences": 1,
+              "theme": "solitude",
+              "unresolved": true
+            },
+            {
+              "conflict_ids": [],
+              "content": "I keep considering expression in relation to my need for expression.",
+              "created_at": "2026-09-04T08:01:00Z",
+              "desire_ids": [
+                "desire:expression"
+              ],
+              "id": "thought:desire:expression",
+              "last_recurred_at": "2026-09-04T08:01:00Z",
+              "reason": "Engine deliberation retains an unresolved internal concern.",
+              "recurrences": 1,
+              "theme": "expression",
+              "unresolved": true
+            },
+            {
+              "conflict_ids": [],
+              "content": "I keep considering protection in relation to my need for protection.",
+              "created_at": "2026-09-04T08:01:00Z",
+              "desire_ids": [
+                "desire:protection"
+              ],
+              "id": "thought:desire:protection",
+              "last_recurred_at": "2026-09-04T08:01:00Z",
+              "reason": "Engine deliberation retains an unresolved internal concern.",
+              "recurrences": 1,
+              "theme": "protection",
+              "unresolved": true
+            },
+            {
+              "conflict_ids": [],
+              "content": "I keep considering rest in relation to my need for rest.",
+              "created_at": "2026-09-04T08:01:00Z",
+              "desire_ids": [
+                "desire:rest"
+              ],
+              "id": "thought:desire:rest",
+              "last_recurred_at": "2026-09-04T08:01:00Z",
+              "reason": "Engine deliberation retains an unresolved internal concern.",
+              "recurrences": 1,
+              "theme": "rest",
+              "unresolved": true
+            }
+          ],
+          "updated_at": "2026-09-04T08:01:00Z",
+          "version": "p14-mind-v1",
+          "will": [
+            {
+              "action_tendency": "wait",
+              "alternatives": [
+                "reconsider after new understanding",
+                "continue without resolving the conflict",
+                "defer"
+              ],
+              "commitment": "Keep this desire distinct from deciding to perform a reality action.",
+              "decision": "DEFER",
+              "desire_id": "desire:intimacy",
+              "opposing_reasons": [
+                "continuing now competes with recovery of attention"
+              ],
+              "stance": "hold",
+              "supporting_reasons": [
+                "felt need for intimacy",
+                "elapsed need: intimacy"
+              ]
+            },
+            {
+              "action_tendency": "wait",
+              "alternatives": [
+                "reconsider after new understanding",
+                "continue without resolving the conflict",
+                "defer"
+              ],
+              "commitment": "Keep this desire distinct from deciding to perform a reality action.",
+              "decision": "DEFER",
+              "desire_id": "desire:exploration",
+              "opposing_reasons": [
+                "continuing now competes with recovery of attention"
+              ],
+              "stance": "hold",
+              "supporting_reasons": [
+                "felt need for exploration",
+                "elapsed need: exploration"
+              ]
+            },
+            {
+              "action_tendency": "wait",
+              "alternatives": [
+                "reconsider after new understanding",
+                "continue without resolving the conflict",
+                "defer"
+              ],
+              "commitment": "Keep this desire distinct from deciding to perform a reality action.",
+              "decision": "DEFER",
+              "desire_id": "desire:sexual",
+              "opposing_reasons": [
+                "continuing now competes with recovery of attention"
+              ],
+              "stance": "hold",
+              "supporting_reasons": [
+                "felt need for sexual",
+                "elapsed need: sexual"
+              ]
+            },
+            {
+              "action_tendency": "wait",
+              "alternatives": [
+                "reconsider after new understanding",
+                "continue without resolving the conflict",
+                "defer"
+              ],
+              "commitment": "Keep this desire distinct from deciding to perform a reality action.",
+              "decision": "DEFER",
+              "desire_id": "desire:solitude",
+              "opposing_reasons": [
+                "continuing now competes with recovery of attention"
+              ],
+              "stance": "hold",
+              "supporting_reasons": [
+                "felt need for solitude",
+                "elapsed need: solitude"
+              ]
+            },
+            {
+              "action_tendency": "wait",
+              "alternatives": [
+                "reconsider after new understanding",
+                "continue without resolving the conflict",
+                "defer"
+              ],
+              "commitment": "Keep this desire distinct from deciding to perform a reality action.",
+              "decision": "DEFER",
+              "desire_id": "desire:expression",
+              "opposing_reasons": [
+                "continuing now competes with recovery of attention"
+              ],
+              "stance": "hold",
+              "supporting_reasons": [
+                "felt need for expression",
+                "elapsed need: expression"
+              ]
+            },
+            {
+              "action_tendency": "wait",
+              "alternatives": [
+                "reconsider after new understanding",
+                "continue without resolving the conflict",
+                "defer"
+              ],
+              "commitment": "Keep this desire distinct from deciding to perform a reality action.",
+              "decision": "DEFER",
+              "desire_id": "desire:protection",
+              "opposing_reasons": [
+                "continuing now competes with recovery of attention"
+              ],
+              "stance": "hold",
+              "supporting_reasons": [
+                "felt need for protection",
+                "elapsed need: protection"
+              ]
+            },
+            {
+              "action_tendency": "rest",
+              "alternatives": [
+                "reconsider after new understanding",
+                "continue without resolving the conflict",
+                "defer"
+              ],
+              "commitment": "Keep this desire distinct from deciding to perform a reality action.",
+              "decision": "PURSUE",
+              "desire_id": "desire:rest",
+              "opposing_reasons": [],
+              "stance": "pursue",
+              "supporting_reasons": [
+                "felt need for rest",
+                "elapsed need: rest"
+              ]
+            }
+          ]
+        },
+        "reference": {
+          "authority_label": "SUBJECT_STATE_PARTITION",
+          "content_hash": "sha256:5979a74d8b1875eaba6486d7b796c3ccf89e9885b7c436bf74485f471dfca413",
+          "environment": "TEST",
+          "explanation_codes": [
+            "P14_CURRENT_MIND_BASIS"
+          ],
+          "occurred_at": "2026-09-04T08:00:00Z",
+          "partition": "subject_state",
+          "rank": 1,
+          "score": 1.0,
+          "source_id": "engine.subject-state",
+          "stable_id": "sub-271e8846985d41cc:intentions",
+          "subject_id": "sub-271e8846985d41cc",
+          "version": "revision:2"
+        },
+        "source_revision": 2,
+        "version": "p14-cognition-input-v1"
+      }
+    }
+  }
+]

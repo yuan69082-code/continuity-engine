@@ -39,7 +39,7 @@ class CoreDecisionPolicy:
         if not action.decision.approved:
             return None
         result = thinking.session.result
-        if result is None or result.update_subject_state:
+        if result is None or (result.update_subject_state and context.mind is None):
             return None  # The original UPDATE_STATE gate/Evolution retains ownership.
         capabilities = []
         if result.request_more_memory:
@@ -111,7 +111,8 @@ class ContinuityCoreService:
                  timeline, memory_repository, consolidation, subject_states,
                  coordination, action_gate, constraints, capabilities, clock,
                  permission_policy, policy=None, gates=None, retrieval_budget=None,
-                 context_budget=None, context_ttl=timedelta(minutes=10), planner=None, limits=None, fault=None, expression_policy=None):
+                 context_budget=None, context_ttl=timedelta(minutes=10), planner=None, limits=None, fault=None, expression_policy=None,
+                 dynamic_mind=False):
         if environment not in {"TEST", "RESEARCH"}:
             raise ValueError("P09 requires a TEST/RESEARCH boundary")
         self.subject_id, self.environment = subject_id, environment
@@ -129,6 +130,13 @@ class ContinuityCoreService:
         self.context_ttl = context_ttl
         self.planner, self.limits, self.fault = planner, limits, fault
         self.expression_policy = expression_policy
+        if type(dynamic_mind) is not bool:
+            raise ValueError('dynamic_mind must be an explicit feature gate')
+        if dynamic_mind and self.gates.enabled:
+            from .dynamic_mind_service import MindCognition
+            self.mind = MindCognition(self)
+        else:
+            self.mind = None
         self.last_trace = None
         self.last_action = None
 
@@ -207,11 +215,15 @@ class ContinuityCoreService:
             perception.continuity_context.validate_perception(perception)
             return perception
         pending_events = self._consolidate_events() if self.gates.memory else 0
+        mind = self.mind.capture(perception, operation) if self.mind is not None else None
         route = self.router.route(perception, request_id=operation.request_id,
-                                  environment=self.environment, budget=self.retrieval_budget)
+                                  environment=self.environment, budget=self.retrieval_budget,
+                                  **({'attention': mind['influence']['attention']} if mind is not None else {}))
         composition = self.composer.compose(route, budget=self.context_budget)
         if composition.status is not CompositionStatus.COMPLETE:
             raise CapabilityValidationError("C1_CONTEXT_NOT_CONSUMABLE")
+        if mind is not None:
+            mind = self.mind.finalize(mind, composition)
         if not self.gates.contradictions:
             # Explicit fallback: no resolver or repository access, all claims unassessed.
             from .contradiction_detector_service import ContradictionDetectorService
@@ -225,7 +237,7 @@ class ContinuityCoreService:
                    if self.gates.emotion_decay else {"status": "FEATURE_GATED"})
         context = ContinuityCoreContext(digest(perception.to_dict()), route, composition, detection,
                                         emotion, self.gates.actions, pending_events,
-                                        expression_enabled=self.expression_policy is not None)
+                                        expression_enabled=self.expression_policy is not None, mind=mind)
         enriched = replace(perception, continuity_context=context)
         context.validate_perception(enriched)
         self._trace(context)
@@ -249,6 +261,8 @@ class ContinuityCoreService:
         if not self.constraints.validate_context(context.composition):
             return False
         if self.subject_states.load(self.subject_id).revision != snapshot.source_revision:
+            return False
+        if context.mind is not None and (self.mind is None or not self.mind.current(context)):
             return False
         # Memory/Summary versions alone do not prove their Event ancestors are
         # still valid. Recheck roots even when P05 did not retrieve raw Timeline.

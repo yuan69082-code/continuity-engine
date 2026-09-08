@@ -1,0 +1,13 @@
+test_clock_regression_and_cross_environment_are_rejected (test_p14_dynamic_mind.DynamicMindMechanismTests.test_clock_regression_and_cross_environment_are_rejected) ... ok
+test_no_observation_forms_endogenous_desire (test_p14_dynamic_mind.DynamicMindMechanismTests.test_no_observation_forms_endogenous_desire) ... ok
+test_persisted_state_restores_without_reset (test_p14_dynamic_mind.DynamicMindMechanismTests.test_persisted_state_restores_without_reset) ... ok
+test_psychological_opposites_remain_together (test_p14_dynamic_mind.DynamicMindMechanismTests.test_psychological_opposites_remain_together) ... ok
+test_same_time_replay_has_no_extra_dynamic_change (test_p14_dynamic_mind.DynamicMindMechanismTests.test_same_time_replay_has_no_extra_dynamic_change) ... ok
+test_subjective_time_depends_on_attention_and_somatic_state (test_p14_dynamic_mind.DynamicMindMechanismTests.test_subjective_time_depends_on_attention_and_somatic_state) ... ok
+test_suppression_can_fail_without_erasing_concern (test_p14_dynamic_mind.DynamicMindMechanismTests.test_suppression_can_fail_without_erasing_concern) ... ok
+test_will_records_deliberation_not_scheduler_priority (test_p14_dynamic_mind.DynamicMindMechanismTests.test_will_records_deliberation_not_scheduler_priority) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.015s
+
+OK

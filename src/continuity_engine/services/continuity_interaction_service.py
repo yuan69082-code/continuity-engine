@@ -724,6 +724,8 @@ class ContinuityInteractionService:
                 think_id=progress.think_session_id,
                 result_id=progress.thinking_result_id,
                 preserve_perception_snapshot=True,
+                **({'result_processor': self._continuity_core.mind.process}
+                   if self._continuity_core is not None and self._continuity_core.mind is not None else {}),
             )
         else:
             self._validate_completed_thinking(
@@ -891,6 +893,8 @@ class ContinuityInteractionService:
                 think_id=progress.think_session_id,
                 result=thinking_result,
                 ended_at=_contract_datetime(result.completed_at),
+                **({'result_processor': self._continuity_core.mind.process}
+                   if self._continuity_core is not None and self._continuity_core.mind is not None else {}),
             )
         else:
             self._validate_completed_thinking(

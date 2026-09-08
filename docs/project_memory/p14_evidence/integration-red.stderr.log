@@ -1,0 +1,41 @@
+test_completed_replay_does_not_advance_revision_or_repeat_effect (test_p14_mind_recovery.MindCoreIntegrationTests.test_completed_replay_does_not_advance_revision_or_repeat_effect) ... ERROR
+test_feature_off_keeps_legacy_serialization_and_behavior (test_p14_mind_recovery.MindCoreIntegrationTests.test_feature_off_keeps_legacy_serialization_and_behavior) ... ERROR
+test_normal_c1_commits_mind_through_original_evolution (test_p14_mind_recovery.MindCoreIntegrationTests.test_normal_c1_commits_mind_through_original_evolution) ... ERROR
+test_two_sessions_and_reopen_continue_one_mind (test_p14_mind_recovery.MindCoreIntegrationTests.test_two_sessions_and_reopen_continue_one_mind) ... ERROR
+
+======================================================================
+ERROR: test_completed_replay_does_not_advance_revision_or_repeat_effect (test_p14_mind_recovery.MindCoreIntegrationTests.test_completed_replay_does_not_advance_revision_or_repeat_effect)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p14_mind_recovery.py", line 9, in setUp
+    from continuity_engine.testing.p14_mind_fixture import P14Fixture
+ModuleNotFoundError: No module named 'continuity_engine.testing.p14_mind_fixture'
+
+======================================================================
+ERROR: test_feature_off_keeps_legacy_serialization_and_behavior (test_p14_mind_recovery.MindCoreIntegrationTests.test_feature_off_keeps_legacy_serialization_and_behavior)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p14_mind_recovery.py", line 9, in setUp
+    from continuity_engine.testing.p14_mind_fixture import P14Fixture
+ModuleNotFoundError: No module named 'continuity_engine.testing.p14_mind_fixture'
+
+======================================================================
+ERROR: test_normal_c1_commits_mind_through_original_evolution (test_p14_mind_recovery.MindCoreIntegrationTests.test_normal_c1_commits_mind_through_original_evolution)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p14_mind_recovery.py", line 9, in setUp
+    from continuity_engine.testing.p14_mind_fixture import P14Fixture
+ModuleNotFoundError: No module named 'continuity_engine.testing.p14_mind_fixture'
+
+======================================================================
+ERROR: test_two_sessions_and_reopen_continue_one_mind (test_p14_mind_recovery.MindCoreIntegrationTests.test_two_sessions_and_reopen_continue_one_mind)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p14_mind_recovery.py", line 9, in setUp
+    from continuity_engine.testing.p14_mind_fixture import P14Fixture
+ModuleNotFoundError: No module named 'continuity_engine.testing.p14_mind_fixture'
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.003s
+
+FAILED (errors=4)

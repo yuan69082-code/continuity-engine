@@ -1,0 +1,1582 @@
+[
+  {
+    "episodeStatuses": [
+      [
+        "anger",
+        "unresolved"
+      ]
+    ],
+    "fragments": [
+      [
+        "engine.subject-state",
+        "sub-abf0462de8354632:relationship"
+      ],
+      [
+        "engine.subject-state",
+        "sub-abf0462de8354632:continuity"
+      ],
+      [
+        "engine.subject-state",
+        "sub-abf0462de8354632:identity"
+      ],
+      [
+        "engine.subject-state",
+        "sub-abf0462de8354632:intentions"
+      ],
+      [
+        "engine.memory",
+        "memory:repair-1"
+      ]
+    ],
+    "composition": {
+      "status": "COMPLETE",
+      "trace": {
+        "trace_id": "composition-trace:p01-request-0fc6212053a0429297cf496d040ccad0",
+        "request_id": "p01-request-0fc6212053a0429297cf496d040ccad0",
+        "subject_id": "sub-abf0462de8354632",
+        "environment": "TEST",
+        "source_revision": 2,
+        "composed_at": "2026-09-04T08:02:01Z",
+        "status": "COMPLETE",
+        "route_result_hash": "sha256:9309ab73d51832168774ce809bd0b7f3c5422de7a752f795bb54d6da424d3b58",
+        "route_plan_hash": "sha256:f06858d5d837cadc75f7425dfdfc237513936edf6b0d3c12bc6bcf2d7b0e6670",
+        "manifest_hash": "sha256:d7c4abb8eb32ec33ad60dc702d2a18b1c66a9f5343d1e54e5a10d48b4a7524a8",
+        "p05_trace_hash": "sha256:d6192283538b007ffa54b6d8feeaee5fb7c64d3a124b1fd482c8b64d5375f666",
+        "feature_gate_version": "p06-context-composer-v1",
+        "budget": {
+          "core_fragment_limit": 10,
+          "token_limit": 768
+        },
+        "candidate_count": 14,
+        "resolved_count": 14,
+        "retained_count": 5,
+        "deduplicated_count": 0,
+        "excluded_count": 9,
+        "missing_count": 0,
+        "upstream_notice_count": 6,
+        "resolver_read_count": 14,
+        "resolver_read_counts": [
+          {
+            "source_id": "engine.derived-summary",
+            "read_count": 2
+          },
+          {
+            "source_id": "engine.memory",
+            "read_count": 4
+          },
+          {
+            "source_id": "engine.subject-state",
+            "read_count": 5
+          },
+          {
+            "source_id": "engine.timeline",
+            "read_count": 3
+          }
+        ],
+        "tokens_used": 679,
+        "decisions": [
+          {
+            "reference_id": "sha256:8d6875169dd17ce2a3cedeb375eee47140cc6a143ff73b1533f479d5c1fed3e5",
+            "source_id": "engine.subject-state",
+            "stable_source_id": "sub-abf0462de8354632:relationship",
+            "status": "RETAINED",
+            "reason_code": "PROTECTED_CONTEXT_RETAINED",
+            "authority": "confirmed_state",
+            "estimated_tokens": 123
+          },
+          {
+            "reference_id": "sha256:b2ec6bb044c85025de9b31269c11ffa7d3253a13d365175cb9771fc38d89d9ab",
+            "source_id": "engine.subject-state",
+            "stable_source_id": "sub-abf0462de8354632:continuity",
+            "status": "RETAINED",
+            "reason_code": "PROTECTED_CONTEXT_RETAINED",
+            "authority": "confirmed_state",
+            "estimated_tokens": 107
+          },
+          {
+            "reference_id": "sha256:4b21827e20235e8baacd90ced8c51b73153a52b6a3b9fbde463bdb28f7a3b247",
+            "source_id": "engine.subject-state",
+            "stable_source_id": "sub-abf0462de8354632:identity",
+            "status": "RETAINED",
+            "reason_code": "PROTECTED_CONTEXT_RETAINED",
+            "authority": "confirmed_state",
+            "estimated_tokens": 117
+          },
+          {
+            "reference_id": "sha256:3b6d425f6ca78b3a5be69626811980f47481c757c679a6e5bf81ed4d5a0d0e26",
+            "source_id": "engine.subject-state",
+            "stable_source_id": "sub-abf0462de8354632:intentions",
+            "status": "RETAINED",
+            "reason_code": "VERIFIED_CONTEXT_RETAINED",
+            "authority": "confirmed_state",
+            "estimated_tokens": 214
+          },
+          {
+            "reference_id": "sha256:cef0032a6d879c228984d54052d6f63b22091bd4f6c5c025a0cd2ba6bab8e4a2",
+            "source_id": "engine.memory",
+            "stable_source_id": "memory:repair-1",
+            "status": "RETAINED",
+            "reason_code": "VERIFIED_CONTEXT_RETAINED",
+            "authority": "confirmed_memory",
+            "estimated_tokens": 118
+          },
+          {
+            "reference_id": "sha256:cfd31564e3e8502a7c9fec883799b29f986ed883c41008e15e0616bdc36a9afc",
+            "source_id": "engine.memory",
+            "stable_source_id": "memory:a-harm",
+            "status": "EXCLUDED",
+            "reason_code": "CONTEXT_TOKEN_BUDGET_EXHAUSTED",
+            "authority": "confirmed_memory",
+            "estimated_tokens": 118
+          },
+          {
+            "reference_id": "sha256:599183ed8ad2379d05ccf31d04e7629c273837b00df798e4de5a2e87bca68215",
+            "source_id": "engine.derived-summary",
+            "stable_source_id": "c1-summary:7f6767cad609ff2b19250d1077f9511692ec6df216f2106544bee4097a2c0bdc",
+            "status": "EXCLUDED",
+            "reason_code": "CONTEXT_TOKEN_BUDGET_EXHAUSTED",
+            "authority": "derived_summary",
+            "estimated_tokens": 259
+          },
+          {
+            "reference_id": "sha256:f22b24655b8fc2bec3cab15af61eb49bb99c6e3946a3e84232ec3516450ca8de",
+            "source_id": "engine.derived-summary",
+            "stable_source_id": "c1-summary:a1093c4959b8a44a780385c00c1ffc2085d59575c256edfcb21e78d8e05b2ede",
+            "status": "EXCLUDED",
+            "reason_code": "CONTEXT_TOKEN_BUDGET_EXHAUSTED",
+            "authority": "derived_summary",
+            "estimated_tokens": 173
+          },
+          {
+            "reference_id": "sha256:479bab4c11dc7cb9069e6532058726acbf52bab914aa6a535249263938a20ebc",
+            "source_id": "engine.subject-state",
+            "stable_source_id": "sub-abf0462de8354632:emotion_state",
+            "status": "EXCLUDED",
+            "reason_code": "CONTEXT_TOKEN_BUDGET_EXHAUSTED",
+            "authority": "confirmed_state",
+            "estimated_tokens": 105
+          },
+          {
+            "reference_id": "sha256:cf94373c4d2287d0fa3879a00d288ee0c5cdba0d341df5e27f848271a47dc8f5",
+            "source_id": "engine.timeline",
+            "stable_source_id": "repair-1",
+            "status": "EXCLUDED",
+            "reason_code": "CONTEXT_TOKEN_BUDGET_EXHAUSTED",
+            "authority": "raw_source",
+            "estimated_tokens": 120
+          },
+          {
+            "reference_id": "sha256:262a88cbf6df2853d0996ebcc19b39a9f3a0b66af580a150d4a9af0e5875644c",
+            "source_id": "engine.timeline",
+            "stable_source_id": "a-harm",
+            "status": "EXCLUDED",
+            "reason_code": "CONTEXT_TOKEN_BUDGET_EXHAUSTED",
+            "authority": "raw_source",
+            "estimated_tokens": 120
+          },
+          {
+            "reference_id": "sha256:0ec47fe861e030adbf52e5a89576e20676358ed5fdb3cf870a72a6d7bec79566",
+            "source_id": "engine.timeline",
+            "stable_source_id": "p01-fixture-event-25232cda6da04d89",
+            "status": "EXCLUDED",
+            "reason_code": "CONTEXT_TOKEN_BUDGET_EXHAUSTED",
+            "authority": "raw_source",
+            "estimated_tokens": 105
+          },
+          {
+            "reference_id": "sha256:6d0371cd7674ebf363640616d8a1dd0be3cf59729c9c857398cbf45c17c1208e",
+            "source_id": "engine.memory",
+            "stable_source_id": "memory:abccb321-4613-57df-ae1c-56c4d62a2862",
+            "status": "EXCLUDED",
+            "reason_code": "CONTEXT_TOKEN_BUDGET_EXHAUSTED",
+            "authority": "confirmed_memory",
+            "estimated_tokens": 98
+          },
+          {
+            "reference_id": "sha256:a7559ad68c4508087cce5ddf9d586db3a648345bcc8acf15beddebdcef67b2c4",
+            "source_id": "engine.memory",
+            "stable_source_id": "memory:p01-fixture-event-25232cda6da04d89",
+            "status": "EXCLUDED",
+            "reason_code": "CONTEXT_TOKEN_BUDGET_EXHAUSTED",
+            "authority": "confirmed_memory",
+            "estimated_tokens": 102
+          }
+        ],
+        "upstream_notices": [
+          {
+            "reference_id": "sha256:df7b32d6f7e4d0231a3ccba0a70651221c0e6f493134119da9805ceb4fc3d04f",
+            "source_id": "p05.route",
+            "stable_source_id": "partition:local_fact",
+            "required": false,
+            "reason_code": "ROUTER_PARTITION_UNAVAILABLE"
+          },
+          {
+            "reference_id": "sha256:a0ca0f7e159ed20e08904da0ec3a6754acf5797073a425dccc234d1feb5a0633",
+            "source_id": "p05.route",
+            "stable_source_id": "partition:attention",
+            "required": false,
+            "reason_code": "ROUTER_PARTITION_NOT_OPENED"
+          },
+          {
+            "reference_id": "sha256:422c57f2b44e5e55bcd91e8474878c004dacf0e746ab05840ebb93f9e4513f3e",
+            "source_id": "p05.route",
+            "stable_source_id": "partition:desire",
+            "required": false,
+            "reason_code": "ROUTER_PARTITION_NOT_OPENED"
+          },
+          {
+            "reference_id": "sha256:4676880790619db12597f80674df1b86d9c941aa126d79e9154f3e3bdfa0bc1d",
+            "source_id": "p05.route",
+            "stable_source_id": "partition:conflict",
+            "required": false,
+            "reason_code": "ROUTER_PARTITION_NOT_OPENED"
+          },
+          {
+            "reference_id": "sha256:49a5de380b798746d01d40c3bc8c573430c5302255610f45647360e358ab84d3",
+            "source_id": "p05.route",
+            "stable_source_id": "partition:somatic",
+            "required": false,
+            "reason_code": "ROUTER_PARTITION_NOT_OPENED"
+          },
+          {
+            "reference_id": "sha256:2825e7308a2ee60bfd6b152c307d9c7bbd3e43212101dd7e5cdd844fba693aea",
+            "source_id": "p05.route",
+            "stable_source_id": "partition:expression",
+            "required": false,
+            "reason_code": "ROUTER_PARTITION_NOT_OPENED"
+          }
+        ],
+        "trace_hash": "sha256:71c2dc3b98aafb0d0b7d3c59c919e84d71a423e0879d166592728013cbb538dd"
+      },
+      "snapshot": {
+        "snapshot_id": "context-snapshot:p01-request-0fc6212053a0429297cf496d040ccad0",
+        "request_id": "p01-request-0fc6212053a0429297cf496d040ccad0",
+        "subject_id": "sub-abf0462de8354632",
+        "environment": "TEST",
+        "source_revision": 2,
+        "composed_at": "2026-09-04T08:02:01Z",
+        "route_result_hash": "sha256:9309ab73d51832168774ce809bd0b7f3c5422de7a752f795bb54d6da424d3b58",
+        "route_plan_hash": "sha256:f06858d5d837cadc75f7425dfdfc237513936edf6b0d3c12bc6bcf2d7b0e6670",
+        "manifest_hash": "sha256:d7c4abb8eb32ec33ad60dc702d2a18b1c66a9f5343d1e54e5a10d48b4a7524a8",
+        "budget": {
+          "core_fragment_limit": 10,
+          "token_limit": 768
+        },
+        "fragments": [
+          {
+            "fragment_id": "sha256:e61a7570739bc6525adc48169c4af2328dd9e341a42d60b54e67ed075108f4f3",
+            "reference_id": "sha256:8d6875169dd17ce2a3cedeb375eee47140cc6a143ff73b1533f479d5c1fed3e5",
+            "subject_id": "sub-abf0462de8354632",
+            "environment": "TEST",
+            "authority": "confirmed_state",
+            "source_id": "engine.subject-state",
+            "source_type": "subject_state_section",
+            "stable_source_id": "sub-abf0462de8354632:relationship",
+            "version": "revision:2",
+            "content_hash": "sha256:679b951babe86c25aba0a2a691639426fe3ef8f65624828de92a9cd990da6826",
+            "occurred_at": "2026-09-04T08:01:00Z",
+            "relevance": 1.0,
+            "confidence": 1.0,
+            "provenance_roots": [
+              "subject-state:sub-abf0462de8354632:revision:2:relationship"
+            ],
+            "conflict_markers": [],
+            "missing_markers": [],
+            "estimated_tokens": 123,
+            "rank": 1,
+            "retained_reason": "PROTECTED_CONTEXT_RETAINED",
+            "content": "{\"current_status\":\"testing continuity\",\"definition\":\"\",\"important_moments\":[\"synthetic genesis\"],\"interaction_preferences\":[]}",
+            "protected": true,
+            "protection_role": "relationship",
+            "direct_state_write_allowed": false
+          },
+          {
+            "fragment_id": "sha256:992c1530218b2cf779f48a2e5f376d44198464b435bbaca0228650877ff29fcc",
+            "reference_id": "sha256:b2ec6bb044c85025de9b31269c11ffa7d3253a13d365175cb9771fc38d89d9ab",
+            "subject_id": "sub-abf0462de8354632",
+            "environment": "TEST",
+            "authority": "confirmed_state",
+            "source_id": "engine.subject-state",
+            "source_type": "subject_state_section",
+            "stable_source_id": "sub-abf0462de8354632:continuity",
+            "version": "revision:2",
+            "content_hash": "sha256:9fc7dcdb5db93fab5c77a4fb7b266f39d022a53463338c2c84fc7a87d1f18adb",
+            "occurred_at": "2026-09-04T08:01:00Z",
+            "relevance": 0.895,
+            "confidence": 1.0,
+            "provenance_roots": [
+              "subject-state:sub-abf0462de8354632:revision:2:continuity"
+            ],
+            "conflict_markers": [],
+            "missing_markers": [],
+            "estimated_tokens": 107,
+            "rank": 2,
+            "retained_reason": "PROTECTED_CONTEXT_RETAINED",
+            "content": "{\"current_focus\":[\"continuity\"],\"recent_changes\":[],\"unfinished_items\":[]}",
+            "protected": true,
+            "protection_role": "continuity",
+            "direct_state_write_allowed": false
+          },
+          {
+            "fragment_id": "sha256:5e0f9b8a40d26424d283468f001178661fa3220f184eada175d4715a50c9313c",
+            "reference_id": "sha256:4b21827e20235e8baacd90ced8c51b73153a52b6a3b9fbde463bdb28f7a3b247",
+            "subject_id": "sub-abf0462de8354632",
+            "environment": "TEST",
+            "authority": "confirmed_state",
+            "source_id": "engine.subject-state",
+            "source_type": "subject_state_section",
+            "stable_source_id": "sub-abf0462de8354632:identity",
+            "version": "revision:2",
+            "content_hash": "sha256:1842e52dac172ee2c9f1dd1a92f7e2cd5b8dad135789625db4c658cc808a0220",
+            "occurred_at": "2026-09-04T08:01:00Z",
+            "relevance": 0.865,
+            "confidence": 1.0,
+            "provenance_roots": [
+              "subject-state:sub-abf0462de8354632:revision:2:identity"
+            ],
+            "conflict_markers": [],
+            "missing_markers": [],
+            "estimated_tokens": 117,
+            "rank": 3,
+            "retained_reason": "PROTECTED_CONTEXT_RETAINED",
+            "content": "{\"expression_preferences\":[\"concise\"],\"judgment_principles\":[],\"self_concept\":\"\",\"stable_traits\":[\"continuity\"]}",
+            "protected": true,
+            "protection_role": "identity",
+            "direct_state_write_allowed": false
+          },
+          {
+            "fragment_id": "sha256:23d4d77c8fd52ffd667d4e9a8cec8c3c68b686727ee3586443f5a42741f2e60d",
+            "reference_id": "sha256:3b6d425f6ca78b3a5be69626811980f47481c757c679a6e5bf81ed4d5a0d0e26",
+            "subject_id": "sub-abf0462de8354632",
+            "environment": "TEST",
+            "authority": "confirmed_state",
+            "source_id": "engine.subject-state",
+            "source_type": "subject_state_section",
+            "stable_source_id": "sub-abf0462de8354632:intentions",
+            "version": "revision:2",
+            "content_hash": "sha256:5b07cd8d61a05379064d11b34f21b0efc25dd097ea06bfb99584c62841f4f6ee",
+            "occurred_at": "2026-09-04T08:01:00Z",
+            "relevance": 0.85,
+            "confidence": 1.0,
+            "provenance_roots": [
+              "subject-state:sub-abf0462de8354632:revision:2:intentions"
+            ],
+            "conflict_markers": [],
+            "missing_markers": [],
+            "estimated_tokens": 214,
+            "rank": 4,
+            "retained_reason": "VERIFIED_CONTEXT_RETAINED",
+            "content": "{\"action_tendencies\":[],\"dynamic_mind\":{\"conflict_count\":0,\"desire_count\":7,\"detail\":\"authorized-current-state-projection; not the complete private record\",\"environment\":\"TEST\",\"episode_count\":1,\"state_hash\":\"sha256:fdf4a077ff930ed0f8ce4e297e4c57f1647d4273e4ad2efe9d649c9794834303\",\"subject_id\":\"sub-abf0462de8354632\",\"subjective_seconds\":66.800051,\"thought_count\":7,\"updated_at\":\"2026-09-04T08:01:00Z\",\"version\":\"p14-mind-v1\"},\"emerging_thoughts\":[],\"judgments\":[]}",
+            "protected": false,
+            "protection_role": null,
+            "direct_state_write_allowed": false
+          },
+          {
+            "fragment_id": "sha256:9048d5a67478f0f5c719b01bbfb20298b958bc4be0ead350e20402214ae6c860",
+            "reference_id": "sha256:cef0032a6d879c228984d54052d6f63b22091bd4f6c5c025a0cd2ba6bab8e4a2",
+            "subject_id": "sub-abf0462de8354632",
+            "environment": "TEST",
+            "authority": "confirmed_memory",
+            "source_id": "engine.memory",
+            "source_type": "memory_record",
+            "stable_source_id": "memory:repair-1",
+            "version": "revision:0",
+            "content_hash": "sha256:53351a5eb9a1307b59571ec90de394a25296f12ff228b6724fad128d7adcf86e",
+            "occurred_at": "2026-09-04T08:02:00Z",
+            "relevance": 0.8315,
+            "confidence": 0.8,
+            "provenance_roots": [
+              "event:repair-1"
+            ],
+            "conflict_markers": [],
+            "missing_markers": [],
+            "estimated_tokens": 118,
+            "rank": 5,
+            "retained_reason": "VERIFIED_CONTEXT_RETAINED",
+            "content": "interaction: {\"experienced\": {\"object\": \"peer\", \"observation\": \"expectation_met\", \"expectation\": \"mutual respect\", \"consequence\": \"expectation met\", \"impact\": 0.7}}",
+            "protected": false,
+            "protection_role": null,
+            "direct_state_write_allowed": false
+          }
+        ],
+        "missing_notices": [
+          {
+            "reference_id": "sha256:df7b32d6f7e4d0231a3ccba0a70651221c0e6f493134119da9805ceb4fc3d04f",
+            "source_id": "p05.route",
+            "stable_source_id": "partition:local_fact",
+            "required": false,
+            "reason_code": "ROUTER_PARTITION_UNAVAILABLE"
+          },
+          {
+            "reference_id": "sha256:a0ca0f7e159ed20e08904da0ec3a6754acf5797073a425dccc234d1feb5a0633",
+            "source_id": "p05.route",
+            "stable_source_id": "partition:attention",
+            "required": false,
+            "reason_code": "ROUTER_PARTITION_NOT_OPENED"
+          },
+          {
+            "reference_id": "sha256:422c57f2b44e5e55bcd91e8474878c004dacf0e746ab05840ebb93f9e4513f3e",
+            "source_id": "p05.route",
+            "stable_source_id": "partition:desire",
+            "required": false,
+            "reason_code": "ROUTER_PARTITION_NOT_OPENED"
+          },
+          {
+            "reference_id": "sha256:4676880790619db12597f80674df1b86d9c941aa126d79e9154f3e3bdfa0bc1d",
+            "source_id": "p05.route",
+            "stable_source_id": "partition:conflict",
+            "required": false,
+            "reason_code": "ROUTER_PARTITION_NOT_OPENED"
+          },
+          {
+            "reference_id": "sha256:49a5de380b798746d01d40c3bc8c573430c5302255610f45647360e358ab84d3",
+            "source_id": "p05.route",
+            "stable_source_id": "partition:somatic",
+            "required": false,
+            "reason_code": "ROUTER_PARTITION_NOT_OPENED"
+          },
+          {
+            "reference_id": "sha256:2825e7308a2ee60bfd6b152c307d9c7bbd3e43212101dd7e5cdd844fba693aea",
+            "source_id": "p05.route",
+            "stable_source_id": "partition:expression",
+            "required": false,
+            "reason_code": "ROUTER_PARTITION_NOT_OPENED"
+          }
+        ],
+        "consumable": true,
+        "snapshot_hash": "sha256:4f521a308ba6aabf7e19c1ffe9b909fd715387862f5dcb96d2288bd66dec648f"
+      },
+      "error_code": null
+    },
+    "candidates": [
+      {
+        "source_id": "engine.subject-state",
+        "partition": "subject_state",
+        "stable_id": "sub-abf0462de8354632:relationship",
+        "subject_id": "sub-abf0462de8354632",
+        "environment": "TEST",
+        "version": "revision:2",
+        "content_hash": "sha256:679b951babe86c25aba0a2a691639426fe3ef8f65624828de92a9cd990da6826",
+        "authority_label": "SUBJECT_STATE_PARTITION",
+        "rank": 1,
+        "score": 1.0,
+        "occurred_at": "2026-09-04T08:01:00Z",
+        "explanation_codes": [
+          "PURPOSE_RELEVANCE",
+          "RECENCY",
+          "IMPORTANCE",
+          "ACTIVATION",
+          "STABLE_TIE_BREAK"
+        ]
+      },
+      {
+        "source_id": "engine.subject-state",
+        "partition": "subject_state",
+        "stable_id": "sub-abf0462de8354632:continuity",
+        "subject_id": "sub-abf0462de8354632",
+        "environment": "TEST",
+        "version": "revision:2",
+        "content_hash": "sha256:9fc7dcdb5db93fab5c77a4fb7b266f39d022a53463338c2c84fc7a87d1f18adb",
+        "authority_label": "SUBJECT_STATE_PARTITION",
+        "rank": 2,
+        "score": 0.895,
+        "occurred_at": "2026-09-04T08:01:00Z",
+        "explanation_codes": [
+          "PURPOSE_RELEVANCE",
+          "RECENCY",
+          "IMPORTANCE",
+          "ACTIVATION",
+          "STABLE_TIE_BREAK"
+        ]
+      },
+      {
+        "source_id": "engine.subject-state",
+        "partition": "subject_state",
+        "stable_id": "sub-abf0462de8354632:identity",
+        "subject_id": "sub-abf0462de8354632",
+        "environment": "TEST",
+        "version": "revision:2",
+        "content_hash": "sha256:1842e52dac172ee2c9f1dd1a92f7e2cd5b8dad135789625db4c658cc808a0220",
+        "authority_label": "SUBJECT_STATE_PARTITION",
+        "rank": 3,
+        "score": 0.865,
+        "occurred_at": "2026-09-04T08:01:00Z",
+        "explanation_codes": [
+          "PURPOSE_RELEVANCE",
+          "RECENCY",
+          "IMPORTANCE",
+          "ACTIVATION",
+          "STABLE_TIE_BREAK"
+        ]
+      },
+      {
+        "source_id": "engine.subject-state",
+        "partition": "subject_state",
+        "stable_id": "sub-abf0462de8354632:intentions",
+        "subject_id": "sub-abf0462de8354632",
+        "environment": "TEST",
+        "version": "revision:2",
+        "content_hash": "sha256:5b07cd8d61a05379064d11b34f21b0efc25dd097ea06bfb99584c62841f4f6ee",
+        "authority_label": "SUBJECT_STATE_PARTITION",
+        "rank": 4,
+        "score": 0.85,
+        "occurred_at": "2026-09-04T08:01:00Z",
+        "explanation_codes": [
+          "PURPOSE_RELEVANCE",
+          "RECENCY",
+          "IMPORTANCE",
+          "ACTIVATION",
+          "STABLE_TIE_BREAK"
+        ]
+      },
+      {
+        "source_id": "engine.memory",
+        "partition": "memory",
+        "stable_id": "memory:repair-1",
+        "subject_id": "sub-abf0462de8354632",
+        "environment": "TEST",
+        "version": "revision:0",
+        "content_hash": "sha256:53351a5eb9a1307b59571ec90de394a25296f12ff228b6724fad128d7adcf86e",
+        "authority_label": "MEMORY_RECORD",
+        "rank": 5,
+        "score": 0.8315,
+        "occurred_at": "2026-09-04T08:02:00Z",
+        "explanation_codes": [
+          "PURPOSE_RELEVANCE",
+          "RECENCY",
+          "IMPORTANCE",
+          "ACTIVATION",
+          "STABLE_TIE_BREAK"
+        ]
+      },
+      {
+        "source_id": "engine.memory",
+        "partition": "memory",
+        "stable_id": "memory:a-harm",
+        "subject_id": "sub-abf0462de8354632",
+        "environment": "TEST",
+        "version": "revision:0",
+        "content_hash": "sha256:5920acc57b0a2568b35e60ed06723848b0d41cb4dbff0e5af9e260dc8ce61589",
+        "authority_label": "MEMORY_RECORD",
+        "rank": 6,
+        "score": 0.831499,
+        "occurred_at": "2026-09-04T08:00:00Z",
+        "explanation_codes": [
+          "PURPOSE_RELEVANCE",
+          "RECENCY",
+          "IMPORTANCE",
+          "ACTIVATION",
+          "STABLE_TIE_BREAK"
+        ]
+      },
+      {
+        "source_id": "engine.derived-summary",
+        "partition": "derived_summary",
+        "stable_id": "c1-summary:7f6767cad609ff2b19250d1077f9511692ec6df216f2106544bee4097a2c0bdc",
+        "subject_id": "sub-abf0462de8354632",
+        "environment": "TEST",
+        "version": "version:1",
+        "content_hash": "sha256:4328ce51da86f70319532e7d130cf2e4ddcd29cb75184ebc1d9e712e3fc4145b",
+        "authority_label": "DERIVED_MEMORY_VIEW",
+        "rank": 7,
+        "score": 0.81,
+        "occurred_at": "2026-09-04T08:02:00Z",
+        "explanation_codes": [
+          "PURPOSE_RELEVANCE",
+          "RECENCY",
+          "IMPORTANCE",
+          "ACTIVATION",
+          "STABLE_TIE_BREAK"
+        ]
+      },
+      {
+        "source_id": "engine.derived-summary",
+        "partition": "derived_summary",
+        "stable_id": "c1-summary:a1093c4959b8a44a780385c00c1ffc2085d59575c256edfcb21e78d8e05b2ede",
+        "subject_id": "sub-abf0462de8354632",
+        "environment": "TEST",
+        "version": "version:1",
+        "content_hash": "sha256:820bf9489f028600e559cef788e24f10735469681552b5e642646efc0d630ff3",
+        "authority_label": "DERIVED_MEMORY_VIEW",
+        "rank": 8,
+        "score": 0.809999,
+        "occurred_at": "2026-09-04T08:00:00Z",
+        "explanation_codes": [
+          "PURPOSE_RELEVANCE",
+          "RECENCY",
+          "IMPORTANCE",
+          "ACTIVATION",
+          "STABLE_TIE_BREAK"
+        ]
+      },
+      {
+        "source_id": "engine.subject-state",
+        "partition": "subject_state",
+        "stable_id": "sub-abf0462de8354632:emotion_state",
+        "subject_id": "sub-abf0462de8354632",
+        "environment": "TEST",
+        "version": "revision:2",
+        "content_hash": "sha256:83f76d7bbaf86d0ae22f5c1cc53c06e21e6107f87a8064f4c518d2d9ccec9fe8",
+        "authority_label": "SUBJECT_STATE_PARTITION",
+        "rank": 9,
+        "score": 0.805,
+        "occurred_at": "2026-09-04T08:01:00Z",
+        "explanation_codes": [
+          "PURPOSE_RELEVANCE",
+          "RECENCY",
+          "IMPORTANCE",
+          "ACTIVATION",
+          "STABLE_TIE_BREAK"
+        ]
+      },
+      {
+        "source_id": "engine.timeline",
+        "partition": "timeline",
+        "stable_id": "repair-1",
+        "subject_id": "sub-abf0462de8354632",
+        "environment": "TEST",
+        "version": "update:e8c0db85-17f4-4d66-817e-a460e94c1ae9",
+        "content_hash": "sha256:f38231e81e51e4cef10f0a1521cc47fe69ca1027e8f60e41e19d4120fcdb7ebd",
+        "authority_label": "TIMELINE_EVENT_PROJECTION",
+        "rank": 10,
+        "score": 0.75,
+        "occurred_at": "2026-09-04T08:02:00Z",
+        "explanation_codes": [
+          "PURPOSE_RELEVANCE",
+          "RECENCY",
+          "IMPORTANCE",
+          "ACTIVATION",
+          "STABLE_TIE_BREAK"
+        ]
+      },
+      {
+        "source_id": "engine.timeline",
+        "partition": "timeline",
+        "stable_id": "a-harm",
+        "subject_id": "sub-abf0462de8354632",
+        "environment": "TEST",
+        "version": "update:67256a3e-e13a-4b3e-92de-e17c5cc6eeaa",
+        "content_hash": "sha256:35ef9372804bd8d65a929e8a83a22c39a61a21ddc5f9b532a63a35b3fc1df376",
+        "authority_label": "TIMELINE_EVENT_PROJECTION",
+        "rank": 11,
+        "score": 0.749999,
+        "occurred_at": "2026-09-04T08:00:00Z",
+        "explanation_codes": [
+          "PURPOSE_RELEVANCE",
+          "RECENCY",
+          "IMPORTANCE",
+          "ACTIVATION",
+          "STABLE_TIE_BREAK"
+        ]
+      },
+      {
+        "source_id": "engine.timeline",
+        "partition": "timeline",
+        "stable_id": "p01-fixture-event-25232cda6da04d89",
+        "subject_id": "sub-abf0462de8354632",
+        "environment": "TEST",
+        "version": "update:c631f6b5-a816-4a68-ad59-2b99cc0585f2",
+        "content_hash": "sha256:295163d5d086291a4700c4983dfc259e3835ab30ac9e81484de8cea9de6cca45",
+        "authority_label": "TIMELINE_EVENT_PROJECTION",
+        "rank": 12,
+        "score": 0.704999,
+        "occurred_at": "2026-09-04T08:00:00Z",
+        "explanation_codes": [
+          "PURPOSE_RELEVANCE",
+          "RECENCY",
+          "IMPORTANCE",
+          "ACTIVATION",
+          "STABLE_TIE_BREAK"
+        ]
+      },
+      {
+        "source_id": "engine.memory",
+        "partition": "memory",
+        "stable_id": "memory:abccb321-4613-57df-ae1c-56c4d62a2862",
+        "subject_id": "sub-abf0462de8354632",
+        "environment": "TEST",
+        "version": "revision:0",
+        "content_hash": "sha256:163d07b195a523e5b835b51933c6dc5010878725212fcc96f4b955fa90bf4099",
+        "authority_label": "MEMORY_RECORD",
+        "rank": 13,
+        "score": 0.6515,
+        "occurred_at": "2026-09-04T08:01:00Z",
+        "explanation_codes": [
+          "PURPOSE_RELEVANCE",
+          "RECENCY",
+          "IMPORTANCE",
+          "ACTIVATION",
+          "STABLE_TIE_BREAK"
+        ]
+      },
+      {
+        "source_id": "engine.memory",
+        "partition": "memory",
+        "stable_id": "memory:p01-fixture-event-25232cda6da04d89",
+        "subject_id": "sub-abf0462de8354632",
+        "environment": "TEST",
+        "version": "revision:0",
+        "content_hash": "sha256:9e6abbc95e32ae6f8b85bf6fc6c3e6bc9866749d6bd2f8761c493d45ff495487",
+        "authority_label": "MEMORY_RECORD",
+        "rank": 14,
+        "score": 0.651499,
+        "occurred_at": "2026-09-04T08:00:00Z",
+        "explanation_codes": [
+          "PURPOSE_RELEVANCE",
+          "RECENCY",
+          "IMPORTANCE",
+          "ACTIVATION",
+          "STABLE_TIE_BREAK"
+        ]
+      }
+    ]
+  },
+  {
+    "episodeStatuses": [
+      [
+        "anger",
+        "unresolved"
+      ]
+    ],
+    "fragments": [
+      [
+        "engine.subject-state",
+        "sub-abf0462de8354632:relationship"
+      ],
+      [
+        "engine.subject-state",
+        "sub-abf0462de8354632:continuity"
+      ],
+      [
+        "engine.subject-state",
+        "sub-abf0462de8354632:identity"
+      ],
+      [
+        "engine.subject-state",
+        "sub-abf0462de8354632:intentions"
+      ],
+      [
+        "engine.memory",
+        "memory:repair-2"
+      ]
+    ],
+    "composition": {
+      "status": "COMPLETE",
+      "trace": {
+        "trace_id": "composition-trace:p01-request-baec83c75a58441c926bc9b3cc662b8f",
+        "request_id": "p01-request-baec83c75a58441c926bc9b3cc662b8f",
+        "subject_id": "sub-abf0462de8354632",
+        "environment": "TEST",
+        "source_revision": 3,
+        "composed_at": "2026-09-04T08:03:02Z",
+        "status": "COMPLETE",
+        "route_result_hash": "sha256:92eb25b412c71d1757fe38d67f955b5c061b6050853ae3883a8f04c054361d85",
+        "route_plan_hash": "sha256:bb2c59577af5938c6c7b6d6579b813b9691d9de19eb277edb70a2663a2561971",
+        "manifest_hash": "sha256:bca224f58140616147bac7fa7a5d0bff7005f50441cbcb9bd050a8202eeca2cf",
+        "p05_trace_hash": "sha256:d4ad62ae0ce79baf5ba6037ad0bd27878ceb02110dc779260692f7fad5a90ccf",
+        "feature_gate_version": "p06-context-composer-v1",
+        "budget": {
+          "core_fragment_limit": 10,
+          "token_limit": 768
+        },
+        "candidate_count": 18,
+        "resolved_count": 18,
+        "retained_count": 5,
+        "deduplicated_count": 0,
+        "excluded_count": 13,
+        "missing_count": 0,
+        "upstream_notice_count": 6,
+        "resolver_read_count": 18,
+        "resolver_read_counts": [
+          {
+            "source_id": "engine.derived-summary",
+            "read_count": 3
+          },
+          {
+            "source_id": "engine.memory",
+            "read_count": 6
+          },
+          {
+            "source_id": "engine.subject-state",
+            "read_count": 5
+          },
+          {
+            "source_id": "engine.timeline",
+            "read_count": 4
+          }
+        ],
+        "tokens_used": 679,
+        "decisions": [
+          {
+            "reference_id": "sha256:15a7e890b9b344f974e55cfeee1e664a398a2c9df72347cb4beaade9f724c772",
+            "source_id": "engine.subject-state",
+            "stable_source_id": "sub-abf0462de8354632:relationship",
+            "status": "RETAINED",
+            "reason_code": "PROTECTED_CONTEXT_RETAINED",
+            "authority": "confirmed_state",
+            "estimated_tokens": 123
+          },
+          {
+            "reference_id": "sha256:866e55a9de87992bfdf77475491be2b5eeea9505121d4738b0cdd8273ede5a45",
+            "source_id": "engine.subject-state",
+            "stable_source_id": "sub-abf0462de8354632:continuity",
+            "status": "RETAINED",
+            "reason_code": "PROTECTED_CONTEXT_RETAINED",
+            "authority": "confirmed_state",
+            "estimated_tokens": 107
+          },
+          {
+            "reference_id": "sha256:090a7f71c4140fcfb4535674bb239bf71f040fad6e2241bb23acd04ceab04ba4",
+            "source_id": "engine.subject-state",
+            "stable_source_id": "sub-abf0462de8354632:identity",
+            "status": "RETAINED",
+            "reason_code": "PROTECTED_CONTEXT_RETAINED",
+            "authority": "confirmed_state",
+            "estimated_tokens": 117
+          },
+          {
+            "reference_id": "sha256:decc5767f0d3f5161832fd0c444420e2257dee5c7271f4e41c728eaa98dc650d",
+            "source_id": "engine.subject-state",
+            "stable_source_id": "sub-abf0462de8354632:intentions",
+            "status": "RETAINED",
+            "reason_code": "VERIFIED_CONTEXT_RETAINED",
+            "authority": "confirmed_state",
+            "estimated_tokens": 214
+          },
+          {
+            "reference_id": "sha256:3fafaab7aeac17ab765133b8e7d02eecc19a6f71ec99f00cb84d7072e44b78a8",
+            "source_id": "engine.memory",
+            "stable_source_id": "memory:repair-2",
+            "status": "RETAINED",
+            "reason_code": "VERIFIED_CONTEXT_RETAINED",
+            "authority": "confirmed_memory",
+            "estimated_tokens": 118
+          },
+          {
+            "reference_id": "sha256:c2a39d1ca1e0878acd78dbc7702640fd2d6858006e9b6ae6569a2c5565c9fbf2",
+            "source_id": "engine.memory",
+            "stable_source_id": "memory:repair-1",
+            "status": "EXCLUDED",
+            "reason_code": "CONTEXT_TOKEN_BUDGET_EXHAUSTED",
+            "authority": "confirmed_memory",
+            "estimated_tokens": 118
+          },
+          {
+            "reference_id": "sha256:9af936d050df5063ee8fe8636bc4525975ed28430b9c43a5ba09241af6dde1fb",
+            "source_id": "engine.memory",
+            "stable_source_id": "memory:a-harm",
+            "status": "EXCLUDED",
+            "reason_code": "CONTEXT_TOKEN_BUDGET_EXHAUSTED",
+            "authority": "confirmed_memory",
+            "estimated_tokens": 118
+          },
+          {
+            "reference_id": "sha256:356d655d7f4666165a73acc466b5cbe27a80ac736e3544eda21cb3e1de2707b2",
+            "source_id": "engine.derived-summary",
+            "stable_source_id": "c1-summary:7315ec4d24da940e00a4b0dcfaa93d0c58eaf01141329e93bb6e92d84ffbc82c",
+            "status": "EXCLUDED",
+            "reason_code": "CONTEXT_TOKEN_BUDGET_EXHAUSTED",
+            "authority": "derived_summary",
+            "estimated_tokens": 344
+          },
+          {
+            "reference_id": "sha256:a9ad97118317cc240a7e1e9496a144cee1aa5d18b8efb8e2192962f01abacb39",
+            "source_id": "engine.derived-summary",
+            "stable_source_id": "c1-summary:7f6767cad609ff2b19250d1077f9511692ec6df216f2106544bee4097a2c0bdc",
+            "status": "EXCLUDED",
+            "reason_code": "CONTEXT_TOKEN_BUDGET_EXHAUSTED",
+            "authority": "derived_summary",
+            "estimated_tokens": 259
+          },
+          {
+            "reference_id": "sha256:be382ecd82b6f688968bb1901663c4b43f18d3b2b27f5ba1c1f5a7179a5302b5",
+            "source_id": "engine.derived-summary",
+            "stable_source_id": "c1-summary:a1093c4959b8a44a780385c00c1ffc2085d59575c256edfcb21e78d8e05b2ede",
+            "status": "EXCLUDED",
+            "reason_code": "CONTEXT_TOKEN_BUDGET_EXHAUSTED",
+            "authority": "derived_summary",
+            "estimated_tokens": 173
+          },
+          {
+            "reference_id": "sha256:8c2ed43c72549897549b7a0b519885262217e7857e2ff10f82e8595222e8f1aa",
+            "source_id": "engine.subject-state",
+            "stable_source_id": "sub-abf0462de8354632:emotion_state",
+            "status": "EXCLUDED",
+            "reason_code": "CONTEXT_TOKEN_BUDGET_EXHAUSTED",
+            "authority": "confirmed_state",
+            "estimated_tokens": 105
+          },
+          {
+            "reference_id": "sha256:79aee29cd0f2f10d706e4623d45ffcebcd2a7d023405494cee1031f6b6481272",
+            "source_id": "engine.timeline",
+            "stable_source_id": "repair-2",
+            "status": "EXCLUDED",
+            "reason_code": "CONTEXT_TOKEN_BUDGET_EXHAUSTED",
+            "authority": "raw_source",
+            "estimated_tokens": 120
+          },
+          {
+            "reference_id": "sha256:40f21b69e13d226076eef7b3b6c9dbecd28d113ff39101f8c6bab18c103c46ed",
+            "source_id": "engine.timeline",
+            "stable_source_id": "repair-1",
+            "status": "EXCLUDED",
+            "reason_code": "CONTEXT_TOKEN_BUDGET_EXHAUSTED",
+            "authority": "raw_source",
+            "estimated_tokens": 120
+          },
+          {
+            "reference_id": "sha256:12897ba09d8205c88bd2d54fb19f4a1e395f067fe59c7f506ddf5b3a0a9dc641",
+            "source_id": "engine.timeline",
+            "stable_source_id": "a-harm",
+            "status": "EXCLUDED",
+            "reason_code": "CONTEXT_TOKEN_BUDGET_EXHAUSTED",
+            "authority": "raw_source",
+            "estimated_tokens": 120
+          },
+          {
+            "reference_id": "sha256:5d48f6f5614a129620cf56cf456efa42d6b0f8042caa222649da28001c4e9d56",
+            "source_id": "engine.timeline",
+            "stable_source_id": "p01-fixture-event-25232cda6da04d89",
+            "status": "EXCLUDED",
+            "reason_code": "CONTEXT_TOKEN_BUDGET_EXHAUSTED",
+            "authority": "raw_source",
+            "estimated_tokens": 105
+          },
+          {
+            "reference_id": "sha256:2d0d0142084cd2e632c73e1b6dd4f2ba680fd770ae17030705617e7ca76e43f8",
+            "source_id": "engine.memory",
+            "stable_source_id": "memory:e1c3eaa9-ff6c-5f09-9f2e-b6a3bae474d9",
+            "status": "EXCLUDED",
+            "reason_code": "CONTEXT_TOKEN_BUDGET_EXHAUSTED",
+            "authority": "confirmed_memory",
+            "estimated_tokens": 98
+          },
+          {
+            "reference_id": "sha256:b610fa76fc822aa71cf37107c4740f487ef858c197cea70ae310cad2dcf18e0a",
+            "source_id": "engine.memory",
+            "stable_source_id": "memory:abccb321-4613-57df-ae1c-56c4d62a2862",
+            "status": "EXCLUDED",
+            "reason_code": "CONTEXT_TOKEN_BUDGET_EXHAUSTED",
+            "authority": "confirmed_memory",
+            "estimated_tokens": 98
+          },
+          {
+            "reference_id": "sha256:fb767d0f840f236e3b29e24ece2c42289bdcbb2dcff00a24c231ed5f5a98058d",
+            "source_id": "engine.memory",
+            "stable_source_id": "memory:p01-fixture-event-25232cda6da04d89",
+            "status": "EXCLUDED",
+            "reason_code": "CONTEXT_TOKEN_BUDGET_EXHAUSTED",
+            "authority": "confirmed_memory",
+            "estimated_tokens": 102
+          }
+        ],
+        "upstream_notices": [
+          {
+            "reference_id": "sha256:df7b32d6f7e4d0231a3ccba0a70651221c0e6f493134119da9805ceb4fc3d04f",
+            "source_id": "p05.route",
+            "stable_source_id": "partition:local_fact",
+            "required": false,
+            "reason_code": "ROUTER_PARTITION_UNAVAILABLE"
+          },
+          {
+            "reference_id": "sha256:a0ca0f7e159ed20e08904da0ec3a6754acf5797073a425dccc234d1feb5a0633",
+            "source_id": "p05.route",
+            "stable_source_id": "partition:attention",
+            "required": false,
+            "reason_code": "ROUTER_PARTITION_NOT_OPENED"
+          },
+          {
+            "reference_id": "sha256:422c57f2b44e5e55bcd91e8474878c004dacf0e746ab05840ebb93f9e4513f3e",
+            "source_id": "p05.route",
+            "stable_source_id": "partition:desire",
+            "required": false,
+            "reason_code": "ROUTER_PARTITION_NOT_OPENED"
+          },
+          {
+            "reference_id": "sha256:4676880790619db12597f80674df1b86d9c941aa126d79e9154f3e3bdfa0bc1d",
+            "source_id": "p05.route",
+            "stable_source_id": "partition:conflict",
+            "required": false,
+            "reason_code": "ROUTER_PARTITION_NOT_OPENED"
+          },
+          {
+            "reference_id": "sha256:49a5de380b798746d01d40c3bc8c573430c5302255610f45647360e358ab84d3",
+            "source_id": "p05.route",
+            "stable_source_id": "partition:somatic",
+            "required": false,
+            "reason_code": "ROUTER_PARTITION_NOT_OPENED"
+          },
+          {
+            "reference_id": "sha256:2825e7308a2ee60bfd6b152c307d9c7bbd3e43212101dd7e5cdd844fba693aea",
+            "source_id": "p05.route",
+            "stable_source_id": "partition:expression",
+            "required": false,
+            "reason_code": "ROUTER_PARTITION_NOT_OPENED"
+          }
+        ],
+        "trace_hash": "sha256:7dc94afb2880389306f7e43c829df6d730a8b71249c55d8018234c0d3f0786b0"
+      },
+      "snapshot": {
+        "snapshot_id": "context-snapshot:p01-request-baec83c75a58441c926bc9b3cc662b8f",
+        "request_id": "p01-request-baec83c75a58441c926bc9b3cc662b8f",
+        "subject_id": "sub-abf0462de8354632",
+        "environment": "TEST",
+        "source_revision": 3,
+        "composed_at": "2026-09-04T08:03:02Z",
+        "route_result_hash": "sha256:92eb25b412c71d1757fe38d67f955b5c061b6050853ae3883a8f04c054361d85",
+        "route_plan_hash": "sha256:bb2c59577af5938c6c7b6d6579b813b9691d9de19eb277edb70a2663a2561971",
+        "manifest_hash": "sha256:bca224f58140616147bac7fa7a5d0bff7005f50441cbcb9bd050a8202eeca2cf",
+        "budget": {
+          "core_fragment_limit": 10,
+          "token_limit": 768
+        },
+        "fragments": [
+          {
+            "fragment_id": "sha256:03f9312ba22a3c5a045a3be867340d858f9336619c89d5c0f4e8c069bdbab824",
+            "reference_id": "sha256:15a7e890b9b344f974e55cfeee1e664a398a2c9df72347cb4beaade9f724c772",
+            "subject_id": "sub-abf0462de8354632",
+            "environment": "TEST",
+            "authority": "confirmed_state",
+            "source_id": "engine.subject-state",
+            "source_type": "subject_state_section",
+            "stable_source_id": "sub-abf0462de8354632:relationship",
+            "version": "revision:3",
+            "content_hash": "sha256:679b951babe86c25aba0a2a691639426fe3ef8f65624828de92a9cd990da6826",
+            "occurred_at": "2026-09-04T08:02:01Z",
+            "relevance": 1.0,
+            "confidence": 1.0,
+            "provenance_roots": [
+              "subject-state:sub-abf0462de8354632:revision:3:relationship"
+            ],
+            "conflict_markers": [],
+            "missing_markers": [],
+            "estimated_tokens": 123,
+            "rank": 1,
+            "retained_reason": "PROTECTED_CONTEXT_RETAINED",
+            "content": "{\"current_status\":\"testing continuity\",\"definition\":\"\",\"important_moments\":[\"synthetic genesis\"],\"interaction_preferences\":[]}",
+            "protected": true,
+            "protection_role": "relationship",
+            "direct_state_write_allowed": false
+          },
+          {
+            "fragment_id": "sha256:8047cfb0844877a036392c25ddfb90dd75558ad1fa4c32eee3fb27f197eaf88a",
+            "reference_id": "sha256:866e55a9de87992bfdf77475491be2b5eeea9505121d4738b0cdd8273ede5a45",
+            "subject_id": "sub-abf0462de8354632",
+            "environment": "TEST",
+            "authority": "confirmed_state",
+            "source_id": "engine.subject-state",
+            "source_type": "subject_state_section",
+            "stable_source_id": "sub-abf0462de8354632:continuity",
+            "version": "revision:3",
+            "content_hash": "sha256:9fc7dcdb5db93fab5c77a4fb7b266f39d022a53463338c2c84fc7a87d1f18adb",
+            "occurred_at": "2026-09-04T08:02:01Z",
+            "relevance": 0.895,
+            "confidence": 1.0,
+            "provenance_roots": [
+              "subject-state:sub-abf0462de8354632:revision:3:continuity"
+            ],
+            "conflict_markers": [],
+            "missing_markers": [],
+            "estimated_tokens": 107,
+            "rank": 2,
+            "retained_reason": "PROTECTED_CONTEXT_RETAINED",
+            "content": "{\"current_focus\":[\"continuity\"],\"recent_changes\":[],\"unfinished_items\":[]}",
+            "protected": true,
+            "protection_role": "continuity",
+            "direct_state_write_allowed": false
+          },
+          {
+            "fragment_id": "sha256:cba1510cf7543f453480f64b3b1f249bcf150a2566ffe48dd94a366814cd0a30",
+            "reference_id": "sha256:090a7f71c4140fcfb4535674bb239bf71f040fad6e2241bb23acd04ceab04ba4",
+            "subject_id": "sub-abf0462de8354632",
+            "environment": "TEST",
+            "authority": "confirmed_state",
+            "source_id": "engine.subject-state",
+            "source_type": "subject_state_section",
+            "stable_source_id": "sub-abf0462de8354632:identity",
+            "version": "revision:3",
+            "content_hash": "sha256:1842e52dac172ee2c9f1dd1a92f7e2cd5b8dad135789625db4c658cc808a0220",
+            "occurred_at": "2026-09-04T08:02:01Z",
+            "relevance": 0.865,
+            "confidence": 1.0,
+            "provenance_roots": [
+              "subject-state:sub-abf0462de8354632:revision:3:identity"
+            ],
+            "conflict_markers": [],
+            "missing_markers": [],
+            "estimated_tokens": 117,
+            "rank": 3,
+            "retained_reason": "PROTECTED_CONTEXT_RETAINED",
+            "content": "{\"expression_preferences\":[\"concise\"],\"judgment_principles\":[],\"self_concept\":\"\",\"stable_traits\":[\"continuity\"]}",
+            "protected": true,
+            "protection_role": "identity",
+            "direct_state_write_allowed": false
+          },
+          {
+            "fragment_id": "sha256:d270ac976b91aa374afc2019428f0059ffceab76a6dd84f7f8c556e6e3a59beb",
+            "reference_id": "sha256:decc5767f0d3f5161832fd0c444420e2257dee5c7271f4e41c728eaa98dc650d",
+            "subject_id": "sub-abf0462de8354632",
+            "environment": "TEST",
+            "authority": "confirmed_state",
+            "source_id": "engine.subject-state",
+            "source_type": "subject_state_section",
+            "stable_source_id": "sub-abf0462de8354632:intentions",
+            "version": "revision:3",
+            "content_hash": "sha256:b45107bb20c9ddfad6803e6ddb537298f65f6b0b192041a72d7f7560765fc611",
+            "occurred_at": "2026-09-04T08:02:01Z",
+            "relevance": 0.85,
+            "confidence": 1.0,
+            "provenance_roots": [
+              "subject-state:sub-abf0462de8354632:revision:3:intentions"
+            ],
+            "conflict_markers": [],
+            "missing_markers": [],
+            "estimated_tokens": 214,
+            "rank": 4,
+            "retained_reason": "VERIFIED_CONTEXT_RETAINED",
+            "content": "{\"action_tendencies\":[],\"dynamic_mind\":{\"conflict_count\":0,\"desire_count\":7,\"detail\":\"authorized-current-state-projection; not the complete private record\",\"environment\":\"TEST\",\"episode_count\":1,\"state_hash\":\"sha256:45135f7e6bbf9294aa315cefc601185d4418c6d31ebc926c0a0ba5d88155c9db\",\"subject_id\":\"sub-abf0462de8354632\",\"subjective_seconds\":139.588028,\"thought_count\":7,\"updated_at\":\"2026-09-04T08:02:01Z\",\"version\":\"p14-mind-v1\"},\"emerging_thoughts\":[],\"judgments\":[]}",
+            "protected": false,
+            "protection_role": null,
+            "direct_state_write_allowed": false
+          },
+          {
+            "fragment_id": "sha256:6e3efc5736eaee76f9bfec7be397d83e2fc8fa69e9a8ca56e46d9fc6d8abb97e",
+            "reference_id": "sha256:3fafaab7aeac17ab765133b8e7d02eecc19a6f71ec99f00cb84d7072e44b78a8",
+            "subject_id": "sub-abf0462de8354632",
+            "environment": "TEST",
+            "authority": "confirmed_memory",
+            "source_id": "engine.memory",
+            "source_type": "memory_record",
+            "stable_source_id": "memory:repair-2",
+            "version": "revision:0",
+            "content_hash": "sha256:2c6983d6df9041234bf4acbf4bbe4bb99f9883a31226222ad19ebb5fdcfdd86f",
+            "occurred_at": "2026-09-04T08:03:01Z",
+            "relevance": 0.8315,
+            "confidence": 0.8,
+            "provenance_roots": [
+              "event:repair-2"
+            ],
+            "conflict_markers": [],
+            "missing_markers": [],
+            "estimated_tokens": 118,
+            "rank": 5,
+            "retained_reason": "VERIFIED_CONTEXT_RETAINED",
+            "content": "interaction: {\"experienced\": {\"object\": \"peer\", \"observation\": \"expectation_met\", \"expectation\": \"mutual respect\", \"consequence\": \"expectation met\", \"impact\": 0.7}}",
+            "protected": false,
+            "protection_role": null,
+            "direct_state_write_allowed": false
+          }
+        ],
+        "missing_notices": [
+          {
+            "reference_id": "sha256:df7b32d6f7e4d0231a3ccba0a70651221c0e6f493134119da9805ceb4fc3d04f",
+            "source_id": "p05.route",
+            "stable_source_id": "partition:local_fact",
+            "required": false,
+            "reason_code": "ROUTER_PARTITION_UNAVAILABLE"
+          },
+          {
+            "reference_id": "sha256:a0ca0f7e159ed20e08904da0ec3a6754acf5797073a425dccc234d1feb5a0633",
+            "source_id": "p05.route",
+            "stable_source_id": "partition:attention",
+            "required": false,
+            "reason_code": "ROUTER_PARTITION_NOT_OPENED"
+          },
+          {
+            "reference_id": "sha256:422c57f2b44e5e55bcd91e8474878c004dacf0e746ab05840ebb93f9e4513f3e",
+            "source_id": "p05.route",
+            "stable_source_id": "partition:desire",
+            "required": false,
+            "reason_code": "ROUTER_PARTITION_NOT_OPENED"
+          },
+          {
+            "reference_id": "sha256:4676880790619db12597f80674df1b86d9c941aa126d79e9154f3e3bdfa0bc1d",
+            "source_id": "p05.route",
+            "stable_source_id": "partition:conflict",
+            "required": false,
+            "reason_code": "ROUTER_PARTITION_NOT_OPENED"
+          },
+          {
+            "reference_id": "sha256:49a5de380b798746d01d40c3bc8c573430c5302255610f45647360e358ab84d3",
+            "source_id": "p05.route",
+            "stable_source_id": "partition:somatic",
+            "required": false,
+            "reason_code": "ROUTER_PARTITION_NOT_OPENED"
+          },
+          {
+            "reference_id": "sha256:2825e7308a2ee60bfd6b152c307d9c7bbd3e43212101dd7e5cdd844fba693aea",
+            "source_id": "p05.route",
+            "stable_source_id": "partition:expression",
+            "required": false,
+            "reason_code": "ROUTER_PARTITION_NOT_OPENED"
+          }
+        ],
+        "consumable": true,
+        "snapshot_hash": "sha256:739fb61ad596fc1c223c30fa84fd72290b82a1e763d3597c26583906826e708b"
+      },
+      "error_code": null
+    },
+    "candidates": [
+      {
+        "source_id": "engine.subject-state",
+        "partition": "subject_state",
+        "stable_id": "sub-abf0462de8354632:relationship",
+        "subject_id": "sub-abf0462de8354632",
+        "environment": "TEST",
+        "version": "revision:3",
+        "content_hash": "sha256:679b951babe86c25aba0a2a691639426fe3ef8f65624828de92a9cd990da6826",
+        "authority_label": "SUBJECT_STATE_PARTITION",
+        "rank": 1,
+        "score": 1.0,
+        "occurred_at": "2026-09-04T08:02:01Z",
+        "explanation_codes": [
+          "PURPOSE_RELEVANCE",
+          "RECENCY",
+          "IMPORTANCE",
+          "ACTIVATION",
+          "STABLE_TIE_BREAK"
+        ]
+      },
+      {
+        "source_id": "engine.subject-state",
+        "partition": "subject_state",
+        "stable_id": "sub-abf0462de8354632:continuity",
+        "subject_id": "sub-abf0462de8354632",
+        "environment": "TEST",
+        "version": "revision:3",
+        "content_hash": "sha256:9fc7dcdb5db93fab5c77a4fb7b266f39d022a53463338c2c84fc7a87d1f18adb",
+        "authority_label": "SUBJECT_STATE_PARTITION",
+        "rank": 2,
+        "score": 0.895,
+        "occurred_at": "2026-09-04T08:02:01Z",
+        "explanation_codes": [
+          "PURPOSE_RELEVANCE",
+          "RECENCY",
+          "IMPORTANCE",
+          "ACTIVATION",
+          "STABLE_TIE_BREAK"
+        ]
+      },
+      {
+        "source_id": "engine.subject-state",
+        "partition": "subject_state",
+        "stable_id": "sub-abf0462de8354632:identity",
+        "subject_id": "sub-abf0462de8354632",
+        "environment": "TEST",
+        "version": "revision:3",
+        "content_hash": "sha256:1842e52dac172ee2c9f1dd1a92f7e2cd5b8dad135789625db4c658cc808a0220",
+        "authority_label": "SUBJECT_STATE_PARTITION",
+        "rank": 3,
+        "score": 0.865,
+        "occurred_at": "2026-09-04T08:02:01Z",
+        "explanation_codes": [
+          "PURPOSE_RELEVANCE",
+          "RECENCY",
+          "IMPORTANCE",
+          "ACTIVATION",
+          "STABLE_TIE_BREAK"
+        ]
+      },
+      {
+        "source_id": "engine.subject-state",
+        "partition": "subject_state",
+        "stable_id": "sub-abf0462de8354632:intentions",
+        "subject_id": "sub-abf0462de8354632",
+        "environment": "TEST",
+        "version": "revision:3",
+        "content_hash": "sha256:b45107bb20c9ddfad6803e6ddb537298f65f6b0b192041a72d7f7560765fc611",
+        "authority_label": "SUBJECT_STATE_PARTITION",
+        "rank": 4,
+        "score": 0.85,
+        "occurred_at": "2026-09-04T08:02:01Z",
+        "explanation_codes": [
+          "PURPOSE_RELEVANCE",
+          "RECENCY",
+          "IMPORTANCE",
+          "ACTIVATION",
+          "STABLE_TIE_BREAK"
+        ]
+      },
+      {
+        "source_id": "engine.memory",
+        "partition": "memory",
+        "stable_id": "memory:repair-2",
+        "subject_id": "sub-abf0462de8354632",
+        "environment": "TEST",
+        "version": "revision:0",
+        "content_hash": "sha256:2c6983d6df9041234bf4acbf4bbe4bb99f9883a31226222ad19ebb5fdcfdd86f",
+        "authority_label": "MEMORY_RECORD",
+        "rank": 5,
+        "score": 0.8315,
+        "occurred_at": "2026-09-04T08:03:01Z",
+        "explanation_codes": [
+          "PURPOSE_RELEVANCE",
+          "RECENCY",
+          "IMPORTANCE",
+          "ACTIVATION",
+          "STABLE_TIE_BREAK"
+        ]
+      },
+      {
+        "source_id": "engine.memory",
+        "partition": "memory",
+        "stable_id": "memory:repair-1",
+        "subject_id": "sub-abf0462de8354632",
+        "environment": "TEST",
+        "version": "revision:0",
+        "content_hash": "sha256:53351a5eb9a1307b59571ec90de394a25296f12ff228b6724fad128d7adcf86e",
+        "authority_label": "MEMORY_RECORD",
+        "rank": 6,
+        "score": 0.8315,
+        "occurred_at": "2026-09-04T08:02:00Z",
+        "explanation_codes": [
+          "PURPOSE_RELEVANCE",
+          "RECENCY",
+          "IMPORTANCE",
+          "ACTIVATION",
+          "STABLE_TIE_BREAK"
+        ]
+      },
+      {
+        "source_id": "engine.memory",
+        "partition": "memory",
+        "stable_id": "memory:a-harm",
+        "subject_id": "sub-abf0462de8354632",
+        "environment": "TEST",
+        "version": "revision:0",
+        "content_hash": "sha256:5920acc57b0a2568b35e60ed06723848b0d41cb4dbff0e5af9e260dc8ce61589",
+        "authority_label": "MEMORY_RECORD",
+        "rank": 7,
+        "score": 0.831499,
+        "occurred_at": "2026-09-04T08:00:00Z",
+        "explanation_codes": [
+          "PURPOSE_RELEVANCE",
+          "RECENCY",
+          "IMPORTANCE",
+          "ACTIVATION",
+          "STABLE_TIE_BREAK"
+        ]
+      },
+      {
+        "source_id": "engine.derived-summary",
+        "partition": "derived_summary",
+        "stable_id": "c1-summary:7315ec4d24da940e00a4b0dcfaa93d0c58eaf01141329e93bb6e92d84ffbc82c",
+        "subject_id": "sub-abf0462de8354632",
+        "environment": "TEST",
+        "version": "version:1",
+        "content_hash": "sha256:9fc385e88bfff773ca1fa66331133777a966393782c92824f4adfb8a02d29a9a",
+        "authority_label": "DERIVED_MEMORY_VIEW",
+        "rank": 8,
+        "score": 0.81,
+        "occurred_at": "2026-09-04T08:03:01Z",
+        "explanation_codes": [
+          "PURPOSE_RELEVANCE",
+          "RECENCY",
+          "IMPORTANCE",
+          "ACTIVATION",
+          "STABLE_TIE_BREAK"
+        ]
+      },
+      {
+        "source_id": "engine.derived-summary",
+        "partition": "derived_summary",
+        "stable_id": "c1-summary:7f6767cad609ff2b19250d1077f9511692ec6df216f2106544bee4097a2c0bdc",
+        "subject_id": "sub-abf0462de8354632",
+        "environment": "TEST",
+        "version": "version:1",
+        "content_hash": "sha256:4328ce51da86f70319532e7d130cf2e4ddcd29cb75184ebc1d9e712e3fc4145b",
+        "authority_label": "DERIVED_MEMORY_VIEW",
+        "rank": 9,
+        "score": 0.81,
+        "occurred_at": "2026-09-04T08:02:00Z",
+        "explanation_codes": [
+          "PURPOSE_RELEVANCE",
+          "RECENCY",
+          "IMPORTANCE",
+          "ACTIVATION",
+          "STABLE_TIE_BREAK"
+        ]
+      },
+      {
+        "source_id": "engine.derived-summary",
+        "partition": "derived_summary",
+        "stable_id": "c1-summary:a1093c4959b8a44a780385c00c1ffc2085d59575c256edfcb21e78d8e05b2ede",
+        "subject_id": "sub-abf0462de8354632",
+        "environment": "TEST",
+        "version": "version:1",
+        "content_hash": "sha256:820bf9489f028600e559cef788e24f10735469681552b5e642646efc0d630ff3",
+        "authority_label": "DERIVED_MEMORY_VIEW",
+        "rank": 10,
+        "score": 0.809999,
+        "occurred_at": "2026-09-04T08:00:00Z",
+        "explanation_codes": [
+          "PURPOSE_RELEVANCE",
+          "RECENCY",
+          "IMPORTANCE",
+          "ACTIVATION",
+          "STABLE_TIE_BREAK"
+        ]
+      },
+      {
+        "source_id": "engine.subject-state",
+        "partition": "subject_state",
+        "stable_id": "sub-abf0462de8354632:emotion_state",
+        "subject_id": "sub-abf0462de8354632",
+        "environment": "TEST",
+        "version": "revision:3",
+        "content_hash": "sha256:83f76d7bbaf86d0ae22f5c1cc53c06e21e6107f87a8064f4c518d2d9ccec9fe8",
+        "authority_label": "SUBJECT_STATE_PARTITION",
+        "rank": 11,
+        "score": 0.805,
+        "occurred_at": "2026-09-04T08:02:01Z",
+        "explanation_codes": [
+          "PURPOSE_RELEVANCE",
+          "RECENCY",
+          "IMPORTANCE",
+          "ACTIVATION",
+          "STABLE_TIE_BREAK"
+        ]
+      },
+      {
+        "source_id": "engine.timeline",
+        "partition": "timeline",
+        "stable_id": "repair-2",
+        "subject_id": "sub-abf0462de8354632",
+        "environment": "TEST",
+        "version": "update:e0970c6b-f2a3-45c4-8a34-b451e38b580a",
+        "content_hash": "sha256:66a752bef969e4a72c21c52a82ef451a56fbe8a63eb2ffbec05cee3b4b58ac2e",
+        "authority_label": "TIMELINE_EVENT_PROJECTION",
+        "rank": 12,
+        "score": 0.75,
+        "occurred_at": "2026-09-04T08:03:01Z",
+        "explanation_codes": [
+          "PURPOSE_RELEVANCE",
+          "RECENCY",
+          "IMPORTANCE",
+          "ACTIVATION",
+          "STABLE_TIE_BREAK"
+        ]
+      },
+      {
+        "source_id": "engine.timeline",
+        "partition": "timeline",
+        "stable_id": "repair-1",
+        "subject_id": "sub-abf0462de8354632",
+        "environment": "TEST",
+        "version": "update:e8c0db85-17f4-4d66-817e-a460e94c1ae9",
+        "content_hash": "sha256:f38231e81e51e4cef10f0a1521cc47fe69ca1027e8f60e41e19d4120fcdb7ebd",
+        "authority_label": "TIMELINE_EVENT_PROJECTION",
+        "rank": 13,
+        "score": 0.75,
+        "occurred_at": "2026-09-04T08:02:00Z",
+        "explanation_codes": [
+          "PURPOSE_RELEVANCE",
+          "RECENCY",
+          "IMPORTANCE",
+          "ACTIVATION",
+          "STABLE_TIE_BREAK"
+        ]
+      },
+      {
+        "source_id": "engine.timeline",
+        "partition": "timeline",
+        "stable_id": "a-harm",
+        "subject_id": "sub-abf0462de8354632",
+        "environment": "TEST",
+        "version": "update:67256a3e-e13a-4b3e-92de-e17c5cc6eeaa",
+        "content_hash": "sha256:35ef9372804bd8d65a929e8a83a22c39a61a21ddc5f9b532a63a35b3fc1df376",
+        "authority_label": "TIMELINE_EVENT_PROJECTION",
+        "rank": 14,
+        "score": 0.749999,
+        "occurred_at": "2026-09-04T08:00:00Z",
+        "explanation_codes": [
+          "PURPOSE_RELEVANCE",
+          "RECENCY",
+          "IMPORTANCE",
+          "ACTIVATION",
+          "STABLE_TIE_BREAK"
+        ]
+      },
+      {
+        "source_id": "engine.timeline",
+        "partition": "timeline",
+        "stable_id": "p01-fixture-event-25232cda6da04d89",
+        "subject_id": "sub-abf0462de8354632",
+        "environment": "TEST",
+        "version": "update:c631f6b5-a816-4a68-ad59-2b99cc0585f2",
+        "content_hash": "sha256:295163d5d086291a4700c4983dfc259e3835ab30ac9e81484de8cea9de6cca45",
+        "authority_label": "TIMELINE_EVENT_PROJECTION",
+        "rank": 15,
+        "score": 0.704999,
+        "occurred_at": "2026-09-04T08:00:00Z",
+        "explanation_codes": [
+          "PURPOSE_RELEVANCE",
+          "RECENCY",
+          "IMPORTANCE",
+          "ACTIVATION",
+          "STABLE_TIE_BREAK"
+        ]
+      },
+      {
+        "source_id": "engine.memory",
+        "partition": "memory",
+        "stable_id": "memory:e1c3eaa9-ff6c-5f09-9f2e-b6a3bae474d9",
+        "subject_id": "sub-abf0462de8354632",
+        "environment": "TEST",
+        "version": "revision:0",
+        "content_hash": "sha256:fb705b34f6cb0f95cb544622bbf722692d26a41472836536213bb21049efa57c",
+        "authority_label": "MEMORY_RECORD",
+        "rank": 16,
+        "score": 0.6515,
+        "occurred_at": "2026-09-04T08:02:01Z",
+        "explanation_codes": [
+          "PURPOSE_RELEVANCE",
+          "RECENCY",
+          "IMPORTANCE",
+          "ACTIVATION",
+          "STABLE_TIE_BREAK"
+        ]
+      },
+      {
+        "source_id": "engine.memory",
+        "partition": "memory",
+        "stable_id": "memory:abccb321-4613-57df-ae1c-56c4d62a2862",
+        "subject_id": "sub-abf0462de8354632",
+        "environment": "TEST",
+        "version": "revision:0",
+        "content_hash": "sha256:163d07b195a523e5b835b51933c6dc5010878725212fcc96f4b955fa90bf4099",
+        "authority_label": "MEMORY_RECORD",
+        "rank": 17,
+        "score": 0.651499,
+        "occurred_at": "2026-09-04T08:01:00Z",
+        "explanation_codes": [
+          "PURPOSE_RELEVANCE",
+          "RECENCY",
+          "IMPORTANCE",
+          "ACTIVATION",
+          "STABLE_TIE_BREAK"
+        ]
+      },
+      {
+        "source_id": "engine.memory",
+        "partition": "memory",
+        "stable_id": "memory:p01-fixture-event-25232cda6da04d89",
+        "subject_id": "sub-abf0462de8354632",
+        "environment": "TEST",
+        "version": "revision:0",
+        "content_hash": "sha256:9e6abbc95e32ae6f8b85bf6fc6c3e6bc9866749d6bd2f8761c493d45ff495487",
+        "authority_label": "MEMORY_RECORD",
+        "rank": 18,
+        "score": 0.651499,
+        "occurred_at": "2026-09-04T08:00:00Z",
+        "explanation_codes": [
+          "PURPOSE_RELEVANCE",
+          "RECENCY",
+          "IMPORTANCE",
+          "ACTIVATION",
+          "STABLE_TIE_BREAK"
+        ]
+      }
+    ]
+  }
+]

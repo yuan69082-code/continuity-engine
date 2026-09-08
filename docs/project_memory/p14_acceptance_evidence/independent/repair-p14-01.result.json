@@ -1,0 +1,18 @@
+{
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "-v",
+    "test_p14_dynamic_mind",
+    "test_p14_mind_recovery",
+    "test_p14_mind_visibility",
+    "test_p14_review_repair"
+  ],
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "exitCode": 0,
+  "elapsedSeconds": 114.76717949999147,
+  "beforeCount": 1551,
+  "afterCount": 1551,
+  "changed": []
+}

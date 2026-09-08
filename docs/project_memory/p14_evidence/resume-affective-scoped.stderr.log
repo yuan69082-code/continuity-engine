@@ -1,0 +1,11 @@
+test_completed_replay_does_not_advance_revision_or_repeat_effect (test_p14_mind_recovery.MindCoreIntegrationTests.test_completed_replay_does_not_advance_revision_or_repeat_effect) ... ok
+test_feature_off_keeps_legacy_serialization_and_behavior (test_p14_mind_recovery.MindCoreIntegrationTests.test_feature_off_keeps_legacy_serialization_and_behavior) ... ok
+test_native_opportunity_without_observation_creates_desire_and_restores (test_p14_mind_recovery.MindCoreIntegrationTests.test_native_opportunity_without_observation_creates_desire_and_restores) ... ok
+test_normal_c1_appraises_sources_and_apology_does_not_reset_episode (test_p14_mind_recovery.MindCoreIntegrationTests.test_normal_c1_appraises_sources_and_apology_does_not_reset_episode) ... ok
+test_normal_c1_commits_mind_through_original_evolution (test_p14_mind_recovery.MindCoreIntegrationTests.test_normal_c1_commits_mind_through_original_evolution) ... ok
+test_two_sessions_and_reopen_continue_one_mind (test_p14_mind_recovery.MindCoreIntegrationTests.test_two_sessions_and_reopen_continue_one_mind) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 7.955s
+
+OK

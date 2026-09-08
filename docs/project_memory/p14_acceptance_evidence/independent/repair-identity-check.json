@@ -1,0 +1,97 @@
+{
+  "checks": {
+    "current221SourceFilesMatchFullAndAudit": true,
+    "allFiveFinalRunsUseCurrentCodeAndFinishedCleanly": true,
+    "full1137Count": true,
+    "onlyThreeAuthorizedSourceChanges": true,
+    "original1124IdentitiesRetained": true,
+    "only13NewTestIdentities": true,
+    "oldTestFilesByteUnchanged": true,
+    "protected63ByteUnchanged": true,
+    "formal7ByteUnchanged": true,
+    "formalTreeUnchanged": true,
+    "planning3ByteUnchanged": true,
+    "excluded31ByteUnchanged": true,
+    "originalP14EvidenceUnchanged": true,
+    "original28ReviewFilesUnchanged": true,
+    "onlyKnownWindows1314Skip": true,
+    "pending192SetMatches": true,
+    "pending191ContentHashesMatch": true,
+    "python211SyntaxValid": true,
+    "headAndLocalTrackingRefUnchanged": true,
+    "stagingEmpty": true
+  },
+  "allChecksPass": true,
+  "notAcceptance": true,
+  "sourceChanges": [
+    "src/continuity_engine/domain/dynamic_mind.py",
+    "src/continuity_engine/services/dynamic_mind_service.py",
+    "tests/test_p14_review_repair.py"
+  ],
+  "sourceTestCount": 221,
+  "citedRunsNotIndependent": {
+    "confirmed-final.json": {
+      "currentIdentity": true,
+      "finishedClean": true,
+      "countsValid": true,
+      "run": 7,
+      "passed": 7,
+      "skips": [],
+      "seconds": 22.075
+    },
+    "targeted-final.json": {
+      "currentIdentity": true,
+      "finishedClean": true,
+      "countsValid": true,
+      "run": 13,
+      "passed": 13,
+      "skips": [],
+      "seconds": 68.583
+    },
+    "p14-final.json": {
+      "currentIdentity": true,
+      "finishedClean": true,
+      "countsValid": true,
+      "run": 67,
+      "passed": 67,
+      "skips": [],
+      "seconds": 117.91
+    },
+    "compatibility-final.json": {
+      "currentIdentity": true,
+      "finishedClean": true,
+      "countsValid": true,
+      "run": 343,
+      "passed": 343,
+      "skips": [],
+      "seconds": 543.803
+    },
+    "full-final.json": {
+      "currentIdentity": true,
+      "finishedClean": true,
+      "countsValid": true,
+      "run": 1137,
+      "passed": 1136,
+      "skips": [
+        [
+          "test_p08_fixture_paths.P08FixturePathTests.test_symlink_component_rejected_without_writes",
+          "OS does not grant symlink creation: 1314"
+        ]
+      ],
+      "seconds": 898.29
+    }
+  },
+  "reviewOriginalChanges": [],
+  "originalP14EvidenceCount": 118,
+  "pendingCount": 192,
+  "trackedModifiedCount": 27,
+  "untrackedCount": 196,
+  "excludedCount": 31,
+  "head": "b02d8c9cc894b3060089d7cc24e06afaeab89ebf",
+  "branch": "main",
+  "aheadBehindLocal": "0\t0",
+  "gitWrites": false,
+  "remoteNetworkChecked": false,
+  "syntaxErrors": [],
+  "formalTreeHash": "sha256:f9c710c6085e430a251f74463d57133f8c5a4497fe8ffa2ccb96be2db1037bb2"
+}

@@ -1,0 +1,29 @@
+test_native_feature_off_does_not_read_p14_recovery_or_prepare (test_p14_mind_recovery.MindCoreIntegrationTests.test_native_feature_off_does_not_read_p14_recovery_or_prepare) ... FAIL
+
+======================================================================
+FAIL: test_native_feature_off_does_not_read_p14_recovery_or_prepare (test_p14_mind_recovery.MindCoreIntegrationTests.test_native_feature_off_does_not_read_p14_recovery_or_prepare)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p14_mind_recovery.py", line 75, in test_native_feature_off_does_not_read_p14_recovery_or_prepare
+    value=f.opportunity('legacy-opportunity')
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p14_mind_fixture.py", line 19, in opportunity
+    return service.wake_manual(self.app.binding.cycle_id, detail='Authorized native P14 computation opportunity.',
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                               session_id=session_id)
+                               ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\wake_perception_thinking_action_service.py", line 76, in wake_manual
+    saved = self._awakening.get_session(core.subject_id, session_id)
+  File "E:\Adobe\Lib\unittest\mock.py", line 1176, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "E:\Adobe\Lib\unittest\mock.py", line 1180, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "E:\Adobe\Lib\unittest\mock.py", line 1241, in _execute_mock_call
+    raise effect
+AssertionError: disabled P14 recovery read
+
+----------------------------------------------------------------------
+Ran 1 test in 0.644s
+
+FAILED (failures=1)

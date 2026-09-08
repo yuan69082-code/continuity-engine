@@ -66,6 +66,7 @@ class ThinkingService:
         think_id: str | None = None,
         result_id: str | None = None,
         preserve_perception_snapshot: bool = False,
+        result_processor=None,
     ) -> ThinkingExecutionResult:
         if not isinstance(perception, PerceptionResult):
             raise ThinkingValidationError("thinking requires a PerceptionResult")
@@ -173,6 +174,8 @@ class ThinkingService:
             if result_id is not None:
                 result = replace(result, result_id=result_id)
             self._validate_provider_result(result, budget)
+            if result_processor is not None:
+                result = result_processor(perception, result)
             session.complete(
                 ended_at=self._clock(),
                 result=result,
@@ -262,6 +265,7 @@ class ThinkingService:
         think_id: str,
         result: ThinkingResult,
         ended_at: datetime,
+        result_processor=None,
     ) -> ThinkingExecutionResult:
         """Complete the original waiting session from a validated execution fact."""
 
@@ -287,6 +291,8 @@ class ThinkingService:
                 "capability result perception does not match ThinkSession"
             )
         self._validate_provider_result(result, session.token_budget)
+        if result_processor is not None:
+            result = result_processor(perception, result)
         session.complete(
             ended_at=ended_at,
             result=result,
@@ -346,6 +352,8 @@ class ThinkingService:
             raise ThinkingValidationError(
                 "ThinkingResult must preserve the allocated TokenBudget"
             )
+        if any(m.field_path == 'intentions.dynamic_mind' for m in result.proposed_mutations):
+            raise ThinkingValidationError('Provider cannot supply P14 internal state directly')
 
     @staticmethod
     def _depth_rank(depth: ThinkingDepth) -> int:

@@ -1,0 +1,163 @@
+test_apology_is_new_evidence_not_automatic_resolution (test_p14_dynamic_mind.DynamicMindMechanismTests.test_apology_is_new_evidence_not_automatic_resolution) ... ok
+test_clock_regression_and_cross_environment_are_rejected (test_p14_dynamic_mind.DynamicMindMechanismTests.test_clock_regression_and_cross_environment_are_rejected) ... ok
+test_duplicate_appraisal_does_not_reinforce_same_time (test_p14_dynamic_mind.DynamicMindMechanismTests.test_duplicate_appraisal_does_not_reinforce_same_time) ... ok
+test_no_observation_forms_endogenous_desire (test_p14_dynamic_mind.DynamicMindMechanismTests.test_no_observation_forms_endogenous_desire) ... ok
+test_persisted_state_restores_without_reset (test_p14_dynamic_mind.DynamicMindMechanismTests.test_persisted_state_restores_without_reset) ... ok
+test_psychological_opposites_remain_together (test_p14_dynamic_mind.DynamicMindMechanismTests.test_psychological_opposites_remain_together) ... ok
+test_resolution_then_new_harm_reopens_same_concern (test_p14_dynamic_mind.DynamicMindMechanismTests.test_resolution_then_new_harm_reopens_same_concern) ... ok
+test_same_time_replay_has_no_extra_dynamic_change (test_p14_dynamic_mind.DynamicMindMechanismTests.test_same_time_replay_has_no_extra_dynamic_change) ... ok
+test_subjective_time_depends_on_attention_and_somatic_state (test_p14_dynamic_mind.DynamicMindMechanismTests.test_subjective_time_depends_on_attention_and_somatic_state) ... ok
+test_suppression_can_fail_without_erasing_concern (test_p14_dynamic_mind.DynamicMindMechanismTests.test_suppression_can_fail_without_erasing_concern) ... ok
+test_transformed_desire_can_continue_without_identity_collision (test_p14_dynamic_mind.DynamicMindMechanismTests.test_transformed_desire_can_continue_without_identity_collision) ... ok
+test_unbound_will_and_thought_references_fail_closed (test_p14_dynamic_mind.DynamicMindMechanismTests.test_unbound_will_and_thought_references_fail_closed) ... ok
+test_unknown_nested_reasoning_fields_are_rejected (test_p14_dynamic_mind.DynamicMindMechanismTests.test_unknown_nested_reasoning_fields_are_rejected) ... ok
+test_weaken_and_transform_change_desire_not_only_phase (test_p14_dynamic_mind.DynamicMindMechanismTests.test_weaken_and_transform_change_desire_not_only_phase) ... ok
+test_will_records_deliberation_not_scheduler_priority (test_p14_dynamic_mind.DynamicMindMechanismTests.test_will_records_deliberation_not_scheduler_priority) ... ok
+test_completed_replay_does_not_advance_revision_or_repeat_effect (test_p14_mind_recovery.MindCoreIntegrationTests.test_completed_replay_does_not_advance_revision_or_repeat_effect) ... ok
+test_feature_off_keeps_legacy_serialization_and_behavior (test_p14_mind_recovery.MindCoreIntegrationTests.test_feature_off_keeps_legacy_serialization_and_behavior) ... ok
+test_native_opportunity_without_observation_creates_desire_and_restores (test_p14_mind_recovery.MindCoreIntegrationTests.test_native_opportunity_without_observation_creates_desire_and_restores) ... ok
+test_normal_c1_appraises_sources_and_apology_does_not_reset_episode (test_p14_mind_recovery.MindCoreIntegrationTests.test_normal_c1_appraises_sources_and_apology_does_not_reset_episode) ... ERROR
+test_normal_c1_commits_mind_through_original_evolution (test_p14_mind_recovery.MindCoreIntegrationTests.test_normal_c1_commits_mind_through_original_evolution) ... ok
+test_normal_chain_attempts_regulation_without_erasing_episode (test_p14_mind_recovery.MindCoreIntegrationTests.test_normal_chain_attempts_regulation_without_erasing_episode) ... FAIL
+test_two_sessions_and_reopen_continue_one_mind (test_p14_mind_recovery.MindCoreIntegrationTests.test_two_sessions_and_reopen_continue_one_mind) ... ok
+test_unsettled_interpretation_changes_actual_information_need (test_p14_mind_recovery.MindCoreIntegrationTests.test_unsettled_interpretation_changes_actual_information_need) ... ERROR
+test_export_and_current_permission_are_separate (test_p14_mind_visibility.MindVisibilityTests.test_export_and_current_permission_are_separate) ... ok
+test_owner_detailed_projection_is_real_and_zero_write (test_p14_mind_visibility.MindVisibilityTests.test_owner_detailed_projection_is_real_and_zero_write) ... ok
+test_private_mode_does_not_delete_or_change_cognition (test_p14_mind_visibility.MindVisibilityTests.test_private_mode_does_not_delete_or_change_cognition) ... ok
+test_self_claimed_owner_and_non_owner_are_rejected_without_write (test_p14_mind_visibility.MindVisibilityTests.test_self_claimed_owner_and_non_owner_are_rejected_without_write) ... ok
+
+======================================================================
+ERROR: test_normal_c1_appraises_sources_and_apology_does_not_reset_episode (test_p14_mind_recovery.MindCoreIntegrationTests.test_normal_c1_appraises_sources_and_apology_does_not_reset_episode)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\thinking_service.py", line 178, in handle_perception
+    result = result_processor(perception, result)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\dynamic_mind_service.py", line 404, in process
+    return replace(result, update_subject_state=bool(mutations), proposed_mutations=mutations,
+                   expression_mode=mode,
+    ...<3 lines>...
+                   ' Engine deliberation basis: ' + digest(proposed.will) +
+                   '; cognition input: ' + context.binding_hash())
+  File "E:\Adobe\Lib\dataclasses.py", line 1770, in replace
+    return _replace(obj, **changes)
+  File "E:\Adobe\Lib\dataclasses.py", line 1804, in _replace
+    return self.__class__(**changes)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "<string>", line 19, in __init__
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\domain\thinking.py", line 234, in __post_init__
+    _require_text(self.additional_memory_query, "additional_memory_query")
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\domain\thinking.py", line 36, in _require_text
+    raise ThinkingValidationError(f"{field_name} must be a non-empty string")
+continuity_engine.domain.errors.ThinkingValidationError: additional_memory_query must be a non-empty string
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 251, in submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 721, in _run_domain
+    thinking = self._thinking.handle_perception(
+        perception,
+    ...<5 lines>...
+           if self._continuity_core is not None and self._continuity_core.mind is not None else {}),
+    )
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\thinking_service.py", line 204, in handle_perception
+    raise ThinkingExecutionError(
+    ...<2 lines>...
+    ) from exc
+continuity_engine.domain.errors.ThinkingExecutionError: ThinkSession failed and was logged: 96deccd9-86cd-54d8-8a52-04b2be071a81
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p14_mind_recovery.py", line 86, in test_normal_c1_appraises_sources_and_apology_does_not_reset_episode
+    first = f.request(); f.submit(first)
+                         ~~~~~~~~^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p09_core_fixture.py", line 165, in submit
+    return self.app.adapter.submit(request or self.request())
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 263, in submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.
+
+======================================================================
+ERROR: test_unsettled_interpretation_changes_actual_information_need (test_p14_mind_recovery.MindCoreIntegrationTests.test_unsettled_interpretation_changes_actual_information_need)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\thinking_service.py", line 178, in handle_perception
+    result = result_processor(perception, result)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\dynamic_mind_service.py", line 404, in process
+    return replace(result, update_subject_state=bool(mutations), proposed_mutations=mutations,
+                   expression_mode=mode,
+    ...<3 lines>...
+                   ' Engine deliberation basis: ' + digest(proposed.will) +
+                   '; cognition input: ' + context.binding_hash())
+  File "E:\Adobe\Lib\dataclasses.py", line 1770, in replace
+    return _replace(obj, **changes)
+  File "E:\Adobe\Lib\dataclasses.py", line 1804, in _replace
+    return self.__class__(**changes)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "<string>", line 19, in __init__
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\domain\thinking.py", line 234, in __post_init__
+    _require_text(self.additional_memory_query, "additional_memory_query")
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\domain\thinking.py", line 36, in _require_text
+    raise ThinkingValidationError(f"{field_name} must be a non-empty string")
+continuity_engine.domain.errors.ThinkingValidationError: additional_memory_query must be a non-empty string
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 251, in submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 721, in _run_domain
+    thinking = self._thinking.handle_perception(
+        perception,
+    ...<5 lines>...
+           if self._continuity_core is not None and self._continuity_core.mind is not None else {}),
+    )
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\thinking_service.py", line 204, in handle_perception
+    raise ThinkingExecutionError(
+    ...<2 lines>...
+    ) from exc
+continuity_engine.domain.errors.ThinkingExecutionError: ThinkSession failed and was logged: d571e159-3998-5edd-ab55-af63a32fafcd
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p14_mind_recovery.py", line 102, in test_unsettled_interpretation_changes_actual_information_need
+    request = f.request(); f.submit(request)
+                           ~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p09_core_fixture.py", line 165, in submit
+    return self.app.adapter.submit(request or self.request())
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 263, in submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.
+
+======================================================================
+FAIL: test_normal_chain_attempts_regulation_without_erasing_episode (test_p14_mind_recovery.MindCoreIntegrationTests.test_normal_chain_attempts_regulation_without_erasing_episode)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p14_mind_recovery.py", line 116, in test_normal_chain_attempts_regulation_without_erasing_episode
+    self.assertIn(mind['regulation'].get('outcome'), {'success', 'failure'})
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: None not found in {'failure', 'success'}
+
+----------------------------------------------------------------------
+Ran 27 tests in 9.734s
+
+FAILED (failures=1, errors=2)

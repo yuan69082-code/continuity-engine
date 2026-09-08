@@ -1,0 +1,470 @@
+[
+  {
+    "episodes": [],
+    "regulation": {},
+    "thoughts": [
+      {
+        "id": "thought:desire:intimacy",
+        "theme": "intimacy",
+        "content": "I keep considering intimacy in relation to my need for intimacy.",
+        "reason": "Engine deliberation retains an unresolved internal concern.",
+        "desire_ids": [
+          "desire:intimacy"
+        ],
+        "conflict_ids": [],
+        "created_at": "2026-09-04T09:00:00Z",
+        "last_recurred_at": "2026-09-04T09:00:00Z",
+        "recurrences": 1,
+        "unresolved": true
+      },
+      {
+        "id": "thought:desire:exploration",
+        "theme": "exploration",
+        "content": "I keep considering exploration in relation to my need for exploration.",
+        "reason": "Engine deliberation retains an unresolved internal concern.",
+        "desire_ids": [
+          "desire:exploration"
+        ],
+        "conflict_ids": [],
+        "created_at": "2026-09-04T09:00:00Z",
+        "last_recurred_at": "2026-09-04T09:00:00Z",
+        "recurrences": 1,
+        "unresolved": true
+      },
+      {
+        "id": "thought:desire:sexual",
+        "theme": "sexual",
+        "content": "I keep considering sexual in relation to my need for sexual.",
+        "reason": "Engine deliberation retains an unresolved internal concern.",
+        "desire_ids": [
+          "desire:sexual"
+        ],
+        "conflict_ids": [],
+        "created_at": "2026-09-04T09:00:00Z",
+        "last_recurred_at": "2026-09-04T09:00:00Z",
+        "recurrences": 1,
+        "unresolved": true
+      },
+      {
+        "id": "thought:desire:solitude",
+        "theme": "solitude",
+        "content": "I keep considering solitude in relation to my need for solitude.",
+        "reason": "Engine deliberation retains an unresolved internal concern.",
+        "desire_ids": [
+          "desire:solitude"
+        ],
+        "conflict_ids": [],
+        "created_at": "2026-09-04T09:00:00Z",
+        "last_recurred_at": "2026-09-04T09:00:00Z",
+        "recurrences": 1,
+        "unresolved": true
+      },
+      {
+        "id": "thought:desire:expression",
+        "theme": "expression",
+        "content": "I keep considering expression in relation to my need for expression.",
+        "reason": "Engine deliberation retains an unresolved internal concern.",
+        "desire_ids": [
+          "desire:expression"
+        ],
+        "conflict_ids": [],
+        "created_at": "2026-09-04T09:00:00Z",
+        "last_recurred_at": "2026-09-04T09:00:00Z",
+        "recurrences": 1,
+        "unresolved": true
+      },
+      {
+        "id": "thought:desire:protection",
+        "theme": "protection",
+        "content": "I keep considering protection in relation to my need for protection.",
+        "reason": "Engine deliberation retains an unresolved internal concern.",
+        "desire_ids": [
+          "desire:protection"
+        ],
+        "conflict_ids": [],
+        "created_at": "2026-09-04T09:00:00Z",
+        "last_recurred_at": "2026-09-04T09:00:00Z",
+        "recurrences": 1,
+        "unresolved": true
+      },
+      {
+        "id": "thought:desire:rest",
+        "theme": "rest",
+        "content": "I keep considering rest in relation to my need for rest.",
+        "reason": "Engine deliberation retains an unresolved internal concern.",
+        "desire_ids": [
+          "desire:rest"
+        ],
+        "conflict_ids": [],
+        "created_at": "2026-09-04T09:00:00Z",
+        "last_recurred_at": "2026-09-04T09:00:00Z",
+        "recurrences": 1,
+        "unresolved": true
+      }
+    ],
+    "fragments": [
+      [
+        "engine.subject-state",
+        "sub-cb06fcf63e364449:relationship"
+      ],
+      [
+        "engine.subject-state",
+        "sub-cb06fcf63e364449:continuity"
+      ],
+      [
+        "engine.subject-state",
+        "sub-cb06fcf63e364449:identity"
+      ],
+      [
+        "engine.subject-state",
+        "sub-cb06fcf63e364449:intentions"
+      ],
+      [
+        "engine.subject-state",
+        "sub-cb06fcf63e364449:emotion_state"
+      ],
+      [
+        "engine.timeline",
+        "p01-fixture-event-031674ef95b54feb"
+      ],
+      [
+        "engine.memory",
+        "memory:p01-fixture-event-031674ef95b54feb"
+      ]
+    ],
+    "candidateDecisions": [
+      {
+        "source_id": "engine.derived-summary",
+        "partition": "derived_summary",
+        "stable_id": "c1-summary:1f02c6921759bfaef8c32eb10656d6391144c70f5451cf3202a7420a9f4784a9",
+        "status": "RETAINED",
+        "reason_code": "VERIFIED_AND_RETAINED",
+        "score": 0.629977
+      },
+      {
+        "source_id": "engine.memory",
+        "partition": "memory",
+        "stable_id": "memory:p01-fixture-event-031674ef95b54feb",
+        "status": "RETAINED",
+        "reason_code": "VERIFIED_AND_RETAINED",
+        "score": 0.651477
+      },
+      {
+        "source_id": "engine.memory",
+        "partition": "memory",
+        "stable_id": "memory:regulation-concern",
+        "status": "RETAINED",
+        "reason_code": "VERIFIED_AND_RETAINED",
+        "score": 0.651477
+      },
+      {
+        "source_id": "engine.subject-state",
+        "partition": "subject_state",
+        "stable_id": "sub-cb06fcf63e364449:continuity",
+        "status": "RETAINED",
+        "reason_code": "VERIFIED_AND_RETAINED",
+        "score": 0.894977
+      },
+      {
+        "source_id": "engine.subject-state",
+        "partition": "subject_state",
+        "stable_id": "sub-cb06fcf63e364449:emotion_state",
+        "status": "RETAINED",
+        "reason_code": "VERIFIED_AND_RETAINED",
+        "score": 0.804977
+      },
+      {
+        "source_id": "engine.subject-state",
+        "partition": "subject_state",
+        "stable_id": "sub-cb06fcf63e364449:identity",
+        "status": "RETAINED",
+        "reason_code": "VERIFIED_AND_RETAINED",
+        "score": 0.864977
+      },
+      {
+        "source_id": "engine.subject-state",
+        "partition": "subject_state",
+        "stable_id": "sub-cb06fcf63e364449:intentions",
+        "status": "RETAINED",
+        "reason_code": "VERIFIED_AND_RETAINED",
+        "score": 0.849977
+      },
+      {
+        "source_id": "engine.subject-state",
+        "partition": "subject_state",
+        "stable_id": "sub-cb06fcf63e364449:relationship",
+        "status": "RETAINED",
+        "reason_code": "VERIFIED_AND_RETAINED",
+        "score": 0.999977
+      },
+      {
+        "source_id": "engine.subject-state",
+        "partition": "subject_state",
+        "stable_id": "sub-cb06fcf63e364449:temporal",
+        "status": "REJECTED",
+        "reason_code": "BELOW_RELEVANCE_THRESHOLD",
+        "score": 0.489977
+      },
+      {
+        "source_id": "engine.timeline",
+        "partition": "timeline",
+        "stable_id": "p01-fixture-event-031674ef95b54feb",
+        "status": "RETAINED",
+        "reason_code": "VERIFIED_AND_RETAINED",
+        "score": 0.704977
+      },
+      {
+        "source_id": "engine.timeline",
+        "partition": "timeline",
+        "stable_id": "regulation-concern",
+        "status": "RETAINED",
+        "reason_code": "VERIFIED_AND_RETAINED",
+        "score": 0.704977
+      }
+    ]
+  },
+  {
+    "episodes": [],
+    "regulation": {},
+    "thoughts": [
+      {
+        "id": "thought:desire:intimacy",
+        "theme": "intimacy",
+        "content": "I keep considering intimacy in relation to my need for intimacy.",
+        "reason": "Engine deliberation retains an unresolved internal concern.",
+        "desire_ids": [
+          "desire:intimacy"
+        ],
+        "conflict_ids": [],
+        "created_at": "2026-09-04T09:00:00Z",
+        "last_recurred_at": "2026-09-04T09:02:00Z",
+        "recurrences": 2,
+        "unresolved": true
+      },
+      {
+        "id": "thought:desire:exploration",
+        "theme": "exploration",
+        "content": "I keep considering exploration in relation to my need for exploration.",
+        "reason": "Engine deliberation retains an unresolved internal concern.",
+        "desire_ids": [
+          "desire:exploration"
+        ],
+        "conflict_ids": [],
+        "created_at": "2026-09-04T09:00:00Z",
+        "last_recurred_at": "2026-09-04T09:02:00Z",
+        "recurrences": 2,
+        "unresolved": true
+      },
+      {
+        "id": "thought:desire:sexual",
+        "theme": "sexual",
+        "content": "I keep considering sexual in relation to my need for sexual.",
+        "reason": "Engine deliberation retains an unresolved internal concern.",
+        "desire_ids": [
+          "desire:sexual"
+        ],
+        "conflict_ids": [],
+        "created_at": "2026-09-04T09:00:00Z",
+        "last_recurred_at": "2026-09-04T09:02:00Z",
+        "recurrences": 2,
+        "unresolved": true
+      },
+      {
+        "id": "thought:desire:solitude",
+        "theme": "solitude",
+        "content": "I keep considering solitude in relation to my need for solitude.",
+        "reason": "Engine deliberation retains an unresolved internal concern.",
+        "desire_ids": [
+          "desire:solitude"
+        ],
+        "conflict_ids": [],
+        "created_at": "2026-09-04T09:00:00Z",
+        "last_recurred_at": "2026-09-04T09:02:00Z",
+        "recurrences": 2,
+        "unresolved": true
+      },
+      {
+        "id": "thought:desire:expression",
+        "theme": "expression",
+        "content": "I keep considering expression in relation to my need for expression.",
+        "reason": "Engine deliberation retains an unresolved internal concern.",
+        "desire_ids": [
+          "desire:expression"
+        ],
+        "conflict_ids": [],
+        "created_at": "2026-09-04T09:00:00Z",
+        "last_recurred_at": "2026-09-04T09:02:00Z",
+        "recurrences": 2,
+        "unresolved": true
+      },
+      {
+        "id": "thought:desire:protection",
+        "theme": "protection",
+        "content": "I keep considering protection in relation to my need for protection.",
+        "reason": "Engine deliberation retains an unresolved internal concern.",
+        "desire_ids": [
+          "desire:protection"
+        ],
+        "conflict_ids": [],
+        "created_at": "2026-09-04T09:00:00Z",
+        "last_recurred_at": "2026-09-04T09:02:00Z",
+        "recurrences": 2,
+        "unresolved": true
+      },
+      {
+        "id": "thought:desire:rest",
+        "theme": "rest",
+        "content": "I keep considering rest in relation to my need for rest.",
+        "reason": "Engine deliberation retains an unresolved internal concern.",
+        "desire_ids": [
+          "desire:rest"
+        ],
+        "conflict_ids": [],
+        "created_at": "2026-09-04T09:00:00Z",
+        "last_recurred_at": "2026-09-04T09:02:00Z",
+        "recurrences": 2,
+        "unresolved": true
+      }
+    ],
+    "fragments": [
+      [
+        "engine.subject-state",
+        "sub-cb06fcf63e364449:relationship"
+      ],
+      [
+        "engine.subject-state",
+        "sub-cb06fcf63e364449:continuity"
+      ],
+      [
+        "engine.subject-state",
+        "sub-cb06fcf63e364449:identity"
+      ],
+      [
+        "engine.subject-state",
+        "sub-cb06fcf63e364449:intentions"
+      ],
+      [
+        "engine.subject-state",
+        "sub-cb06fcf63e364449:emotion_state"
+      ],
+      [
+        "engine.memory",
+        "memory:32348152-23c5-55bf-9617-35d802388538"
+      ]
+    ],
+    "candidateDecisions": [
+      {
+        "source_id": "engine.derived-summary",
+        "partition": "derived_summary",
+        "stable_id": "c1-summary:1f02c6921759bfaef8c32eb10656d6391144c70f5451cf3202a7420a9f4784a9",
+        "status": "RETAINED",
+        "reason_code": "VERIFIED_AND_RETAINED",
+        "score": 0.629976
+      },
+      {
+        "source_id": "engine.derived-summary",
+        "partition": "derived_summary",
+        "stable_id": "c1-summary:d20d28c743b8523a8b7595a72ca44420d642fdef801482ae14893b186d62939b",
+        "status": "RETAINED",
+        "reason_code": "VERIFIED_AND_RETAINED",
+        "score": 0.629999
+      },
+      {
+        "source_id": "engine.memory",
+        "partition": "memory",
+        "stable_id": "memory:32348152-23c5-55bf-9617-35d802388538",
+        "status": "RETAINED",
+        "reason_code": "VERIFIED_AND_RETAINED",
+        "score": 0.651499
+      },
+      {
+        "source_id": "engine.memory",
+        "partition": "memory",
+        "stable_id": "memory:p01-fixture-event-031674ef95b54feb",
+        "status": "RETAINED",
+        "reason_code": "VERIFIED_AND_RETAINED",
+        "score": 0.651476
+      },
+      {
+        "source_id": "engine.memory",
+        "partition": "memory",
+        "stable_id": "memory:regulation-concern",
+        "status": "RETAINED",
+        "reason_code": "VERIFIED_AND_RETAINED",
+        "score": 0.651476
+      },
+      {
+        "source_id": "engine.subject-state",
+        "partition": "subject_state",
+        "stable_id": "sub-cb06fcf63e364449:continuity",
+        "status": "RETAINED",
+        "reason_code": "VERIFIED_AND_RETAINED",
+        "score": 0.894999
+      },
+      {
+        "source_id": "engine.subject-state",
+        "partition": "subject_state",
+        "stable_id": "sub-cb06fcf63e364449:emotion_state",
+        "status": "RETAINED",
+        "reason_code": "VERIFIED_AND_RETAINED",
+        "score": 0.804999
+      },
+      {
+        "source_id": "engine.subject-state",
+        "partition": "subject_state",
+        "stable_id": "sub-cb06fcf63e364449:identity",
+        "status": "RETAINED",
+        "reason_code": "VERIFIED_AND_RETAINED",
+        "score": 0.864999
+      },
+      {
+        "source_id": "engine.subject-state",
+        "partition": "subject_state",
+        "stable_id": "sub-cb06fcf63e364449:intentions",
+        "status": "RETAINED",
+        "reason_code": "VERIFIED_AND_RETAINED",
+        "score": 0.849999
+      },
+      {
+        "source_id": "engine.subject-state",
+        "partition": "subject_state",
+        "stable_id": "sub-cb06fcf63e364449:relationship",
+        "status": "RETAINED",
+        "reason_code": "VERIFIED_AND_RETAINED",
+        "score": 0.999999
+      },
+      {
+        "source_id": "engine.subject-state",
+        "partition": "subject_state",
+        "stable_id": "sub-cb06fcf63e364449:temporal",
+        "status": "REJECTED",
+        "reason_code": "BELOW_RELEVANCE_THRESHOLD",
+        "score": 0.489999
+      },
+      {
+        "source_id": "engine.timeline",
+        "partition": "timeline",
+        "stable_id": "32348152-23c5-55bf-9617-35d802388538",
+        "status": "REJECTED",
+        "reason_code": "BELOW_RELEVANCE_THRESHOLD",
+        "score": 0.299999
+      },
+      {
+        "source_id": "engine.timeline",
+        "partition": "timeline",
+        "stable_id": "p01-fixture-event-031674ef95b54feb",
+        "status": "RETAINED",
+        "reason_code": "VERIFIED_AND_RETAINED",
+        "score": 0.704976
+      },
+      {
+        "source_id": "engine.timeline",
+        "partition": "timeline",
+        "stable_id": "regulation-concern",
+        "status": "RETAINED",
+        "reason_code": "VERIFIED_AND_RETAINED",
+        "score": 0.704976
+      }
+    ]
+  }
+]

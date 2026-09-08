@@ -1,0 +1,45 @@
+test_export_and_current_permission_are_separate (test_p14_mind_visibility.MindVisibilityTests.test_export_and_current_permission_are_separate) ... ERROR
+test_owner_detailed_projection_is_real_and_zero_write (test_p14_mind_visibility.MindVisibilityTests.test_owner_detailed_projection_is_real_and_zero_write) ... ERROR
+test_private_mode_does_not_delete_or_change_cognition (test_p14_mind_visibility.MindVisibilityTests.test_private_mode_does_not_delete_or_change_cognition) ... ERROR
+test_self_claimed_owner_and_non_owner_are_rejected_without_write (test_p14_mind_visibility.MindVisibilityTests.test_self_claimed_owner_and_non_owner_are_rejected_without_write) ... ERROR
+
+======================================================================
+ERROR: test_export_and_current_permission_are_separate (test_p14_mind_visibility.MindVisibilityTests.test_export_and_current_permission_are_separate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p14_mind_visibility.py", line 22, in setUp
+    self.view = self.f.owner_projection()
+                ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'P14Fixture' object has no attribute 'owner_projection'
+
+======================================================================
+ERROR: test_owner_detailed_projection_is_real_and_zero_write (test_p14_mind_visibility.MindVisibilityTests.test_owner_detailed_projection_is_real_and_zero_write)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p14_mind_visibility.py", line 22, in setUp
+    self.view = self.f.owner_projection()
+                ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'P14Fixture' object has no attribute 'owner_projection'
+
+======================================================================
+ERROR: test_private_mode_does_not_delete_or_change_cognition (test_p14_mind_visibility.MindVisibilityTests.test_private_mode_does_not_delete_or_change_cognition)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p14_mind_visibility.py", line 22, in setUp
+    self.view = self.f.owner_projection()
+                ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'P14Fixture' object has no attribute 'owner_projection'
+
+======================================================================
+ERROR: test_self_claimed_owner_and_non_owner_are_rejected_without_write (test_p14_mind_visibility.MindVisibilityTests.test_self_claimed_owner_and_non_owner_are_rejected_without_write)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p14_mind_visibility.py", line 22, in setUp
+    self.view = self.f.owner_projection()
+                ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'P14Fixture' object has no attribute 'owner_projection'
+
+----------------------------------------------------------------------
+Ran 4 tests in 1.774s
+
+FAILED (errors=4)

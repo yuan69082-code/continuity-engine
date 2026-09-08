@@ -102,7 +102,8 @@ class SubjectStateMaterialResolver:
             raise ContextCompositionSourceError("SOURCE_SUBJECT_MISMATCH")
         expected_version = f"revision:{state.revision}"
         section = reference.stable_id.rsplit(":", 1)[-1]
-        document = state.to_dict()
+        from continuity_engine.domain.dynamic_mind import context_state_document
+        document = context_state_document(state)
         if section not in {
             "identity",
             "relationship",

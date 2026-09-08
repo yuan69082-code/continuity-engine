@@ -1,0 +1,45 @@
+test_apology_is_new_evidence_not_automatic_resolution (test_p14_dynamic_mind.DynamicMindMechanismTests.test_apology_is_new_evidence_not_automatic_resolution) ... ok
+test_clock_regression_and_cross_environment_are_rejected (test_p14_dynamic_mind.DynamicMindMechanismTests.test_clock_regression_and_cross_environment_are_rejected) ... ok
+test_duplicate_appraisal_does_not_reinforce_same_time (test_p14_dynamic_mind.DynamicMindMechanismTests.test_duplicate_appraisal_does_not_reinforce_same_time) ... FAIL
+test_no_observation_forms_endogenous_desire (test_p14_dynamic_mind.DynamicMindMechanismTests.test_no_observation_forms_endogenous_desire) ... ok
+test_persisted_state_restores_without_reset (test_p14_dynamic_mind.DynamicMindMechanismTests.test_persisted_state_restores_without_reset) ... ok
+test_psychological_opposites_remain_together (test_p14_dynamic_mind.DynamicMindMechanismTests.test_psychological_opposites_remain_together) ... ok
+test_same_time_replay_has_no_extra_dynamic_change (test_p14_dynamic_mind.DynamicMindMechanismTests.test_same_time_replay_has_no_extra_dynamic_change) ... ok
+test_subjective_time_depends_on_attention_and_somatic_state (test_p14_dynamic_mind.DynamicMindMechanismTests.test_subjective_time_depends_on_attention_and_somatic_state) ... ok
+test_suppression_can_fail_without_erasing_concern (test_p14_dynamic_mind.DynamicMindMechanismTests.test_suppression_can_fail_without_erasing_concern) ... ok
+test_unknown_nested_reasoning_fields_are_rejected (test_p14_dynamic_mind.DynamicMindMechanismTests.test_unknown_nested_reasoning_fields_are_rejected) ... FAIL
+test_weaken_and_transform_change_desire_not_only_phase (test_p14_dynamic_mind.DynamicMindMechanismTests.test_weaken_and_transform_change_desire_not_only_phase) ... FAIL
+test_will_records_deliberation_not_scheduler_priority (test_p14_dynamic_mind.DynamicMindMechanismTests.test_will_records_deliberation_not_scheduler_priority) ... ok
+
+======================================================================
+FAIL: test_duplicate_appraisal_does_not_reinforce_same_time (test_p14_dynamic_mind.DynamicMindMechanismTests.test_duplicate_appraisal_does_not_reinforce_same_time)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p14_dynamic_mind.py", line 105, in test_duplicate_appraisal_does_not_reinforce_same_time
+    self.assertEqual(first.state.to_dict(), repeated.state.to_dict())
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'sub[305 chars]: 0.125142738, 'somatic': {'tension': 0.181269[9164 chars]-v1'} != {'sub[305 chars]: 0.179853427, 'somatic': {'tension': 0.329679[9815 chars]-v1'}
+Diff is 16574 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_unknown_nested_reasoning_fields_are_rejected (test_p14_dynamic_mind.DynamicMindMechanismTests.test_unknown_nested_reasoning_fields_are_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p14_dynamic_mind.py", line 126, in test_unknown_nested_reasoning_fields_are_rejected
+    with self.assertRaises(MindValidationError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+AssertionError: MindValidationError not raised
+
+======================================================================
+FAIL: test_weaken_and_transform_change_desire_not_only_phase (test_p14_dynamic_mind.DynamicMindMechanismTests.test_weaken_and_transform_change_desire_not_only_phase)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p14_dynamic_mind.py", line 113, in test_weaken_and_transform_change_desire_not_only_phase
+    self.assertLess(target['strength'], original['strength'])
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0.153518275 not less than 0.153518275
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.024s
+
+FAILED (failures=3)

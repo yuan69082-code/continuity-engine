@@ -1,0 +1,12 @@
+test_control_without_transform_updates_all_active_desires (confirmed_probes.P14ConfirmedProbes.test_control_without_transform_updates_all_active_desires) ... ok
+test_new_harm_is_not_resolved_by_old_pre_harm_support (confirmed_probes.P14ConfirmedProbes.test_new_harm_is_not_resolved_by_old_pre_harm_support) ... ok
+test_projection_mutation_does_not_write_through (confirmed_probes.P14ConfirmedProbes.test_projection_mutation_does_not_write_through) ... ok
+test_reopened_harm_is_not_resolved_by_previous_repair_evidence (confirmed_probes.P14ConfirmedProbes.test_reopened_harm_is_not_resolved_by_previous_repair_evidence) ... ok
+test_revocation_during_history_read_prevents_return (confirmed_probes.P14ConfirmedProbes.test_revocation_during_history_read_prevents_return) ... ok
+test_subsequent_independent_support_still_resolves (confirmed_probes.P14ConfirmedProbes.test_subsequent_independent_support_still_resolves) ... ok
+test_transform_keeps_both_desires_evolving_after_reload (confirmed_probes.P14ConfirmedProbes.test_transform_keeps_both_desires_evolving_after_reload) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 21.658s
+
+OK

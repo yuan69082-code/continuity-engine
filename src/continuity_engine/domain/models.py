@@ -160,11 +160,17 @@ class IntentionsState:
     emerging_thoughts: list[str] = field(default_factory=list)
     judgments: list[str] = field(default_factory=list)
     action_tendencies: list[str] = field(default_factory=list)
+    dynamic_mind: dict | None = None
 
     @classmethod
     def from_dict(cls, value: Any) -> IntentionsState:
         data = _mapping(value, "intentions")
+        mind = data.get("dynamic_mind")
+        if mind is not None:
+            from .dynamic_mind import MindState
+            mind = MindState.from_dict(mind).to_dict()
         return cls(
+            dynamic_mind=mind,
             emerging_thoughts=_string_list(
                 data.get("emerging_thoughts"), "intentions.emerging_thoughts"
             ),
@@ -256,6 +262,10 @@ class SubjectState:
             )
         if not isinstance(self.revision, int) or self.revision < 0:
             raise StateValidationError("revision must be a non-negative integer")
+        if self.intentions.dynamic_mind is not None:
+            from .dynamic_mind import MindState
+            if MindState.from_dict(self.intentions.dynamic_mind).subject_id != self.subject_id:
+                raise StateValidationError("dynamic mind subject mismatch")
 
     @classmethod
     def create(cls, subject_id: str, now: datetime | None = None) -> SubjectState:
@@ -274,6 +284,13 @@ class SubjectState:
         self.temporal.updated_at = updated
 
     def to_dict(self) -> dict[str, Any]:
+        mind = self.intentions.dynamic_mind
+        if mind is not None:
+            from .dynamic_mind import MindState
+            parsed = MindState.from_dict(mind)
+            if parsed.subject_id != self.subject_id:
+                raise StateValidationError("dynamic mind subject mismatch")
+            mind = parsed.to_dict()
         return {
             "schema_version": self.schema_version,
             "revision": self.revision,
@@ -309,6 +326,7 @@ class SubjectState:
                 "emerging_thoughts": list(self.intentions.emerging_thoughts),
                 "judgments": list(self.intentions.judgments),
                 "action_tendencies": list(self.intentions.action_tendencies),
+                **({"dynamic_mind": mind} if mind is not None else {}),
             },
             "emotion_state": self.emotion_state.to_dict(),
         }

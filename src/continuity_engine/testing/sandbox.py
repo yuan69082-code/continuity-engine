@@ -619,8 +619,10 @@ class SandboxRuntime:
             "state_fixture": [fixture_path],
             "test_trace": [self.trace.path],
         }
-        from .c1_snapshot import additions
+        from .c1_snapshot import additions, permission_additions
         c1 = additions(self.data_root, self.descriptor.subject_id)
+        owner_permissions = permission_additions(self.data_root, self.descriptor.subject_id)
+        physical_paths['state_fixture'].extend(path for path, _ in owner_permissions)
         for name, (path, _) in c1.items():
             physical_paths[name].append(path)
         for name, paths in physical_paths.items():
@@ -703,6 +705,11 @@ class SandboxRuntime:
         for name, (_, document) in c1.items():
             payload, revision, count = components[name]
             components[name] = ({"p01": payload, "c1": document}, revision, count + 1)
+        if owner_permissions:
+            payload, revision, count = components['state_fixture']
+            components['state_fixture'] = ({'fixture': payload,
+                'testOwnerPermissions': [document for _, document in owner_permissions]},
+                revision, count + len(owner_permissions))
         return {
             name: {
                 "payload": payload,

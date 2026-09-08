@@ -1,0 +1,49 @@
+test_control_without_transform_updates_all_active_desires (test_p14_review_repair.P14ReviewRepairTests.test_control_without_transform_updates_all_active_desires) ... ok
+test_new_harm_is_not_resolved_by_old_pre_harm_support (test_p14_review_repair.P14ReviewRepairTests.test_new_harm_is_not_resolved_by_old_pre_harm_support) ... FAIL
+test_projection_mutation_does_not_write_through (test_p14_review_repair.P14ReviewRepairTests.test_projection_mutation_does_not_write_through) ... ok
+test_reopened_harm_is_not_resolved_by_previous_repair_evidence (test_p14_review_repair.P14ReviewRepairTests.test_reopened_harm_is_not_resolved_by_previous_repair_evidence) ... FAIL
+test_revocation_during_history_read_prevents_return (test_p14_review_repair.P14ReviewRepairTests.test_revocation_during_history_read_prevents_return) ... ok
+test_subsequent_independent_support_still_resolves (test_p14_review_repair.P14ReviewRepairTests.test_subsequent_independent_support_still_resolves) ... ok
+test_transform_keeps_both_desires_evolving_after_reload (test_p14_review_repair.P14ReviewRepairTests.test_transform_keeps_both_desires_evolving_after_reload) ... FAIL
+
+======================================================================
+FAIL: test_new_harm_is_not_resolved_by_old_pre_harm_support (test_p14_review_repair.P14ReviewRepairTests.test_new_harm_is_not_resolved_by_old_pre_harm_support)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p14_review_repair.py", line 43, in test_new_harm_is_not_resolved_by_old_pre_harm_support
+    self.assertNotEqual(episode['status'], 'resolved',
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        'A newly appraised harm was resolved using only support predating that harm: ' + repr(episode['resolution']))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'resolved' == 'resolved' : A newly appraised harm was resolved using only support predating that harm: {'episode_id': 'episode:a50f304e5cd93f50193aea211cdc41d887c26d014a2681c3f3ec0d0e61a2d8e6', 'interpretation': 'Current experience of peer is consistent with the previously unmet expectation; retain the original experience in relation to mutual respect', 'reason': 'Compare the unresolved expectation with 2 independently identified, currently composed instances; one instance leaves uncertainty.', 'source_keys': ['event:old-support-2', 'event:old-support-1'], 'resolve': True}
+
+======================================================================
+FAIL: test_reopened_harm_is_not_resolved_by_previous_repair_evidence (test_p14_review_repair.P14ReviewRepairTests.test_reopened_harm_is_not_resolved_by_previous_repair_evidence)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p14_review_repair.py", line 55, in test_reopened_harm_is_not_resolved_by_previous_repair_evidence
+    self.assertEqual(reopened['status'], 'unresolved',
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        'Old repair evidence immediately re-resolved a new harm: ' + repr(reopened['resolution']))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'resolved' != 'unresolved'
+- resolved
++ unresolved
+? ++
+ : Old repair evidence immediately re-resolved a new harm: {'episode_id': 'episode:a50f304e5cd93f50193aea211cdc41d887c26d014a2681c3f3ec0d0e61a2d8e6', 'interpretation': 'Current experience of peer is consistent with the previously unmet expectation; retain the original experience in relation to mutual respect', 'reason': 'Compare the unresolved expectation with 2 independently identified, currently composed instances; one instance leaves uncertainty.', 'source_keys': ['event:repair-first-2', 'event:repair-first-1'], 'resolve': True}
+
+======================================================================
+FAIL: test_transform_keeps_both_desires_evolving_after_reload (test_p14_review_repair.P14ReviewRepairTests.test_transform_keeps_both_desires_evolving_after_reload)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p14_review_repair.py", line 107, in test_transform_keeps_both_desires_evolving_after_reload
+    self.assertNotEqual(original['strength'], before['exploration']['strength'],
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        'A still-active desire remained numerically frozen across two elapsed opportunities')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0.283468689 == 0.283468689 : A still-active desire remained numerically frozen across two elapsed opportunities
+
+----------------------------------------------------------------------
+Ran 7 tests in 21.063s
+
+FAILED (failures=3)

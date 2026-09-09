@@ -1,0 +1,25 @@
+test_direct_c1_produces_one_effect_and_replays (test_p17_execution.ExecutionTests.test_direct_c1_produces_one_effect_and_replays) ... ERROR
+test_planner_c1_executes_both_dependencies (test_p17_execution.ExecutionTests.test_planner_c1_executes_both_dependencies) ... ERROR
+
+======================================================================
+ERROR: test_direct_c1_produces_one_effect_and_replays (test_p17_execution.ExecutionTests.test_direct_c1_produces_one_effect_and_replays)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p17_execution.py", line 13, in test_direct_c1_produces_one_effect_and_replays
+    self.assertEqual(f.submit(request)['status'], 'COMPLETED')
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^
+TypeError: 'FirstRoundSuccessResult' object is not subscriptable
+
+======================================================================
+ERROR: test_planner_c1_executes_both_dependencies (test_p17_execution.ExecutionTests.test_planner_c1_executes_both_dependencies)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p17_execution.py", line 23, in test_planner_c1_executes_both_dependencies
+    self.assertEqual(f.submit()['status'], 'COMPLETED')
+                     ~~~~~~~~~~^^^^^^^^^^
+TypeError: 'FirstRoundSuccessResult' object is not subscriptable
+
+----------------------------------------------------------------------
+Ran 2 tests in 1.503s
+
+FAILED (errors=2)

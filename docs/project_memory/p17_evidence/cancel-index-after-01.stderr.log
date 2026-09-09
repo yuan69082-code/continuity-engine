@@ -1,0 +1,6 @@
+test_cancel_survives_missing_delivery_index_without_redispatch (test_p17_recovery.RecoveryTests.test_cancel_survives_missing_delivery_index_without_redispatch) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.926s
+
+OK

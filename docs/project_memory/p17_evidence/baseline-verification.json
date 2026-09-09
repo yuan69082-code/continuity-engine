@@ -1,0 +1,103 @@
+{
+  "checks": {
+    "expectedP16Commit": true,
+    "expectedParent": true,
+    "mainAndLocalTrackingSynchronized": true,
+    "exact226CommittedFiles": true,
+    "allReviewed192P16FilesIncluded": true,
+    "source243StillExactlyVerified": true,
+    "protected63Unchanged": true,
+    "threeFrozenPlansUnchanged": true,
+    "formal7AndTreeUnchanged": true,
+    "excluded31ScriptsUnchanged": true,
+    "excludedP14ReportUnchanged": true,
+    "only32ExpectedUntrackedFiles": true,
+    "trackedWorktreeAndIndexClean": true,
+    "archived24ReviewFilesByteExact": true,
+    "historicalEvidenceUnchanged": true,
+    "D069UniqueAndTwelveRowsAccepted": true,
+    "exactEightDocumentWhitespaceWarnings": true,
+    "planningCacheThreeSourceHashesMatch": true
+  },
+  "allChecksPass": true,
+  "commit": "0c440b0476b07723abafe93777fe895b64fd8d0e",
+  "parent": "a41a733635b0f5978c19b287274b4c63925b8979",
+  "message": "feat: implement and accept P16 external capability providers",
+  "committedFileCount": 226,
+  "remainingUntrackedCount": 32,
+  "historicalFormattingWarnings": [
+    {
+      "path": "docs/project_memory/p16_evidence/expanded-first.stderr.log",
+      "line": 28,
+      "kind": "trailing whitespace"
+    },
+    {
+      "path": "docs/project_memory/p16_evidence/lifecycle-golden-first.stderr.log",
+      "line": 1,
+      "kind": "trailing whitespace"
+    },
+    {
+      "path": "docs/project_memory/p16_evidence/provider-first.stderr.log",
+      "line": 1,
+      "kind": "trailing whitespace"
+    },
+    {
+      "path": "docs/project_memory/p16_evidence/recovery-context-first.stderr.log",
+      "line": 7,
+      "kind": "trailing whitespace"
+    },
+    {
+      "path": "docs/project_memory/p16_repair_evidence/formal-before-01.stderr.log",
+      "line": 7,
+      "kind": "trailing whitespace"
+    },
+    {
+      "path": "docs/project_memory/p16_repair_evidence/formal-before-01.stderr.log",
+      "line": 12,
+      "kind": "trailing whitespace"
+    },
+    {
+      "path": "docs/project_memory/p16_repair_evidence/formal-before-01.stderr.log",
+      "line": 25,
+      "kind": "trailing whitespace"
+    },
+    {
+      "path": "docs/project_memory/p16_repair_evidence/test-history.md",
+      "line": 27,
+      "kind": "new blank line at EOF"
+    }
+  ],
+  "whitespaceCheckExitCode": 2,
+  "warningMeaning": "Seven trailing spaces in raw historical test logs and one EOF blank line in test-history.md; no executable code warnings in this commit.",
+  "remoteReadOnlyObservation": {
+    "command": "git ls-remote --exit-code origin refs/heads/main",
+    "observedSHA": "0c440b0476b07723abafe93777fe895b64fd8d0e",
+    "source": "Separate successful host-authenticated read-only command in this turn; sandbox first attempt returned SEC_E_NO_CREDENTIALS."
+  },
+  "trackedCIWorkflowFiles": [],
+  "remoteCIIndependentlyChecked": false,
+  "planningSources": {
+    "Continuity Assistant 分支构想 v0.1_P10实际建仓同步版_2026-08-26.docx": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\outputs\\Continuity Assistant 分支构想 v0.1_P10实际建仓同步版_2026-08-26.docx",
+      "expectedSHA256": "5513e8241a96f4d661d9520cbcb3c2ea9914ca8d430b2db4dacc13ba3dd744a1",
+      "actualSHA256": "5513e8241a96f4d661d9520cbcb3c2ea9914ca8d430b2db4dacc13ba3dd744a1",
+      "blocks": 63
+    },
+    "Continuity Engine（数字连续性引擎）全周期工程监工规划_v1.1_Engine独立施工与P10实际建仓同步版_2026-08-26.docx": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\outputs\\Continuity Engine（数字连续性引擎）全周期工程监工规划_v1.1_Engine独立施工与P10实际建仓同步版_2026-08-26.docx",
+      "expectedSHA256": "9cbc30b5beb7f12c046556bd9461b59d5d4e45c2315dc2da4f07c8bd132ae1a1",
+      "actualSHA256": "9cbc30b5beb7f12c046556bd9461b59d5d4e45c2315dc2da4f07c8bd132ae1a1",
+      "blocks": 417
+    },
+    "连续性引擎长期能力增补规划_v6.7_Engine独立施工与P10实际建仓同步版_2026-08-26.docx": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\outputs\\连续性引擎长期能力增补规划_v6.7_Engine独立施工与P10实际建仓同步版_2026-08-26.docx",
+      "expectedSHA256": "a47bfb5e19092ee11963c0554897fbb29cbbba775183bddecb284c24f3788027",
+      "actualSHA256": "a47bfb5e19092ee11963c0554897fbb29cbbba775183bddecb284c24f3788027",
+      "blocks": 587
+    }
+  },
+  "testsRerun": false,
+  "gitWrites": false,
+  "engineFilesModified": false,
+  "P17ImplementationStarted": false
+}

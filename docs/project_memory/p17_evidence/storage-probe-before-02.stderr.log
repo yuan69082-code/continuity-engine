@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\docs\project_memory\p17_evidence\storage_probe_short.py", line 19, in <module>
+    assert actual<=limit,'P17 Fake storage bound exceeded'
+           ^^^^^^^^^^^^^
+AssertionError: P17 Fake storage bound exceeded

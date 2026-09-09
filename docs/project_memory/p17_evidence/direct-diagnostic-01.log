@@ -1,0 +1,59 @@
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 265, in submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 775, in _run_domain
+    return self._complete_domain_after_thinking(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        operation,
+        ^^^^^^^^^^
+    ...<2 lines>...
+        thinking,
+        ^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 1006, in _complete_domain_after_thinking
+    self._continuity_core.after_action(operation, thinking, action)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 387, in after_action
+    raise CapabilityValidationError("C1_ACTION_" + self.last_action.status)
+continuity_engine.domain.errors.CapabilityValidationError: C1_ACTION_WAITING_CAPABILITY
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<stdin>", line 6, in <module>
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p17_execution_fixture.py", line 205, in submit
+    result=self.app.adapter.submit(request)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 277, in submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<stdin>", line 10, in <module>
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\execution_service.py", line 189, in execute
+    self.current(request,route,'execute')
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\execution_service.py", line 177, in current
+    reason,_=planner._gate(request,planner.capabilities[request.capability_type],self.core.clock().isoformat())
+             ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\action_planning_service.py", line 224, in _gate
+    if parse_capability_datetime(now) >= parse_capability_datetime(request.choice.expires_at):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\domain\capability.py", line 745, in parse_capability_datetime
+    _utc(value, "capability timestamp")
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\domain\capability.py", line 73, in _utc
+    raise CapabilityValidationError(
+        f"{name} must be an RFC 3339 UTC timestamp ending in uppercase Z"
+    )
+continuity_engine.domain.errors.CapabilityValidationError: capability timestamp must be an RFC 3339 UTC timestamp ending in uppercase Z
+RESULT {'decision_id': 'c1:6614dbaf0ab332026d55d1c51ae03b1fe785ca80ad9b5db2b82dd1a997a83eaf', 'status': 'WAITING_CAPABILITY', 'plan_id': None, 'requests': [{'internalVersion': 'engine-internal-action/v1', 'choice': {'decision_id': 'c1:6614dbaf0ab332026d55d1c51ae03b1fe785ca80ad9b5db2b82dd1a997a83eaf', 'producer_id': 'c1-engine-decision-v1', 'subject_id': 'sub-28b5eed643e94f3a', 'environment': 'TEST', 'snapshot_hash': 'sha256:98e31cc368e69cba19509ba8226552049c047451c610d7e6a75cd4e0b6745e14', 'source_revision': 1, 'source_fragment_ids': ['sha256:a3e170c270b69bbbe074497cbb08637e9ec23518f8525c07e7c3d2f7b4e68b88', 'sha256:3518bb85f27ca15ae03e09d386f75b53d5ab03f6a120469d104928aee5a6de43', 'sha256:0cc47afad45ff4640b65dec4836f65aa848538c856662a8ec0db8180ad8912d9', 'sha256:0acad1b82fde624bc4afa4a9b683b325da5dfee4a80fa15853040cb5bf04e3b8', 'sha256:7dfa6208498360f3240b4d178b8375aaf6e596146d544d9e954bc543a541a81c', 'sha256:24837058aa0151405cc976fa3827a3164021daabdb1b064794a8640876b8faf9', 'sha256:c93d6a69718b0fa25a0429d8c42d4cb82ebd6db1ab590b107052822536f68d13'], 'trigger': 'ACTION_INTENT', 'steps': [{'step_id': 'step-0', 'capability': 'execution.write', 'target': 'asset:p17-local', 'argument_hash': 'sha256:d5267da04cb3d8b623f7ea544920e967366caa4b81081c5c75f78c429aa3d913', 'dependencies': []}], 'created_at': '2026-09-04T08:00:00Z', 'expires_at': '2026-09-04T08:10:00Z', 'requires_planning': False}, 'stepId': 'step-0', 'planId': None, 'adapterId': 'p17-test-adapter', 'policyHash': 'sha256:c066febca8e9393a069799739d194b850ffbc0baab7bf7d37cc4fa57f964e076', 'operationId': 'action-op:1450fd7308a77f819e4a29a3ce550c88ffdb35da17a24b3d36848168c53994d8', 'capabilityRequestId': 'action-cap:38736c5b5d23134f8e2b4e1aa3bf49d2a7686aac33aa792d43284c331f85033f', 'requestHash': 'sha256:61d709046201bdd516f0708c795ff63b07f5bb49c5f26aa66a7625dabf11d86a', 'idempotencyKey': 'sha256:bee242187d9acf4f4df5d07779ebccb1b0f42f5a6dade17084fb3ce815d2c293'}], 'results': [{'internalVersion': 'engine-internal-action/v1', 'request': {'internalVersion': 'engine-internal-action/v1', 'choice': {'decision_id': 'c1:6614dbaf0ab332026d55d1c51ae03b1fe785ca80ad9b5db2b82dd1a997a83eaf', 'producer_id': 'c1-engine-decision-v1', 'subject_id': 'sub-28b5eed643e94f3a', 'environment': 'TEST', 'snapshot_hash': 'sha256:98e31cc368e69cba19509ba8226552049c047451c610d7e6a75cd4e0b6745e14', 'source_revision': 1, 'source_fragment_ids': ['sha256:a3e170c270b69bbbe074497cbb08637e9ec23518f8525c07e7c3d2f7b4e68b88', 'sha256:3518bb85f27ca15ae03e09d386f75b53d5ab03f6a120469d104928aee5a6de43', 'sha256:0cc47afad45ff4640b65dec4836f65aa848538c856662a8ec0db8180ad8912d9', 'sha256:0acad1b82fde624bc4afa4a9b683b325da5dfee4a80fa15853040cb5bf04e3b8', 'sha256:7dfa6208498360f3240b4d178b8375aaf6e596146d544d9e954bc543a541a81c', 'sha256:24837058aa0151405cc976fa3827a3164021daabdb1b064794a8640876b8faf9', 'sha256:c93d6a69718b0fa25a0429d8c42d4cb82ebd6db1ab590b107052822536f68d13'], 'trigger': 'ACTION_INTENT', 'steps': [{'step_id': 'step-0', 'capability': 'execution.write', 'target': 'asset:p17-local', 'argument_hash': 'sha256:d5267da04cb3d8b623f7ea544920e967366caa4b81081c5c75f78c429aa3d913', 'dependencies': []}], 'created_at': '2026-09-04T08:00:00Z', 'expires_at': '2026-09-04T08:10:00Z', 'requires_planning': False}, 'stepId': 'step-0', 'planId': None, 'adapterId': 'p17-test-adapter', 'policyHash': 'sha256:c066febca8e9393a069799739d194b850ffbc0baab7bf7d37cc4fa57f964e076', 'operationId': 'action-op:1450fd7308a77f819e4a29a3ce550c88ffdb35da17a24b3d36848168c53994d8', 'capabilityRequestId': 'action-cap:38736c5b5d23134f8e2b4e1aa3bf49d2a7686aac33aa792d43284c331f85033f', 'requestHash': 'sha256:61d709046201bdd516f0708c795ff63b07f5bb49c5f26aa66a7625dabf11d86a', 'idempotencyKey': 'sha256:bee242187d9acf4f4df5d07779ebccb1b0f42f5a6dade17084fb3ce815d2c293'}, 'status': 'UNKNOWN', 'reason': 'ADAPTER_RESPONSE_UNKNOWN', 'completedAt': '2026-09-04T08:00:00Z', 'receipt': None, 'gateReasons': ['CAPABILITY_RESOLVED', 'ACTION_GATE_PASSED', 'PERMISSION_CONFIRMED', 'RESOURCE_PASSED', 'RECOVERABILITY_PASSED', 'REALITY_BOUNDARY_PASSED', 'DISPATCH_ATTEMPT_1']}], 'direct_state_write_allowed': False, 'evolution_commit_allowed': False}
+QUERY ReceiptQuery.NOT_EXECUTED

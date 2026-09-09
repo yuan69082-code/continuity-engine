@@ -1,0 +1,19 @@
+{
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-p",
+    "test_p17*.py",
+    "-v"
+  ],
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "exitCode": 0,
+  "elapsedSeconds": 85.39856939998572,
+  "beforeCount": 2098,
+  "afterCount": 2098,
+  "changed": []
+}

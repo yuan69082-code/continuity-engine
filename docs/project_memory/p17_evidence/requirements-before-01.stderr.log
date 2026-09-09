@@ -1,0 +1,23 @@
+test_direct_c1_produces_one_effect_and_replays (test_p17_execution.ExecutionTests.test_direct_c1_produces_one_effect_and_replays) ... ERROR
+test_planner_c1_executes_both_dependencies (test_p17_execution.ExecutionTests.test_planner_c1_executes_both_dependencies) ... ERROR
+
+======================================================================
+ERROR: test_direct_c1_produces_one_effect_and_replays (test_p17_execution.ExecutionTests.test_direct_c1_produces_one_effect_and_replays)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p17_execution.py", line 9, in test_direct_c1_produces_one_effect_and_replays
+    from continuity_engine.testing.p17_execution_fixture import P17Fixture
+ModuleNotFoundError: No module named 'continuity_engine.testing.p17_execution_fixture'
+
+======================================================================
+ERROR: test_planner_c1_executes_both_dependencies (test_p17_execution.ExecutionTests.test_planner_c1_executes_both_dependencies)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p17_execution.py", line 20, in test_planner_c1_executes_both_dependencies
+    from continuity_engine.testing.p17_execution_fixture import P17Fixture
+ModuleNotFoundError: No module named 'continuity_engine.testing.p17_execution_fixture'
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.008s
+
+FAILED (errors=2)

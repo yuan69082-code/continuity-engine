@@ -71,6 +71,16 @@ def build_continuity_core(*, data_dir, binding, ledger, subject_states, action_g
         capabilities=(*capabilities,*external.bindings())
         options['policy']=external.policy(options.get('policy'))
     else:external=None
+    execution=options.pop('execution',None)
+    if execution is not None and gates.enabled:
+        from .execution_context_source import ExecutionContextSource
+        source=ExecutionContextSource(execution)
+        sources.append(ContextSourceBinding(source))
+        resolvers.append(TrustedContextResolverBinding(source,ContextAuthority.RETRIEVED_CANDIDATE,'execution_result'))
+        capabilities=(*capabilities,*execution.bindings())
+        options['policy']=execution.policy(options.get('policy'))
+    else:
+        execution=None
     repository = JsonContradictionRepository(data_dir, environment=environment,
                                               resolution_evidence_verifier=resolution_verifier)
     if options.get('subject_growth'):
@@ -86,6 +96,7 @@ def build_continuity_core(*, data_dir, binding, ledger, subject_states, action_g
         consolidation=MemoryConsolidationService(memory, clock=clock), subject_states=subject_states,
         coordination=CapabilityCoordinationService(ledger), action_gate=action_gate, constraints=constraints,
         capabilities=capabilities, clock=clock, permission_policy=permission, gates=gates,
-        external_capabilities=external, **options)
+        external_capabilities=external, execution=execution, **options)
     if external is not None:external.bind(core)
+    if execution is not None:execution.bind(core)
     return core

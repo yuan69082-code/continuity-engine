@@ -1,0 +1,15 @@
+test_failed_receipt_at_credit_and_message_limit_has_zero_extra_usage (test_p17_repair_edges.ActualChargeRepairTests.test_failed_receipt_at_credit_and_message_limit_has_zero_extra_usage) ... FAIL
+
+======================================================================
+FAIL: test_failed_receipt_at_credit_and_message_limit_has_zero_extra_usage (test_p17_repair_edges.ActualChargeRepairTests.test_failed_receipt_at_credit_and_message_limit_has_zero_extra_usage)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p17_repair_edges.py", line 129, in test_failed_receipt_at_credit_and_message_limit_has_zero_extra_usage
+    self.assertIsInstance(fact,ActionReceipt,'A zero-usage terminal result still requires a real receipt')
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: <ReceiptQuery.NOT_EXECUTED: 'NOT_EXECUTED'> is not an instance of <class 'continuity_engine.domain.action_capability.ActionReceipt'> : A zero-usage terminal result still requires a real receipt
+
+----------------------------------------------------------------------
+Ran 1 test in 0.913s
+
+FAILED (failures=1)

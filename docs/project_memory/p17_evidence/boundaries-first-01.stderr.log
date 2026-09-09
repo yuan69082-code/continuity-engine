@@ -1,0 +1,125 @@
+test_blast_radius_each_bound_actually_limits_effects (test_p17_boundaries.BoundaryTests.test_blast_radius_each_bound_actually_limits_effects) ... ok
+test_broker_boundary_provider_exception_tracebacks_are_static (test_p17_boundaries.BoundaryTests.test_broker_boundary_provider_exception_tracebacks_are_static) ... ok
+test_capability_version_change_cannot_retarget_history (test_p17_boundaries.BoundaryTests.test_capability_version_change_cannot_retarget_history) ... ok
+test_current_broker_and_reality_rechecked_at_dispatch (test_p17_boundaries.BoundaryTests.test_current_broker_and_reality_rechecked_at_dispatch) ... ok
+test_current_context_and_confirmation_rechecked_at_dispatch (test_p17_boundaries.BoundaryTests.test_current_context_and_confirmation_rechecked_at_dispatch) ... ok
+test_fixture_protected_paths_uppercase_children_zero_write (test_p17_boundaries.BoundaryTests.test_fixture_protected_paths_uppercase_children_zero_write) ... ok
+test_lifecycle_pause_archive_delete_reject_new_execution (test_p17_boundaries.BoundaryTests.test_lifecycle_pause_archive_delete_reject_new_execution) ... 
+  test_lifecycle_pause_archive_delete_reject_new_execution (test_p17_boundaries.BoundaryTests.test_lifecycle_pause_archive_delete_reject_new_execution) (operation='PAUSE') ... ERROR
+  test_lifecycle_pause_archive_delete_reject_new_execution (test_p17_boundaries.BoundaryTests.test_lifecycle_pause_archive_delete_reject_new_execution) (operation='DELETE') ... ERROR
+test_mid_gate_revocation_is_rechecked_before_effect (test_p17_boundaries.BoundaryTests.test_mid_gate_revocation_is_rechecked_before_effect) ... ok
+test_mid_result_read_revocation_blocks_return_and_writes (test_p17_boundaries.BoundaryTests.test_mid_result_read_revocation_blocks_return_and_writes) ... ok
+test_nonboolean_truthy_authorization_fails_closed (test_p17_boundaries.BoundaryTests.test_nonboolean_truthy_authorization_fails_closed) ... ok
+test_normal_psychological_content_and_silence_are_not_screened (test_p17_boundaries.BoundaryTests.test_normal_psychological_content_and_silence_are_not_screened) ... ok
+test_platform_reality_resource_outcomes_remain_distinct_in_e5a (test_p17_boundaries.BoundaryTests.test_platform_reality_resource_outcomes_remain_distinct_in_e5a) ... 
+  test_platform_reality_resource_outcomes_remain_distinct_in_e5a (test_p17_boundaries.BoundaryTests.test_platform_reality_resource_outcomes_remain_distinct_in_e5a) (reason='PLATFORM_DENIAL') ... FAIL
+  test_platform_reality_resource_outcomes_remain_distinct_in_e5a (test_p17_boundaries.BoundaryTests.test_platform_reality_resource_outcomes_remain_distinct_in_e5a) (reason='REALITY_DENIAL') ... FAIL
+  test_platform_reality_resource_outcomes_remain_distinct_in_e5a (test_p17_boundaries.BoundaryTests.test_platform_reality_resource_outcomes_remain_distinct_in_e5a) (reason='RESOURCE_EXHAUSTED') ... FAIL
+  test_platform_reality_resource_outcomes_remain_distinct_in_e5a (test_p17_boundaries.BoundaryTests.test_platform_reality_resource_outcomes_remain_distinct_in_e5a) (reason='RECOVERABILITY_NOT_READY') ... FAIL
+test_receipt_secret_full_material_never_enters_ledger (test_p17_boundaries.BoundaryTests.test_receipt_secret_full_material_never_enters_ledger) ... ok
+test_resource_exhaustion_does_not_consume_attempts_or_effects (test_p17_boundaries.BoundaryTests.test_resource_exhaustion_does_not_consume_attempts_or_effects) ... ok
+test_result_hash_or_extra_authority_material_rejected (test_p17_boundaries.BoundaryTests.test_result_hash_or_extra_authority_material_rejected) ... ok
+test_thinking_secret_rejected_before_first_persistence (test_p17_boundaries.BoundaryTests.test_thinking_secret_rejected_before_first_persistence) ... ok
+
+======================================================================
+ERROR: test_lifecycle_pause_archive_delete_reject_new_execution (test_p17_boundaries.BoundaryTests.test_lifecycle_pause_archive_delete_reject_new_execution) (operation='PAUSE')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p17_boundaries.py", line 48, in test_lifecycle_pause_archive_delete_reject_new_execution
+    self.assert_no_dispatch(f,lambda:f.lifecycle(operation))
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p17_boundaries.py", line 21, in assert_no_dispatch
+    change()
+    ~~~~~~^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p17_boundaries.py", line 48, in <lambda>
+    self.assert_no_dispatch(f,lambda:f.lifecycle(operation))
+                                     ~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p17_execution_fixture.py", line 212, in lifecycle
+    return P16Fixture.lifecycle(self,operation)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p16_provider_fixture.py", line 180, in lifecycle
+    command=LifecycleCommand('p16-lifecycle-'+str(state.revision),state.subject_id,'TEST',state.revision,now,
+        'Explicit isolated P16 lifecycle test',operation,'OWNER')
+  File "<string>", line 11, in __init__
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\domain\subject_lifecycle.py", line 73, in __post_init__
+    raise LifecycleError('SUBJECT_INITIATOR_OPERATION_INVALID')
+continuity_engine.domain.subject_lifecycle.LifecycleError: SUBJECT_INITIATOR_OPERATION_INVALID
+
+======================================================================
+ERROR: test_lifecycle_pause_archive_delete_reject_new_execution (test_p17_boundaries.BoundaryTests.test_lifecycle_pause_archive_delete_reject_new_execution) (operation='DELETE')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p17_boundaries.py", line 48, in test_lifecycle_pause_archive_delete_reject_new_execution
+    self.assert_no_dispatch(f,lambda:f.lifecycle(operation))
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p17_boundaries.py", line 21, in assert_no_dispatch
+    change()
+    ~~~~~~^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p17_boundaries.py", line 48, in <lambda>
+    self.assert_no_dispatch(f,lambda:f.lifecycle(operation))
+                                     ~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p17_execution_fixture.py", line 212, in lifecycle
+    return P16Fixture.lifecycle(self,operation)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p16_provider_fixture.py", line 187, in lifecycle
+    return service.submit(command,token)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\subject_lifecycle_service.py", line 128, in submit
+    authorize(state)
+    ~~~~~~~~~^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\subject_lifecycle_service.py", line 117, in authorize
+    raise LifecycleError('SUBJECT_DELETE_RETENTION_NOT_ELAPSED')
+continuity_engine.domain.subject_lifecycle.LifecycleError: SUBJECT_DELETE_RETENTION_NOT_ELAPSED
+
+======================================================================
+FAIL: test_platform_reality_resource_outcomes_remain_distinct_in_e5a (test_p17_boundaries.BoundaryTests.test_platform_reality_resource_outcomes_remain_distinct_in_e5a) (reason='PLATFORM_DENIAL')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p17_boundaries.py", line 162, in test_platform_reality_resource_outcomes_remain_distinct_in_e5a
+    self.assertEqual(f.core.last_action.results[0].reason,reason)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'ADAPTER_RESPONSE_UNKNOWN' != 'PLATFORM_DENIAL'
+- ADAPTER_RESPONSE_UNKNOWN
++ PLATFORM_DENIAL
+
+
+======================================================================
+FAIL: test_platform_reality_resource_outcomes_remain_distinct_in_e5a (test_p17_boundaries.BoundaryTests.test_platform_reality_resource_outcomes_remain_distinct_in_e5a) (reason='REALITY_DENIAL')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p17_boundaries.py", line 162, in test_platform_reality_resource_outcomes_remain_distinct_in_e5a
+    self.assertEqual(f.core.last_action.results[0].reason,reason)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'ADAPTER_RESPONSE_UNKNOWN' != 'REALITY_DENIAL'
+- ADAPTER_RESPONSE_UNKNOWN
++ REALITY_DENIAL
+
+
+======================================================================
+FAIL: test_platform_reality_resource_outcomes_remain_distinct_in_e5a (test_p17_boundaries.BoundaryTests.test_platform_reality_resource_outcomes_remain_distinct_in_e5a) (reason='RESOURCE_EXHAUSTED')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p17_boundaries.py", line 162, in test_platform_reality_resource_outcomes_remain_distinct_in_e5a
+    self.assertEqual(f.core.last_action.results[0].reason,reason)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'ADAPTER_RESPONSE_UNKNOWN' != 'RESOURCE_EXHAUSTED'
+- ADAPTER_RESPONSE_UNKNOWN
++ RESOURCE_EXHAUSTED
+
+
+======================================================================
+FAIL: test_platform_reality_resource_outcomes_remain_distinct_in_e5a (test_p17_boundaries.BoundaryTests.test_platform_reality_resource_outcomes_remain_distinct_in_e5a) (reason='RECOVERABILITY_NOT_READY')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p17_boundaries.py", line 162, in test_platform_reality_resource_outcomes_remain_distinct_in_e5a
+    self.assertEqual(f.core.last_action.results[0].reason,reason)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'ADAPTER_RESPONSE_UNKNOWN' != 'RECOVERABILITY_NOT_READY'
+- ADAPTER_RESPONSE_UNKNOWN
++ RECOVERABILITY_NOT_READY
+
+
+----------------------------------------------------------------------
+Ran 16 tests in 27.113s
+
+FAILED (failures=4, errors=2)

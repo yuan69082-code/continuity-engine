@@ -1,0 +1,31 @@
+{
+  "observations": [
+    {
+      "command": "git ls-remote origin refs/heads/main",
+      "environment": "restricted sandbox",
+      "exitCode": 1,
+      "outcome": "schannel: AcquireCredentialsHandle failed: SEC_E_NO_CREDENTIALS (0x8009030e)",
+      "classification": "tool environment error; not an Engine test failure"
+    },
+    {
+      "command": "git ls-remote origin refs/heads/main",
+      "environment": "authorized host execution",
+      "exitCode": 0,
+      "stdout": "0c440b0476b07723abafe93777fe895b64fd8d0e\trefs/heads/main\n",
+      "outcome": "actual remote baseline matches local HEAD and origin/main"
+    },
+    {
+      "command": "rg --files --hidden -g AGENTS.md ...",
+      "exitCode": 1,
+      "outcome": "no applicable AGENTS.md found; actual .agents/workflow.md read"
+    },
+    {
+      "command": "rg ... tests/test_p17* ...",
+      "exitCode": 1,
+      "outcome": "Windows literal wildcard path: os error 123; corrected to rg tests -g test_p17*.py, exit 0",
+      "classification": "read-only search syntax error; no Engine test or source change"
+    }
+  ],
+  "behaviorTestsRunThisCloseout": false,
+  "gitWritesAtThisSnapshot": false
+}

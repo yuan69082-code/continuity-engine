@@ -1,0 +1,18 @@
+{
+  "src/continuity_engine/testing/p17_execution_fixture.py": {
+    "archive": "docs/project_memory/p17_evidence/before-boundary-p17_execution_fixture.py.txt",
+    "sha256": "3719348878c51ff7b30d2a43389bb17657f53649ad94e73633419f64663447ee"
+  },
+  "src/continuity_engine/services/execution_service.py": {
+    "archive": "docs/project_memory/p17_evidence/before-boundary-execution_service.py.txt",
+    "sha256": "d44d2628ee0bbb76e7b38f6af0c5288066a78b8f063d1585005233fdf7a0e4d7"
+  },
+  "src/continuity_engine/services/execution_ports.py": {
+    "archive": "docs/project_memory/p17_evidence/before-boundary-execution_ports.py.txt",
+    "sha256": "80698688bb7150c4e833346cc3c47ecb0febdf4b16ed418bb2934b5f5a7a875f"
+  },
+  "tests/test_p17_boundaries.py": {
+    "archive": "docs/project_memory/p17_evidence/before-boundary-test_p17_boundaries.py.txt",
+    "sha256": "724dc1c79a139472e2418d8715187fc4b7ccc9605ab7ba0cc4f216f78c28f70b"
+  }
+}

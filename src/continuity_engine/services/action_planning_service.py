@@ -150,6 +150,11 @@ class ActionPlanningService:
                          self.capabilities[x.capability].canonical_hash())
                          for x in choice.steps)
         # Reserve all identities before any side effect, so partial plans cannot change on restart.
+        # Optional P17 material boundary precedes even the first E5-A reservation.
+        for request in requests:
+            validator = getattr(self.capabilities[request.capability_type].adapter, 'validate_request_material', None)
+            if validator is not None:
+                validator(request)
         for request in requests:
             self.coordination.ensure_action_request(
                 request, allow_create=self.constraints.validate_context(context))
@@ -200,6 +205,16 @@ class ActionPlanningService:
         if reason:
             status = CapabilityStatus.EXPIRED if reason == "CHOICE_EXPIRED" else CapabilityStatus.UNKNOWN
             return self._save(InternalActionResult(request, status, reason, now, gate_reasons=gates), binding.adapter)
+        preflight = getattr(binding.adapter, 'execution_preflight', None)
+        if preflight is not None:
+            from continuity_engine.domain.execution import ExecutionError, Outcome
+            try:
+                preflight(request)
+            except ExecutionError as exc:
+                # New world denials retain their meaning; arbitrary port text is never persisted.
+                reason = exc.args[0] if exc.args and exc.args[0] in {x.value for x in Outcome} else 'EXECUTION_DENIED'
+                return self._save(InternalActionResult(request,CapabilityStatus.UNKNOWN,reason,now,
+                                  gate_reasons=(reason,)),binding.adapter)
         if binding.max_attempts is not None:
             dispatches=sum(a.result.status is CapabilityStatus.PROPOSED for a in attempts)
             if dispatches>=binding.max_attempts:

@@ -1,0 +1,7 @@
+FORGED_HISTORY_RECOVERY REJECTED effect= 0 query_calls= 1
+RECEIPTLESS_FAILURE REJECTED append_queries= 0 recovered= COMPLETED effect= 1
+REHASHED_EXPIRED REJECTED query_calls= 1 effect= 1
+STALE_CONTEXT_RECEIPT_RECOVERY COMPLETED effect= 1 query_calls= 2
+{"phase": "prepare", "command": ["E:\\Adobe\\python.exe", "-m", "continuity_engine.testing.p16_provider_fixture", "--phase", "prepare", "--root", "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\p16g-lqjhbasi"], "exit_code": 0, "stdout": "{\"phase\": \"prepare\", \"fact_count\": 1, \"interruption\": \"after_adapter_before_result\", \"new_calls\": 1}\n", "stderr": "", "seconds": 1.35}
+{"phase": "resume", "command": ["E:\\Adobe\\python.exe", "-m", "continuity_engine.testing.p16_provider_fixture", "--phase", "resume", "--root", "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\p16g-lqjhbasi"], "exit_code": 0, "stdout": "{\"phase\": \"resume\", \"restored_without_execute\": true, \"consumed_candidate\": true, \"new_calls\": 1}\n", "stderr": "", "seconds": 1.852}
+{"phase": "replace-revoke", "command": ["E:\\Adobe\\python.exe", "-m", "continuity_engine.testing.p16_provider_fixture", "--phase", "replace-revoke", "--root", "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\p16g-lqjhbasi"], "exit_code": 0, "stdout": "{\"phase\": \"replace-revoke\", \"replacement\": \"local.memory:v2\", \"historical_replay\": true, \"revoked_new_execution\": true, \"new_calls\": 2}\n", "stderr": "", "seconds": 5.74}

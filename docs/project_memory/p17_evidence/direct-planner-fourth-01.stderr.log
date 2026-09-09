@@ -1,0 +1,7 @@
+test_direct_c1_produces_one_effect_and_replays (test_p17_execution.ExecutionTests.test_direct_c1_produces_one_effect_and_replays) ... ok
+test_planner_c1_executes_both_dependencies (test_p17_execution.ExecutionTests.test_planner_c1_executes_both_dependencies) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 1.623s
+
+OK

@@ -1,0 +1,129 @@
+{
+  "checks": {
+    "source253MatchesRepairAuditAndFull": true,
+    "allFiveCitedRunsMatchAndAreClean": true,
+    "original1348IdentitiesRetained": true,
+    "exact12NewTestIdentities": true,
+    "originalTestFilesUnchanged": true,
+    "exactThreeSourceTestRepairPaths": true,
+    "originalReviewSnapshotMatchesRepairBaseline": true,
+    "protected63Unchanged": true,
+    "planning3Unchanged": true,
+    "formal7AndTreeUnchanged": true,
+    "excluded31Unchanged": true,
+    "otherExcludedReportUnchanged": true,
+    "allOriginalP17EvidenceUnchanged": true,
+    "independent21OriginalsAndArchivedCopiesExact": true,
+    "prior113UnchangedFilesMatchIndependentSnapshot": true,
+    "only23DeclaredExistingEnginePathsChangedSinceReview": true,
+    "pending196Plus32ExclusionsExactlyMatch": true,
+    "prior136PendingPreserved": true,
+    "recorded195PendingHashesMatch": true,
+    "python243SyntaxValid": true,
+    "headAndTrackingUnchanged": true,
+    "stagingEmpty": true,
+    "trackedDiffCheckClean": true,
+    "versionAndPyprojectUnchanged": true
+  },
+  "allIdentityChecksPass": true,
+  "notFormalAcceptance": true,
+  "citedRunsNotIndependent": {
+    "formal-after-02": {
+      "identityMatches": true,
+      "completed": true,
+      "countConsistent": true,
+      "rawOutputsPresent": true,
+      "run": 12,
+      "passed": 12,
+      "skips": [],
+      "seconds": 18.846
+    },
+    "independent-after-01": {
+      "identityMatches": true,
+      "completed": true,
+      "countConsistent": true,
+      "rawOutputsPresent": true,
+      "run": 7,
+      "passed": 7,
+      "skips": [],
+      "seconds": 6.759
+    },
+    "p17-final-01": {
+      "identityMatches": true,
+      "completed": true,
+      "countConsistent": true,
+      "rawOutputsPresent": true,
+      "run": 74,
+      "passed": 74,
+      "skips": [],
+      "seconds": 128.466
+    },
+    "compatibility-final-01": {
+      "identityMatches": true,
+      "completed": true,
+      "countConsistent": true,
+      "rawOutputsPresent": true,
+      "run": 224,
+      "passed": 224,
+      "skips": [],
+      "seconds": 169.793
+    },
+    "full-final-01": {
+      "identityMatches": true,
+      "completed": true,
+      "countConsistent": true,
+      "rawOutputsPresent": true,
+      "run": 1360,
+      "passed": 1359,
+      "skips": [
+        [
+          "test_p08_fixture_paths.P08FixturePathTests.test_symlink_component_rejected_without_writes",
+          "OS does not grant symlink creation: 1314"
+        ]
+      ],
+      "seconds": 1171.401
+    }
+  },
+  "sourceTestCount": 253,
+  "repairSourceDelta": [
+    "src/continuity_engine/services/execution_service.py",
+    "src/continuity_engine/testing/p17_execution_fixture.py",
+    "tests/test_p17_repair_edges.py"
+  ],
+  "historicalEvidenceCount": 102,
+  "existingChangedSinceReview": [
+    "README.md",
+    "docs/project_memory/00_项目总览.md",
+    "docs/project_memory/01_当前状态.md",
+    "docs/project_memory/02_工程路线图.md",
+    "docs/project_memory/03_施工日志.md",
+    "docs/project_memory/04_决策记录.md",
+    "docs/project_memory/05_已完成模块.md",
+    "docs/project_memory/05_核心模块架构.md",
+    "docs/project_memory/06_未完成事项.md",
+    "docs/project_memory/07_待确认事项.md",
+    "docs/project_memory/08_未来扩展.md",
+    "docs/project_memory/10_档案修订记录.md",
+    "docs/project_memory/11_P00_全周期能力与阶段基线.md",
+    "docs/project_memory/12_P00_规划施工测试验收矩阵.md",
+    "docs/project_memory/13_P00_档案与测试索引.md",
+    "docs/project_memory/79_P17_Execution与World架构边界.md",
+    "docs/project_memory/80_P17_规划施工测试验收矩阵.md",
+    "docs/project_memory/81_P17_Outbox世界恢复补偿与结果吸收语义.md",
+    "docs/project_memory/82_P17_测试索引与验收入口.md",
+    "docs/project_memory/CHANGELOG.md",
+    "docs/project_memory/工程总档案.md",
+    "src/continuity_engine/services/execution_service.py",
+    "src/continuity_engine/testing/p17_execution_fixture.py"
+  ],
+  "trackedModifiedCount": 21,
+  "untrackedCount": 207,
+  "branch": "main",
+  "head": "0c440b0476b07723abafe93777fe895b64fd8d0e",
+  "aheadBehindLocal": "0\t0",
+  "formalTreeHash": "sha256:f9c710c6085e430a251f74463d57133f8c5a4497fe8ffa2ccb96be2db1037bb2",
+  "syntaxErrors": [],
+  "archiveDrift": [],
+  "gitWrites": false,
+  "remoteNetworkChecked": false
+}

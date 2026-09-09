@@ -1,0 +1,17 @@
+test_default_cost_exact_budget_then_next_rejected (test_p17_repair_edges.ActualChargeRepairTests.test_default_cost_exact_budget_then_next_rejected) ... ok
+test_duplicate_zero_cost_request_does_not_repeat_effect_or_charge (test_p17_repair_edges.ActualChargeRepairTests.test_duplicate_zero_cost_request_does_not_repeat_effect_or_charge) ... ok
+test_failed_receipt_at_credit_and_message_limit_has_zero_extra_usage (test_p17_repair_edges.ActualChargeRepairTests.test_failed_receipt_at_credit_and_message_limit_has_zero_extra_usage) ... ok
+test_zero_cost_capacity_uses_actual_projection_without_writes (test_p17_repair_edges.ActualChargeRepairTests.test_zero_cost_capacity_uses_actual_projection_without_writes) ... ok
+test_zero_cost_respects_exact_serialized_storage_limit (test_p17_repair_edges.ActualChargeRepairTests.test_zero_cost_respects_exact_serialized_storage_limit) ... ok
+test_zero_cost_still_respects_request_and_message_limits (test_p17_repair_edges.ActualChargeRepairTests.test_zero_cost_still_respects_request_and_message_limits) ... ok
+test_zero_estimated_cost_has_explicit_one_credit_fake_charge (test_p17_repair_edges.ActualChargeRepairTests.test_zero_estimated_cost_has_explicit_one_credit_fake_charge) ... ok
+test_direct_execution_exposes_static_current_denial (test_p17_repair_edges.FinalAdmissionRepairTests.test_direct_execution_exposes_static_current_denial) ... ok
+test_final_resource_revokes_broker_zero_effect_and_charge (test_p17_repair_edges.FinalAdmissionRepairTests.test_final_resource_revokes_broker_zero_effect_and_charge) ... ok
+test_final_resource_revokes_reality_zero_effect_and_charge (test_p17_repair_edges.FinalAdmissionRepairTests.test_final_resource_revokes_reality_zero_effect_and_charge) ... ok
+test_final_resource_revokes_recoverability_zero_effect_and_charge (test_p17_repair_edges.FinalAdmissionRepairTests.test_final_resource_revokes_recoverability_zero_effect_and_charge) ... ok
+test_historical_fact_after_revocation_skips_new_resource_admission (test_p17_repair_edges.FinalAdmissionRepairTests.test_historical_fact_after_revocation_skips_new_resource_admission) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 17.948s
+
+OK

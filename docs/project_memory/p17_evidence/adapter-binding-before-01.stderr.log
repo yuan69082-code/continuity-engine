@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\docs\project_memory\p17_evidence\adapter_binding_probe.py", line 19, in <module>
+    assert outcome=='REJECTED' and before==after,'P17 swapped World Adapter crossed subject boundary'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: P17 swapped World Adapter crossed subject boundary

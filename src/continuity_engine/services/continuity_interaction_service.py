@@ -1400,14 +1400,14 @@ class ContinuityInteractionService:
 
     def _thinking_material_options(self):
         core = self._continuity_core
-        if core is not None and core.enabled and core.external_capabilities is not None:
-            return {'result_validator': core.external_capabilities.validate_thinking_material}
+        if core is not None and core.enabled and (core.external_capabilities is not None or core.execution is not None):
+            return {'result_validator': core.validate_thinking_material}
         return {}
 
     def _validate_capability_material(self, material):
         core = self._continuity_core
-        if core is not None and core.enabled and core.external_capabilities is not None:
-            core.external_capabilities.validate_input_material(material)
+        if core is not None and core.enabled and (core.external_capabilities is not None or core.execution is not None):
+            core.validate_input_material(material)
 
     def _validate_completed_thinking(
         self,

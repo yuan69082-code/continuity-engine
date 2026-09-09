@@ -1,0 +1,89 @@
+test_direct_c1_produces_one_effect_and_replays (test_p17_execution.ExecutionTests.test_direct_c1_produces_one_effect_and_replays) ... ERROR
+test_planner_c1_executes_both_dependencies (test_p17_execution.ExecutionTests.test_planner_c1_executes_both_dependencies) ... ERROR
+
+======================================================================
+ERROR: test_direct_c1_produces_one_effect_and_replays (test_p17_execution.ExecutionTests.test_direct_c1_produces_one_effect_and_replays)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 265, in submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 775, in _run_domain
+    return self._complete_domain_after_thinking(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        operation,
+        ^^^^^^^^^^
+    ...<2 lines>...
+        thinking,
+        ^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 1006, in _complete_domain_after_thinking
+    self._continuity_core.after_action(operation, thinking, action)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 387, in after_action
+    raise CapabilityValidationError("C1_ACTION_" + self.last_action.status)
+continuity_engine.domain.errors.CapabilityValidationError: C1_ACTION_WAITING_CAPABILITY
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p17_execution.py", line 13, in test_direct_c1_produces_one_effect_and_replays
+    self.assertEqual(f.submit(request)['status'], 'COMPLETED')
+                     ~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p17_execution_fixture.py", line 205, in submit
+    result=self.app.adapter.submit(request)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 277, in submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.
+
+======================================================================
+ERROR: test_planner_c1_executes_both_dependencies (test_p17_execution.ExecutionTests.test_planner_c1_executes_both_dependencies)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 265, in submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 775, in _run_domain
+    return self._complete_domain_after_thinking(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        operation,
+        ^^^^^^^^^^
+    ...<2 lines>...
+        thinking,
+        ^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 1006, in _complete_domain_after_thinking
+    self._continuity_core.after_action(operation, thinking, action)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 387, in after_action
+    raise CapabilityValidationError("C1_ACTION_" + self.last_action.status)
+continuity_engine.domain.errors.CapabilityValidationError: C1_ACTION_WAITING_CAPABILITY
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p17_execution.py", line 23, in test_planner_c1_executes_both_dependencies
+    self.assertEqual(f.submit()['status'], 'COMPLETED')
+                     ~~~~~~~~^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p17_execution_fixture.py", line 205, in submit
+    result=self.app.adapter.submit(request)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 277, in submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.924s
+
+FAILED (errors=2)

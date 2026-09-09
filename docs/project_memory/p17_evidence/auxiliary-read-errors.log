@@ -1,0 +1,6 @@
+Read-only search errors retained; not Engine behavior defects.
+rg: tests/test_p09*: 文件名、目录名或卷标语法不正确。 (os error 123)
+rg: tests/test_p15*: 文件名、目录名或卷标语法不正确。 (os error 123)
+Get-Content: Cannot find path tests/test_p09_repair_regressions.py because it does not exist.
+Correct existing module discovered: tests/test_p09_review_regressions.py. Subsequent searches use rg -g globs. No source changes resulted from these auxiliary read errors.
+2026-09-09 P17 docs helper patch: apply_patch context mismatch; no file was changed by the failed call. Split into exact smaller patches. Documentation tooling error, not an Engine test failure.

@@ -1,0 +1,33 @@
+{
+  "at": "2026-09-09T16:12:51.138353+00:00",
+  "phase": "full running; read-only protection check",
+  "sourceDrift": [],
+  "protection": {
+    "protected": {
+      "count": 63,
+      "changed": []
+    },
+    "plans": {
+      "count": 3,
+      "changed": []
+    },
+    "formalFiles": {
+      "count": 7,
+      "changed": []
+    },
+    "excludedP10": {
+      "count": 31,
+      "changed": []
+    },
+    "otherPreserved": {
+      "count": 1,
+      "changed": []
+    }
+  },
+  "originalCopyDrift": [],
+  "diffCheck": {
+    "exitCode": 0,
+    "stdout": "",
+    "stderr": "warning: in the working copy of 'src/continuity_engine/services/action_planning_service.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'src/continuity_engine/services/continuity_core_runtime.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'src/continuity_engine/services/continuity_core_service.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'src/continuity_engine/services/continuity_interaction_service.py', LF will be replaced by CRLF the next time Git touches it\n"
+  }
+}

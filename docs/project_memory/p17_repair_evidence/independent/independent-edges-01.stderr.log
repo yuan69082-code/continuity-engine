@@ -1,0 +1,63 @@
+test_credit_limit_uses_actual_effect_charge_for_zero_cost_route (test_independent_edges.IndependentEdges.test_credit_limit_uses_actual_effect_charge_for_zero_cost_route) ... FAIL
+test_final_capacity_revokes_broker_before_dispatch (test_independent_edges.IndependentEdges.test_final_capacity_revokes_broker_before_dispatch) ... FAIL
+test_final_capacity_revokes_reality_permission_before_dispatch (test_independent_edges.IndependentEdges.test_final_capacity_revokes_reality_permission_before_dispatch) ... FAIL
+test_final_capacity_revokes_recoverability_before_dispatch (test_independent_edges.IndependentEdges.test_final_capacity_revokes_recoverability_before_dispatch) ... FAIL
+test_positive_direct_replay_has_one_effect (test_independent_edges.IndependentEdges.test_positive_direct_replay_has_one_effect) ... ok
+test_positive_initial_revoke_blocks_effect (test_independent_edges.IndependentEdges.test_positive_initial_revoke_blocks_effect) ... ok
+test_revoked_result_is_excluded_without_blocking_normal_silence (test_independent_edges.IndependentEdges.test_revoked_result_is_excluded_without_blocking_normal_silence) ... ok
+
+======================================================================
+FAIL: test_credit_limit_uses_actual_effect_charge_for_zero_cost_route (test_independent_edges.IndependentEdges.test_credit_limit_uses_actual_effect_charge_for_zero_cost_route)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\p17-independent-review-20260909\test_independent_edges.py", line 72, in test_credit_limit_uses_actual_effect_charge_for_zero_cost_route
+    self.assertLessEqual(f.fake.credits, 1, 'The actual world charge must remain within BlastRadius.credits')
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 not less than or equal to 1 : The actual world charge must remain within BlastRadius.credits
+
+======================================================================
+FAIL: test_final_capacity_revokes_broker_before_dispatch (test_independent_edges.IndependentEdges.test_final_capacity_revokes_broker_before_dispatch)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\p17-independent-review-20260909\test_independent_edges.py", line 54, in test_final_capacity_revokes_broker_before_dispatch
+    self.final_capacity_change(lambda f: setattr(f.broker, 'allowed', False))
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\p17-independent-review-20260909\test_independent_edges.py", line 49, in final_capacity_change
+    self.assertEqual(f.fake.effect_count, 0,
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+                     'Authorization revoked inside the final resource check must not produce an effect')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : Authorization revoked inside the final resource check must not produce an effect
+
+======================================================================
+FAIL: test_final_capacity_revokes_reality_permission_before_dispatch (test_independent_edges.IndependentEdges.test_final_capacity_revokes_reality_permission_before_dispatch)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\p17-independent-review-20260909\test_independent_edges.py", line 60, in test_final_capacity_revokes_reality_permission_before_dispatch
+    self.final_capacity_change(lambda f: setattr(f.boundary, 'allowed', False))
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\p17-independent-review-20260909\test_independent_edges.py", line 49, in final_capacity_change
+    self.assertEqual(f.fake.effect_count, 0,
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+                     'Authorization revoked inside the final resource check must not produce an effect')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : Authorization revoked inside the final resource check must not produce an effect
+
+======================================================================
+FAIL: test_final_capacity_revokes_recoverability_before_dispatch (test_independent_edges.IndependentEdges.test_final_capacity_revokes_recoverability_before_dispatch)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\p17-independent-review-20260909\test_independent_edges.py", line 57, in test_final_capacity_revokes_recoverability_before_dispatch
+    self.final_capacity_change(lambda f: setattr(f.boundary, 'recovery_ready', False))
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\p17-independent-review-20260909\test_independent_edges.py", line 49, in final_capacity_change
+    self.assertEqual(f.fake.effect_count, 0,
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+                     'Authorization revoked inside the final resource check must not produce an effect')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : Authorization revoked inside the final resource check must not produce an effect
+
+----------------------------------------------------------------------
+Ran 7 tests in 6.900s
+
+FAILED (failures=4)

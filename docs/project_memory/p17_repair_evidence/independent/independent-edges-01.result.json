@@ -1,0 +1,15 @@
+{
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "test_independent_edges",
+    "-v"
+  ],
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "exitCode": 1,
+  "elapsedSeconds": 7.572029300004942,
+  "beforeCount": 2098,
+  "afterCount": 2098,
+  "changed": []
+}

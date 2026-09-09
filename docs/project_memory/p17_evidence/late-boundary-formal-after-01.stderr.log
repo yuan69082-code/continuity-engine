@@ -1,0 +1,9 @@
+test_registered_other_subject_adapter_rejected_zero_calls_and_writes (test_p17_boundaries.BoundaryTests.test_registered_other_subject_adapter_rejected_zero_calls_and_writes) ... ok
+test_registered_world_environment_version_mismatch_refuses_before_call (test_p17_boundaries.BoundaryTests.test_registered_world_environment_version_mismatch_refuses_before_call) ... ok
+test_storage_exact_limit_accepts_one_then_refuses_next (test_p17_boundaries.BoundaryTests.test_storage_exact_limit_accepts_one_then_refuses_next) ... ok
+test_storage_growth_bound_rejects_before_oversized_effect (test_p17_boundaries.BoundaryTests.test_storage_growth_bound_rejects_before_oversized_effect) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 5.210s
+
+OK

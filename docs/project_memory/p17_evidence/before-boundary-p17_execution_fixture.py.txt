@@ -1,0 +1,312 @@
+"""Isolated, bounded P17 worlds. Atomic Fake effects/receipts, never real IO."""
+from dataclasses import replace
+from datetime import timedelta
+import hashlib
+import json
+from pathlib import Path
+
+from continuity_engine.domain.action_planning import ActionSpecification, OptionalActionPlanner, digest
+from continuity_engine.domain.action_capability import ActionReceipt, InternalActionRequest, ReceiptQuery
+from continuity_engine.domain.execution import WorldCapability, BlastRadius, ExecutionError
+from continuity_engine.domain.thinking import ThinkingResult
+from continuity_engine.domain.context_composition import ContextBudget
+from continuity_engine.domain.events import StateMutation, ChangeOperation
+from continuity_engine.domain.integration_results import format_contract_datetime
+from continuity_engine.services.execution_service import ExecutionService
+from continuity_engine.services.action_planning_service import ActionPlanningService
+from continuity_engine.services.continuity_core_runtime import build_continuity_core
+from continuity_engine.services.continuity_core_service import _CurrentConstraints
+from continuity_engine.storage.json_execution_outbox import JsonExecutionOutbox
+from continuity_engine.interfaces.local_integration_app import build_local_integration_app
+from .p08_action_fixture import _validate_fixture_root, TestChoiceProducer
+from .p09_core_fixture import P09Fixture, CoreConstraints, CoreClaims
+from .p16_provider_fixture import SECRET_MARKER
+from .persistence import atomic_write_json, read_json
+from .interaction import SandboxContractValidator, SandboxFirstRoundResultFactory
+
+
+class FakeWorldStore(JsonExecutionOutbox):
+    """Independent world state and receipt atomically change together in this Fake."""
+    def __init__(self, root, subject):
+        _validate_fixture_root(root)
+        super().__init__(root,subject_id=subject,environment='TEST')
+        self.path=root/'world.json'
+
+    def empty(self):
+        return {'revision':0,'effects':[],'facts':[],'credits':0}
+
+    def load(self):
+        self._safe()
+        if not self.path.exists():return self.empty()
+        try:
+            envelope=json.loads(self.path.read_text(encoding='utf-8'))
+            d=envelope['document']
+            if set(envelope)!={'document','hash'} or envelope['hash']!=digest(d) or set(d)!=set(self.empty()):raise ValueError()
+            ids=[]
+            for row in d['facts']:
+                receipt=ActionReceipt.from_dict(row['receipt'])
+                if digest(row['output'])!=receipt.output_hash:raise ValueError()
+                ids.append(receipt.capability_request_id)
+            if len(ids)!=len(set(ids)) or len(d['effects'])!=d['credits']:raise ValueError()
+            return d
+        except Exception:raise ExecutionError('FAKE_WORLD_CORRUPT') from None
+
+
+class FakeWorldAdapter:
+    def __init__(self, root, *, subject, adapter_id, world, clock):
+        self.root=_validate_fixture_root(root)
+        self.store=FakeWorldStore(self.root,subject)
+        self.adapter_id,self.world,self.clock=adapter_id,world,clock
+        self.mode='success';self.execute_calls=0;self.query_calls=0;self.result_hook=None;self.receipt_hook=None
+
+    @property
+    def effect_count(self):return len(self.store.load()['effects'])
+    @property
+    def credits(self):return self.store.load()['credits']
+
+    def query(self, request):
+        self.query_calls+=1
+        if self.mode=='query_exception':raise RuntimeError(SECRET_MARKER)
+        if self.mode=='unknown':return ReceiptQuery.UNKNOWN
+        if self.mode=='untyped':return 'NOT_EXECUTED'
+        for row in self.store.load()['facts']:
+            receipt=ActionReceipt.from_dict(row['receipt'])
+            if receipt.capability_request_id==request.capability_request_id:
+                receipt.validate_request(request)
+                return self.receipt_hook(receipt) if self.receipt_hook else receipt
+        return ReceiptQuery.NOT_EXECUTED
+
+    def execute(self, request):
+        self.execute_calls+=1
+        with self.store.transaction() as document:
+            fact=self.query(request)
+            if isinstance(fact,ActionReceipt):return fact
+            if fact is not ReceiptQuery.NOT_EXECUTED:raise ExecutionError('FAKE_UNKNOWN')
+            if self.mode=='before_failure':raise RuntimeError(SECRET_MARKER)
+            success=self.mode not in ('terminal','generation_failed','network_failed')
+            payload=dict(request_id=request.capability_request_id,request_hash=request.request_hash,
+                         world=self.world,asset=request.step.target,
+                         kind='compensation' if 'compensate' in request.capability_type else 'local_effect',
+                         content='continuity: isolated '+self.world+' '+('completed' if success else 'failed')+' effect')
+            if not success:
+                payload['kind']={'terminal':'REALITY_DENIAL','generation_failed':'GENERATION_FAILED','network_failed':'NETWORK_FAILED'}[self.mode]
+            receipt=ActionReceipt('receipt:'+request.idempotency_key[7:],request.capability_request_id,request.request_hash,
+                    self.adapter_id,request.subject_id,request.choice.environment,request.step_id,
+                    'SUCCEEDED' if success else 'FAILED_TERMINAL',int(success),int(success),
+                    format_contract_datetime(self.clock()),digest(payload))
+            if success:
+                document['effects'].append({'request_id':request.capability_request_id,'argument_hash':request.step.argument_hash,'kind':payload['kind']})
+                document['credits']+=1
+            document['facts'].append({'receipt':receipt.to_dict(),'output':payload})
+            self.store.save(document)
+            if self.mode=='lost_response':raise RuntimeError(SECRET_MARKER)
+            return self.receipt_hook(receipt) if self.receipt_hook else receipt
+
+    def read_result(self, request):
+        value=next(row['output'] for row in self.store.load()['facts'] if row['receipt']['capability_request_id']==request.capability_request_id)
+        return self.result_hook(value) if self.result_hook else value
+
+
+class FakeExecutionBroker:
+    def __init__(self, fixture):self.fixture=fixture;self.allowed=True;self.extra_secret=None
+    def authorize_reference(self, route, *, at, purpose):
+        return self.allowed and route.credential_ref=='credential:p17:'+route.world.lower() and at<self.fixture.expiry
+    def material_allowed(self, route, value):
+        text=json.dumps(value,ensure_ascii=False)
+        return SECRET_MARKER not in text and (self.extra_secret is None or self.extra_secret not in text)
+
+
+class FakeRealityBoundary:
+    def __init__(self, fixture):
+        self.fixture=fixture;self.available=True;self.allowed=True;self.recovery_ready=True;self.resource_ready=True
+        self.hook=None
+    def ready(self, route):
+        return self.available and route.world in ('TEST','RESEARCH')
+    def recoverable(self, route):return self.recovery_ready
+    def authorize(self, route, request, *, purpose):
+        return self.allowed and route.asset=='asset:p17-local' and request.step.target==route.asset
+    def capacity(self, route, request, limits):
+        if self.hook:self.hook()
+        d=self.fixture.fake.store.load()
+        return (self.resource_ready and len(d['facts'])<limits.requests and d['credits']+route.cost<=limits.credits
+                and len(d['effects'])+1<=limits.messages and len(json.dumps(d).encode())+1024<=limits.storage_bytes)
+
+
+class _Thinking:
+    provider_id='p17-isolated-thinking-v1'
+    def __init__(self, fixture):self.fixture=fixture;self.inputs=[]
+    def think(self, perception, budget):
+        self.inputs.append(perception)
+        fragments=perception.continuity_context.composition.snapshot.fragments
+        absorb=self.fixture.mode=='absorb' and any(f.source_type=='execution_result' for f in fragments)
+        result=ThinkingResult.create(provider_id=self.provider_id,result_summary=self.fixture.thought,
+            rationale_summary='Explicit local TEST action or evidence-backed followup',generated_new_thought=True,
+            update_subject_state=absorb,request_more_memory=self.fixture.mode=='complex',
+            additional_memory_query='continuity' if self.fixture.mode=='complex' else None,
+            suggest_future_user_contact=self.fixture.mode=='complex',should_wait=self.fixture.mode=='silence',token_budget=budget,
+            proposed_mutations=([StateMutation('continuity.current_focus',ChangeOperation.SET,
+                ['understood isolated TEST effect'],'Current composed RESULT_OBSERVATION, explicitly qualified as simulation')]
+                if absorb else []))
+        return result
+
+
+class _Confirmation:
+    """Explicit TEST authority confirms the precise final request key, not raw text."""
+    def __init__(self, delegate, fixture):
+        self.delegate,self.fixture=delegate,fixture;self.producer_id=delegate.producer_id
+    def choose(self,*args):
+        choice=self.delegate.choose(*args)
+        if choice is not None:
+            plan=OptionalActionPlanner().plan(choice)
+            for step in choice.steps:
+                binding=next(b for b in self.fixture.core.capabilities if b.capability==step.capability)
+                request=InternalActionRequest(choice,step.step_id,plan.plan_id if plan else None,binding.adapter.adapter_id,binding.canonical_hash())
+                self.fixture.constraints.confirmed_ids.add(request.idempotency_key)
+        return choice
+
+
+class P17Fixture:
+    def __init__(self, root, *, mode='direct', world='TEST', runtime=None, manager=None, limits=None):
+        self.root=_validate_fixture_root(Path(root))
+        self.base=P09Fixture(self.root,runtime=runtime,manager=manager)
+        self.runtime,self.manager=self.base.runtime,self.base.manager
+        self.mode,self.world=mode,world
+        self.thought='ordinary emotions, doubts and wishes remain subject content'
+        self.expiry=self.runtime.clock.now()+timedelta(days=30)
+        self.constraints=CoreConstraints()
+        self.broker=FakeExecutionBroker(self);self.boundary=FakeRealityBoundary(self)
+        self.outbox=JsonExecutionOutbox(self.runtime.data_root,subject_id=self.runtime.descriptor.subject_id,environment='TEST')
+        self.routes=tuple(WorldCapability('execution.'+name,'v1',self.runtime.descriptor.subject_id,'TEST',world,
+            'asset:p17-local','p17-'+world.lower()+'-adapter','credential:p17:'+world.lower(),compensation=name=='compensate')
+            for name in ('write','read','compensate','alternate'))
+        self.fake=FakeWorldAdapter(self.runtime.data_root/'worlds'/world.lower(),subject=self.runtime.descriptor.subject_id,
+                    adapter_id=self.routes[0].adapter_id,world=world,clock=self.runtime.clock.now)
+        self.execution=ExecutionService(self.outbox,routes=self.routes,adapters={self.fake.adapter_id:self.fake},
+            boundary=self.boundary,broker=self.broker,selection={'expression.emit':'execution.write',
+            'contact.send':'execution.write','memory.lookup':'execution.read'},limits=limits)
+        self.reopen()
+
+    def reopen(self):
+        self.provider=_Thinking(self)
+        def factory(**kwargs):
+            self.core=build_continuity_core(**kwargs,environment='TEST',constraints=self.constraints,
+                capabilities=tuple(b for b in self.base.core.capabilities if b.capability=='silence'),claim_resolver=CoreClaims(),
+                permission_policy=self.base.permission,execution=self.execution,context_budget=ContextBudget(token_limit=2048))
+            self.core.policy=_Confirmation(self.core.policy,self)
+            return self.core
+        self.app=build_local_integration_app(self.runtime.data_root,clock=self.runtime.clock.now,thinking_provider=self.provider,
+            continuity_core_factory=factory,contract_validator=SandboxContractValidator(),result_factory=SandboxFirstRoundResultFactory(),
+            available_permissions=('subject_state:update','memory:request','user:contact','test:execute','action:silence'))
+        return self.app
+
+    @property
+    def state(self):return self.runtime.subject_states.load(self.runtime.descriptor.subject_id)
+    def request(self):return self.base.request()
+    def submit(self, request=None):
+        request=request or self.request();self.last_request=request
+        result=self.app.adapter.submit(request)
+        self.last_context=self.app.ledger.load_operation(request['requestId']).domain_progress.perception.continuity_context
+        return result
+    def next_round(self):
+        self.runtime.clock.advance(timedelta(seconds=1));return self.submit()
+    def lifecycle(self, operation):
+        from .p16_provider_fixture import P16Fixture
+        return P16Fixture.lifecycle(self,operation)
+
+    def manual(self, capability='execution.write', *, decision='manual:p17', argument_hash=None, target=None, confirm=True, reserve=True):
+        """A fresh TEST-confirmed structured choice using an existing real C1 Context."""
+        original=self.core.last_action.requests[0].choice
+        route=self.execution.routes[capability]
+        step=ActionSpecification('step-0',capability,target or route.asset,argument_hash or digest(['manual',decision]))
+        choice=replace(original,decision_id=decision,producer_id='p08-test-thinking-v1',steps=(step,),requires_planning=False)
+        producer=TestChoiceProducer();producer.register(choice)
+        context=self.last_context
+        planner=ActionPlanningService(coordination=self.core.coordination,action_gate=self.core.action_gate,producer=producer,
+                constraints=_CurrentConstraints(self.core,context),capabilities=self.core.capabilities,
+                clock=self.runtime.clock.now,subject_id=self.core.subject_id,environment=self.core.environment)
+        binding=planner.capabilities[capability]
+        request=InternalActionRequest(choice,step.step_id,None,binding.adapter.adapter_id,binding.canonical_hash())
+        if confirm:self.constraints.confirmed_ids.add(request.idempotency_key)
+        if reserve:self.core.coordination.ensure_action_request(request)
+        self.execution.prepare(planner,choice,context.composition)
+        return request,lambda retry=False:planner.run(choice,context.composition,retry=retry)
+
+    def restore_dispatch(self, request):
+        """Separate TEST worker reopens sealed E5-A request with current exact confirmation."""
+        producer=TestChoiceProducer();producer.register(request.choice)
+        planner=ActionPlanningService(coordination=self.core.coordination,action_gate=self.core.action_gate,producer=producer,
+                constraints=_CurrentConstraints(self.core,self.last_context),capabilities=self.core.capabilities,
+                clock=self.runtime.clock.now,subject_id=self.core.subject_id,environment=self.core.environment)
+        self.constraints.confirmed_ids.add(request.idempotency_key)
+        self.execution.prepare(planner,request.choice,self.last_context.composition)
+        return planner
+
+
+def golden_phase(root, phase):
+    from .sandbox import P01SandboxManager
+    root=_validate_fixture_root(Path(root));manifest=root/'p17-golden.json'
+    if phase=='prepare':
+        f=P17Fixture(root);request=f.request()
+        def fault(point):
+            if point=='after_adapter_before_result':raise RuntimeError('P17_INJECTED_CRASH_AFTER_EFFECT')
+        f.core.fault=fault
+        try:f.submit(request)
+        except Exception:
+            if f.fake.effect_count!=1:raise
+        else:raise AssertionError('fault did not interrupt normal C1')
+        atomic_write_json(manifest,{'sandbox_id':f.runtime.descriptor.sandbox_id,'request':request,'revision':f.state.revision})
+        return {'phase':phase,'effects':1,'crash':'after_adapter_before_result'}
+    saved=read_json(manifest)
+    manager=P01SandboxManager(root/'s',formal_data_roots=(root/'formal-canary',))
+    f=P17Fixture(root,manager=manager,runtime=manager.open_runtime(saved['sandbox_id']))
+    if phase=='worker':
+        f.submit(saved['request'])
+        request=f.execution.request(saved['worker_request_id'])
+        f.restore_dispatch(request)
+        try:
+            receipt=f.execution.execute(request)
+            return {'phase':phase,'receipt_hash':receipt.canonical_hash(),'effects':f.fake.effect_count}
+        except ExecutionError as exc:
+            if str(exc)!='EXECUTION_BUSY':raise
+            return {'phase':phase,'busy':True,'effects':f.fake.effect_count}
+    if phase=='resume':
+        result=f.submit(saved['request'])
+        assert result.status=='completed' and f.fake.effect_count==1 and f.fake.execute_calls==0
+        f.mode='absorb';result=f.next_round()
+        assert result.status=='completed' and f.state.revision==saved['revision']+1
+        assert f.state.continuity.current_focus==['understood isolated TEST effect']
+        saved['absorbed_request']=f.last_request;atomic_write_json(manifest,saved)
+        return {'phase':phase,'new_execute_calls':f.fake.execute_calls,'effects':1,'revision':f.state.revision,'absorbed_through_evolution':True}
+    assert phase=='replay'
+    result=f.submit(saved['absorbed_request'])
+    assert result.status=='completed' and f.state.revision==saved['revision']+1 and f.fake.effect_count==1
+    return {'phase':phase,'effects':1,'revision':f.state.revision,'new_execute_calls':f.fake.execute_calls}
+
+
+def run_golden(root):
+    import os,subprocess,sys,time
+    records=[]
+    for phase in ('prepare','resume','replay'):
+        command=[sys.executable,'-m','continuity_engine.testing.p17_execution_fixture','--root',str(root),'--phase',phase]
+        start=time.perf_counter()
+        try:
+            result=subprocess.run(command,capture_output=True,text=True,encoding='utf-8',timeout=90,
+                    env={**os.environ,'PYTHONDONTWRITEBYTECODE':'1'})
+        except subprocess.TimeoutExpired as exc:
+            print(json.dumps({'phase':phase,'command':command,'error':'TimeoutExpired','stdout':str(exc.stdout),'stderr':str(exc.stderr)}))
+            raise
+        record=dict(phase=phase,command=command,exitCode=result.returncode,stdout=result.stdout,stderr=result.stderr,seconds=time.perf_counter()-start)
+        records.append(record);print(json.dumps(record))
+        if result.returncode:raise AssertionError('P17 Golden subprocess failed')
+    return records
+
+
+if __name__=='__main__':
+    import argparse,tempfile
+    parser=argparse.ArgumentParser();parser.add_argument('--root');parser.add_argument('--phase');parser.add_argument('--golden',action='store_true')
+    args=parser.parse_args()
+    if args.golden:
+        with tempfile.TemporaryDirectory(prefix='p17-golden-') as directory:run_golden(directory)
+    elif args.root and args.phase:
+        print(json.dumps(golden_phase(args.root,args.phase)))
+    else:parser.error('use --golden or --root and --phase')

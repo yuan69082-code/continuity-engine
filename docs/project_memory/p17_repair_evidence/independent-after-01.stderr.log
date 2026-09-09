@@ -1,0 +1,12 @@
+test_credit_limit_uses_actual_effect_charge_for_zero_cost_route (test_independent_edges.IndependentEdges.test_credit_limit_uses_actual_effect_charge_for_zero_cost_route) ... ok
+test_final_capacity_revokes_broker_before_dispatch (test_independent_edges.IndependentEdges.test_final_capacity_revokes_broker_before_dispatch) ... ok
+test_final_capacity_revokes_reality_permission_before_dispatch (test_independent_edges.IndependentEdges.test_final_capacity_revokes_reality_permission_before_dispatch) ... ok
+test_final_capacity_revokes_recoverability_before_dispatch (test_independent_edges.IndependentEdges.test_final_capacity_revokes_recoverability_before_dispatch) ... ok
+test_positive_direct_replay_has_one_effect (test_independent_edges.IndependentEdges.test_positive_direct_replay_has_one_effect) ... ok
+test_positive_initial_revoke_blocks_effect (test_independent_edges.IndependentEdges.test_positive_initial_revoke_blocks_effect) ... ok
+test_revoked_result_is_excluded_without_blocking_normal_silence (test_independent_edges.IndependentEdges.test_revoked_result_is_excluded_without_blocking_normal_silence) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 6.251s
+
+OK

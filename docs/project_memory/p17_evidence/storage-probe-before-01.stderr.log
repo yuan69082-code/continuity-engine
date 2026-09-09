@@ -1,0 +1,78 @@
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 605, in _run_domain
+    wake_session = self._awakening.get_session(
+        operation.subject_id,
+        progress.wake_session_id,
+    )
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\awakening_service.py", line 162, in get_session
+    return self._repository.load_session(subject_id, session_id)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_awakening_repository.py", line 86, in load_session
+    raise StateNotFoundError(f"wake session not found: {session_id}")
+continuity_engine.domain.errors.StateNotFoundError: wake session not found: 009b2119-97e7-5ab7-bc46-b0f4d890c81a
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 265, in submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 610, in _run_domain
+    awakening = self._awakening.wake_manual(
+        binding.cycle_id,
+    ...<3 lines>...
+        preserve_recovery_context=True,
+    )
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\awakening_service.py", line 109, in wake_manual
+    return self._run(
+           ~~~~~~~~~^
+        cycle,
+        ^^^^^^
+    ...<3 lines>...
+        preserve_recovery_context=preserve_recovery_context,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\awakening_service.py", line 266, in _run
+    self._repository.save_session(session)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_awakening_repository.py", line 81, in save_session
+    self._write_json(path, session.to_dict())
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_awakening_repository.py", line 118, in _write_json
+    with tempfile.NamedTemporaryFile(
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        mode="w",
+        ^^^^^^^^^
+    ...<5 lines>...
+        delete=False,
+        ^^^^^^^^^^^^^
+    ) as temporary:
+    ^
+  File "E:\Adobe\Lib\tempfile.py", line 603, in NamedTemporaryFile
+    file = _io.open(dir, mode, buffering=buffering,
+                    newline=newline, encoding=encoding, errors=errors,
+                    opener=opener)
+  File "E:\Adobe\Lib\tempfile.py", line 600, in opener
+    fd, name = _mkstemp_inner(dir, prefix, suffix, flags, output_type)
+               ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Adobe\Lib\tempfile.py", line 255, in _mkstemp_inner
+    fd = _os.open(file, flags, 0o600)
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\Administrator\\AppData\\Local\\Temp\\p17-storage-boundary-izr5jsz0\\s\\s\\s753df347\\b\\b1452f101\\data\\awakening\\sessions\\f9c396c4a521d4fdcf5d014ba420c925902923b15f78d6271e6938b9dfab9390\\.208b6803efcaaa80a1963b0ef23daa757851ef7862cc440a9bd9494e66dba013.vozbks7x.tmp'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\docs\project_memory\p17_evidence\storage_probe.py", line 11, in <module>
+    f=P17Fixture(Path(directory));f.submit()
+                                  ~~~~~~~~^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p17_execution_fixture.py", line 207, in submit
+    result=self.app.adapter.submit(request)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 277, in submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.

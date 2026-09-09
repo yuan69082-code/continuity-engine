@@ -1,0 +1,56 @@
+test_registered_other_subject_adapter_rejected_zero_calls_and_writes (test_p17_boundaries.BoundaryTests.test_registered_other_subject_adapter_rejected_zero_calls_and_writes) ... FAIL
+test_registered_world_environment_version_mismatch_refuses_before_call (test_p17_boundaries.BoundaryTests.test_registered_world_environment_version_mismatch_refuses_before_call) ... 
+  test_registered_world_environment_version_mismatch_refuses_before_call (test_p17_boundaries.BoundaryTests.test_registered_world_environment_version_mismatch_refuses_before_call) (field='world') ... FAIL
+  test_registered_world_environment_version_mismatch_refuses_before_call (test_p17_boundaries.BoundaryTests.test_registered_world_environment_version_mismatch_refuses_before_call) (field='environment') ... FAIL
+  test_registered_world_environment_version_mismatch_refuses_before_call (test_p17_boundaries.BoundaryTests.test_registered_world_environment_version_mismatch_refuses_before_call) (field='version') ... FAIL
+test_storage_growth_bound_rejects_before_oversized_effect (test_p17_boundaries.BoundaryTests.test_storage_growth_bound_rejects_before_oversized_effect) ... FAIL
+
+======================================================================
+FAIL: test_registered_other_subject_adapter_rejected_zero_calls_and_writes (test_p17_boundaries.BoundaryTests.test_registered_other_subject_adapter_rejected_zero_calls_and_writes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p17_boundaries.py", line 240, in test_registered_other_subject_adapter_rejected_zero_calls_and_writes
+    with self.assertRaises(ExecutionError):f.execution.execute(request)
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+AssertionError: ExecutionError not raised
+
+======================================================================
+FAIL: test_registered_world_environment_version_mismatch_refuses_before_call (test_p17_boundaries.BoundaryTests.test_registered_world_environment_version_mismatch_refuses_before_call) (field='world')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p17_boundaries.py", line 249, in test_registered_world_environment_version_mismatch_refuses_before_call
+    with self.assertRaises(ExecutionError):f.execution.execute(request)
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+AssertionError: ExecutionError not raised
+
+======================================================================
+FAIL: test_registered_world_environment_version_mismatch_refuses_before_call (test_p17_boundaries.BoundaryTests.test_registered_world_environment_version_mismatch_refuses_before_call) (field='environment')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p17_boundaries.py", line 249, in test_registered_world_environment_version_mismatch_refuses_before_call
+    with self.assertRaises(ExecutionError):f.execution.execute(request)
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+AssertionError: ExecutionError not raised
+
+======================================================================
+FAIL: test_registered_world_environment_version_mismatch_refuses_before_call (test_p17_boundaries.BoundaryTests.test_registered_world_environment_version_mismatch_refuses_before_call) (field='version')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p17_boundaries.py", line 249, in test_registered_world_environment_version_mismatch_refuses_before_call
+    with self.assertRaises(ExecutionError):f.execution.execute(request)
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+AssertionError: ExecutionError not raised
+
+======================================================================
+FAIL: test_storage_growth_bound_rejects_before_oversized_effect (test_p17_boundaries.BoundaryTests.test_storage_growth_bound_rejects_before_oversized_effect)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p17_boundaries.py", line 222, in test_storage_growth_bound_rejects_before_oversized_effect
+    self.assertNotEqual(run().status,'COMPLETED')
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'COMPLETED' == 'COMPLETED'
+
+----------------------------------------------------------------------
+Ran 3 tests in 4.683s
+
+FAILED (failures=5)

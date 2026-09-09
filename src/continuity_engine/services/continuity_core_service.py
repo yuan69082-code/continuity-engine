@@ -112,7 +112,7 @@ class ContinuityCoreService:
                  coordination, action_gate, constraints, capabilities, clock,
                  permission_policy, policy=None, gates=None, retrieval_budget=None,
                  context_budget=None, context_ttl=timedelta(minutes=10), planner=None, limits=None, fault=None, expression_policy=None,
-                 dynamic_mind=False, subject_growth=False, growth_repository=None, external_capabilities=None):
+                 dynamic_mind=False, subject_growth=False, growth_repository=None, external_capabilities=None, execution=None):
         if environment not in {"TEST", "RESEARCH"}:
             raise ValueError("P09 requires a TEST/RESEARCH boundary")
         self.subject_id, self.environment = subject_id, environment
@@ -140,6 +140,7 @@ class ContinuityCoreService:
         self.last_trace = None
         self.last_action = None
         self.external_capabilities=external_capabilities
+        self.execution=execution
         if type(subject_growth) is not bool:
             raise ValueError('subject_growth must be an explicit feature gate')
         self.growth = None
@@ -153,6 +154,16 @@ class ContinuityCoreService:
         if self.mind is not None:result=self.mind.process(perception,result)
         if self.growth is not None:result=self.growth.process(perception,result)
         return result
+
+    def validate_thinking_material(self, perception, result):
+        for service in (self.external_capabilities,self.execution):
+            if service is not None:
+                service.validate_thinking_material(perception,result)
+
+    def validate_input_material(self, material):
+        for service in (self.external_capabilities,self.execution):
+            if service is not None:
+                service.validate_input_material(material)
 
     @property
     def enabled(self):
@@ -358,6 +369,8 @@ class ContinuityCoreService:
             clock=self.clock, subject_id=self.subject_id, environment=self.environment,
             planner=self.planner, limits=self.limits, fault=self.fault,
         )
+        if self.execution is not None:
+            self.execution.prepare(service,choice,context.composition)
         if replay:
             plan = service.planner.plan(choice, capability_requires_plan=any(
                 not service.capabilities[s.capability].atomic for s in choice.steps))
@@ -374,4 +387,6 @@ class ContinuityCoreService:
             raise CapabilityValidationError("C1_ACTION_" + self.last_action.status)
         if self.external_capabilities is not None:
             self.external_capabilities.collect(self.last_action)
+        if self.execution is not None:
+            self.execution.collect(self.last_action)
         return self.last_action

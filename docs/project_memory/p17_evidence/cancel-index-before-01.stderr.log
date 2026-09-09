@@ -1,0 +1,15 @@
+test_cancel_survives_missing_delivery_index_without_redispatch (test_p17_recovery.RecoveryTests.test_cancel_survives_missing_delivery_index_without_redispatch) ... FAIL
+
+======================================================================
+FAIL: test_cancel_survives_missing_delivery_index_without_redispatch (test_p17_recovery.RecoveryTests.test_cancel_survives_missing_delivery_index_without_redispatch)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p17_recovery.py", line 172, in test_cancel_survives_missing_delivery_index_without_redispatch
+    self.assertNotEqual(run(retry=True).status,'COMPLETED')
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'COMPLETED' == 'COMPLETED'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.971s
+
+FAILED (failures=1)

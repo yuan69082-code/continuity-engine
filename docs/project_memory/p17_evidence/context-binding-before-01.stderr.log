@@ -1,0 +1,15 @@
+test_new_context_cannot_reauthorize_old_request_identity (test_p17_boundaries.BoundaryTests.test_new_context_cannot_reauthorize_old_request_identity) ... FAIL
+
+======================================================================
+FAIL: test_new_context_cannot_reauthorize_old_request_identity (test_p17_boundaries.BoundaryTests.test_new_context_cannot_reauthorize_old_request_identity)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p17_boundaries.py", line 215, in test_new_context_cannot_reauthorize_old_request_identity
+    with self.assertRaises(Exception):f.execution.execute(request)
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: Exception not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 2.860s
+
+FAILED (failures=1)

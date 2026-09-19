@@ -1,0 +1,26 @@
+test_clock_advances_at_after_thinking_resources (test_independent_resume.IndependentResumeTests.test_clock_advances_at_after_thinking_resources) ... ok
+test_clock_advances_at_after_wake_resources (test_independent_resume.IndependentResumeTests.test_clock_advances_at_after_wake_resources) ... ok
+test_clock_advances_at_before_native_action (test_independent_resume.IndependentResumeTests.test_clock_advances_at_before_native_action) ... ok
+test_clock_advances_at_before_native_evolution (test_independent_resume.IndependentResumeTests.test_clock_advances_at_before_native_evolution) ... ok
+test_clock_advances_at_before_native_expression (test_independent_resume.IndependentResumeTests.test_clock_advances_at_before_native_expression) ... ok
+test_clock_advances_at_before_native_perception (test_independent_resume.IndependentResumeTests.test_clock_advances_at_before_native_perception) ... ok
+test_clock_advances_at_before_native_wake (test_independent_resume.IndependentResumeTests.test_clock_advances_at_before_native_wake) ... ok
+test_clock_advances_at_before_provider (test_independent_resume.IndependentResumeTests.test_clock_advances_at_before_provider) ... ok
+test_clock_advances_at_before_thinking_resources (test_independent_resume.IndependentResumeTests.test_clock_advances_at_before_thinking_resources) ... ok
+test_normal_pause_resume_two_cycles (test_independent_resume.IndependentResumeTests.test_normal_pause_resume_two_cycles) ... ok
+test_pause_after_budget_before_session_then_resume_makes_progress (test_independent_resume.IndependentResumeTests.test_pause_after_budget_before_session_then_resume_makes_progress) ... ok
+test_pause_before_provider_then_resume_makes_progress (test_independent_resume.IndependentResumeTests.test_pause_before_provider_then_resume_makes_progress) ... FAIL
+
+======================================================================
+FAIL: test_pause_before_provider_then_resume_makes_progress (test_independent_resume.IndependentResumeTests.test_pause_before_provider_then_resume_makes_progress)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\p18-repair-review-20260913\test_independent_resume.py", line 71, in test_pause_before_provider_then_resume_makes_progress
+    self.assertGreater(f.state.revision,1,'A definite pre-provider pause must not permanently poison future cognition')
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 not greater than 1 : A definite pre-provider pause must not permanently poison future cognition
+
+----------------------------------------------------------------------
+Ran 12 tests in 27.531s
+
+FAILED (failures=1)

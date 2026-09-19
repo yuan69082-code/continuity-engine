@@ -1,0 +1,21 @@
+{
+  "checkedAt": "2026-09-13T02:11:05.088642+08:00",
+  "purpose": "Preserve original five completed result records and raw outputs during resume archival; not a test rerun.",
+  "files": {
+    "formal-final-03.json": "20ed8d4498cac1ddacc6d27816e2e1aa85ccd5a91fe6e77006be8c7a522501e1",
+    "formal-final-03.stdout.log": "eb9f91a74b817dd46b3c20a67481c9590add0fc04404846c5dc380b5e1545203",
+    "formal-final-03.stderr.log": "989c2bbe2e754f694fa86b03c1e94920c757045b53e8fcb96be0eb42eef2056a",
+    "resume-final-02.json": "979bb7b05de7f8dbb1e8c429674486343a5dbe4b7d076e1b496d1298099754db",
+    "resume-final-02.stdout.log": "043073f5b9fbf4e42b7283f94c1a487cdc5130bf986a62edcd5f8bf086640920",
+    "resume-final-02.stderr.log": "1b13e13572475de7451a07b683aa1cc2c2b9bd49af120632e9abd3edb53b2b1e",
+    "confirmation-final-02.json": "8a8bc763a32a619d5d4937be9aa7c6abd5f6a088cd87d1186a1a1b69d90f95d3",
+    "confirmation-final-02.stdout.log": "3f609c68092d2e6b44ea8e5d041b6daed53551cbe92853f80bd3ebe509d1ff4f",
+    "confirmation-final-02.stderr.log": "85b7ab5b0e7a63a4ad332cf270f667460c70f4c3c096149813bfe988d6f06b6e",
+    "p18-final-02.json": "005a0de5445748e8a1ddc18810f3d81fa2800287f3054c0c5c76325f059d3143",
+    "p18-final-02.stdout.log": "39113426c2978cc34c9e43c0940422a020dabd62555ed417fc1e3dd951735dfc",
+    "p18-final-02.stderr.log": "7ddc7fbd30bd8e9339e8b48159e858896df635e16ecda3f1707d4877249c4db9",
+    "compatibility-final-01.json": "d7821d6c16c3c9950a23c631bd7135d2333129cdf4f6d2c00da7e85b7d15c856",
+    "compatibility-final-01.stdout.log": "f58a38ea38b959f5f3f4cdfe59d06c763e77d37d5c0bba2697084e0490a1e113",
+    "compatibility-final-01.stderr.log": "cf16cd1f7b791d2ae8a1c28fe472ebe3425a416d69ec208a4502b163fc0be942"
+  }
+}

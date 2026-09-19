@@ -1,0 +1,85 @@
+{
+  "compatibility-final-01": {
+    "status": "FINISHED",
+    "sourceStable": true,
+    "matchesFinal": true,
+    "differingFiles": []
+  },
+  "formal-final-01": {
+    "status": "FINISHED",
+    "sourceStable": true,
+    "matchesFinal": true,
+    "differingFiles": []
+  },
+  "formal-first-01": {
+    "status": "FINISHED",
+    "sourceStable": true,
+    "matchesFinal": false,
+    "differingFiles": [
+      "src/continuity_engine/services/persistent_runtime_service.py",
+      "tests/test_p18_runtime_contention.py"
+    ]
+  },
+  "formal-strengthened-01": {
+    "status": "FINISHED",
+    "sourceStable": true,
+    "matchesFinal": false,
+    "differingFiles": [
+      "src/continuity_engine/services/persistent_runtime_service.py",
+      "tests/test_p18_runtime_contention.py"
+    ]
+  },
+  "full-final-01": {
+    "status": "FINISHED",
+    "sourceStable": true,
+    "matchesFinal": true,
+    "differingFiles": []
+  },
+  "independent-after-01": {
+    "status": "FINISHED",
+    "sourceStable": true,
+    "matchesFinal": false,
+    "differingFiles": [
+      "src/continuity_engine/services/persistent_runtime_service.py",
+      "tests/test_p18_runtime_contention.py",
+      "tests/test_p18_runtime_process.py"
+    ]
+  },
+  "independent-before-01": {
+    "status": "FINISHED",
+    "sourceStable": true,
+    "matchesFinal": false,
+    "differingFiles": [
+      "src/continuity_engine/services/persistent_runtime_service.py",
+      "src/continuity_engine/storage/json_runtime_repository.py",
+      "tests/test_p18_runtime_contention.py",
+      "tests/test_p18_runtime_process.py"
+    ]
+  },
+  "independent-final-01": {
+    "status": "FINISHED",
+    "sourceStable": true,
+    "matchesFinal": true,
+    "differingFiles": []
+  },
+  "observation-before-01": {
+    "status": "FINISHED",
+    "sourceStable": true,
+    "matchesFinal": false,
+    "differingFiles": [
+      "src/continuity_engine/services/persistent_runtime_service.py"
+    ]
+  },
+  "p18-final-01": {
+    "status": "FINISHED",
+    "sourceStable": true,
+    "matchesFinal": true,
+    "differingFiles": []
+  },
+  "resume-process-diagnostic-01": {
+    "status": "FINISHED",
+    "sourceStable": true,
+    "matchesFinal": true,
+    "differingFiles": []
+  }
+}

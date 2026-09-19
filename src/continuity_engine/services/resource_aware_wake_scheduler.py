@@ -84,6 +84,8 @@ class ResourceAwareWakeScheduler:
         *,
         detail: str,
         session_id: str | None = None,
+        preserve_recovery_context: bool = False,
+        before_dispatch=None,
     ) -> WakeScheduleResult:
         cycle = self._awakening.get_cycle(cycle_id)
         if cycle.mode is not AwakeMode.MANUAL:
@@ -101,10 +103,13 @@ class ResourceAwareWakeScheduler:
         )
         if allocation.decision.defer:
             return WakeScheduleResult(resources=allocation, awakening=None)
+        if before_dispatch is not None:
+            before_dispatch('after_wake_resources')
         awakening = self._awakening.wake_manual(
             cycle_id,
             detail=detail,
             session_id=session_id,
+            **({'preserve_recovery_context': True} if preserve_recovery_context else {}),
         )
         return WakeScheduleResult(resources=allocation, awakening=awakening)
 

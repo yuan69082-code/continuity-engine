@@ -1,0 +1,26 @@
+Traceback (most recent call last):
+  File "<stdin>", line 12, in <module>
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\runtime_cognition.py", line 177, in _continue
+    result=self.native.wake_manual(self.cycle_id,detail='Native P18 internal computation opportunity.',
+        session_id=self.wake_id(request.task_id),depth=ThinkingDepth.LOW)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\wake_perception_thinking_action_service.py", line 90, in wake_manual
+    return self._continue(AwakeningResult(saved.recovery_context, saved), depth)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\wake_perception_thinking_action_service.py", line 128, in _continue
+    return self._continue_mind(awakening, depth)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\wake_perception_thinking_action_service.py", line 290, in _continue_mind
+    dispatch(action)
+    ~~~~~~~~^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\wake_perception_thinking_action_service.py", line 250, in dispatch
+    core.after_action(operation,thinking,action,replay=replay)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 387, in after_action
+    raise CapabilityValidationError("C1_ACTION_" + self.last_action.status)
+continuity_engine.domain.errors.CapabilityValidationError: C1_ACTION_WAITING_CAPABILITY
+{"activity": "MAINTENANCE", "commands": [], "desired": "RUNNING", "environment": "TEST", "generation": 1, "interruptions": [], "last_task": "maintenance:671cdf5dc6334e4613cc6af0c32fe290eb49b23c31f4c7f6a14067c6899b1828", "last_time": "2026-09-04T09:00:00.085940+00:00", "next_check_at": "2026-09-04T09:01:00.085940+00:00", "observations": 1, "owner": "owner:d94e04e6c4ba45f4b018a74e39d47dc6", "reason": "TASK_COMPLETED", "revision": 3, "root_hash": "sha256:1315031d7bd9884c590cc4ba19626d3df31f2a7766573d8bd000c23f56d2af19", "state": "RUNNING", "subject_id": "sub-3a690fd6f39443fd", "version": "p18-runtime-v1", "host_alive": true, "subject_lifecycle": "ACTIVE", "pending_tasks": 1, "unconfirmed_tasks": 0, "resources": {"token_budget": 100000, "token_used": 0, "token_remaining": 100000, "compute_remaining": 999}}
+revision 1 provider 0
+{"activity": "WAITING_VERIFICATION", "commands": [], "desired": "RUNNING", "environment": "TEST", "generation": 1, "interruptions": [], "last_task": "maintenance:671cdf5dc6334e4613cc6af0c32fe290eb49b23c31f4c7f6a14067c6899b1828", "last_time": "2026-09-04T09:01:00.184786+00:00", "next_check_at": "2026-09-04T09:01:05.184786+00:00", "observations": 2, "owner": "owner:d94e04e6c4ba45f4b018a74e39d47dc6", "reason": "TASK_RESULT_UNCONFIRMED", "revision": 4, "root_hash": "sha256:1315031d7bd9884c590cc4ba19626d3df31f2a7766573d8bd000c23f56d2af19", "state": "RUNNING", "subject_id": "sub-3a690fd6f39443fd", "version": "p18-runtime-v1", "host_alive": true, "subject_lifecycle": "ACTIVE", "pending_tasks": 1, "unconfirmed_tasks": 1, "resources": {"token_budget": 100000, "token_used": 320, "token_remaining": 99680, "compute_remaining": 997}}
+revision 1 provider 1
+{"activity": "WAITING_VERIFICATION", "commands": [], "desired": "RUNNING", "environment": "TEST", "generation": 1, "interruptions": [], "last_task": "maintenance:671cdf5dc6334e4613cc6af0c32fe290eb49b23c31f4c7f6a14067c6899b1828", "last_time": "2026-09-04T09:01:05.528725+00:00", "next_check_at": "2026-09-04T09:01:10.528725+00:00", "observations": 3, "owner": "owner:d94e04e6c4ba45f4b018a74e39d47dc6", "reason": "TASK_RESULT_UNCONFIRMED", "revision": 5, "root_hash": "sha256:1315031d7bd9884c590cc4ba19626d3df31f2a7766573d8bd000c23f56d2af19", "state": "RUNNING", "subject_id": "sub-3a690fd6f39443fd", "version": "p18-runtime-v1", "host_alive": true, "subject_lifecycle": "ACTIVE", "pending_tasks": 1, "unconfirmed_tasks": 1, "resources": {"token_budget": 100000, "token_used": 320, "token_remaining": 99680, "compute_remaining": 997}}
+revision 1 provider 1

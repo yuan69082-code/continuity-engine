@@ -1,0 +1,129 @@
+{
+  "modifiedDocuments": {
+    "README.md": {
+      "before": "01f71d1b396bec144f22611f6d1ba063a94d7863d81de91f2194967913ffc062",
+      "after": "b96a0dd630d2aa4ac90ee4086be369a209014dbba7338492e861767234906c90"
+    },
+    "docs/project_memory/01_当前状态.md": {
+      "before": "97d7ef505a2d958c17b1a3134c172dba804e134086ef463eab884efafe29819f",
+      "after": "1e7ccb68ab3eed341c672d421752947e0999a4a6697bf9302b2e58dd61434cff"
+    },
+    "docs/project_memory/03_施工日志.md": {
+      "before": "f2080f6fbab4de839bbda24560c63619a04f91752ffe2d074320205e2bba469d",
+      "after": "598a73af1b29cc18f3e866c4c0d6b14d4f23d7b42cc4e26df1a56fd0da6000f6"
+    },
+    "docs/project_memory/04_决策记录.md": {
+      "before": "65fcff26a9ccbf39632738f52b7291369c394621b1b23fd5a12d19230c024c39",
+      "after": "dd5e94b0468d6a209f09908e4907f1a5b92bec6413bf4a9e9096a0badb5a96a0"
+    },
+    "docs/project_memory/05_已完成模块.md": {
+      "before": "db6d33239f7ed69f9ba3f4f9938cfe95fd2f7e83edba920a0c87b2c8c604723e",
+      "after": "6af47f81eb59fa7c51d41958f2d2661977371bbcf85c590f20f0bbe6ac1aae91"
+    },
+    "docs/project_memory/06_未完成事项.md": {
+      "before": "c1146f990946568fe7c6a9a13d9662965e27ea7b835409f4ce9032faca3e9bf7",
+      "after": "73029b0514fc7bb669b1c243385b612b299c0aa1735632da29d4253141bd4c6d"
+    },
+    "docs/project_memory/07_待确认事项.md": {
+      "before": "70515246f9922feca606e00836170d5260b2bd752dccca32acbf282697180e70",
+      "after": "ef97c30fdce577e2b7f57fc7c988144792fbdb504e0d2be14d53701a5f5986ce"
+    },
+    "docs/project_memory/10_档案修订记录.md": {
+      "before": "e12a41e6b93a0103f5fa3c85659ff46dcf1011ef2403ecd73644e9327597d806",
+      "after": "f4a9548be3a605963da1f00f43dfc97d8c3959c799b00498e449587d18a08698"
+    },
+    "docs/project_memory/83_P18_PersistentRuntime架构与开工简报.md": {
+      "before": "fc99b9e1c4ffe0ff241c1f41e3439e1caa84030f256b70824df3d81111a3e516",
+      "after": "3d982cf698ab176498791ff7951e5f5fd64efd28b6f1bdaaf243e0a6b6fe6b68"
+    },
+    "docs/project_memory/84_P18_规划施工测试验收矩阵.md": {
+      "before": "3eee3c26dad86793866f6c8d70daf57a8af4329b146fd561b9fdb0ece25f524b",
+      "after": "59c5e1fef56f68aabaee5c9be524eb4a9a605f37d3dd30a03eb91cbc6f96c682"
+    },
+    "docs/project_memory/85_P18_持续运行控制资源等待与恢复语义.md": {
+      "before": "c1e264ddb512fa8c3cce05b8df15339ab2fa6ab515e4a4dc1389c4b15827e0a6",
+      "after": "84c98dc2cd4d524bd188f25a46b1e84414a6aa9e5db009a3db5511d2cd92fa03"
+    },
+    "docs/project_memory/86_P18_测试索引与验收入口.md": {
+      "before": "bf161507144f2007a14b3b531e833d7dd81563b6f15f56a008b24b6d5abe2104",
+      "after": "c32ea22f387894e097fc0bdf40b814b184653b25ec38b7095d569ac76a3c8c8c"
+    },
+    "docs/project_memory/CHANGELOG.md": {
+      "before": "0040559d759175ef85b9f8d34cbae811ce9a2bce35ea2867a5e9944b2c24f7f5",
+      "after": "01cf04e53d9c8f5809e1901c8d734aa1d5a1258e67437f0545a547a1d3b38501"
+    },
+    "docs/project_memory/工程总档案.md": {
+      "before": "34bab38a35c68399968fd3d07f53e7f089c94ed6aaa71cfc68515ad7a60f65cf",
+      "after": "5d837c7a8f710b590b68f5d177a506f6d91d469eb1feb84485f789d3d21405bb"
+    },
+    "docs/project_memory/00_项目总览.md": {
+      "before": "3ae435ae176dfc961bf12cf6ad571baed852e010992b6e4f9fa3ab65c1dc7f1d",
+      "after": "6c0a8d2be079bfe21a1d57e77df0eadc011114dca447411d88018d72c95d5060"
+    },
+    "docs/project_memory/02_工程路线图.md": {
+      "before": "6071f458b2c6b9237c542927f179a3738337b16b7e9d8a9ca0c80de0ca0e64c2",
+      "after": "d3dca356d213c87457b0f7d14e35e2a316c81358b05d6f0dfbcbd404e2339925"
+    },
+    "docs/project_memory/05_核心模块架构.md": {
+      "before": "c3a05a41b479c458fbd293ade0ba3af4ca1bcf7c7ed387105c0e7f7858842a1b",
+      "after": "a507b6a820e7d4fa0ce274db6dbcf7e9f37c88f839b71ebd60e65aa737596e21"
+    },
+    "docs/project_memory/08_未来扩展.md": {
+      "before": "e7ce29627ba6a2f8f6eee6e4264f87a04da0aede140b9f031dd46ba1294dc869",
+      "after": "eb9ddef3e2ca59ae0cd14775974b026bc30d15e5d6084e26569058d7710fb9d5"
+    },
+    "docs/project_memory/11_P00_全周期能力与阶段基线.md": {
+      "before": "134e539f8475c1c19a903cf17b4f7db75b45c359b6482e78a6158e04c1e98853",
+      "after": "4abda54615a3cf7224b7b7c7eb093ae060f1d04457edbaf00fc6ade981f507f0"
+    },
+    "docs/project_memory/12_P00_规划施工测试验收矩阵.md": {
+      "before": "77f4ed0ba38a7e716718e7d13ebbaa0b1d5d518c10fab6afff1c543019986a0a",
+      "after": "c7a2559fb7153b4191b9541c922ff6bf528a611a7a98ab35855e06f90c344d2d"
+    },
+    "docs/project_memory/13_P00_档案与测试索引.md": {
+      "before": "a529539722ee2adbd107b05a64cef1b986c77a7a661cdf6c54cddf413982c8e8",
+      "after": "22bce7a8dee341a55d3984539060aed554dbb290d1c4b16d8e58d266b935a8ac"
+    }
+  },
+  "newArchiveFiles": [
+    "docs/project_memory/p18_acceptance_evidence/acceptance-report.md",
+    "docs/project_memory/p18_acceptance_evidence/accepted-matrix.json",
+    "docs/project_memory/p18_acceptance_evidence/audit.py",
+    "docs/project_memory/p18_acceptance_evidence/before.json",
+    "docs/project_memory/p18_acceptance_evidence/document-changes.json",
+    "docs/project_memory/p18_acceptance_evidence/documentation-files.json",
+    "docs/project_memory/p18_acceptance_evidence/final.audit.json",
+    "docs/project_memory/p18_acceptance_evidence/final.pending-files.md",
+    "docs/project_memory/p18_acceptance_evidence/independent-archive.json",
+    "docs/project_memory/p18_acceptance_evidence/independent/exception-edges-01.after.json",
+    "docs/project_memory/p18_acceptance_evidence/independent/exception-edges-01.before.json",
+    "docs/project_memory/p18_acceptance_evidence/independent/exception-edges-01.result.json",
+    "docs/project_memory/p18_acceptance_evidence/independent/exception-edges-01.stderr.log",
+    "docs/project_memory/p18_acceptance_evidence/independent/exception-edges-01.stdout.log",
+    "docs/project_memory/p18_acceptance_evidence/independent/identity-check.json",
+    "docs/project_memory/p18_acceptance_evidence/independent/original-six-01.after.json",
+    "docs/project_memory/p18_acceptance_evidence/independent/original-six-01.before.json",
+    "docs/project_memory/p18_acceptance_evidence/independent/original-six-01.result.json",
+    "docs/project_memory/p18_acceptance_evidence/independent/original-six-01.stderr.log",
+    "docs/project_memory/p18_acceptance_evidence/independent/original-six-01.stdout.log",
+    "docs/project_memory/p18_acceptance_evidence/independent/p18-01.after.json",
+    "docs/project_memory/p18_acceptance_evidence/independent/p18-01.before.json",
+    "docs/project_memory/p18_acceptance_evidence/independent/p18-01.result.json",
+    "docs/project_memory/p18_acceptance_evidence/independent/p18-01.stderr.log",
+    "docs/project_memory/p18_acceptance_evidence/independent/p18-01.stdout.log",
+    "docs/project_memory/p18_acceptance_evidence/independent/prior-35-01.after.json",
+    "docs/project_memory/p18_acceptance_evidence/independent/prior-35-01.before.json",
+    "docs/project_memory/p18_acceptance_evidence/independent/prior-35-01.result.json",
+    "docs/project_memory/p18_acceptance_evidence/independent/prior-35-01.stderr.log",
+    "docs/project_memory/p18_acceptance_evidence/independent/prior-35-01.stdout.log",
+    "docs/project_memory/p18_acceptance_evidence/independent/process-observation.json",
+    "docs/project_memory/p18_acceptance_evidence/independent/review-report.md",
+    "docs/project_memory/p18_acceptance_evidence/independent/run_review.py",
+    "docs/project_memory/p18_acceptance_evidence/independent/test_independent_exception_edges.py",
+    "docs/project_memory/p18_acceptance_evidence/independent/verify_evidence.py"
+  ],
+  "existingP18Files": 716,
+  "previousEvidenceAndSourceUnchanged": true,
+  "historicalDocumentBodiesPreserved": true,
+  "runtimeAndFormalTestChangesThisTurn": []
+}

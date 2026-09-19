@@ -1,0 +1,153 @@
+{
+  "rootCause": "UNKNOWN",
+  "evidenceConflict": "PRESENT",
+  "R1IsNotEstablishedH1Cause": true,
+  "historicalLabel": "p18-final-04",
+  "historicalRun": 58,
+  "historicalPassed": 57,
+  "historicalFailures": [
+    [
+      "test_p18_runtime_process.RuntimeProcessTests.test_resource_wait_host_lives_and_restores_without_message",
+      "Traceback (most recent call last):\n  File \"C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p18_runtime_process.py\", line 115, in test_resource_wait_host_lives_and_restores_without_message\n    f.advance(60);self.until(lambda:f.store.load()['activity']=='WAITING_RESOURCES',process=p)\n                  ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p18_runtime_process.py\", line 50, in until\n    self.fail('bounded test controller timed out')\n    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: bounded test controller timed out\n"
+    ]
+  ],
+  "historicalSourceBeforeAfterMatch": true,
+  "historicalFiles": {
+    "p18-final-04.json": "25792e63931825a49bb20b3d174cf555df63822dc14db0d44b1cc72753d36b45",
+    "p18-final-04.stdout.log": "b48d6ed7c4d57fa985253040e39cc9d07242a9bfec86f62920e9ee12c08824ad",
+    "p18-final-04.stderr.log": "ba8c5cddef8a5d81dc55ba85ba913823663d4a87cacc6206b946e729e7eed575"
+  },
+  "sourceDifferencesToPriorFinal": [
+    "src/continuity_engine/services/persistent_runtime_service.py",
+    "src/continuity_engine/services/scheduler_service.py",
+    "src/continuity_engine/testing/p18_runtime_fixture.py",
+    "tests/test_p18_runtime.py",
+    "tests/test_p18_runtime_process.py",
+    "tests/test_p18_runtime_recovery.py"
+  ],
+  "knownAtCleanup": {
+    "hostAlive": true,
+    "exitCode": 0,
+    "forcedCleanup": false,
+    "childrenReaped": true,
+    "activity": "STOPPED",
+    "reason": "OWNER_STOP",
+    "lastTime": "2026-09-04T09:01:00+00:00",
+    "nextCheckAt": null,
+    "lastTask": "maintenance:e64f8391509ad09b4e00ad5203fc5d946881c9ef20de6e8e1eb51c1e4cc25122",
+    "observations": 2,
+    "pendingTasks": 1,
+    "unconfirmedTasks": 0,
+    "resources": {
+      "token_budget": 0,
+      "token_used": 0,
+      "token_remaining": 0,
+      "compute_remaining": 999
+    }
+  },
+  "missingEvidence": [
+    "pre-STOP activity/reason/next_check_at",
+    "exact task states and attempts at timeout",
+    "clock read and transaction interleaving at failure",
+    "resource preview result at failure",
+    "byte-exact old changed source contents (only their SHA-256 inventory is retained)"
+  ],
+  "excludedClaims": [
+    "A no-STOP exit 2 is inconsistent with the recorded alive host and subsequent STOP exit 0.",
+    "The final full run finished before quota interruption; quota interruption is not a demonstrated H1 cause.",
+    "Later PASS, fairness/STOP fixes and current controlled interleavings do not prove the historical cause."
+  ],
+  "currentControlledEvidence": {
+    "label": "formal-final-01",
+    "sourceBeforeAfterMatch": true,
+    "observations": [
+      {
+        "test": "test_p18_runtime_contention.RuntimeContentionTests.test_h1_clock_advance_during_maintenance_observation",
+        "evidence": {
+          "stage": "h1-controlled-clock-interleaving",
+          "snapshot": {
+            "processes": [],
+            "trusted_time": "2026-09-04T09:01:00+00:00",
+            "runtime": {
+              "revision": 4,
+              "state": "RUNNING",
+              "desired": "RUNNING",
+              "activity": "WAITING_RESOURCES",
+              "reason": "TASK_RESOURCES_UNAVAILABLE",
+              "last_time": "2026-09-04T09:01:00+00:00",
+              "next_check_at": "2026-09-04T09:01:05+00:00",
+              "last_task": "maintenance:78e942b6b09d668b83ee9b309e6b878d00ca2dcb37de58975f0bfc4831cda60f",
+              "generation": 1,
+              "host_alive": true,
+              "checkpoint_busy": false,
+              "resources": {
+                "token_budget": 0,
+                "token_used": 0,
+                "token_remaining": 0,
+                "compute_remaining": 999
+              }
+            },
+            "tasks": [
+              {
+                "task_id": "cognition:99102b182f835061fa83df76c1be1c4324a60e773445dae7895591d96e0af31e",
+                "state": "QUEUED",
+                "attempt_count": 0,
+                "last_attempt_id": null,
+                "next_attempt_at": null,
+                "due_at": "2026-09-04T08:01:00+00:00",
+                "last_receipt_status": null
+              },
+              {
+                "task_id": "maintenance:78e942b6b09d668b83ee9b309e6b878d00ca2dcb37de58975f0bfc4831cda60f",
+                "state": "COMPLETED",
+                "attempt_count": 1,
+                "last_attempt_id": "p11-attempt-7c947d5cfc08488f6eb68174ad0cdccb800b3080290a408bd2e86e5a7dfe537e",
+                "next_attempt_at": null,
+                "due_at": "2026-09-04T08:00:00+00:00",
+                "last_receipt_status": "DELIVERED"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "test": "tests.test_p18_runtime_process.RuntimeProcessTests.runTest",
+        "evidence": {
+          "stage": "controller-timeout-before-stop",
+          "snapshot": {
+            "processes": [
+              {
+                "pid": 20648,
+                "exitCode": null,
+                "alive": true
+              }
+            ],
+            "trusted_time": "2026-09-04T08:00:00+00:00",
+            "runtime": {
+              "revision": 1,
+              "state": "START",
+              "desired": "RUNNING",
+              "activity": "IDLE",
+              "reason": "INITIALIZED",
+              "last_time": null,
+              "next_check_at": null,
+              "last_task": null,
+              "generation": 0,
+              "host_alive": false,
+              "checkpoint_busy": false,
+              "resources": {
+                "token_budget": 0,
+                "token_used": 0,
+                "token_remaining": 0,
+                "compute_remaining": 1000
+              }
+            },
+            "tasks": []
+          }
+        }
+      }
+    ],
+    "interpretation": "Current controlled clock overlap and pre-STOP timeout capture passed; not reconstruction of missing historical state."
+  },
+  "remainingRisk": "An intermittent resource-wait observation failure cannot be ruled out from the incomplete historical record. Independent review must retain UNKNOWN or explicitly assess this residual evidence limitation."
+}

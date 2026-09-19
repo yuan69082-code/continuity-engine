@@ -1,0 +1,22 @@
+test_f1_time_advances_at_each_native_handoff (test_hypotheses.Hypotheses.test_f1_time_advances_at_each_native_handoff) ... ok
+test_h1_short_real_query_reader_keeps_resource_wait_observable (test_hypotheses.Hypotheses.test_h1_short_real_query_reader_keeps_resource_wait_observable) ... FAIL
+test_h1_without_contention_waits_and_recovers (test_hypotheses.Hypotheses.test_h1_without_contention_waits_and_recovers) ... ok
+
+======================================================================
+FAIL: test_h1_short_real_query_reader_keeps_resource_wait_observable (test_hypotheses.Hypotheses.test_h1_short_real_query_reader_keeps_resource_wait_observable)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\docs\project_memory\p18_f1_h1_evidence\independent\test_hypotheses.py", line 94, in test_h1_short_real_query_reader_keeps_resource_wait_observable
+    self.assertEqual(f.store.load()['activity'],'WAITING_RESOURCES',
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        'short legal query read must not replace resource waiting with frozen BACKOFF')
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'BACKOFF' != 'WAITING_RESOURCES'
+- BACKOFF
++ WAITING_RESOURCES
+ : short legal query read must not replace resource waiting with frozen BACKOFF
+
+----------------------------------------------------------------------
+Ran 3 tests in 15.947s
+
+FAILED (failures=1)

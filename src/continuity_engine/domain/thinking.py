@@ -466,6 +466,9 @@ class ThinkSession:
     perception_snapshot: PerceptionResult | None = None
     status: ThinkSessionStatus = ThinkSessionStatus.RUNNING
     capability_request_id: str | None = None
+    # Optional internal native-provider progress, on the original ThinkSession.
+    # Missing legacy evidence never establishes that a call did not happen.
+    provider_execution: dict | None = None
 
     def __post_init__(self) -> None:
         _require_text(self.think_id, "think_id")
@@ -561,6 +564,68 @@ class ThinkSession:
                 raise ThinkingValidationError(
                     "ThinkSession perception snapshot does not match its observation"
                 )
+        self.validate_provider_execution()
+
+    def provider_binding_hash(self) -> str:
+        import hashlib
+        import json
+        material = [self.think_id, self.subject_id, self.wake_session_id,
+                    self.provider_id, _format_datetime(self.started_at),
+                    self.token_budget.to_dict(), self.observation.to_dict(),
+                    self.perception_snapshot.to_dict() if self.perception_snapshot else None]
+        return hashlib.sha256(json.dumps(material, sort_keys=True, separators=(',', ':'),
+                                         ensure_ascii=False).encode()).hexdigest()
+
+    def validate_provider_execution(self) -> None:
+        evidence = self.provider_execution
+        if evidence is None:
+            return
+        if (not isinstance(evidence, dict) or set(evidence) != {'version', 'binding_hash', 'events'}
+                or evidence['version'] != 'native-provider-v1'
+                or evidence['binding_hash'] != self.provider_binding_hash()
+                or self.capability_request_id is not None or self.perception_snapshot is None):
+            raise ThinkingValidationError('THINKING_PROVIDER_PROGRESS_BINDING')
+        events = evidence['events']
+        if not isinstance(events, list) or not events:
+            raise ThinkingValidationError('THINKING_PROVIDER_PROGRESS_INVALID')
+        allowed = {None: {'PREPARED'}, 'PREPARED': {'PREPARED', 'ENTERED', 'ABANDONED'},
+                   'ENTERED': {'RETURNED'}, 'RETURNED': set(), 'ABANDONED': set()}
+        reasons = {'PREPARED': {'PREPARED', 'CONTROL_DEFERRED'}, 'ENTERED': {'CALL_STARTED'},
+                   'RETURNED': {'RESULT_VALIDATED'}, 'ABANDONED': {'MATERIAL_REASSESSMENT'}}
+        phase = None
+        previous_time = self.started_at
+        for row in events:
+            if (not isinstance(row, dict) or set(row) != {'phase', 'at', 'reason'}
+                    or row['phase'] not in allowed[phase]
+                    or row['reason'] not in reasons[row['phase']]):
+                raise ThinkingValidationError('THINKING_PROVIDER_PROGRESS_INVALID')
+            at = _parse_datetime(row['at'], 'provider progress at')
+            if at < previous_time:
+                raise ThinkingValidationError('THINKING_PROVIDER_PROGRESS_TIME')
+            previous_time = at
+            phase = row['phase']
+        if phase == 'PREPARED' and (self.status is not ThinkSessionStatus.RUNNING
+                or self.completed_successfully is not None or self.result is not None
+                or self.actual_token_consumption is not None):
+            raise ThinkingValidationError('THINKING_PROVIDER_PROGRESS_RESULT_CONFLICT')
+        if phase == 'ABANDONED' and (self.status is not ThinkSessionStatus.FAILED
+                or self.completed_successfully is not False or self.state_written_back):
+            raise ThinkingValidationError('THINKING_PROVIDER_PROGRESS_RESULT_CONFLICT')
+        if phase == 'RETURNED' and not self.completed_successfully:
+            raise ThinkingValidationError('THINKING_PROVIDER_PROGRESS_RESULT_CONFLICT')
+
+    @property
+    def provider_not_started(self) -> bool:
+        self.validate_provider_execution()
+        return (self.provider_execution is not None
+                and self.provider_execution['events'][-1]['phase'] == 'PREPARED')
+
+    def record_provider_phase(self, phase: str, at: datetime, reason: str) -> None:
+        if self.provider_execution is None:
+            self.provider_execution = {'version': 'native-provider-v1',
+                'binding_hash': self.provider_binding_hash(), 'events': []}
+        self.provider_execution['events'].append(
+            {'phase': phase, 'at': _format_datetime(at), 'reason': reason})
 
     @classmethod
     def start(
@@ -692,6 +757,8 @@ class ThinkSession:
             "error": self.error,
             "status": self.status.value,
             "capability_request_id": self.capability_request_id,
+            **({'provider_execution': self.provider_execution}
+               if self.provider_execution is not None else {}),
         }
 
     @classmethod
@@ -740,6 +807,7 @@ class ThinkSession:
             error=value.get("error"),
             status=status,
             capability_request_id=value.get("capability_request_id"),
+            provider_execution=value.get('provider_execution'),
         )
 
 

@@ -1,0 +1,8 @@
+{
+  "initialCIM": "Access denied in sandbox; read-only elevated check requested",
+  "notEngineFailure": true,
+  "elevatedCIM": "Succeeded; zero matching Engine/P18 Python processes",
+  "reviewReadTool": "Read-only rg Windows glob error 123; corrected explicit file read, no Engine test involved",
+  "languageObservation": "Isolated inline Python proves pending-primary finally unwind preserves implicit context when cleanup is caught without re-raising primary",
+  "earlyCompatibilityLogObservation": "Read attempted before compatibility started; file not yet present, PowerShell exit 1 with SilentlyContinue. P18 was still running. No test result inferred."
+}

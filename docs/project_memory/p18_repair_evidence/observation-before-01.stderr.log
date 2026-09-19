@@ -1,0 +1,18 @@
+test_waiting_old_observation_does_not_overwrite_new_resume (test_p18_runtime_contention.RuntimeContentionTests.test_waiting_old_observation_does_not_overwrite_new_resume) ... FAIL
+
+======================================================================
+FAIL: test_waiting_old_observation_does_not_overwrite_new_resume (test_p18_runtime_contention.RuntimeContentionTests.test_waiting_old_observation_does_not_overwrite_new_resume)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p18_runtime_contention.py", line 221, in test_waiting_old_observation_does_not_overwrite_new_resume
+    self.assertEqual(current['state'],'RESUME')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'PAUSED' != 'RESUME'
+- PAUSED
++ RESUME
+
+
+----------------------------------------------------------------------
+Ran 1 test in 1.486s
+
+FAILED (failures=1)

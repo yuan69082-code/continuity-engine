@@ -1,0 +1,45 @@
+test_first_cycle_definitely_not_called_resumes (test_pause_resume_confirmation.PauseResumeConfirmation.test_first_cycle_definitely_not_called_resumes) ... FAIL
+test_provider_entered_then_failed_is_not_blindly_repeated (test_pause_resume_confirmation.PauseResumeConfirmation.test_provider_entered_then_failed_is_not_blindly_repeated) ... ok
+test_reopen_does_not_leave_definite_pre_call_pause_stuck (test_pause_resume_confirmation.PauseResumeConfirmation.test_reopen_does_not_leave_definite_pre_call_pause_stuck) ... FAIL
+test_second_cycle_definitely_not_called_resumes (test_pause_resume_confirmation.PauseResumeConfirmation.test_second_cycle_definitely_not_called_resumes) ... FAIL
+
+======================================================================
+FAIL: test_first_cycle_definitely_not_called_resumes (test_pause_resume_confirmation.PauseResumeConfirmation.test_first_cycle_definitely_not_called_resumes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\p18-repair-review-20260913\test_pause_resume_confirmation.py", line 41, in test_first_cycle_definitely_not_called_resumes
+    self.resume_and_assert(f,1)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\p18-repair-review-20260913\test_pause_resume_confirmation.py", line 33, in resume_and_assert
+    self.assertGreater(f.state.revision,old_revision)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 not greater than 1
+
+======================================================================
+FAIL: test_reopen_does_not_leave_definite_pre_call_pause_stuck (test_pause_resume_confirmation.PauseResumeConfirmation.test_reopen_does_not_leave_definite_pre_call_pause_stuck)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\p18-repair-review-20260913\test_pause_resume_confirmation.py", line 60, in test_reopen_does_not_leave_definite_pre_call_pause_stuck
+    with reopened.host.running():self.resume_and_assert(reopened,1)
+                                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\p18-repair-review-20260913\test_pause_resume_confirmation.py", line 33, in resume_and_assert
+    self.assertGreater(f.state.revision,old_revision)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 not greater than 1
+
+======================================================================
+FAIL: test_second_cycle_definitely_not_called_resumes (test_pause_resume_confirmation.PauseResumeConfirmation.test_second_cycle_definitely_not_called_resumes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\p18-repair-review-20260913\test_pause_resume_confirmation.py", line 52, in test_second_cycle_definitely_not_called_resumes
+    self.resume_and_assert(f,2)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\p18-repair-review-20260913\test_pause_resume_confirmation.py", line 33, in resume_and_assert
+    self.assertGreater(f.state.revision,old_revision)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 not greater than 2
+
+----------------------------------------------------------------------
+Ran 4 tests in 6.376s
+
+FAILED (failures=3)

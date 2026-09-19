@@ -1,0 +1,9 @@
+test_first_cycle_definitely_not_called_resumes (test_pause_resume_confirmation.PauseResumeConfirmation.test_first_cycle_definitely_not_called_resumes) ... ok
+test_provider_entered_then_failed_is_not_blindly_repeated (test_pause_resume_confirmation.PauseResumeConfirmation.test_provider_entered_then_failed_is_not_blindly_repeated) ... ok
+test_reopen_does_not_leave_definite_pre_call_pause_stuck (test_pause_resume_confirmation.PauseResumeConfirmation.test_reopen_does_not_leave_definite_pre_call_pause_stuck) ... ok
+test_second_cycle_definitely_not_called_resumes (test_pause_resume_confirmation.PauseResumeConfirmation.test_second_cycle_definitely_not_called_resumes) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 6.840s
+
+OK

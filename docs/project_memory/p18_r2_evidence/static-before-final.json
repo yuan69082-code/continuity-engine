@@ -1,0 +1,32 @@
+{
+  "sourceMatchesFrozen": true,
+  "pythonAST": 255,
+  "protection": {
+    "protected": {
+      "count": 63,
+      "changed": []
+    },
+    "plans": {
+      "count": 3,
+      "changed": []
+    },
+    "formalFiles": {
+      "count": 7,
+      "changed": []
+    },
+    "excludedP10": {
+      "count": 31,
+      "changed": []
+    },
+    "otherPreserved": {
+      "count": 1,
+      "changed": []
+    }
+  },
+  "diffCheck": {
+    "exitCode": 0,
+    "stdout": "",
+    "stderr": "warning: in the working copy of 'src/continuity_engine/domain/thinking.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'src/continuity_engine/services/resource_aware_wake_scheduler.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'src/continuity_engine/services/scheduler_service.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'src/continuity_engine/services/thinking_service.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'src/continuity_engine/services/wake_perception_thinking_action_service.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'src/continuity_engine/storage/json_thinking_repository.py', LF will be replaced by CRLF the next time Git touches it\n"
+  },
+  "testsExecuted": false
+}

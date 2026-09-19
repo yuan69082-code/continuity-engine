@@ -1,0 +1,10 @@
+{
+  "old": "docs\\project_memory\\p18_repair_evidence\\source-before\\json_runtime_repository.py",
+  "oldSHA": "82cfdb819a8db19839d2594bf0eef405ec660e04feb868bc225d7690c4503765",
+  "current": "src\\continuity_engine\\storage\\json_runtime_repository.py",
+  "currentSHA": "d7e721d214c2b037719ba310ffe83ef6405577a8b39e7fc8edec72aa0b10308a",
+  "functionASTEqual": {
+    "load": true,
+    "save": true
+  }
+}

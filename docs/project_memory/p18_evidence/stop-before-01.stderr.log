@@ -1,0 +1,25 @@
+test_pause_after_stop_refuses_without_checkpoint_write (__main__.StopTerminalProbe.test_pause_after_stop_refuses_without_checkpoint_write) ... FAIL
+test_second_stop_identity_does_not_corrupt_or_write (__main__.StopTerminalProbe.test_second_stop_identity_does_not_corrupt_or_write) ... FAIL
+
+======================================================================
+FAIL: test_pause_after_stop_refuses_without_checkpoint_write (__main__.StopTerminalProbe.test_pause_after_stop_refuses_without_checkpoint_write)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\docs\project_memory\p18_evidence\stop_terminal_probe.py", line 16, in test_pause_after_stop_refuses_without_checkpoint_write
+    with self.assertRaises(RuntimeBoundaryError):f.control('PAUSE','later-pause')
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: RuntimeBoundaryError not raised
+
+======================================================================
+FAIL: test_second_stop_identity_does_not_corrupt_or_write (__main__.StopTerminalProbe.test_second_stop_identity_does_not_corrupt_or_write)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\docs\project_memory\p18_evidence\stop_terminal_probe.py", line 24, in test_second_stop_identity_does_not_corrupt_or_write
+    self.assertEqual(before,f.store.path.read_bytes())
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: b'{"d[242 chars]": 2}], "desired": "STOPPED", "environment": "[432 chars]"}\n' != b'{"d[242 chars]": 2}, {"hash": "sha256:c42cfff1dfcdb51a5884fd[634 chars]"}\n'
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.919s
+
+FAILED (failures=2)

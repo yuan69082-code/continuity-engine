@@ -1,0 +1,457 @@
+{
+  "advancing-final-01.json": {
+    "command": [
+      "E:\\Adobe\\python.exe",
+      "docs/project_memory/p18_storage_final_evidence/run.py",
+      "advancing-final-01",
+      "--review-class",
+      "original_suites.advancing_suite"
+    ],
+    "status": "FINISHED",
+    "startedAt": "2026-09-13T17:43:49.986912+00:00",
+    "finishedAt": "2026-09-13T17:44:09.324316+00:00",
+    "seconds": 19.309,
+    "run": 2,
+    "passed": 2,
+    "exitCode": 0,
+    "failureRecords": 0,
+    "errorRecords": 0,
+    "skips": [],
+    "sourceStable": true,
+    "matchesFinal": false
+  },
+  "advancing-final-02.json": {
+    "command": [
+      "E:\\Adobe\\python.exe",
+      "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p18_storage_final_evidence\\run.py",
+      "advancing-final-02",
+      "--review-class",
+      "original_suites.advancing_suite"
+    ],
+    "status": "FINISHED",
+    "startedAt": "2026-09-13T17:46:13.520308+00:00",
+    "finishedAt": "2026-09-13T17:46:32.828328+00:00",
+    "seconds": 19.278,
+    "run": 2,
+    "passed": 2,
+    "exitCode": 0,
+    "failureRecords": 0,
+    "errorRecords": 0,
+    "skips": [],
+    "sourceStable": true,
+    "matchesFinal": true
+  },
+  "boundaries-after-01.json": {
+    "command": [
+      "E:\\Adobe\\python.exe",
+      "docs/project_memory/p18_storage_final_evidence/run.py",
+      "boundaries-after-01",
+      "test_p18_storage_"
+    ],
+    "status": "FINISHED",
+    "startedAt": "2026-09-13T17:38:25.719695+00:00",
+    "finishedAt": "2026-09-13T17:38:34.001583+00:00",
+    "seconds": 8.253,
+    "run": 22,
+    "passed": 19,
+    "exitCode": 1,
+    "failureRecords": 3,
+    "errorRecords": 0,
+    "skips": [],
+    "sourceStable": true,
+    "matchesFinal": false
+  },
+  "boundaries-after-03.json": {
+    "command": [
+      "E:\\Adobe\\python.exe",
+      "docs/project_memory/p18_storage_final_evidence/run.py",
+      "boundaries-after-03",
+      "test_p18_storage_"
+    ],
+    "status": "FINISHED",
+    "startedAt": "2026-09-13T17:40:44.671549+00:00",
+    "finishedAt": "2026-09-13T17:40:57.060038+00:00",
+    "seconds": 12.353,
+    "run": 25,
+    "passed": 25,
+    "exitCode": 0,
+    "failureRecords": 0,
+    "errorRecords": 0,
+    "skips": [],
+    "sourceStable": true,
+    "matchesFinal": false
+  },
+  "boundaries-final-04.json": {
+    "command": [
+      "E:\\Adobe\\python.exe",
+      "docs/project_memory/p18_storage_final_evidence/run.py",
+      "boundaries-final-04",
+      "test_p18_storage_"
+    ],
+    "status": "FINISHED",
+    "startedAt": "2026-09-13T17:44:42.638832+00:00",
+    "finishedAt": "2026-09-13T17:45:05.768708+00:00",
+    "seconds": 23.097,
+    "run": 27,
+    "passed": 27,
+    "exitCode": 0,
+    "failureRecords": 0,
+    "errorRecords": 0,
+    "skips": [],
+    "sourceStable": true,
+    "matchesFinal": true
+  },
+  "compatibility-final-01.json": {
+    "command": [
+      "E:\\Adobe\\python.exe",
+      "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p18_storage_final_evidence\\run.py",
+      "compatibility-final-01",
+      "test_repository",
+      "test_event_persistence",
+      "test_evolution",
+      "test_service",
+      "test_p03_",
+      "test_p15_",
+      "test_thinking",
+      "test_perception",
+      "test_action",
+      "test_awakening",
+      "test_e5_capability_recovery",
+      "test_p02_",
+      "test_p09_",
+      "test_p14_",
+      "test_p16_",
+      "test_p17_",
+      "test_resources",
+      "test_p11_",
+      "test_pre_p12"
+    ],
+    "status": "FINISHED",
+    "startedAt": "2026-09-13T17:50:18.580988+00:00",
+    "finishedAt": "2026-09-13T18:05:10.705121+00:00",
+    "seconds": 892.095,
+    "run": 605,
+    "passed": 605,
+    "exitCode": 0,
+    "failureRecords": 0,
+    "errorRecords": 0,
+    "skips": [],
+    "sourceStable": true,
+    "matchesFinal": true
+  },
+  "expired-context-before-01.json": {
+    "command": [
+      "E:\\Adobe\\python.exe",
+      "docs/project_memory/p18_storage_final_evidence/run.py",
+      "expired-context-before-01",
+      "test_p18_storage_retry.StorageRetryTests.test_copied_context_after_transaction_exit"
+    ],
+    "status": "FINISHED",
+    "startedAt": "2026-09-13T17:44:22.519865+00:00",
+    "finishedAt": "2026-09-13T17:44:23.714690+00:00",
+    "seconds": 1.165,
+    "run": 1,
+    "passed": 0,
+    "exitCode": 1,
+    "failureRecords": 0,
+    "errorRecords": 1,
+    "skips": [],
+    "sourceStable": true,
+    "matchesFinal": false
+  },
+  "fixture-diagnostic-01.json": {
+    "command": [
+      "E:\\Adobe\\python.exe",
+      "docs/project_memory/p18_storage_final_evidence/run.py",
+      "fixture-diagnostic-01",
+      "--review-class",
+      "test_fixture_diagnostic.FixtureDiagnostic.test_completed_effect_with_busy_observation_is_not_dispatched_again"
+    ],
+    "status": "FINISHED",
+    "startedAt": "2026-09-13T17:39:24.165656+00:00",
+    "finishedAt": "2026-09-13T17:39:25.568721+00:00",
+    "seconds": 1.374,
+    "run": 1,
+    "passed": 0,
+    "exitCode": 1,
+    "failureRecords": 1,
+    "errorRecords": 0,
+    "skips": [],
+    "sourceStable": true,
+    "matchesFinal": false
+  },
+  "fixture-length-02.json": {
+    "command": [
+      "E:\\Adobe\\python.exe",
+      "docs/project_memory/p18_storage_final_evidence/run.py",
+      "fixture-length-02",
+      "--review-class",
+      "test_fixture_diagnostic.FixtureDiagnostic.test_completed_effect_with_busy_observation_is_not_dispatched_again"
+    ],
+    "status": "FINISHED",
+    "startedAt": "2026-09-13T17:39:44.026767+00:00",
+    "finishedAt": "2026-09-13T17:39:45.394890+00:00",
+    "seconds": 1.337,
+    "run": 1,
+    "passed": 0,
+    "exitCode": 1,
+    "failureRecords": 1,
+    "errorRecords": 0,
+    "skips": [],
+    "sourceStable": true,
+    "matchesFinal": false
+  },
+  "fixture-short-01.json": {
+    "command": [
+      "E:\\Adobe\\python.exe",
+      "docs/project_memory/p18_storage_final_evidence/run.py",
+      "fixture-short-01",
+      "--review-class",
+      "test_fixture_diagnostic.ShortRootDiagnostic.test_completed_effect_with_busy_observation_is_not_dispatched_again"
+    ],
+    "status": "FINISHED",
+    "startedAt": "2026-09-13T17:39:45.545727+00:00",
+    "finishedAt": "2026-09-13T17:39:47.981638+00:00",
+    "seconds": 2.409,
+    "run": 1,
+    "passed": 1,
+    "exitCode": 0,
+    "failureRecords": 0,
+    "errorRecords": 0,
+    "skips": [],
+    "sourceStable": true,
+    "matchesFinal": false
+  },
+  "full-final-01.json": {
+    "command": [
+      "E:\\Adobe\\python.exe",
+      "docs/project_memory/p18_storage_final_evidence/run.py",
+      "full-final-01"
+    ],
+    "status": "FINISHED",
+    "startedAt": "2026-09-13T18:05:22.094420+00:00",
+    "finishedAt": "2026-09-13T18:27:21.963731+00:00",
+    "seconds": 1319.841,
+    "run": 1507,
+    "passed": 1506,
+    "exitCode": 0,
+    "failureRecords": 0,
+    "errorRecords": 0,
+    "skips": [
+      [
+        "test_p08_fixture_paths.P08FixturePathTests.test_symlink_component_rejected_without_writes",
+        "OS does not grant symlink creation: 1314"
+      ]
+    ],
+    "sourceStable": true,
+    "matchesFinal": true
+  },
+  "host-boundaries-after-02.json": {
+    "command": [
+      "E:\\Adobe\\python.exe",
+      "docs/project_memory/p18_storage_final_evidence/run.py",
+      "host-boundaries-after-02",
+      "test_p18_storage_runtime"
+    ],
+    "status": "FINISHED",
+    "startedAt": "2026-09-13T17:39:57.514489+00:00",
+    "finishedAt": "2026-09-13T17:40:08.043265+00:00",
+    "seconds": 10.498,
+    "run": 7,
+    "passed": 7,
+    "exitCode": 0,
+    "failureRecords": 0,
+    "errorRecords": 0,
+    "skips": [],
+    "sourceStable": true,
+    "matchesFinal": false
+  },
+  "host-process-final-01.json": {
+    "command": [
+      "E:\\Adobe\\python.exe",
+      "docs/project_memory/p18_storage_final_evidence/run.py",
+      "host-process-final-01",
+      "test_p18_storage_runtime.RuntimeStorageProcessTests"
+    ],
+    "status": "FINISHED",
+    "startedAt": "2026-09-13T17:42:42.391129+00:00",
+    "finishedAt": "2026-09-13T17:42:53.937008+00:00",
+    "seconds": 11.514,
+    "run": 1,
+    "passed": 1,
+    "exitCode": 0,
+    "failureRecords": 0,
+    "errorRecords": 0,
+    "skips": [],
+    "sourceStable": true,
+    "matchesFinal": false
+  },
+  "native-denial-final-01.json": {
+    "command": [
+      "E:\\Adobe\\python.exe",
+      "docs/project_memory/p18_storage_final_evidence/run.py",
+      "native-denial-final-01",
+      "--review-class",
+      "test_native_access.native_suite"
+    ],
+    "status": "FINISHED",
+    "startedAt": "2026-09-13T17:41:31.904917+00:00",
+    "finishedAt": "2026-09-13T17:41:32.530944+00:00",
+    "seconds": 0.593,
+    "run": 4,
+    "passed": 4,
+    "exitCode": 0,
+    "failureRecords": 0,
+    "errorRecords": 0,
+    "skips": [],
+    "sourceStable": true,
+    "matchesFinal": false
+  },
+  "native-denial-final-02.json": {
+    "command": [
+      "E:\\Adobe\\python.exe",
+      "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p18_storage_final_evidence\\run.py",
+      "native-denial-final-02",
+      "--review-class",
+      "test_native_access.native_suite"
+    ],
+    "status": "FINISHED",
+    "startedAt": "2026-09-13T17:46:42.300598+00:00",
+    "finishedAt": "2026-09-13T17:46:42.917234+00:00",
+    "seconds": 0.589,
+    "run": 4,
+    "passed": 4,
+    "exitCode": 0,
+    "failureRecords": 0,
+    "errorRecords": 0,
+    "skips": [],
+    "sourceStable": true,
+    "matchesFinal": true
+  },
+  "new-guards-before-01.json": {
+    "command": [
+      "E:\\Adobe\\python.exe",
+      "docs/project_memory/p18_storage_final_evidence/run.py",
+      "new-guards-before-01",
+      "test_p18_storage_retry.StorageRetryTests.test_prepared_file_change",
+      "test_p18_storage_retry.StorageRetryTests.test_copied_context",
+      "test_p18_storage_retry.StorageRetryTests.test_runtime_cleanup_error"
+    ],
+    "status": "FINISHED",
+    "startedAt": "2026-09-13T17:40:14.230124+00:00",
+    "finishedAt": "2026-09-13T17:40:15.806068+00:00",
+    "seconds": 1.543,
+    "run": 3,
+    "passed": 0,
+    "exitCode": 1,
+    "failureRecords": 6,
+    "errorRecords": 0,
+    "skips": [],
+    "sourceStable": true,
+    "matchesFinal": false
+  },
+  "original-flows-after-01.json": {
+    "command": [
+      "E:\\Adobe\\python.exe",
+      "docs/project_memory/p18_storage_final_evidence/run.py",
+      "original-flows-after-01",
+      "--review-class",
+      "original_suites.baseline_suite"
+    ],
+    "status": "FINISHED",
+    "startedAt": "2026-09-13T17:37:34.161258+00:00",
+    "finishedAt": "2026-09-13T17:38:11.729063+00:00",
+    "seconds": 37.535,
+    "run": 4,
+    "passed": 4,
+    "exitCode": 0,
+    "failureRecords": 0,
+    "errorRecords": 0,
+    "skips": [],
+    "sourceStable": false,
+    "matchesFinal": false
+  },
+  "originals-final-02.json": {
+    "command": [
+      "E:\\Adobe\\python.exe",
+      "docs/project_memory/p18_storage_final_evidence/run.py",
+      "originals-final-02",
+      "--review-class",
+      "original_suites.baseline_suite"
+    ],
+    "status": "FINISHED",
+    "startedAt": "2026-09-13T17:43:11.526370+00:00",
+    "finishedAt": "2026-09-13T17:43:49.396963+00:00",
+    "seconds": 37.839,
+    "run": 4,
+    "passed": 4,
+    "exitCode": 0,
+    "failureRecords": 0,
+    "errorRecords": 0,
+    "skips": [],
+    "sourceStable": true,
+    "matchesFinal": false
+  },
+  "originals-final-03.json": {
+    "command": [
+      "E:\\Adobe\\python.exe",
+      "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p18_storage_final_evidence\\run.py",
+      "originals-final-03",
+      "--review-class",
+      "original_suites.baseline_suite"
+    ],
+    "status": "FINISHED",
+    "startedAt": "2026-09-13T17:45:35.732525+00:00",
+    "finishedAt": "2026-09-13T17:46:13.287766+00:00",
+    "seconds": 37.523,
+    "run": 4,
+    "passed": 4,
+    "exitCode": 0,
+    "failureRecords": 0,
+    "errorRecords": 0,
+    "skips": [],
+    "sourceStable": true,
+    "matchesFinal": true
+  },
+  "p18-final-01.json": {
+    "command": [
+      "E:\\Adobe\\python.exe",
+      "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p18_storage_final_evidence\\run.py",
+      "p18-final-01",
+      "test_p18_"
+    ],
+    "status": "FINISHED",
+    "startedAt": "2026-09-13T17:46:43.105855+00:00",
+    "finishedAt": "2026-09-13T17:50:18.286435+00:00",
+    "seconds": 215.15,
+    "run": 147,
+    "passed": 147,
+    "exitCode": 0,
+    "failureRecords": 0,
+    "errorRecords": 0,
+    "skips": [],
+    "sourceStable": true,
+    "matchesFinal": true
+  },
+  "prior-boundaries-final-01.json": {
+    "command": [
+      "E:\\Adobe\\python.exe",
+      "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p18_storage_final_evidence\\run.py",
+      "prior-boundaries-final-01",
+      "--review-class",
+      "original_suites.IndependentPersistenceTests"
+    ],
+    "status": "FINISHED",
+    "startedAt": "2026-09-13T17:46:33.050256+00:00",
+    "finishedAt": "2026-09-13T17:46:42.094583+00:00",
+    "seconds": 9.011,
+    "run": 8,
+    "passed": 8,
+    "exitCode": 0,
+    "failureRecords": 0,
+    "errorRecords": 0,
+    "skips": [],
+    "sourceStable": true,
+    "matchesFinal": true
+  }
+}

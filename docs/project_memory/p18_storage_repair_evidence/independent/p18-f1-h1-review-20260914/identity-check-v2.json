@@ -1,0 +1,336 @@
+{
+  "checks": {
+    "source267UnchangedSincePriorIndependentReview": true,
+    "all1480FormalTestFilesAndIdentitiesUnchanged": true,
+    "selectedFourCitedRunsMatchCurrentSourceAndExpectedResults": true,
+    "independentFourTestsTwoPassTwoExpectedTimeoutFailures": true,
+    "bothIndependentOverlapsAreRealWinerror5WithUnchangedTarget": true,
+    "bothReaderHandshakesCompletedAndReapedWithoutHelperErrors": true,
+    "fourMethodsFiveRuntimeChildrenExitedZeroWithoutForcedCleanup": true,
+    "twoTimeoutSnapshotsHaveFutureWatermarkAndLiveHost": true,
+    "independentRunChangedNoEngineFiles": true,
+    "protected63Unchanged": true,
+    "plans3Unchanged": true,
+    "formal7AndTreeUnchanged": true,
+    "excluded32Unchanged": true,
+    "allBeforeAndHistoricalArchiveCopiesExact": true,
+    "recordedHistoricalOriginalsUnchanged": true,
+    "historicalH1LoadSaveASTIdentityVerified": true,
+    "prior450PendingOnlyFourDocumentUpdates": true,
+    "pending499Plus32ExclusionsAndCurrentGitMatchAudit": true,
+    "auditedPendingHashesMatch": true,
+    "headAndTrackingRemainP17StagingEmpty": true,
+    "pyprojectAndTrackedDiffCheckUnchangedClean": true,
+    "sharedApprovalStillPendingAndEvidenceConflictPresent": true
+  },
+  "allChecksPass": true,
+  "citedRuns": {
+    "original-process-controls-01": {
+      "sourceMatches": true,
+      "resultMatches": true,
+      "rawPresent": true,
+      "seconds": 17.834
+    },
+    "f1-original-process-before-02": {
+      "sourceMatches": true,
+      "resultMatches": true,
+      "rawPresent": true,
+      "seconds": 34.111
+    },
+    "h1-original-process-before-03": {
+      "sourceMatches": true,
+      "resultMatches": true,
+      "rawPresent": true,
+      "seconds": 28.472
+    },
+    "f1-classification-before-01": {
+      "sourceMatches": true,
+      "resultMatches": true,
+      "rawPresent": true,
+      "seconds": 3.801
+    }
+  },
+  "independentRun": {
+    "command": [
+      "E:\\Adobe\\python.exe",
+      "-m",
+      "unittest",
+      "-v",
+      "test_p18_runtime_process.RuntimeProcessTests.test_idle_and_subject_silence_do_not_end_process",
+      "test_p18_runtime_process.RuntimeProcessTests.test_resource_wait_host_lives_and_restores_without_message",
+      "test_process_hypotheses.OriginalFlowWithReadOverlap.test_idle_and_subject_silence_do_not_end_process",
+      "test_process_hypotheses.OriginalFlowWithReadOverlap.test_resource_wait_host_lives_and_restores_without_message"
+    ],
+    "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+    "startedAt": "2026-09-13T16:25:34.526628+00:00",
+    "finishedAt": "2026-09-13T16:26:55.892673+00:00",
+    "exitCode": 1,
+    "elapsedSeconds": 81.01239050000004,
+    "beforeCount": 2661,
+    "afterCount": 2661,
+    "changed": []
+  },
+  "independentTimeoutSnapshots": [
+    {
+      "processes": [
+        {
+          "pid": 22760,
+          "exitCode": null,
+          "alive": true
+        }
+      ],
+      "trusted_time": "2026-09-04T10:02:00+00:00",
+      "runtime": {
+        "revision": 8,
+        "state": "RUNNING",
+        "desired": "RUNNING",
+        "activity": "WAITING_VERIFICATION",
+        "reason": "TASK_RESULT_UNCONFIRMED",
+        "last_time": "2026-09-04T10:02:00+00:00",
+        "next_check_at": "2026-09-04T10:02:05+00:00",
+        "last_task": "maintenance:b23eef2869813762d01ba5d54801634b79038c9d055985a50893fd0963d02fbd",
+        "generation": 1,
+        "host_alive": true,
+        "checkpoint_busy": false,
+        "resources": {
+          "token_budget": 100000,
+          "token_used": 640,
+          "token_remaining": 99360,
+          "compute_remaining": 994
+        }
+      },
+      "tasks": [
+        {
+          "task_id": "cognition:0072fd8e59d01189353bb91dbc5dea9fa90865177adc2053afb5a7e341672dfa",
+          "state": "COMPLETED",
+          "attempt_count": 1,
+          "last_attempt_id": "p11-attempt-aba6cc0f0a49cb72a39dbf0c10f905becd280cbe08dd6781edc1823ad39f8e38",
+          "next_attempt_at": null,
+          "due_at": "2026-09-04T08:01:00+00:00",
+          "last_receipt_status": "DELIVERED"
+        },
+        {
+          "task_id": "maintenance:3a0ea89ca6059bacd1b95b6699e6afda54346caafe13867370d031714737c96c",
+          "state": "COMPLETED",
+          "attempt_count": 1,
+          "last_attempt_id": "p11-attempt-410c32f40f49afbfd8f3ac0a70bf5ed3ca4d58dea6da6ab0790bb8a9e3d21c66",
+          "next_attempt_at": null,
+          "due_at": "2026-09-04T08:00:00+00:00",
+          "last_receipt_status": "DELIVERED"
+        },
+        {
+          "task_id": "cognition:78efbd6c74d6571f48252bbf6c8680b2f2fa0d57f99950d799e96d1113e63211",
+          "state": "UNKNOWN",
+          "attempt_count": 1,
+          "last_attempt_id": "p11-attempt-f014a510a4815ee217405feef15e1a7bb05c3b25608e845abf99c054672973ce",
+          "next_attempt_at": null,
+          "due_at": "2026-09-04T09:02:00+00:00",
+          "last_receipt_status": null
+        },
+        {
+          "task_id": "maintenance:b23eef2869813762d01ba5d54801634b79038c9d055985a50893fd0963d02fbd",
+          "state": "COMPLETED",
+          "attempt_count": 1,
+          "last_attempt_id": "p11-attempt-1c8562707bed1d0d99bb8846fdd2cdf4c13b7e4615c485a4cfd8e857e69569e6",
+          "next_attempt_at": null,
+          "due_at": "2026-09-04T09:01:00+00:00",
+          "last_receipt_status": "DELIVERED"
+        }
+      ],
+      "thinking": [
+        {
+          "think_id": "5931c0f9-2475-55c5-9da6-7936c3c49304",
+          "wake_id": "d54f54c6-603b-5766-8a09-6a13f3018844",
+          "status": "COMPLETED",
+          "completed": true,
+          "phase": "RETURNED",
+          "progress_binding": "5adf85d0496287ee5bb4b0fbc9f4091b2011e34e3301777b7a9e8d56d9459858",
+          "context_current": true,
+          "context_hash": "sha256:e5c924a762d956bcfd5d299ad9bdf5cd9329392621f91c828d3774cffd28754d",
+          "context_revision": 2,
+          "state_update_id": null,
+          "state_event_id": null,
+          "error_code": null
+        },
+        {
+          "think_id": "98d7435a-8cc3-54fb-987d-59a4988ef998",
+          "wake_id": "9f428f2e-302e-5d35-b47f-3ccd4dc5fa5a",
+          "status": "COMPLETED",
+          "completed": true,
+          "phase": "RETURNED",
+          "progress_binding": "37d4cd25ecc74a1718369cf5b608a9dc8ad784e8c2f85640878991612116f2f4",
+          "context_current": false,
+          "context_hash": "sha256:424f06cdc674319d1e8d9bfdd641e7b44006a2b22b61adcb2778f3a7f2b575ed",
+          "context_revision": 1,
+          "state_update_id": "ac260a92-741a-4e29-ba57-ade56107b59e",
+          "state_event_id": "d2bdd738-e0fb-5edb-933d-73a4c5f635c4",
+          "error_code": null
+        }
+      ],
+      "actions": [
+        {
+          "session_id": "2bb3af56-6afb-575d-b066-006fa2be7470",
+          "think_id": "5931c0f9-2475-55c5-9da6-7936c3c49304"
+        },
+        {
+          "session_id": "743a8a6d-4e37-58e6-8a6c-35f6ce4aeb97",
+          "think_id": "98d7435a-8cc3-54fb-987d-59a4988ef998"
+        }
+      ],
+      "capabilities": {
+        "requests": [
+          "action-cap:de41a7b7f48e2c5c15df7c1d6994eb458ccb421e4562911dc9f04cb74520f673",
+          "action-cap:e24f57977a144dc18a8ed128555015620595b9764675d6a5923b1c72728e48cf"
+        ],
+        "attempts": [
+          {
+            "request_id": "action-cap:de41a7b7f48e2c5c15df7c1d6994eb458ccb421e4562911dc9f04cb74520f673",
+            "status": "PROPOSED",
+            "result_hash": "sha256:603731bda158256a34f7c26ffb734592137caa7f747fd54d918403948b639182",
+            "receipt_id": null
+          },
+          {
+            "request_id": "action-cap:de41a7b7f48e2c5c15df7c1d6994eb458ccb421e4562911dc9f04cb74520f673",
+            "status": "SUCCEEDED",
+            "result_hash": "sha256:faf389e105b5b23d8b1dd380eea4eae74729f5be762684ebe2329139ebfb9341",
+            "receipt_id": "receipt:499d068f8797cdb3f9f6472a5de78de81bbcc783a95506f09faec7091fba3836"
+          },
+          {
+            "request_id": "action-cap:e24f57977a144dc18a8ed128555015620595b9764675d6a5923b1c72728e48cf",
+            "status": "PROPOSED",
+            "result_hash": "sha256:51858af614d88086ed5aec4be5bfcbe6ebf6a9c9626958eddb7785c983c99049",
+            "receipt_id": null
+          },
+          {
+            "request_id": "action-cap:e24f57977a144dc18a8ed128555015620595b9764675d6a5923b1c72728e48cf",
+            "status": "SUCCEEDED",
+            "result_hash": "sha256:d5c17aa425f1f8838bd0adee7e4e994bea41e9effba6e86178a76e29008fa859",
+            "receipt_id": "receipt:d5094a5c3ca81d123fbd6fb0dc23a4137cc18d626362e5994b6266f70ca655a9"
+          }
+        ]
+      },
+      "effects": {
+        "count": 0,
+        "credits": 0
+      }
+    },
+    {
+      "processes": [
+        {
+          "pid": 27428,
+          "exitCode": null,
+          "alive": true
+        }
+      ],
+      "trusted_time": "2026-09-04T09:01:00+00:00",
+      "runtime": {
+        "revision": 4,
+        "state": "RUNNING",
+        "desired": "RUNNING",
+        "activity": "BACKOFF",
+        "reason": "WORK_PORT_UNAVAILABLE",
+        "last_time": "2026-09-04T09:01:00+00:00",
+        "next_check_at": "2026-09-04T09:01:05+00:00",
+        "last_task": "maintenance:a6937498bbeb995894746ec4a341fde534f1669a261c157f3967551be23cd88b",
+        "generation": 1,
+        "host_alive": true,
+        "checkpoint_busy": false,
+        "resources": {
+          "token_budget": 0,
+          "token_used": 0,
+          "token_remaining": 0,
+          "compute_remaining": 999
+        }
+      },
+      "tasks": [
+        {
+          "task_id": "cognition:e21f95636e45b627e451f9a957f37d5cdfaf2bbf5132ba4f21a934e3a7136720",
+          "state": "QUEUED",
+          "attempt_count": 0,
+          "last_attempt_id": null,
+          "next_attempt_at": null,
+          "due_at": "2026-09-04T08:01:00+00:00",
+          "last_receipt_status": null
+        },
+        {
+          "task_id": "maintenance:a6937498bbeb995894746ec4a341fde534f1669a261c157f3967551be23cd88b",
+          "state": "COMPLETED",
+          "attempt_count": 1,
+          "last_attempt_id": "p11-attempt-527a547bbb1fbc1eeecb9b0e4f8462ab74299f405786b16637b567935f3b257a",
+          "next_attempt_at": null,
+          "due_at": "2026-09-04T08:00:00+00:00",
+          "last_receipt_status": "DELIVERED"
+        }
+      ],
+      "thinking": [],
+      "actions": [],
+      "capabilities": {
+        "requests": [],
+        "attempts": []
+      },
+      "effects": {
+        "count": 0,
+        "credits": 0
+      }
+    }
+  ],
+  "independentSystemErrors": [
+    {
+      "operation": "replace",
+      "relativePath": "s/s/sb0dc2d3d/b/b8b3e329d/data/subject-state/78e1d3c9e2078f47f9a5498b2941da790f016c900f8e9bbe48cfa7af97d6df82.json",
+      "pid": 22760,
+      "thread": 10504,
+      "chain": [
+        {
+          "type": "PermissionError",
+          "operation": "other",
+          "frames": [],
+          "errno": 13,
+          "winerror": 5
+        }
+      ],
+      "beforeHash": "e6f227bceb1e560463ac5bec135cfb3cedfe0be55c42cecfbba4a3eeda59dc06",
+      "afterHash": "e6f227bceb1e560463ac5bec135cfb3cedfe0be55c42cecfbba4a3eeda59dc06",
+      "currentRevision": 2,
+      "runtimeRevision": 7
+    },
+    {
+      "operation": "replace",
+      "relativePath": "s/s/sa18738ff/b/b0bcf1fb3/data/persistent-runtime/runtime.v1.json",
+      "pid": 27428,
+      "thread": 9404,
+      "chain": [
+        {
+          "type": "PermissionError",
+          "operation": "other",
+          "frames": [],
+          "errno": 13,
+          "winerror": 5
+        }
+      ],
+      "beforeHash": "187314a9489dfea25a1b34345d539126f666f66c5efe49240cfd07e42e39f0e9",
+      "afterHash": "187314a9489dfea25a1b34345d539126f666f66c5efe49240cfd07e42e39f0e9",
+      "currentRevision": 1,
+      "runtimeRevision": 3
+    }
+  ],
+  "archiveMatches": {
+    "src/continuity_engine/services/persistent_runtime_service.py": true,
+    "src/continuity_engine/services/runtime_cognition.py": true,
+    "src/continuity_engine/services/scheduler_service.py": true,
+    "src/continuity_engine/services/wake_perception_thinking_action_service.py": true,
+    "src/continuity_engine/services/thinking_service.py": true,
+    "tests/test_p18_runtime_process.py": true,
+    "src/continuity_engine/testing/p18_runtime_fixture.py": true
+  },
+  "sourceCount": 267,
+  "pendingCount": 499,
+  "trackedModifiedCount": 24,
+  "untrackedCount": 507,
+  "notRepairApproval": true,
+  "notAcceptance": true,
+  "fullSuiteRerun": false,
+  "engineEdits": false,
+  "gitWrites": false,
+  "remoteChecked": false
+}

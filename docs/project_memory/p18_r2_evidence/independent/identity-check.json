@@ -1,0 +1,207 @@
+{
+  "checks": {
+    "current264MatchesRepairAudit": true,
+    "fiveFinalRunIdentitiesAndCountsMatch": true,
+    "fourNonFullCitedRunsPass": true,
+    "fullFailureTruthfullyPreserved": true,
+    "old1424IdentitiesPreservedWith20Added": true,
+    "repairBaselineMatchesPrior263SourceSnapshot": true,
+    "exactFourSourceTestRepairPaths": true,
+    "oldProcessAssertionsAndDefaultsRetained": true,
+    "otherOriginalTestsUnchanged": true,
+    "protected63Unchanged": true,
+    "plans3Unchanged": true,
+    "formal7AndTreeUnchanged": true,
+    "excluded32Unchanged": true,
+    "independentOriginalsAnd10ArchiveCopiesExact": true,
+    "originalP18EvidenceUnchanged": true,
+    "earlierHistoryOutsideTrackedEditsUnchanged": true,
+    "pending238Plus32ExclusionsExact": true,
+    "recorded237PendingHashesMatch": true,
+    "allCurrentPendingMatchTurnStart": true,
+    "syntax254PythonValid": true,
+    "headAndLocalTrackingStillP17": true,
+    "stagingEmpty": true,
+    "trackedDiffCheckClean": true,
+    "versionAndPyprojectUnchanged": true,
+    "fourIndependentRunsDidNotChangeEngine": true
+  },
+  "allIdentityChecksPass": true,
+  "notAcceptance": true,
+  "R1": "Original five probes and twenty formal repair tests independently PASS; scoped fix confirmed.",
+  "R2": "Confirmed: definite pre-provider pause persists FAILED then remains UNKNOWN after RESUME; first, second and reopened scenarios fail.",
+  "H1": "UNKNOWN historical resource-wait timeout retained.",
+  "F1": "Original failing process case passed once here; full-run failure remains unresolved and is not attributed to R2 without evidence.",
+  "citedRuns": {
+    "independent-final-01": {
+      "sourceMatches": true,
+      "finished": true,
+      "countsMatch": true,
+      "rawPresent": true,
+      "run": 5,
+      "passed": 5,
+      "skips": [],
+      "failures": [],
+      "errors": [],
+      "exitCode": 0,
+      "seconds": 9.14
+    },
+    "formal-final-01": {
+      "sourceMatches": true,
+      "finished": true,
+      "countsMatch": true,
+      "rawPresent": true,
+      "run": 20,
+      "passed": 20,
+      "skips": [],
+      "failures": [],
+      "errors": [],
+      "exitCode": 0,
+      "seconds": 40.574
+    },
+    "p18-final-01": {
+      "sourceMatches": true,
+      "finished": true,
+      "countsMatch": true,
+      "rawPresent": true,
+      "run": 84,
+      "passed": 84,
+      "skips": [],
+      "failures": [],
+      "errors": [],
+      "exitCode": 0,
+      "seconds": 140.075
+    },
+    "compatibility-final-01": {
+      "sourceMatches": true,
+      "finished": true,
+      "countsMatch": true,
+      "rawPresent": true,
+      "run": 254,
+      "passed": 254,
+      "skips": [],
+      "failures": [],
+      "errors": [],
+      "exitCode": 0,
+      "seconds": 485.865
+    },
+    "full-final-01": {
+      "sourceMatches": true,
+      "finished": true,
+      "countsMatch": true,
+      "rawPresent": true,
+      "run": 1444,
+      "passed": 1442,
+      "skips": [
+        [
+          "test_p08_fixture_paths.P08FixturePathTests.test_symlink_component_rejected_without_writes",
+          "OS does not grant symlink creation: 1314"
+        ]
+      ],
+      "failures": [
+        [
+          "test_p18_runtime_process.RuntimeProcessTests.test_idle_and_subject_silence_do_not_end_process",
+          "Traceback (most recent call last):\n  File \"C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p18_runtime_process.py\", line 140, in test_idle_and_subject_silence_do_not_end_process\n    f.advance(60);self.until(lambda:f.state.revision>revision,process=p)\n                  ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p18_runtime_process.py\", line 78, in until\n    self.fail('bounded test controller timed out')\n    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: bounded test controller timed out\n"
+        ]
+      ],
+      "errors": [],
+      "exitCode": 1,
+      "seconds": 1233.659
+    }
+  },
+  "independentRuns": {
+    "original-five-01": {
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "unittest",
+        "test_independent_runtime",
+        "-v"
+      ],
+      "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+      "startedAt": "2026-09-12T16:28:44.539124+00:00",
+      "finishedAt": "2026-09-12T16:28:54.826178+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 9.806809600000634,
+      "beforeCount": 2403,
+      "afterCount": 2403,
+      "changed": []
+    },
+    "resume-edges-01": {
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "unittest",
+        "test_independent_resume",
+        "-v"
+      ],
+      "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+      "startedAt": "2026-09-12T16:30:32.009498+00:00",
+      "finishedAt": "2026-09-12T16:31:00.705709+00:00",
+      "exitCode": 1,
+      "elapsedSeconds": 28.296524000001227,
+      "beforeCount": 2403,
+      "afterCount": 2403,
+      "changed": []
+    },
+    "targeted-formal-01": {
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "unittest",
+        "test_p18_runtime_contention",
+        "test_p18_runtime_process.RuntimeProcessTests.test_idle_and_subject_silence_do_not_end_process",
+        "-v"
+      ],
+      "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+      "startedAt": "2026-09-12T16:31:45.464428+00:00",
+      "finishedAt": "2026-09-12T16:32:38.154305+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 52.302447300000495,
+      "beforeCount": 2403,
+      "afterCount": 2403,
+      "changed": []
+    },
+    "pause-confirmation-01": {
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "unittest",
+        "test_pause_resume_confirmation.PauseResumeConfirmation",
+        "-v"
+      ],
+      "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+      "startedAt": "2026-09-12T16:33:43.130498+00:00",
+      "finishedAt": "2026-09-12T16:33:50.587749+00:00",
+      "exitCode": 1,
+      "elapsedSeconds": 7.052080999999816,
+      "beforeCount": 2403,
+      "afterCount": 2403,
+      "changed": []
+    }
+  },
+  "archiveMatches": {
+    "review-report.md": true,
+    "test_independent_runtime.py": true,
+    "independent-edges-01.stdout.log": true,
+    "independent-edges-01.stderr.log": true,
+    "independent-edges-01.result.json": true,
+    "identity-check.json": true,
+    "p18-original-01.result.json": true,
+    "p18-original-01.stdout.log": true,
+    "p18-original-01.stderr.log": true,
+    "run_review.py": true
+  },
+  "syntaxErrors": [],
+  "historicalCount": 2124,
+  "originalP18EvidenceCount": 129,
+  "trackedModifiedCount": 21,
+  "untrackedCount": 249,
+  "branch": "main",
+  "head": "5a3247a5d23ff17de2b4ba12bc327594b492e725",
+  "aheadBehindLocal": "0\t0",
+  "remoteChecked": false,
+  "fullSuiteRerun": false,
+  "gitWrites": false,
+  "engineEdits": false
+}

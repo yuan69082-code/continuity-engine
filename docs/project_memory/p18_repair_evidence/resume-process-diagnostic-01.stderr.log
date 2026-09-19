@@ -1,0 +1,6 @@
+test_idle_and_subject_silence_do_not_end_process (tests.test_p18_runtime_process.RuntimeProcessTests.test_idle_and_subject_silence_do_not_end_process) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 11.293s
+
+OK

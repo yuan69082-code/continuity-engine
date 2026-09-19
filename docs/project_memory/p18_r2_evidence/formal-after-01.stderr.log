@@ -1,0 +1,10 @@
+test_entered_provider_failure_is_not_repeated (test_p18_runtime_resume.RuntimeResumeTests.test_entered_provider_failure_is_not_repeated) ... ok
+test_first_call_pause_resumes_same_session_without_extra_reservation (test_p18_runtime_resume.RuntimeResumeTests.test_first_call_pause_resumes_same_session_without_extra_reservation) ... ok
+test_reopened_pre_call_deferral_resumes (test_p18_runtime_resume.RuntimeResumeTests.test_reopened_pre_call_deferral_resumes) ... ok
+test_second_cycle_pause_resumes_without_replaying_first (test_p18_runtime_resume.RuntimeResumeTests.test_second_cycle_pause_resumes_without_replaying_first) ... ok
+test_stop_does_not_revive_deferred_session (test_p18_runtime_resume.RuntimeResumeTests.test_stop_does_not_revive_deferred_session) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 7.511s
+
+OK

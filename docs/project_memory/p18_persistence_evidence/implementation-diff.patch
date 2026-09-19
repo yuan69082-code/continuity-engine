@@ -1,0 +1,629 @@
+--- before/src/continuity_engine/services/wake_perception_thinking_action_service.py
++++ current/src/continuity_engine/services/wake_perception_thinking_action_service.py
+@@ -311,7 +311,15 @@
+         # Current checks immediately precede the original atomic Evolution write.
+         core.before_thinking(perception)
+         if self._runtime_guard is not None:self._runtime_guard('before_native_evolution')
+-        update = self._action_evolution.evolve(ApprovedStateAction.from_execution(action), event_id=event_id)
++        if self._runtime_guard is not None:
++            from continuity_engine.storage.json_repository import state_write_retry_guard
++            def retry_guard():
++                core.before_thinking(perception)
++                self._runtime_guard('before_native_evolution')
++            with state_write_retry_guard(retry_guard):
++                update = self._action_evolution.evolve(ApprovedStateAction.from_execution(action), event_id=event_id)
++        else:
++            update = self._action_evolution.evolve(ApprovedStateAction.from_execution(action), event_id=event_id)
+         self._runtime_fault('after_native_evolution')
+         if update is not None:
+             self._thinking.record_evolution_result(thinking, update)
+--- before/src/continuity_engine/storage/json_repository.py
++++ current/src/continuity_engine/storage/json_repository.py
+@@ -4,8 +4,11 @@
+ import json
+ import os
+ import tempfile
++import time
++from contextlib import contextmanager
++from contextvars import ContextVar
+ from pathlib import Path
+-from threading import RLock
++from threading import Event as ThreadEvent, RLock
+ from typing import Any
+ 
+ from continuity_engine.domain.errors import (
+@@ -23,6 +26,62 @@
+ # Shared by repository instances: protect the complete local read/validate/write
+ # transaction, including direct-save compatibility. No multi-process guarantee.
+ _STATE_WRITE_LOCK = RLock()
++_RETRY_GUARD = ContextVar('state_write_retry_guard', default=None)
++
++
++@contextmanager
++def state_write_retry_guard(check):
++    """Explicit caller authorization for bounded retries of this state write."""
++    token = _RETRY_GUARD.set(check)
++    try:
++        yield
++    finally:
++        _RETRY_GUARD.reset(token)
++
++
++def _replace_contended(error: OSError, path: Path) -> bool:
++    """Access denied alone does not prove a retryable sharing violation."""
++    if os.name != 'nt' or getattr(error, 'winerror', None) not in {5, 32, 33}:
++        return False
++    import ctypes
++    from ctypes import wintypes
++    kernel = ctypes.WinDLL('kernel32', use_last_error=True)
++    create = kernel.CreateFileW
++    create.argtypes = [wintypes.LPCWSTR, wintypes.DWORD, wintypes.DWORD,
++                       ctypes.c_void_p, wintypes.DWORD, wintypes.DWORD, wintypes.HANDLE]
++    create.restype = wintypes.HANDLE
++    close = kernel.CloseHandle
++    close.argtypes = [wintypes.HANDLE]
++    close.restype = wintypes.BOOL
++
++    # Open DELETE access only to classify the OS refusal; no deletion is done.
++    handle = create(str(path), 0x10000, 0x1 | 0x2 | 0x4, None, 3, 0x80, None)
++    if handle == wintypes.HANDLE(-1).value:
++        return ctypes.get_last_error() in {32, 33}
++    close(handle)
++    return False
++
++
++def _replace_payload(temporary: Path, path: Path, previous: bytes | None) -> None:
++    deadline = time.monotonic() + 0.25
++    while True:
++        try:
++            os.replace(temporary, path)
++            return
++        except OSError as error:
++            guard = _RETRY_GUARD.get()
++            if guard is None or not _replace_contended(error, path):
++                raise
++            remaining = deadline - time.monotonic()
++            if remaining <= 0:
++                raise
++            ThreadEvent().wait(min(0.025, remaining))
++            guard()
++            # Keep the initial CAS result; never overwrite another writer's
++            # intervening fact. The caller can reload/reconcile the original event.
++            current = path.read_bytes() if path.exists() else None
++            if current != previous:
++                raise StateEvolutionError('state changed during atomic replacement wait') from None
+ 
+ 
+ class JsonSubjectStateRepository:
+@@ -269,8 +328,10 @@
+     def _write_payload(self, path: Path, data: dict[str, Any]) -> None:
+         self.root.mkdir(parents=True, exist_ok=True)
+         payload = json.dumps(data, ensure_ascii=False, indent=2) + "\n"
++        previous = path.read_bytes() if path.exists() else None
+ 
+         temporary_path: Path | None = None
++        primary: BaseException | None = None
+         try:
+             with tempfile.NamedTemporaryFile(
+                 mode="w",
+@@ -281,11 +342,20 @@
+                 dir=self.root,
+                 delete=False,
+             ) as temporary:
++                temporary_path = Path(temporary.name)
+                 temporary.write(payload)
+                 temporary.flush()
+                 os.fsync(temporary.fileno())
+-                temporary_path = Path(temporary.name)
+-            os.replace(temporary_path, path)
++            _replace_payload(temporary_path, path, previous)
++        except BaseException as error:
++            primary = error
++            raise
+         finally:
+-            if temporary_path is not None and temporary_path.exists():
+-                temporary_path.unlink()
++            if temporary_path is not None:
++                try:
++                    if temporary_path.exists():
++                        temporary_path.unlink()
++                except OSError as cleanup:
++                    if primary is not None:
++                        raise primary from cleanup
++                    raise
+--- before/src/continuity_engine/testing/p18_persistence_diagnostics.py
++++ current/src/continuity_engine/testing/p18_persistence_diagnostics.py
+@@ -0,0 +1,91 @@
++"""Bounded TEST-only persistence telemetry; no body, exception text or repr."""
++import hashlib
++import json
++import linecache
++import os
++from pathlib import Path
++import sys
++import threading
++import time
++import traceback
++
++from continuity_engine.storage import json_repository
++
++
++def exception_chain(exc):
++    root=Path(__file__).resolve().parents[1];rows=[];seen=set()
++    while exc is not None and id(exc) not in seen and len(rows)<4:
++        seen.add(id(exc));frames=[];operation='other'
++        for frame in traceback.extract_tb(exc.__traceback__)[-24:]:
++            path=Path(frame.filename).resolve()
++            if path.is_relative_to(root):
++                frames.append({'file':path.relative_to(root).as_posix(),'line':frame.lineno,'function':frame.name})
++                if frame.name=='_replace_payload':operation='replace'
++                if frame.name=='_write_payload':
++                    line=linecache.getline(frame.filename,frame.lineno).strip()
++                    for token,step in [('mkdir','create_directory'),('NamedTemporaryFile','create_temporary'),
++                            ('temporary.write','write'),('temporary.flush','flush'),('fsync','fsync'),
++                            ('_replace_payload','replace'),('os.replace','replace'),('unlink','cleanup')]:
++                        if token in line:operation=step;break
++        kind=type(exc).__name__ if type(exc).__module__=='builtins' else 'ENGINE_EXCEPTION'
++        row={'type':kind,'operation':operation,'frames':frames,'errno':None,'winerror':None}
++        if isinstance(exc,OSError):
++            for key in ('errno','winerror'):
++                value=getattr(exc,key,None)
++                if type(value) is int:row[key]=value
++        rows.append(row)
++        exc=exc.__cause__ if exc.__suppress_context__ else exc.__cause__ or exc.__context__
++    return rows
++
++
++def emit(record,sink=None):
++    """One independent stderr fallback; telemetry never replaces the error."""
++    try:
++        if sink is not None:sink(record)
++        else:print(json.dumps(record),file=sys.stderr,flush=True)
++    except Exception:
++        try:print('TEST_PERSISTENCE_DIAGNOSTIC_UNAVAILABLE',file=sys.stderr,flush=True)
++        except Exception:pass
++
++
++def lock_owned():
++    return json_repository._STATE_WRITE_LOCK._is_owned()
++
++
++def install(repository,*,root,context=lambda:{},sink=None):
++    """Observe this TEST repository instance only; original writes are untouched."""
++    original=repository._write_payload;root=Path(root).resolve()
++    def snapshot(path):
++        try:
++            data=path.read_bytes();value=json.loads(data)
++            return {'hash':hashlib.sha256(data).hexdigest(),
++                    'revision':value.get('state',value).get('revision')}
++        except (OSError,ValueError,TypeError,AttributeError):return {'hash':None,'revision':None}
++    def write(path,data):
++        path=Path(path).resolve()
++        if not path.is_relative_to(root):return original(path,data)
++        before=snapshot(path);started=time.monotonic();owned=lock_owned()
++        try:return original(path,data)
++        except BaseException as exc:
++            try:
++                updates=data.get('updates') or [];last=updates[-1] if updates else {}
++                metadata=last.get('event',{}).get('metadata',{})
++                # Stable internal identifiers only. Unknown values are hashed.
++                identities={k:hashlib.sha256(str(v).encode()).hexdigest() for k,v in metadata.items()
++                            if k in {'action_session_id','action_decision_id','action_plan_id','think_id',
++                                     'wake_session_id','perception_id','thinking_result_id'}}
++                record={'stage':'persistence-failure-before-unwind','code':'TEST_STATE_SAVE_FAILED',
++                    'file':path.relative_to(root).as_posix(),'before':before,'after':snapshot(path),
++                    'expectedRevision':last.get('before_revision'),
++                    'targetRevision':data.get('state',data).get('revision'),
++                    'updateIdentityHash':hashlib.sha256(str(last.get('update_id')).encode()).hexdigest(),
++                    'eventIdentityHash':hashlib.sha256(str(last.get('event',{}).get('event_id')).encode()).hexdigest(),
++                    'identityHashes':identities,'pid':os.getpid(),'thread':threading.get_ident(),
++                    'lockOwnedAtWrite':owned,'lockOwnedAtException':lock_owned(),
++                    'elapsedSeconds':round(time.monotonic()-started,6),'chain':exception_chain(exc),
++                    'context':context()}
++                emit(record,sink)
++            except Exception:emit({'code':'TEST_PERSISTENCE_DIAGNOSTIC_UNAVAILABLE'},sink)
++            raise
++    repository._write_payload=write
++    return original
+--- before/src/continuity_engine/testing/p18_runtime_fixture.py
++++ current/src/continuity_engine/testing/p18_runtime_fixture.py
+@@ -128,7 +128,14 @@
+         # TEST-only structured fault evidence survives the child via stderr.
+         # No exception message, repr, input body or secret is serialized.
+         native_continue = self.work._continue
++        from .p18_persistence_diagnostics import install, exception_chain, emit, lock_owned
++        self._persistence_context={}
++        repositories={id(service._repository):service._repository for service in
++                      (self.core.subject_states,original._subject_states)}
++        for repository in repositories.values():
++            install(repository,root=self.runtime.data_root,context=lambda:self._persistence_context)
+         def diagnosed_continue(request):
++            self._persistence_context={'task_id':request.task_id,'attempt_id':request.attempt_id}
+             try:
+                 return native_continue(request)
+             except BaseException as exc:
+@@ -145,9 +152,12 @@
+                                                line=frame.lineno, function=frame.name))
+                     chain.append(dict(frames=frames, code='TEST_NATIVE_EXCEPTION'))
+                     cursor = cursor.__cause__ if cursor.__suppress_context__ else cursor.__cause__ or cursor.__context__
+-                print(json.dumps(dict(stage='native-exception-before-cleanup',task_id=request.task_id,
+-                    attempt_id=request.attempt_id,chain=chain)), file=sys.stderr, flush=True)
++                emit(dict(stage='native-exception-before-cleanup',task_id=request.task_id,
++                    attempt_id=request.attempt_id,chain=chain,systemChain=exception_chain(exc),
++                    stateWriteLockOwnedAfterUnwind=lock_owned()))
+                 raise
++            finally:
++                self._persistence_context={}
+         self.work._continue = diagnosed_continue
+         self.scheduler=SchedulerService(JsonSchedulerRepository(self.runtime.data_root),self.work,
+             RuntimeSchedulerResources(self.work),clock=self.clock.now,retry_base_seconds=5,
+--- before/tests/test_p18_persistence.py
++++ current/tests/test_p18_persistence.py
+@@ -0,0 +1,367 @@
++"""Bounded real-handle and post-effect persistence probes for P18 (TEST only)."""
++import hashlib
++import contextlib
++import io
++import json
++import os
++from pathlib import Path
++import subprocess
++import sys
++import tempfile
++import threading
++import time
++import unittest
++from unittest.mock import patch
++
++from continuity_engine.services.subject_state_service import SubjectStateService
++from continuity_engine.domain.errors import StateEvolutionError
++from continuity_engine.storage.json_repository import JsonSubjectStateRepository
++from continuity_engine.storage import json_repository
++from continuity_engine.testing.p18_runtime_fixture import P18Fixture
++from continuity_engine.testing.p18_persistence_diagnostics import install
++
++
++READER = r'''
++import hashlib,io,json,sys
++from pathlib import Path
++from continuity_engine.storage.json_repository import JsonSubjectStateRepository
++root=Path(sys.argv[1]); subject=sys.argv[2]; repo=JsonSubjectStateRepository(root)
++target=repo._path_for(subject).resolve(); original=io.open
++class HeldReader:
++    def __init__(self,handle):self.handle=handle
++    def __enter__(self):return self
++    def __exit__(self,*args):return self.handle.__exit__(*args)
++    def read(self,*args,**kw):
++        print('READ_HANDLE_HELD',flush=True)
++        if sys.stdin.readline().strip()!='release':raise RuntimeError('TEST_RELEASE_REQUIRED')
++        data=self.handle.read(*args,**kw)
++        print(json.dumps({'readHash':hashlib.sha256(data.encode('utf8')).hexdigest()}),flush=True)
++        return data
++    def __getattr__(self,key):return getattr(self.handle,key)
++def opened(file,*args,**kw):
++    handle=original(file,*args,**kw)
++    if not isinstance(file,int) and Path(file).resolve()==target:return HeldReader(handle)
++    return handle
++io.open=opened
++state=repo.load(subject)
++print(json.dumps({'revision':state.revision}),flush=True)
++'''
++
++
++def error_identity(exc):
++    return {'type':type(exc).__name__ if type(exc).__module__=='builtins' else 'ENGINE_EXCEPTION',
++            'errno':exc.errno if isinstance(exc,OSError) else None,
++            'winerror':getattr(exc,'winerror',None)}
++
++
++class PersistenceTests(unittest.TestCase):
++    def fixture(self):
++        temp=tempfile.TemporaryDirectory(prefix='ps18-');self.addCleanup(temp.cleanup)
++        return P18Fixture(Path(temp.name),mode='contact')
++
++    def ready(self,f):f.advance(3600);f.host.tick();f.advance(60)
++
++    def state_path(self,f):return f.core.subject_states._repository._path_for(f.state.subject_id)
++
++    def unchanged_effect(self,f,expected_revision=2):
++        self.assertEqual(f.state.revision,expected_revision)
++        self.assertEqual((f.provider.calls,f.fake.effect_count,f.fake.credits),(1,1,1))
++        self.assertEqual(f.resources.get_resource_state(f.state.subject_id).token_used,320)
++
++    def test_post_effect_replace_error_recovers_original_fact_after_due_time(self):
++        f=self.fixture();target=self.state_path(f);original=os.replace;hits=[];diagnostic=io.StringIO()
++        def replace(src,dst):
++            if Path(dst)==target and f.fake.effect_count==1 and not hits:
++                hits.append(True);raise PermissionError(13,'synthetic private error text')
++            return original(src,dst)
++        with f.host.running():
++            self.ready(f);before=target.read_bytes()
++            with contextlib.redirect_stderr(diagnostic),patch('os.replace',side_effect=replace):f.host.tick()
++            self.assertEqual(hits,[True]);self.assertEqual(target.read_bytes(),before)
++            self.assertEqual(f.state.revision,1);self.assertEqual(f.fake.effect_count,1)
++            session=f.work._session(next(t for t in f.scheduler.list_tasks(subject_id=f.state.subject_id,environment='TEST') if t.task_id.startswith('cognition:')))
++            self.assertTrue(session.completed_successfully);self.assertIsNone(session.state_update_id)
++            # No trusted time advance: verification is not yet due, not a new dispatch.
++            f.host.tick();self.assertEqual(f.state.revision,1)
++            print(json.dumps({'test':self.id(),'stage':'before-recovery','diagnostics':diagnostic.getvalue()}))
++            self.assertNotIn('synthetic private error text',diagnostic.getvalue())
++            f.advance(5);f.host.tick();self.unchanged_effect(f)
++            for _ in range(2):f.host.tick()
++            self.unchanged_effect(f)
++            self.assertEqual(list(target.parent.glob('*.tmp')),[])
++
++    def test_post_commit_return_loss_restores_without_second_revision(self):
++        f=self.fixture();hits=[]
++        def fault(stage):
++            if stage=='after_native_evolution' and not hits:
++                hits.append(True);raise RuntimeError('TEST_RETURN_LOST')
++        with f.host.running():
++            self.ready(f);f.fault=fault;f.host.tick();f.fault=lambda stage:None
++            self.assertEqual(hits,[True]);self.unchanged_effect(f)
++            f.advance(5);f.host.tick();self.unchanged_effect(f)
++
++    def test_real_reader_blocks_no_new_effect_or_revision_after_release(self):
++        f=self.fixture();target=self.state_path(f);child=None;ready=[];thread=None;released=[]
++        original_check=json_repository._replace_contended
++        def contention(error,path):
++            answer=original_check(error,path)
++            if answer and child is not None and not released:
++                released.append(True);child.stdin.write('release\n');child.stdin.flush()
++            return answer
++        def fault(stage):
++            nonlocal child,thread
++            if stage=='after_native_effect' and child is None:
++                child=subprocess.Popen([sys.executable,'-c',READER,str(target.parent),f.state.subject_id],
++                    stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True,encoding='utf8',
++                    env={**os.environ,'PYTHONDONTWRITEBYTECODE':'1','PYTHONUTF8':'1'},
++                    creationflags=getattr(subprocess,'CREATE_NO_WINDOW',0))
++                thread=threading.Thread(target=lambda:ready.append(child.stdout.readline().strip()),daemon=True)
++                thread.start();thread.join(5);self.assertEqual(ready,['READ_HANDLE_HELD'])
++        with f.host.running():
++            self.ready(f);f.fault=fault;diagnostic=io.StringIO()
++            try:
++                with contextlib.redirect_stderr(diagnostic),patch.object(json_repository,'_replace_contended',side_effect=contention):f.host.tick()
++                print(json.dumps({'test':self.id(),'stage':'held-real-reader-before-stop',
++                    'revision':f.state.revision,'effects':f.fake.effect_count,'credits':f.fake.credits,
++                    'diagnostics':diagnostic.getvalue()}))
++                held_revision=f.state.revision
++            finally:
++                f.fault=lambda stage:None
++                if child is not None:
++                    out,err=child.communicate(None if released else 'release\n',timeout=5);thread.join(1)
++                    print(json.dumps({'test':self.id(),'childrenReaped':child.poll() is not None,
++                        'exitCode':child.returncode,'forcedCleanup':False,'stdout':out,'stderr':err}))
++                    self.assertEqual(child.returncode,0,err)
++            f.advance(5);f.host.tick();self.unchanged_effect(f)
++            self.assertEqual(held_revision,2,'released short reader must permit original Evolution replacement')
++
++    def test_actual_repository_reader_does_not_prevent_atomic_transition(self):
++        with tempfile.TemporaryDirectory(prefix='p18-persistence-') as root:
++            repo=JsonSubjectStateRepository(root); service=SubjectStateService(repo); service.create('test-subject')
++            target=repo._path_for('test-subject'); before=target.read_bytes()
++            child=subprocess.Popen([sys.executable,'-c',READER,root,'test-subject'],
++                stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True,encoding='utf8',
++                env={**os.environ,'PYTHONDONTWRITEBYTECODE':'1','PYTHONUTF8':'1'},
++                creationflags=getattr(subprocess,'CREATE_NO_WINDOW',0))
++            ready=[];reader=threading.Thread(target=lambda:ready.append(child.stdout.readline().strip()),daemon=True)
++            reader.start();reader.join(5);failure=None;out=err='';forced=False;released=[]
++            original_check=json_repository._replace_contended
++            def contention(error,path):
++                answer=original_check(error,path)
++                if answer and not released:
++                    released.append(True);child.stdin.write('release\n');child.stdin.flush()
++                return answer
++            try:
++                self.assertEqual(ready,['READ_HANDLE_HELD'])
++                try:
++                    with json_repository.state_write_retry_guard(lambda:None),patch.object(json_repository,'_replace_contended',side_effect=contention):
++                        service.record_interaction('test-subject')
++                except OSError as exc:failure=error_identity(exc)
++                after=target.read_bytes()
++                print(json.dumps({'test':self.id(),'stage':'writer-before-reader-release','operation':'state-transition',
++                    'file':target.name,'beforeHash':hashlib.sha256(before).hexdigest(),
++                    'afterHash':hashlib.sha256(after).hexdigest(),'exception':failure,
++                    'pid':os.getpid(),'thread':threading.get_ident(),'readerPid':child.pid,
++                    'temporaryFiles':[p.name for p in Path(root).glob('*.tmp')]}))
++            finally:
++                try:out,err=child.communicate(None if released else 'release\n',timeout=5)
++                except subprocess.TimeoutExpired:
++                    forced=True;child.terminate();out,err=child.communicate(timeout=5)
++                reader.join(1)
++                print(json.dumps({'test':self.id(),'childrenReaped':child.poll() is not None,
++                    'exitCode':child.returncode,'forcedCleanup':forced,'stdout':out,'stderr':err}))
++            self.assertFalse(forced);self.assertEqual(child.returncode,0,err)
++            self.assertIsNone(failure,'real repository reader blocked atomic state replacement')
++            self.assertNotEqual(before,after)
++            self.assertEqual(json.loads(out.splitlines()[0])['readHash'],hashlib.sha256(before).hexdigest())
++            self.assertEqual(list(Path(root).glob('*.tmp')),[])
++
++    def test_normal_transition_without_overlapping_reader(self):
++        with tempfile.TemporaryDirectory(prefix='p18-persistence-') as root:
++            repo=JsonSubjectStateRepository(root);service=SubjectStateService(repo);service.create('test-subject')
++            before=repo._path_for('test-subject').read_bytes()
++            service.record_interaction('test-subject')
++            self.assertNotEqual(before,repo._path_for('test-subject').read_bytes())
++            self.assertEqual(len(service.get_update_history('test-subject')),1)
++            self.assertEqual(list(Path(root).glob('*.tmp')),[])
++
++    def test_stop_during_replace_wait_prevents_new_evolution(self):
++        f=self.fixture();target=self.state_path(f);held=[];original=json_repository._replace_contended;stopped=[]
++        def fault(stage):
++            if stage=='after_native_effect' and not held:held.append(target.open('rb'))
++        def contention(error,path):
++            answer=original(error,path)
++            if answer and not stopped:
++                stopped.append(True);f.control('STOP');held[0].close()
++            return answer
++        with f.host.running():
++            self.ready(f);f.fault=fault
++            try:
++                with patch.object(json_repository,'_replace_contended',side_effect=contention):f.host.tick()
++            finally:
++                for handle in held:handle.close()
++                f.fault=lambda stage:None
++            self.assertEqual(stopped,[True]);self.assertEqual(f.state.revision,1)
++            self.assertFalse(f.host.tick());self.assertEqual((f.fake.effect_count,f.fake.credits),(1,1))
++            self.assertEqual(list(target.parent.glob('*.tmp')),[])
++
++    def test_long_sharing_failure_is_bounded_preserves_old_record(self):
++        with tempfile.TemporaryDirectory(prefix='ps18-') as root:
++            repo=JsonSubjectStateRepository(root);service=SubjectStateService(repo);service.create('test-subject')
++            path=repo._path_for('test-subject');before=path.read_bytes();started=time.monotonic()
++            with json_repository.state_write_retry_guard(lambda:None),path.open('rb'):
++                if os.name=='nt':
++                    with self.assertRaises(PermissionError) as error:service.record_interaction('test-subject')
++                    print(json.dumps({'test':self.id(),'exception':error_identity(error.exception)}))
++                else:service.record_interaction('test-subject')
++            self.assertLess(time.monotonic()-started,1.5)
++            if os.name=='nt':self.assertEqual(path.read_bytes(),before)
++            self.assertEqual(list(Path(root).glob('*.tmp')),[])
++
++    def test_nonsharing_errors_are_not_retried_or_half_written(self):
++        with tempfile.TemporaryDirectory(prefix='ps18-') as root:
++            repo=JsonSubjectStateRepository(root);service=SubjectStateService(repo);service.create('test-subject')
++            path=repo._path_for('test-subject');before=path.read_bytes()
++            for error in (PermissionError(13,'private'),FileNotFoundError(2,'private'),OSError(28,'private')):
++                with self.subTest(errno=error.errno),json_repository.state_write_retry_guard(lambda:None),patch('os.replace',side_effect=error) as replace:
++                    with self.assertRaises(type(error)):service.record_interaction('test-subject')
++                    self.assertEqual(replace.call_count,1)
++                self.assertEqual(path.read_bytes(),before);self.assertEqual(list(Path(root).glob('*.tmp')),[])
++
++    def test_partial_save_steps_cleanup_and_keep_system_diagnostics(self):
++        with tempfile.TemporaryDirectory(prefix='ps18-') as root:
++            repo=JsonSubjectStateRepository(root);service=SubjectStateService(repo);service.create('test-subject')
++            path=repo._path_for('test-subject');before=path.read_bytes();rows=[];install(repo,root=root,sink=rows.append)
++            original=tempfile.NamedTemporaryFile
++            class Partial:
++                def __init__(self,base,step):self.base=base;self.step=step
++                def __enter__(self):self.base.__enter__();return self
++                def __exit__(self,*args):return self.base.__exit__(*args)
++                def __getattr__(self,key):return getattr(self.base,key)
++                def write(self,data):
++                    if self.step=='write':raise OSError(28,'private disk detail')
++                    return self.base.write(data)
++                def flush(self):
++                    if self.step=='flush':raise OSError(28,'private disk detail')
++                    return self.base.flush()
++            for step in ('create_temporary','write','flush','fsync'):
++                with self.subTest(step=step):
++                    prior_files=set(Path(root).glob('*.tmp'))
++                    def factory(*args,**kw):
++                        if step=='create_temporary':raise OSError(28,'private disk detail')
++                        return Partial(original(*args,**kw),step)
++                    with contextlib.ExitStack() as stack:
++                        stack.enter_context(patch('tempfile.NamedTemporaryFile',side_effect=factory))
++                        if step=='fsync':stack.enter_context(patch('os.fsync',side_effect=OSError(28,'private disk detail')))
++                        with self.assertRaises(OSError):service.record_interaction('test-subject')
++                    print(json.dumps({'test':self.id(),'step':step,'diagnostic':rows[-1],
++                        'temporaryFiles':[p.name for p in Path(root).glob('*.tmp')]}))
++                    self.assertEqual(rows[-1]['chain'][0]['errno'],28)
++                    self.assertEqual(rows[-1]['chain'][0]['operation'],step)
++                    self.assertNotIn('private disk detail',json.dumps(rows[-1]))
++                    self.assertEqual(path.read_bytes(),before)
++                    self.assertEqual(set(Path(root).glob('*.tmp')),prior_files)
++
++    def test_diagnostic_sink_failure_does_not_replace_primary_error(self):
++        with tempfile.TemporaryDirectory(prefix='ps18-') as root:
++            repo=JsonSubjectStateRepository(root);service=SubjectStateService(repo);service.create('test-subject')
++            primary=OSError(28,'private primary');output=io.StringIO();calls=[]
++            def sink(record):calls.append(True);raise RuntimeError('private diagnostic failure')
++            install(repo,root=root,sink=sink)
++            with contextlib.redirect_stderr(output),patch('os.replace',side_effect=primary):
++                with self.assertRaises(OSError) as error:service.record_interaction('test-subject')
++            self.assertIs(error.exception,primary);self.assertEqual(calls,[True])
++            self.assertEqual(output.getvalue().strip(),'TEST_PERSISTENCE_DIAGNOSTIC_UNAVAILABLE')
++            self.assertEqual(list(Path(root).glob('*.tmp')),[])
++
++    def test_cleanup_failure_keeps_primary_and_secondary_system_errors(self):
++        with tempfile.TemporaryDirectory(prefix='ps18-') as root:
++            repo=JsonSubjectStateRepository(root);service=SubjectStateService(repo);service.create('test-subject')
++            before=repo._path_for('test-subject').read_bytes();rows=[];install(repo,root=root,sink=rows.append)
++            primary=OSError(28,'private primary');cleanup=PermissionError(13,'private cleanup')
++            with patch('os.replace',side_effect=primary),patch.object(Path,'unlink',side_effect=cleanup):
++                with self.assertRaises(OSError) as caught:service.record_interaction('test-subject')
++            print(json.dumps({'test':self.id(),'diagnostic':rows[-1],
++                'temporaryFiles':[p.name for p in Path(root).glob('*.tmp')]}))
++            self.assertIs(caught.exception,primary)
++            self.assertEqual([x['errno'] for x in rows[-1]['chain']],[28,13])
++            self.assertEqual(repo._path_for('test-subject').read_bytes(),before)
++            self.assertEqual(len(list(Path(root).glob('*.tmp'))),1)
++
++    def test_changed_revision_during_wait_cannot_be_overwritten(self):
++        with tempfile.TemporaryDirectory(prefix='ps18-') as root:
++            repo=JsonSubjectStateRepository(root);service=SubjectStateService(repo);service.create('test-subject')
++            path=repo._path_for('test-subject');held=path.open('rb');changed=[]
++            original=json_repository._replace_contended
++            def contention(error,target):
++                answer=original(error,target)
++                if answer and not changed:
++                    held.close()
++                    service.record_interaction('test-subject')
++                    changed.append(path.read_bytes())
++                return answer
++            try:
++                with json_repository.state_write_retry_guard(lambda:None),patch.object(json_repository,'_replace_contended',side_effect=contention):
++                    with self.assertRaises(StateEvolutionError):service.record_interaction('test-subject')
++            finally:held.close()
++            self.assertEqual(len(changed),1);self.assertEqual(path.read_bytes(),changed[0])
++            self.assertEqual(len(service.get_update_history('test-subject')),1)
++            self.assertEqual(list(Path(root).glob('*.tmp')),[])
++
++    def test_pause_and_permission_change_during_wait_block_new_state(self):
++        for mode in ('pause','permission'):
++            with self.subTest(mode=mode):
++                f=self.fixture();target=self.state_path(f);held=[];changed=[]
++                original=json_repository._replace_contended
++                def fault(stage):
++                    if stage=='after_native_effect' and not held:held.append(target.open('rb'))
++                def contention(error,path):
++                    answer=original(error,path)
++                    if answer and not changed:
++                        changed.append(True)
++                        if mode=='pause':f.control('PAUSE')
++                        else:f.base.permission.references_allowed=False
++                        held[0].close()
++                    return answer
++                with f.host.running():
++                    self.ready(f);f.fault=fault
++                    try:
++                        with patch.object(json_repository,'_replace_contended',side_effect=contention):f.host.tick()
++                    finally:
++                        for handle in held:handle.close()
++                        f.fault=lambda stage:None
++                    self.assertEqual(changed,[True]);self.assertEqual(f.state.revision,1)
++                    self.assertEqual((f.provider.calls,f.fake.effect_count,f.fake.credits),(1,1,1))
++                    if mode=='pause':f.control('RESUME')
++                    else:f.base.permission.references_allowed=True
++                    f.advance(5);f.host.tick();self.unchanged_effect(f)
++                    self.assertEqual(list(target.parent.glob('*.tmp')),[])
++
++    def test_reopened_post_effect_failure_recovers_without_provider_or_new_charge(self):
++        f=self.fixture();target=self.state_path(f);original=os.replace;hits=[]
++        def replace(src,dst):
++            if Path(dst)==target and f.fake.effect_count==1 and not hits:
++                hits.append(True);raise OSError(28,'TEST disk unavailable')
++            return original(src,dst)
++        with f.host.running():
++            self.ready(f)
++            with patch('os.replace',side_effect=replace):f.host.tick()
++            old=f.work.thinking.get_sessions(f.state.subject_id)[0]
++            original_usage=[u.to_dict() for u in f.resources.get_usage_history(f.state.subject_id)]
++            self.assertEqual(f.state.revision,1);self.assertTrue(old.completed_successfully)
++        reopened=P18Fixture(f.root,initialize=False)
++        with reopened.host.running():
++            reopened.advance(5);reopened.host.tick()
++            self.assertEqual(reopened.state.revision,2)
++            self.assertEqual((reopened.provider.calls,reopened.fake.effect_count,reopened.fake.credits),(0,1,1))
++            restored=reopened.work.thinking.get_sessions(reopened.state.subject_id)[0]
++            self.assertEqual(restored.think_id,old.think_id);self.assertIsNotNone(restored.state_update_id)
++            self.assertEqual(reopened.resources.get_resource_state(reopened.state.subject_id).token_used,320)
++            current_usage=[u.to_dict() for u in reopened.resources.get_usage_history(reopened.state.subject_id)]
++            self.assertEqual([u['usage_id'] for u in current_usage],[u['usage_id'] for u in original_usage])
++            self.assertEqual([u['estimated_tokens'] for u in current_usage],[u['estimated_tokens'] for u in original_usage])
++            original_thinking=next(u for u in original_usage if u['session_id']==old.think_id)
++            recovered_thinking=next(u for u in current_usage if u['session_id']==old.think_id)
++            self.assertIsNone(original_thinking['actual_tokens'])
++            self.assertEqual(recovered_thinking['actual_tokens'],256)
++            reopened.host.tick();self.assertEqual(reopened.state.revision,2)

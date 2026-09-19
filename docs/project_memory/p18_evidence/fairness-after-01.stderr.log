@@ -1,0 +1,7 @@
+test_later_maintenance_with_provider_unavailable (__main__.ResourceFairnessProbe.test_later_maintenance_with_provider_unavailable) ... ok
+test_later_maintenance_with_zero_model_quota (__main__.ResourceFairnessProbe.test_later_maintenance_with_zero_model_quota) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 1.424s
+
+OK

@@ -1,0 +1,11 @@
+test_idle_tick_survives_overlapping_owner_control (test_independent_runtime.IndependentRuntimeTests.test_idle_tick_survives_overlapping_owner_control) ... RUNTIME_CHECKPOINT_BUSY
+ok
+test_ordinary_wait_recovers_without_new_message (test_independent_runtime.IndependentRuntimeTests.test_ordinary_wait_recovers_without_new_message) ... ok
+test_paused_process_survives_overlapping_owner_control (test_independent_runtime.IndependentRuntimeTests.test_paused_process_survives_overlapping_owner_control) ... ok
+test_reopen_query_has_no_persistent_writes (test_independent_runtime.IndependentRuntimeTests.test_reopen_query_has_no_persistent_writes) ... ok
+test_uncontended_controls_and_host_continue (test_independent_runtime.IndependentRuntimeTests.test_uncontended_controls_and_host_continue) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 8.671s
+
+OK

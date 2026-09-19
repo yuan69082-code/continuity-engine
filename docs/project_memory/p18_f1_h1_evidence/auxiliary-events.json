@@ -1,0 +1,27 @@
+[
+  {
+    "kind": "read-only helper",
+    "error": "unknown encoding utf8-sig; corrected to utf-8-sig",
+    "engineFailure": false
+  },
+  {
+    "kind": "summary helper",
+    "error": "KeyError stage while summarizing mixed process records; changed to optional get",
+    "engineFailure": false
+  },
+  {
+    "kind": "audit helper",
+    "error": "AttributeError: excluded was a list, not map; hashes verified from protected/excludedP10 and otherPreserved instead",
+    "engineFailure": false
+  },
+  {
+    "kind": "new documentation warning",
+    "error": "git diff --check detected new blank line at EOF of appended construction log; removed only new trailing blank line; first audit retained",
+    "engineFailure": false
+  },
+  {
+    "kind": "read-only file lookup",
+    "error": "PowerShell literal wildcard paths and nonexistent guessed p18_runtime_diagnostics.py; used actual file listing and test_p18_runtime_process.runtime_diagnostic",
+    "engineFailure": false
+  }
+]

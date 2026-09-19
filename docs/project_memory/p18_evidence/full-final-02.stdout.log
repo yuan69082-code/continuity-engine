@@ -1,0 +1,6 @@
+FORGED_HISTORY_RECOVERY REJECTED effect= 0 query_calls= 1
+RECEIPTLESS_FAILURE REJECTED append_queries= 0 recovered= COMPLETED effect= 1
+REHASHED_EXPIRED REJECTED query_calls= 1 effect= 1
+STALE_CONTEXT_RECEIPT_RECOVERY COMPLETED effect= 1 query_calls= 2
+RETAINED_CONTROLLED_FAILURE C:\Users\ADMINI~1\AppData\Local\Temp\c1e-6krlax22 exit_code=91
+RETAINED_CONTROLLED_INTERRUPT C:\Users\ADMINI~1\AppData\Local\Temp\c1e-qj9zk72c exit_code= 1

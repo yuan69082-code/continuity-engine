@@ -1,0 +1,400 @@
+{
+  "bounded-after-01": {
+    "status": "FINISHED",
+    "run": 5,
+    "passed": 5,
+    "failures": 0,
+    "failureEntries": 0,
+    "errors": 0,
+    "skips": [],
+    "seconds": 5.59,
+    "exitCode": 0,
+    "sourceUnchangedDuringRun": true,
+    "matchesFinalSource": false,
+    "changedAgainstFinal": [
+      "src/continuity_engine/testing/p18_persistence_diagnostics.py",
+      "src/continuity_engine/storage/json_repository.py",
+      "tests/test_p18_persistence.py",
+      "src/continuity_engine/services/wake_perception_thinking_action_service.py"
+    ],
+    "evidenceHashes": {
+      "bounded-after-01.json": "1c2c87bef8e182127276c467415401295218d5638ce33e9058fe8d64a9202991",
+      "bounded-after-01.stdout.log": "6c639371bebd60b7e56a9072514abbddab6b707b1542066a72bb6b0714026ca6",
+      "bounded-after-01.stderr.log": "455516a97e7524f5d70229b967f6008b25678a87aaa481919d8e03ae6c7bb39b"
+    },
+    "reconstructedArchivedWriter": false
+  },
+  "compatibility-final-01": {
+    "status": "FINISHED",
+    "run": 605,
+    "passed": 605,
+    "failures": 0,
+    "failureEntries": 0,
+    "errors": 0,
+    "skips": [],
+    "seconds": 841.034,
+    "exitCode": 0,
+    "sourceUnchangedDuringRun": true,
+    "matchesFinalSource": true,
+    "changedAgainstFinal": [],
+    "evidenceHashes": {
+      "compatibility-final-01.json": "3302f5b3ea4f0784f92de35241a792aa76e6811ad85985c728cddbc4d9b17445",
+      "compatibility-final-01.stdout.log": "e3e50484bb73de53b53d0f2792b5cf38e23e98451b19760ee07770f3147486e1",
+      "compatibility-final-01.stderr.log": "4a5ba7e68ec8289f1bbdaa713c4ce9c0827b1cb0aa2615e206475220735c680d"
+    },
+    "reconstructedArchivedWriter": false
+  },
+  "formal-after-01": {
+    "status": "FINISHED",
+    "run": 11,
+    "passed": 11,
+    "failures": 0,
+    "failureEntries": 0,
+    "errors": 0,
+    "skips": [],
+    "seconds": 7.171,
+    "exitCode": 0,
+    "sourceUnchangedDuringRun": true,
+    "matchesFinalSource": false,
+    "changedAgainstFinal": [
+      "tests/test_p18_persistence.py"
+    ],
+    "evidenceHashes": {
+      "formal-after-01.json": "123fda4f3d1f5a2e085c4b929df1fde5c0ed45d5c1c3ecb3cd5dcbe7081d73b7",
+      "formal-after-01.stdout.log": "c2954128c1340e31349a9c7bdf0154fd2bc90de6b579b562e3563ca1240f6d6c",
+      "formal-after-01.stderr.log": "3e677961a39ed7d1136b42fe2365b49009eb9fdedad88c20cb29f3887f50cccb"
+    },
+    "reconstructedArchivedWriter": false
+  },
+  "formal-after-02": {
+    "status": "FINISHED",
+    "run": 14,
+    "passed": 13,
+    "failures": 1,
+    "failureEntries": 1,
+    "errors": 0,
+    "skips": [],
+    "seconds": 11.656,
+    "exitCode": 1,
+    "sourceUnchangedDuringRun": true,
+    "matchesFinalSource": false,
+    "changedAgainstFinal": [
+      "tests/test_p18_persistence.py"
+    ],
+    "evidenceHashes": {
+      "formal-after-02.json": "a425dee9d42a1b472f23bb9fdfae323083f5124b009b11c4270bc8d2b15b059c",
+      "formal-after-02.stdout.log": "de1e744b3c4979804eb949367436da34b94bcc3d503597c893bdd4e94db023ae",
+      "formal-after-02.stderr.log": "ae3706a7d1a199e9bf1cf05fb6a821a598a7ccd297a50518fec987cb6bd250e2"
+    },
+    "reconstructedArchivedWriter": false
+  },
+  "formal-final-01": {
+    "status": "FINISHED",
+    "run": 14,
+    "passed": 13,
+    "failures": 1,
+    "failureEntries": 1,
+    "errors": 0,
+    "skips": [],
+    "seconds": 11.478,
+    "exitCode": 1,
+    "sourceUnchangedDuringRun": true,
+    "matchesFinalSource": false,
+    "changedAgainstFinal": [
+      "tests/test_p18_persistence.py"
+    ],
+    "evidenceHashes": {
+      "formal-final-01.json": "f74d3932768c55c5576e84a788f081ef9a5c9ac25d0f101a1cf4da00cc99c9b5",
+      "formal-final-01.stdout.log": "63a3820af65a86b50439f371b8252fa579c0a47ea8dd7b2175b9226d33d80a8c",
+      "formal-final-01.stderr.log": "ecd6c3d2aecb012a7e3d16726c66cd90b38f654377d2fcb77fd27a280afe1784"
+    },
+    "reconstructedArchivedWriter": false
+  },
+  "formal-final-02": {
+    "status": "FINISHED",
+    "run": 14,
+    "passed": 14,
+    "failures": 0,
+    "failureEntries": 0,
+    "errors": 0,
+    "skips": [],
+    "seconds": 11.493,
+    "exitCode": 0,
+    "sourceUnchangedDuringRun": true,
+    "matchesFinalSource": true,
+    "changedAgainstFinal": [],
+    "evidenceHashes": {
+      "formal-final-02.json": "6f410a2307d0d9947bb45899da0de644805e52e26c9cfe7e5b1bf168e720e911",
+      "formal-final-02.stdout.log": "2ddc5a4b3800aeb0fd3b362bd2fcb2640838c079905bdc37cdf69a30927a620a",
+      "formal-final-02.stderr.log": "df23672764b5bbc5e2b9d6b0e92775d05ef1b0c2ead4435a940885d3a887159d"
+    },
+    "reconstructedArchivedWriter": false
+  },
+  "full-final-01": {
+    "status": "FINISHED",
+    "run": 1480,
+    "passed": 1479,
+    "failures": 0,
+    "failureEntries": 0,
+    "errors": 0,
+    "skips": [
+      [
+        "test_p08_fixture_paths.P08FixturePathTests.test_symlink_component_rejected_without_writes",
+        "OS does not grant symlink creation: 1314"
+      ]
+    ],
+    "seconds": 1284.129,
+    "exitCode": 0,
+    "sourceUnchangedDuringRun": true,
+    "matchesFinalSource": true,
+    "changedAgainstFinal": [],
+    "evidenceHashes": {
+      "full-final-01.json": "8c1ec5187c757189fee4b39623b3ab87a09902b964d99afc8226bb5101495d4e",
+      "full-final-01.stdout.log": "257b8ad446cb67dcb6b89adb979680606142f790afa0bd906572a96a37351817",
+      "full-final-01.stderr.log": "08c9cbc551d55b3836eca7db79486616206abc2c20b24b252cfb738bbf39b6f4"
+    },
+    "reconstructedArchivedWriter": false
+  },
+  "guarded-after-01": {
+    "status": "FINISHED",
+    "run": 8,
+    "passed": 8,
+    "failures": 0,
+    "failureEntries": 0,
+    "errors": 0,
+    "skips": [],
+    "seconds": 7.048,
+    "exitCode": 0,
+    "sourceUnchangedDuringRun": true,
+    "matchesFinalSource": false,
+    "changedAgainstFinal": [
+      "src/continuity_engine/testing/p18_persistence_diagnostics.py",
+      "src/continuity_engine/storage/json_repository.py",
+      "tests/test_p18_persistence.py"
+    ],
+    "evidenceHashes": {
+      "guarded-after-01.json": "9d84778440cd7da145faf1bf0ff39f6245d0b3ef756ff0fdfc45d2043b18fe05",
+      "guarded-after-01.stdout.log": "1957311dff8efc9a23ea1f0d0aaf29f7a0d85fd48caf49688b08f1d804e25840",
+      "guarded-after-01.stderr.log": "79b12a79a643cdd5d16db6fca91ddd4d49d09331db3a624b327784d0a5e97933"
+    },
+    "reconstructedArchivedWriter": false
+  },
+  "native-before-01": {
+    "status": "FINISHED",
+    "run": 5,
+    "passed": 1,
+    "failures": 4,
+    "failureEntries": 4,
+    "errors": 0,
+    "skips": [],
+    "seconds": 3.375,
+    "exitCode": 1,
+    "sourceUnchangedDuringRun": true,
+    "matchesFinalSource": false,
+    "changedAgainstFinal": [
+      "src/continuity_engine/testing/p18_persistence_diagnostics.py",
+      "src/continuity_engine/storage/json_repository.py",
+      "tests/test_p18_persistence.py",
+      "src/continuity_engine/services/wake_perception_thinking_action_service.py"
+    ],
+    "evidenceHashes": {
+      "native-before-01.json": "c01275098bbbf2d679e6e73dc7ec2baed8aa333ab972e8e9f4ebeed81be81aae",
+      "native-before-01.stdout.log": "816376b8adec6db2daca1e6182c3f592ab15f84d4436171b3a600db972511e50",
+      "native-before-01.stderr.log": "f737b81bb47c52acfa0a9e494331c64003144f36dd879d5632ec798ec6300c95"
+    },
+    "reconstructedArchivedWriter": false
+  },
+  "native-before-02": {
+    "status": "FINISHED",
+    "run": 5,
+    "passed": 3,
+    "failures": 2,
+    "failureEntries": 2,
+    "errors": 0,
+    "skips": [],
+    "seconds": 5.816,
+    "exitCode": 1,
+    "sourceUnchangedDuringRun": true,
+    "matchesFinalSource": false,
+    "changedAgainstFinal": [
+      "src/continuity_engine/testing/p18_persistence_diagnostics.py",
+      "src/continuity_engine/storage/json_repository.py",
+      "tests/test_p18_persistence.py",
+      "src/continuity_engine/services/wake_perception_thinking_action_service.py"
+    ],
+    "evidenceHashes": {
+      "native-before-02.json": "006e30659bd50081b7185a07dad0c7e053708865e965d299a65cf4c5f51cb0d3",
+      "native-before-02.stdout.log": "56341074379b91950ac0be8c88345254f0d42d00a8fac14209c8027a0a0156f6",
+      "native-before-02.stderr.log": "871e427f3e5cdc7ebd5c92ee3fb8173fd6e3dd35de03af889fd130b82d10de32"
+    },
+    "reconstructedArchivedWriter": false
+  },
+  "old-writer-confirm-01": {
+    "status": "FINISHED",
+    "run": 2,
+    "passed": 0,
+    "failures": 2,
+    "failureEntries": 2,
+    "errors": 0,
+    "skips": [],
+    "seconds": 2.942,
+    "exitCode": 1,
+    "sourceUnchangedDuringRun": true,
+    "matchesFinalSource": false,
+    "changedAgainstFinal": [
+      "tests/test_p18_persistence.py"
+    ],
+    "evidenceHashes": {
+      "old-writer-confirm-01.json": "960bdfbd4fca6e2056c92755e09b1b6a1b58f3202615a04338dac4ea065cb306",
+      "old-writer-confirm-01.stdout.log": "040000ff8a83a44184b1523edb1c4deac841aedf3feca8fc4f986f4bcd647e41",
+      "old-writer-confirm-01.stderr.log": "2d64dce32c656f23979f06232bda580067332f10f8d21e7d2e57d680bc5347e4"
+    },
+    "reconstructedArchivedWriter": true
+  },
+  "original-f2-before-01": {
+    "status": "FINISHED",
+    "run": 1,
+    "passed": 1,
+    "failures": 0,
+    "failureEntries": 0,
+    "errors": 0,
+    "skips": [],
+    "seconds": 8.351,
+    "exitCode": 0,
+    "sourceUnchangedDuringRun": true,
+    "matchesFinalSource": false,
+    "changedAgainstFinal": [
+      "src/continuity_engine/testing/p18_persistence_diagnostics.py",
+      "src/continuity_engine/storage/json_repository.py",
+      "src/continuity_engine/testing/p18_runtime_fixture.py",
+      "tests/test_p18_persistence.py",
+      "src/continuity_engine/services/wake_perception_thinking_action_service.py"
+    ],
+    "evidenceHashes": {
+      "original-f2-before-01.json": "6bf07677253cd556c1f9f405e8d9f8a09af37bcebe9df174b7a46fd9f7874cca",
+      "original-f2-before-01.stdout.log": "c516521ff73626aae4c80691bc2a5c333f1af0269012d2a8d1ba25c227ec2c7c",
+      "original-f2-before-01.stderr.log": "afdd56ada2d1e774de44bc13f3579e56953cb1391efd4a1e3cf1bc63106abb55"
+    },
+    "reconstructedArchivedWriter": false
+  },
+  "p18-final-01": {
+    "status": "FINISHED",
+    "run": 120,
+    "passed": 120,
+    "failures": 0,
+    "failureEntries": 0,
+    "errors": 0,
+    "skips": [],
+    "seconds": 174.733,
+    "exitCode": 0,
+    "sourceUnchangedDuringRun": true,
+    "matchesFinalSource": true,
+    "changedAgainstFinal": [],
+    "evidenceHashes": {
+      "p18-final-01.json": "0ca8f778a4d73100d5c0cc880857e06f107925d8172b57fff0f160f052280220",
+      "p18-final-01.stdout.log": "6c71934426643ef2a42090de747520d6623e9d93626b50950bf5778f8446b9a4",
+      "p18-final-01.stderr.log": "a8adf17af54f3bb32db9b0cd15c5d8551a22bc07040efedaeaaa6999078f061f"
+    },
+    "reconstructedArchivedWriter": false
+  },
+  "reader-after-01": {
+    "status": "FINISHED",
+    "run": 5,
+    "passed": 3,
+    "failures": 2,
+    "failureEntries": 2,
+    "errors": 0,
+    "skips": [],
+    "seconds": 6.142,
+    "exitCode": 1,
+    "sourceUnchangedDuringRun": true,
+    "matchesFinalSource": false,
+    "changedAgainstFinal": [
+      "src/continuity_engine/testing/p18_persistence_diagnostics.py",
+      "src/continuity_engine/storage/json_repository.py",
+      "tests/test_p18_persistence.py",
+      "src/continuity_engine/services/wake_perception_thinking_action_service.py"
+    ],
+    "evidenceHashes": {
+      "reader-after-01.json": "0389061d383aa3a543f5d7084e3dbd62a6a9b10a3122653eb7ac95cf4e1cdd32",
+      "reader-after-01.stdout.log": "e84c9f41cc31960688069d87a5fd1e6d4b7bdd1079aa7acf5549250e331c4165",
+      "reader-after-01.stderr.log": "437b443de6fc94f3b3d0c8762c0d608e061c2c5ddb6302e0e0250e1d24d7a3a9"
+    },
+    "reconstructedArchivedWriter": false
+  },
+  "reader-before-01": {
+    "status": "FINISHED",
+    "run": 2,
+    "passed": 1,
+    "failures": 1,
+    "failureEntries": 1,
+    "errors": 0,
+    "skips": [],
+    "seconds": 1.522,
+    "exitCode": 1,
+    "sourceUnchangedDuringRun": true,
+    "matchesFinalSource": false,
+    "changedAgainstFinal": [
+      "src/continuity_engine/testing/p18_persistence_diagnostics.py",
+      "src/continuity_engine/storage/json_repository.py",
+      "src/continuity_engine/testing/p18_runtime_fixture.py",
+      "tests/test_p18_persistence.py",
+      "src/continuity_engine/services/wake_perception_thinking_action_service.py"
+    ],
+    "evidenceHashes": {
+      "reader-before-01.json": "b203cf0a609a2b2d85516381e70b3fb3ee95851c623b20ebe09ccca9754d6289",
+      "reader-before-01.stdout.log": "be70868a4a4d6ca2eccb9e2964df4066924caf46741723ebe170ce32f895c50d",
+      "reader-before-01.stderr.log": "31a874b592f098fdf8ac27b3652293f63b33f208491323f6759a4b66ead56171"
+    },
+    "reconstructedArchivedWriter": false
+  },
+  "save-stages-before-01": {
+    "status": "FINISHED",
+    "run": 3,
+    "passed": 1,
+    "failures": 2,
+    "failureEntries": 4,
+    "errors": 0,
+    "skips": [],
+    "seconds": 0.87,
+    "exitCode": 1,
+    "sourceUnchangedDuringRun": true,
+    "matchesFinalSource": false,
+    "changedAgainstFinal": [
+      "src/continuity_engine/testing/p18_persistence_diagnostics.py",
+      "src/continuity_engine/storage/json_repository.py",
+      "tests/test_p18_persistence.py"
+    ],
+    "evidenceHashes": {
+      "save-stages-before-01.json": "f01c8c50f7b2eab8e212c9689484ecb3941211c69269e830dbda157e6688ec8c",
+      "save-stages-before-01.stdout.log": "b8e3141812b7d4e620d64515136956b5f32250a4dd24cf4ab89f932687b7213a",
+      "save-stages-before-01.stderr.log": "fa0a52d0e7b33faca61edc23f4c609b4b305a2f642fb37a6f1e63b4ce1d3a7ad"
+    },
+    "reconstructedArchivedWriter": false
+  },
+  "stop-retry-before-01": {
+    "status": "FINISHED",
+    "run": 1,
+    "passed": 0,
+    "failures": 1,
+    "failureEntries": 1,
+    "errors": 0,
+    "skips": [],
+    "seconds": 1.975,
+    "exitCode": 1,
+    "sourceUnchangedDuringRun": true,
+    "matchesFinalSource": false,
+    "changedAgainstFinal": [
+      "src/continuity_engine/testing/p18_persistence_diagnostics.py",
+      "src/continuity_engine/storage/json_repository.py",
+      "tests/test_p18_persistence.py",
+      "src/continuity_engine/services/wake_perception_thinking_action_service.py"
+    ],
+    "evidenceHashes": {
+      "stop-retry-before-01.json": "f05816538dc802f9e0db4f4cdc9a17085c60b510426b383ec56c6e42c1343a28",
+      "stop-retry-before-01.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stop-retry-before-01.stderr.log": "fbb78429029cadb7aa659ef6fa57af2e00e6b512fa247cc42b0a7426f74499e6"
+    },
+    "reconstructedArchivedWriter": false
+  }
+}

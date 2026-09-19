@@ -1,0 +1,278 @@
+{
+  "label": "F2: newly observed full-resume-01 contention-process timeout",
+  "rootCause": "UNKNOWN",
+  "resolved": false,
+  "test": "test_p18_runtime_contention.RuntimeContentionTests.test_resource_wait_process_control_competition",
+  "failure": "Traceback (most recent call last):\n  File \"C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p18_runtime_contention.py\", line 153, in test_resource_wait_process_control_competition\n    def test_resource_wait_process_control_competition(self):self.contention_process('RESOURCE_WAIT')\n                                                             ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p18_runtime_contention.py\", line 138, in contention_process\n    self.until(lambda:f.state.revision==2,p)\n    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p18_runtime_contention.py\", line 72, in until\n    self.fail('bounded contention controller timed out')\n    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: bounded contention controller timed out\n",
+  "run": 1466,
+  "passed": 1464,
+  "skips": [
+    [
+      "test_p08_fixture_paths.P08FixturePathTests.test_symlink_component_rejected_without_writes",
+      "OS does not grant symlink creation: 1314"
+    ]
+  ],
+  "errors": [],
+  "exitCode": 1,
+  "runnerSeconds": 1376.33,
+  "sourceUnchanged": true,
+  "rawEvidenceHashes": {
+    "full-resume-01.json": "2a8d03b26ef52bc245bf8eb67e429ab306a647b166fb223113fca056fee716e2",
+    "full-resume-01.stdout.log": "2ed6751ac326e06ed10eb85f02cfa7e54b7b196bd93e0c0f6e9f02a4a96cd982",
+    "full-resume-01.stderr.log": "e8c2687bf4042833da38a9b54537b6f0d95c43ccf755c6608751700d805e33d1"
+  },
+  "preservedProcessEvidence": {
+    "test": "test_p18_runtime_contention.RuntimeContentionTests.test_resource_wait_process_control_competition",
+    "processEvidence": [
+      {
+        "command": [
+          "E:\\Adobe\\python.exe",
+          "-c",
+          "\nimport sys\nfrom pathlib import Path\nfrom continuity_engine.testing.p18_runtime_fixture import P18Fixture\nf=P18Fixture(Path(sys.argv[1]),initialize=False)\noriginal=f.store.save\ndef save(d):\n    print('CONTROL_LOCK_HELD',flush=True)\n    sys.stdin.readline()\n    return original(d)\nf.store.save=save\nf.host.control(sys.argv[2],command_id=sys.argv[3],expected_revision=None,handle='p18-test-owner')\nprint('CONTROL_SAVED',flush=True)\n",
+          "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-2ojp47e3",
+          "PAUSE",
+          "held-command"
+        ],
+        "pid": 21896,
+        "exitCode": 0,
+        "stdout": "CONTROL_SAVED\n",
+        "stderr": "",
+        "forcedCleanup": false
+      },
+      {
+        "stage": "timeout-before-stop",
+        "snapshot": {
+          "processes": [
+            {
+              "pid": 20996,
+              "exitCode": null,
+              "alive": true
+            },
+            {
+              "pid": 21896,
+              "exitCode": 0,
+              "alive": false
+            }
+          ],
+          "trusted_time": "2026-09-04T09:04:00+00:00",
+          "runtime": {
+            "revision": 11,
+            "state": "RUNNING",
+            "desired": "RUNNING",
+            "activity": "WAITING_VERIFICATION",
+            "reason": "TASK_RESULT_UNCONFIRMED",
+            "last_time": "2026-09-04T09:04:00+00:00",
+            "next_check_at": "2026-09-04T09:04:05+00:00",
+            "last_task": "maintenance:6c5b5e21610216083c5cea5ea461d3c78162b69895acb705f5e09be3cfc1e5cd",
+            "generation": 3,
+            "host_alive": true,
+            "checkpoint_busy": false,
+            "resources": {
+              "token_budget": 100000,
+              "token_used": 320,
+              "token_remaining": 99680,
+              "compute_remaining": 997
+            }
+          },
+          "tasks": [
+            {
+              "task_id": "cognition:77b3bc5d8e7c80cf5e03effc3e60a92b55f3e3ffe9550ae8d0c8e84c643c6f66",
+              "state": "UNKNOWN",
+              "attempt_count": 1,
+              "last_attempt_id": "p11-attempt-e20ef78ea06a0629fe2cc549dd79697555ce5a0026647f9d8251a94765d24304",
+              "next_attempt_at": null,
+              "due_at": "2026-09-04T08:01:00+00:00",
+              "last_receipt_status": null
+            },
+            {
+              "task_id": "maintenance:6c5b5e21610216083c5cea5ea461d3c78162b69895acb705f5e09be3cfc1e5cd",
+              "state": "COMPLETED",
+              "attempt_count": 1,
+              "last_attempt_id": "p11-attempt-8189807fac02ac2fa3856072fcd35695d56ff4ba75d23ba873f54f52204ae3ae",
+              "next_attempt_at": null,
+              "due_at": "2026-09-04T08:00:00+00:00",
+              "last_receipt_status": "DELIVERED"
+            }
+          ],
+          "thinking": [
+            {
+              "think_id": "6eeab7e5-ec87-5572-a99e-dc635802cc71",
+              "wake_id": "9f8473c1-0ac0-50b2-b7db-b3c886a61dcc",
+              "status": "COMPLETED",
+              "completed": true,
+              "phase": "RETURNED",
+              "progress_binding": "7581690f1b76938d0a5427bb306daba4b7f88b0f69eff249f385a546ff46ee32",
+              "context_current": true,
+              "context_hash": "sha256:6d90f6cb6d551496e86b7cd14e3779cfbc20bdecc26f0934c7bdfdacbeb8a28f",
+              "context_revision": 1,
+              "state_update_id": null,
+              "state_event_id": null,
+              "error_code": null
+            }
+          ],
+          "actions": [
+            {
+              "session_id": "96992c19-aeb0-5561-8264-9056101e5317",
+              "think_id": "6eeab7e5-ec87-5572-a99e-dc635802cc71"
+            }
+          ],
+          "capabilities": {
+            "requests": [
+              "action-cap:48a253c4d2980b2855c4df234ea861142d33d91e0c19aeeecd10c81cffc323cf"
+            ],
+            "attempts": [
+              {
+                "request_id": "action-cap:48a253c4d2980b2855c4df234ea861142d33d91e0c19aeeecd10c81cffc323cf",
+                "status": "PROPOSED",
+                "result_hash": "sha256:746cc21ff7b35f402643b0fe639b36001147c062017059924d1c9f58f5f89f3d",
+                "receipt_id": null
+              },
+              {
+                "request_id": "action-cap:48a253c4d2980b2855c4df234ea861142d33d91e0c19aeeecd10c81cffc323cf",
+                "status": "SUCCEEDED",
+                "result_hash": "sha256:87ab2f4dff3366289541f3f2bc268312dade71f267a7f38fe5a7bf90e664f301",
+                "receipt_id": "receipt:0a1c247ac790ec1d44b296b3166709c4e6ff76fd0edc59febd30d08e53ac91a5"
+              }
+            ]
+          },
+          "effects": {
+            "count": 1,
+            "credits": 1
+          }
+        }
+      },
+      {
+        "stage": "before-stop-cleanup",
+        "snapshot": {
+          "processes": [
+            {
+              "pid": 20996,
+              "exitCode": null,
+              "alive": true
+            },
+            {
+              "pid": 21896,
+              "exitCode": 0,
+              "alive": false
+            }
+          ],
+          "trusted_time": "2026-09-04T09:04:00+00:00",
+          "runtime": {
+            "revision": 11,
+            "state": "RUNNING",
+            "desired": "RUNNING",
+            "activity": "WAITING_VERIFICATION",
+            "reason": "TASK_RESULT_UNCONFIRMED",
+            "last_time": "2026-09-04T09:04:00+00:00",
+            "next_check_at": "2026-09-04T09:04:05+00:00",
+            "last_task": "maintenance:6c5b5e21610216083c5cea5ea461d3c78162b69895acb705f5e09be3cfc1e5cd",
+            "generation": 3,
+            "host_alive": true,
+            "checkpoint_busy": false,
+            "resources": {
+              "token_budget": 100000,
+              "token_used": 320,
+              "token_remaining": 99680,
+              "compute_remaining": 997
+            }
+          },
+          "tasks": [
+            {
+              "task_id": "cognition:77b3bc5d8e7c80cf5e03effc3e60a92b55f3e3ffe9550ae8d0c8e84c643c6f66",
+              "state": "UNKNOWN",
+              "attempt_count": 1,
+              "last_attempt_id": "p11-attempt-e20ef78ea06a0629fe2cc549dd79697555ce5a0026647f9d8251a94765d24304",
+              "next_attempt_at": null,
+              "due_at": "2026-09-04T08:01:00+00:00",
+              "last_receipt_status": null
+            },
+            {
+              "task_id": "maintenance:6c5b5e21610216083c5cea5ea461d3c78162b69895acb705f5e09be3cfc1e5cd",
+              "state": "COMPLETED",
+              "attempt_count": 1,
+              "last_attempt_id": "p11-attempt-8189807fac02ac2fa3856072fcd35695d56ff4ba75d23ba873f54f52204ae3ae",
+              "next_attempt_at": null,
+              "due_at": "2026-09-04T08:00:00+00:00",
+              "last_receipt_status": "DELIVERED"
+            }
+          ],
+          "thinking": [
+            {
+              "think_id": "6eeab7e5-ec87-5572-a99e-dc635802cc71",
+              "wake_id": "9f8473c1-0ac0-50b2-b7db-b3c886a61dcc",
+              "status": "COMPLETED",
+              "completed": true,
+              "phase": "RETURNED",
+              "progress_binding": "7581690f1b76938d0a5427bb306daba4b7f88b0f69eff249f385a546ff46ee32",
+              "context_current": true,
+              "context_hash": "sha256:6d90f6cb6d551496e86b7cd14e3779cfbc20bdecc26f0934c7bdfdacbeb8a28f",
+              "context_revision": 1,
+              "state_update_id": null,
+              "state_event_id": null,
+              "error_code": null
+            }
+          ],
+          "actions": [
+            {
+              "session_id": "96992c19-aeb0-5561-8264-9056101e5317",
+              "think_id": "6eeab7e5-ec87-5572-a99e-dc635802cc71"
+            }
+          ],
+          "capabilities": {
+            "requests": [
+              "action-cap:48a253c4d2980b2855c4df234ea861142d33d91e0c19aeeecd10c81cffc323cf"
+            ],
+            "attempts": [
+              {
+                "request_id": "action-cap:48a253c4d2980b2855c4df234ea861142d33d91e0c19aeeecd10c81cffc323cf",
+                "status": "PROPOSED",
+                "result_hash": "sha256:746cc21ff7b35f402643b0fe639b36001147c062017059924d1c9f58f5f89f3d",
+                "receipt_id": null
+              },
+              {
+                "request_id": "action-cap:48a253c4d2980b2855c4df234ea861142d33d91e0c19aeeecd10c81cffc323cf",
+                "status": "SUCCEEDED",
+                "result_hash": "sha256:87ab2f4dff3366289541f3f2bc268312dade71f267a7f38fe5a7bf90e664f301",
+                "receipt_id": "receipt:0a1c247ac790ec1d44b296b3166709c4e6ff76fd0edc59febd30d08e53ac91a5"
+              }
+            ]
+          },
+          "effects": {
+            "count": 1,
+            "credits": 1
+          }
+        }
+      },
+      {
+        "command": [
+          "E:\\Adobe\\python.exe",
+          "-m",
+          "continuity_engine.runtime",
+          "start",
+          "--root",
+          "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-2ojp47e3"
+        ],
+        "pid": 20996,
+        "exitCode": 0,
+        "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:55a03963e381b8e3f298699ee80f06069259549faa99fb1c1d657864170e1f40\", \"id\": \"sha256:4a5b9149122dd601b637b0eeb3d908bdf325bdcce1f6bd06ce16663c70251a03\", \"operation\": \"PAUSE\", \"revision\": 9}, {\"hash\": \"sha256:1bec922a5fa413ddf00e3aee400df29515d4a10f3d5737917ca0943064e654c5\", \"id\": \"sha256:d1c375c559888424bd7b57f5e1c9f3c1a566e2d00a706bfc7024ee9ce8b8b4f6\", \"operation\": \"RESUME\", \"revision\": 10}, {\"hash\": \"sha256:d5b2ff8850932c88f96e2d0f7bf879b754b5514a672e8455aa01540bb40fe112\", \"id\": \"sha256:bbcf796a23785cbd0e748e19f63bcdd300d8688f182dffb70411774c5ce6ff7e\", \"operation\": \"STOP\", \"revision\": 12}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 3, \"interruptions\": [{\"generation\": 1, \"last_trusted_time\": \"2026-09-04T09:00:00+00:00\", \"reason\": \"HOST_DETACHED\"}, {\"generation\": 1, \"last_trusted_time\": \"2026-09-04T09:00:00+00:00\", \"reason\": \"PRIOR_HOST_LOST\"}, {\"generation\": 2, \"last_trusted_time\": \"2026-09-04T09:01:00+00:00\", \"reason\": \"HOST_DETACHED\"}, {\"generation\": 2, \"last_trusted_time\": \"2026-09-04T09:01:00+00:00\", \"reason\": \"PRIOR_HOST_LOST\"}], \"last_task\": \"maintenance:6c5b5e21610216083c5cea5ea461d3c78162b69895acb705f5e09be3cfc1e5cd\", \"last_time\": \"2026-09-04T09:04:00+00:00\", \"next_check_at\": null, \"observations\": 3, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 13, \"root_hash\": \"sha256:4ca9545dd560d72c67a3b7b8ac1618efbc69af95e5103cc618536cb24510d90c\", \"state\": \"STOP\", \"subject_id\": \"sub-2f7c0d32657f4da1\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 1, \"unconfirmed_tasks\": 1, \"resources\": {\"token_budget\": 100000, \"token_used\": 320, \"token_remaining\": 99680, \"compute_remaining\": 997}}\n",
+        "stderr": "RUNTIME_CHECKPOINT_BUSY\nRUNTIME_CHECKPOINT_AVAILABLE\n{\"stage\": \"native-exception-before-cleanup\", \"task_id\": \"cognition:77b3bc5d8e7c80cf5e03effc3e60a92b55f3e3ffe9550ae8d0c8e84c643c6f66\", \"attempt_id\": \"p11-attempt-e20ef78ea06a0629fe2cc549dd79697555ce5a0026647f9d8251a94765d24304\", \"chain\": [{\"frames\": [{\"file\": \"testing/p18_runtime_fixture.py\", \"line\": 133, \"function\": \"diagnosed_continue\"}, {\"file\": \"services/runtime_cognition.py\", \"line\": 228, \"function\": \"_continue\"}, {\"file\": \"services/wake_perception_thinking_action_service.py\", \"line\": 90, \"function\": \"wake_manual\"}, {\"file\": \"services/wake_perception_thinking_action_service.py\", \"line\": 128, \"function\": \"_continue\"}, {\"file\": \"services/wake_perception_thinking_action_service.py\", \"line\": 314, \"function\": \"_continue_mind\"}, {\"file\": \"services/action_evolution_service.py\", \"line\": 78, \"function\": \"evolve\"}, {\"file\": \"services/subject_state_service.py\", \"line\": 79, \"function\": \"apply_event\"}, {\"file\": \"services/subject_state_service.py\", \"line\": 149, \"function\": \"_apply_event\"}, {\"file\": \"storage/json_repository.py\", \"line\": 111, \"function\": \"save_transition\"}, {\"file\": \"storage/json_repository.py\", \"line\": 288, \"function\": \"_write_payload\"}], \"code\": \"TEST_NATIVE_EXCEPTION\"}]}\n",
+        "forcedCleanup": false
+      }
+    ],
+    "childrenReaped": true
+  },
+  "observations": [
+    "The original assertion waiting for SubjectState revision == 2 timed out at 15 seconds; assertion and timeout were not changed.",
+    "Before STOP the host was alive; checkpoint_busy=false; resource budget=100000, token_used=320; cognition task UNKNOWN.",
+    "ThinkSession COMPLETED/RETURNED and Context current=true; one capability SUCCEEDED with receipt; TEST effects=1, credits=1; state_update_id/state_event_id null.",
+    "Safe exception frames reach ActionEvolution/SubjectStateService/JsonSubjectStateRepository._write_payload.",
+    "The host accepted cleanup STOP and exited 0; holder exited 0; childrenReaped=true; no forced cleanup."
+  ],
+  "limits": [
+    "The safe diagnostic records engine frames and static code, not the original exception type or OS error code; a specific file-system/permission/concurrency cause is not established.",
+    "This is downstream of the observed completed provider/result, not proof of the old R2 pre-provider control problem recurring.",
+    "It does not establish the causes of F1 or H1, and must not be merged with them."
+  ],
+  "actions": "No rerun or implementation/test change. Preserve evidence; await user confirmation and independent review.",
+  "recordedAt": "2026-09-13T02:20:56.851305+08:00"
+}

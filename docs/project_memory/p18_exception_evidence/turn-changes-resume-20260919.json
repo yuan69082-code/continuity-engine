@@ -1,0 +1,442 @@
+{
+  "existingChanged": [
+    "README.md",
+    "docs/project_memory/01_当前状态.md",
+    "docs/project_memory/03_施工日志.md",
+    "docs/project_memory/04_决策记录.md",
+    "docs/project_memory/05_已完成模块.md",
+    "docs/project_memory/06_未完成事项.md",
+    "docs/project_memory/07_待确认事项.md",
+    "docs/project_memory/10_档案修订记录.md",
+    "docs/project_memory/83_P18_PersistentRuntime架构与开工简报.md",
+    "docs/project_memory/84_P18_规划施工测试验收矩阵.md",
+    "docs/project_memory/85_P18_持续运行控制资源等待与恢复语义.md",
+    "docs/project_memory/86_P18_测试索引与验收入口.md",
+    "docs/project_memory/CHANGELOG.md",
+    "docs/project_memory/工程总档案.md",
+    "src/continuity_engine/storage/json_repository.py",
+    "src/continuity_engine/storage/json_runtime_repository.py"
+  ],
+  "new": [
+    "docs/project_memory/p18_exception_evidence/audit.py",
+    "docs/project_memory/p18_exception_evidence/before.json",
+    "docs/project_memory/p18_exception_evidence/compatibility-final-01.json",
+    "docs/project_memory/p18_exception_evidence/compatibility-final-01.stderr.log",
+    "docs/project_memory/p18_exception_evidence/compatibility-final-01.stdout.log",
+    "docs/project_memory/p18_exception_evidence/continuation.md",
+    "docs/project_memory/p18_exception_evidence/design-and-validation.md",
+    "docs/project_memory/p18_exception_evidence/documentation-files.json",
+    "docs/project_memory/p18_exception_evidence/final-report.md",
+    "docs/project_memory/p18_exception_evidence/final.audit-resume-20260919.json",
+    "docs/project_memory/p18_exception_evidence/final.audit.json",
+    "docs/project_memory/p18_exception_evidence/final.pending-files-resume-20260919.md",
+    "docs/project_memory/p18_exception_evidence/final.pending-files.md",
+    "docs/project_memory/p18_exception_evidence/finalize.py",
+    "docs/project_memory/p18_exception_evidence/formal-after-01.json",
+    "docs/project_memory/p18_exception_evidence/formal-after-01.stderr.log",
+    "docs/project_memory/p18_exception_evidence/formal-after-01.stdout.log",
+    "docs/project_memory/p18_exception_evidence/freeze.py",
+    "docs/project_memory/p18_exception_evidence/frozen-source.json",
+    "docs/project_memory/p18_exception_evidence/full-final-01.json",
+    "docs/project_memory/p18_exception_evidence/full-final-01.stderr.log",
+    "docs/project_memory/p18_exception_evidence/full-final-01.stdout.log",
+    "docs/project_memory/p18_exception_evidence/independent-after-01.json",
+    "docs/project_memory/p18_exception_evidence/independent-after-01.stderr.log",
+    "docs/project_memory/p18_exception_evidence/independent-after-01.stdout.log",
+    "docs/project_memory/p18_exception_evidence/independent-before-01.json",
+    "docs/project_memory/p18_exception_evidence/independent-before-01.stderr.log",
+    "docs/project_memory/p18_exception_evidence/independent-before-01.stdout.log",
+    "docs/project_memory/p18_exception_evidence/independent-final-01.json",
+    "docs/project_memory/p18_exception_evidence/independent-final-01.stderr.log",
+    "docs/project_memory/p18_exception_evidence/independent-final-01.stdout.log",
+    "docs/project_memory/p18_exception_evidence/independent/identity-check.json",
+    "docs/project_memory/p18_exception_evidence/independent/independent-prior-01.after.json",
+    "docs/project_memory/p18_exception_evidence/independent/independent-prior-01.before.json",
+    "docs/project_memory/p18_exception_evidence/independent/independent-prior-01.result.json",
+    "docs/project_memory/p18_exception_evidence/independent/independent-prior-01.stderr.log",
+    "docs/project_memory/p18_exception_evidence/independent/independent-prior-01.stdout.log",
+    "docs/project_memory/p18_exception_evidence/independent/p18-original-01.after.json",
+    "docs/project_memory/p18_exception_evidence/independent/p18-original-01.before.json",
+    "docs/project_memory/p18_exception_evidence/independent/p18-original-01.result.json",
+    "docs/project_memory/p18_exception_evidence/independent/p18-original-01.stderr.log",
+    "docs/project_memory/p18_exception_evidence/independent/p18-original-01.stdout.log",
+    "docs/project_memory/p18_exception_evidence/independent/process-observation.json",
+    "docs/project_memory/p18_exception_evidence/independent/review-report.md",
+    "docs/project_memory/p18_exception_evidence/independent/run_review.py",
+    "docs/project_memory/p18_exception_evidence/independent/storage-independent-01.after.json",
+    "docs/project_memory/p18_exception_evidence/independent/storage-independent-01.before.json",
+    "docs/project_memory/p18_exception_evidence/independent/storage-independent-01.result.json",
+    "docs/project_memory/p18_exception_evidence/independent/storage-independent-01.stderr.log",
+    "docs/project_memory/p18_exception_evidence/independent/storage-independent-01.stdout.log",
+    "docs/project_memory/p18_exception_evidence/independent/test_independent_storage_final.py",
+    "docs/project_memory/p18_exception_evidence/independent/verify_evidence.py",
+    "docs/project_memory/p18_exception_evidence/matrix-test-map.json",
+    "docs/project_memory/p18_exception_evidence/p18-final-01.json",
+    "docs/project_memory/p18_exception_evidence/p18-final-01.stderr.log",
+    "docs/project_memory/p18_exception_evidence/p18-final-01.stdout.log",
+    "docs/project_memory/p18_exception_evidence/process-observation-final.json",
+    "docs/project_memory/p18_exception_evidence/process-observation-resume-20260919.json",
+    "docs/project_memory/p18_exception_evidence/resume-verification-20260919.json",
+    "docs/project_memory/p18_exception_evidence/review-scope.md",
+    "docs/project_memory/p18_exception_evidence/run.py",
+    "docs/project_memory/p18_exception_evidence/selected-runs.json",
+    "docs/project_memory/p18_exception_evidence/source-before/json_repository.py",
+    "docs/project_memory/p18_exception_evidence/source-before/json_runtime_repository.py",
+    "docs/project_memory/p18_exception_evidence/storage-compatibility-final-01.json",
+    "docs/project_memory/p18_exception_evidence/storage-compatibility-final-01.stderr.log",
+    "docs/project_memory/p18_exception_evidence/storage-compatibility-final-01.stdout.log",
+    "docs/project_memory/p18_exception_evidence/test-history.json",
+    "docs/project_memory/p18_exception_evidence/tool-observation.json",
+    "docs/project_memory/p18_exception_evidence/turn-changes-resume-20260919.json",
+    "docs/project_memory/p18_exception_evidence/turn-changes.json",
+    "docs/project_memory/p18_exception_evidence/validate_final.py",
+    "tests/test_p18_storage_exceptions.py"
+  ],
+  "hashes": {
+    "README.md": {
+      "before": "dcb213c2c4757601e7339b3c17ad1e10c9c30091dff1f25271a4d71891429e8e",
+      "after": "01f71d1b396bec144f22611f6d1ba063a94d7863d81de91f2194967913ffc062"
+    },
+    "docs/project_memory/01_当前状态.md": {
+      "before": "aaf4d7842444214e94c2fb0e72f9914d6f99c2cbd9273ea9aad71e1f0adc8144",
+      "after": "97d7ef505a2d958c17b1a3134c172dba804e134086ef463eab884efafe29819f"
+    },
+    "docs/project_memory/03_施工日志.md": {
+      "before": "d8e35756b3a7dac9b0f2051ac171ef107df5d658157c40fe5e288dc7d97aa00f",
+      "after": "f2080f6fbab4de839bbda24560c63619a04f91752ffe2d074320205e2bba469d"
+    },
+    "docs/project_memory/04_决策记录.md": {
+      "before": "33d8603edc3d64ddd82bab70f6739d680dd58d6c18a668da41703f26a198d6ca",
+      "after": "65fcff26a9ccbf39632738f52b7291369c394621b1b23fd5a12d19230c024c39"
+    },
+    "docs/project_memory/05_已完成模块.md": {
+      "before": "9f002925a30f1955b4b9b31bf93636ec4b8b32673c3e668fb1263c8610d25f33",
+      "after": "db6d33239f7ed69f9ba3f4f9938cfe95fd2f7e83edba920a0c87b2c8c604723e"
+    },
+    "docs/project_memory/06_未完成事项.md": {
+      "before": "900a23c6b93f76b3702f7f7a63d45ccbe3fb00fac119b9c9fa0512620cc97e7c",
+      "after": "c1146f990946568fe7c6a9a13d9662965e27ea7b835409f4ce9032faca3e9bf7"
+    },
+    "docs/project_memory/07_待确认事项.md": {
+      "before": "4897a2fceccc3fc1d33cbf4fa59c87ab8438f00dafc0ca3eca37a97ba83c7981",
+      "after": "70515246f9922feca606e00836170d5260b2bd752dccca32acbf282697180e70"
+    },
+    "docs/project_memory/10_档案修订记录.md": {
+      "before": "1ec7fe9b0b458a63e2604534951acfe4cb785a4094d1f857b95d35194244db71",
+      "after": "e12a41e6b93a0103f5fa3c85659ff46dcf1011ef2403ecd73644e9327597d806"
+    },
+    "docs/project_memory/83_P18_PersistentRuntime架构与开工简报.md": {
+      "before": "e8adadd2ed206f4132ee586c4943755e702459eb5bc5c33d3bc92604338de135",
+      "after": "fc99b9e1c4ffe0ff241c1f41e3439e1caa84030f256b70824df3d81111a3e516"
+    },
+    "docs/project_memory/84_P18_规划施工测试验收矩阵.md": {
+      "before": "eea5f44eeead02f4b30caf421ce59314d47697b9d323d802bce88f8a5f692a2b",
+      "after": "3eee3c26dad86793866f6c8d70daf57a8af4329b146fd561b9fdb0ece25f524b"
+    },
+    "docs/project_memory/85_P18_持续运行控制资源等待与恢复语义.md": {
+      "before": "fb53369f0ebac881e5f1d16644f62649b93045bb3ab1a2976ccd8f389c3a2428",
+      "after": "c1e264ddb512fa8c3cce05b8df15339ab2fa6ab515e4a4dc1389c4b15827e0a6"
+    },
+    "docs/project_memory/86_P18_测试索引与验收入口.md": {
+      "before": "a6f08ee07aae40abda2cae0d4a342d15eff62c7610f551ace683286c9803a832",
+      "after": "bf161507144f2007a14b3b531e833d7dd81563b6f15f56a008b24b6d5abe2104"
+    },
+    "docs/project_memory/CHANGELOG.md": {
+      "before": "95c4ca0038091562f9c5c4d6095a4e8a40d6e07a9aee4456e5ce90132ded7449",
+      "after": "0040559d759175ef85b9f8d34cbae811ce9a2bce35ea2867a5e9944b2c24f7f5"
+    },
+    "docs/project_memory/p18_exception_evidence/audit.py": {
+      "before": null,
+      "after": "754216c9c1cc050299c7b5107a0e9640ec0ae8715b775b3ed3b504e0cdd27b45"
+    },
+    "docs/project_memory/p18_exception_evidence/before.json": {
+      "before": null,
+      "after": "6d5a750f33304f77d5b6f4ce26563f76cdf403bd9b50e8bc0a2c1c365ce73183"
+    },
+    "docs/project_memory/p18_exception_evidence/compatibility-final-01.json": {
+      "before": null,
+      "after": "bcc33362f4b76764a1fbc239f9e55c378872d3f569606b3a6b51a8ee5aeea1d7"
+    },
+    "docs/project_memory/p18_exception_evidence/compatibility-final-01.stderr.log": {
+      "before": null,
+      "after": "246a6b08b97223484f5d465a1458b1e2087ac0f914eaf7713d19900c961c05e4"
+    },
+    "docs/project_memory/p18_exception_evidence/compatibility-final-01.stdout.log": {
+      "before": null,
+      "after": "12b0cbdb53bf97cae074763b2f44e725b0d7f9fb454286a76083ddb45f61493f"
+    },
+    "docs/project_memory/p18_exception_evidence/continuation.md": {
+      "before": null,
+      "after": "72b567424fbfe15f9b8548bed9e82dcdfa7ca1268f784db2a3a5dbb17d922961"
+    },
+    "docs/project_memory/p18_exception_evidence/design-and-validation.md": {
+      "before": null,
+      "after": "5dcebf27c034d2a6e2876ced1b8f69163938710b3982d8b878366acdbb200eba"
+    },
+    "docs/project_memory/p18_exception_evidence/documentation-files.json": {
+      "before": null,
+      "after": "b0eac896405eb0fe098b29c630076c08bba521389e24981445c0a6e91d7dcd01"
+    },
+    "docs/project_memory/p18_exception_evidence/final-report.md": {
+      "before": null,
+      "after": "19fdcc5eb37f3fd345bc35ad610713c0a0d558fab2992ae5ab843a56b2e6c2db"
+    },
+    "docs/project_memory/p18_exception_evidence/final.audit.json": {
+      "before": null,
+      "after": "1dd441994636bb8c399e766fa91a5dfcc7ec276c00609cff412925d384c21068"
+    },
+    "docs/project_memory/p18_exception_evidence/final.pending-files.md": {
+      "before": null,
+      "after": "89f99cb4e23adb6bb57c72a9cfe0b8fa465c7bae7a79895ff894c4930ee93a77"
+    },
+    "docs/project_memory/p18_exception_evidence/finalize.py": {
+      "before": null,
+      "after": "efd7940eb812fc44d29ed8cdeef63a984634e501cabb45acca826e2a40bf6300"
+    },
+    "docs/project_memory/p18_exception_evidence/formal-after-01.json": {
+      "before": null,
+      "after": "0a9a35cbcdfa7de628128fec671907f797a7d9aad7bf72bb964a114954e151d1"
+    },
+    "docs/project_memory/p18_exception_evidence/formal-after-01.stderr.log": {
+      "before": null,
+      "after": "a058be371f5bb0756e0a24a9cc32b264706e47a2ae7655d460e6629f45933101"
+    },
+    "docs/project_memory/p18_exception_evidence/formal-after-01.stdout.log": {
+      "before": null,
+      "after": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/project_memory/p18_exception_evidence/freeze.py": {
+      "before": null,
+      "after": "45d09975bb17a1c84aaabd6160d1ab00e7c31eda86bda532f98c30a38ef2d354"
+    },
+    "docs/project_memory/p18_exception_evidence/frozen-source.json": {
+      "before": null,
+      "after": "c8218f42142040a6b756eed704c0d6ae6806544d21a0ee7f5b4e5779ef43bfec"
+    },
+    "docs/project_memory/p18_exception_evidence/full-final-01.json": {
+      "before": null,
+      "after": "906587f8439f5d66fa6190d1ea80193cb1838a2475011027e222778233496c6c"
+    },
+    "docs/project_memory/p18_exception_evidence/full-final-01.stderr.log": {
+      "before": null,
+      "after": "39360e223365ff4b91c80dd203c5e9a7a45ca29450defb6203961855a91c926b"
+    },
+    "docs/project_memory/p18_exception_evidence/full-final-01.stdout.log": {
+      "before": null,
+      "after": "10ed0394f09e80a9f633bb4609d40ac1aa2b44bd8238d2dbc82996aa0e7fcc33"
+    },
+    "docs/project_memory/p18_exception_evidence/independent-after-01.json": {
+      "before": null,
+      "after": "a0fc8f3ea980b2f3bfca05678aa1cd5d2841aa649995ee97f258e1c2d9ddb3b8"
+    },
+    "docs/project_memory/p18_exception_evidence/independent-after-01.stderr.log": {
+      "before": null,
+      "after": "248a8f58577c498ffa3570b64002235ebae098041a4592c7169ab2e61a088758"
+    },
+    "docs/project_memory/p18_exception_evidence/independent-after-01.stdout.log": {
+      "before": null,
+      "after": "554998b409f1a7dface0f89fbe39a767baf85dc92aac0b79523965254952b44c"
+    },
+    "docs/project_memory/p18_exception_evidence/independent-before-01.json": {
+      "before": null,
+      "after": "31289939527aeb3fbca8e2d040a0bb729865a444ab6b4f13fd2b0a9bbbd2f29e"
+    },
+    "docs/project_memory/p18_exception_evidence/independent-before-01.stderr.log": {
+      "before": null,
+      "after": "ce6973610984896ef5412e70fbb3e978e48f3afcc536c30d50d3d683eb5c65e6"
+    },
+    "docs/project_memory/p18_exception_evidence/independent-before-01.stdout.log": {
+      "before": null,
+      "after": "d9571f44003c5ea01bcbc766d87d3dda327711f4335587afacb5eddf852e3f36"
+    },
+    "docs/project_memory/p18_exception_evidence/independent-final-01.json": {
+      "before": null,
+      "after": "a1e8913785a08026017942fa6fc6ce4826e7c5fa4fd92c73ba44ed42edcc78a4"
+    },
+    "docs/project_memory/p18_exception_evidence/independent-final-01.stderr.log": {
+      "before": null,
+      "after": "1b0309da8e8ab62ba7fef94bc9a9ef5ff099c0119731594c97625e79aa3cc0c7"
+    },
+    "docs/project_memory/p18_exception_evidence/independent-final-01.stdout.log": {
+      "before": null,
+      "after": "ebf3f6258677d93e8e17bee313acd02ecd8dba665a844b9c2fd781f207688077"
+    },
+    "docs/project_memory/p18_exception_evidence/independent/identity-check.json": {
+      "before": null,
+      "after": "3a7514a219a66105f14f0135c17639867141aff0c311d6621134d9a32701bfd3"
+    },
+    "docs/project_memory/p18_exception_evidence/independent/independent-prior-01.after.json": {
+      "before": null,
+      "after": "5b35cade3f3084b7bd5f250da0d8eff9b04e28048a97979f77c7f39a80407274"
+    },
+    "docs/project_memory/p18_exception_evidence/independent/independent-prior-01.before.json": {
+      "before": null,
+      "after": "5b35cade3f3084b7bd5f250da0d8eff9b04e28048a97979f77c7f39a80407274"
+    },
+    "docs/project_memory/p18_exception_evidence/independent/independent-prior-01.result.json": {
+      "before": null,
+      "after": "3090e35c21c93be490faef3906ab3c1ea6efe840988e601c3dae7718fce5ccb8"
+    },
+    "docs/project_memory/p18_exception_evidence/independent/independent-prior-01.stderr.log": {
+      "before": null,
+      "after": "08eb433a811f38f1dda604cce41d166a5c95069110753706a9db88d1c91fedba"
+    },
+    "docs/project_memory/p18_exception_evidence/independent/independent-prior-01.stdout.log": {
+      "before": null,
+      "after": "b5ce7c0d5b5540570c38b20ecde0edea3b280eca3ed844418193b3e6073225fa"
+    },
+    "docs/project_memory/p18_exception_evidence/independent/p18-original-01.after.json": {
+      "before": null,
+      "after": "5b35cade3f3084b7bd5f250da0d8eff9b04e28048a97979f77c7f39a80407274"
+    },
+    "docs/project_memory/p18_exception_evidence/independent/p18-original-01.before.json": {
+      "before": null,
+      "after": "5b35cade3f3084b7bd5f250da0d8eff9b04e28048a97979f77c7f39a80407274"
+    },
+    "docs/project_memory/p18_exception_evidence/independent/p18-original-01.result.json": {
+      "before": null,
+      "after": "1e857734f60ce105141a8048add381bfc7fbb6c1cace6d2fe0af83c18862b903"
+    },
+    "docs/project_memory/p18_exception_evidence/independent/p18-original-01.stderr.log": {
+      "before": null,
+      "after": "1f7a1843bbf3b12a0238a1d1af2afad4dd1842efaebe6cd026d4986c0b609f69"
+    },
+    "docs/project_memory/p18_exception_evidence/independent/p18-original-01.stdout.log": {
+      "before": null,
+      "after": "ecb2dcfd32540fff444ba051ab5739e76fcf4b094b88287d2dcd80e2bef26180"
+    },
+    "docs/project_memory/p18_exception_evidence/independent/process-observation.json": {
+      "before": null,
+      "after": "d3d26ab0742bacfb9b068a57ec9665832e47c362dd27a648715356e26803aba4"
+    },
+    "docs/project_memory/p18_exception_evidence/independent/review-report.md": {
+      "before": null,
+      "after": "fda62122023ebc2aa282c5de9e4243ad8e7f114a26040a387f6716b3d8a1fb70"
+    },
+    "docs/project_memory/p18_exception_evidence/independent/run_review.py": {
+      "before": null,
+      "after": "40cad93cf14a29fc4af2332573f9deda485a468c04836481607c15811bb5e232"
+    },
+    "docs/project_memory/p18_exception_evidence/independent/storage-independent-01.after.json": {
+      "before": null,
+      "after": "5b35cade3f3084b7bd5f250da0d8eff9b04e28048a97979f77c7f39a80407274"
+    },
+    "docs/project_memory/p18_exception_evidence/independent/storage-independent-01.before.json": {
+      "before": null,
+      "after": "5b35cade3f3084b7bd5f250da0d8eff9b04e28048a97979f77c7f39a80407274"
+    },
+    "docs/project_memory/p18_exception_evidence/independent/storage-independent-01.result.json": {
+      "before": null,
+      "after": "76e5b4dd6b0e93f063cb16628a6dd0643279a20bf03355695a4d9b6df8387c8b"
+    },
+    "docs/project_memory/p18_exception_evidence/independent/storage-independent-01.stderr.log": {
+      "before": null,
+      "after": "1b0104d06d419531961d30b116fa9def4b4a01be011a8a638a7be17436a88ec6"
+    },
+    "docs/project_memory/p18_exception_evidence/independent/storage-independent-01.stdout.log": {
+      "before": null,
+      "after": "6756ee19ed620292fe1530fcd7b9f9333fdda8576f061f96ee2d5a4ff5b370e1"
+    },
+    "docs/project_memory/p18_exception_evidence/independent/test_independent_storage_final.py": {
+      "before": null,
+      "after": "133880ea7a3b04b26ef71b6c7c9b958fa1066cabfb83469117b83dc1ec904446"
+    },
+    "docs/project_memory/p18_exception_evidence/independent/verify_evidence.py": {
+      "before": null,
+      "after": "83c0a047951cd2b3f53338cbfbbb71ca68661c53dcf8d31a639b0f07fedf7e5c"
+    },
+    "docs/project_memory/p18_exception_evidence/matrix-test-map.json": {
+      "before": null,
+      "after": "717d5fbf25bfd9b46194af54a5f5e1865fb65b73752065dd29758597cde54428"
+    },
+    "docs/project_memory/p18_exception_evidence/p18-final-01.json": {
+      "before": null,
+      "after": "266abacb8ce01f05348bafdb8844e5866d6375256cfdd10a3e62621f367f8c2f"
+    },
+    "docs/project_memory/p18_exception_evidence/p18-final-01.stderr.log": {
+      "before": null,
+      "after": "7ea91e9bb44b27142d762a81afb86cad80e159fd3829ace6a9cdd1f523d08aba"
+    },
+    "docs/project_memory/p18_exception_evidence/p18-final-01.stdout.log": {
+      "before": null,
+      "after": "ca7fe9945ac6e4eb844de233ff0de5702603b80c28815430bc963f93b6c173c0"
+    },
+    "docs/project_memory/p18_exception_evidence/process-observation-final.json": {
+      "before": null,
+      "after": "15b6a6faad07a003924a2e403e1f468645538530816c0589ef9887d8b79ce2df"
+    },
+    "docs/project_memory/p18_exception_evidence/process-observation-resume-20260919.json": {
+      "before": null,
+      "after": "03eaaa8e429721ef5ba1bef6759ffae676c3609ca7bd27869e6dcc39d1631bed"
+    },
+    "docs/project_memory/p18_exception_evidence/resume-verification-20260919.json": {
+      "before": null,
+      "after": "a0497a636de8d12ec8dab2e5fad3cee4440760378709b16f2d567f21b9f007ef"
+    },
+    "docs/project_memory/p18_exception_evidence/review-scope.md": {
+      "before": null,
+      "after": "99b06020fa913c7a3f8a886a131841edc85872fd442d7d36e3455f709e2eb221"
+    },
+    "docs/project_memory/p18_exception_evidence/run.py": {
+      "before": null,
+      "after": "3d45efb38dfeac902fa6af10768819a3b37184cdb36ebbacbda13b0dbd8d75ad"
+    },
+    "docs/project_memory/p18_exception_evidence/selected-runs.json": {
+      "before": null,
+      "after": "d79b70b5e7bd7661251aa69d98ffa78320b624ab73aa2da66acc0e6ee3a64f91"
+    },
+    "docs/project_memory/p18_exception_evidence/source-before/json_repository.py": {
+      "before": null,
+      "after": "a690a30ccb69a99d74d3db95330fd66ae01102ec93dd1f30e2128531c6ecd0ae"
+    },
+    "docs/project_memory/p18_exception_evidence/source-before/json_runtime_repository.py": {
+      "before": null,
+      "after": "07de845cbe14b284dac93e4059a074435a2dcbe4511f10f657c6355bd0a27acc"
+    },
+    "docs/project_memory/p18_exception_evidence/storage-compatibility-final-01.json": {
+      "before": null,
+      "after": "366b0d7e91a4840a6f5d8152224bec83e9656827e828a9c25f1ad2e55f7fbefe"
+    },
+    "docs/project_memory/p18_exception_evidence/storage-compatibility-final-01.stderr.log": {
+      "before": null,
+      "after": "fa9d4dacf2b67589327da7b16d15cee05130cb39656562df514926a1bcb5f580"
+    },
+    "docs/project_memory/p18_exception_evidence/storage-compatibility-final-01.stdout.log": {
+      "before": null,
+      "after": "3b75251bb768c3b8b8cecd563687c497438fabc0dd787c9a506f7cc9012e18d5"
+    },
+    "docs/project_memory/p18_exception_evidence/test-history.json": {
+      "before": null,
+      "after": "3ba1649d79bc715095ed2b81a5c864f0184130af4b04cf7062c7301e436b9d9a"
+    },
+    "docs/project_memory/p18_exception_evidence/tool-observation.json": {
+      "before": null,
+      "after": "23d8a29f9ff4c11c925c22e4775291bd20c193dbd9ac56363cf1efbbc551d41c"
+    },
+    "docs/project_memory/p18_exception_evidence/turn-changes.json": {
+      "before": null,
+      "after": "ad9d32ec426559c05bfee8c20cf040f688c5b3f29c6f504874f81fcb5e0dd24c"
+    },
+    "docs/project_memory/p18_exception_evidence/validate_final.py": {
+      "before": null,
+      "after": "b129ed94288f1b181c0ed068dc9ba0ebfe88e83a1be0948153bc957cc28cd81d"
+    },
+    "docs/project_memory/工程总档案.md": {
+      "before": "40c73d08f7bded65ff109a95c22e576f86dc3c6e962eab97a17521a5b39c9fc6",
+      "after": "34bab38a35c68399968fd3d07f53e7f089c94ed6aaa71cfc68515ad7a60f65cf"
+    },
+    "src/continuity_engine/storage/json_repository.py": {
+      "before": "a690a30ccb69a99d74d3db95330fd66ae01102ec93dd1f30e2128531c6ecd0ae",
+      "after": "539cbf95173400d5521409c6f90ec73fbd13ec90ab1bd8871e4aa0ae939ccb66"
+    },
+    "src/continuity_engine/storage/json_runtime_repository.py": {
+      "before": "07de845cbe14b284dac93e4059a074435a2dcbe4511f10f657c6355bd0a27acc",
+      "after": "0c97d84f0b163a5ddbbc8c37ecfac128354d32590ec3ba913035ecb093a349ee"
+    },
+    "tests/test_p18_storage_exceptions.py": {
+      "before": null,
+      "after": "f6f0acb4e7509ff3d4e4e983cbcd04f95a4e9c40929f9cadb4471772871ca8bf"
+    }
+  },
+  "generatedManifestSelfHashes": "Latest audit excludes its own hash; all paths still listed."
+}

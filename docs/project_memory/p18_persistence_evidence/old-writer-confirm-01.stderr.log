@@ -1,0 +1,25 @@
+test_actual_repository_reader_does_not_prevent_atomic_transition (old_writer_probe.OldWriterEvidence.test_actual_repository_reader_does_not_prevent_atomic_transition) ... FAIL
+test_real_reader_blocks_no_new_effect_or_revision_after_release (old_writer_probe.OldWriterEvidence.test_real_reader_blocks_no_new_effect_or_revision_after_release) ... FAIL
+
+======================================================================
+FAIL: test_actual_repository_reader_does_not_prevent_atomic_transition (old_writer_probe.OldWriterEvidence.test_actual_repository_reader_does_not_prevent_atomic_transition)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p18_persistence.py", line 174, in test_actual_repository_reader_does_not_prevent_atomic_transition
+    self.assertIsNone(failure,'real repository reader blocked atomic state replacement')
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'type': 'PermissionError', 'errno': 13, 'winerror': 5} is not None : real repository reader blocked atomic state replacement
+
+======================================================================
+FAIL: test_real_reader_blocks_no_new_effect_or_revision_after_release (old_writer_probe.OldWriterEvidence.test_real_reader_blocks_no_new_effect_or_revision_after_release)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p18_persistence.py", line 136, in test_real_reader_blocks_no_new_effect_or_revision_after_release
+    self.assertEqual(held_revision,2,'released short reader must permit original Evolution replacement')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 2 : released short reader must permit original Evolution replacement
+
+----------------------------------------------------------------------
+Ran 2 tests in 2.396s
+
+FAILED (failures=2)

@@ -1,0 +1,9 @@
+test_subject_acl (test_native_access.NativeAccessTests.test_subject_acl) ... ok
+test_runtime_acl (test_native_access.NativeAccessTests.test_runtime_acl) ... ok
+test_subject_readonly (test_native_access.NativeAccessTests.test_subject_readonly) ... ok
+test_runtime_readonly (test_native_access.NativeAccessTests.test_runtime_readonly) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.143s
+
+OK

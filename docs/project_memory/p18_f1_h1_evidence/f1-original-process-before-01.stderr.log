@@ -1,0 +1,18 @@
+test_idle_and_subject_silence_do_not_end_process (test_process_hypotheses.OriginalFlowWithReadOverlap.test_idle_and_subject_silence_do_not_end_process) ... FAIL
+
+======================================================================
+FAIL: test_idle_and_subject_silence_do_not_end_process (test_process_hypotheses.OriginalFlowWithReadOverlap.test_idle_and_subject_silence_do_not_end_process)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p18_runtime_process.py", line 172, in test_idle_and_subject_silence_do_not_end_process
+    f.advance(60);self.until(lambda:f.state.revision>revision,process=p)
+                  ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p18_runtime_process.py", line 107, in until
+    self.fail('bounded test controller timed out')
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: bounded test controller timed out
+
+----------------------------------------------------------------------
+Ran 1 test in 33.431s
+
+FAILED (failures=1)

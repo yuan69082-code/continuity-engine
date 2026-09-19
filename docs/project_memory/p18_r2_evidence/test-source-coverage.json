@@ -1,0 +1,626 @@
+[
+  {
+    "label": "budget-control-before-01",
+    "status": "FINISHED",
+    "command": [
+      "E:\\Adobe\\python.exe",
+      "docs/project_memory/p18_r2_evidence/run.py",
+      "budget-control-before-01",
+      "test_p18_runtime_resume.RuntimeResumeTests.test_control_deferral_inside_budget_port"
+    ],
+    "run": 1,
+    "passed": 0,
+    "skips": [],
+    "failures": [
+      [
+        "test_p18_runtime_resume.RuntimeResumeTests.test_control_deferral_inside_budget_port_does_not_create_failed_session",
+        "Traceback (most recent call last):\n  File \"C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p18_runtime_resume.py\", line 385, in test_control_deferral_inside_budget_port_does_not_create_failed_session\n    self.assertEqual(f.work.thinking.get_sessions(f.state.subject_id), [])\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Lists differ: [ThinkSession(think_id='d2846680-70af-590f[51684 chars]one)] != []\n\nFirst list contains 1 additional elements.\nFirst extra element 0:\nThinkSession(think_id='d2846680-70af-590f-967c-181a9a11c65b', wake_session_id='0ed5d58f-cc9c-57b4-ae69-fddb3efe546e', subject_id='sub-6fc3e96264214bd6', provider_id='p18-native-test-thinking-v1', started_at=datetime.datetime(2026, 9, 4, 9, 1, tzinfo=datetime.timezone.utc), thinking_reason=\"Perception identified information requiring internal thought: Attention remains centered on continuity. There is no prior interaction point from which to interpret the present interval. The relationship has changed, but the available structured evidence does not establish closer or farther. The experience 'First-round deterministic continuity context.' has returned to attention; This experience is present because it is relevant to continuity. The memory overlaps the requested state scope. The provider relevance score meets the request threshold. Recent state evolution remains perceptible. A tendency exists to continue attending to continuity.\", token_budget=TokenBudget(maximum_tokens=0, remaining_tokens=0, session_tokens=0, depth=<ThinkingDepth.LOW: 'LOW'>), observation=ThinkingObservationLog(wake_context_id='a873a7ea-c767-44d2-b0a4-07cfed60479a', state_revision=1, event_ids=['p01-fixture-event-18c00d23978d4c0c'], update_ids=['56c07628-1c04-4d9b-9b6a-66ca68a94f32'], viewed_memory_ids=['first-round-memory-001'], selected_memory_ids=['first-round-memory-001'], perception_id='628c931e-f12f-54c3-ac6b-4d3a457061c4', perception_summary=\"Attention remains centered on continuity. There is no prior interaction point from which to interpret the present interval. The relationship has changed, but the available structured evidence does not establish closer or farther. The experience 'First-round deterministic continuity context.' has returned to attention; This experience is present because it is relevant to continuity. The memory overlaps the requested state scope. The provider relevance score meets the request threshold. Recent state evolution remains perceptible. A tendency exists to continue attending to continuity.\", thinking_context_id=None, perceived_external_fact_ids=[], continuity_context_hash='sha256:d15e0dc3f1fd1471ca9243bb5dca21d5a55b70228d5aef8b27eabe1e8747ef06'), ended_at=datetime.datetime(2026, 9, 4, 9, 1, tzinfo=datetime.timezone.utc), actual_token_consumption=None, result=ThinkingResult(result_id='8c022e54-c40f-59a4-b316-ea7f3afddc43', provider_id='p18-native-test-thinking-v1', result_summary='Thinking could not start because no usable token budget was allocated.', rationale_summary='The framework recorded a failure summary; no chain-of-thought was stored.', generated_new_thought=False, update_subject_state=False, request_more_memory=False, should_wait=True, suggest_future_user_contact=False, token_budget=TokenBudget(maximum_tokens=0, remaining_tokens=0, session_tokens=0, depth=<ThinkingDepth.LOW: 'LOW'>), proposed_mutations=[], additional_memory_query=None, suggest_tool_use=False, tool_target=None, request_more_thinking=False, expression_mode=None), completed_successfully=False, state_written_back=False, state_event_id=None, state_update_id=None, error='RUNTIME_CONTROL_PAUSED_OR_STOPPED', perception_snapshot=PerceptionResult(perception_id='628c931e-f12f-54c3-ac6b-4d3a457061c4', subject_id='sub-6fc3e96264214bd6', source_revision=1, wake_session_id='0ed5d58f-cc9c-57b4-ae69-fddb3efe546e', wake_context_id='a873a7ea-c767-44d2-b0a4-07cfed60479a', perceived_at=datetime.datetime(2026, 9, 4, 9, 1, tzinfo=datetime.timezone.utc), current_focus=CurrentFocus(topics=['continuity'], unfinished_items=[], summary='Attention remains centered on continuity.'), temporal_perception=TemporalPerception(last_interaction_meaning=<TemporalMeaning.UNKNOWN: 'UNKNOWN'>, interaction_frequency_trend=<InteractionFrequencyTrend.UNKNOWN: 'UNKNOWN'>, long_silence=False, approaching_important_dates=[], meaning='There is no prior interaction point from which to interpret the present interval.'), relationship_perception=RelationshipPerception(direction=<RelationshipDirection.CHANGED: 'CHANGED'>, unfinished_exchange=False, sustained_topics=['continuity'], waiting_signal=False, observations=['Recent state evolution includes a relationship change.', 'A topic continues to hold attention across the current state.'], summary='The relationship has changed, but the available structured evidence does not establish closer or farther.'), memory_influence=MemoryInfluence(impacts=[MemoryImpact(memory_id='first-round-memory-001', recalled_experience='First-round deterministic continuity context.', affected_scopes=['continuity'], influence_reason='This experience is present because it is relevant to continuity. The memory overlaps the requested state scope. The provider relevance score meets the request threshold.', relevance_score=1.0)], summary=\"The experience 'First-round deterministic continuity context.' has returned to attention; This experience is present because it is relevant to continuity. The memory overlaps the requested state scope. The provider relevance score meets the request threshold.\"), observation=Observation(state_stability=<StateStability.CHANGED: 'CHANGED'>, major_change=True, needs_more_information=False, conflicts=[], notes=['The subject state has recent substantive changes.', 'At least one change crosses a major identity or relationship boundary.']), internal_drives=[Drive(kind=<DriveKind.CONTINUE_TOPIC: 'CONTINUE_TOPIC'>, tendency='A tendency exists to continue attending to continuity.', source='current_focus', strength=<DriveStrength.NORMAL: 'NORMAL'>), Drive(kind=<DriveKind.INTEGRATE_MEMORY: 'INTEGRATE_MEMORY'>, tendency='A tendency exists to integrate the recalled experience into later thinking.', source='memory_influence', strength=<DriveStrength.NORMAL: 'NORMAL'>)], summary=\"Attention remains centered on continuity. There is no prior interaction point from which to interpret the present interval. The relationship has changed, but the available structured evidence does not establish closer or farther. The experience 'First-round deterministic continuity context.' has returned to attention; This experience is present because it is relevant to continuity. The memory overlaps the requested state scope. The provider relevance score meets the request threshold. Recent state evolution remains perceptible. A tendency exists to continue attending to continuity.\", recent_event_ids=['p01-fixture-event-18c00d23978d4c0c'], recent_update_ids=['56c07628-1c04-4d9b-9b6a-66ca68a94f32'], viewed_memory_ids=['first-round-memory-001'], selected_memory_ids=['first-round-memory-001'], memory_request_id='322e207d-6a36-4c52-9db7-48bc20da8b61', external_facts=(), continuity_context=ContinuityCoreContext(perception_hash='sha256:fefc171da03e865a0708875e740cd3fa6f808b05b3e5bd4c02534aa454c9ac02', route=ContextRouteResult(plan=RoutePlan(request=ContextRoutingRequest(request_id='native:0ed5d58f-cc9c-57b4-ae69-fddb3efe546e', perception_id='628c931e-f12f-54c3-ac6b-4d3a457061c4', subject_id='sub-6fc3e96264214bd6', environment='TEST', source_revision=1, routed_at=datetime.datetime(2026, 9, 4, 9, 1, tzinfo=datetime.timezone.utc), purpose=('continuity', 'fact', 'internal_drive', 'memory', 'relationship', 'subject_state', 'topic'), budget=RetrievalBudget(total_candidate_limit=50, per_source_limits=(), context_budget_hint=None)), signals=(RoutingSignal(signal_id='signal:628c931e-f12f-54c3-ac6b-4d3a457061c4:1', signal_kind='focus', value_hash='sha256:e98857d5a7898b0b326d0da4f6ef99b718bc6544a5c7e6af948be6719eb59f88', weight=0.9), RoutingSignal(signal_id='signal:628c931e-f12f-54c3-ac6b-4d3a457061c4:2', signal_kind='relationship', value_hash='sha256:6d0b8ffe8fe66f50d167ea17fd6ff3b092ad89507b177f86b4441682498b275b', weight=1.0), RoutingSignal(signal_id='signal:628c931e-f12f-54c3-ac6b-4d3a457061c4:3', signal_kind='memory', value_hash='sha256:b6b513941b91258ad449b5250f49512120ae806030662c083581bf27417fb7e9', weight=0.9), RoutingSignal(signal_id='signal:628c931e-f12f-54c3-ac6b-4d3a457061c4:4', signal_kind='fact', value_hash='sha256:c0b33d875f3a029bfdd634cec30cdce862ac4deb5cfe2922ec98a98e4f449ee1', weight=0.8), RoutingSignal(signal_id='signal:628c931e-f12f-54c3-ac6b-4d3a457061c4:5', signal_kind='internal_drive', value_hash='sha256:1079f1a47d48f2620f55420b7f8875708d500b42df7a457c5cf787f097a2cc24', weight=0.7), RoutingSignal(signal_id='signal:628c931e-f12f-54c3-ac6b-4d3a457061c4:mind', signal_kind='internal_drive', value_hash='sha256:1d8a43eadcdad039cce1910b8cd860b455027bee9411755d0060b08463283182', weight=0.9771718045)), partitions=(ContextPartitionRequest(partition=<ContextPartition.SUBJECT_STATE: 'subject_state'>, required=True, source_ids=('engine.subject-state',), candidate_limit=10, reason_code='REQUIRED_PARTITION_SELECTED', selected=True), ContextPartitionRequest(partition=<ContextPartition.MEMORY: 'memory'>, required=False, source_ids=('engine.execution-results', 'engine.memory'), candidate_limit=20, reason_code='PURPOSE_SELECTED', selected=True), ContextPartitionRequest(partition=<ContextPartition.DERIVED_SUMMARY: 'derived_summary'>, required=False, source_ids=('engine.derived-summary',), candidate_limit=10, reason_code='PURPOSE_SELECTED', selected=True), ContextPartitionRequest(partition=<ContextPartition.TIMELINE: 'timeline'>, required=False, source_ids=('engine.timeline',), candidate_limit=10, reason_code='PURPOSE_SELECTED', selected=True), ContextPartitionRequest(partition=<ContextPartition.LOCAL_FACT: 'local_fact'>, required=False, source_ids=(), candidate_limit=0, reason_code='SOURCE_NOT_CONFIGURED', selected=True), ContextPartitionRequest(partition=<ContextPartition.ATTENTION: 'attention'>, required=False, source_ids=(), candidate_limit=0, reason_code='PURPOSE_NOT_SELECTED', selected=False), ContextPartitionRequest(partition=<ContextPartition.DESIRE: 'desire'>, required=False, source_ids=(), candidate_limit=0, reason_code='PURPOSE_NOT_SELECTED', selected=False), ContextPartitionRequest(partition=<ContextPartition.CONFLICT: 'conflict'>, required=False, source_ids=(), candidate_limit=0, reason_code='PURPOSE_NOT_SELECTED', selected=False), ContextPartitionRequest(partition=<ContextPartition.SOMATIC: 'somatic'>, required=False, source_ids=(), candidate_limit=0, reason_code='PURPOSE_NOT_SELECTED', selected=False), ContextPartitionRequest(partition=<ContextPartition.EXPRESSION: 'expression'>, required=False, source_ids=(), candidate_limit=0, reason_code='PURPOSE_NOT_SELECTED', selected=False)), feature_gate_version='p05-context-router-v1'), manifest=CandidateManifest(request_id='native:0ed5d58f-cc9c-57b4-ae69-fddb3efe546e', route_plan_hash='sha256:d769881f9bb4e1001a5c4a20ff2184e5ff0097aeb0de7cb3de64f48ba6d36ec0', candidates=(ContextCandidateReference(source_id='engine.subject-state', partition=<ContextPartition.SUBJECT_STATE: 'subject_state'>, stable_id='sub-6fc3e96264214bd6:relationship', subject_id='sub-6fc3e96264214bd6', environment='TEST', version='revision:1', content_hash='sha256:679b951babe86c25aba0a2a691639426fe3ef8f65624828de92a9cd990da6826', authority_label='SUBJECT_STATE_PARTITION', rank=1, score=0.999977, occurred_at=datetime.datetime(2026, 9, 4, 8, 0, tzinfo=datetime.timezone.utc), explanation_codes=('PURPOSE_RELEVANCE', 'RECENCY', 'IMPORTANCE', 'ACTIVATION', 'STABLE_TIE_BREAK')), ContextCandidateReference(source_id='engine.subject-state', partition=<ContextPartition.SUBJECT_STATE: 'subject_state'>, stable_id='sub-6fc3e96264214bd6:continuity', subject_id='sub-6fc3e96264214bd6', environment='TEST', version='revision:1', content_hash='sha256:9fc7dcdb5db93fab5c77a4fb7b266f39d022a53463338c2c84fc7a87d1f18adb', authority_label='SUBJECT_STATE_PARTITION', rank=2, score=0.894977, occurred_at=datetime.datetime(2026, 9, 4, 8, 0, tzinfo=datetime.timezone.utc), explanation_codes=('PURPOSE_RELEVANCE', 'RECENCY', 'IMPORTANCE', 'ACTIVATION', 'STABLE_TIE_BREAK')), ContextCandidateReference(source_id='engine.subject-state', partition=<ContextPartition.SUBJECT_STATE: 'subject_state'>, stable_id='sub-6fc3e96264214bd6:identity', subject_id='sub-6fc3e96264214bd6', environment='TEST', version='revision:1', content_hash='sha256:1842e52dac172ee2c9f1dd1a92f7e2cd5b8dad135789625db4c658cc808a0220', authority_label='SUBJECT_STATE_PARTITION', rank=3, score=0.864977, occurred_at=datetime.datetime(2026, 9, 4, 8, 0, tzinfo=datetime.timezone.utc), explanation_codes=('PURPOSE_RELEVANCE', 'RECENCY', 'IMPORTANCE', 'ACTIVATION', 'STABLE_TIE_BREAK')), ContextCandidateReference(source_id='engine.subject-state', partition=<ContextPartition.SUBJECT_STATE: 'subject_state'>, stable_id='sub-6fc3e96264214bd6:intentions', subject_id='sub-6fc3e96264214bd6', environment='TEST', version='revision:1', content_hash='sha256:033d2e376f850579c7c443ccfffe4a054af03763f6b9c961f213870892d8b9fc', authority_label='SUBJECT_STATE_PARTITION', rank=4, score=0.849977, occurred_at=datetime.datetime(2026, 9, 4, 8, 0, tzinfo=datetime.timezone.utc), explanation_codes=('PURPOSE_RELEVANCE', 'RECENCY', 'IMPORTANCE', 'ACTIVATION', 'STABLE_TIE_BREAK')), ContextCandidateReference(source_id='engine.subject-state', partition=<ContextPartition.SUBJECT_STATE: 'subject_state'>, stable_id='sub-6fc3e96264214bd6:emotion_state', subject_id='sub-6fc3e96264214bd6', environment='TEST', version='revision:1', content_hash='sha256:83f76d7bbaf86d0ae22f5c1cc53c06e21e6107f87a8064f4c518d2d9ccec9fe8', authority_label='SUBJECT_STATE_PARTITION', rank=5, score=0.804977, occurred_at=datetime.datetime(2026, 9, 4, 8, 0, tzinfo=datetime.timezone.utc), explanation_codes=('PURPOSE_RELEVANCE', 'RECENCY', 'IMPORTANCE', 'ACTIVATION', 'STABLE_TIE_BREAK')), ContextCandidateReference(source_id='engine.timeline', partition=<ContextPartition.TIMELINE: 'timeline'>, stable_id='p01-fixture-event-18c00d23978d4c0c', subject_id='sub-6fc3e96264214bd6', environment='TEST', version='update:56c07628-1c04-4d9b-9b6a-66ca68a94f32', content_hash='sha256:e467a0f1f46b419be23989a042d6fef422f3e2aa3ff6131d46795583135f361d', authority_label='TIMELINE_EVENT_PROJECTION', rank=6, score=0.704977, occurred_at=datetime.datetime(2026, 9, 4, 8, 0, tzinfo=datetime.timezone.utc), explanation_codes=('PURPOSE_RELEVANCE', 'RECENCY', 'IMPORTANCE', 'ACTIVATION', 'STABLE_TIE_BREAK')), ContextCandidateReference(source_id='engine.memory', partition=<ContextPartition.MEMORY: 'memory'>, stable_id='memory:p01-fixture-event-18c00d23978d4c0c', subject_id='sub-6fc3e96264214bd6', environment='TEST', version='revision:0', content_hash='sha256:d147896dc86eab8a3f308ffe3cbb77aee5ea71cb2bee9e9eee2dec7ec64a09f9', authority_label='MEMORY_RECORD', rank=7, score=0.651477, occurred_at=datetime.datetime(2026, 9, 4, 8, 0, tzinfo=datetime.timezone.utc), explanation_codes=('PURPOSE_RELEVANCE', 'RECENCY', 'IMPORTANCE', 'ACTIVATION', 'STABLE_TIE_BREAK'))), manifest_hash='sha256:a669fce376febf5c26a3baee9d466d4b161b152b1568b0db942ae7f73a1ce197'), trace=ContextTrace(trace_id='trace:native:0ed5d58f-cc9c-57b4-ae69-fddb3efe546e', request_id='native:0ed5d58f-cc9c-57b4-ae69-fddb3efe546e', perception_id='628c931e-f12f-54c3-ac6b-4d3a457061c4', subject_id='sub-6fc3e96264214bd6', source_revision=1, routed_at=datetime.datetime(2026, 9, 4, 9, 1, tzinfo=datetime.timezone.utc), purpose=('continuity', 'fact', 'internal_drive', 'memory', 'relationship', 'subject_state', 'topic'), route_plan_hash='sha256:d769881f9bb4e1001a5c4a20ff2184e5ff0097aeb0de7cb3de64f48ba6d36ec0', manifest_hash='sha256:a669fce376febf5c26a3baee9d466d4b161b152b1568b0db942ae7f73a1ce197', route_status=<ContextRouteStatus.COMPLETE: 'COMPLETE'>, feature_gate_version='p05-context-router-v1', partition_traces=(PartitionTrace(partition=<ContextPartition.SUBJECT_STATE: 'subject_state'>, status=<PartitionDecisionStatus.OPENED: 'OPENED'>, reason_code='BOUNDED_READ_COMPLETE', requested_limit=10, source_ids=('engine.subject-state',), source_versions=(('engine.subject-state', 'revision:1'),), candidate_count=6, retained_count=5, rejected_count=1, evaluated_count=6), PartitionTrace(partition=<ContextPartition.MEMORY: 'memory'>, status=<PartitionDecisionStatus.OPENED: 'OPENED'>, reason_code='BOUNDED_READ_COMPLETE', requested_limit=20, source_ids=('engine.execution-results', 'engine.memory'), source_versions=(('engine.execution-results', 'sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945'), ('engine.memory', 'v-bd286ce683aab074626abc430121d38275785159758e571a3c240f738c3e22bf')), candidate_count=1, retained_count=1, rejected_count=0, evaluated_count=1), PartitionTrace(partition=<ContextPartition.DERIVED_SUMMARY: 'derived_summary'>, status=<PartitionDecisionStatus.OPENED: 'OPENED'>, reason_code='BOUNDED_READ_COMPLETE', requested_limit=10, source_ids=('engine.derived-summary',), source_versions=(('engine.derived-summary', 'v-4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945'),), candidate_count=0, retained_count=0, rejected_count=0, evaluated_count=0), PartitionTrace(partition=<ContextPartition.TIMELINE: 'timeline'>, status=<PartitionDecisionStatus.OPENED: 'OPENED'>, reason_code='BOUNDED_READ_COMPLETE', requested_limit=10, source_ids=('engine.timeline',), source_versions=(('engine.timeline', 'v-d21ef281fabbb7efda81f15aeea44eda488b427f148cad6e7d6441f4870999fc'),), candidate_count=1, retained_count=1, rejected_count=0, evaluated_count=1), PartitionTrace(partition=<ContextPartition.LOCAL_FACT: 'local_fact'>, status=<PartitionDecisionStatus.UNAVAILABLE: 'UNAVAILABLE'>, reason_code='SOURCE_NOT_CONFIGURED', requested_limit=0, source_ids=(), source_versions=(), candidate_count=0, retained_count=0, rejected_count=0, evaluated_count=0), PartitionTrace(partition=<ContextPartition.ATTENTION: 'attention'>, status=<PartitionDecisionStatus.NOT_OPENED: 'NOT_OPENED'>, reason_code='PURPOSE_NOT_SELECTED', requested_limit=0, source_ids=(), source_versions=(), candidate_count=0, retained_count=0, rejected_count=0, evaluated_count=0), PartitionTrace(partition=<ContextPartition.DESIRE: 'desire'>, status=<PartitionDecisionStatus.NOT_OPENED: 'NOT_OPENED'>, reason_code='PURPOSE_NOT_SELECTED', requested_limit=0, source_ids=(), source_versions=(), candidate_count=0, retained_count=0, rejected_count=0, evaluated_count=0), PartitionTrace(partition=<ContextPartition.CONFLICT: 'conflict'>, status=<PartitionDecisionStatus.NOT_OPENED: 'NOT_OPENED'>, reason_code='PURPOSE_NOT_SELECTED', requested_limit=0, source_ids=(), source_versions=(), candidate_count=0, retained_count=0, rejected_count=0, evaluated_count=0), PartitionTrace(partition=<ContextPartition.SOMATIC: 'somatic'>, status=<PartitionDecisionStatus.NOT_OPENED: 'NOT_OPENED'>, reason_code='PURPOSE_NOT_SELECTED', requested_limit=0, source_ids=(), source_versions=(), candidate_count=0, retained_count=0, rejected_count=0, evaluated_count=0), PartitionTrace(partition=<ContextPartition.EXPRESSION: 'expression'>, status=<PartitionDecisionStatus.NOT_OPENED: 'NOT_OPENED'>, reason_code='PURPOSE_NOT_SELECTED', requested_limit=0, source_ids=(), source_versions=(), candidate_count=0, retained_count=0, rejected_count=0, evaluated_count=0)), source_traces=(SourceTrace(source_id='engine.subject-state', partition=<ContextPartition.SUBJECT_STATE: 'subject_state'>, status=<PartitionDecisionStatus.OPENED: 'OPENED'>, reason_code='BOUNDED_READ_COMPLETE', requested_limit=10, source_version='revision:1', permission_policy_version='p09-test-v1', candidate_count=6, retained_count=5, rejected_count=1, evaluated_count=6), SourceTrace(source_id='engine.execution-results', partition=<ContextPartition.MEMORY: 'memory'>, status=<PartitionDecisionStatus.OPENED: 'OPENED'>, reason_code='BOUNDED_READ_COMPLETE', requested_limit=10, source_version='sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945', permission_policy_version='p09-test-v1', candidate_count=0, retained_count=0, rejected_count=0, evaluated_count=0), SourceTrace(source_id='engine.memory', partition=<ContextPartition.MEMORY: 'memory'>, status=<PartitionDecisionStatus.OPENED: 'OPENED'>, reason_code='BOUNDED_READ_COMPLETE', requested_limit=10, source_version='v-bd286ce683aab074626abc430121d38275785159758e571a3c240f738c3e22bf', permission_policy_version='p09-test-v1', candidate_count=1, retained_count=1, rejected_count=0, evaluated_count=1), SourceTrace(source_id='engine.derived-summary', partition=<ContextPartition.DERIVED_SUMMARY: 'derived_summary'>, status=<PartitionDecisionStatus.OPENED: 'OPENED'>, reason_code='BOUNDED_READ_COMPLETE', requested_limit=10, source_version='v-4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945', permission_policy_version='p09-test-v1', candidate_count=0, retained_count=0, rejected_count=0, evaluated_count=0), SourceTrace(source_id='engine.timeline', partition=<ContextPartition.TIMELINE: 'timeline'>, status=<PartitionDecisionStatus.OPENED: 'OPENED'>, reason_code='BOUNDED_READ_COMPLETE', requested_limit=10, source_version='v-d21ef281fabbb7efda81f15aeea44eda488b427f148cad6e7d6441f4870999fc', permission_policy_version='p09-test-v1', candidate_count=1, retained_count=1, rejected_count=0, evaluated_count=1)), candidate_decisions=(CandidateDecision(source_id='engine.memory', partition=<ContextPartition.MEMORY: 'memory'>, stable_id='memory:p01-fixture-event-18c00d23978d4c0c', status=<CandidateDecisionStatus.RETAINED: 'RETAINED'>, reason_code='VERIFIED_AND_RETAINED', score=0.651477), CandidateDecision(source_id='engine.subject-state', partition=<ContextPartition.SUBJECT_STATE: 'subject_state'>, stable_id='sub-6fc3e96264214bd6:continuity', status=<CandidateDecisionStatus.RETAINED: 'RETAINED'>, reason_code='VERIFIED_AND_RETAINED', score=0.894977), CandidateDecision(source_id='engine.subject-state', partition=<ContextPartition.SUBJECT_STATE: 'subject_state'>, stable_id='sub-6fc3e96264214bd6:emotion_state', status=<CandidateDecisionStatus.RETAINED: 'RETAINED'>, reason_code='VERIFIED_AND_RETAINED', score=0.804977), CandidateDecision(source_id='engine.subject-state', partition=<ContextPartition.SUBJECT_STATE: 'subject_state'>, stable_id='sub-6fc3e96264214bd6:identity', status=<CandidateDecisionStatus.RETAINED: 'RETAINED'>, reason_code='VERIFIED_AND_RETAINED', score=0.864977), CandidateDecision(source_id='engine.subject-state', partition=<ContextPartition.SUBJECT_STATE: 'subject_state'>, stable_id='sub-6fc3e96264214bd6:intentions', status=<CandidateDecisionStatus.RETAINED: 'RETAINED'>, reason_code='VERIFIED_AND_RETAINED', score=0.849977), CandidateDecision(source_id='engine.subject-state', partition=<ContextPartition.SUBJECT_STATE: 'subject_state'>, stable_id='sub-6fc3e96264214bd6:relationship', status=<CandidateDecisionStatus.RETAINED: 'RETAINED'>, reason_code='VERIFIED_AND_RETAINED', score=0.999977), CandidateDecision(source_id='engine.subject-state', partition=<ContextPartition.SUBJECT_STATE: 'subject_state'>, stable_id='sub-6fc3e96264214bd6:temporal', status=<CandidateDecisionStatus.REJECTED: 'REJECTED'>, reason_code='BELOW_RELEVANCE_THRESHOLD', score=0.489977), CandidateDecision(source_id='engine.timeline', partition=<ContextPartition.TIMELINE: 'timeline'>, stable_id='p01-fixture-event-18c00d23978d4c0c', status=<CandidateDecisionStatus.RETAINED: 'RETAINED'>, reason_code='VERIFIED_AND_RETAINED', score=0.704977)), budget_limit=50, budget_used=8)), composition=ContextCompositionResult(status=<CompositionStatus.COMPLETE: 'COMPLETE'>, trace=CompositionTrace(trace_id='composition-trace:native:0ed5d58f-cc9c-57b4-ae69-fddb3efe546e', request_id='native:0ed5d58f-cc9c-57b4-ae69-fddb3efe546e', subject_id='sub-6fc3e96264214bd6', environment='TEST', source_revision=1, composed_at=datetime.datetime(2026, 9, 4, 9, 1, tzinfo=datetime.timezone.utc), status=<CompositionStatus.COMPLETE: 'COMPLETE'>, route_result_hash='sha256:19886b153a4534edc218fce8588b010b7bf9f1d18e74c806c7ed653569b164dd', route_plan_hash='sha256:d769881f9bb4e1001a5c4a20ff2184e5ff0097aeb0de7cb3de64f48ba6d36ec0', manifest_hash='sha256:a669fce376febf5c26a3baee9d466d4b161b152b1568b0db942ae7f73a1ce197', p05_trace_hash='sha256:38cae122041c3f3b9576b6c369630df49530e29103af8a723c550cf904691f11', feature_gate_version='p06-context-composer-v1', budget=ContextBudget(core_fragment_limit=10, token_limit=2048), candidate_count=7, resolved_count=7, retained_count=7, deduplicated_count=0, excluded_count=0, missing_count=0, upstream_notice_count=7, resolver_read_count=7, resolver_read_counts=(ResolverReadCount(source_id='engine.derived-summary', read_count=0), ResolverReadCount(source_id='engine.execution-results', read_count=0), ResolverReadCount(source_id='engine.memory', read_count=1), ResolverReadCount(source_id='engine.subject-state', read_count=5), ResolverReadCount(source_id='engine.timeline', read_count=1)), tokens_used=763, decisions=(CompositionDecision(reference_id='sha256:a61f766ce28084a2188a07ba9af15231f105bd36cecf09248259d29fc55f0aba', source_id='engine.subject-state', stable_source_id='sub-6fc3e96264214bd6:relationship', status=<CompositionDecisionStatus.RETAINED: 'RETAINED'>, reason_code='PROTECTED_CONTEXT_RETAINED', authority=<ContextAuthority.CONFIRMED_STATE: 'confirmed_state'>, estimated_tokens=123), CompositionDecision(reference_id='sha256:f5b0756dd45fc11401777686f0e22b5f0ef7089785ecb6bbade139e3341927f7', source_id='engine.subject-state', stable_source_id='sub-6fc3e96264214bd6:continuity', status=<CompositionDecisionStatus.RETAINED: 'RETAINED'>, reason_code='PROTECTED_CONTEXT_RETAINED', authority=<ContextAuthority.CONFIRMED_STATE: 'confirmed_state'>, estimated_tokens=107), CompositionDecision(reference_id='sha256:6f30296a79ca80f6f059dfc869f1f107497daf771abffcd86120b4ec3c9a80b1', source_id='engine.subject-state', stable_source_id='sub-6fc3e96264214bd6:identity', status=<CompositionDecisionStatus.RETAINED: 'RETAINED'>, reason_code='PROTECTED_CONTEXT_RETAINED', authority=<ContextAuthority.CONFIRMED_STATE: 'confirmed_state'>, estimated_tokens=117), CompositionDecision(reference_id='sha256:6f1f6b9bdf98e72972f48ea5a896906ae969c65fcad994f2926f098e7d8e5b64', source_id='engine.subject-state', stable_source_id='sub-6fc3e96264214bd6:intentions', status=<CompositionDecisionStatus.RETAINED: 'RETAINED'>, reason_code='VERIFIED_CONTEXT_RETAINED', authority=<ContextAuthority.CONFIRMED_STATE: 'confirmed_state'>, estimated_tokens=104), CompositionDecision(reference_id='sha256:5fbb85fbcaa8ecd7b717935a173e8f0991cbc63e336736fa6d275d344031e23b', source_id='engine.subject-state', stable_source_id='sub-6fc3e96264214bd6:emotion_state', status=<CompositionDecisionStatus.RETAINED: 'RETAINED'>, reason_code='VERIFIED_CONTEXT_RETAINED', authority=<ContextAuthority.CONFIRMED_STATE: 'confirmed_state'>, estimated_tokens=105), CompositionDecision(reference_id='sha256:89a02447f808386738735a4a5a4466b599f5e8bbe755b9a359798179033dd222', source_id='engine.timeline', stable_source_id='p01-fixture-event-18c00d23978d4c0c', status=<CompositionDecisionStatus.RETAINED: 'RETAINED'>, reason_code='VERIFIED_CONTEXT_RETAINED', authority=<ContextAuthority.RAW_SOURCE: 'raw_source'>, estimated_tokens=105), CompositionDecision(reference_id='sha256:624f4faa08006c5ba680f9e788a528a4053108b4ddc0c6e013dca3281f02af54', source_id='engine.memory', stable_source_id='memory:p01-fixture-event-18c00d23978d4c0c', status=<CompositionDecisionStatus.RETAINED: 'RETAINED'>, reason_code='VERIFIED_CONTEXT_RETAINED', authority=<ContextAuthority.CONFIRMED_MEMORY: 'confirmed_memory'>, estimated_tokens=102)), upstream_notices=(MissingContextNotice(reference_id='sha256:e2a913f2256771da1421c917f5cde72154a62b6762c8abe4d7bfdea93ee0c307', source_id='p05.route', stable_source_id='partition:derived_summary', required=False, reason_code='ROUTER_PARTITION_EMPTY'), MissingContextNotice(reference_id='sha256:df7b32d6f7e4d0231a3ccba0a70651221c0e6f493134119da9805ceb4fc3d04f', source_id='p05.route', stable_source_id='partition:local_fact', required=False, reason_code='ROUTER_PARTITION_UNAVAILABLE'), MissingContextNotice(reference_id='sha256:a0ca0f7e159ed20e08904da0ec3a6754acf5797073a425dccc234d1feb5a0633', source_id='p05.route', stable_source_id='partition:attention', required=False, reason_code='ROUTER_PARTITION_NOT_OPENED'), MissingContextNotice(reference_id='sha256:422c57f2b44e5e55bcd91e8474878c004dacf0e746ab05840ebb93f9e4513f3e', source_id='p05.route', stable_source_id='partition:desire', required=False, reason_code='ROUTER_PARTITION_NOT_OPENED'), MissingContextNotice(reference_id='sha256:4676880790619db12597f80674df1b86d9c941aa126d79e9154f3e3bdfa0bc1d', source_id='p05.route', stable_source_id='partition:conflict', required=False, reason_code='ROUTER_PARTITION_NOT_OPENED'), MissingContextNotice(reference_id='sha256:49a5de380b798746d01d40c3bc8c573430c5302255610f45647360e358ab84d3', source_id='p05.route', stable_source_id='partition:somatic', required=False, reason_code='ROUTER_PARTITION_NOT_OPENED'), MissingContextNotice(reference_id='sha256:2825e7308a2ee60bfd6b152c307d9c7bbd3e43212101dd7e5cdd844fba693aea', source_id='p05.route', stable_source_id='partition:expression', required=False, reason_code='ROUTER_PARTITION_NOT_OPENED')), trace_hash='sha256:4f696282126566126259195a3b336b6c42586b0e6064e9c6a5374d3409c36ef0'), snapshot=ComposedContextSnapshot(snapshot_id='context-snapshot:native:0ed5d58f-cc9c-57b4-ae69-fddb3efe546e', request_id='native:0ed5d58f-cc9c-57b4-ae69-fddb3efe546e', subject_id='sub-6fc3e96264214bd6', environment='TEST', source_revision=1, composed_at=datetime.datetime(2026, 9, 4, 9, 1, tzinfo=datetime.timezone.utc), route_result_hash='sha256:19886b153a4534edc218fce8588b010b7bf9f1d18e74c806c7ed653569b164dd', route_plan_hash='sha256:d769881f9bb4e1001a5c4a20ff2184e5ff0097aeb0de7cb3de64f48ba6d36ec0', manifest_hash='sha256:a669fce376febf5c26a3baee9d466d4b161b152b1568b0db942ae7f73a1ce197', budget=ContextBudget(core_fragment_limit=10, token_limit=2048), fragments=(ComposedContextFragment(fragment_id='sha256:c85848c28debdb5f18d8f7ea90edae7e34d1b2d2b647a2aedfcd460431bb915a', reference_id='sha256:a61f766ce28084a2188a07ba9af15231f105bd36cecf09248259d29fc55f0aba', subject_id='sub-6fc3e96264214bd6', environment='TEST', authority=<ContextAuthority.CONFIRMED_STATE: 'confirmed_state'>, source_id='engine.subject-state', source_type='subject_state_section', stable_source_id='sub-6fc3e96264214bd6:relationship', version='revision:1', content_hash='sha256:679b951babe86c25aba0a2a691639426fe3ef8f65624828de92a9cd990da6826', occurred_at=datetime.datetime(2026, 9, 4, 8, 0, tzinfo=datetime.timezone.utc), relevance=0.999977, confidence=1.0, provenance_roots=('subject-state:sub-6fc3e96264214bd6:revision:1:relationship',), conflict_markers=(), missing_markers=(), estimated_tokens=123, rank=1, retained_reason='PROTECTED_CONTEXT_RETAINED', content='{\"current_status\":\"testing continuity\",\"definition\":\"\",\"important_moments\":[\"synthetic genesis\"],\"interaction_preferences\":[]}', protected=True, protection_role='relationship', direct_state_write_allowed=False), ComposedContextFragment(fragment_id='sha256:a93e6fa0ce2188dd7ee1f3bb11b0263c00e301061e203a632fc6b1f02bdcfa7e', reference_id='sha256:f5b0756dd45fc11401777686f0e22b5f0ef7089785ecb6bbade139e3341927f7', subject_id='sub-6fc3e96264214bd6', environment='TEST', authority=<ContextAuthority.CONFIRMED_STATE: 'confirmed_state'>, source_id='engine.subject-state', source_type='subject_state_section', stable_source_id='sub-6fc3e96264214bd6:continuity', version='revision:1', content_hash='sha256:9fc7dcdb5db93fab5c77a4fb7b266f39d022a53463338c2c84fc7a87d1f18adb', occurred_at=datetime.datetime(2026, 9, 4, 8, 0, tzinfo=datetime.timezone.utc), relevance=0.894977, confidence=1.0, provenance_roots=('subject-state:sub-6fc3e96264214bd6:revision:1:continuity',), conflict_markers=(), missing_markers=(), estimated_tokens=107, rank=2, retained_reason='PROTECTED_CONTEXT_RETAINED', content='{\"current_focus\":[\"continuity\"],\"recent_changes\":[],\"unfinished_items\":[]}', protected=True, protection_role='continuity', direct_state_write_allowed=False), ComposedContextFragment(fragment_id='sha256:f513785b72002c7eefc7a774a398fd438540ddbad3167466e09eac9f0d5f0c1a', reference_id='sha256:6f30296a79ca80f6f059dfc869f1f107497daf771abffcd86120b4ec3c9a80b1', subject_id='sub-6fc3e96264214bd6', environment='TEST', authority=<ContextAuthority.CONFIRMED_STATE: 'confirmed_state'>, source_id='engine.subject-state', source_type='subject_state_section', stable_source_id='sub-6fc3e96264214bd6:identity', version='revision:1', content_hash='sha256:1842e52dac172ee2c9f1dd1a92f7e2cd5b8dad135789625db4c658cc808a0220', occurred_at=datetime.datetime(2026, 9, 4, 8, 0, tzinfo=datetime.timezone.utc), relevance=0.864977, confidence=1.0, provenance_roots=('subject-state:sub-6fc3e96264214bd6:revision:1:identity',), conflict_markers=(), missing_markers=(), estimated_tokens=117, rank=3, retained_reason='PROTECTED_CONTEXT_RETAINED', content='{\"expression_preferences\":[\"concise\"],\"judgment_principles\":[],\"self_concept\":\"\",\"stable_traits\":[\"continuity\"]}', protected=True, protection_role='identity', direct_state_write_allowed=False), ComposedContextFragment(fragment_id='sha256:9db2ba4df0c491abde817850a41677d99ab440535b2c5399217d68e54d089927', reference_id='sha256:6f1f6b9bdf98e72972f48ea5a896906ae969c65fcad994f2926f098e7d8e5b64', subject_id='sub-6fc3e96264214bd6', environment='TEST', authority=<ContextAuthority.CONFIRMED_STATE: 'confirmed_state'>, source_id='engine.subject-state', source_type='subject_state_section', stable_source_id='sub-6fc3e96264214bd6:intentions', version='revision:1', content_hash='sha256:033d2e376f850579c7c443ccfffe4a054af03763f6b9c961f213870892d8b9fc', occurred_at=datetime.datetime(2026, 9, 4, 8, 0, tzinfo=datetime.timezone.utc), relevance=0.849977, confidence=1.0, provenance_roots=('subject-state:sub-6fc3e96264214bd6:revision:1:intentions',), conflict_markers=(), missing_markers=(), estimated_tokens=104, rank=4, retained_reason='VERIFIED_CONTEXT_RETAINED', content='{\"action_tendencies\":[],\"emerging_thoughts\":[],\"judgments\":[]}', protected=False, protection_role=None, direct_state_write_allowed=False), ComposedContextFragment(fragment_id='sha256:280fb76e88cfcee60ce8cc2168d60d58176554d4558ceebe0db9230be98ffeeb', reference_id='sha256:5fbb85fbcaa8ecd7b717935a173e8f0991cbc63e336736fa6d275d344031e23b', subject_id='sub-6fc3e96264214bd6', environment='TEST', authority=<ContextAuthority.CONFIRMED_STATE: 'confirmed_state'>, source_id='engine.subject-state', source_type='subject_state_section', stable_source_id='sub-6fc3e96264214bd6:emotion_state', version='revision:1', content_hash='sha256:83f76d7bbaf86d0ae22f5c1cc53c06e21e6107f87a8064f4c518d2d9ccec9fe8', occurred_at=datetime.datetime(2026, 9, 4, 8, 0, tzinfo=datetime.timezone.utc), relevance=0.804977, confidence=1.0, provenance_roots=('subject-state:sub-6fc3e96264214bd6:revision:1:emotion_state',), conflict_markers=(), missing_markers=(), estimated_tokens=105, rank=5, retained_reason='VERIFIED_CONTEXT_RETAINED', content='{\"continuity_notes\":[],\"emotions\":[],\"interaction_state\":\"\"}', protected=False, protection_role=None, direct_state_write_allowed=False), ComposedContextFragment(fragment_id='sha256:dae85b23696a43fc84261378f4bdc1f122279b87be45d93aa0b2ea5faee4a9ec', reference_id='sha256:89a02447f808386738735a4a5a4466b599f5e8bbe755b9a359798179033dd222', subject_id='sub-6fc3e96264214bd6', environment='TEST', authority=<ContextAuthority.RAW_SOURCE: 'raw_source'>, source_id='engine.timeline', source_type='event', stable_source_id='p01-fixture-event-18c00d23978d4c0c', version='update:56c07628-1c04-4d9b-9b6a-66ca68a94f32', content_hash='sha256:e467a0f1f46b419be23989a042d6fef422f3e2aa3ff6131d46795583135f361d', occurred_at=datetime.datetime(2026, 9, 4, 8, 0, tzinfo=datetime.timezone.utc), relevance=0.704977, confidence=1.0, provenance_roots=('event:p01-fixture-event-18c00d23978d4c0c',), conflict_markers=(), missing_markers=(), estimated_tokens=105, rank=6, retained_reason='VERIFIED_CONTEXT_RETAINED', content='Apply a synthetic P01 State Fixture through Event/Evolution.', protected=False, protection_role=None, direct_state_write_allowed=False), ComposedContextFragment(fragment_id='sha256:699dd085f3acdd50572b4802a23697eff79064fabd8cd4cfd48d3ce926a9ff8d', reference_id='sha256:624f4faa08006c5ba680f9e788a528a4053108b4ddc0c6e013dca3281f02af54', subject_id='sub-6fc3e96264214bd6', environment='TEST', authority=<ContextAuthority.CONFIRMED_MEMORY: 'confirmed_memory'>, source_id='engine.memory', source_type='memory_record', stable_source_id='memory:p01-fixture-event-18c00d23978d4c0c', version='revision:0', content_hash='sha256:d147896dc86eab8a3f308ffe3cbb77aee5ea71cb2bee9e9eee2dec7ec64a09f9', occurred_at=datetime.datetime(2026, 9, 4, 8, 0, tzinfo=datetime.timezone.utc), relevance=0.651477, confidence=0.8, provenance_roots=('event:p01-fixture-event-18c00d23978d4c0c',), conflict_markers=(), missing_markers=(), estimated_tokens=102, rank=7, retained_reason='VERIFIED_CONTEXT_RETAINED', content='legacy: Apply a synthetic P01 State Fixture through Event/Evolution.', protected=False, protection_role=None, direct_state_write_allowed=False)), missing_notices=(MissingContextNotice(reference_id='sha256:e2a913f2256771da1421c917f5cde72154a62b6762c8abe4d7bfdea93ee0c307', source_id='p05.route', stable_source_id='partition:derived_summary', required=False, reason_code='ROUTER_PARTITION_EMPTY'), MissingContextNotice(reference_id='sha256:df7b32d6f7e4d0231a3ccba0a70651221c0e6f493134119da9805ceb4fc3d04f', source_id='p05.route', stable_source_id='partition:local_fact', required=False, reason_code='ROUTER_PARTITION_UNAVAILABLE'), MissingContextNotice(reference_id='sha256:a0ca0f7e159ed20e08904da0ec3a6754acf5797073a425dccc234d1feb5a0633', source_id='p05.route', stable_source_id='partition:attention', required=False, reason_code='ROUTER_PARTITION_NOT_OPENED'), MissingContextNotice(reference_id='sha256:422c57f2b44e5e55bcd91e8474878c004dacf0e746ab05840ebb93f9e4513f3e', source_id='p05.route', stable_source_id='partition:desire', required=False, reason_code='ROUTER_PARTITION_NOT_OPENED'), MissingContextNotice(reference_id='sha256:4676880790619db12597f80674df1b86d9c941aa126d79e9154f3e3bdfa0bc1d', source_id='p05.route', stable_source_id='partition:conflict', required=False, reason_code='ROUTER_PARTITION_NOT_OPENED'), MissingContextNotice(reference_id='sha256:49a5de380b798746d01d40c3bc8c573430c5302255610f45647360e358ab84d3', source_id='p05.route', stable_source_id='partition:somatic', required=False, reason_code='ROUTER_PARTITION_NOT_OPENED'), MissingContextNotice(reference_id='sha256:2825e7308a2ee60bfd6b152c307d9c7bbd3e43212101dd7e5cdd844fba693aea', source_id='p05.route', stable_source_id='partition:expression', required=False, reason_code='ROUTER_PARTITION_NOT_OPENED')), consumable=True, snapshot_hash='sha256:27f6ec064d75c80bf8edf9efe97d50a2d125c15cad148ad8d7d0a9fe08eb0337'), error_code=None), contradictions=ContradictionDetectionResult(status=<ContradictionDetectionStatus.COMPLETE: 'COMPLETE'>, trace=ContradictionTrace(trace_id='p07-trace-76cd96fd9000297c1a51052a', request_id='native:0ed5d58f-cc9c-57b4-ae69-fddb3efe546e', subject_id='sub-6fc3e96264214bd6', environment='TEST', source_revision=1, source_snapshot_hash='sha256:27f6ec064d75c80bf8edf9efe97d50a2d125c15cad148ad8d7d0a9fe08eb0337', detector_version='p07-contradiction-detector-v1', detected_at=datetime.datetime(2026, 9, 4, 9, 1, tzinfo=datetime.timezone.utc), fragment_count=7, evaluated_count=1, unassessed_count=6, psychological_excluded_count=0, candidate_missing_count=0, upstream_notice_count=7, contradiction_count=0, evaluations=(ClaimEvaluation(fragment_id='sha256:c85848c28debdb5f18d8f7ea90edae7e34d1b2d2b647a2aedfcd460431bb915a', status=<ClaimEvaluationStatus.EVALUATED: 'EVALUATED'>, reason_code='STRUCTURED_CLAIM_SEALED', claim_id='claim-47f30e2541f49189633a6424a5ebc4de'), ClaimEvaluation(fragment_id='sha256:a93e6fa0ce2188dd7ee1f3bb11b0263c00e301061e203a632fc6b1f02bdcfa7e', status=<ClaimEvaluationStatus.UNASSESSED: 'UNASSESSED'>, reason_code='NO_TRUSTED_STRUCTURED_CLAIM', claim_id=None), ClaimEvaluation(fragment_id='sha256:f513785b72002c7eefc7a774a398fd438540ddbad3167466e09eac9f0d5f0c1a', status=<ClaimEvaluationStatus.UNASSESSED: 'UNASSESSED'>, reason_code='NO_TRUSTED_STRUCTURED_CLAIM', claim_id=None), ClaimEvaluation(fragment_id='sha256:9db2ba4df0c491abde817850a41677d99ab440535b2c5399217d68e54d089927', status=<ClaimEvaluationStatus.UNASSESSED: 'UNASSESSED'>, reason_code='NO_TRUSTED_STRUCTURED_CLAIM', claim_id=None), ClaimEvaluation(fragment_id='sha256:280fb76e88cfcee60ce8cc2168d60d58176554d4558ceebe0db9230be98ffeeb', status=<ClaimEvaluationStatus.UNASSESSED: 'UNASSESSED'>, reason_code='NO_TRUSTED_STRUCTURED_CLAIM', claim_id=None), ClaimEvaluation(fragment_id='sha256:dae85b23696a43fc84261378f4bdc1f122279b87be45d93aa0b2ea5faee4a9ec', status=<ClaimEvaluationStatus.UNASSESSED: 'UNASSESSED'>, reason_code='NO_TRUSTED_STRUCTURED_CLAIM', claim_id=None), ClaimEvaluation(fragment_id='sha256:699dd085f3acdd50572b4802a23697eff79064fabd8cd4cfd48d3ce926a9ff8d', status=<ClaimEvaluationStatus.UNASSESSED: 'UNASSESSED'>, reason_code='NO_TRUSTED_STRUCTURED_CLAIM', claim_id=None)), case_ids=(), trace_hash='sha256:5f7e9d32f259e164376ac6fae6dbe165218ad96d1b63f698f2595dbbe04282c4'), cases=(), error_code=None, direct_state_write_allowed=False, evolution_commit_allowed=False), effective_emotion={'current_state': '', 'intensity': 0.0, 'confidence': 0.0, 'elapsed_seconds': 0.0}, actions_enabled=True, pending_event_count=0, version='c1-context-v1', expression_enabled=True, mind={'version': 'p14-cognition-input-v1', 'reference': {'source_id': 'engine.subject-state', 'partition': 'subject_state', 'stable_id': 'sub-6fc3e96264214bd6:intentions', 'subject_id': 'sub-6fc3e96264214bd6', 'environment': 'TEST', 'version': 'revision:1', 'content_hash': 'sha256:033d2e376f850579c7c443ccfffe4a054af03763f6b9c961f213870892d8b9fc', 'authority_label': 'SUBJECT_STATE_PARTITION', 'rank': 1, 'score': 1.0, 'occurred_at': '2026-09-04T08:00:00Z', 'explanation_codes': ['P14_CURRENT_MIND_BASIS']}, 'source_revision': 1, 'before_hash': 'sha256:74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b', 'base': {'subject_id': 'sub-6fc3e96264214bd6', 'environment': 'TEST', 'updated_at': '2026-09-04T08:00:00Z', 'drives': {'intimacy': 0.0, 'exploration': 0.0, 'sexual': 0.0, 'solitude': 0.0, 'expression': 0.0, 'protection': 0.0, 'rest': 0.0}, 'fatigue': 0.0, 'arousal': 0.0, 'somatic': {'tension': 0.0, 'relaxation': 0.0, 'restlessness': 0.0, 'heaviness': 0.0, 'excitement': 0.0, 'warmth': 0.0}, 'episodes': [], 'dispositions': [], 'desires': [], 'conflicts': [], 'will': [], 'thoughts': [], 'regulation': {}, 'subjective_seconds': 0.0, 'version': 'p14-mind-v1'}, 'appraisal_sources': [], 'proposal': {'subject_id': 'sub-6fc3e96264214bd6', 'environment': 'TEST', 'updated_at': '2026-09-04T09:01:00Z', 'drives': {'intimacy': 0.155866351, 'exploration': 0.287438382, 'sexual': 0.081232538, 'solitude': 0.183993806, 'expression': 0.224437469, 'protection': 0.119339719, 'rest': 0.162808059}, 'fatigue': 0.061564983, 'arousal': 0.0, 'somatic': {'tension': 0.0, 'relaxation': 0.969217508, 'restlessness': 0.0, 'heaviness': 0.061564983, 'excitement': 0.0, 'warmth': 0.0}, 'episodes': [], 'dispositions': [], 'desires': [{'id': 'desire:intimacy', 'drive': 'intimacy', 'object': 'self', 'origin': 'ENDOGENOUS', 'phase': 'arise', 'strength': 0.155866351, 'reason': 'elapsed need: intimacy', 'created_at': '2026-09-04T09:01:00Z', 'updated_at': '2026-09-04T09:01:00Z', 'trajectory': [{'at': '2026-09-04T09:01:00Z', 'phase': 'arise', 'reason': 'elapsed/body/need integration'}]}, {'id': 'desire:exploration', 'drive': 'exploration', 'object': 'self', 'origin': 'ENDOGENOUS', 'phase': 'arise', 'strength': 0.287438382, 'reason': 'elapsed need: exploration', 'created_at': '2026-09-04T09:01:00Z', 'updated_at': '2026-09-04T09:01:00Z', 'trajectory': [{'at': '2026-09-04T09:01:00Z', 'phase': 'arise', 'reason': 'elapsed/body/need integration'}]}, {'id': 'desire:sexual', 'drive': 'sexual', 'object': 'self', 'origin': 'ENDOGENOUS', 'phase': 'arise', 'strength': 0.081232538, 'reason': 'elapsed need: sexual', 'created_at': '2026-09-04T09:01:00Z', 'updated_at': '2026-09-04T09:01:00Z', 'trajectory': [{'at': '2026-09-04T09:01:00Z', 'phase': 'arise', 'reason': 'elapsed/body/need integration'}]}, {'id': 'desire:solitude', 'drive': 'solitude', 'object': 'self', 'origin': 'ENDOGENOUS', 'phase': 'arise', 'strength': 0.183993806, 'reason': 'elapsed need: solitude', 'created_at': '2026-09-04T09:01:00Z', 'updated_at': '2026-09-04T09:01:00Z', 'trajectory': [{'at': '2026-09-04T09:01:00Z', 'phase': 'arise', 'reason': 'elapsed/body/need integration'}]}, {'id': 'desire:expression', 'drive': 'expression', 'object': 'self', 'origin': 'ENDOGENOUS', 'phase': 'arise', 'strength': 0.224437469, 'reason': 'elapsed need: expression', 'created_at': '2026-09-04T09:01:00Z', 'updated_at': '2026-09-04T09:01:00Z', 'trajectory': [{'at': '2026-09-04T09:01:00Z', 'phase': 'arise', 'reason': 'elapsed/body/need integration'}]}, {'id': 'desire:protection', 'drive': 'protection', 'object': 'self', 'origin': 'ENDOGENOUS', 'phase': 'arise', 'strength': 0.119339719, 'reason': 'elapsed need: protection', 'created_at': '2026-09-04T09:01:00Z', 'updated_at': '2026-09-04T09:01:00Z', 'trajectory': [{'at': '2026-09-04T09:01:00Z', 'phase': 'arise', 'reason': 'elapsed/body/need integration'}]}, {'id': 'desire:rest', 'drive': 'rest', 'object': 'self', 'origin': 'ENDOGENOUS', 'phase': 'arise', 'strength': 0.162808059, 'reason': 'elapsed need: rest', 'created_at': '2026-09-04T09:01:00Z', 'updated_at': '2026-09-04T09:01:00Z', 'trajectory': [{'at': '2026-09-04T09:01:00Z', 'phase': 'arise', 'reason': 'elapsed/body/need integration'}]}], 'conflicts': [], 'will': [{'desire_id': 'desire:intimacy', 'stance': 'pursue', 'supporting_reasons': ['felt need for intimacy', 'elapsed need: intimacy'], 'opposing_reasons': [], 'alternatives': ['reconsider after new understanding', 'continue without resolving the conflict', 'defer'], 'commitment': 'Keep this desire distinct from deciding to perform a reality action.', 'decision': 'PURSUE', 'action_tendency': 'intimacy'}, {'desire_id': 'desire:exploration', 'stance': 'pursue', 'supporting_reasons': ['felt need for exploration', 'elapsed need: exploration'], 'opposing_reasons': [], 'alternatives': ['reconsider after new understanding', 'continue without resolving the conflict', 'defer'], 'commitment': 'Keep this desire distinct from deciding to perform a reality action.', 'decision': 'PURSUE', 'action_tendency': 'exploration'}, {'desire_id': 'desire:sexual', 'stance': 'pursue', 'supporting_reasons': ['felt need for sexual', 'elapsed need: sexual'], 'opposing_reasons': [], 'alternatives': ['reconsider after new understanding', 'continue without resolving the conflict', 'defer'], 'commitment': 'Keep this desire distinct from deciding to perform a reality action.', 'decision': 'PURSUE', 'action_tendency': 'sexual'}, {'desire_id': 'desire:solitude', 'stance': 'pursue', 'supporting_reasons': ['felt need for solitude', 'elapsed need: solitude'], 'opposing_reasons': [], 'alternatives': ['reconsider after new understanding', 'continue without resolving the conflict', 'defer'], 'commitment': 'Keep this desire distinct from deciding to perform a reality action.', 'decision': 'PURSUE', 'action_tendency': 'solitude'}, {'desire_id': 'desire:expression', 'stance': 'pursue', 'supporting_reasons': ['felt need for expression', 'elapsed need: expression'], 'opposing_reasons': [], 'alternatives': ['reconsider after new understanding', 'continue without resolving the conflict', 'defer'], 'commitment': 'Keep this desire distinct from deciding to perform a reality action.', 'decision': 'PURSUE', 'action_tendency': 'expression'}, {'desire_id': 'desire:protection', 'stance': 'pursue', 'supporting_reasons': ['felt need for protection', 'elapsed need: protection'], 'opposing_reasons': [], 'alternatives': ['reconsider after new understanding', 'continue without resolving the conflict', 'defer'], 'commitment': 'Keep this desire distinct from deciding to perform a reality action.', 'decision': 'PURSUE', 'action_tendency': 'protection'}, {'desire_id': 'desire:rest', 'stance': 'pursue', 'supporting_reasons': ['felt need for rest', 'elapsed need: rest'], 'opposing_reasons': [], 'alternatives': ['reconsider after new understanding', 'continue without resolving the conflict', 'defer'], 'commitment': 'Keep this desire distinct from deciding to perform a reality action.', 'decision': 'PURSUE', 'action_tendency': 'rest'}], 'thoughts': [{'id': 'thought:desire:intimacy', 'theme': 'intimacy', 'content': 'I keep considering intimacy in relation to my need for intimacy.', 'reason': 'Engine deliberation retains an unresolved internal concern.', 'desire_ids': ['desire:intimacy'], 'conflict_ids': [], 'created_at': '2026-09-04T09:01:00Z', 'last_recurred_at': '2026-09-04T09:01:00Z', 'recurrences': 1, 'unresolved': True}, {'id': 'thought:desire:exploration', 'theme': 'exploration', 'content': 'I keep considering exploration in relation to my need for exploration.', 'reason': 'Engine deliberation retains an unresolved internal concern.', 'desire_ids': ['desire:exploration'], 'conflict_ids': [], 'created_at': '2026-09-04T09:01:00Z', 'last_recurred_at': '2026-09-04T09:01:00Z', 'recurrences': 1, 'unresolved': True}, {'id': 'thought:desire:sexual', 'theme': 'sexual', 'content': 'I keep considering sexual in relation to my need for sexual.', 'reason': 'Engine deliberation retains an unresolved internal concern.', 'desire_ids': ['desire:sexual'], 'conflict_ids': [], 'created_at': '2026-09-04T09:01:00Z', 'last_recurred_at': '2026-09-04T09:01:00Z', 'recurrences': 1, 'unresolved': True}, {'id': 'thought:desire:solitude', 'theme': 'solitude', 'content': 'I keep considering solitude in relation to my need for solitude.', 'reason': 'Engine deliberation retains an unresolved internal concern.', 'desire_ids': ['desire:solitude'], 'conflict_ids': [], 'created_at': '2026-09-04T09:01:00Z', 'last_recurred_at': '2026-09-04T09:01:00Z', 'recurrences': 1, 'unresolved': True}, {'id': 'thought:desire:expression', 'theme': 'expression', 'content': 'I keep considering expression in relation to my need for expression.', 'reason': 'Engine deliberation retains an unresolved internal concern.', 'desire_ids': ['desire:expression'], 'conflict_ids': [], 'created_at': '2026-09-04T09:01:00Z', 'last_recurred_at': '2026-09-04T09:01:00Z', 'recurrences': 1, 'unresolved': True}, {'id': 'thought:desire:protection', 'theme': 'protection', 'content': 'I keep considering protection in relation to my need for protection.', 'reason': 'Engine deliberation retains an unresolved internal concern.', 'desire_ids': ['desire:protection'], 'conflict_ids': [], 'created_at': '2026-09-04T09:01:00Z', 'last_recurred_at': '2026-09-04T09:01:00Z', 'recurrences': 1, 'unresolved': True}, {'id': 'thought:desire:rest', 'theme': 'rest', 'content': 'I keep considering rest in relation to my need for rest.', 'reason': 'Engine deliberation retains an unresolved internal concern.', 'desire_ids': ['desire:rest'], 'conflict_ids': [], 'created_at': '2026-09-04T09:01:00Z', 'last_recurred_at': '2026-09-04T09:01:00Z', 'recurrences': 1, 'unresolved': True}], 'regulation': {}, 'subjective_seconds': 3716.331959, 'version': 'p14-mind-v1'}, 'influence': {'attention': {'breadth': 8, 'narrowing': 0.045656391, 'themes': ['intimacy', 'exploration', 'sexual', 'solitude', 'expression', 'protection', 'rest']}, 'interpretations': [], 'action_tendencies': ['intimacy', 'exploration', 'sexual', 'solitude', 'expression', 'protection', 'rest'], 'decisions': ['PURSUE'], 'subjective_seconds': 3716.331959, 'regulation': 'not-attempted', 'not_factual_evidence': True}, 'change_reasons': [], 'authority': 'UNCOMMITTED_INTERNAL_CANDIDATE'}, growth_enabled=True)), status=<ThinkSessionStatus.FAILED: 'FAILED'>, capability_request_id=None, provider_execution=None)\n\nDiff is 312188 characters long. Set self.maxDiff to None to see it.\n"
+      ]
+    ],
+    "errors": [],
+    "seconds": 1.598,
+    "exitCode": 1,
+    "sourceAfterAvailable": true,
+    "unchangedDuringRun": true,
+    "matchesFinal": false,
+    "laterChangedFiles": [
+      "src/continuity_engine/domain/thinking.py",
+      "src/continuity_engine/services/thinking_service.py",
+      "tests/test_p18_runtime_process.py"
+    ]
+  },
+  {
+    "label": "compatibility-final-01",
+    "status": "FINISHED",
+    "command": [
+      "E:\\Adobe\\python.exe",
+      "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p18_r2_evidence\\run.py",
+      "compatibility-final-01",
+      "test_thinking",
+      "test_perception",
+      "test_action",
+      "test_awakening",
+      "test_e5_capability_recovery",
+      "test_p02_",
+      "test_p09_",
+      "test_p14_",
+      "test_p16_",
+      "test_p17_",
+      "test_resources",
+      "test_p11_",
+      "test_pre_p12"
+    ],
+    "run": 490,
+    "passed": 490,
+    "skips": [],
+    "failures": [],
+    "errors": [],
+    "seconds": 762.217,
+    "exitCode": 0,
+    "sourceAfterAvailable": true,
+    "unchangedDuringRun": true,
+    "matchesFinal": true,
+    "laterChangedFiles": []
+  },
+  {
+    "label": "confirmation-after-01",
+    "status": "FINISHED",
+    "command": [
+      "E:\\Adobe\\python.exe",
+      "docs/project_memory/p18_r2_evidence/run.py",
+      "confirmation-after-01",
+      "--review-class",
+      "test_pause_resume_confirmation.PauseResumeConfirmation"
+    ],
+    "run": 4,
+    "passed": 4,
+    "skips": [],
+    "failures": [],
+    "errors": [],
+    "seconds": 7.332,
+    "exitCode": 0,
+    "sourceAfterAvailable": true,
+    "unchangedDuringRun": true,
+    "matchesFinal": false,
+    "laterChangedFiles": [
+      "src/continuity_engine/domain/thinking.py",
+      "src/continuity_engine/services/runtime_cognition.py",
+      "src/continuity_engine/services/thinking_service.py",
+      "src/continuity_engine/services/wake_perception_thinking_action_service.py",
+      "src/continuity_engine/testing/p18_runtime_fixture.py",
+      "tests/test_p18_runtime_process.py",
+      "tests/test_p18_runtime_resume.py"
+    ]
+  },
+  {
+    "label": "confirmation-before-01",
+    "status": "FINISHED",
+    "command": [
+      "E:\\Adobe\\python.exe",
+      "docs/project_memory/p18_r2_evidence/run.py",
+      "confirmation-before-01",
+      "--review-class",
+      "test_pause_resume_confirmation.PauseResumeConfirmation"
+    ],
+    "run": 4,
+    "passed": 1,
+    "skips": [],
+    "failures": [
+      [
+        "test_pause_resume_confirmation.PauseResumeConfirmation.test_first_cycle_definitely_not_called_resumes",
+        "Traceback (most recent call last):\n  File \"C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p18_r2_evidence\\independent\\test_pause_resume_confirmation.py\", line 41, in test_first_cycle_definitely_not_called_resumes\n    self.resume_and_assert(f,1)\n    ~~~~~~~~~~~~~~~~~~~~~~^^^^^\n  File \"C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p18_r2_evidence\\independent\\test_pause_resume_confirmation.py\", line 33, in resume_and_assert\n    self.assertGreater(f.state.revision,old_revision)\n    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 1 not greater than 1\n"
+      ],
+      [
+        "test_pause_resume_confirmation.PauseResumeConfirmation.test_reopen_does_not_leave_definite_pre_call_pause_stuck",
+        "Traceback (most recent call last):\n  File \"C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p18_r2_evidence\\independent\\test_pause_resume_confirmation.py\", line 60, in test_reopen_does_not_leave_definite_pre_call_pause_stuck\n    with reopened.host.running():self.resume_and_assert(reopened,1)\n                                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^\n  File \"C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p18_r2_evidence\\independent\\test_pause_resume_confirmation.py\", line 33, in resume_and_assert\n    self.assertGreater(f.state.revision,old_revision)\n    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 1 not greater than 1\n"
+      ],
+      [
+        "test_pause_resume_confirmation.PauseResumeConfirmation.test_second_cycle_definitely_not_called_resumes",
+        "Traceback (most recent call last):\n  File \"C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p18_r2_evidence\\independent\\test_pause_resume_confirmation.py\", line 52, in test_second_cycle_definitely_not_called_resumes\n    self.resume_and_assert(f,2)\n    ~~~~~~~~~~~~~~~~~~~~~~^^^^^\n  File \"C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p18_r2_evidence\\independent\\test_pause_resume_confirmation.py\", line 33, in resume_and_assert\n    self.assertGreater(f.state.revision,old_revision)\n    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 2 not greater than 2\n"
+      ]
+    ],
+    "errors": [],
+    "seconds": 6.385,
+    "exitCode": 1,
+    "sourceAfterAvailable": true,
+    "unchangedDuringRun": true,
+    "matchesFinal": false,
+    "laterChangedFiles": [
+      "src/continuity_engine/domain/thinking.py",
+      "src/continuity_engine/services/runtime_cognition.py",
+      "src/continuity_engine/services/thinking_service.py",
+      "src/continuity_engine/services/wake_perception_thinking_action_service.py",
+      "src/continuity_engine/storage/json_thinking_repository.py",
+      "src/continuity_engine/testing/p18_runtime_fixture.py",
+      "tests/test_p18_runtime_process.py",
+      "tests/test_p18_runtime_resume.py"
+    ]
+  },
+  {
+    "label": "confirmation-final-01",
+    "status": "FINISHED",
+    "command": [
+      "E:\\Adobe\\python.exe",
+      "docs/project_memory/p18_r2_evidence/run.py",
+      "confirmation-final-01",
+      "--review-class",
+      "test_pause_resume_confirmation.PauseResumeConfirmation"
+    ],
+    "run": 4,
+    "passed": 4,
+    "skips": [],
+    "failures": [],
+    "errors": [],
+    "seconds": 8.934,
+    "exitCode": 0,
+    "sourceAfterAvailable": true,
+    "unchangedDuringRun": true,
+    "matchesFinal": false,
+    "laterChangedFiles": [
+      "tests/test_p18_runtime_process.py"
+    ]
+  },
+  {
+    "label": "confirmation-final-02",
+    "status": "FINISHED",
+    "command": [
+      "E:\\Adobe\\python.exe",
+      "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p18_r2_evidence\\run.py",
+      "confirmation-final-02",
+      "--review-class",
+      "test_pause_resume_confirmation.PauseResumeConfirmation"
+    ],
+    "run": 4,
+    "passed": 4,
+    "skips": [],
+    "failures": [],
+    "errors": [],
+    "seconds": 8.34,
+    "exitCode": 0,
+    "sourceAfterAvailable": true,
+    "unchangedDuringRun": true,
+    "matchesFinal": true,
+    "laterChangedFiles": []
+  },
+  {
+    "label": "formal-after-01",
+    "status": "FINISHED",
+    "command": [
+      "E:\\Adobe\\python.exe",
+      "docs/project_memory/p18_r2_evidence/run.py",
+      "formal-after-01",
+      "test_p18_runtime_resume"
+    ],
+    "run": 5,
+    "passed": 5,
+    "skips": [],
+    "failures": [],
+    "errors": [],
+    "seconds": 8.358,
+    "exitCode": 0,
+    "sourceAfterAvailable": true,
+    "unchangedDuringRun": true,
+    "matchesFinal": false,
+    "laterChangedFiles": [
+      "src/continuity_engine/domain/thinking.py",
+      "src/continuity_engine/services/runtime_cognition.py",
+      "src/continuity_engine/services/thinking_service.py",
+      "src/continuity_engine/services/wake_perception_thinking_action_service.py",
+      "src/continuity_engine/testing/p18_runtime_fixture.py",
+      "tests/test_p18_runtime_process.py",
+      "tests/test_p18_runtime_resume.py"
+    ]
+  },
+  {
+    "label": "formal-before-01",
+    "status": "FINISHED",
+    "command": [
+      "E:\\Adobe\\python.exe",
+      "docs/project_memory/p18_r2_evidence/run.py",
+      "formal-before-01",
+      "test_p18_runtime_resume"
+    ],
+    "run": 5,
+    "passed": 2,
+    "skips": [],
+    "failures": [
+      [
+        "test_p18_runtime_resume.RuntimeResumeTests.test_first_call_pause_resumes_same_session_without_extra_reservation",
+        "Traceback (most recent call last):\n  File \"C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p18_runtime_resume.py\", line 44, in test_first_call_pause_resumes_same_session_without_extra_reservation\n    self.assertEqual(f.state.revision, 2)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 1 != 2\n"
+      ],
+      [
+        "test_p18_runtime_resume.RuntimeResumeTests.test_reopened_pre_call_deferral_resumes",
+        "Traceback (most recent call last):\n  File \"C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p18_runtime_resume.py\", line 73, in test_reopened_pre_call_deferral_resumes\n    self.assertEqual(reopened.state.revision, 2)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 1 != 2\n"
+      ],
+      [
+        "test_p18_runtime_resume.RuntimeResumeTests.test_second_cycle_pause_resumes_without_replaying_first",
+        "Traceback (most recent call last):\n  File \"C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p18_runtime_resume.py\", line 62, in test_second_cycle_pause_resumes_without_replaying_first\n    self.assertEqual(f.state.revision, 3)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 2 != 3\n"
+      ]
+    ],
+    "errors": [],
+    "seconds": 7.379,
+    "exitCode": 1,
+    "sourceAfterAvailable": true,
+    "unchangedDuringRun": true,
+    "matchesFinal": false,
+    "laterChangedFiles": [
+      "src/continuity_engine/domain/thinking.py",
+      "src/continuity_engine/services/runtime_cognition.py",
+      "src/continuity_engine/services/thinking_service.py",
+      "src/continuity_engine/services/wake_perception_thinking_action_service.py",
+      "src/continuity_engine/storage/json_thinking_repository.py",
+      "src/continuity_engine/testing/p18_runtime_fixture.py",
+      "tests/test_p18_runtime_process.py",
+      "tests/test_p18_runtime_resume.py"
+    ]
+  },
+  {
+    "label": "formal-complete-01",
+    "status": "FINISHED",
+    "command": [
+      "E:\\Adobe\\python.exe",
+      "docs/project_memory/p18_r2_evidence/run.py",
+      "formal-complete-01",
+      "test_p18_runtime_resume"
+    ],
+    "run": 21,
+    "passed": 20,
+    "skips": [],
+    "failures": [],
+    "errors": [
+      [
+        "test_p18_runtime_resume.RuntimeResumeTests.test_pre_stop_diagnostic_is_read_only_and_has_native_stage",
+        "Traceback (most recent call last):\n  File \"C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\testing\\persistence.py\", line 63, in file_hash\n    return f\"sha256:{hashlib.sha256(path.read_bytes()).hexdigest()}\"\n                                    ~~~~~~~~~~~~~~~^^\n  File \"E:\\Adobe\\Lib\\pathlib\\__init__.py\", line 778, in read_bytes\n    return f.read()\n           ~~~~~~^^\nPermissionError: [Errno 13] Permission denied\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p18_runtime_resume.py\", line 328, in test_pre_stop_diagnostic_is_read_only_and_has_native_stage\n    before = tree_inventory_hash(f.root)\n  File \"C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\testing\\persistence.py\", line 157, in tree_inventory_hash\n    return canonical_hash(physical_file_inventory(root))\n                          ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^\n  File \"C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\testing\\persistence.py\", line 146, in physical_file_inventory\n    \"fileHash\": file_hash(path),\n                ~~~~~~~~~^^^^^^\n  File \"C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\testing\\persistence.py\", line 65, in file_hash\n    raise SandboxOperationError(\"SNAPSHOT_INCOMPLETE\", f\"cannot hash {path.name}\") from exc\ncontinuity_engine.testing.models.SandboxOperationError: SNAPSHOT_INCOMPLETE: cannot hash owner.lock\n"
+      ]
+    ],
+    "seconds": 31.736,
+    "exitCode": 1,
+    "sourceAfterAvailable": true,
+    "unchangedDuringRun": true,
+    "matchesFinal": false,
+    "laterChangedFiles": [
+      "src/continuity_engine/domain/thinking.py",
+      "src/continuity_engine/services/thinking_service.py",
+      "tests/test_p18_runtime_process.py",
+      "tests/test_p18_runtime_resume.py"
+    ]
+  },
+  {
+    "label": "formal-expanded-01",
+    "status": "FINISHED",
+    "command": [
+      "E:\\Adobe\\python.exe",
+      "docs/project_memory/p18_r2_evidence/run.py",
+      "formal-expanded-01",
+      "test_p18_runtime_resume"
+    ],
+    "run": 14,
+    "passed": 12,
+    "skips": [],
+    "failures": [
+      [
+        "test_p18_runtime_resume.RuntimeResumeTests.test_long_pause_reassesses_expired_input_with_explicit_predecessor",
+        "Traceback (most recent call last):\n  File \"C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p18_runtime_resume.py\", line 133, in test_long_pause_reassesses_expired_input_with_explicit_predecessor\n    self.assertEqual(f.resources.get_resource_state(f.state.subject_id).token_used, 320)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 384 != 320\n"
+      ],
+      [
+        "test_p18_runtime_resume.RuntimeResumeTests.test_reserved_exact_budget_remains_usable_without_second_charge",
+        "Traceback (most recent call last):\n  File \"C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p18_runtime_resume.py\", line 161, in test_reserved_exact_budget_remains_usable_without_second_charge\n    self.ready(f); self.pause_before_call(f); self.resume(f)\n                   ~~~~~~~~~~~~~~~~~~~~~~^^^\n  File \"C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p18_runtime_resume.py\", line 32, in pause_before_call\n    self.assertEqual(hits, ['before_provider'])\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Lists differ: [] != ['before_provider']\n\nSecond list contains 1 additional elements.\nFirst extra element 0:\n'before_provider'\n\n- []\n+ ['before_provider']\n"
+      ]
+    ],
+    "errors": [],
+    "seconds": 21.384,
+    "exitCode": 1,
+    "sourceAfterAvailable": true,
+    "unchangedDuringRun": true,
+    "matchesFinal": false,
+    "laterChangedFiles": [
+      "src/continuity_engine/domain/thinking.py",
+      "src/continuity_engine/services/thinking_service.py",
+      "src/continuity_engine/testing/p18_runtime_fixture.py",
+      "tests/test_p18_runtime_process.py",
+      "tests/test_p18_runtime_resume.py"
+    ]
+  },
+  {
+    "label": "formal-expanded-02",
+    "status": "FINISHED",
+    "command": [
+      "E:\\Adobe\\python.exe",
+      "docs/project_memory/p18_r2_evidence/run.py",
+      "formal-expanded-02",
+      "test_p18_runtime_resume"
+    ],
+    "run": 14,
+    "passed": 14,
+    "skips": [],
+    "failures": [],
+    "errors": [],
+    "seconds": 21.788,
+    "exitCode": 0,
+    "sourceAfterAvailable": true,
+    "unchangedDuringRun": true,
+    "matchesFinal": false,
+    "laterChangedFiles": [
+      "src/continuity_engine/domain/thinking.py",
+      "src/continuity_engine/services/thinking_service.py",
+      "tests/test_p18_runtime_process.py",
+      "tests/test_p18_runtime_resume.py"
+    ]
+  },
+  {
+    "label": "formal-final-01",
+    "status": "FINISHED",
+    "command": [
+      "E:\\Adobe\\python.exe",
+      "docs/project_memory/p18_r2_evidence/run.py",
+      "formal-final-01",
+      "test_p18_runtime_resume"
+    ],
+    "run": 21,
+    "passed": 21,
+    "skips": [],
+    "failures": [],
+    "errors": [],
+    "seconds": 31.693,
+    "exitCode": 0,
+    "sourceAfterAvailable": true,
+    "unchangedDuringRun": true,
+    "matchesFinal": false,
+    "laterChangedFiles": [
+      "src/continuity_engine/domain/thinking.py",
+      "src/continuity_engine/services/thinking_service.py",
+      "tests/test_p18_runtime_process.py",
+      "tests/test_p18_runtime_resume.py"
+    ]
+  },
+  {
+    "label": "formal-final-02",
+    "status": "FINISHED",
+    "command": [
+      "E:\\Adobe\\python.exe",
+      "docs/project_memory/p18_r2_evidence/run.py",
+      "formal-final-02",
+      "test_p18_runtime_resume"
+    ],
+    "run": 22,
+    "passed": 22,
+    "skips": [],
+    "failures": [],
+    "errors": [],
+    "seconds": 33.816,
+    "exitCode": 0,
+    "sourceAfterAvailable": true,
+    "unchangedDuringRun": true,
+    "matchesFinal": false,
+    "laterChangedFiles": [
+      "tests/test_p18_runtime_process.py"
+    ]
+  },
+  {
+    "label": "formal-final-03",
+    "status": "FINISHED",
+    "command": [
+      "E:\\Adobe\\python.exe",
+      "docs/project_memory/p18_r2_evidence/run.py",
+      "formal-final-03",
+      "test_p18_runtime_resume"
+    ],
+    "run": 22,
+    "passed": 22,
+    "skips": [],
+    "failures": [],
+    "errors": [],
+    "seconds": 38.321,
+    "exitCode": 0,
+    "sourceAfterAvailable": true,
+    "unchangedDuringRun": true,
+    "matchesFinal": true,
+    "laterChangedFiles": []
+  },
+  {
+    "label": "full-final-01",
+    "status": "STARTED",
+    "command": [
+      "E:\\Adobe\\python.exe",
+      "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p18_r2_evidence\\run.py",
+      "full-final-01"
+    ],
+    "run": null,
+    "passed": null,
+    "skips": null,
+    "failures": null,
+    "errors": null,
+    "seconds": null,
+    "exitCode": null,
+    "sourceAfterAvailable": false,
+    "unchangedDuringRun": null,
+    "matchesFinal": null,
+    "laterChangedFiles": null
+  },
+  {
+    "label": "full-resume-01",
+    "status": "FINISHED",
+    "command": [
+      "E:\\Adobe\\python.exe",
+      "C:/Users/Administrator/Documents/continuity-engine/docs/project_memory/p18_r2_evidence/run.py",
+      "full-resume-01"
+    ],
+    "run": 1466,
+    "passed": 1464,
+    "skips": [
+      [
+        "test_p08_fixture_paths.P08FixturePathTests.test_symlink_component_rejected_without_writes",
+        "OS does not grant symlink creation: 1314"
+      ]
+    ],
+    "failures": [
+      [
+        "test_p18_runtime_contention.RuntimeContentionTests.test_resource_wait_process_control_competition",
+        "Traceback (most recent call last):\n  File \"C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p18_runtime_contention.py\", line 153, in test_resource_wait_process_control_competition\n    def test_resource_wait_process_control_competition(self):self.contention_process('RESOURCE_WAIT')\n                                                             ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p18_runtime_contention.py\", line 138, in contention_process\n    self.until(lambda:f.state.revision==2,p)\n    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p18_runtime_contention.py\", line 72, in until\n    self.fail('bounded contention controller timed out')\n    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: bounded contention controller timed out\n"
+      ]
+    ],
+    "errors": [],
+    "seconds": 1376.33,
+    "exitCode": 1,
+    "sourceAfterAvailable": true,
+    "unchangedDuringRun": true,
+    "matchesFinal": true,
+    "laterChangedFiles": []
+  },
+  {
+    "label": "p18-final-01",
+    "status": "FINISHED",
+    "command": [
+      "E:\\Adobe\\python.exe",
+      "docs/project_memory/p18_r2_evidence/run.py",
+      "p18-final-01",
+      "test_p18_"
+    ],
+    "run": 106,
+    "passed": 106,
+    "skips": [],
+    "failures": [],
+    "errors": [],
+    "seconds": 191.42,
+    "exitCode": 0,
+    "sourceAfterAvailable": true,
+    "unchangedDuringRun": true,
+    "matchesFinal": false,
+    "laterChangedFiles": [
+      "tests/test_p18_runtime_process.py"
+    ]
+  },
+  {
+    "label": "p18-final-02",
+    "status": "FINISHED",
+    "command": [
+      "E:\\Adobe\\python.exe",
+      "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p18_r2_evidence\\run.py",
+      "p18-final-02",
+      "test_p18_"
+    ],
+    "run": 106,
+    "passed": 106,
+    "skips": [],
+    "failures": [],
+    "errors": [],
+    "seconds": 197.842,
+    "exitCode": 0,
+    "sourceAfterAvailable": true,
+    "unchangedDuringRun": true,
+    "matchesFinal": true,
+    "laterChangedFiles": []
+  },
+  {
+    "label": "resume-after-01",
+    "status": "FINISHED",
+    "command": [
+      "E:\\Adobe\\python.exe",
+      "docs/project_memory/p18_r2_evidence/run.py",
+      "resume-after-01",
+      "--review-class",
+      "test_independent_resume.IndependentResumeTests"
+    ],
+    "run": 12,
+    "passed": 12,
+    "skips": [],
+    "failures": [],
+    "errors": [],
+    "seconds": 26.403,
+    "exitCode": 0,
+    "sourceAfterAvailable": true,
+    "unchangedDuringRun": true,
+    "matchesFinal": false,
+    "laterChangedFiles": [
+      "src/continuity_engine/domain/thinking.py",
+      "src/continuity_engine/services/runtime_cognition.py",
+      "src/continuity_engine/services/thinking_service.py",
+      "src/continuity_engine/services/wake_perception_thinking_action_service.py",
+      "src/continuity_engine/testing/p18_runtime_fixture.py",
+      "tests/test_p18_runtime_process.py",
+      "tests/test_p18_runtime_resume.py"
+    ]
+  },
+  {
+    "label": "resume-before-01",
+    "status": "FINISHED",
+    "command": [
+      "E:\\Adobe\\python.exe",
+      "docs/project_memory/p18_r2_evidence/run.py",
+      "resume-before-01",
+      "--review-class",
+      "test_independent_resume.IndependentResumeTests"
+    ],
+    "run": 12,
+    "passed": 11,
+    "skips": [],
+    "failures": [
+      [
+        "test_independent_resume.IndependentResumeTests.test_pause_before_provider_then_resume_makes_progress",
+        "Traceback (most recent call last):\n  File \"C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p18_r2_evidence\\independent\\test_independent_resume.py\", line 71, in test_pause_before_provider_then_resume_makes_progress\n    self.assertGreater(f.state.revision,1,'A definite pre-provider pause must not permanently poison future cognition')\n    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 1 not greater than 1 : A definite pre-provider pause must not permanently poison future cognition\n"
+      ]
+    ],
+    "errors": [],
+    "seconds": 26.038,
+    "exitCode": 1,
+    "sourceAfterAvailable": true,
+    "unchangedDuringRun": true,
+    "matchesFinal": false,
+    "laterChangedFiles": [
+      "src/continuity_engine/domain/thinking.py",
+      "src/continuity_engine/services/runtime_cognition.py",
+      "src/continuity_engine/services/thinking_service.py",
+      "src/continuity_engine/services/wake_perception_thinking_action_service.py",
+      "src/continuity_engine/storage/json_thinking_repository.py",
+      "src/continuity_engine/testing/p18_runtime_fixture.py",
+      "tests/test_p18_runtime_process.py",
+      "tests/test_p18_runtime_resume.py"
+    ]
+  },
+  {
+    "label": "resume-final-01",
+    "status": "FINISHED",
+    "command": [
+      "E:\\Adobe\\python.exe",
+      "docs/project_memory/p18_r2_evidence/run.py",
+      "resume-final-01",
+      "--review-class",
+      "test_independent_resume.IndependentResumeTests"
+    ],
+    "run": 12,
+    "passed": 12,
+    "skips": [],
+    "failures": [],
+    "errors": [],
+    "seconds": 28.14,
+    "exitCode": 0,
+    "sourceAfterAvailable": true,
+    "unchangedDuringRun": true,
+    "matchesFinal": false,
+    "laterChangedFiles": [
+      "tests/test_p18_runtime_process.py"
+    ]
+  },
+  {
+    "label": "resume-final-02",
+    "status": "FINISHED",
+    "command": [
+      "E:\\Adobe\\python.exe",
+      "C:\\Users\\Administrator\\Documents\\continuity-engine\\docs\\project_memory\\p18_r2_evidence\\run.py",
+      "resume-final-02",
+      "--review-class",
+      "test_independent_resume.IndependentResumeTests"
+    ],
+    "run": 12,
+    "passed": 12,
+    "skips": [],
+    "failures": [],
+    "errors": [],
+    "seconds": 30.969,
+    "exitCode": 0,
+    "sourceAfterAvailable": true,
+    "unchangedDuringRun": true,
+    "matchesFinal": true,
+    "laterChangedFiles": []
+  }
+]

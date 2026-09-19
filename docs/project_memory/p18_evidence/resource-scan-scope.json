@@ -1,0 +1,10 @@
+{
+  "stage": "P18",
+  "authorization": "Current user-approved P18 kickoff: reuse the original Scheduler and allow necessary minimal internal wiring for local resource wait without blocking eligible other work.",
+  "baselineHead": "5a3247a5d23ff17de2b4ba12bc327594b492e725",
+  "sourceAllowedAdditions": ["src/continuity_engine/services/scheduler_service.py"],
+  "reason": "fairness-before-01 reproduced two P18 resource-wait cases where a later eligible memory-maintenance task was blocked by the first resource-ineligible cognition task. Add an optional bounded resource candidate scan to the original Scheduler; default remains one candidate. No new queue, authority, resource manager, or frozen contract.",
+  "originalBeforeJsonPreserved": true,
+  "acceptance": false,
+  "gitWrites": false
+}

@@ -1,0 +1,66 @@
+test_copied_context_on_another_thread_does_not_convey_transaction_retry (test_p18_storage_retry.StorageRetryTests.test_copied_context_on_another_thread_does_not_convey_transaction_retry) ... FAIL
+test_prepared_file_change_before_replace_helper_is_not_adopted (test_p18_storage_retry.StorageRetryTests.test_prepared_file_change_before_replace_helper_is_not_adopted) ... 
+  test_prepared_file_change_before_replace_helper_is_not_adopted (test_p18_storage_retry.StorageRetryTests.test_prepared_file_change_before_replace_helper_is_not_adopted) (kind='subject', changed='content') ... FAIL
+  test_prepared_file_change_before_replace_helper_is_not_adopted (test_p18_storage_retry.StorageRetryTests.test_prepared_file_change_before_replace_helper_is_not_adopted) (kind='subject', changed='identity') ... FAIL
+  test_prepared_file_change_before_replace_helper_is_not_adopted (test_p18_storage_retry.StorageRetryTests.test_prepared_file_change_before_replace_helper_is_not_adopted) (kind='runtime', changed='content') ... FAIL
+  test_prepared_file_change_before_replace_helper_is_not_adopted (test_p18_storage_retry.StorageRetryTests.test_prepared_file_change_before_replace_helper_is_not_adopted) (kind='runtime', changed='identity') ... FAIL
+test_runtime_cleanup_error_preserves_original_native_error_chain (test_p18_storage_retry.StorageRetryTests.test_runtime_cleanup_error_preserves_original_native_error_chain) ... FAIL
+
+======================================================================
+FAIL: test_copied_context_on_another_thread_does_not_convey_transaction_retry (test_p18_storage_retry.StorageRetryTests.test_copied_context_on_another_thread_does_not_convey_transaction_retry)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p18_storage_retry.py", line 397, in test_copied_context_on_another_thread_does_not_convey_transaction_retry
+    self.assertEqual(len(calls), 1)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+AssertionError: 6 != 1
+
+======================================================================
+FAIL: test_prepared_file_change_before_replace_helper_is_not_adopted (test_p18_storage_retry.StorageRetryTests.test_prepared_file_change_before_replace_helper_is_not_adopted) (kind='subject', changed='content')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p18_storage_retry.py", line 364, in test_prepared_file_change_before_replace_helper_is_not_adopted
+    with self.assertRaises(StateEvolutionError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+AssertionError: StateEvolutionError not raised
+
+======================================================================
+FAIL: test_prepared_file_change_before_replace_helper_is_not_adopted (test_p18_storage_retry.StorageRetryTests.test_prepared_file_change_before_replace_helper_is_not_adopted) (kind='subject', changed='identity')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p18_storage_retry.py", line 364, in test_prepared_file_change_before_replace_helper_is_not_adopted
+    with self.assertRaises(StateEvolutionError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+AssertionError: StateEvolutionError not raised
+
+======================================================================
+FAIL: test_prepared_file_change_before_replace_helper_is_not_adopted (test_p18_storage_retry.StorageRetryTests.test_prepared_file_change_before_replace_helper_is_not_adopted) (kind='runtime', changed='content')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p18_storage_retry.py", line 371, in test_prepared_file_change_before_replace_helper_is_not_adopted
+    with self.assertRaises((StateEvolutionError, RuntimeBoundaryError)):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (<class 'continuity_engine.domain.errors.StateEvolutionError'>, <class 'continuity_engine.domain.persistent_runtime.RuntimeBoundaryError'>) not raised
+
+======================================================================
+FAIL: test_prepared_file_change_before_replace_helper_is_not_adopted (test_p18_storage_retry.StorageRetryTests.test_prepared_file_change_before_replace_helper_is_not_adopted) (kind='runtime', changed='identity')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p18_storage_retry.py", line 371, in test_prepared_file_change_before_replace_helper_is_not_adopted
+    with self.assertRaises((StateEvolutionError, RuntimeBoundaryError)):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (<class 'continuity_engine.domain.errors.StateEvolutionError'>, <class 'continuity_engine.domain.persistent_runtime.RuntimeBoundaryError'>) not raised
+
+======================================================================
+FAIL: test_runtime_cleanup_error_preserves_original_native_error_chain (test_p18_storage_retry.StorageRetryTests.test_runtime_cleanup_error_preserves_original_native_error_chain)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p18_storage_retry.py", line 426, in test_runtime_cleanup_error_preserves_original_native_error_chain
+    self.assertIn(refusals[-1], chain, 'cleanup must not erase the native primary failure')
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: PermissionError(13, 'TEST native-shaped refusal') not found in [RuntimeCheckpointWriteDeferred('RUNTIME_CHECKPOINT_WRITE_DEFERRED'), PermissionError(13, 'TEST cleanup refusal')] : cleanup must not erase the native primary failure
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.768s
+
+FAILED (failures=6)

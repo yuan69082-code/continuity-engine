@@ -1,0 +1,392 @@
+{
+  "H1": {
+    "original": "docs/project_memory/p18_evidence/p18-final-04.json",
+    "sha256": "25792e63931825a49bb20b3d174cf555df63822dc14db0d44b1cc72753d36b45",
+    "run": {
+      "run": 58,
+      "passed": 57,
+      "exitCode": 1,
+      "seconds": 120.372,
+      "skips": [],
+      "failures": [
+        [
+          "test_p18_runtime_process.RuntimeProcessTests.test_resource_wait_host_lives_and_restores_without_message",
+          "Traceback (most recent call last):\n  File \"C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p18_runtime_process.py\", line 115, in test_resource_wait_host_lives_and_restores_without_message\n    f.advance(60);self.until(lambda:f.store.load()['activity']=='WAITING_RESOURCES',process=p)\n                  ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p18_runtime_process.py\", line 50, in until\n    self.fail('bounded test controller timed out')\n    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: bounded test controller timed out\n"
+        ]
+      ]
+    },
+    "sourceStable": true,
+    "changedSince": [
+      "src/continuity_engine/domain/thinking.py",
+      "src/continuity_engine/services/persistent_runtime_service.py",
+      "src/continuity_engine/services/runtime_cognition.py",
+      "src/continuity_engine/services/scheduler_service.py",
+      "src/continuity_engine/services/thinking_service.py",
+      "src/continuity_engine/services/wake_perception_thinking_action_service.py",
+      "src/continuity_engine/storage/json_repository.py",
+      "src/continuity_engine/storage/json_runtime_repository.py",
+      "src/continuity_engine/storage/json_thinking_repository.py",
+      "src/continuity_engine/testing/p18_runtime_fixture.py",
+      "tests/test_p18_runtime.py",
+      "tests/test_p18_runtime_process.py",
+      "tests/test_p18_runtime_recovery.py"
+    ],
+    "addedSince": [
+      "src/continuity_engine/testing/p18_persistence_diagnostics.py",
+      "tests/test_p18_persistence.py",
+      "tests/test_p18_runtime_contention.py",
+      "tests/test_p18_runtime_resume.py"
+    ],
+    "relevantIdentities": {
+      "src/continuity_engine/domain/persistent_runtime.py": {
+        "historical": "f0d0a30a76a84fbd32bbc40a3b738234fa990aa66df34daf21ef9af3b28b3117",
+        "current": "f0d0a30a76a84fbd32bbc40a3b738234fa990aa66df34daf21ef9af3b28b3117",
+        "archivedExactCopies": []
+      },
+      "src/continuity_engine/domain/thinking.py": {
+        "historical": "c4683f65da018970982b6fce8e2a8fe14a3668c5a72e5f7df5054b9a04dab831",
+        "current": "fd639b370d12da310dabd236750dfe80812f06f6f7804259886676237251e865",
+        "archivedExactCopies": [
+          "docs/project_memory/p18_r2_evidence/source-before/thinking.py"
+        ]
+      },
+      "src/continuity_engine/runtime.py": {
+        "historical": "49cd44710b3d7509c2d78a81c34c07e1ec33e6c19d45cdf8ff23140ddfb9e69d",
+        "current": "49cd44710b3d7509c2d78a81c34c07e1ec33e6c19d45cdf8ff23140ddfb9e69d",
+        "archivedExactCopies": []
+      },
+      "src/continuity_engine/services/continuity_core_runtime.py": {
+        "historical": "0517942dc78d8f8e7b7976745d563291e75735aca415519a7f2887b580020c20",
+        "current": "0517942dc78d8f8e7b7976745d563291e75735aca415519a7f2887b580020c20",
+        "archivedExactCopies": []
+      },
+      "src/continuity_engine/services/persistent_runtime_service.py": {
+        "historical": "947d7fac5f8bfc3a5f729f754683e6c8bde60c130be939583b7b39c18d715e88",
+        "current": "e54626afbde9a7b29c9b037934ad6190bd8974f5dab3c437054bd82959e734d1",
+        "archivedExactCopies": []
+      },
+      "src/continuity_engine/services/resource_aware_wake_scheduler.py": {
+        "historical": "f92d25520e30cf2c6a842d8caad6204c2bf286e8c2b28a0fdfbf95c1a0bda70e",
+        "current": "f92d25520e30cf2c6a842d8caad6204c2bf286e8c2b28a0fdfbf95c1a0bda70e",
+        "archivedExactCopies": []
+      },
+      "src/continuity_engine/services/runtime_cognition.py": {
+        "historical": "31f4edb172864cb71d6facdf040735347ef349d9ba8bbe7deb5f2c950acb3811",
+        "current": "5af9dc3023d03eb587adb20e80272783f954f3943c3209e1d9f4206451258280",
+        "archivedExactCopies": [
+          "docs/project_memory/p18_r2_evidence/source-before/runtime_cognition.py"
+        ]
+      },
+      "src/continuity_engine/services/runtime_ports.py": {
+        "historical": "23e7433a2eb15310055204d515c1dfb55e79ede6552b9b5809958175c1d1c9ba",
+        "current": "23e7433a2eb15310055204d515c1dfb55e79ede6552b9b5809958175c1d1c9ba",
+        "archivedExactCopies": []
+      },
+      "src/continuity_engine/services/scheduler_ports.py": {
+        "historical": "4b6fbf942d657fed59e49f9b12fcce229b17ab4060ac592d53c61687af1d0a7b",
+        "current": "4b6fbf942d657fed59e49f9b12fcce229b17ab4060ac592d53c61687af1d0a7b",
+        "archivedExactCopies": []
+      },
+      "src/continuity_engine/services/scheduler_service.py": {
+        "historical": "3c3f31dbe5fcca4a322e1c58d81bc7b3db2c66d202eefd11e9726bbdc7433607",
+        "current": "cbbcb35a9da720e8d37474804ac5ecc4ccd970ae14efcfc568f65456ccd2b781",
+        "archivedExactCopies": []
+      },
+      "src/continuity_engine/services/thinking_ports.py": {
+        "historical": "dc95ac821034b1292ca62d14ee24daec3437f6c72b22d496aa17d8595aae9ae3",
+        "current": "dc95ac821034b1292ca62d14ee24daec3437f6c72b22d496aa17d8595aae9ae3",
+        "archivedExactCopies": []
+      },
+      "src/continuity_engine/services/thinking_service.py": {
+        "historical": "287a2ea6476cf2bc4e867b2c0fcddb1611f34288ebc46f6517559c87f1479fad",
+        "current": "639a4749c2a2ebce086046d32d007ea6ec2ae28407671d1cb325e838cb97244b",
+        "archivedExactCopies": [
+          "docs/project_memory/p18_r2_evidence/source-before/thinking_service.py"
+        ]
+      },
+      "src/continuity_engine/services/wake_perception_thinking_action_service.py": {
+        "historical": "d5e92185a8bce301cede7280a7dc3b5d4ae0d6c33e691d56755d86371dbfc423",
+        "current": "53f407f1e5e6cfec82b2121de7e30997cb8660d44e3742b8ee03b7a535e6b250",
+        "archivedExactCopies": [
+          "docs/project_memory/p18_r2_evidence/source-before/wake_perception_thinking_action_service.py"
+        ]
+      },
+      "src/continuity_engine/services/wake_perception_thinking_service.py": {
+        "historical": "d8be7d1ffdd9a4a9078291835df3b2011cdd59ca07d4aac501023474ee62797d",
+        "current": "d8be7d1ffdd9a4a9078291835df3b2011cdd59ca07d4aac501023474ee62797d",
+        "archivedExactCopies": []
+      },
+      "src/continuity_engine/storage/json_repository.py": {
+        "historical": "6f5951c0f62742e8a8db1e1d6b1a865f4132097dbe50e356513bc29c7bcce807",
+        "current": "f20010c17b95a5341a130656b2605a6520d97201a4cea9f20b4c3d384dc3bcaf",
+        "archivedExactCopies": [
+          "docs/project_memory/p18_persistence_evidence/source-before/json_repository.py"
+        ]
+      },
+      "src/continuity_engine/storage/json_runtime_repository.py": {
+        "historical": "82cfdb819a8db19839d2594bf0eef405ec660e04feb868bc225d7690c4503765",
+        "current": "d7e721d214c2b037719ba310ffe83ef6405577a8b39e7fc8edec72aa0b10308a",
+        "archivedExactCopies": [
+          "docs/project_memory/p18_repair_evidence/source-before/json_runtime_repository.py"
+        ]
+      },
+      "src/continuity_engine/storage/json_scheduler_repository.py": {
+        "historical": "69b941bd1fcac703117a4eb9bc6266fcaa1a2a52a1422a33995c84534174649c",
+        "current": "69b941bd1fcac703117a4eb9bc6266fcaa1a2a52a1422a33995c84534174649c",
+        "archivedExactCopies": []
+      },
+      "src/continuity_engine/storage/json_thinking_repository.py": {
+        "historical": "32ac37f931c14719fe3e389c74b89dc70cb417dc0554c7cb05cdf8229a9a3df2",
+        "current": "bac315a3c2485765304eeb8349e57cea392a7ebbd8533d50dcd645cd5a138cf5",
+        "archivedExactCopies": [
+          "docs/project_memory/p18_r2_evidence/source-before/json_thinking_repository.py"
+        ]
+      },
+      "src/continuity_engine/testing/p11_scheduler_fixture.py": {
+        "historical": "46e56d3fac273e6f197dc172afa4b3962791f36bc6ef1824ee83a002a5f423cf",
+        "current": "46e56d3fac273e6f197dc172afa4b3962791f36bc6ef1824ee83a002a5f423cf",
+        "archivedExactCopies": []
+      },
+      "src/continuity_engine/testing/p18_runtime_fixture.py": {
+        "historical": "7c069af3ecb7a159ca21b60d87d62f9b9e5c7ad54a8ce99bf65df49a1dbe6759",
+        "current": "01c80eb25fa8d682477b9d28569cede631946465da4b5eff0568d3cce96a8c33",
+        "archivedExactCopies": []
+      },
+      "tests/shared/contract_runtime.py": {
+        "historical": "1df4e88298d89990acf446e5e96da6ea51b7d21ca0b2d857acd5ccaccff05666",
+        "current": "1df4e88298d89990acf446e5e96da6ea51b7d21ca0b2d857acd5ccaccff05666",
+        "archivedExactCopies": []
+      },
+      "tests/test_p11_scheduler.py": {
+        "historical": "c2e23811b1c2f7c9c9a0bc7f81b867a04d47cd2a779fcab09164fc2ac7aa74e4",
+        "current": "c2e23811b1c2f7c9c9a0bc7f81b867a04d47cd2a779fcab09164fc2ac7aa74e4",
+        "archivedExactCopies": []
+      },
+      "tests/test_p11_scheduler_recovery.py": {
+        "historical": "2f19170d3625d9552bed64a1d9f48ff13ee63b3fa8cb89c30030b1a5118dbb4d",
+        "current": "2f19170d3625d9552bed64a1d9f48ff13ee63b3fa8cb89c30030b1a5118dbb4d",
+        "archivedExactCopies": []
+      },
+      "tests/test_p18_runtime.py": {
+        "historical": "aa86bb88e733dd6804182a1e735ebecf6c96ffcfc4ac7629b8a49aefed20422c",
+        "current": "c1aab4885bc1435edd5a478b6321a670bbf2b0dc17aca89961251bba45ed5f29",
+        "archivedExactCopies": []
+      },
+      "tests/test_p18_runtime_process.py": {
+        "historical": "92e2456bd3d47df9b347d35428263212b19445731ccf6cb5af6bc947cc9e4eb0",
+        "current": "4a6c5df74f46e6edc2acf09e48de80d3fec634cce00189b9561ddb33364d7513",
+        "archivedExactCopies": []
+      },
+      "tests/test_p18_runtime_recovery.py": {
+        "historical": "cb855f58979287623fadca4b1be60796339892f1ed270a809d3a7aab9a405df1",
+        "current": "a80e9f6e4975ecee46b02afc88fea6dac78a3359144101805a531649a929b4dd",
+        "archivedExactCopies": []
+      },
+      "tests/test_thinking.py": {
+        "historical": "9fed29e0dda208c71d45e6e8314e19b3f414fc936d83fd39e5697e65b40512d7",
+        "current": "9fed29e0dda208c71d45e6e8314e19b3f414fc936d83fd39e5697e65b40512d7",
+        "archivedExactCopies": []
+      }
+    }
+  },
+  "F1": {
+    "original": "docs/project_memory/p18_repair_evidence/full-final-01.json",
+    "sha256": "796b4ca5c3dd0868c20e63c6509a51bb9254dbc0167102f90058650a77f3da5e",
+    "run": {
+      "run": 1444,
+      "passed": 1442,
+      "exitCode": 1,
+      "seconds": 1233.659,
+      "skips": [
+        [
+          "test_p08_fixture_paths.P08FixturePathTests.test_symlink_component_rejected_without_writes",
+          "OS does not grant symlink creation: 1314"
+        ]
+      ],
+      "failures": [
+        [
+          "test_p18_runtime_process.RuntimeProcessTests.test_idle_and_subject_silence_do_not_end_process",
+          "Traceback (most recent call last):\n  File \"C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p18_runtime_process.py\", line 140, in test_idle_and_subject_silence_do_not_end_process\n    f.advance(60);self.until(lambda:f.state.revision>revision,process=p)\n                  ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p18_runtime_process.py\", line 78, in until\n    self.fail('bounded test controller timed out')\n    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: bounded test controller timed out\n"
+        ]
+      ]
+    },
+    "sourceStable": true,
+    "changedSince": [
+      "src/continuity_engine/domain/thinking.py",
+      "src/continuity_engine/services/runtime_cognition.py",
+      "src/continuity_engine/services/thinking_service.py",
+      "src/continuity_engine/services/wake_perception_thinking_action_service.py",
+      "src/continuity_engine/storage/json_repository.py",
+      "src/continuity_engine/storage/json_thinking_repository.py",
+      "src/continuity_engine/testing/p18_runtime_fixture.py",
+      "tests/test_p18_runtime_process.py"
+    ],
+    "addedSince": [
+      "src/continuity_engine/testing/p18_persistence_diagnostics.py",
+      "tests/test_p18_persistence.py",
+      "tests/test_p18_runtime_resume.py"
+    ],
+    "relevantIdentities": {
+      "src/continuity_engine/domain/persistent_runtime.py": {
+        "historical": "f0d0a30a76a84fbd32bbc40a3b738234fa990aa66df34daf21ef9af3b28b3117",
+        "current": "f0d0a30a76a84fbd32bbc40a3b738234fa990aa66df34daf21ef9af3b28b3117",
+        "archivedExactCopies": []
+      },
+      "src/continuity_engine/domain/thinking.py": {
+        "historical": "c4683f65da018970982b6fce8e2a8fe14a3668c5a72e5f7df5054b9a04dab831",
+        "current": "fd639b370d12da310dabd236750dfe80812f06f6f7804259886676237251e865",
+        "archivedExactCopies": [
+          "docs/project_memory/p18_r2_evidence/source-before/thinking.py"
+        ]
+      },
+      "src/continuity_engine/runtime.py": {
+        "historical": "49cd44710b3d7509c2d78a81c34c07e1ec33e6c19d45cdf8ff23140ddfb9e69d",
+        "current": "49cd44710b3d7509c2d78a81c34c07e1ec33e6c19d45cdf8ff23140ddfb9e69d",
+        "archivedExactCopies": []
+      },
+      "src/continuity_engine/services/continuity_core_runtime.py": {
+        "historical": "0517942dc78d8f8e7b7976745d563291e75735aca415519a7f2887b580020c20",
+        "current": "0517942dc78d8f8e7b7976745d563291e75735aca415519a7f2887b580020c20",
+        "archivedExactCopies": []
+      },
+      "src/continuity_engine/services/persistent_runtime_service.py": {
+        "historical": "e54626afbde9a7b29c9b037934ad6190bd8974f5dab3c437054bd82959e734d1",
+        "current": "e54626afbde9a7b29c9b037934ad6190bd8974f5dab3c437054bd82959e734d1",
+        "archivedExactCopies": [
+          "docs/project_memory/p18_f1_h1_evidence/source-before/persistent_runtime_service.py"
+        ]
+      },
+      "src/continuity_engine/services/resource_aware_wake_scheduler.py": {
+        "historical": "f92d25520e30cf2c6a842d8caad6204c2bf286e8c2b28a0fdfbf95c1a0bda70e",
+        "current": "f92d25520e30cf2c6a842d8caad6204c2bf286e8c2b28a0fdfbf95c1a0bda70e",
+        "archivedExactCopies": []
+      },
+      "src/continuity_engine/services/runtime_cognition.py": {
+        "historical": "31f4edb172864cb71d6facdf040735347ef349d9ba8bbe7deb5f2c950acb3811",
+        "current": "5af9dc3023d03eb587adb20e80272783f954f3943c3209e1d9f4206451258280",
+        "archivedExactCopies": [
+          "docs/project_memory/p18_r2_evidence/source-before/runtime_cognition.py"
+        ]
+      },
+      "src/continuity_engine/services/runtime_ports.py": {
+        "historical": "23e7433a2eb15310055204d515c1dfb55e79ede6552b9b5809958175c1d1c9ba",
+        "current": "23e7433a2eb15310055204d515c1dfb55e79ede6552b9b5809958175c1d1c9ba",
+        "archivedExactCopies": []
+      },
+      "src/continuity_engine/services/scheduler_ports.py": {
+        "historical": "4b6fbf942d657fed59e49f9b12fcce229b17ab4060ac592d53c61687af1d0a7b",
+        "current": "4b6fbf942d657fed59e49f9b12fcce229b17ab4060ac592d53c61687af1d0a7b",
+        "archivedExactCopies": []
+      },
+      "src/continuity_engine/services/scheduler_service.py": {
+        "historical": "cbbcb35a9da720e8d37474804ac5ecc4ccd970ae14efcfc568f65456ccd2b781",
+        "current": "cbbcb35a9da720e8d37474804ac5ecc4ccd970ae14efcfc568f65456ccd2b781",
+        "archivedExactCopies": [
+          "docs/project_memory/p18_f1_h1_evidence/source-before/scheduler_service.py"
+        ]
+      },
+      "src/continuity_engine/services/thinking_ports.py": {
+        "historical": "dc95ac821034b1292ca62d14ee24daec3437f6c72b22d496aa17d8595aae9ae3",
+        "current": "dc95ac821034b1292ca62d14ee24daec3437f6c72b22d496aa17d8595aae9ae3",
+        "archivedExactCopies": []
+      },
+      "src/continuity_engine/services/thinking_service.py": {
+        "historical": "287a2ea6476cf2bc4e867b2c0fcddb1611f34288ebc46f6517559c87f1479fad",
+        "current": "639a4749c2a2ebce086046d32d007ea6ec2ae28407671d1cb325e838cb97244b",
+        "archivedExactCopies": [
+          "docs/project_memory/p18_r2_evidence/source-before/thinking_service.py"
+        ]
+      },
+      "src/continuity_engine/services/wake_perception_thinking_action_service.py": {
+        "historical": "d5e92185a8bce301cede7280a7dc3b5d4ae0d6c33e691d56755d86371dbfc423",
+        "current": "53f407f1e5e6cfec82b2121de7e30997cb8660d44e3742b8ee03b7a535e6b250",
+        "archivedExactCopies": [
+          "docs/project_memory/p18_r2_evidence/source-before/wake_perception_thinking_action_service.py"
+        ]
+      },
+      "src/continuity_engine/services/wake_perception_thinking_service.py": {
+        "historical": "d8be7d1ffdd9a4a9078291835df3b2011cdd59ca07d4aac501023474ee62797d",
+        "current": "d8be7d1ffdd9a4a9078291835df3b2011cdd59ca07d4aac501023474ee62797d",
+        "archivedExactCopies": []
+      },
+      "src/continuity_engine/storage/json_repository.py": {
+        "historical": "6f5951c0f62742e8a8db1e1d6b1a865f4132097dbe50e356513bc29c7bcce807",
+        "current": "f20010c17b95a5341a130656b2605a6520d97201a4cea9f20b4c3d384dc3bcaf",
+        "archivedExactCopies": [
+          "docs/project_memory/p18_persistence_evidence/source-before/json_repository.py"
+        ]
+      },
+      "src/continuity_engine/storage/json_runtime_repository.py": {
+        "historical": "d7e721d214c2b037719ba310ffe83ef6405577a8b39e7fc8edec72aa0b10308a",
+        "current": "d7e721d214c2b037719ba310ffe83ef6405577a8b39e7fc8edec72aa0b10308a",
+        "archivedExactCopies": []
+      },
+      "src/continuity_engine/storage/json_scheduler_repository.py": {
+        "historical": "69b941bd1fcac703117a4eb9bc6266fcaa1a2a52a1422a33995c84534174649c",
+        "current": "69b941bd1fcac703117a4eb9bc6266fcaa1a2a52a1422a33995c84534174649c",
+        "archivedExactCopies": []
+      },
+      "src/continuity_engine/storage/json_thinking_repository.py": {
+        "historical": "32ac37f931c14719fe3e389c74b89dc70cb417dc0554c7cb05cdf8229a9a3df2",
+        "current": "bac315a3c2485765304eeb8349e57cea392a7ebbd8533d50dcd645cd5a138cf5",
+        "archivedExactCopies": [
+          "docs/project_memory/p18_r2_evidence/source-before/json_thinking_repository.py"
+        ]
+      },
+      "src/continuity_engine/testing/p11_scheduler_fixture.py": {
+        "historical": "46e56d3fac273e6f197dc172afa4b3962791f36bc6ef1824ee83a002a5f423cf",
+        "current": "46e56d3fac273e6f197dc172afa4b3962791f36bc6ef1824ee83a002a5f423cf",
+        "archivedExactCopies": []
+      },
+      "src/continuity_engine/testing/p18_runtime_fixture.py": {
+        "historical": "ba22ae27d9dc6e0952c76fb48a390c0f702726be925f2227fbae7003e2aab159",
+        "current": "01c80eb25fa8d682477b9d28569cede631946465da4b5eff0568d3cce96a8c33",
+        "archivedExactCopies": []
+      },
+      "tests/shared/contract_runtime.py": {
+        "historical": "1df4e88298d89990acf446e5e96da6ea51b7d21ca0b2d857acd5ccaccff05666",
+        "current": "1df4e88298d89990acf446e5e96da6ea51b7d21ca0b2d857acd5ccaccff05666",
+        "archivedExactCopies": []
+      },
+      "tests/test_p11_scheduler.py": {
+        "historical": "c2e23811b1c2f7c9c9a0bc7f81b867a04d47cd2a779fcab09164fc2ac7aa74e4",
+        "current": "c2e23811b1c2f7c9c9a0bc7f81b867a04d47cd2a779fcab09164fc2ac7aa74e4",
+        "archivedExactCopies": []
+      },
+      "tests/test_p11_scheduler_recovery.py": {
+        "historical": "2f19170d3625d9552bed64a1d9f48ff13ee63b3fa8cb89c30030b1a5118dbb4d",
+        "current": "2f19170d3625d9552bed64a1d9f48ff13ee63b3fa8cb89c30030b1a5118dbb4d",
+        "archivedExactCopies": []
+      },
+      "tests/test_p18_runtime.py": {
+        "historical": "c1aab4885bc1435edd5a478b6321a670bbf2b0dc17aca89961251bba45ed5f29",
+        "current": "c1aab4885bc1435edd5a478b6321a670bbf2b0dc17aca89961251bba45ed5f29",
+        "archivedExactCopies": []
+      },
+      "tests/test_p18_runtime_contention.py": {
+        "historical": "f124f72492023ac00e62ca35a66259f1f508d531e36f17113b88626146def7c5",
+        "current": "f124f72492023ac00e62ca35a66259f1f508d531e36f17113b88626146def7c5",
+        "archivedExactCopies": [
+          "docs/project_memory/p18_persistence_evidence/source-before/test_p18_runtime_contention.py"
+        ]
+      },
+      "tests/test_p18_runtime_process.py": {
+        "historical": "557c8edb7832a03f12437ec525fe0d4087d2a8d3c45d4a21cfc4c16a7dcdc26f",
+        "current": "4a6c5df74f46e6edc2acf09e48de80d3fec634cce00189b9561ddb33364d7513",
+        "archivedExactCopies": [
+          "docs/project_memory/p18_r2_evidence/source-before/test_p18_runtime_process.py"
+        ]
+      },
+      "tests/test_p18_runtime_recovery.py": {
+        "historical": "a80e9f6e4975ecee46b02afc88fea6dac78a3359144101805a531649a929b4dd",
+        "current": "a80e9f6e4975ecee46b02afc88fea6dac78a3359144101805a531649a929b4dd",
+        "archivedExactCopies": []
+      },
+      "tests/test_thinking.py": {
+        "historical": "9fed29e0dda208c71d45e6e8314e19b3f414fc936d83fd39e5697e65b40512d7",
+        "current": "9fed29e0dda208c71d45e6e8314e19b3f414fc936d83fd39e5697e65b40512d7",
+        "archivedExactCopies": []
+      }
+    }
+  }
+}

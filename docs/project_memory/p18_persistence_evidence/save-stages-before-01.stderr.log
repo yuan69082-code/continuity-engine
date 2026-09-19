@@ -1,0 +1,50 @@
+test_cleanup_failure_keeps_primary_and_secondary_system_errors (test_p18_persistence.PersistenceTests.test_cleanup_failure_keeps_primary_and_secondary_system_errors) ... FAIL
+test_diagnostic_sink_failure_does_not_replace_primary_error (test_p18_persistence.PersistenceTests.test_diagnostic_sink_failure_does_not_replace_primary_error) ... ok
+test_partial_save_steps_cleanup_and_keep_system_diagnostics (test_p18_persistence.PersistenceTests.test_partial_save_steps_cleanup_and_keep_system_diagnostics) ... 
+  test_partial_save_steps_cleanup_and_keep_system_diagnostics (test_p18_persistence.PersistenceTests.test_partial_save_steps_cleanup_and_keep_system_diagnostics) (step='write') ... FAIL
+  test_partial_save_steps_cleanup_and_keep_system_diagnostics (test_p18_persistence.PersistenceTests.test_partial_save_steps_cleanup_and_keep_system_diagnostics) (step='flush') ... FAIL
+  test_partial_save_steps_cleanup_and_keep_system_diagnostics (test_p18_persistence.PersistenceTests.test_partial_save_steps_cleanup_and_keep_system_diagnostics) (step='fsync') ... FAIL
+
+======================================================================
+FAIL: test_cleanup_failure_keeps_primary_and_secondary_system_errors (test_p18_persistence.PersistenceTests.test_cleanup_failure_keeps_primary_and_secondary_system_errors)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p18_persistence.py", line 285, in test_cleanup_failure_keeps_primary_and_secondary_system_errors
+    self.assertIs(caught.exception,primary)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: PermissionError(13, 'private cleanup') is not OSError(28, 'private primary')
+
+======================================================================
+FAIL: test_partial_save_steps_cleanup_and_keep_system_diagnostics (test_p18_persistence.PersistenceTests.test_partial_save_steps_cleanup_and_keep_system_diagnostics) (step='write')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p18_persistence.py", line 262, in test_partial_save_steps_cleanup_and_keep_system_diagnostics
+    self.assertEqual(set(Path(root).glob('*.tmp')),prior_files)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Items in the first set but not the second:
+WindowsPath('C:/Users/ADMINI~1/AppData/Local/Temp/ps18-ck66xuqi/.ee9ca9f0e1d89cf47426afb211b4df85b6e9e1de5757861da2fa9bbd49d7fdb2.7ga8j6zq.tmp')
+
+======================================================================
+FAIL: test_partial_save_steps_cleanup_and_keep_system_diagnostics (test_p18_persistence.PersistenceTests.test_partial_save_steps_cleanup_and_keep_system_diagnostics) (step='flush')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p18_persistence.py", line 262, in test_partial_save_steps_cleanup_and_keep_system_diagnostics
+    self.assertEqual(set(Path(root).glob('*.tmp')),prior_files)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Items in the first set but not the second:
+WindowsPath('C:/Users/ADMINI~1/AppData/Local/Temp/ps18-ck66xuqi/.ee9ca9f0e1d89cf47426afb211b4df85b6e9e1de5757861da2fa9bbd49d7fdb2.2p5uxmg5.tmp')
+
+======================================================================
+FAIL: test_partial_save_steps_cleanup_and_keep_system_diagnostics (test_p18_persistence.PersistenceTests.test_partial_save_steps_cleanup_and_keep_system_diagnostics) (step='fsync')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p18_persistence.py", line 262, in test_partial_save_steps_cleanup_and_keep_system_diagnostics
+    self.assertEqual(set(Path(root).glob('*.tmp')),prior_files)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Items in the first set but not the second:
+WindowsPath('C:/Users/ADMINI~1/AppData/Local/Temp/ps18-ck66xuqi/.ee9ca9f0e1d89cf47426afb211b4df85b6e9e1de5757861da2fa9bbd49d7fdb2.i9wamfdg.tmp')
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.069s
+
+FAILED (failures=4)

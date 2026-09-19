@@ -1,0 +1,123 @@
+{
+  "label": "F1: newly observed full-regression timeout, not a new accepted defect category",
+  "rootCause": "UNKNOWN",
+  "resolved": false,
+  "reference": "full-final-01",
+  "failures": [
+    [
+      "test_p18_runtime_process.RuntimeProcessTests.test_idle_and_subject_silence_do_not_end_process",
+      "Traceback (most recent call last):\n  File \"C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p18_runtime_process.py\", line 140, in test_idle_and_subject_silence_do_not_end_process\n    f.advance(60);self.until(lambda:f.state.revision>revision,process=p)\n                  ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Administrator\\Documents\\continuity-engine\\tests\\test_p18_runtime_process.py\", line 78, in until\n    self.fail('bounded test controller timed out')\n    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: bounded test controller timed out\n"
+    ]
+  ],
+  "run": 1444,
+  "passed": 1442,
+  "skips": [
+    [
+      "test_p08_fixture_paths.P08FixturePathTests.test_symlink_component_rejected_without_writes",
+      "OS does not grant symlink creation: 1314"
+    ]
+  ],
+  "exitCode": 1,
+  "seconds": 1233.659,
+  "sourceStable": true,
+  "beforeStop": {
+    "processes": [
+      {
+        "pid": 14860,
+        "exitCode": null,
+        "alive": true
+      }
+    ],
+    "trusted_time": "2026-09-04T10:02:00+00:00",
+    "runtime": {
+      "revision": 8,
+      "state": "RUNNING",
+      "desired": "RUNNING",
+      "activity": "WAITING_VERIFICATION",
+      "reason": "TASK_RESULT_UNCONFIRMED",
+      "last_time": "2026-09-04T10:02:00+00:00",
+      "next_check_at": "2026-09-04T10:02:05+00:00",
+      "last_task": "maintenance:ee91189d48f91adc81e27398433470496831296351109eb0317c00963751d1d0",
+      "generation": 1,
+      "host_alive": true,
+      "checkpoint_busy": false,
+      "resources": {
+        "token_budget": 100000,
+        "token_used": 640,
+        "token_remaining": 99360,
+        "compute_remaining": 994
+      }
+    },
+    "tasks": [
+      {
+        "task_id": "cognition:0da38bece96ed57b379f804f88883a0b7c1b356900913a2e0e56943de52e7530",
+        "state": "COMPLETED",
+        "attempt_count": 1,
+        "last_attempt_id": "p11-attempt-abe56e69a194ab1adba467305d3f14033deff51d94a2ec5c48c9b3d3923dceee",
+        "next_attempt_at": null,
+        "due_at": "2026-09-04T08:01:00+00:00",
+        "last_receipt_status": "DELIVERED"
+      },
+      {
+        "task_id": "maintenance:1cd024c68aeaf74ce456f4f50628c162a7d0634f6e295a90489f73bc217652d6",
+        "state": "COMPLETED",
+        "attempt_count": 1,
+        "last_attempt_id": "p11-attempt-c9e2e107d9403129c2f20c8754dba2a1c046911669ad8840b8037f5f4f174fac",
+        "next_attempt_at": null,
+        "due_at": "2026-09-04T08:00:00+00:00",
+        "last_receipt_status": "DELIVERED"
+      },
+      {
+        "task_id": "cognition:d0c900dbfa67121ed3744446381209d6311b0141e5d8ef28f76a17c5ba85a2ad",
+        "state": "UNKNOWN",
+        "attempt_count": 1,
+        "last_attempt_id": "p11-attempt-677bba63e3230b9e12f6d18b429278de0b3b1a73c7971ee328ac8ee86d019b7e",
+        "next_attempt_at": null,
+        "due_at": "2026-09-04T09:02:00+00:00",
+        "last_receipt_status": null
+      },
+      {
+        "task_id": "maintenance:ee91189d48f91adc81e27398433470496831296351109eb0317c00963751d1d0",
+        "state": "COMPLETED",
+        "attempt_count": 1,
+        "last_attempt_id": "p11-attempt-f5362f4fc342842bd25732eea00a56194b2464031f2ea7df711c248d73dcd471",
+        "next_attempt_at": null,
+        "due_at": "2026-09-04T09:01:00+00:00",
+        "last_receipt_status": "DELIVERED"
+      }
+    ]
+  },
+  "cleanup": {
+    "exitCode": 0,
+    "forcedCleanup": false,
+    "childrenReaped": true,
+    "stderr": ""
+  },
+  "sourceEvidenceHashes": {
+    "full-final-01.json": "796b4ca5c3dd0868c20e63c6509a51bb9254dbc0167102f90058650a77f3da5e",
+    "full-final-01.stdout.log": "4f7aa4ef8606b1c4cc3bd57b728cf1c5dc28126af1f15af258732a7ab8ab9734",
+    "full-final-01.stderr.log": "69e240bb390cb54e1a33d6354e39a834a6e454b5418a20c5178269cb8f008dd8"
+  },
+  "boundedInvestigation": [
+    {
+      "label": "resume-diagnostic-01",
+      "kind": "one synchronous sequence",
+      "outcome": "ADVANCED",
+      "seconds": 2.404
+    },
+    {
+      "label": "resume-process-diagnostic-01",
+      "kind": "one instrumented original process scenario",
+      "run": 1,
+      "passed": 1,
+      "seconds": 11.296
+    }
+  ],
+  "limits": [
+    "Later diagnostic success does not close the full failure.",
+    "At the failure, task was UNKNOWN/WAITING_VERIFICATION, model tokens=640, host alive, checkpoint not busy; H1 instead recorded token_used=0/unconfirmed_tasks=0.",
+    "No failure-time ThinkSession/Action/Capability stack was captured. Temporary fixture was cleaned after diagnostics and STOP.",
+    "No additional full run or code/assertion/timeout change was made after this failure.",
+    "Further causal repair requires a reproducible original request/Context/receipt failure; do not relax UNKNOWN or authorization to make it green."
+  ]
+}

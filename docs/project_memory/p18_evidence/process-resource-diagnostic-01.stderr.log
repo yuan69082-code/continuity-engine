@@ -1,0 +1,6 @@
+test_resource_wait_host_lives_and_restores_without_message (test_p18_runtime_process.RuntimeProcessTests.test_resource_wait_host_lives_and_restores_without_message) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 5.740s
+
+OK

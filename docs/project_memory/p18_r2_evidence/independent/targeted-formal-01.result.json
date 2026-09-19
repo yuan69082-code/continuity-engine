@@ -1,0 +1,18 @@
+{
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "test_p18_runtime_contention",
+    "test_p18_runtime_process.RuntimeProcessTests.test_idle_and_subject_silence_do_not_end_process",
+    "-v"
+  ],
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "startedAt": "2026-09-12T16:31:45.464428+00:00",
+  "finishedAt": "2026-09-12T16:32:38.154305+00:00",
+  "exitCode": 0,
+  "elapsedSeconds": 52.302447300000495,
+  "beforeCount": 2403,
+  "afterCount": 2403,
+  "changed": []
+}

@@ -1,0 +1,81 @@
+{
+  "checks": {
+    "expectedP17Commit": true,
+    "expectedParent": true,
+    "mainAndLocalTrackingSynchronized": true,
+    "exact224CommittedFiles": true,
+    "allReviewed196P17FilesIncluded": true,
+    "source253StillExactlyVerified": true,
+    "protected63Unchanged": true,
+    "threeFrozenPlansUnchanged": true,
+    "formal7AndTreeUnchanged": true,
+    "excluded31ScriptsUnchanged": true,
+    "excludedP14ReportUnchanged": true,
+    "only32ExpectedUntrackedFiles": true,
+    "trackedWorktreeAndIndexClean": true,
+    "archived17ReviewFilesByteExact": true,
+    "historicalP17EvidenceUnchanged": true,
+    "D071UniqueAndTwelveRowsAccepted": true,
+    "onlyThreeDeclaredHistoricalRawWarningsInCommit": true,
+    "planningCacheThreeSourceHashesMatch": true,
+    "recorded223CommittedHashesMatch": true,
+    "versionAndPyprojectUnchanged": true
+  },
+  "allChecksPass": true,
+  "commit": "5a3247a5d23ff17de2b4ba12bc327594b492e725",
+  "parent": "0c440b0476b07723abafe93777fe895b64fd8d0e",
+  "message": "feat: implement and accept P17 execution and world boundaries",
+  "committedFileCount": 224,
+  "remainingUntrackedCount": 32,
+  "historicalEvidenceCount": 161,
+  "historicalFormattingWarningsInCommit": [
+    {
+      "path": "docs/project_memory/p17_evidence/boundaries-first-01.stderr.log",
+      "line": 7,
+      "kind": "trailing whitespace"
+    },
+    {
+      "path": "docs/project_memory/p17_evidence/boundaries-first-01.stderr.log",
+      "line": 14,
+      "kind": "trailing whitespace"
+    },
+    {
+      "path": "docs/project_memory/p17_evidence/late-boundary-formal-before-01.stderr.log",
+      "line": 2,
+      "kind": "trailing whitespace"
+    }
+  ],
+  "whitespaceCheckExitCode": 2,
+  "warningMeaning": "Three pre-existing P17 raw stderr whitespace warnings; previous P16 warnings remain unchanged, not new executable-code defects.",
+  "remoteReadOnlyObservation": {
+    "command": "git ls-remote --exit-code origin refs/heads/main",
+    "observedSHA": "5a3247a5d23ff17de2b4ba12bc327594b492e725",
+    "source": "Successful host-authenticated read-only command this turn after sandbox SEC_E_NO_CREDENTIALS."
+  },
+  "trackedCIWorkflowFiles": [],
+  "remoteCIIndependentlyChecked": false,
+  "planningSources": {
+    "Continuity Assistant 分支构想 v0.1_P10实际建仓同步版_2026-08-26.docx": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\outputs\\Continuity Assistant 分支构想 v0.1_P10实际建仓同步版_2026-08-26.docx",
+      "expectedSHA256": "5513e8241a96f4d661d9520cbcb3c2ea9914ca8d430b2db4dacc13ba3dd744a1",
+      "actualSHA256": "5513e8241a96f4d661d9520cbcb3c2ea9914ca8d430b2db4dacc13ba3dd744a1",
+      "blocks": 63
+    },
+    "Continuity Engine（数字连续性引擎）全周期工程监工规划_v1.1_Engine独立施工与P10实际建仓同步版_2026-08-26.docx": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\outputs\\Continuity Engine（数字连续性引擎）全周期工程监工规划_v1.1_Engine独立施工与P10实际建仓同步版_2026-08-26.docx",
+      "expectedSHA256": "9cbc30b5beb7f12c046556bd9461b59d5d4e45c2315dc2da4f07c8bd132ae1a1",
+      "actualSHA256": "9cbc30b5beb7f12c046556bd9461b59d5d4e45c2315dc2da4f07c8bd132ae1a1",
+      "blocks": 417
+    },
+    "连续性引擎长期能力增补规划_v6.7_Engine独立施工与P10实际建仓同步版_2026-08-26.docx": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\outputs\\连续性引擎长期能力增补规划_v6.7_Engine独立施工与P10实际建仓同步版_2026-08-26.docx",
+      "expectedSHA256": "a47bfb5e19092ee11963c0554897fbb29cbbba775183bddecb284c24f3788027",
+      "actualSHA256": "a47bfb5e19092ee11963c0554897fbb29cbbba775183bddecb284c24f3788027",
+      "blocks": 587
+    }
+  },
+  "testsRerun": false,
+  "gitWrites": false,
+  "engineFilesModified": false,
+  "P18ImplementationStarted": false
+}

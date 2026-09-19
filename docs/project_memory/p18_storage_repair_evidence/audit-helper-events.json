@@ -1,0 +1,5 @@
+{
+  "firstAudit": "AssertionError: newly changed tracked CHANGELOG.md was not in the prior P18 pending map; initial check allowed only new evidence directory.",
+  "resolution": "Confirmed authorized append to existing tracked CHANGELOG.md; allow the six declared engineering documents. No runtime drift, no unowned changes, no prior evidence overwrite.",
+  "engineFailure": false
+}

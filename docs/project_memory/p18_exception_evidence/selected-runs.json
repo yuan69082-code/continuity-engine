@@ -1,0 +1,14 @@
+{
+  "source": "frozen-source.json",
+  "runs": [
+    "independent-final-01",
+    "formal-after-01",
+    "storage-compatibility-final-01",
+    "p18-final-01",
+    "compatibility-final-01",
+    "full-final-01"
+  ],
+  "full": "full-final-01",
+  "before": "independent-before-01.json",
+  "overlappingSetsNotAdded": true
+}

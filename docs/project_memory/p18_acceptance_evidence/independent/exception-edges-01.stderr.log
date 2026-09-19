@@ -1,0 +1,9 @@
+test_checkpoint_without_transaction_retains_native_top_and_cleanup_history (test_independent_exception_edges.IndependentExceptionEdges.test_checkpoint_without_transaction_retains_native_top_and_cleanup_history) ... ok
+test_from_none_keeps_hidden_native_and_cleanup_cause_without_cycle (test_independent_exception_edges.IndependentExceptionEdges.test_from_none_keeps_hidden_native_and_cleanup_cause_without_cycle) ... ok
+test_presave_io_failure_is_not_changed_to_cleanup_error_or_commit (test_independent_exception_edges.IndependentExceptionEdges.test_presave_io_failure_is_not_changed_to_cleanup_error_or_commit) ... ok
+test_unguarded_subject_retains_native_top_and_cleanup_history (test_independent_exception_edges.IndependentExceptionEdges.test_unguarded_subject_retains_native_top_and_cleanup_history) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.149s
+
+OK

@@ -1,0 +1,16 @@
+test_actual_repository_reader_does_not_prevent_atomic_transition (test_p18_persistence.PersistenceTests.test_actual_repository_reader_does_not_prevent_atomic_transition) ... FAIL
+test_normal_transition_without_overlapping_reader (test_p18_persistence.PersistenceTests.test_normal_transition_without_overlapping_reader) ... ok
+
+======================================================================
+FAIL: test_actual_repository_reader_does_not_prevent_atomic_transition (test_p18_persistence.PersistenceTests.test_actual_repository_reader_does_not_prevent_atomic_transition)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p18_persistence.py", line 78, in test_actual_repository_reader_does_not_prevent_atomic_transition
+    self.assertIsNone(failure,'real repository reader blocked atomic state replacement')
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'type': 'PermissionError', 'errno': 13, 'winerror': 5} is not None : real repository reader blocked atomic state replacement
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.641s
+
+FAILED (failures=1)

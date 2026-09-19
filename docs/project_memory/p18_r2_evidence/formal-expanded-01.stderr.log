@@ -1,0 +1,47 @@
+test_crash_after_durable_entry_stays_unknown_even_if_call_not_observed (test_p18_runtime_resume.RuntimeResumeTests.test_crash_after_durable_entry_stays_unknown_even_if_call_not_observed) ... ok
+test_current_budget_reduction_defers_then_restores_same_reservation (test_p18_runtime_resume.RuntimeResumeTests.test_current_budget_reduction_defers_then_restores_same_reservation) ... ok
+test_current_context_revoked_does_not_call_or_apply_state (test_p18_runtime_resume.RuntimeResumeTests.test_current_context_revoked_does_not_call_or_apply_state) ... ok
+test_entered_provider_failure_is_not_repeated (test_p18_runtime_resume.RuntimeResumeTests.test_entered_provider_failure_is_not_repeated) ... ok
+test_first_call_pause_resumes_same_session_without_extra_reservation (test_p18_runtime_resume.RuntimeResumeTests.test_first_call_pause_resumes_same_session_without_extra_reservation) ... ok
+test_legacy_failed_error_string_is_not_nonexecution_proof (test_p18_runtime_resume.RuntimeResumeTests.test_legacy_failed_error_string_is_not_nonexecution_proof) ... ok
+test_long_pause_reassesses_expired_input_with_explicit_predecessor (test_p18_runtime_resume.RuntimeResumeTests.test_long_pause_reassesses_expired_input_with_explicit_predecessor) ... FAIL
+test_pre_call_history_is_append_only_and_bound (test_p18_runtime_resume.RuntimeResumeTests.test_pre_call_history_is_append_only_and_bound) ... ok
+test_provider_availability_rechecked_before_prepared_resume (test_p18_runtime_resume.RuntimeResumeTests.test_provider_availability_rechecked_before_prepared_resume) ... ok
+test_real_child_resumes_durable_pre_call_phase (test_p18_runtime_resume.RuntimeResumeTests.test_real_child_resumes_durable_pre_call_phase) ... ok
+test_reopened_pre_call_deferral_resumes (test_p18_runtime_resume.RuntimeResumeTests.test_reopened_pre_call_deferral_resumes) ... ok
+test_reserved_exact_budget_remains_usable_without_second_charge (test_p18_runtime_resume.RuntimeResumeTests.test_reserved_exact_budget_remains_usable_without_second_charge) ... FAIL
+test_second_cycle_pause_resumes_without_replaying_first (test_p18_runtime_resume.RuntimeResumeTests.test_second_cycle_pause_resumes_without_replaying_first) ... ok
+test_stop_does_not_revive_deferred_session (test_p18_runtime_resume.RuntimeResumeTests.test_stop_does_not_revive_deferred_session) ... ok
+
+======================================================================
+FAIL: test_long_pause_reassesses_expired_input_with_explicit_predecessor (test_p18_runtime_resume.RuntimeResumeTests.test_long_pause_reassesses_expired_input_with_explicit_predecessor)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p18_runtime_resume.py", line 133, in test_long_pause_reassesses_expired_input_with_explicit_predecessor
+    self.assertEqual(f.resources.get_resource_state(f.state.subject_id).token_used, 320)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 384 != 320
+
+======================================================================
+FAIL: test_reserved_exact_budget_remains_usable_without_second_charge (test_p18_runtime_resume.RuntimeResumeTests.test_reserved_exact_budget_remains_usable_without_second_charge)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p18_runtime_resume.py", line 161, in test_reserved_exact_budget_remains_usable_without_second_charge
+    self.ready(f); self.pause_before_call(f); self.resume(f)
+                   ~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p18_runtime_resume.py", line 32, in pause_before_call
+    self.assertEqual(hits, ['before_provider'])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: [] != ['before_provider']
+
+Second list contains 1 additional elements.
+First extra element 0:
+'before_provider'
+
+- []
++ ['before_provider']
+
+----------------------------------------------------------------------
+Ran 14 tests in 20.578s
+
+FAILED (failures=2)

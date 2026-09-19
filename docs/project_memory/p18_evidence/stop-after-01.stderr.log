@@ -1,0 +1,7 @@
+test_pause_after_stop_refuses_without_checkpoint_write (__main__.StopTerminalProbe.test_pause_after_stop_refuses_without_checkpoint_write) ... ok
+test_second_stop_identity_does_not_corrupt_or_write (__main__.StopTerminalProbe.test_second_stop_identity_does_not_corrupt_or_write) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.734s
+
+OK

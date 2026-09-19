@@ -1,0 +1,9 @@
+test_idle_and_subject_silence_do_not_end_process (test_p18_runtime_process.RuntimeProcessTests.test_idle_and_subject_silence_do_not_end_process) ... ok
+test_resource_wait_host_lives_and_restores_without_message (test_p18_runtime_process.RuntimeProcessTests.test_resource_wait_host_lives_and_restores_without_message) ... ok
+test_idle_and_subject_silence_do_not_end_process (test_process_hypotheses.OriginalFlowWithReadOverlap.test_idle_and_subject_silence_do_not_end_process) ... ok
+test_resource_wait_host_lives_and_restores_without_message (test_process_hypotheses.OriginalFlowWithReadOverlap.test_resource_wait_host_lives_and_restores_without_message) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 36.958s
+
+OK

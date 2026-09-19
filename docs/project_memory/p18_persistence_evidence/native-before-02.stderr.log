@@ -1,0 +1,29 @@
+test_actual_repository_reader_does_not_prevent_atomic_transition (test_p18_persistence.PersistenceTests.test_actual_repository_reader_does_not_prevent_atomic_transition) ... FAIL
+test_normal_transition_without_overlapping_reader (test_p18_persistence.PersistenceTests.test_normal_transition_without_overlapping_reader) ... ok
+test_post_commit_return_loss_restores_without_second_revision (test_p18_persistence.PersistenceTests.test_post_commit_return_loss_restores_without_second_revision) ... {"stage": "native-exception-before-cleanup", "task_id": "cognition:3ba1cac3a9396b7e3e0123b6e131eb8bebeb10c7a96fd21bca5ad70142156b7a", "attempt_id": "p11-attempt-82fd4b2f3a398aea7cd053ff029a207bce22ad5f6a1e4d7ca58f8f22fcdbe496", "chain": [{"frames": [{"file": "testing/p18_runtime_fixture.py", "line": 140, "function": "diagnosed_continue"}, {"file": "services/runtime_cognition.py", "line": 228, "function": "_continue"}, {"file": "services/wake_perception_thinking_action_service.py", "line": 90, "function": "wake_manual"}, {"file": "services/wake_perception_thinking_action_service.py", "line": 128, "function": "_continue"}, {"file": "services/wake_perception_thinking_action_service.py", "line": 315, "function": "_continue_mind"}, {"file": "services/runtime_cognition.py", "line": 84, "function": "<lambda>"}, {"file": "testing/p18_runtime_fixture.py", "line": 126, "function": "<lambda>"}], "code": "TEST_NATIVE_EXCEPTION"}], "systemChain": [{"type": "RuntimeError", "operation": "other", "frames": [{"file": "testing/p18_runtime_fixture.py", "line": 140, "function": "diagnosed_continue"}, {"file": "services/runtime_cognition.py", "line": 228, "function": "_continue"}, {"file": "services/wake_perception_thinking_action_service.py", "line": 90, "function": "wake_manual"}, {"file": "services/wake_perception_thinking_action_service.py", "line": 128, "function": "_continue"}, {"file": "services/wake_perception_thinking_action_service.py", "line": 315, "function": "_continue_mind"}, {"file": "services/runtime_cognition.py", "line": 84, "function": "<lambda>"}, {"file": "testing/p18_runtime_fixture.py", "line": 126, "function": "<lambda>"}], "errno": null, "winerror": null}], "stateWriteLockOwnedAfterUnwind": false}
+ok
+test_post_effect_replace_error_recovers_original_fact_after_due_time (test_p18_persistence.PersistenceTests.test_post_effect_replace_error_recovers_original_fact_after_due_time) ... ok
+test_real_reader_blocks_no_new_effect_or_revision_after_release (test_p18_persistence.PersistenceTests.test_real_reader_blocks_no_new_effect_or_revision_after_release) ... FAIL
+
+======================================================================
+FAIL: test_actual_repository_reader_does_not_prevent_atomic_transition (test_p18_persistence.PersistenceTests.test_actual_repository_reader_does_not_prevent_atomic_transition)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p18_persistence.py", line 156, in test_actual_repository_reader_does_not_prevent_atomic_transition
+    self.assertIsNone(failure,'real repository reader blocked atomic state replacement')
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'type': 'PermissionError', 'errno': 13, 'winerror': 5} is not None : real repository reader blocked atomic state replacement
+
+======================================================================
+FAIL: test_real_reader_blocks_no_new_effect_or_revision_after_release (test_p18_persistence.PersistenceTests.test_real_reader_blocks_no_new_effect_or_revision_after_release)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p18_persistence.py", line 126, in test_real_reader_blocks_no_new_effect_or_revision_after_release
+    self.assertEqual(held_revision,2,'actual repository reader must permit native Evolution replacement')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 2 : actual repository reader must permit native Evolution replacement
+
+----------------------------------------------------------------------
+Ran 5 tests in 5.030s
+
+FAILED (failures=2)

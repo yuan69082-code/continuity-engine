@@ -1,0 +1,38 @@
+{
+  "at": "2026-09-10T14:59:51.7860811Z",
+  "reason": "Controlled test interruption after stop-before-01 reproduced two terminal-control defects. No full regression PASS claim.",
+  "targets": [
+    {
+      "ProcessId": 27716,
+      "ParentProcessId": 30988,
+      "Name": "python.exe",
+      "CommandLine": "\"E:\\Adobe\\python.exe\" docs/project_memory/p18_evidence/run.py full-final-02"
+    },
+    {
+      "ProcessId": 3632,
+      "ParentProcessId": 27716,
+      "Name": "python.exe",
+      "CommandLine": "E:\\Adobe\\python.exe -m continuity_engine.testing.p09_core_runner --worker-root C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\tmpw4wqvfg1 --sandbox-id sb-6d7fa36792d9449e --start 10 --stop 20"
+    }
+  ],
+  "runtimeOwnerStop": false,
+  "retainedTemporaryEvidence": "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\tmpw4wqvfg1",
+  "completed": true,
+  "endedAt": "2026-09-10T14:59:52.0037428Z",
+  "firstAttemptError": "Stop-Process reported Object reference not set to an instance of an object; completion was not confirmed. This record corrects the premature helper completion field.",
+  "outcomes": [
+    {
+      "pid": 27716,
+      "exited": true,
+      "outcome": "controlled-termination",
+      "exitCode": null
+    },
+    {
+      "pid": 3632,
+      "exited": true,
+      "outcome": "controlled-termination",
+      "exitCode": null
+    }
+  ],
+  "verifiedAt": "2026-09-10T15:00:33.3930818Z"
+}

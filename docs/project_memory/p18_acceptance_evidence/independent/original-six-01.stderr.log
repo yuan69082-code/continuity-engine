@@ -1,0 +1,11 @@
+test_nested_copied_context_keeps_only_live_repository_eligibility (test_independent_storage_final.IndependentStorageFinal.test_nested_copied_context_keeps_only_live_repository_eligibility) ... ok
+test_runtime_revision_failure_with_cleanup_keeps_native_context (test_independent_storage_final.IndependentStorageFinal.test_runtime_revision_failure_with_cleanup_keeps_native_context) ... ok
+test_runtime_revision_failure_without_cleanup_keeps_native_context (test_independent_storage_final.IndependentStorageFinal.test_runtime_revision_failure_without_cleanup_keeps_native_context) ... ok
+test_same_path_other_instance_cannot_inherit_transaction (test_independent_storage_final.IndependentStorageFinal.test_same_path_other_instance_cannot_inherit_transaction) ... ok
+test_subject_guard_failure_with_cleanup_keeps_native_context (test_independent_storage_final.IndependentStorageFinal.test_subject_guard_failure_with_cleanup_keeps_native_context) ... ok
+test_subject_guard_failure_without_cleanup_keeps_native_context (test_independent_storage_final.IndependentStorageFinal.test_subject_guard_failure_without_cleanup_keeps_native_context) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.679s
+
+OK

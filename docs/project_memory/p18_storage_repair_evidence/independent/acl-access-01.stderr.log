@@ -1,0 +1,2 @@
+{"case": "target-delete-denied", "error": {"type": "RuntimeError", "errno": null, "winerror": null, "sourceFilenameMatches": false, "targetFilenameMatches": false}}
+{"error": {"type": "RuntimeError", "errno": null, "winerror": null, "sourceFilenameMatches": false, "targetFilenameMatches": false}}

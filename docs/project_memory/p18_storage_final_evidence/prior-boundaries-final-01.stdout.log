@@ -1,0 +1,3 @@
+{"test": "test_independent_persistence.IndependentPersistenceTests.test_pause_at_native_retry_guard_then_resume_same_fact", "retryControl": "PAUSE", "guardCalls": 2, "revision": 2, "providerCalls": 1, "effects": 1, "credits": 1}
+{"test": "test_independent_persistence.IndependentPersistenceTests.test_real_handle_release_allows_native_retry", "retryControl": null, "guardCalls": 2, "revision": 2, "providerCalls": 1, "effects": 1, "credits": 1}
+{"test": "test_independent_persistence.IndependentPersistenceTests.test_stop_at_native_retry_guard_prevents_state_commit", "retryControl": "STOP", "guardCalls": 2, "revision": 1, "providerCalls": 1, "effects": 1, "credits": 1}

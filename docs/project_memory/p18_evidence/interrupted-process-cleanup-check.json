@@ -1,0 +1,21 @@
+{
+  "checkedAt": "2026-09-10T15:05:37.2334213Z",
+  "writesOrKills": false,
+  "priorOwnedProcessChecks": [
+    {
+      "pid": 27716,
+      "sameTestProcessStillPresent": false,
+      "processIdExists": false
+    },
+    {
+      "pid": 3632,
+      "sameTestProcessStillPresent": false,
+      "processIdExists": false
+    },
+    {
+      "pid": 4760,
+      "sameTestProcessStillPresent": false,
+      "processIdExists": false
+    }
+  ]
+}

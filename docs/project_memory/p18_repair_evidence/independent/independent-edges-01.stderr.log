@@ -1,0 +1,28 @@
+test_idle_tick_survives_overlapping_owner_control (test_independent_runtime.IndependentRuntimeTests.test_idle_tick_survives_overlapping_owner_control) ... FAIL
+test_ordinary_wait_recovers_without_new_message (test_independent_runtime.IndependentRuntimeTests.test_ordinary_wait_recovers_without_new_message) ... ok
+test_paused_process_survives_overlapping_owner_control (test_independent_runtime.IndependentRuntimeTests.test_paused_process_survives_overlapping_owner_control) ... FAIL
+test_reopen_query_has_no_persistent_writes (test_independent_runtime.IndependentRuntimeTests.test_reopen_query_has_no_persistent_writes) ... ok
+test_uncontended_controls_and_host_continue (test_independent_runtime.IndependentRuntimeTests.test_uncontended_controls_and_host_continue) ... ok
+
+======================================================================
+FAIL: test_idle_tick_survives_overlapping_owner_control (test_independent_runtime.IndependentRuntimeTests.test_idle_tick_survives_overlapping_owner_control)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\p18-independent-review-20260912\test_independent_runtime.py", line 75, in test_idle_tick_survives_overlapping_owner_control
+    self.assertIsNone(error,'A short legitimate control transaction escaped tick()')
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('RuntimeBoundaryError', 'RUNTIME_BUSY') is not None : A short legitimate control transaction escaped tick()
+
+======================================================================
+FAIL: test_paused_process_survives_overlapping_owner_control (test_independent_runtime.IndependentRuntimeTests.test_paused_process_survives_overlapping_owner_control)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\p18-independent-review-20260912\test_independent_runtime.py", line 94, in test_paused_process_survives_overlapping_owner_control
+    self.assertIsNone(premature,'The continuous host exited without any STOP')
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 is not None : The continuous host exited without any STOP
+
+----------------------------------------------------------------------
+Ran 5 tests in 6.310s
+
+FAILED (failures=2)

@@ -1,0 +1,22 @@
+RETAINED_CONTROLLED_FAILURE C:\Users\ADMINI~1\AppData\Local\Temp\c1e-p5wf9rmv exit_code=91
+RETAINED_CONTROLLED_INTERRUPT C:\Users\ADMINI~1\AppData\Local\Temp\c1e-7f48gqnw exit_code= 1
+CONTEXT_REMOVAL_PROBE REJECTED LocalIntegrationInitializationError
+GATE_FLIP_PROBE REJECTED LocalIntegrationInitializationError
+DISABLED_INPUTS_WITH_E5_HISTORY REJECTED IntegrationExecutionError
+EXPIRED_CONTEXT_PROBE IntegrationExecutionError revision 1 thinking_calls 0
+REHASHED_JOURNAL REJECTED IntegrationExecutionError
+REVOKED_REFERENCE_PROBE IntegrationExecutionError revision 1 thinking_calls 0
+{"phase": "prepare", "command": ["E:\\Adobe\\python.exe", "-m", "continuity_engine.testing.p17_execution_fixture", "--root", "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\p17-process-cnk0n8i3", "--phase", "prepare"], "exitCode": 0, "stdout": "{\"phase\": \"prepare\", \"effects\": 1, \"crash\": \"after_adapter_before_result\"}\n", "stderr": "", "seconds": 1.202762700000676}
+{"phase": "resume", "command": ["E:\\Adobe\\python.exe", "-m", "continuity_engine.testing.p17_execution_fixture", "--root", "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\p17-process-cnk0n8i3", "--phase", "resume"], "exitCode": 0, "stdout": "{\"phase\": \"resume\", \"new_execute_calls\": 0, \"effects\": 1, \"revision\": 2, \"absorbed_through_evolution\": true}\n", "stderr": "", "seconds": 1.5849310000003243}
+{"phase": "replay", "command": ["E:\\Adobe\\python.exe", "-m", "continuity_engine.testing.p17_execution_fixture", "--root", "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\p17-process-cnk0n8i3", "--phase", "replay"], "exitCode": 0, "stdout": "{\"phase\": \"replay\", \"effects\": 1, \"revision\": 2, \"new_execute_calls\": 0}\n", "stderr": "", "seconds": 0.7519684000008056}
+{"command": ["E:\\Adobe\\python.exe", "-m", "continuity_engine.testing.p17_execution_fixture", "--root", "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\p17-test-d1diq2z8", "--phase", "worker"], "exitCode": 0, "stdout": "{\"phase\": \"worker\", \"busy\": true, \"effects\": 1}\n", "stderr": ""}
+{"command": ["E:\\Adobe\\python.exe", "-m", "continuity_engine.testing.p17_execution_fixture", "--root", "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\p17-test-d1diq2z8", "--phase", "worker"], "exitCode": 0, "stdout": "{\"phase\": \"worker\", \"receipt_hash\": \"sha256:213332f126089885b20e8482702a95e29b777d9c18e6ace60c0931713c7fa687\", \"effects\": 2}\n", "stderr": ""}
+{"case": "learning_rejected_support", "rejected": true, "source_status": "REJECTED", "traits": 0, "claimed_evidence": null, "evolution_event_produced": false}
+{"case": "memory_partial_overlap", "input_roots": ["event:one", "event:two"], "persisted_roots": ["event:one", "event:two"], "added": 1, "replay_roots": ["event:one", "event:two"]}
+{"case": "model_zero_budget_recovery", "provider_execute_calls": 0, "limits": [], "provider_facts": 1, "error": null}
+{"case": "resource_duplicate", "token_used": 8, "usage_records": 1, "reconciliation_error": null}
+{"case": "permission_expand", "rejected": "PermissionValidationError"}
+{"case": "permission_revocation", "rejected": "PermissionValidationError"}
+{"case": "scheduler_foreign_cycle", "task_subject": "p11-subject", "actual_cycle_subject": "other-subject", "result": "VERIFICATION_PENDING", "task_subject_wakes": 0, "foreign_subject_wakes": 0, "foreign_tokens": 0}
+{"case": "scheduler_conflict_starvation", "first": "RECEIPT_BINDING_CONFLICT", "subsequent": ["RECEIPT_DELIVERED", "RECEIPT_BINDING_CONFLICT", "RECEIPT_BINDING_CONFLICT", "RECEIPT_BINDING_CONFLICT", "RECEIPT_BINDING_CONFLICT"], "healthy_state": "COMPLETED", "dispatches": 2, "queries": 5}
+{"case": "scheduler_unknown_starvation", "healthy_state": "COMPLETED", "dispatches": 2, "queries": 5}

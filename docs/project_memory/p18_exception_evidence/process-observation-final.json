@@ -1,0 +1,7 @@
+{
+  "at": "2026-09-14T07:36:28.6311010+08:00",
+  "matchingProcesses": [],
+  "filter": "python processes matching continuity[_-]engine|p18|p09_core_runner",
+  "newFixturePrefixRemainders": [],
+  "forcedCleanupByAgent": false
+}

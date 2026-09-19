@@ -1,0 +1,18 @@
+test_resource_wait_host_lives_and_restores_without_message (test_process_hypotheses.OriginalFlowWithReadOverlap.test_resource_wait_host_lives_and_restores_without_message) ... FAIL
+
+======================================================================
+FAIL: test_resource_wait_host_lives_and_restores_without_message (test_process_hypotheses.OriginalFlowWithReadOverlap.test_resource_wait_host_lives_and_restores_without_message)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p18_runtime_process.py", line 182, in test_resource_wait_host_lives_and_restores_without_message
+    f.advance(60);self.until(lambda:f.store.load()['activity']=='WAITING_RESOURCES',process=p)
+                  ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p18_runtime_process.py", line 107, in until
+    self.fail('bounded test controller timed out')
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: bounded test controller timed out
+
+----------------------------------------------------------------------
+Ran 1 test in 27.952s
+
+FAILED (failures=1)

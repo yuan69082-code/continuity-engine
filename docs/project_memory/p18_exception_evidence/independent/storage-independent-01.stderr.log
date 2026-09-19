@@ -1,0 +1,35 @@
+test_nested_copied_context_keeps_only_live_repository_eligibility (test_independent_storage_final.IndependentStorageFinal.test_nested_copied_context_keeps_only_live_repository_eligibility) ... ok
+test_runtime_revision_failure_with_cleanup_keeps_native_context (test_independent_storage_final.IndependentStorageFinal.test_runtime_revision_failure_with_cleanup_keeps_native_context) ... FAIL
+test_runtime_revision_failure_without_cleanup_keeps_native_context (test_independent_storage_final.IndependentStorageFinal.test_runtime_revision_failure_without_cleanup_keeps_native_context) ... ok
+test_same_path_other_instance_cannot_inherit_transaction (test_independent_storage_final.IndependentStorageFinal.test_same_path_other_instance_cannot_inherit_transaction) ... ok
+test_subject_guard_failure_with_cleanup_keeps_native_context (test_independent_storage_final.IndependentStorageFinal.test_subject_guard_failure_with_cleanup_keeps_native_context) ... FAIL
+test_subject_guard_failure_without_cleanup_keeps_native_context (test_independent_storage_final.IndependentStorageFinal.test_subject_guard_failure_without_cleanup_keeps_native_context) ... ok
+
+======================================================================
+FAIL: test_runtime_revision_failure_with_cleanup_keeps_native_context (test_independent_storage_final.IndependentStorageFinal.test_runtime_revision_failure_with_cleanup_keeps_native_context)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\p18-storage-final-review-20260914\test_independent_storage_final.py", line 130, in test_runtime_revision_failure_with_cleanup_keeps_native_context
+    self.runtime_failure(True)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\p18-storage-final-review-20260914\test_independent_storage_final.py", line 118, in runtime_failure
+    self.assertIn(native[0], chain, 'Revision failure plus cleanup must retain the initial native refusal')
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: PermissionError(13, 'TEST initial native refusal') not found in [RuntimeBoundaryError('RUNTIME_REVISION_CONFLICT'), PermissionError(13, 'TEST cleanup refusal')] : Revision failure plus cleanup must retain the initial native refusal
+
+======================================================================
+FAIL: test_subject_guard_failure_with_cleanup_keeps_native_context (test_independent_storage_final.IndependentStorageFinal.test_subject_guard_failure_with_cleanup_keeps_native_context)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\p18-storage-final-review-20260914\test_independent_storage_final.py", line 124, in test_subject_guard_failure_with_cleanup_keeps_native_context
+    self.subject_failure(True)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Administrator\Documents\Codex\2026-08-24\https-github-com-yuan69082-code-continuity\reviews\p18-storage-final-review-20260914\test_independent_storage_final.py", line 84, in subject_failure
+    self.assertIn(native[0], chain, 'Guard failure plus cleanup must retain the initial native refusal')
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: PermissionError(13, 'TEST initial native refusal') not found in [RuntimeBoundaryError('TEST_CURRENT_AUTHORIZATION_REVOKED'), PermissionError(13, 'TEST cleanup refusal')] : Guard failure plus cleanup must retain the initial native refusal
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.716s
+
+FAILED (failures=2)

@@ -1,0 +1,26 @@
+{
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "-v",
+    "test_independent_runtime.IndependentRuntimeTests",
+    "test_independent_resume.IndependentResumeTests",
+    "test_pause_resume_confirmation.PauseResumeConfirmation",
+    "test_independent_persistence.IndependentPersistenceTests",
+    "test_p18_runtime_process.RuntimeProcessTests.test_idle_and_subject_silence_do_not_end_process",
+    "test_p18_runtime_process.RuntimeProcessTests.test_resource_wait_host_lives_and_restores_without_message",
+    "test_process_hypotheses.OriginalFlowWithReadOverlap.test_idle_and_subject_silence_do_not_end_process",
+    "test_process_hypotheses.OriginalFlowWithReadOverlap.test_resource_wait_host_lives_and_restores_without_message",
+    "test_process_inherited.AdvancingClockFlow.test_idle_and_subject_silence_do_not_end_process",
+    "test_process_inherited.AdvancingClockFlow.test_resource_wait_host_lives_and_restores_without_message"
+  ],
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "startedAt": "2026-09-13T22:34:28.093860+00:00",
+  "finishedAt": "2026-09-13T22:36:19.548523+00:00",
+  "exitCode": 0,
+  "elapsedSeconds": 111.05850669999927,
+  "beforeCount": 2805,
+  "afterCount": 2805,
+  "changed": []
+}

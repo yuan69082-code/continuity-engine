@@ -1,0 +1,49 @@
+test_idle_tick_does_not_stop_host_or_invoke_provider (test_p18_runtime.RuntimeControlTests.test_idle_tick_does_not_stop_host_or_invoke_provider) ... ERROR
+test_owner_pause_resume_stop_and_duplicate_controls (test_p18_runtime.RuntimeControlTests.test_owner_pause_resume_stop_and_duplicate_controls) ... ERROR
+test_without_messages_native_c1_updates_same_subject (test_p18_runtime.RuntimeControlTests.test_without_messages_native_c1_updates_same_subject) ... ERROR
+test_zero_budget_waits_then_resumes_without_message (test_p18_runtime.RuntimeControlTests.test_zero_budget_waits_then_resumes_without_message) ... ERROR
+
+======================================================================
+ERROR: test_idle_tick_does_not_stop_host_or_invoke_provider (test_p18_runtime.RuntimeControlTests.test_idle_tick_does_not_stop_host_or_invoke_provider)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p18_runtime.py", line 15, in test_idle_tick_does_not_stop_host_or_invoke_provider
+    f=self.fixture(need_delta=1.0)
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p18_runtime.py", line 9, in fixture
+    from continuity_engine.testing.p18_runtime_fixture import P18Fixture
+ModuleNotFoundError: No module named 'continuity_engine.testing.p18_runtime_fixture'
+
+======================================================================
+ERROR: test_owner_pause_resume_stop_and_duplicate_controls (test_p18_runtime.RuntimeControlTests.test_owner_pause_resume_stop_and_duplicate_controls)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p18_runtime.py", line 23, in test_owner_pause_resume_stop_and_duplicate_controls
+    f=self.fixture()
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p18_runtime.py", line 9, in fixture
+    from continuity_engine.testing.p18_runtime_fixture import P18Fixture
+ModuleNotFoundError: No module named 'continuity_engine.testing.p18_runtime_fixture'
+
+======================================================================
+ERROR: test_without_messages_native_c1_updates_same_subject (test_p18_runtime.RuntimeControlTests.test_without_messages_native_c1_updates_same_subject)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p18_runtime.py", line 40, in test_without_messages_native_c1_updates_same_subject
+    f=self.fixture(mode='silence')
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p18_runtime.py", line 9, in fixture
+    from continuity_engine.testing.p18_runtime_fixture import P18Fixture
+ModuleNotFoundError: No module named 'continuity_engine.testing.p18_runtime_fixture'
+
+======================================================================
+ERROR: test_zero_budget_waits_then_resumes_without_message (test_p18_runtime.RuntimeControlTests.test_zero_budget_waits_then_resumes_without_message)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p18_runtime.py", line 52, in test_zero_budget_waits_then_resumes_without_message
+    f=self.fixture(tokens=0)
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p18_runtime.py", line 9, in fixture
+    from continuity_engine.testing.p18_runtime_fixture import P18Fixture
+ModuleNotFoundError: No module named 'continuity_engine.testing.p18_runtime_fixture'
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.002s
+
+FAILED (errors=4)

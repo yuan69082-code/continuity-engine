@@ -1,0 +1,125 @@
+{
+  "at": "2026-09-19T14:19:25.460156+00:00",
+  "mode": "RESUME_READ_ONLY_VERIFICATION_NO_TEST_RERUN",
+  "sourceCount": 270,
+  "sourceHash": "sha256:e56fcd1d6e2f6d467a708b72866c807eca536fece20af9e881d2a23aba30cfec",
+  "sourceMatchesAllSelectedRuns": true,
+  "previousAuditAt": "2026-09-13T23:36:45.805368+00:00",
+  "previousAuditSha256": "1dd441994636bb8c399e766fa91a5dfcc7ec276c00609cff412925d384c21068",
+  "initialResumeObservation": "All prior pending paths/hashes matched before permitted documentary updates; no runtime/test drift.",
+  "onlyHelperChange": "audit.py accepts explicit fresh process observation path; no runtime/test edits",
+  "originalTestCount": 1507,
+  "addedTestCount": 10,
+  "results": {
+    "independent-final-01": {
+      "run": 6,
+      "passed": 6,
+      "seconds": 1.179,
+      "exitCode": 0,
+      "startedAt": "2026-09-13T22:53:02.421251+00:00",
+      "finishedAt": "2026-09-13T22:53:03.637982+00:00",
+      "skips": [],
+      "rawEvidenceHashes": {
+        ".json": "a1e8913785a08026017942fa6fc6ce4826e7c5fa4fd92c73ba44ed42edcc78a4",
+        ".stdout.log": "ebf3f6258677d93e8e17bee313acd02ecd8dba665a844b9c2fd781f207688077",
+        ".stderr.log": "1b0309da8e8ab62ba7fef94bc9a9ef5ff099c0119731594c97625e79aa3cc0c7"
+      }
+    },
+    "formal-after-01": {
+      "run": 10,
+      "passed": 10,
+      "seconds": 2.006,
+      "exitCode": 0,
+      "startedAt": "2026-09-13T22:52:51.058187+00:00",
+      "finishedAt": "2026-09-13T22:52:53.095507+00:00",
+      "skips": [],
+      "rawEvidenceHashes": {
+        ".json": "0a9a35cbcdfa7de628128fec671907f797a7d9aad7bf72bb964a114954e151d1",
+        ".stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        ".stderr.log": "a058be371f5bb0756e0a24a9cc32b264706e47a2ae7655d460e6629f45933101"
+      }
+    },
+    "storage-compatibility-final-01": {
+      "run": 41,
+      "passed": 41,
+      "seconds": 35.762,
+      "exitCode": 0,
+      "startedAt": "2026-09-13T22:53:03.865496+00:00",
+      "finishedAt": "2026-09-13T22:53:39.655920+00:00",
+      "skips": [],
+      "rawEvidenceHashes": {
+        ".json": "366b0d7e91a4840a6f5d8152224bec83e9656827e828a9c25f1ad2e55f7fbefe",
+        ".stdout.log": "3b75251bb768c3b8b8cecd563687c497438fabc0dd787c9a506f7cc9012e18d5",
+        ".stderr.log": "fa9d4dacf2b67589327da7b16d15cee05130cb39656562df514926a1bcb5f580"
+      }
+    },
+    "p18-final-01": {
+      "run": 157,
+      "passed": 157,
+      "seconds": 222.246,
+      "exitCode": 0,
+      "startedAt": "2026-09-13T22:53:39.937873+00:00",
+      "finishedAt": "2026-09-13T22:57:22.214149+00:00",
+      "skips": [],
+      "rawEvidenceHashes": {
+        ".json": "266abacb8ce01f05348bafdb8844e5866d6375256cfdd10a3e62621f367f8c2f",
+        ".stdout.log": "ca7fe9945ac6e4eb844de233ff0de5702603b80c28815430bc963f93b6c173c0",
+        ".stderr.log": "7ea91e9bb44b27142d762a81afb86cad80e159fd3829ace6a9cdd1f523d08aba"
+      }
+    },
+    "compatibility-final-01": {
+      "run": 605,
+      "passed": 605,
+      "seconds": 927.813,
+      "exitCode": 0,
+      "startedAt": "2026-09-13T22:57:22.524032+00:00",
+      "finishedAt": "2026-09-13T23:12:50.366033+00:00",
+      "skips": [],
+      "rawEvidenceHashes": {
+        ".json": "bcc33362f4b76764a1fbc239f9e55c378872d3f569606b3a6b51a8ee5aeea1d7",
+        ".stdout.log": "12b0cbdb53bf97cae074763b2f44e725b0d7f9fb454286a76083ddb45f61493f",
+        ".stderr.log": "246a6b08b97223484f5d465a1458b1e2087ac0f914eaf7713d19900c961c05e4"
+      }
+    },
+    "full-final-01": {
+      "run": 1517,
+      "passed": 1516,
+      "seconds": 1384.364,
+      "exitCode": 0,
+      "startedAt": "2026-09-13T23:13:04.416266+00:00",
+      "finishedAt": "2026-09-13T23:36:08.812088+00:00",
+      "skips": [
+        [
+          "test_p08_fixture_paths.P08FixturePathTests.test_symlink_component_rejected_without_writes",
+          "OS does not grant symlink creation: 1314"
+        ]
+      ],
+      "rawEvidenceHashes": {
+        ".json": "906587f8439f5d66fa6190d1ea80193cb1838a2475011027e222778233496c6c",
+        ".stdout.log": "10ed0394f09e80a9f633bb4609d40ac1aa2b44bd8238d2dbc82996aa0e7fcc33",
+        ".stderr.log": "39360e223365ff4b91c80dd203c5e9a7a45ca29450defb6203961855a91c926b"
+      }
+    }
+  },
+  "protectedCounts": {
+    "protected": 63,
+    "plans": 3,
+    "formalFiles": 7,
+    "excludedP10": 31,
+    "otherPreserved": 1
+  },
+  "protectedUnchanged": true,
+  "originalArchivesAndCopiesUnchanged": true,
+  "indexUnchanged": true,
+  "processObservation": {
+    "at": "2026-09-19T22:19:24.4475352+08:00",
+    "matchingProcesses": [],
+    "filter": "python processes matching continuity[_-]engine|p18|p09_core_runner",
+    "newFixturePrefixRemainders": [],
+    "forcedCleanupByAgent": false,
+    "testProcessesStartedThisResume": 0
+  },
+  "testsExecutedThisResume": 0,
+  "historicalF1H1F2": "UNKNOWN; not closed",
+  "gitWrites": false
+}

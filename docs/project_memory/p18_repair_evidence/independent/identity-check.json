@@ -1,0 +1,126 @@
+{
+  "checks": {
+    "source263MatchesAudit": true,
+    "twoCitedRunsCompleteAndMatchCurrentSource": true,
+    "old1360TestIdentitiesRetained": true,
+    "exact64NewTests": true,
+    "originalTestsUnchanged": true,
+    "declared4ModifiedAnd10AddedSourcesMatch": true,
+    "protected63Unchanged": true,
+    "plans3Unchanged": true,
+    "formal7AndTreeUnchanged": true,
+    "excluded31ScriptsAnd1ReportUnchanged": true,
+    "pending164PlusExcluded32ExactlyMatch": true,
+    "recorded163PendingHashesMatch": true,
+    "all164PendingMatchOurInitialSnapshot": true,
+    "historicalFilesOutsideDeclaredEditsUnchanged": true,
+    "syntax253PythonFilesValid": true,
+    "headAndLocalTrackingStayP17": true,
+    "stagingEmpty": true,
+    "trackedDiffCheckClean": true,
+    "versionAndPyprojectUnchanged": true,
+    "ourTestsDidNotChangeEngineFiles": true,
+    "historicalTimeoutStillRecordedNotClosed": true
+  },
+  "allIdentityChecksPass": true,
+  "notAcceptance": true,
+  "confirmedBehavioralBlocker": "R1: control checkpoint lock contention terminates host",
+  "unresolvedHistoricalTimeout": "p18-final-04: UNKNOWN; not explained by the new lock finding",
+  "citedRunsNotRerunHere": {
+    "p18-final-07": {
+      "identityMatches": true,
+      "completed": true,
+      "countConsistent": true,
+      "rawPresent": true,
+      "run": 64,
+      "passed": 64,
+      "skips": [],
+      "seconds": 94.627
+    },
+    "full-final-03": {
+      "identityMatches": true,
+      "completed": true,
+      "countConsistent": true,
+      "rawPresent": true,
+      "run": 1424,
+      "passed": 1423,
+      "skips": [
+        [
+          "test_p08_fixture_paths.P08FixturePathTests.test_symlink_component_rejected_without_writes",
+          "OS does not grant symlink creation: 1314"
+        ]
+      ],
+      "seconds": 1036.819
+    }
+  },
+  "independentRuns": [
+    {
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_p18*.py",
+        "-v"
+      ],
+      "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+      "exitCode": 0,
+      "startedAt": "2026-09-12T14:29:52.202489+00:00",
+      "finishedAt": "2026-09-12T14:31:39.812769+00:00",
+      "elapsedSeconds": 107.29993130000003,
+      "beforeCount": 2329,
+      "afterCount": 2329,
+      "changed": []
+    },
+    {
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "unittest",
+        "test_independent_runtime",
+        "-v"
+      ],
+      "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+      "exitCode": 1,
+      "startedAt": "2026-09-12T14:42:31.268756+00:00",
+      "finishedAt": "2026-09-12T14:42:38.617120+00:00",
+      "elapsedSeconds": 6.978567099999964,
+      "beforeCount": 2329,
+      "afterCount": 2329,
+      "changed": []
+    }
+  ],
+  "syntaxErrors": [],
+  "trackedModifiedCount": 21,
+  "untrackedCount": 175,
+  "pendingCount": 164,
+  "historicalFilesChecked": 2124,
+  "head": "5a3247a5d23ff17de2b4ba12bc327594b492e725",
+  "branch": "main",
+  "aheadBehindLocal": "0\t0",
+  "sourceTestCount": 263,
+  "sourceChanges": [
+    "src/continuity_engine/services/resource_aware_wake_scheduler.py",
+    "src/continuity_engine/services/scheduler_service.py",
+    "src/continuity_engine/services/thinking_service.py",
+    "src/continuity_engine/services/wake_perception_thinking_action_service.py"
+  ],
+  "sourceAdded": [
+    "src/continuity_engine/domain/persistent_runtime.py",
+    "src/continuity_engine/runtime.py",
+    "src/continuity_engine/services/persistent_runtime_service.py",
+    "src/continuity_engine/services/runtime_cognition.py",
+    "src/continuity_engine/services/runtime_ports.py",
+    "src/continuity_engine/storage/json_runtime_repository.py",
+    "src/continuity_engine/testing/p18_runtime_fixture.py",
+    "tests/test_p18_runtime.py",
+    "tests/test_p18_runtime_process.py",
+    "tests/test_p18_runtime_recovery.py"
+  ],
+  "gitWrites": false,
+  "remoteNetworkChecked": false,
+  "fullSuiteRerunByIndependentReview": false
+}

@@ -1,0 +1,35 @@
+{
+  "files": [
+    {
+      "file": "src/continuity_engine/services/wake_perception_thinking_action_service.py",
+      "before": "7f2b927b673c6c6518a66960e52c59374717209331e8ef0ce0acfaeaf4c765ba",
+      "after": "53f407f1e5e6cfec82b2121de7e30997cb8660d44e3742b8ee03b7a535e6b250",
+      "newFile": false
+    },
+    {
+      "file": "src/continuity_engine/storage/json_repository.py",
+      "before": "6f5951c0f62742e8a8db1e1d6b1a865f4132097dbe50e356513bc29c7bcce807",
+      "after": "f20010c17b95a5341a130656b2605a6520d97201a4cea9f20b4c3d384dc3bcaf",
+      "newFile": false
+    },
+    {
+      "file": "src/continuity_engine/testing/p18_persistence_diagnostics.py",
+      "before": null,
+      "after": "1e9f83d755c35dc4ef4192231d3567d600184269b385fbfce28b95b4ee63511e",
+      "newFile": true
+    },
+    {
+      "file": "src/continuity_engine/testing/p18_runtime_fixture.py",
+      "before": "d4985020ae221a2d0b5f11a6a99d77bf1b2f93f0ad4246b6b02d6b3e0b3098cd",
+      "after": "01c80eb25fa8d682477b9d28569cede631946465da4b5eff0568d3cce96a8c33",
+      "newFile": false
+    },
+    {
+      "file": "tests/test_p18_persistence.py",
+      "before": null,
+      "after": "3fc1fe1d9b09d6b0ea15fc98d07e887ef460dd26f5ba8b4c072ba73bd2ebaf6a",
+      "newFile": true
+    }
+  ],
+  "diffHash": "87bffdffd7fb316eeb3568615ab2cfcbb2bb1340b92438fa61d459b122dd4154"
+}

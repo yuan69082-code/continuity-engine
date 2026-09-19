@@ -1,0 +1,6 @@
+test_resource_wait_process_control_competition (test_p18_runtime_contention.RuntimeContentionTests.test_resource_wait_process_control_competition) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 7.218s
+
+OK

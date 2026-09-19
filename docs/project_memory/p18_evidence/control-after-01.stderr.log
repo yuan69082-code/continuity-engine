@@ -1,0 +1,39 @@
+test_idle_tick_does_not_stop_host_or_invoke_provider (test_p18_runtime.RuntimeControlTests.test_idle_tick_does_not_stop_host_or_invoke_provider) ... ok
+test_owner_pause_resume_stop_and_duplicate_controls (test_p18_runtime.RuntimeControlTests.test_owner_pause_resume_stop_and_duplicate_controls) ... FAIL
+test_without_messages_native_c1_updates_same_subject (test_p18_runtime.RuntimeControlTests.test_without_messages_native_c1_updates_same_subject) ... FAIL
+test_zero_budget_waits_then_resumes_without_message (test_p18_runtime.RuntimeControlTests.test_zero_budget_waits_then_resumes_without_message) ... FAIL
+
+======================================================================
+FAIL: test_owner_pause_resume_stop_and_duplicate_controls (test_p18_runtime.RuntimeControlTests.test_owner_pause_resume_stop_and_duplicate_controls)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p18_runtime.py", line 33, in test_owner_pause_resume_stop_and_duplicate_controls
+    self.assertGreater(f.provider.calls,0)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 not greater than 0
+
+======================================================================
+FAIL: test_without_messages_native_c1_updates_same_subject (test_p18_runtime.RuntimeControlTests.test_without_messages_native_c1_updates_same_subject)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p18_runtime.py", line 44, in test_without_messages_native_c1_updates_same_subject
+    self.assertGreater(f.state.revision,initial.revision)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 not greater than 1
+
+======================================================================
+FAIL: test_zero_budget_waits_then_resumes_without_message (test_p18_runtime.RuntimeControlTests.test_zero_budget_waits_then_resumes_without_message)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p18_runtime.py", line 56, in test_zero_budget_waits_then_resumes_without_message
+    self.assertEqual(f.host.query()['activity'],'WAITING_RESOURCES')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'MAINTENANCE' != 'WAITING_RESOURCES'
+- MAINTENANCE
++ WAITING_RESOURCES
+
+
+----------------------------------------------------------------------
+Ran 4 tests in 1.778s
+
+FAILED (failures=3)

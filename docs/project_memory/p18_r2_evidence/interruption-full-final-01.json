@@ -1,0 +1,46 @@
+{
+  "checkedAt": "2026-09-13T01:55:45.888869+08:00",
+  "label": "full-final-01",
+  "classification": "INCOMPLETE_INTERRUPTED",
+  "originalRecordStatus": "STARTED",
+  "startedAt": "2026-09-12T17:33:17.267473+00:00",
+  "actualExitCode": "UNKNOWN",
+  "actualInterruptionCause": "UNKNOWN",
+  "finalTestCount": "UNKNOWN",
+  "finalPassCount": "UNKNOWN",
+  "engineBehaviorFailureEstablished": false,
+  "originalFilesUnmodified": {
+    "full-final-01.json": {
+      "sha256": "5d23844eab70d3c67d23a0b4353ca17c774ab3d2ae4af63b4ef91f03a7f24280",
+      "bytes": 32675,
+      "modifiedAtUtc": "2026-09-12T17:33:17.295145+00:00"
+    },
+    "full-final-01.stdout.log": {
+      "sha256": "298a78bbe61bd53abde04220d64aae0a1ce062cd70e94e6c7e2d2534e4fe74ab",
+      "bytes": 443,
+      "modifiedAtUtc": "2026-09-12T17:35:58.640504+00:00"
+    },
+    "full-final-01.stderr.log": {
+      "sha256": "dbe57af063314fcb48bfe69bc172405adb367ed3b9870e14f6c5ff7f8b0de041",
+      "bytes": 123707,
+      "modifiedAtUtc": "2026-09-12T17:36:14.814222+00:00"
+    }
+  },
+  "lastStderrLine": "test_thirty_logical_days_with_real_process_restarts_and_resource_invariants (test_p09_long_run.P09LongRunTests.test_thirty_logical_days_with_real_process_restarts_and_resource_invariants) ... ",
+  "noFinalSummary": true,
+  "logGrowth": "none between actual observations at 01:50:30+08:00, 01:54:32+08:00 and this check",
+  "processObservation": {
+    "matchingCount": 0,
+    "checkedAt": "2026-09-13T01:55:44.6029804+08:00",
+    "processes": [],
+    "scope": "Engine Python runtime and test processes",
+    "method": "read-only Win32_Process filtered query"
+  },
+  "priorProcessQuery": "Restricted CIM query returned Access Denied; read-only escalated query succeeded and found zero matching processes. Access error is not a test failure.",
+  "reportedPlanningSnapshot": "User reports zero matching processes at 2026-09-13 01:45:46 local; separately confirmed here.",
+  "sourceBeforeMatchesCurrent": true,
+  "sourceAfterAvailable": false,
+  "oldSessionUsed": false,
+  "replacementRun": "full-resume-01",
+  "conclusion": "No completed total, pass count, exit code or behavioral FAIL inferred. Preserve all originals; run only missing full regression."
+}

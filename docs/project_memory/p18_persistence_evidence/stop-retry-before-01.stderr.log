@@ -1,0 +1,15 @@
+test_stop_during_replace_wait_prevents_new_evolution (test_p18_persistence.PersistenceTests.test_stop_during_replace_wait_prevents_new_evolution) ... FAIL
+
+======================================================================
+FAIL: test_stop_during_replace_wait_prevents_new_evolution (test_p18_persistence.PersistenceTests.test_stop_during_replace_wait_prevents_new_evolution)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p18_persistence.py", line 202, in test_stop_during_replace_wait_prevents_new_evolution
+    self.assertEqual(stopped,[True]);self.assertEqual(f.state.revision,1)
+                                     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 1
+
+----------------------------------------------------------------------
+Ran 1 test in 1.164s
+
+FAILED (failures=1)

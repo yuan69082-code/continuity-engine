@@ -1,0 +1,3 @@
+{"mode": "raw-share3", "handleCreated": true, "type": "PermissionError", "errno": 13, "winerror": 5}
+{"mode": "raw-share7", "handleCreated": true, "type": "PermissionError", "errno": 13, "winerror": 5}
+{"mode": "snapshot", "handleCreated": true, "type": "PermissionError", "errno": 13, "winerror": 5}

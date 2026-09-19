@@ -1,0 +1,10 @@
+
+
+## P18当前拒绝规则调查（实现未变，待单独确认）
+
+<!-- P18_STORAGE_REFUSAL_CONFIRMATION_20260914 -->
+P18 IMPLEMENTED_NOT_ACCEPTED / EVIDENCE_CONFLICT=PRESENT。用户已授权两个存储文件补修；本轮核对触发的是另外明确要求的“旧固定WinError5拒绝行为变化须确认”，不重复申请文件范围。运行源码/正式测试未变；无D-073、无Git写、无P19。
+
+本轮旧独立8/8 PASS；原进程对照与反例4项=2PASS/2FAIL；持续可信走时对照2/2 PASS；当前可观察事实对比2/2 PASS。真实属性/ACL对照完成，首次辅助DACL二进制比较错误和后续恢复记录均保留。当前已释放读者与带完整绑定的固定错误不可从这些当前事实区分，新“当前条件允许有限重试”可能改变旧的一次拒绝规则，等待用户明确确认。
+
+[具体行为差异、权限对照和续接入口](docs/project_memory/p18_storage_repair_evidence/refusal-policy-difference.md)。下方均为此前真实阶段历史，原失败/UNKNOWN不覆盖。

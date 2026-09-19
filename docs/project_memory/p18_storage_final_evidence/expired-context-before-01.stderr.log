@@ -1,0 +1,46 @@
+test_copied_context_after_transaction_exit_cannot_authorize_retry (test_p18_storage_retry.StorageRetryTests.test_copied_context_after_transaction_exit_cannot_authorize_retry) ... ERROR
+
+======================================================================
+ERROR: test_copied_context_after_transaction_exit_cannot_authorize_retry (test_p18_storage_retry.StorageRetryTests.test_copied_context_after_transaction_exit_cannot_authorize_retry)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_repository.py", line 142, in _replace_payload
+    os.replace(temporary, path)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "E:\Adobe\Lib\unittest\mock.py", line 1176, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "E:\Adobe\Lib\unittest\mock.py", line 1180, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "E:\Adobe\Lib\unittest\mock.py", line 1247, in _execute_mock_call
+    result = effect(*args, **kwargs)
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p18_storage_retry.py", line 44, in replace
+    raise bound_refusal(source,target)
+PermissionError: [WinError 5] TEST native-shaped refusal: 'C:\\Users\\Administrator\\AppData\\Local\\Temp\\p18-storage-runtime-o3j9tbc2\\persistent-runtime\\.runtime-b91zi9b5.tmp' -> 'C:\\Users\\Administrator\\AppData\\Local\\Temp\\p18-storage-runtime-o3j9tbc2\\persistent-runtime\\runtime.v1.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p18_storage_retry.py", line 46, in test_copied_context_after_transaction_exit_cannot_authorize_retry
+    with self.assertRaises(PermissionError):copied.run(repository.save,document)
+                                            ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_runtime_repository.py", line 193, in save
+    _replace_payload(Path(name),self.path,previous,
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        retry_guard=check if transaction is not None else None,exhausted=deferred,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        prepared_bytes=payload.encode('utf-8'),prepared_identity=(created.st_dev,created.st_ino))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_repository.py", line 165, in _replace_payload
+    exhausted(error)
+    ~~~~~~~~~^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_runtime_repository.py", line 185, in deferred
+    def deferred(error):raise RuntimeCheckpointWriteDeferred() from error
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+continuity_engine.storage.json_runtime_repository.RuntimeCheckpointWriteDeferred: RUNTIME_CHECKPOINT_WRITE_DEFERRED
+
+----------------------------------------------------------------------
+Ran 1 test in 0.331s
+
+FAILED (errors=1)

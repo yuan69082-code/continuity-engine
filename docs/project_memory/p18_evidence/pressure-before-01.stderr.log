@@ -1,0 +1,19 @@
+test_backpressure_retains_need_and_reports_deferral (test_p18_runtime.RuntimeControlTests.test_backpressure_retains_need_and_reports_deferral) ... FAIL
+test_proven_not_delivered_retries_are_bounded (test_p18_runtime.RuntimeControlTests.test_proven_not_delivered_retries_are_bounded) ... ok
+
+======================================================================
+FAIL: test_backpressure_retains_need_and_reports_deferral (test_p18_runtime.RuntimeControlTests.test_backpressure_retains_need_and_reports_deferral)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p18_runtime.py", line 293, in test_backpressure_retains_need_and_reports_deferral
+    self.assertEqual(f.host.query()['reason'],'QUEUE_BACKPRESSURE')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'NO_CURRENT_NEED' != 'QUEUE_BACKPRESSURE'
+- NO_CURRENT_NEED
++ QUEUE_BACKPRESSURE
+
+
+----------------------------------------------------------------------
+Ran 2 tests in 1.319s
+
+FAILED (failures=1)

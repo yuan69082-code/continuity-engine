@@ -1,0 +1,8 @@
+test_control_identity_is_not_stored_as_raw_material (__main__.ControlEdgeProbe.test_control_identity_is_not_stored_as_raw_material) ... ok
+test_old_control_does_not_reapply_after_many_owner_commands (__main__.ControlEdgeProbe.test_old_control_does_not_reapply_after_many_owner_commands) ... ok
+test_scaled_clock_preserves_legal_subject_lifecycle_control (__main__.ControlEdgeProbe.test_scaled_clock_preserves_legal_subject_lifecycle_control) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 5.841s
+
+OK

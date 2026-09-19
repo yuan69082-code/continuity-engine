@@ -1,0 +1,537 @@
+{
+  "existingChanged": [
+    "README.md",
+    "docs/project_memory/01_当前状态.md",
+    "docs/project_memory/03_施工日志.md",
+    "docs/project_memory/04_决策记录.md",
+    "docs/project_memory/05_已完成模块.md",
+    "docs/project_memory/06_未完成事项.md",
+    "docs/project_memory/07_待确认事项.md",
+    "docs/project_memory/10_档案修订记录.md",
+    "docs/project_memory/83_P18_PersistentRuntime架构与开工简报.md",
+    "docs/project_memory/84_P18_规划施工测试验收矩阵.md",
+    "docs/project_memory/85_P18_持续运行控制资源等待与恢复语义.md",
+    "docs/project_memory/86_P18_测试索引与验收入口.md",
+    "docs/project_memory/CHANGELOG.md",
+    "docs/project_memory/工程总档案.md",
+    "src/continuity_engine/storage/json_repository.py",
+    "src/continuity_engine/storage/json_runtime_repository.py"
+  ],
+  "new": [
+    "docs/project_memory/p18_storage_final_evidence/advancing-final-01.json",
+    "docs/project_memory/p18_storage_final_evidence/advancing-final-01.stderr.log",
+    "docs/project_memory/p18_storage_final_evidence/advancing-final-01.stdout.log",
+    "docs/project_memory/p18_storage_final_evidence/advancing-final-02.json",
+    "docs/project_memory/p18_storage_final_evidence/advancing-final-02.stderr.log",
+    "docs/project_memory/p18_storage_final_evidence/advancing-final-02.stdout.log",
+    "docs/project_memory/p18_storage_final_evidence/audit.py",
+    "docs/project_memory/p18_storage_final_evidence/auxiliary-placement-01.json",
+    "docs/project_memory/p18_storage_final_evidence/before.json",
+    "docs/project_memory/p18_storage_final_evidence/boundaries-after-01.json",
+    "docs/project_memory/p18_storage_final_evidence/boundaries-after-01.stderr.log",
+    "docs/project_memory/p18_storage_final_evidence/boundaries-after-01.stdout.log",
+    "docs/project_memory/p18_storage_final_evidence/boundaries-after-03.json",
+    "docs/project_memory/p18_storage_final_evidence/boundaries-after-03.stderr.log",
+    "docs/project_memory/p18_storage_final_evidence/boundaries-after-03.stdout.log",
+    "docs/project_memory/p18_storage_final_evidence/boundaries-final-04.json",
+    "docs/project_memory/p18_storage_final_evidence/boundaries-final-04.stderr.log",
+    "docs/project_memory/p18_storage_final_evidence/boundaries-final-04.stdout.log",
+    "docs/project_memory/p18_storage_final_evidence/compatibility-final-01.json",
+    "docs/project_memory/p18_storage_final_evidence/compatibility-final-01.stderr.log",
+    "docs/project_memory/p18_storage_final_evidence/compatibility-final-01.stdout.log",
+    "docs/project_memory/p18_storage_final_evidence/continuation.md",
+    "docs/project_memory/p18_storage_final_evidence/documentation-files.json",
+    "docs/project_memory/p18_storage_final_evidence/expired-context-before-01.json",
+    "docs/project_memory/p18_storage_final_evidence/expired-context-before-01.stderr.log",
+    "docs/project_memory/p18_storage_final_evidence/expired-context-before-01.stdout.log",
+    "docs/project_memory/p18_storage_final_evidence/final-report.md",
+    "docs/project_memory/p18_storage_final_evidence/final.audit.json",
+    "docs/project_memory/p18_storage_final_evidence/final.pending-files.md",
+    "docs/project_memory/p18_storage_final_evidence/finalize.py",
+    "docs/project_memory/p18_storage_final_evidence/fixture-diagnostic-01.json",
+    "docs/project_memory/p18_storage_final_evidence/fixture-diagnostic-01.stderr.log",
+    "docs/project_memory/p18_storage_final_evidence/fixture-diagnostic-01.stdout.log",
+    "docs/project_memory/p18_storage_final_evidence/fixture-length-02.json",
+    "docs/project_memory/p18_storage_final_evidence/fixture-length-02.stderr.log",
+    "docs/project_memory/p18_storage_final_evidence/fixture-length-02.stdout.log",
+    "docs/project_memory/p18_storage_final_evidence/fixture-short-01.json",
+    "docs/project_memory/p18_storage_final_evidence/fixture-short-01.stderr.log",
+    "docs/project_memory/p18_storage_final_evidence/fixture-short-01.stdout.log",
+    "docs/project_memory/p18_storage_final_evidence/freeze.py",
+    "docs/project_memory/p18_storage_final_evidence/frozen-source-02.json",
+    "docs/project_memory/p18_storage_final_evidence/frozen-source.json",
+    "docs/project_memory/p18_storage_final_evidence/full-final-01.json",
+    "docs/project_memory/p18_storage_final_evidence/full-final-01.stderr.log",
+    "docs/project_memory/p18_storage_final_evidence/full-final-01.stdout.log",
+    "docs/project_memory/p18_storage_final_evidence/host-boundaries-after-02.json",
+    "docs/project_memory/p18_storage_final_evidence/host-boundaries-after-02.stderr.log",
+    "docs/project_memory/p18_storage_final_evidence/host-boundaries-after-02.stdout.log",
+    "docs/project_memory/p18_storage_final_evidence/host-process-final-01.json",
+    "docs/project_memory/p18_storage_final_evidence/host-process-final-01.stderr.log",
+    "docs/project_memory/p18_storage_final_evidence/host-process-final-01.stdout.log",
+    "docs/project_memory/p18_storage_final_evidence/independent/original_suites.py",
+    "docs/project_memory/p18_storage_final_evidence/independent/test_fixture_diagnostic.py",
+    "docs/project_memory/p18_storage_final_evidence/independent/test_native_access.py",
+    "docs/project_memory/p18_storage_final_evidence/investigation-notes.md",
+    "docs/project_memory/p18_storage_final_evidence/matrix-test-map.json",
+    "docs/project_memory/p18_storage_final_evidence/native-denial-final-01.json",
+    "docs/project_memory/p18_storage_final_evidence/native-denial-final-01.stderr.log",
+    "docs/project_memory/p18_storage_final_evidence/native-denial-final-01.stdout.log",
+    "docs/project_memory/p18_storage_final_evidence/native-denial-final-02.json",
+    "docs/project_memory/p18_storage_final_evidence/native-denial-final-02.stderr.log",
+    "docs/project_memory/p18_storage_final_evidence/native-denial-final-02.stdout.log",
+    "docs/project_memory/p18_storage_final_evidence/new-guards-before-01.json",
+    "docs/project_memory/p18_storage_final_evidence/new-guards-before-01.stderr.log",
+    "docs/project_memory/p18_storage_final_evidence/new-guards-before-01.stdout.log",
+    "docs/project_memory/p18_storage_final_evidence/original-flows-after-01.json",
+    "docs/project_memory/p18_storage_final_evidence/original-flows-after-01.stderr.log",
+    "docs/project_memory/p18_storage_final_evidence/original-flows-after-01.stdout.log",
+    "docs/project_memory/p18_storage_final_evidence/originals-final-02.json",
+    "docs/project_memory/p18_storage_final_evidence/originals-final-02.stderr.log",
+    "docs/project_memory/p18_storage_final_evidence/originals-final-02.stdout.log",
+    "docs/project_memory/p18_storage_final_evidence/originals-final-03.json",
+    "docs/project_memory/p18_storage_final_evidence/originals-final-03.stderr.log",
+    "docs/project_memory/p18_storage_final_evidence/originals-final-03.stdout.log",
+    "docs/project_memory/p18_storage_final_evidence/p18-final-01.json",
+    "docs/project_memory/p18_storage_final_evidence/p18-final-01.stderr.log",
+    "docs/project_memory/p18_storage_final_evidence/p18-final-01.stdout.log",
+    "docs/project_memory/p18_storage_final_evidence/prepare.py",
+    "docs/project_memory/p18_storage_final_evidence/prior-boundaries-final-01.json",
+    "docs/project_memory/p18_storage_final_evidence/prior-boundaries-final-01.stderr.log",
+    "docs/project_memory/p18_storage_final_evidence/prior-boundaries-final-01.stdout.log",
+    "docs/project_memory/p18_storage_final_evidence/process-observation-final.json",
+    "docs/project_memory/p18_storage_final_evidence/read-tool-note.json",
+    "docs/project_memory/p18_storage_final_evidence/run.py",
+    "docs/project_memory/p18_storage_final_evidence/selected-runs.json",
+    "docs/project_memory/p18_storage_final_evidence/source-before/json_repository.py",
+    "docs/project_memory/p18_storage_final_evidence/source-before/json_runtime_repository.py",
+    "docs/project_memory/p18_storage_final_evidence/test-history.json",
+    "docs/project_memory/p18_storage_final_evidence/turn-changes.json",
+    "docs/project_memory/p18_storage_final_evidence/validate_final.py",
+    "tests/test_p18_storage_retry.py",
+    "tests/test_p18_storage_runtime.py"
+  ],
+  "hashes": {
+    "README.md": {
+      "before": "c07565fe6a03c4cc0280d264bee797b3b1612022aaef4c5b88898583066e7979",
+      "after": "c56689827e1cd624873d886d7b0d5f27d9bdb3b01abfde07e1e149ae1af921c6"
+    },
+    "docs/project_memory/01_当前状态.md": {
+      "before": "7174f9033fcd5e948ed0cd38a55ae28590329257ac96dddb407b19e761d95ccf",
+      "after": "bd249c427f4abad341e5e2b1dd199e2b52095ec1d0387f0467057dfe86a44433"
+    },
+    "docs/project_memory/03_施工日志.md": {
+      "before": "01479df431771b966cfe037542f5012066ae417040d7eec7c9d6f9c03f709941",
+      "after": "e2350fbc21a70daadcd7417b81e03d22995eaa62348438bc432d855fb9622ce2"
+    },
+    "docs/project_memory/04_决策记录.md": {
+      "before": "7110d47f2f77aaef78b093ce4d1db3110b4b17dc77a9499cef9338e03dbc5d5d",
+      "after": "a92edb4caa7ba839347e4b61b55f6d6b891694650771d699f9c2b970c236fd7c"
+    },
+    "docs/project_memory/05_已完成模块.md": {
+      "before": "90c51df25362210cffad8f626b574b185295d9f9a0c511469b0a5493f7d3cfe1",
+      "after": "470c5ed4c8a2e651be27ac35ee927d2974ea107b74a820dd5377ddc7bbd9b172"
+    },
+    "docs/project_memory/06_未完成事项.md": {
+      "before": "cedc823f66f719bd8e76cfd615a854f6c5eb35eeaa04a9c9cf8d8c27f558121f",
+      "after": "7ffc97c0402f511eca4365132ccc25e7ed827db99b69ae020e1e365876cb244c"
+    },
+    "docs/project_memory/07_待确认事项.md": {
+      "before": "1c668dd3c2eebf746746faa9fc8e3c6e71c6433f2b05743b38d39289e48d8cd8",
+      "after": "7a651d22f0cc381d84e0ec7d0ba4a39744ad8f0837d105de1fd0a7cbda919a59"
+    },
+    "docs/project_memory/10_档案修订记录.md": {
+      "before": "ca48bff803d6e11262300679494f908fff140890a0f4223f239970d8e663cc33",
+      "after": "3814d8dabb3c273f33f3d54288f88f27c31c2ea6daaf69dcbee83808d59d9d09"
+    },
+    "docs/project_memory/83_P18_PersistentRuntime架构与开工简报.md": {
+      "before": "474ef6ff894700c434011db7c94ee4fe3860e57d8bdb9fc5d1f91d4ac594645f",
+      "after": "b3748f34499798fa690de8463363ff9a2b560735c5a93df1b8561955f62a324e"
+    },
+    "docs/project_memory/84_P18_规划施工测试验收矩阵.md": {
+      "before": "07839a3a1dc1257bfee53d7b94c5342a2ea1932d1773be95384c3e0ef4ff32c5",
+      "after": "b4792ba1daa7e788b9e512b6d529ee8cf979e4a6a8936db8368ce72271a5cf09"
+    },
+    "docs/project_memory/85_P18_持续运行控制资源等待与恢复语义.md": {
+      "before": "ce28f8a84e5adebe76db017226a52cef680c30a94e6a4cd2f2d82711e4d24353",
+      "after": "cc55a083cd6bb8abbf605616f9ed07c236b0deae0b2046486b00fd370695ac17"
+    },
+    "docs/project_memory/86_P18_测试索引与验收入口.md": {
+      "before": "7bbd4ba8131242e4a7a8945bd6900bbac83eb63dd57383ebc02a36cf431a445a",
+      "after": "264b405ff7a3995e2247709530d5a730aad7cdf4ed715f9af49afd876d54466f"
+    },
+    "docs/project_memory/CHANGELOG.md": {
+      "before": "e4363758179fed56fe6fc24836816b544e2a67257a7efa99783f6373678f7c1a",
+      "after": "ff445bc3caee4894c1c3a0d5793b37010573c143a27b38e705237638b2003c26"
+    },
+    "docs/project_memory/p18_storage_final_evidence/advancing-final-01.json": {
+      "before": null,
+      "after": "610166ed056e7c8884c851c801ce2c3f838b66de529de3fde51426b7512a94cd"
+    },
+    "docs/project_memory/p18_storage_final_evidence/advancing-final-01.stderr.log": {
+      "before": null,
+      "after": "3a1b8f12bd3b53250f449f66cfd4786a8bf98f65a45576093120f1c963922e1e"
+    },
+    "docs/project_memory/p18_storage_final_evidence/advancing-final-01.stdout.log": {
+      "before": null,
+      "after": "412c5eaf7f62e749864ccb6d086d3d13f014b1eb1a5c619c5dbc213d3e61ed76"
+    },
+    "docs/project_memory/p18_storage_final_evidence/advancing-final-02.json": {
+      "before": null,
+      "after": "fabdd62bdad8a08f81a5eacee203f0530abd5637427fd799728dc0ef1cb8dcfa"
+    },
+    "docs/project_memory/p18_storage_final_evidence/advancing-final-02.stderr.log": {
+      "before": null,
+      "after": "592b7ffc24a4d42351003e502e304fbcee62304b1bcf1a3b3ce837dded51c903"
+    },
+    "docs/project_memory/p18_storage_final_evidence/advancing-final-02.stdout.log": {
+      "before": null,
+      "after": "29785f43d7dae686b6be72df99991cc2a2be06a2530144c9e864947eeafbed1e"
+    },
+    "docs/project_memory/p18_storage_final_evidence/audit.py": {
+      "before": null,
+      "after": "aa7bf347730c4c2fb44673b29f5e307dea30004ef17c9abb2af0a313ae4f7d4d"
+    },
+    "docs/project_memory/p18_storage_final_evidence/auxiliary-placement-01.json": {
+      "before": null,
+      "after": "b371670f9f05bef9f37ec0f9adc7a9c3d5fd9f50829041ce8e246d251abf5d85"
+    },
+    "docs/project_memory/p18_storage_final_evidence/before.json": {
+      "before": null,
+      "after": "f2c1ccf01af63ff80869250055dfa39a0755d347d561ef71bd928d8cf8907217"
+    },
+    "docs/project_memory/p18_storage_final_evidence/boundaries-after-01.json": {
+      "before": null,
+      "after": "5bd795143b613ef547abc0a12bd896ff90db0f4336e15f6b9bb37ab917a6a03f"
+    },
+    "docs/project_memory/p18_storage_final_evidence/boundaries-after-01.stderr.log": {
+      "before": null,
+      "after": "83f5bcb15645b6345191370ddf77be73379e0e88d433308fac0b8d219c627828"
+    },
+    "docs/project_memory/p18_storage_final_evidence/boundaries-after-01.stdout.log": {
+      "before": null,
+      "after": "8f06d83f958b8064414ff8016787c6572b51f15fc01c98a469b7094522ca0570"
+    },
+    "docs/project_memory/p18_storage_final_evidence/boundaries-after-03.json": {
+      "before": null,
+      "after": "0fb6fa593b1313c63bd6c386c796d82d284f7c7902ad97a4bcdd835f081376c2"
+    },
+    "docs/project_memory/p18_storage_final_evidence/boundaries-after-03.stderr.log": {
+      "before": null,
+      "after": "9bdf0201b2cef993289ae3d33a1b31612305b666347505237c8c433820822fe2"
+    },
+    "docs/project_memory/p18_storage_final_evidence/boundaries-after-03.stdout.log": {
+      "before": null,
+      "after": "b02dc5f9a1e9ac60c6a86aee74003f7aac0bcb5a50c068f8e378b8f647cc32fa"
+    },
+    "docs/project_memory/p18_storage_final_evidence/boundaries-final-04.json": {
+      "before": null,
+      "after": "b7d4e07cc71f77bc69ab4978ef22deee04c573fcdd343b00fe30f894691bae9a"
+    },
+    "docs/project_memory/p18_storage_final_evidence/boundaries-final-04.stderr.log": {
+      "before": null,
+      "after": "44378121b5aafb93de9b0599f3fa76661d010b4da2f9775ca85ca8a6059b2bd8"
+    },
+    "docs/project_memory/p18_storage_final_evidence/boundaries-final-04.stdout.log": {
+      "before": null,
+      "after": "1643057b521a0c9dbbf645e65bd4fe885c634011bed16a76c6350dd64cc0a64e"
+    },
+    "docs/project_memory/p18_storage_final_evidence/compatibility-final-01.json": {
+      "before": null,
+      "after": "b45bf7c84d19d97fe386114d09ef016db1cc01f79ff5328ab5f31d9929fb98a9"
+    },
+    "docs/project_memory/p18_storage_final_evidence/compatibility-final-01.stderr.log": {
+      "before": null,
+      "after": "623e656d18747c979d5c7eb11ea084089b910c8d38fbde4499b8e3ca57ed6d18"
+    },
+    "docs/project_memory/p18_storage_final_evidence/compatibility-final-01.stdout.log": {
+      "before": null,
+      "after": "45effe69a023ab8b84d99e72953e14717cca1f2fb73b4dccd63d79ba2d308bbf"
+    },
+    "docs/project_memory/p18_storage_final_evidence/continuation.md": {
+      "before": null,
+      "after": "0089e242538a7ed3fdbc9c4b04c800aef1eb905d02da349fccc518b6d246cd25"
+    },
+    "docs/project_memory/p18_storage_final_evidence/documentation-files.json": {
+      "before": null,
+      "after": "b0eac896405eb0fe098b29c630076c08bba521389e24981445c0a6e91d7dcd01"
+    },
+    "docs/project_memory/p18_storage_final_evidence/expired-context-before-01.json": {
+      "before": null,
+      "after": "394385b356aea80fb1a565727e2857b8b7b0f9b462a660b5d1c2455163f70812"
+    },
+    "docs/project_memory/p18_storage_final_evidence/expired-context-before-01.stderr.log": {
+      "before": null,
+      "after": "2171fc550f2082fab19e1f92b2d1c2e0d48556f50747f2b2fcd736d8829ee603"
+    },
+    "docs/project_memory/p18_storage_final_evidence/expired-context-before-01.stdout.log": {
+      "before": null,
+      "after": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/project_memory/p18_storage_final_evidence/final-report.md": {
+      "before": null,
+      "after": "1631ac3a722fcad7e9cc19ea5f1a2ed70448cd4f42df4ca4ea4070b5668045c0"
+    },
+    "docs/project_memory/p18_storage_final_evidence/finalize.py": {
+      "before": null,
+      "after": "d5749cb02aa07b99ba3ee2f8148922d9cd329b7d10628d50073cd2929cf36d1e"
+    },
+    "docs/project_memory/p18_storage_final_evidence/fixture-diagnostic-01.json": {
+      "before": null,
+      "after": "f5f991a883a9e5783814ec55756fe94530665a2641aa039ad249fc5377531927"
+    },
+    "docs/project_memory/p18_storage_final_evidence/fixture-diagnostic-01.stderr.log": {
+      "before": null,
+      "after": "c40b2b985e50160c421e57f01608fea477c5c68685ee87d40f8e267ba1590fee"
+    },
+    "docs/project_memory/p18_storage_final_evidence/fixture-diagnostic-01.stdout.log": {
+      "before": null,
+      "after": "d182b601ad4eb44f815a76f40d7045be11ab68a99006222a25743b3698abc273"
+    },
+    "docs/project_memory/p18_storage_final_evidence/fixture-length-02.json": {
+      "before": null,
+      "after": "af43661428f81893e09e65957a1cbc16d91730748a76cf58a3566bc6a0255a01"
+    },
+    "docs/project_memory/p18_storage_final_evidence/fixture-length-02.stderr.log": {
+      "before": null,
+      "after": "eed2afb6a1b93d80669559fa22265d7a8ccc500ec516b3b0051881fa0a2f90fa"
+    },
+    "docs/project_memory/p18_storage_final_evidence/fixture-length-02.stdout.log": {
+      "before": null,
+      "after": "aa43baa1648bad9df263b78f88c0fc2b68ceeffdd8e544eb33710e2c48d6e758"
+    },
+    "docs/project_memory/p18_storage_final_evidence/fixture-short-01.json": {
+      "before": null,
+      "after": "01b1e0a96e337a8ea479bcc2646176e155ac82a7b1f309a7ede680e5cadd33aa"
+    },
+    "docs/project_memory/p18_storage_final_evidence/fixture-short-01.stderr.log": {
+      "before": null,
+      "after": "ba2cc8090c21ce9b106d1b400eec395daf2c3f3688a4aa7361667d2127a94fca"
+    },
+    "docs/project_memory/p18_storage_final_evidence/fixture-short-01.stdout.log": {
+      "before": null,
+      "after": "df282541c0205f2aa989edc6eccabffa28620e64b063ddc2ad4cdba811246644"
+    },
+    "docs/project_memory/p18_storage_final_evidence/freeze.py": {
+      "before": null,
+      "after": "45d09975bb17a1c84aaabd6160d1ab00e7c31eda86bda532f98c30a38ef2d354"
+    },
+    "docs/project_memory/p18_storage_final_evidence/frozen-source-02.json": {
+      "before": null,
+      "after": "77afe2cf4cc87206985a9416a548c4a9a6a0ef8d6bd85557ef70ff3976c88a87"
+    },
+    "docs/project_memory/p18_storage_final_evidence/frozen-source.json": {
+      "before": null,
+      "after": "992f97d902cfe8951fce92d682b9c908b49de194c5a69afb343b7abc0e125890"
+    },
+    "docs/project_memory/p18_storage_final_evidence/full-final-01.json": {
+      "before": null,
+      "after": "1f3c8b4dd828f6d0f269e2d32457bed5cd1f5a53e10e5d1f73ea2b37c2973fff"
+    },
+    "docs/project_memory/p18_storage_final_evidence/full-final-01.stderr.log": {
+      "before": null,
+      "after": "15a71e1e0a199d04f708bf713c033c6827d66fd67f9e5454de74464989d4ee91"
+    },
+    "docs/project_memory/p18_storage_final_evidence/full-final-01.stdout.log": {
+      "before": null,
+      "after": "93345ac20491dadaa8ec3e2e2d94591b3da93b88ef8ca6bc04953376f6f7752e"
+    },
+    "docs/project_memory/p18_storage_final_evidence/host-boundaries-after-02.json": {
+      "before": null,
+      "after": "2272014e0f436981a1073cd63f1074121abbe0a76eadd8fedf4dac61a024ce9d"
+    },
+    "docs/project_memory/p18_storage_final_evidence/host-boundaries-after-02.stderr.log": {
+      "before": null,
+      "after": "abec0f2d2945e16e617fe111d9e8054c1253bbf2017dc0d29f8302ccddd6491b"
+    },
+    "docs/project_memory/p18_storage_final_evidence/host-boundaries-after-02.stdout.log": {
+      "before": null,
+      "after": "dc2c1ee0a479bc5472b67446b337abe76179a975368dc2781a5305614dfd7a42"
+    },
+    "docs/project_memory/p18_storage_final_evidence/host-process-final-01.json": {
+      "before": null,
+      "after": "02882b4ef4b248105149ba3786d5de114ff56d18e2470d9d4cf99b44864497e4"
+    },
+    "docs/project_memory/p18_storage_final_evidence/host-process-final-01.stderr.log": {
+      "before": null,
+      "after": "cfd129ea3520f9a20a788f6020e547cd0cfe71c2503b51a6d178378b6c238356"
+    },
+    "docs/project_memory/p18_storage_final_evidence/host-process-final-01.stdout.log": {
+      "before": null,
+      "after": "c8edf63d182ddb7097b71aa7f5e29ec0f549a2c99feb267a52d6d61e3f87090e"
+    },
+    "docs/project_memory/p18_storage_final_evidence/independent/original_suites.py": {
+      "before": null,
+      "after": "1316452aaf0a454eb051bb9206db90e8d6c6fe51ae4dfc32d25ac39cb53cfc8b"
+    },
+    "docs/project_memory/p18_storage_final_evidence/independent/test_fixture_diagnostic.py": {
+      "before": null,
+      "after": "98f57a5356264d8089c4d786c6d04c4e783fd8360bf5951b04c57f41c986342c"
+    },
+    "docs/project_memory/p18_storage_final_evidence/independent/test_native_access.py": {
+      "before": null,
+      "after": "1297f61e54ec4faecaa9d043b1ef34efd67615e0093fb93616f9cfe369ce4cea"
+    },
+    "docs/project_memory/p18_storage_final_evidence/investigation-notes.md": {
+      "before": null,
+      "after": "694a3dabc0f6778e022834040be1e8ffd32e3cb83dd1dc832df1ca68d88eb9db"
+    },
+    "docs/project_memory/p18_storage_final_evidence/matrix-test-map.json": {
+      "before": null,
+      "after": "6fba7d11c10a135ab39678e0c5b6c268a59b2dfb14c52886918de15b2586ae1b"
+    },
+    "docs/project_memory/p18_storage_final_evidence/native-denial-final-01.json": {
+      "before": null,
+      "after": "07f4fbdf83a3cce211bc786bb863765d5ed8786ba4b81ee8b6819d35af58e9d6"
+    },
+    "docs/project_memory/p18_storage_final_evidence/native-denial-final-01.stderr.log": {
+      "before": null,
+      "after": "823304402345a6231ac9442bf2e471c3135b834b750e22d3211055ed1b74c184"
+    },
+    "docs/project_memory/p18_storage_final_evidence/native-denial-final-01.stdout.log": {
+      "before": null,
+      "after": "d19c3c1931bee52660f2823674fa02a8fda72318638d3cf1d656b23087505972"
+    },
+    "docs/project_memory/p18_storage_final_evidence/native-denial-final-02.json": {
+      "before": null,
+      "after": "c31e174eb6f2a6f1751f805463f33baa9d81f475c94f1398bffb038cbaa927a9"
+    },
+    "docs/project_memory/p18_storage_final_evidence/native-denial-final-02.stderr.log": {
+      "before": null,
+      "after": "fb8a29cd39689320dbf8911d5c7edb3e9e24d648e8b63f4640616d1e4bbd6598"
+    },
+    "docs/project_memory/p18_storage_final_evidence/native-denial-final-02.stdout.log": {
+      "before": null,
+      "after": "d19c3c1931bee52660f2823674fa02a8fda72318638d3cf1d656b23087505972"
+    },
+    "docs/project_memory/p18_storage_final_evidence/new-guards-before-01.json": {
+      "before": null,
+      "after": "908401d2ff1e2a43f738a3f746ab9eafc23b300f18d07f3c8a728e730f29a6bc"
+    },
+    "docs/project_memory/p18_storage_final_evidence/new-guards-before-01.stderr.log": {
+      "before": null,
+      "after": "7125080d96cc0481ce54d86777dedf713827b8ce05ea6627f29a692049028d42"
+    },
+    "docs/project_memory/p18_storage_final_evidence/new-guards-before-01.stdout.log": {
+      "before": null,
+      "after": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/project_memory/p18_storage_final_evidence/original-flows-after-01.json": {
+      "before": null,
+      "after": "59236c08e05639174fc4d50bd3b250730a56bd1a696b7ec03fe1b3c0195ea884"
+    },
+    "docs/project_memory/p18_storage_final_evidence/original-flows-after-01.stderr.log": {
+      "before": null,
+      "after": "8f6ae81916ed5f1045d3009ffdbbc1d2b9cc98fb557751f10915356dea90a040"
+    },
+    "docs/project_memory/p18_storage_final_evidence/original-flows-after-01.stdout.log": {
+      "before": null,
+      "after": "1d7df3cf48a19e0d405fba04f590001060c0ee6046a13bf2c485bf1e890aa0a6"
+    },
+    "docs/project_memory/p18_storage_final_evidence/originals-final-02.json": {
+      "before": null,
+      "after": "b964109035364371d9e1c8f9cac2e95802b2050fb8a97e2466d005e6a223bce1"
+    },
+    "docs/project_memory/p18_storage_final_evidence/originals-final-02.stderr.log": {
+      "before": null,
+      "after": "2f74cfbc579e53896e66dae07c1a34804e2a203ad4fe8dd8d2052cbee3e0b757"
+    },
+    "docs/project_memory/p18_storage_final_evidence/originals-final-02.stdout.log": {
+      "before": null,
+      "after": "2ea2b496c0e67b867be32a7bcdf463326039822e18a697805291320306cddad6"
+    },
+    "docs/project_memory/p18_storage_final_evidence/originals-final-03.json": {
+      "before": null,
+      "after": "1522515801efcfb43639ec23b5277fea17d04287c8ad441637cfd6be5aaf9eee"
+    },
+    "docs/project_memory/p18_storage_final_evidence/originals-final-03.stderr.log": {
+      "before": null,
+      "after": "360e4e3fdd5589eecc09cd20022d7c03538b24b578f03825f37beadcc7efa622"
+    },
+    "docs/project_memory/p18_storage_final_evidence/originals-final-03.stdout.log": {
+      "before": null,
+      "after": "85e618a0f586ac3873cdaa6960a6ad6225714ae3363375b9de88be66351f5ba6"
+    },
+    "docs/project_memory/p18_storage_final_evidence/p18-final-01.json": {
+      "before": null,
+      "after": "ef897ff84b2adfc5bd401c1fe11efbcf2b67de6514f9fe26d13c37257e8e73e4"
+    },
+    "docs/project_memory/p18_storage_final_evidence/p18-final-01.stderr.log": {
+      "before": null,
+      "after": "0d7515fd632e2193e9878b76ae775f9a1ce9d925ae3eb628fe1ed1d590a0a8b6"
+    },
+    "docs/project_memory/p18_storage_final_evidence/p18-final-01.stdout.log": {
+      "before": null,
+      "after": "8c1f8b111803f0e4791e82af4d312915b693617228c0dde8b2facf7ea7c06542"
+    },
+    "docs/project_memory/p18_storage_final_evidence/prepare.py": {
+      "before": null,
+      "after": "8e7e343da773421366e02c11d784d8ecdb2d3555a7d2f22362fa0468fc7432a9"
+    },
+    "docs/project_memory/p18_storage_final_evidence/prior-boundaries-final-01.json": {
+      "before": null,
+      "after": "e27297185691dac5eb4b6c8330a945d5f8f5c63946f7be9f2d2f07f4df8543ca"
+    },
+    "docs/project_memory/p18_storage_final_evidence/prior-boundaries-final-01.stderr.log": {
+      "before": null,
+      "after": "d46bd8088d18feed446e0df087a2723198fde8688ac22ba1f812c29695e9ddcf"
+    },
+    "docs/project_memory/p18_storage_final_evidence/prior-boundaries-final-01.stdout.log": {
+      "before": null,
+      "after": "842cbb88ea6cf8ba4ed8f5f58b84e466ffc87ee4f07178f759fd7846e696f66b"
+    },
+    "docs/project_memory/p18_storage_final_evidence/process-observation-final.json": {
+      "before": null,
+      "after": "74be682cba86366bf5f753eb22d09a084e53eed6871771b9304fef32fa0ad4b1"
+    },
+    "docs/project_memory/p18_storage_final_evidence/read-tool-note.json": {
+      "before": null,
+      "after": "4bceef0a2442d3ab594a9ee1aaf2f4e98a39d2bb1115d0367b5f8a5997232ba6"
+    },
+    "docs/project_memory/p18_storage_final_evidence/run.py": {
+      "before": null,
+      "after": "3d45efb38dfeac902fa6af10768819a3b37184cdb36ebbacbda13b0dbd8d75ad"
+    },
+    "docs/project_memory/p18_storage_final_evidence/selected-runs.json": {
+      "before": null,
+      "after": "1ea42f365ec415cb67d8e3ff959e3cfd65e91913b07924131b4ad7e58c7924f0"
+    },
+    "docs/project_memory/p18_storage_final_evidence/source-before/json_repository.py": {
+      "before": null,
+      "after": "f20010c17b95a5341a130656b2605a6520d97201a4cea9f20b4c3d384dc3bcaf"
+    },
+    "docs/project_memory/p18_storage_final_evidence/source-before/json_runtime_repository.py": {
+      "before": null,
+      "after": "d7e721d214c2b037719ba310ffe83ef6405577a8b39e7fc8edec72aa0b10308a"
+    },
+    "docs/project_memory/p18_storage_final_evidence/test-history.json": {
+      "before": null,
+      "after": "529b80118d630ae6639f9710e319fb800ac7f3953f42a7c42872b5252093d746"
+    },
+    "docs/project_memory/p18_storage_final_evidence/validate_final.py": {
+      "before": null,
+      "after": "f33d31e7ee1735e0a7574e4b3036ba7741a5089c21a92e72b71fa93b0953da2b"
+    },
+    "docs/project_memory/工程总档案.md": {
+      "before": "e97d12d1ef19cd96cadb0d1e02f70d73cce351803a43c17a0b851a6e24416cfa",
+      "after": "66f2cb9032d46985f50cd0fcc5700a3e044eaceaaefcef7187df6b4d94885c23"
+    },
+    "src/continuity_engine/storage/json_repository.py": {
+      "before": "f20010c17b95a5341a130656b2605a6520d97201a4cea9f20b4c3d384dc3bcaf",
+      "after": "a690a30ccb69a99d74d3db95330fd66ae01102ec93dd1f30e2128531c6ecd0ae"
+    },
+    "src/continuity_engine/storage/json_runtime_repository.py": {
+      "before": "d7e721d214c2b037719ba310ffe83ef6405577a8b39e7fc8edec72aa0b10308a",
+      "after": "07de845cbe14b284dac93e4059a074435a2dcbe4511f10f657c6355bd0a27acc"
+    },
+    "tests/test_p18_storage_retry.py": {
+      "before": null,
+      "after": "8151dae47123923aed21079e36b61fc0fe56528e1f054f3a402a9d58b9e01196"
+    },
+    "tests/test_p18_storage_runtime.py": {
+      "before": null,
+      "after": "9faa146e9f87a3759a90d0bc457367201eebfe00bdbf8010cddd92e2a03dd325"
+    }
+  },
+  "generatedManifestSelfHashes": "Latest audit excludes its own hash; all paths still listed."
+}

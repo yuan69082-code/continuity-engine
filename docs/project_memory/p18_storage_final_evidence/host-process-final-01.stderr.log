@@ -1,0 +1,6 @@
+test_real_host_survives_exhausted_checkpoint_and_resumes_without_chat (test_p18_storage_runtime.RuntimeStorageProcessTests.test_real_host_survives_exhausted_checkpoint_and_resumes_without_chat) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 10.686s
+
+OK

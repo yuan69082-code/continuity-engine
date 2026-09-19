@@ -1,0 +1,17 @@
+{
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "test_pause_resume_confirmation.PauseResumeConfirmation",
+    "-v"
+  ],
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "startedAt": "2026-09-12T16:33:43.130498+00:00",
+  "finishedAt": "2026-09-12T16:33:50.587749+00:00",
+  "exitCode": 1,
+  "elapsedSeconds": 7.052080999999816,
+  "beforeCount": 2403,
+  "afterCount": 2403,
+  "changed": []
+}

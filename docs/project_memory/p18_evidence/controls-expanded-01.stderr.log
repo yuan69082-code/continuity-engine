@@ -1,0 +1,26 @@
+test_canceled_pending_work_is_not_revived_by_budget (test_p18_runtime.RuntimeControlTests.test_canceled_pending_work_is_not_revived_by_budget) ... ok
+test_clock_regression_then_recovery_is_not_negative_elapsed (test_p18_runtime.RuntimeControlTests.test_clock_regression_then_recovery_is_not_negative_elapsed) ... ok
+test_control_identity_conflict_retains_first_decision (test_p18_runtime.RuntimeControlTests.test_control_identity_conflict_retains_first_decision) ... ok
+test_explicit_stop_cannot_be_resumed (test_p18_runtime.RuntimeControlTests.test_explicit_stop_cannot_be_resumed) ... ok
+test_idle_tick_does_not_stop_host_or_invoke_provider (test_p18_runtime.RuntimeControlTests.test_idle_tick_does_not_stop_host_or_invoke_provider) ... ok
+test_local_maintenance_runs_while_model_is_unavailable (test_p18_runtime.RuntimeControlTests.test_local_maintenance_runs_while_model_is_unavailable) ... ok
+test_long_clock_gap_coalesces_no_catchup_loop (test_p18_runtime.RuntimeControlTests.test_long_clock_gap_coalesces_no_catchup_loop) ... ok
+test_material_boundary_still_accepts_ordinary_psychological_content (test_p18_runtime.RuntimeControlTests.test_material_boundary_still_accepts_ordinary_psychological_content) ... ok
+test_native_contact_expression_execution_and_next_context (test_p18_runtime.RuntimeControlTests.test_native_contact_expression_execution_and_next_context) ... ok
+test_owner_identity_and_revision_rejection_has_zero_writes (test_p18_runtime.RuntimeControlTests.test_owner_identity_and_revision_rejection_has_zero_writes) ... ok
+test_owner_pause_resume_stop_and_duplicate_controls (test_p18_runtime.RuntimeControlTests.test_owner_pause_resume_stop_and_duplicate_controls) ... ok
+test_pause_after_selection_prevents_wake_and_allocation (test_p18_runtime.RuntimeControlTests.test_pause_after_selection_prevents_wake_and_allocation) ... ok
+test_pause_after_wake_resources_prevents_provider_and_effect (test_p18_runtime.RuntimeControlTests.test_pause_after_wake_resources_prevents_provider_and_effect) ... ok
+test_pause_during_world_capacity_prevents_effect_and_credits (test_p18_runtime.RuntimeControlTests.test_pause_during_world_capacity_prevents_effect_and_credits) ... ok
+test_pause_immediately_before_provider_blocks_call (test_p18_runtime.RuntimeControlTests.test_pause_immediately_before_provider_blocks_call) ... ok
+test_provider_failure_is_safe_unknown_with_bounded_queries (test_p18_runtime.RuntimeControlTests.test_provider_failure_is_safe_unknown_with_bounded_queries) ... ok
+test_same_time_duplicate_ticks_do_not_repeat_calls_or_state (test_p18_runtime.RuntimeControlTests.test_same_time_duplicate_ticks_do_not_repeat_calls_or_state) ... ok
+test_subject_suspension_stays_paused_after_resource_restore (test_p18_runtime.RuntimeControlTests.test_subject_suspension_stays_paused_after_resource_restore) ... ok
+test_test_root_rejects_repository_and_uppercase_formal_paths_before_write (test_p18_runtime.RuntimeControlTests.test_test_root_rejects_repository_and_uppercase_formal_paths_before_write) ... ok
+test_without_messages_native_c1_updates_same_subject (test_p18_runtime.RuntimeControlTests.test_without_messages_native_c1_updates_same_subject) ... ok
+test_zero_budget_waits_then_resumes_without_message (test_p18_runtime.RuntimeControlTests.test_zero_budget_waits_then_resumes_without_message) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 17.369s
+
+OK

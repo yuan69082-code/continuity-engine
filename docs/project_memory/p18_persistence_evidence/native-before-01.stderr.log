@@ -1,0 +1,63 @@
+test_actual_repository_reader_does_not_prevent_atomic_transition (test_p18_persistence.PersistenceTests.test_actual_repository_reader_does_not_prevent_atomic_transition) ... FAIL
+test_normal_transition_without_overlapping_reader (test_p18_persistence.PersistenceTests.test_normal_transition_without_overlapping_reader) ... ok
+test_post_commit_return_loss_restores_without_second_revision (test_p18_persistence.PersistenceTests.test_post_commit_return_loss_restores_without_second_revision) ... FAIL
+test_post_effect_replace_error_recovers_original_fact_after_due_time (test_p18_persistence.PersistenceTests.test_post_effect_replace_error_recovers_original_fact_after_due_time) ... FAIL
+test_real_reader_blocks_no_new_effect_or_revision_after_release (test_p18_persistence.PersistenceTests.test_real_reader_blocks_no_new_effect_or_revision_after_release) ... FAIL
+
+======================================================================
+FAIL: test_actual_repository_reader_does_not_prevent_atomic_transition (test_p18_persistence.PersistenceTests.test_actual_repository_reader_does_not_prevent_atomic_transition)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p18_persistence.py", line 156, in test_actual_repository_reader_does_not_prevent_atomic_transition
+    self.assertIsNone(failure,'real repository reader blocked atomic state replacement')
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'type': 'PermissionError', 'errno': 13, 'winerror': 5} is not None : real repository reader blocked atomic state replacement
+
+======================================================================
+FAIL: test_post_commit_return_loss_restores_without_second_revision (test_p18_persistence.PersistenceTests.test_post_commit_return_loss_restores_without_second_revision)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p18_persistence.py", line 96, in test_post_commit_return_loss_restores_without_second_revision
+    self.assertEqual(hits,[True]);self.unchanged_effect(f)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+AssertionError: Lists differ: [] != [True]
+
+Second list contains 1 additional elements.
+First extra element 0:
+True
+
+- []
++ [True]
+
+======================================================================
+FAIL: test_post_effect_replace_error_recovers_original_fact_after_due_time (test_p18_persistence.PersistenceTests.test_post_effect_replace_error_recovers_original_fact_after_due_time)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p18_persistence.py", line 76, in test_post_effect_replace_error_recovers_original_fact_after_due_time
+    self.assertEqual(hits,[True]);self.assertEqual(target.read_bytes(),before)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+AssertionError: Lists differ: [] != [True]
+
+Second list contains 1 additional elements.
+First extra element 0:
+True
+
+- []
++ [True]
+
+======================================================================
+FAIL: test_real_reader_blocks_no_new_effect_or_revision_after_release (test_p18_persistence.PersistenceTests.test_real_reader_blocks_no_new_effect_or_revision_after_release)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p18_persistence.py", line 125, in test_real_reader_blocks_no_new_effect_or_revision_after_release
+    f.advance(5);f.host.tick();self.unchanged_effect(f)
+                               ~~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p18_persistence.py", line 63, in unchanged_effect
+    self.assertEqual(f.state.revision,expected_revision)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 2
+
+----------------------------------------------------------------------
+Ran 5 tests in 2.468s
+
+FAILED (failures=4)

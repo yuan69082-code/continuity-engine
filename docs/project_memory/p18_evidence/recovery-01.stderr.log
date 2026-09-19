@@ -1,0 +1,22 @@
+test_actual_fact_can_recover_when_context_has_expired (test_p18_runtime_recovery.RuntimeRecoveryTests.test_actual_fact_can_recover_when_context_has_expired) ... ok
+test_after_action_checkpoint_restarts_without_duplicate_action (test_p18_runtime_recovery.RuntimeRecoveryTests.test_after_action_checkpoint_restarts_without_duplicate_action) ... ok
+test_after_effect_restarts_without_duplicate_effect (test_p18_runtime_recovery.RuntimeRecoveryTests.test_after_effect_restarts_without_duplicate_effect) ... ok
+test_after_evolution_restarts_without_duplicate_revision (test_p18_runtime_recovery.RuntimeRecoveryTests.test_after_evolution_restarts_without_duplicate_revision) ... ok
+test_after_queue_completion_restarts_without_duplicate_work (test_p18_runtime_recovery.RuntimeRecoveryTests.test_after_queue_completion_restarts_without_duplicate_work) ... ok
+test_after_thinking_restarts_without_second_model_call (test_p18_runtime_recovery.RuntimeRecoveryTests.test_after_thinking_restarts_without_second_model_call) ... ok
+test_before_receipt_reconciles_original_evolution_and_effect (test_p18_runtime_recovery.RuntimeRecoveryTests.test_before_receipt_reconciles_original_evolution_and_effect) ... ok
+test_budget_is_not_reset_on_reopen (test_p18_runtime_recovery.RuntimeRecoveryTests.test_budget_is_not_reset_on_reopen) ... ok
+test_cancel_uncommitted_cognition_does_not_create_new_effect_on_query (test_p18_runtime_recovery.RuntimeRecoveryTests.test_cancel_uncommitted_cognition_does_not_create_new_effect_on_query) ... ok
+test_corrupt_checkpoint_refuses_start_without_changes (test_p18_runtime_recovery.RuntimeRecoveryTests.test_corrupt_checkpoint_refuses_start_without_changes) ... ok
+test_maintenance_query_requires_real_source_and_memory_fact (test_p18_runtime_recovery.RuntimeRecoveryTests.test_maintenance_query_requires_real_source_and_memory_fact) ... ok
+test_missing_host_checkpoint_does_not_reinitialize_stopped_subject (test_p18_runtime_recovery.RuntimeRecoveryTests.test_missing_host_checkpoint_does_not_reinitialize_stopped_subject) ... ok
+test_old_context_cannot_authorize_new_effect_after_crash (test_p18_runtime_recovery.RuntimeRecoveryTests.test_old_context_cannot_authorize_new_effect_after_crash) ... ok
+test_self_consistent_cross_subject_checkpoint_rejected (test_p18_runtime_recovery.RuntimeRecoveryTests.test_self_consistent_cross_subject_checkpoint_rejected) ... ok
+test_stale_owner_fence_and_second_host_rejected (test_p18_runtime_recovery.RuntimeRecoveryTests.test_stale_owner_fence_and_second_host_rejected) ... ok
+test_stop_after_crash_survives_reopen (test_p18_runtime_recovery.RuntimeRecoveryTests.test_stop_after_crash_survives_reopen) ... ok
+test_unknown_execution_never_replays_unverified_effect (test_p18_runtime_recovery.RuntimeRecoveryTests.test_unknown_execution_never_replays_unverified_effect) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 16.337s
+
+OK

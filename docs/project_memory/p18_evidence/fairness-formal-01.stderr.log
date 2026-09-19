@@ -1,0 +1,9 @@
+test_invalid_resource_scan_limit_refuses_without_writes (test_p18_runtime.RuntimeControlTests.test_invalid_resource_scan_limit_refuses_without_writes) ... ok
+test_later_maintenance_with_provider_unavailable (test_p18_runtime.RuntimeControlTests.test_later_maintenance_with_provider_unavailable) ... ok
+test_later_maintenance_with_zero_model_quota (test_p18_runtime.RuntimeControlTests.test_later_maintenance_with_zero_model_quota) ... ok
+test_resource_scan_is_opt_in_and_budget_restore_remains_legal (test_p18_runtime.RuntimeControlTests.test_resource_scan_is_opt_in_and_budget_restore_remains_legal) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 3.063s
+
+OK

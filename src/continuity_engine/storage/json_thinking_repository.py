@@ -31,9 +31,19 @@ class JsonThinkingRepository:
         )
 
     def save_think_session(self, session: ThinkSession) -> None:
+        session.validate_provider_execution()
         path = self._path(session.subject_id, session.think_id)
         if path.is_file():
             previous = ThinkSession.from_dict(self._read_json(path))
+            if previous.provider_execution is not None:
+                old = previous.provider_execution
+                new = session.provider_execution
+                if (new is None or new['binding_hash'] != old['binding_hash']
+                        or new['events'][:len(old['events'])] != old['events']):
+                    raise ThinkingValidationError('THINKING_PROVIDER_PROGRESS_HISTORY')
+            elif session.provider_execution is not None:
+                # A legacy/incomplete record cannot be retroactively certified.
+                raise ThinkingValidationError('THINKING_PROVIDER_PROGRESS_LEGACY')
             if (
                 previous.subject_id != session.subject_id
                 or previous.wake_session_id != session.wake_session_id

@@ -1,0 +1,8 @@
+{
+  "classification": "TEST_HARNESS_EDIT_ERROR",
+  "beforeHash": "da05aea15c262ecb8497f63bec0c899f47b5bb34dcb83691a468e3492f8e5ee9",
+  "error": "IndentationError at new test line 190: class inserted inside existing new-test helper",
+  "correction": "Move entire new class to file end; keep all existing assertions",
+  "afterHash": "9faa146e9f87a3759a90d0bc457367201eebfe00bdbf8010cddd92e2a03dd325",
+  "runtimeChanged": false
+}

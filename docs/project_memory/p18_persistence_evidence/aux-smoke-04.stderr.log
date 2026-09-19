@@ -1,0 +1,47 @@
+Traceback (most recent call last):
+  File "<stdin>", line 9, in disp
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\runtime_cognition.py", line 222, in dispatch
+    wake=self.wake.wake_manual(self.cycle_id,detail=detail,session_id=session_id,
+        preserve_recovery_context=True,before_dispatch=lambda stage:self.guard(stage))
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\resource_aware_wake_scheduler.py", line 108, in wake_manual
+    awakening = self._awakening.wake_manual(
+        cycle_id,
+    ...<2 lines>...
+        **({'preserve_recovery_context': True} if preserve_recovery_context else {}),
+    )
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\awakening_service.py", line 109, in wake_manual
+    return self._run(
+           ~~~~~~~~~^
+        cycle,
+        ^^^^^^
+    ...<3 lines>...
+        preserve_recovery_context=preserve_recovery_context,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\awakening_service.py", line 266, in _run
+    self._repository.save_session(session)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_awakening_repository.py", line 81, in save_session
+    self._write_json(path, session.to_dict())
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_awakening_repository.py", line 118, in _write_json
+    with tempfile.NamedTemporaryFile(
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        mode="w",
+        ^^^^^^^^^
+    ...<5 lines>...
+        delete=False,
+        ^^^^^^^^^^^^^
+    ) as temporary:
+    ^
+  File "E:\Adobe\Lib\tempfile.py", line 603, in NamedTemporaryFile
+    file = _io.open(dir, mode, buffering=buffering,
+                    newline=newline, encoding=encoding, errors=errors,
+                    opener=opener)
+  File "E:\Adobe\Lib\tempfile.py", line 600, in opener
+    fd, name = _mkstemp_inner(dir, prefix, suffix, flags, output_type)
+               ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Adobe\Lib\tempfile.py", line 255, in _mkstemp_inner
+    fd = _os.open(file, flags, 0o600)
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\Administrator\\AppData\\Local\\Temp\\p18-persistence-5cxknja4\\s\\s\\s200978bb\\b\\b709cd665\\data\\awakening\\sessions\\bcac7312fe3cab51b155d2e353e5fbc09e366a62c27a65f893d62d108d82a896\\.2aede91f59954753091aad88902f8234a0853f343002a5c0e7d91391f31c8045.h9kg2d1y.tmp'

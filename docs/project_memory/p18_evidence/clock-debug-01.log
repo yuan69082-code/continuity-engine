@@ -1,0 +1,50 @@
+Traceback (most recent call last):
+  File "<stdin>", line 12, in <module>
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\runtime_cognition.py", line 177, in _continue
+    result=self.native.wake_manual(self.cycle_id,detail='Native P18 internal computation opportunity.',
+        session_id=self.wake_id(request.task_id),depth=ThinkingDepth.LOW)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\wake_perception_thinking_action_service.py", line 91, in wake_manual
+    awakening = self._awakening.wake_manual(cycle_id, detail=detail,
+        session_id=session_id, preserve_recovery_context=True)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\awakening_service.py", line 109, in wake_manual
+    return self._run(
+           ~~~~~~~~~^
+        cycle,
+        ^^^^^^
+    ...<3 lines>...
+        preserve_recovery_context=preserve_recovery_context,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\awakening_service.py", line 266, in _run
+    self._repository.save_session(session)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_awakening_repository.py", line 81, in save_session
+    self._write_json(path, session.to_dict())
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_awakening_repository.py", line 118, in _write_json
+    with tempfile.NamedTemporaryFile(
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        mode="w",
+        ^^^^^^^^^
+    ...<5 lines>...
+        delete=False,
+        ^^^^^^^^^^^^^
+    ) as temporary:
+    ^
+  File "E:\Adobe\Lib\tempfile.py", line 603, in NamedTemporaryFile
+    file = _io.open(dir, mode, buffering=buffering,
+                    newline=newline, encoding=encoding, errors=errors,
+                    opener=opener)
+  File "E:\Adobe\Lib\tempfile.py", line 600, in opener
+    fd, name = _mkstemp_inner(dir, prefix, suffix, flags, output_type)
+               ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Adobe\Lib\tempfile.py", line 255, in _mkstemp_inner
+    fd = _os.open(file, flags, 0o600)
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\Administrator\\AppData\\Local\\Temp\\p18-clock-debug-nldafews\\s\\s\\s490eadb9\\b\\bd48673fc\\data\\awakening\\sessions\\a3f19aafad34c937f674280f5b5df52762eced6a35e43baaec0908b2df465c44\\.5d8705d84d0b50a842c6d518037fa57f74211a633f81f46078784b855a89ddea.6tgufksh.tmp'
+{"activity": "MAINTENANCE", "commands": [], "desired": "RUNNING", "environment": "TEST", "generation": 1, "interruptions": [], "last_task": "maintenance:e3975ef1dbf3354d0ac67dfc9787ac7279f9895f236245815c350de4a234efe4", "last_time": "2026-09-04T09:00:00.103449+00:00", "next_check_at": "2026-09-04T09:01:00.103449+00:00", "observations": 1, "owner": "owner:2e09a9f3e51c4c98b9c9eb09b266b68d", "reason": "TASK_COMPLETED", "revision": 3, "root_hash": "sha256:2f389c514adae187d1dd9e83cf05627e5eb4ec1c82572cd3362768d99368d276", "state": "RUNNING", "subject_id": "sub-beb8cc9c766b4482", "version": "p18-runtime-v1", "host_alive": true, "subject_lifecycle": "ACTIVE", "pending_tasks": 1, "unconfirmed_tasks": 0, "resources": {"token_budget": 100000, "token_used": 0, "token_remaining": 100000, "compute_remaining": 999}}
+revision 1 provider 0
+{"activity": "WAITING_VERIFICATION", "commands": [], "desired": "RUNNING", "environment": "TEST", "generation": 1, "interruptions": [], "last_task": "maintenance:e3975ef1dbf3354d0ac67dfc9787ac7279f9895f236245815c350de4a234efe4", "last_time": "2026-09-04T09:01:00.215103+00:00", "next_check_at": "2026-09-04T09:01:05.215103+00:00", "observations": 2, "owner": "owner:2e09a9f3e51c4c98b9c9eb09b266b68d", "reason": "TASK_RESULT_UNCONFIRMED", "revision": 4, "root_hash": "sha256:2f389c514adae187d1dd9e83cf05627e5eb4ec1c82572cd3362768d99368d276", "state": "RUNNING", "subject_id": "sub-beb8cc9c766b4482", "version": "p18-runtime-v1", "host_alive": true, "subject_lifecycle": "ACTIVE", "pending_tasks": 1, "unconfirmed_tasks": 1, "resources": {"token_budget": 100000, "token_used": 64, "token_remaining": 99936, "compute_remaining": 998}}
+revision 1 provider 0
+{"activity": "BACKOFF", "commands": [], "desired": "RUNNING", "environment": "TEST", "generation": 1, "interruptions": [], "last_task": "maintenance:e3975ef1dbf3354d0ac67dfc9787ac7279f9895f236245815c350de4a234efe4", "last_time": "2026-09-04T09:01:05.305893+00:00", "next_check_at": "2026-09-04T09:01:10.305893+00:00", "observations": 3, "owner": "owner:2e09a9f3e51c4c98b9c9eb09b266b68d", "reason": "TASK_RETRY_BOUND", "revision": 5, "root_hash": "sha256:2f389c514adae187d1dd9e83cf05627e5eb4ec1c82572cd3362768d99368d276", "state": "RUNNING", "subject_id": "sub-beb8cc9c766b4482", "version": "p18-runtime-v1", "host_alive": true, "subject_lifecycle": "ACTIVE", "pending_tasks": 1, "unconfirmed_tasks": 0, "resources": {"token_budget": 100000, "token_used": 64, "token_remaining": 99936, "compute_remaining": 998}}
+revision 1 provider 0

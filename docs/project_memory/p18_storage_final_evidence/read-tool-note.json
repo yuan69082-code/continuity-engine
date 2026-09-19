@@ -1,0 +1,9 @@
+{
+  "classification": "READ_ONLY_TOOL_ARGUMENT_ERROR",
+  "operation": "Search prior inventory helper",
+  "error": "rg: explicit directory/*.py operands on Windows returned os error 123 (invalid path syntax)",
+  "correction": "Used rg -g '*.py' with the actual directory operands; found the existing read-only tree_inventory_hash helper.",
+  "engineBehaviorFailure": false,
+  "sourceOrTestChange": false,
+  "gitWrite": false
+}

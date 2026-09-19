@@ -1,0 +1,9 @@
+test_idle_tick_does_not_stop_host_or_invoke_provider (test_p18_runtime.RuntimeControlTests.test_idle_tick_does_not_stop_host_or_invoke_provider) ... ok
+test_owner_pause_resume_stop_and_duplicate_controls (test_p18_runtime.RuntimeControlTests.test_owner_pause_resume_stop_and_duplicate_controls) ... ok
+test_without_messages_native_c1_updates_same_subject (test_p18_runtime.RuntimeControlTests.test_without_messages_native_c1_updates_same_subject) ... ok
+test_zero_budget_waits_then_resumes_without_message (test_p18_runtime.RuntimeControlTests.test_zero_budget_waits_then_resumes_without_message) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 2.993s
+
+OK

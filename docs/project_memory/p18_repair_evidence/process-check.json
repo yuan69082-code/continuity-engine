@@ -1,0 +1,8 @@
+{
+  "checkedAt": "2026-09-12T16:17:11.3807247Z",
+  "scope": "Python command lines matching P18 repair/runtime only; no process mutation",
+  "matchingCount": 0,
+  "matches": [],
+  "processWrites": false,
+  "testsStarted": false
+}

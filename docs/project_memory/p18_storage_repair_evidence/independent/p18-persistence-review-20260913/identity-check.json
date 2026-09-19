@@ -1,0 +1,168 @@
+{
+  "checks": {
+    "current267MatchesAuditFrozenAndAllSelectedRuns": true,
+    "fourCitedRunsFinishedPassAndRawCountsMatch": true,
+    "full1479PassOneExisting1314Skip": true,
+    "old1466IdentitiesPreservedWith14Added": true,
+    "old1466TestFilesUnchanged": true,
+    "baseline265ExactlyMatchesPreviousFullAfterSource": true,
+    "exactFiveImplementationPathsAndDiffHash": true,
+    "protected63Unchanged": true,
+    "plans3Unchanged": true,
+    "formal7AndTreeUnchanged": true,
+    "excluded32Unchanged": true,
+    "nineBeforeAndHistoricalArchiveCopiesExact": true,
+    "allRecordedOriginalEvidenceUnchanged": true,
+    "earliestP18EvidenceMatchesIndependentOldSnapshot": true,
+    "oldF2FullFailureStillPreserved": true,
+    "F1H1AndHistoricalF2UncertaintyNotCleared": true,
+    "pending450Plus32ExclusionsExact": true,
+    "recordedPendingHashesMatch": true,
+    "allPendingStillMatchesTurnStart": true,
+    "currentPythonSyntaxValid": true,
+    "headAndLocalTrackingStillP17": true,
+    "stagingEmpty": true,
+    "trackedDiffCheckClean": true,
+    "versionAndPyprojectUnchanged": true,
+    "threeIndependentRunsPassAndHaveRawEvidence": true,
+    "threeIndependentRunsLeaveAll2612EngineFilesUnchanged": true
+  },
+  "allChecksPass": true,
+  "notAcceptance": true,
+  "citedRuns": {
+    "formal-final-02": {
+      "sourceMatches": true,
+      "finished": true,
+      "countsMatch": true,
+      "rawPresent": true,
+      "run": 14,
+      "passed": 14,
+      "skips": [],
+      "seconds": 11.493
+    },
+    "p18-final-01": {
+      "sourceMatches": true,
+      "finished": true,
+      "countsMatch": true,
+      "rawPresent": true,
+      "run": 120,
+      "passed": 120,
+      "skips": [],
+      "seconds": 174.733
+    },
+    "compatibility-final-01": {
+      "sourceMatches": true,
+      "finished": true,
+      "countsMatch": true,
+      "rawPresent": true,
+      "run": 605,
+      "passed": 605,
+      "skips": [],
+      "seconds": 841.034
+    },
+    "full-final-01": {
+      "sourceMatches": true,
+      "finished": true,
+      "countsMatch": true,
+      "rawPresent": true,
+      "run": 1480,
+      "passed": 1479,
+      "skips": [
+        [
+          "test_p08_fixture_paths.P08FixturePathTests.test_symlink_component_rejected_without_writes",
+          "OS does not grant symlink creation: 1314"
+        ]
+      ],
+      "seconds": 1284.129
+    }
+  },
+  "independentRuns": {
+    "p18-original-01": {
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_p18*.py",
+        "-v"
+      ],
+      "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+      "startedAt": "2026-09-13T15:22:10.259447+00:00",
+      "finishedAt": "2026-09-13T15:25:17.147444+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 186.50538620000043,
+      "beforeCount": 2612,
+      "afterCount": 2612,
+      "changed": []
+    },
+    "earlier-independent-01": {
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "unittest",
+        "-v",
+        "test_independent_runtime.IndependentRuntimeTests",
+        "test_independent_resume.IndependentResumeTests",
+        "test_pause_resume_confirmation.PauseResumeConfirmation"
+      ],
+      "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+      "startedAt": "2026-09-13T15:28:42.858650+00:00",
+      "finishedAt": "2026-09-13T15:29:27.060148+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 43.7723447999997,
+      "beforeCount": 2612,
+      "afterCount": 2612,
+      "changed": []
+    },
+    "independent-persistence-01": {
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "unittest",
+        "-v",
+        "test_independent_persistence.IndependentPersistenceTests"
+      ],
+      "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+      "startedAt": "2026-09-13T15:31:28.055027+00:00",
+      "finishedAt": "2026-09-13T15:31:37.258963+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 8.82928820000052,
+      "beforeCount": 2612,
+      "afterCount": 2612,
+      "changed": []
+    }
+  },
+  "independentExpectedCounts": {
+    "p18-original-01": 120,
+    "earlier-independent-01": 21,
+    "independent-persistence-01": 8
+  },
+  "sourceCount": 267,
+  "pythonSourceCount": 257,
+  "syntaxErrors": [],
+  "archiveMatches": {
+    "src/continuity_engine/storage/json_repository.py": true,
+    "src/continuity_engine/services/runtime_cognition.py": true,
+    "src/continuity_engine/services/wake_perception_thinking_action_service.py": true,
+    "src/continuity_engine/testing/p18_runtime_fixture.py": true,
+    "tests/test_p18_runtime_process.py": true,
+    "tests/test_p18_runtime_contention.py": true,
+    "docs/project_memory/p18_r2_evidence/full-resume-01-failure.json": true,
+    "docs/project_memory/p18_repair_evidence/full-timeout-investigation.json": true,
+    "docs/project_memory/p18_repair_evidence/h1-investigation.json": true
+  },
+  "originalEvidenceCount": 14,
+  "earliestEvidenceCount": 129,
+  "trackedModifiedCount": 24,
+  "untrackedCount": 458,
+  "branch": "main",
+  "head": "5a3247a5d23ff17de2b4ba12bc327594b492e725",
+  "aheadBehindLocal": "0\t0",
+  "remoteChecked": false,
+  "fullSuiteRerun": false,
+  "gitWrites": false,
+  "engineEdits": false
+}

@@ -1,0 +1,13 @@
+{
+  "at": "2026-09-13T14:42:01.884577+00:00",
+  "sourceFrozen": true,
+  "protected": {
+    "protected": [],
+    "plans": [],
+    "formalFiles": [],
+    "excludedP10": [],
+    "otherPreserved": []
+  },
+  "oldEvidenceDrift": [],
+  "oldTestDrift": []
+}

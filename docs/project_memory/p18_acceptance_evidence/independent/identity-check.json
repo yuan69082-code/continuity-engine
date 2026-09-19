@@ -1,0 +1,175 @@
+{
+  "checkedAt": "2026-09-19T14:31:25.287851+00:00",
+  "checks": {
+    "source270MatchesFreezeAuditAndFull": true,
+    "sourceHashesMatch": true,
+    "preimageMatchesPriorIndependentSnapshot": true,
+    "exactTwoRuntimeFilesAndOneNewTestFile": true,
+    "allOriginalTestFilesUnchanged": true,
+    "original1507PlusTenIdentitiesRetained": true,
+    "sixSelectedRunsCleanMatchingAndComplete": true,
+    "onlyExisting1314Skip": true,
+    "protected63Plans3Formal7Exclusions32Unchanged": true,
+    "formalTreeAndVersionUnchanged": true,
+    "pending716Plus32Equals748": true,
+    "pending715HashesMatch": true,
+    "existing643RetainedWithScoped16Changes": true,
+    "exact73NewPending": true,
+    "recordedChangeHashesMatch": true,
+    "originalAndCopiedArchives23Unchanged": true,
+    "localHeadAndOriginUnchanged": true,
+    "gitIndexEmptyAndUnchanged": true,
+    "pendingGitSetsMatch": true,
+    "trackedDiffCheckClean": true,
+    "sourcePythonSyntaxAndIdentityStable": true
+  },
+  "allIdentityChecksPass": true,
+  "citedRunsNotIndependentExecutions": {
+    "independent-final-01": {
+      "checks": {
+        "sourceMatches": true,
+        "finishedCleanly": true,
+        "countMatches": true,
+        "auditMatches": true,
+        "rawLogsPresent": true,
+        "resumeRawHashesMatch": true
+      },
+      "run": 6,
+      "passed": 6,
+      "seconds": 1.179,
+      "exitCode": 0,
+      "status": "FINISHED",
+      "skips": [],
+      "failures": 0,
+      "errors": 0
+    },
+    "formal-after-01": {
+      "checks": {
+        "sourceMatches": true,
+        "finishedCleanly": true,
+        "countMatches": true,
+        "auditMatches": true,
+        "rawLogsPresent": true,
+        "resumeRawHashesMatch": true
+      },
+      "run": 10,
+      "passed": 10,
+      "seconds": 2.006,
+      "exitCode": 0,
+      "status": "FINISHED",
+      "skips": [],
+      "failures": 0,
+      "errors": 0
+    },
+    "storage-compatibility-final-01": {
+      "checks": {
+        "sourceMatches": true,
+        "finishedCleanly": true,
+        "countMatches": true,
+        "auditMatches": true,
+        "rawLogsPresent": true,
+        "resumeRawHashesMatch": true
+      },
+      "run": 41,
+      "passed": 41,
+      "seconds": 35.762,
+      "exitCode": 0,
+      "status": "FINISHED",
+      "skips": [],
+      "failures": 0,
+      "errors": 0
+    },
+    "p18-final-01": {
+      "checks": {
+        "sourceMatches": true,
+        "finishedCleanly": true,
+        "countMatches": true,
+        "auditMatches": true,
+        "rawLogsPresent": true,
+        "resumeRawHashesMatch": true
+      },
+      "run": 157,
+      "passed": 157,
+      "seconds": 222.246,
+      "exitCode": 0,
+      "status": "FINISHED",
+      "skips": [],
+      "failures": 0,
+      "errors": 0
+    },
+    "compatibility-final-01": {
+      "checks": {
+        "sourceMatches": true,
+        "finishedCleanly": true,
+        "countMatches": true,
+        "auditMatches": true,
+        "rawLogsPresent": true,
+        "resumeRawHashesMatch": true
+      },
+      "run": 605,
+      "passed": 605,
+      "seconds": 927.813,
+      "exitCode": 0,
+      "status": "FINISHED",
+      "skips": [],
+      "failures": 0,
+      "errors": 0
+    },
+    "full-final-01": {
+      "checks": {
+        "sourceMatches": true,
+        "finishedCleanly": true,
+        "countMatches": true,
+        "auditMatches": true,
+        "rawLogsPresent": true,
+        "resumeRawHashesMatch": true
+      },
+      "run": 1517,
+      "passed": 1516,
+      "seconds": 1384.364,
+      "exitCode": 0,
+      "status": "FINISHED",
+      "skips": [
+        [
+          "test_p08_fixture_paths.P08FixturePathTests.test_symlink_component_rejected_without_writes",
+          "OS does not grant symlink creation: 1314"
+        ]
+      ],
+      "failures": 0,
+      "errors": 0
+    }
+  },
+  "counts": {
+    "source": 270,
+    "originalTests": 1507,
+    "newTests": 10,
+    "originalTestFiles": 90,
+    "sourcePython": 260,
+    "pending": 716,
+    "excluded": 32,
+    "tracked": 24,
+    "untracked": 724
+  },
+  "sourceHash": "sha256:e56fcd1d6e2f6d467a708b72866c807eca536fece20af9e881d2a23aba30cfec",
+  "changedRuntimeFiles": [
+    "src/continuity_engine/storage/json_repository.py",
+    "src/continuity_engine/storage/json_runtime_repository.py"
+  ],
+  "discrepancies": {
+    "failedChecks": [],
+    "archiveDrift": [],
+    "protectionDrift": {
+      "protected": [],
+      "plans": [],
+      "formalFiles": [],
+      "excludedP10": [],
+      "otherPreserved": []
+    },
+    "syntaxErrors": [],
+    "pendingHashDrift": []
+  },
+  "gitWrites": false,
+  "engineWrites": false,
+  "remoteNetworkChecked": false,
+  "behaviorTestsRun": false
+}

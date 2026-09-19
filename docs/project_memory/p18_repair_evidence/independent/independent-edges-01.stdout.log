@@ -1,0 +1,4 @@
+{"test": "test_independent_runtime.IndependentRuntimeTests.test_idle_tick_survives_overlapping_owner_control", "controlPid": 22596, "controlExit": 0, "controlStdout": "CONTROL_SAVED\n", "controlStderr": ""}
+{"test": "test_independent_runtime.IndependentRuntimeTests.test_idle_tick_survives_overlapping_owner_control", "tickEscaped": ["RuntimeBoundaryError", "RUNTIME_BUSY"], "providerCalls": 0}
+{"test": "test_independent_runtime.IndependentRuntimeTests.test_paused_process_survives_overlapping_owner_control", "controlPid": 2072, "controlExit": 0, "controlStdout": "CONTROL_SAVED\n", "controlStderr": ""}
+{"test": "test_independent_runtime.IndependentRuntimeTests.test_paused_process_survives_overlapping_owner_control", "hostPid": 1636, "exitBeforeStop": 2, "exitCode": 2, "forcedCleanup": false, "stdout": "", "stderr": "RUNTIME_BUSY\n"}

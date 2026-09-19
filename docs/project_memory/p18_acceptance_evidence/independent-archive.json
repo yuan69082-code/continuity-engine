@@ -1,0 +1,138 @@
+{
+  "at": "2026-09-19T14:42:46.328266+00:00",
+  "files": [
+    {
+      "original": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p18-exception-review-20260919\\exception-edges-01.after.json",
+      "copy": "docs/project_memory/p18_acceptance_evidence/independent/exception-edges-01.after.json",
+      "sha256": "086d32adbd9fb04348242088b3f707c207bc0d244781551dcc257b9da7ef4572"
+    },
+    {
+      "original": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p18-exception-review-20260919\\exception-edges-01.before.json",
+      "copy": "docs/project_memory/p18_acceptance_evidence/independent/exception-edges-01.before.json",
+      "sha256": "086d32adbd9fb04348242088b3f707c207bc0d244781551dcc257b9da7ef4572"
+    },
+    {
+      "original": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p18-exception-review-20260919\\exception-edges-01.result.json",
+      "copy": "docs/project_memory/p18_acceptance_evidence/independent/exception-edges-01.result.json",
+      "sha256": "b01806459b7763bf12db1527c5f8d43e0fd9e21d06d28c5e7797316a4bed3cfe"
+    },
+    {
+      "original": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p18-exception-review-20260919\\exception-edges-01.stderr.log",
+      "copy": "docs/project_memory/p18_acceptance_evidence/independent/exception-edges-01.stderr.log",
+      "sha256": "09d24427b4705c3131261ee6ad599f4012c8dea1e364ca7fdb9dcc03e60d8395"
+    },
+    {
+      "original": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p18-exception-review-20260919\\exception-edges-01.stdout.log",
+      "copy": "docs/project_memory/p18_acceptance_evidence/independent/exception-edges-01.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p18-exception-review-20260919\\identity-check.json",
+      "copy": "docs/project_memory/p18_acceptance_evidence/independent/identity-check.json",
+      "sha256": "b29aa15ef91c6b97ebbfdf9f183e65262f13c0a0807f5829b5bf930f2288fba0"
+    },
+    {
+      "original": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p18-exception-review-20260919\\original-six-01.after.json",
+      "copy": "docs/project_memory/p18_acceptance_evidence/independent/original-six-01.after.json",
+      "sha256": "086d32adbd9fb04348242088b3f707c207bc0d244781551dcc257b9da7ef4572"
+    },
+    {
+      "original": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p18-exception-review-20260919\\original-six-01.before.json",
+      "copy": "docs/project_memory/p18_acceptance_evidence/independent/original-six-01.before.json",
+      "sha256": "086d32adbd9fb04348242088b3f707c207bc0d244781551dcc257b9da7ef4572"
+    },
+    {
+      "original": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p18-exception-review-20260919\\original-six-01.result.json",
+      "copy": "docs/project_memory/p18_acceptance_evidence/independent/original-six-01.result.json",
+      "sha256": "63526dec6e1f5cd89b980a45f98abb3d134979d0bdff5f0da0157555e47b3c64"
+    },
+    {
+      "original": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p18-exception-review-20260919\\original-six-01.stderr.log",
+      "copy": "docs/project_memory/p18_acceptance_evidence/independent/original-six-01.stderr.log",
+      "sha256": "91713ecf06baaa72ec3e4078c21fc6ccf89c0aa6cba3a83151d16bc67b9f516e"
+    },
+    {
+      "original": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p18-exception-review-20260919\\original-six-01.stdout.log",
+      "copy": "docs/project_memory/p18_acceptance_evidence/independent/original-six-01.stdout.log",
+      "sha256": "3d207bec76acf58ad034ac2f6fa96e09ad345f539fd60bd544f452de439c0357"
+    },
+    {
+      "original": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p18-exception-review-20260919\\p18-01.after.json",
+      "copy": "docs/project_memory/p18_acceptance_evidence/independent/p18-01.after.json",
+      "sha256": "086d32adbd9fb04348242088b3f707c207bc0d244781551dcc257b9da7ef4572"
+    },
+    {
+      "original": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p18-exception-review-20260919\\p18-01.before.json",
+      "copy": "docs/project_memory/p18_acceptance_evidence/independent/p18-01.before.json",
+      "sha256": "086d32adbd9fb04348242088b3f707c207bc0d244781551dcc257b9da7ef4572"
+    },
+    {
+      "original": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p18-exception-review-20260919\\p18-01.result.json",
+      "copy": "docs/project_memory/p18_acceptance_evidence/independent/p18-01.result.json",
+      "sha256": "2877fcdf2ce00cb7a63ff70d24db21689f04d8862e7580dd26310409d03cf151"
+    },
+    {
+      "original": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p18-exception-review-20260919\\p18-01.stderr.log",
+      "copy": "docs/project_memory/p18_acceptance_evidence/independent/p18-01.stderr.log",
+      "sha256": "5ab1fe8697d2ab05eb00abba42f47d5ea10b1d62993d8eab90a4ef75a3d6fc14"
+    },
+    {
+      "original": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p18-exception-review-20260919\\p18-01.stdout.log",
+      "copy": "docs/project_memory/p18_acceptance_evidence/independent/p18-01.stdout.log",
+      "sha256": "401072604114a6d3499033e313bcb8087dfa24098fb03f5e14b9d04016ad1094"
+    },
+    {
+      "original": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p18-exception-review-20260919\\prior-35-01.after.json",
+      "copy": "docs/project_memory/p18_acceptance_evidence/independent/prior-35-01.after.json",
+      "sha256": "086d32adbd9fb04348242088b3f707c207bc0d244781551dcc257b9da7ef4572"
+    },
+    {
+      "original": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p18-exception-review-20260919\\prior-35-01.before.json",
+      "copy": "docs/project_memory/p18_acceptance_evidence/independent/prior-35-01.before.json",
+      "sha256": "086d32adbd9fb04348242088b3f707c207bc0d244781551dcc257b9da7ef4572"
+    },
+    {
+      "original": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p18-exception-review-20260919\\prior-35-01.result.json",
+      "copy": "docs/project_memory/p18_acceptance_evidence/independent/prior-35-01.result.json",
+      "sha256": "281c05280c699538113dc776c7f258e8040d9493eed82230a1c39c8a67e99306"
+    },
+    {
+      "original": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p18-exception-review-20260919\\prior-35-01.stderr.log",
+      "copy": "docs/project_memory/p18_acceptance_evidence/independent/prior-35-01.stderr.log",
+      "sha256": "52b5181278c5b4dc3409e076bc9dbb69a72fc324f06c15f013f216e96f2b0615"
+    },
+    {
+      "original": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p18-exception-review-20260919\\prior-35-01.stdout.log",
+      "copy": "docs/project_memory/p18_acceptance_evidence/independent/prior-35-01.stdout.log",
+      "sha256": "f3e0fe0224bb2d0037ea01254183c6a3c22fa2f484f76d0f815246873e385ee9"
+    },
+    {
+      "original": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p18-exception-review-20260919\\process-observation.json",
+      "copy": "docs/project_memory/p18_acceptance_evidence/independent/process-observation.json",
+      "sha256": "a55118d4a4cef84542e50b43b6dfc13a9ce471614b6eecd9102d9e7772fea86b"
+    },
+    {
+      "original": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p18-exception-review-20260919\\review-report.md",
+      "copy": "docs/project_memory/p18_acceptance_evidence/independent/review-report.md",
+      "sha256": "1255697d8065d1743c6dd0ce7526f4fa659baea9d274236b490f82a12a69d069"
+    },
+    {
+      "original": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p18-exception-review-20260919\\run_review.py",
+      "copy": "docs/project_memory/p18_acceptance_evidence/independent/run_review.py",
+      "sha256": "e5a63672e624a6ed171cf1c71275173941f8db7a32a751a2b25c9f63429aeb6b"
+    },
+    {
+      "original": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p18-exception-review-20260919\\test_independent_exception_edges.py",
+      "copy": "docs/project_memory/p18_acceptance_evidence/independent/test_independent_exception_edges.py",
+      "sha256": "69a747cb0a6ece2f7659874b5f6806cf6a1f5351bf756f8bf3c9e3eeed58d5b1"
+    },
+    {
+      "original": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p18-exception-review-20260919\\verify_evidence.py",
+      "copy": "docs/project_memory/p18_acceptance_evidence/independent/verify_evidence.py",
+      "sha256": "eab43f0c68f71f19848f706a757d6a3f5b93c10867db5b73996bce40e6421175"
+    }
+  ],
+  "count": 26,
+  "originalsModified": false,
+  "scripts": "Read-only archived originals; no archived runner was executed this turn."
+}

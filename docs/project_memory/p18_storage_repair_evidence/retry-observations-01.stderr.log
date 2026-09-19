@@ -1,0 +1,7 @@
+test_current_writer_refuses_bound_fixed_error_without_guard_call (test_retry_observations.RetryObservationTests.test_current_writer_refuses_bound_fixed_error_without_guard_call) ... ok
+test_released_reader_and_bound_injection_have_same_current_facts (test_retry_observations.RetryObservationTests.test_released_reader_and_bound_injection_have_same_current_facts) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.010s
+
+OK

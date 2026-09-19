@@ -3,9 +3,13 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+import stat
 import tempfile
+import time
+from contextlib import contextmanager
+from contextvars import ContextVar
 from pathlib import Path
-from threading import RLock
+from threading import Event as ThreadEvent, RLock
 from typing import Any
 
 from continuity_engine.domain.errors import (
@@ -23,6 +27,190 @@ PERSISTENCE_FORMAT_VERSION = 1
 # Shared by repository instances: protect the complete local read/validate/write
 # transaction, including direct-save compatibility. No multi-process guarantee.
 _STATE_WRITE_LOCK = RLock()
+_RETRY_GUARD = ContextVar('state_write_retry_guard', default=None)
+_INHERIT_RETRY_GUARD = object()
+
+
+def _retain_cleanup_error(primary: BaseException, cleanup: BaseException) -> None:
+    """Keep the pending refusal and both error histories without re-raising it.
+
+    Raising primary inside the cleanup handler would replace its implicit
+    context. Instead append cleanup to the visible chain and let the original
+    exception continue unwinding. No exception text leaves this internal chain.
+    """
+    def graph(root):
+        pending, found = [root], {}
+        while pending:
+            error = pending.pop()
+            if error is None or id(error) in found:
+                continue
+            found[id(error)] = error
+            pending.extend((error.__cause__, error.__context__))
+        return found
+
+    original = graph(primary)
+    for error in graph(cleanup).values():
+        if id(error) in original:
+            continue
+        # Handling cleanup during the pending refusal creates reverse context
+        # edges. Their reasons remain in original; retaining the edges would
+        # create a cycle when cleanup is attached below that refusal.
+        if id(error.__context__) in original:
+            error.__context__ = None
+        if error.__cause__ is primary:
+            error.__cause__ = None  # primary remains the root, never its child
+    if id(cleanup) in original:
+        return
+    secondary = graph(cleanup)
+    current, seen = primary, set()
+    while id(current) not in seen:
+        seen.add(id(current))
+        attribute = '__cause__' if current.__cause__ is not None or current.__suppress_context__ else '__context__'
+        following = getattr(current, attribute)
+        if following is None:
+            current.__cause__ = cleanup
+            return
+        if id(following) in secondary:
+            # Shared reason: insert cleanup above it, not beneath it. The
+            # existing reason is still reachable through cleanup's own chain.
+            setattr(current, attribute, cleanup)
+            return
+        current = following
+
+
+@contextmanager
+def state_write_retry_guard(check):
+    """Explicit caller authorization for bounded retries of this state write."""
+    token = _RETRY_GUARD.set(check)
+    try:
+        yield
+    finally:
+        _RETRY_GUARD.reset(token)
+
+
+def _replace_contended(error: OSError, path: Path) -> bool:
+    """Access denied alone does not prove a retryable sharing violation."""
+    if os.name != 'nt' or getattr(error, 'winerror', None) not in {5, 32, 33}:
+        return False
+    return _delete_access_error(path) in {32, 33}
+
+
+def _delete_access_error(path: Path) -> int:
+    """Observe current DELETE access without changing attributes or permissions."""
+    import ctypes
+    from ctypes import wintypes
+    kernel = ctypes.WinDLL('kernel32', use_last_error=True)
+    create = kernel.CreateFileW
+    create.argtypes = [wintypes.LPCWSTR, wintypes.DWORD, wintypes.DWORD,
+                       ctypes.c_void_p, wintypes.DWORD, wintypes.DWORD, wintypes.HANDLE]
+    create.restype = wintypes.HANDLE
+    close = kernel.CloseHandle
+    close.argtypes = [wintypes.HANDLE]
+    close.restype = wintypes.BOOL
+
+    # Open DELETE access only to classify the OS refusal; no deletion is done.
+    handle = create(str(path), 0x10000, 0x1 | 0x2 | 0x4, None, 3, 0x80, None)
+    if handle == wintypes.HANDLE(-1).value:
+        return ctypes.get_last_error()
+    close(handle)
+    return 0
+
+
+def _file_image(path: Path):
+    """Identity and content, not just a revision or a path-shaped string."""
+    before = path.lstat()
+    content = path.read_bytes()
+    after = path.lstat()
+    def identity(s):
+        return (s.st_dev, s.st_ino, s.st_mode, s.st_size, s.st_mtime_ns,
+                getattr(s, 'st_file_attributes', 0))
+    if identity(before) != identity(after):
+        raise StateEvolutionError('file changed during atomic replacement check')
+    return identity(after), content
+
+
+def _path_chain(path: Path):
+    result = []
+    for parent in (path.parent, *path.parent.parents):
+        s = parent.lstat()
+        if not stat.S_ISDIR(s.st_mode) or getattr(s, 'st_file_attributes', 0) & 0x400:
+            raise StateEvolutionError('atomic replacement path is not a plain directory')
+        result.append((s.st_dev, s.st_ino))
+    return tuple(result)
+
+
+def _replace_payload(temporary: Path, path: Path, previous: bytes | None, *,
+                     retry_guard=_INHERIT_RETRY_GUARD, exhausted=None,
+                     prepared_bytes=None, prepared_identity=None) -> None:
+    """Retry one prepared commit under explicit current authorization only.
+
+    Current access permits bounded attempts; it does not establish the cause of
+    an earlier denial. Native replace remains the final OS permission check.
+    """
+    guard = _RETRY_GUARD.get() if retry_guard is _INHERIT_RETRY_GUARD else retry_guard
+    if guard is None:
+        os.replace(temporary, path)
+        return
+    temporary, path = Path(temporary).absolute(), Path(path).absolute()
+    if temporary.parent != path.parent or temporary == path:
+        raise StateEvolutionError('atomic replacement temporary binding is invalid')
+    chain = _path_chain(path)
+    prepared = _file_image(temporary)
+    if ((prepared_bytes is not None and prepared[1] != prepared_bytes)
+            or (prepared_identity is not None and prepared[0][:2] != prepared_identity)):
+        raise StateEvolutionError('prepared temporary does not match original write')
+    target = _file_image(path) if path.exists() else None
+    if (target[1] if target else None) != previous:
+        raise StateEvolutionError('state changed before atomic replacement')
+
+    def current_conditions():
+        if _path_chain(path) != chain or _file_image(temporary) != prepared:
+            raise StateEvolutionError('temporary or path changed during atomic replacement wait')
+        current = _file_image(path) if path.exists() else None
+        if current != target:
+            raise StateEvolutionError('state changed during atomic replacement wait')
+        # Do not remove readonly attributes or bypass an actual access denial.
+        for item, image in ((temporary, prepared), (path, target)):
+            if image is None:
+                return False
+            mode, attributes = image[0][2], image[0][-1]
+            if not stat.S_ISREG(mode) or attributes & (0x1 | 0x400):
+                return False
+            if _delete_access_error(item) not in {0, 32, 33}:
+                return False
+        return True
+
+    def bound(value, expected):
+        return isinstance(value, (str, bytes)) and os.path.normcase(os.path.abspath(value)) == os.path.normcase(str(expected))
+
+    deadline = time.monotonic() + 0.25
+    while True:
+        try:
+            os.replace(temporary, path)
+            return
+        except OSError as error:
+            if (os.name != 'nt' or getattr(error, 'winerror', None) not in {5, 32, 33}
+                    or not bound(error.filename, temporary)
+                    or not bound(getattr(error, 'filename2', None), path)):
+                raise
+            # Retain the current contention observation; a reader may release
+            # before this check. Its absence no longer forbids a bounded attempt.
+            _replace_contended(error, path)
+            if not current_conditions():
+                raise
+            remaining = deadline - time.monotonic()
+            if remaining <= 0:
+                if exhausted is not None:
+                    exhausted(error)
+                raise
+            ThreadEvent().wait(min(0.025, remaining))
+            guard()
+            if not current_conditions():
+                raise
+            if time.monotonic() >= deadline:
+                if exhausted is not None:
+                    exhausted(error)
+                raise
 
 
 class JsonSubjectStateRepository:
@@ -269,8 +457,10 @@ class JsonSubjectStateRepository:
     def _write_payload(self, path: Path, data: dict[str, Any]) -> None:
         self.root.mkdir(parents=True, exist_ok=True)
         payload = json.dumps(data, ensure_ascii=False, indent=2) + "\n"
+        previous = path.read_bytes() if path.exists() else None
 
         temporary_path: Path | None = None
+        primary: BaseException | None = None
         try:
             with tempfile.NamedTemporaryFile(
                 mode="w",
@@ -281,11 +471,23 @@ class JsonSubjectStateRepository:
                 dir=self.root,
                 delete=False,
             ) as temporary:
+                temporary_path = Path(temporary.name)
                 temporary.write(payload)
                 temporary.flush()
                 os.fsync(temporary.fileno())
-                temporary_path = Path(temporary.name)
-            os.replace(temporary_path, path)
+                created = os.fstat(temporary.fileno())
+            _replace_payload(temporary_path, path, previous, prepared_bytes=payload.encode('utf-8'),
+                             prepared_identity=(created.st_dev, created.st_ino))
+        except BaseException as error:
+            primary = error
+            raise
         finally:
-            if temporary_path is not None and temporary_path.exists():
-                temporary_path.unlink()
+            if temporary_path is not None:
+                try:
+                    if temporary_path.exists():
+                        temporary_path.unlink()
+                except OSError as cleanup:
+                    if primary is not None:
+                        _retain_cleanup_error(primary, cleanup)
+                    else:
+                        raise

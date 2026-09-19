@@ -1,0 +1,17 @@
+{
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "-v",
+    "test_independent_storage_final.IndependentStorageFinal"
+  ],
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "startedAt": "2026-09-13T22:36:47.185518+00:00",
+  "finishedAt": "2026-09-13T22:36:48.879775+00:00",
+  "exitCode": 1,
+  "elapsedSeconds": 1.2757309000007808,
+  "beforeCount": 2805,
+  "afterCount": 2805,
+  "changed": []
+}

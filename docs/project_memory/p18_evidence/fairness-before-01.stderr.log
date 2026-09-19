@@ -1,0 +1,35 @@
+test_later_maintenance_with_provider_unavailable (__main__.ResourceFairnessProbe.test_later_maintenance_with_provider_unavailable) ... FAIL
+test_later_maintenance_with_zero_model_quota (__main__.ResourceFairnessProbe.test_later_maintenance_with_zero_model_quota) ... FAIL
+
+======================================================================
+FAIL: test_later_maintenance_with_provider_unavailable (__main__.ResourceFairnessProbe.test_later_maintenance_with_provider_unavailable)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\docs\project_memory\p18_evidence\resource_fairness_probe.py", line 31, in test_later_maintenance_with_provider_unavailable
+    self.check_later_memory(online=False)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\docs\project_memory\p18_evidence\resource_fairness_probe.py", line 24, in check_later_memory
+    self.assertTrue(any(m.memory_id=='memory:later-local-maintenance' for m in memories),
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                    'eligible later local maintenance must not wait for model resources')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : eligible later local maintenance must not wait for model resources
+
+======================================================================
+FAIL: test_later_maintenance_with_zero_model_quota (__main__.ResourceFairnessProbe.test_later_maintenance_with_zero_model_quota)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\docs\project_memory\p18_evidence\resource_fairness_probe.py", line 28, in test_later_maintenance_with_zero_model_quota
+    self.check_later_memory(tokens=0)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\docs\project_memory\p18_evidence\resource_fairness_probe.py", line 24, in check_later_memory
+    self.assertTrue(any(m.memory_id=='memory:later-local-maintenance' for m in memories),
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                    'eligible later local maintenance must not wait for model resources')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : eligible later local maintenance must not wait for model resources
+
+----------------------------------------------------------------------
+Ran 2 tests in 1.786s
+
+FAILED (failures=2)

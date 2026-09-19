@@ -1,0 +1,243 @@
+{
+  "checkedAt": "2026-09-13T22:41:22.569299+00:00",
+  "checks": {
+    "source269MatchesFreezeAuditAndFull": true,
+    "sourceAggregateHashesMatch": true,
+    "eightSelectedRunsMatchAndAreClean": true,
+    "original1480IdentitiesRetained": true,
+    "exact27NewIdentitiesAndStaticDefinitions": true,
+    "full1507IdentitiesMatchFreeze": true,
+    "originalTestFilesUnchanged": true,
+    "onlyTwoExistingRuntimeFilesChanged": true,
+    "onlyTwoNewTestFilesAndNoSourceRemoval": true,
+    "protectedNested63Plans3Formal7Exclusions32Unchanged": true,
+    "formalSevenFilesAndTreeUnchanged": true,
+    "pyprojectAndVersionUnchanged": true,
+    "pending643Plus32Equals675": true,
+    "pending642HashesMatchWithOnlyAuditSelfExcluded": true,
+    "original548PendingPreservedWithOnly16AllowedChanges": true,
+    "exact95NewPendingAndManifestListsAgree": true,
+    "recordedChangeHashesMatch": true,
+    "archivesAndLatestPreimagesPreserved": true,
+    "sourcePythonSyntaxValid": true,
+    "localBaselineAndBranchUnchanged": true,
+    "indexEmptyAndUnchanged": true,
+    "pendingGitSetsMatchAudit": true,
+    "gitDiffCheckClean": true,
+    "sourceStableDuringVerification": true
+  },
+  "allIdentityChecksPass": true,
+  "behaviorTestsRun": false,
+  "citedRunsAreRevalidatedEvidenceNotIndependentExecutions": {
+    "boundaries-final-04": {
+      "checks": {
+        "sourceMatches": true,
+        "finishedCleanly": true,
+        "countConsistent": true,
+        "auditSummaryMatches": true,
+        "rawLogsPresent": true
+      },
+      "run": 27,
+      "passed": 27,
+      "seconds": 23.097,
+      "exitCode": 0,
+      "status": "FINISHED",
+      "skips": [],
+      "failures": 0,
+      "errors": 0
+    },
+    "originals-final-03": {
+      "checks": {
+        "sourceMatches": true,
+        "finishedCleanly": true,
+        "countConsistent": true,
+        "auditSummaryMatches": true,
+        "rawLogsPresent": true
+      },
+      "run": 4,
+      "passed": 4,
+      "seconds": 37.523,
+      "exitCode": 0,
+      "status": "FINISHED",
+      "skips": [],
+      "failures": 0,
+      "errors": 0
+    },
+    "advancing-final-02": {
+      "checks": {
+        "sourceMatches": true,
+        "finishedCleanly": true,
+        "countConsistent": true,
+        "auditSummaryMatches": true,
+        "rawLogsPresent": true
+      },
+      "run": 2,
+      "passed": 2,
+      "seconds": 19.278,
+      "exitCode": 0,
+      "status": "FINISHED",
+      "skips": [],
+      "failures": 0,
+      "errors": 0
+    },
+    "prior-boundaries-final-01": {
+      "checks": {
+        "sourceMatches": true,
+        "finishedCleanly": true,
+        "countConsistent": true,
+        "auditSummaryMatches": true,
+        "rawLogsPresent": true
+      },
+      "run": 8,
+      "passed": 8,
+      "seconds": 9.011,
+      "exitCode": 0,
+      "status": "FINISHED",
+      "skips": [],
+      "failures": 0,
+      "errors": 0
+    },
+    "native-denial-final-02": {
+      "checks": {
+        "sourceMatches": true,
+        "finishedCleanly": true,
+        "countConsistent": true,
+        "auditSummaryMatches": true,
+        "rawLogsPresent": true
+      },
+      "run": 4,
+      "passed": 4,
+      "seconds": 0.589,
+      "exitCode": 0,
+      "status": "FINISHED",
+      "skips": [],
+      "failures": 0,
+      "errors": 0
+    },
+    "p18-final-01": {
+      "checks": {
+        "sourceMatches": true,
+        "finishedCleanly": true,
+        "countConsistent": true,
+        "auditSummaryMatches": true,
+        "rawLogsPresent": true
+      },
+      "run": 147,
+      "passed": 147,
+      "seconds": 215.15,
+      "exitCode": 0,
+      "status": "FINISHED",
+      "skips": [],
+      "failures": 0,
+      "errors": 0
+    },
+    "compatibility-final-01": {
+      "checks": {
+        "sourceMatches": true,
+        "finishedCleanly": true,
+        "countConsistent": true,
+        "auditSummaryMatches": true,
+        "rawLogsPresent": true
+      },
+      "run": 605,
+      "passed": 605,
+      "seconds": 892.095,
+      "exitCode": 0,
+      "status": "FINISHED",
+      "skips": [],
+      "failures": 0,
+      "errors": 0
+    },
+    "full-final-01": {
+      "checks": {
+        "sourceMatches": true,
+        "finishedCleanly": true,
+        "countConsistent": true,
+        "auditSummaryMatches": true,
+        "rawLogsPresent": true
+      },
+      "run": 1507,
+      "passed": 1506,
+      "seconds": 1319.841,
+      "exitCode": 0,
+      "status": "FINISHED",
+      "skips": [
+        [
+          "test_p08_fixture_paths.P08FixturePathTests.test_symlink_component_rejected_without_writes",
+          "OS does not grant symlink creation: 1314"
+        ]
+      ],
+      "failures": 0,
+      "errors": 0
+    }
+  },
+  "counts": {
+    "sourceTestFiles": 269,
+    "sourcePythonFiles": 259,
+    "originalTestFiles": 88,
+    "originalIdentities": 1480,
+    "newIdentities": 27,
+    "currentIdentities": 1507,
+    "protectedGroups": {
+      "protected": 63,
+      "plans": 3,
+      "formalFiles": 7,
+      "excludedP10": 31,
+      "otherPreserved": 1
+    },
+    "pending": 643,
+    "excluded": 32,
+    "totalGitPending": 675,
+    "trackedModified": 24,
+    "untracked": 651,
+    "pendingHashes": 642
+  },
+  "sourceHash": "sha256:31ebcd2eb210304a98dae87a836ff2bed9581bc41d26216dc5dc75e4eaa4bb7e",
+  "formalTreeHash": "sha256:f9c710c6085e430a251f74463d57133f8c5a4497fe8ffa2ccb96be2db1037bb2",
+  "beforeSourceHash": "sha256:f4b599136c70d5cec14a56617b17f99f848bd2b88c762df23298871c5452352a",
+  "preflightAssumptionCorrection": {
+    "mode": "--check-only; no result file was created or overwritten",
+    "initialFailedCheck": "sourceAggregateHashesMatch",
+    "classification": "VERIFIER_SERIALIZATION_ASSUMPTION",
+    "explanation": "The first preflight used current freeze default JSON spacing for both epochs. The inherited before hash uses compact separators; the current freeze uses default spacing. Per-file hashes and all other 23 checks passed in that preflight.",
+    "algorithmSources": [
+      "docs/project_memory/p18_persistence_evidence/audit.py:43",
+      "docs/project_memory/p18_storage_final_evidence/freeze.py:13"
+    ]
+  },
+  "head": "5a3247a5d23ff17de2b4ba12bc327594b492e725",
+  "localOrigin": "5a3247a5d23ff17de2b4ba12bc327594b492e725",
+  "branch": "main",
+  "aheadBehindLocal": "0\t0",
+  "indexHashBefore": "7c605a0109951c7901a04437b25637a5120404c8cbb3189c4d320dcba4a84ae7",
+  "indexHashAfter": "7c605a0109951c7901a04437b25637a5120404c8cbb3189c4d320dcba4a84ae7",
+  "changedRuntimeFiles": [
+    "src/continuity_engine/storage/json_repository.py",
+    "src/continuity_engine/storage/json_runtime_repository.py"
+  ],
+  "discrepancies": {
+    "failedChecks": [],
+    "protectedDrift": {
+      "protected": [],
+      "plans": [],
+      "formalFiles": [],
+      "excludedP10": [],
+      "otherPreserved": []
+    },
+    "pendingHashDrift": [],
+    "unexpectedGitPending": [],
+    "missingGitPending": [],
+    "recordedChangeHashDrift": [],
+    "archiveDrift": [],
+    "syntaxErrors": []
+  },
+  "limitations": [
+    "No behavior tests or unittest discovery were executed.",
+    "Git origin/main is the existing local tracking reference; network and CI were not checked.",
+    "The audit excludes its own hash; its consistency was checked against independent files and current state.",
+    "Formal data was hashed only; no content was printed or changed."
+  ],
+  "gitWrites": false,
+  "engineWrites": false,
+  "remoteNetworkChecked": false
+}

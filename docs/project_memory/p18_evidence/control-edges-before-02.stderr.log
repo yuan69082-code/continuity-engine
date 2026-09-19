@@ -1,0 +1,35 @@
+test_control_identity_is_not_stored_as_raw_material (__main__.ControlEdgeProbe.test_control_identity_is_not_stored_as_raw_material) ... FAIL
+test_old_control_does_not_reapply_after_many_owner_commands (__main__.ControlEdgeProbe.test_old_control_does_not_reapply_after_many_owner_commands) ... FAIL
+test_scaled_clock_preserves_legal_subject_lifecycle_control (__main__.ControlEdgeProbe.test_scaled_clock_preserves_legal_subject_lifecycle_control) ... FAIL
+
+======================================================================
+FAIL: test_control_identity_is_not_stored_as_raw_material (__main__.ControlEdgeProbe.test_control_identity_is_not_stored_as_raw_material)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\docs\project_memory\p18_evidence\control_edge_probe.py", line 35, in test_control_identity_is_not_stored_as_raw_material
+    self.assertNotIn(material,json.dumps(f.host.query()))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'synthetic-opaque-control-material-18' unexpectedly found in '{"activity": "PAUSED", "commands": [{"hash": "sha256:8a10520516d8102159c3ac60d0aae0d0cd7cc3bc1a2302bc0127ead7adbcfef2", "id": "synthetic-opaque-control-material-18", "operation": "PAUSE", "revision": 2}], "desired": "PAUSED", "environment": "TEST", "generation": 0, "interruptions": [], "last_task": null, "last_time": null, "next_check_at": null, "observations": 0, "owner": null, "reason": "OWNER_PAUSE", "revision": 2, "root_hash": "sha256:ee33b40b9f5d5019508e601bb416da413e2eeafab3860183e9be93010dff8670", "state": "PAUSED", "subject_id": "sub-4bd6c44abcd54b66", "version": "p18-runtime-v1", "host_alive": false, "subject_lifecycle": "ACTIVE", "pending_tasks": 0, "unconfirmed_tasks": 0, "resources": {"token_budget": 100000, "token_used": 0, "token_remaining": 100000, "compute_remaining": 1000}}'
+
+======================================================================
+FAIL: test_old_control_does_not_reapply_after_many_owner_commands (__main__.ControlEdgeProbe.test_old_control_does_not_reapply_after_many_owner_commands)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\docs\project_memory\p18_evidence\control_edge_probe.py", line 28, in test_old_control_does_not_reapply_after_many_owner_commands
+    self.assertEqual(f.store.path.read_bytes(),before)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: b'{"d[19 chars]y": "PAUSED", "commands": [{"hash": "sha256:59[18627 chars]"}\n' != b'{"d[19 chars]y": "IDLE", "commands": [{"hash": "sha256:0e42[18618 chars]"}\n'
+
+======================================================================
+FAIL: test_scaled_clock_preserves_legal_subject_lifecycle_control (__main__.ControlEdgeProbe.test_scaled_clock_preserves_legal_subject_lifecycle_control)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\docs\project_memory\p18_evidence\control_edge_probe.py", line 44, in test_scaled_clock_preserves_legal_subject_lifecycle_control
+    self.assertEqual(f.state.revision,2)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 2
+
+----------------------------------------------------------------------
+Ran 3 tests in 5.520s
+
+FAILED (failures=3)

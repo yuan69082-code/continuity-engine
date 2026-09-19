@@ -1,0 +1,6 @@
+{
+  "correction": "First audit incorrectly described root CHANGELOG.md as previously tracked. It was created by this turn at 00:50:48; actual tracked changelog is docs/project_memory/CHANGELOG.md and remains unchanged. The task-created misplaced file was moved within verified workspace to misplaced-changelog-auxiliary.txt with identical SHA256; no inherited material was moved or deleted.",
+  "firstAuditPreserved": true,
+  "actualInheritedDocumentsChanged": 5,
+  "engineFailure": false
+}

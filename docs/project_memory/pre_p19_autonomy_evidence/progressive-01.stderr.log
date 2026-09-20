@@ -1,0 +1,21 @@
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\docs\project_memory\pre_p19_autonomy_evidence\progressive.py", line 42, in <module>
+    'activity':fixture.host.status()['activity']}
+               ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'PersistentRuntimeService' object has no attribute 'status'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\docs\project_memory\pre_p19_autonomy_evidence\progressive.py", line 54, in <module>
+    record['failureBeforeStop']={'type':type(exc).__name__,'host':fixture.host.status(),
+                                                                  ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'PersistentRuntimeService' object has no attribute 'status'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\docs\project_memory\pre_p19_autonomy_evidence\progressive.py", line 59, in <module>
+    fixture.control('STOP');record['stopStatus']=fixture.host.status()
+                                                 ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'PersistentRuntimeService' object has no attribute 'status'

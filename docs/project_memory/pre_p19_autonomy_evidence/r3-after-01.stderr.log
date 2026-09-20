@@ -1,0 +1,17 @@
+test_broker_revoked_during_thinking_does_not_erase_internal_proposal (test_pre_p19_autonomy_execution.AutonomyExecutionTests.test_broker_revoked_during_thinking_does_not_erase_internal_proposal) ... ok
+test_current_world_resource_refusal_keeps_independent_mind_commit (test_pre_p19_autonomy_execution.AutonomyExecutionTests.test_current_world_resource_refusal_keeps_independent_mind_commit) ... ok
+test_denial_reopen_recovers_internal_fact_without_resubmitting (test_pre_p19_autonomy_execution.AutonomyExecutionTests.test_denial_reopen_recovers_internal_fact_without_resubmitting) ... ok
+test_external_gate_does_not_decide_whether_intent_exists (test_pre_p19_autonomy_execution.AutonomyExecutionTests.test_external_gate_does_not_decide_whether_intent_exists) ... ok
+test_normal_action_and_internal_commit_remain_once (test_pre_p19_autonomy_execution.AutonomyExecutionTests.test_normal_action_and_internal_commit_remain_once) ... ok
+test_reality_refusal_keeps_independent_mind_commit (test_pre_p19_autonomy_execution.AutonomyExecutionTests.test_reality_refusal_keeps_independent_mind_commit) ... ok
+test_unknown_does_not_prevent_internal_commit_or_imply_success (test_pre_p19_autonomy_execution.AutonomyExecutionTests.test_unknown_does_not_prevent_internal_commit_or_imply_success) ... ok
+test_duplicate_root_does_not_create_disposition (test_pre_p19_autonomy_growth.AutonomyGrowthTests.test_duplicate_root_does_not_create_disposition) ... ok
+test_new_understanding_can_revise_commitment_not_only_hash (test_pre_p19_autonomy_growth.AutonomyGrowthTests.test_new_understanding_can_revise_commitment_not_only_hash) ... ok
+test_normal_experience_produces_disposition_and_survives_reopen (test_pre_p19_autonomy_growth.AutonomyGrowthTests.test_normal_experience_produces_disposition_and_survives_reopen) ... ok
+test_opposite_experiences_coexist_and_change_deliberation (test_pre_p19_autonomy_growth.AutonomyGrowthTests.test_opposite_experiences_coexist_and_change_deliberation) ... ok
+test_prior_commitment_is_used_and_unrelated_sources_do_not_erase_it (test_pre_p19_autonomy_growth.AutonomyGrowthTests.test_prior_commitment_is_used_and_unrelated_sources_do_not_erase_it) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 38.541s
+
+OK

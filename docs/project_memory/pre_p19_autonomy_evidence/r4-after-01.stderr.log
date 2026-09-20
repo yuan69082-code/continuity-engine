@@ -1,0 +1,19 @@
+test_explicit_abandonment_and_empty_concerns_do_not_force_provider (test_pre_p19_autonomy_runtime.AutonomyRuntimeTests.test_explicit_abandonment_and_empty_concerns_do_not_force_provider) ... ok
+test_gradual_native_cognition_continues_when_delta_gate_cannot_fire (test_pre_p19_autonomy_runtime.AutonomyRuntimeTests.test_gradual_native_cognition_continues_when_delta_gate_cannot_fire) ... ok
+test_same_basis_has_same_identity_and_respects_spacing (test_pre_p19_autonomy_runtime.AutonomyRuntimeTests.test_same_basis_has_same_identity_and_respects_spacing) ... ERROR
+test_saturated_and_near_saturated_concerns_still_request_cognition (test_pre_p19_autonomy_runtime.AutonomyRuntimeTests.test_saturated_and_near_saturated_concerns_still_request_cognition) ... ok
+test_world_unknown_does_not_block_next_internal_cognition_or_repeat_effect (test_pre_p19_autonomy_runtime.AutonomyRuntimeTests.test_world_unknown_does_not_block_next_internal_cognition_or_repeat_effect) ... ok
+
+======================================================================
+ERROR: test_same_basis_has_same_identity_and_respects_spacing (test_pre_p19_autonomy_runtime.AutonomyRuntimeTests.test_same_basis_has_same_identity_and_respects_spacing)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p19_autonomy_runtime.py", line 42, in test_same_basis_has_same_identity_and_respects_spacing
+    self.assertTrue(a);self.assertEqual(a[0].task_id,b[0].task_id)
+                                        ^^^^^^^^^^^^
+AttributeError: 'RuntimeNeed' object has no attribute 'task_id'
+
+----------------------------------------------------------------------
+Ran 5 tests in 7.907s
+
+FAILED (errors=1)

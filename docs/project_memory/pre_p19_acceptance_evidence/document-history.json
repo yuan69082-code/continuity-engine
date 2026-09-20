@@ -1,0 +1,92 @@
+{
+  "README.md": {
+    "offset": 1743,
+    "length": 97148,
+    "originalHash": "2d9445dd5388abe9bcc31bca770fd4e00d6b1388ea11c60c74892773dd28971a",
+    "suffixBytes": 0
+  },
+  "docs/project_memory/01_当前状态.md": {
+    "offset": 1723,
+    "length": 91180,
+    "originalHash": "6266678f0a7ee3ceb8f6bc69b72b3604e9561ea3d9f800de3d2d226abd26a78a",
+    "suffixBytes": 0
+  },
+  "docs/project_memory/03_施工日志.md": {
+    "offset": 1723,
+    "length": 316099,
+    "originalHash": "7b4b85cb60aec6544ccadddf409c869a87c5aad8548efbe218695bfe7bfc52ff",
+    "suffixBytes": 0
+  },
+  "docs/project_memory/04_决策记录.md": {
+    "offset": 1723,
+    "length": 221005,
+    "originalHash": "3eee3c321843edacab36bcfaf02ed816ce7bbf72cd740ac86ee34e74f9c92102",
+    "suffixBytes": 1987
+  },
+  "docs/project_memory/05_已完成模块.md": {
+    "offset": 1723,
+    "length": 88657,
+    "originalHash": "6af47f81eb59fa7c51d41958f2d2661977371bbcf85c590f20f0bbe6ac1aae91",
+    "suffixBytes": 0
+  },
+  "docs/project_memory/06_未完成事项.md": {
+    "offset": 1723,
+    "length": 63614,
+    "originalHash": "f2a5a9b4f5291a4aad9ee4b19f013b01eb000495ef0b63134c68eb02e3355023",
+    "suffixBytes": 0
+  },
+  "docs/project_memory/07_待确认事项.md": {
+    "offset": 1723,
+    "length": 63583,
+    "originalHash": "ef97c30fdce577e2b7f57fc7c988144792fbdb504e0d2be14d53701a5f5986ce",
+    "suffixBytes": 0
+  },
+  "docs/project_memory/CHANGELOG.md": {
+    "offset": 1723,
+    "length": 112058,
+    "originalHash": "b472ebfd3e20fa507b51d8f3298a43adee412e6c14701928e7a3e64972756588",
+    "suffixBytes": 0
+  },
+  "docs/project_memory/工程总档案.md": {
+    "offset": 1723,
+    "length": 97239,
+    "originalHash": "1be51bf18952e472eaa4d8fbb0190828e6419cb74fff31175e625387340d08b1",
+    "suffixBytes": 0
+  },
+  "docs/project_memory/pre_p19_autonomy_evidence/final-report.md": {
+    "offset": 1726,
+    "length": 7469,
+    "originalHash": "e71669352df1a7d1cf2b957831e58b75c52d19d29c8cb4e086e151c1a598841f",
+    "suffixBytes": 0
+  },
+  "docs/project_memory/pre_p19_autonomy_evidence/matrix.md": {
+    "offset": 1726,
+    "length": 3405,
+    "originalHash": "d9875948421f70bff01e111d0b9954e659470c16ee924a5f5fdd2f353afd594a",
+    "suffixBytes": 0
+  },
+  "docs/project_memory/pre_p19_autonomy_evidence/test-index.md": {
+    "offset": 1726,
+    "length": 7568,
+    "originalHash": "3bf75704b30717e0f93c7ed17ee37a6d92aab14c410878021b371a0944641ba4",
+    "suffixBytes": 0
+  },
+  "docs/project_memory/pre_p19_supplement_evidence/final-report.md": {
+    "offset": 1726,
+    "length": 6110,
+    "originalHash": "93cc663746197f05bdfb4b936fc68a5a11716d23d550587301940bf6eb9a1929",
+    "suffixBytes": 0
+  },
+  "docs/project_memory/pre_p19_supplement_evidence/matrix.md": {
+    "offset": 1726,
+    "length": 1353,
+    "originalHash": "0442b2fff3c503700c52bfbf4201d208540e83b34b1082601f672e1935f88adf",
+    "suffixBytes": 0
+  },
+  "docs/project_memory/pre_p19_supplement_evidence/test-index.md": {
+    "offset": 1726,
+    "length": 3750,
+    "originalHash": "1e6a8177f7948904ef615237728f5db7242ec4d545ff0cae46b11da6ba71f47f",
+    "suffixBytes": 0
+  }
+}

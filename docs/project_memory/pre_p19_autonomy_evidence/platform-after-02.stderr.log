@@ -1,0 +1,6 @@
+test_platform_denial_preserves_intent_without_dispatch (test_pre_p19_autonomy_execution.AutonomyExecutionTests.test_platform_denial_preserves_intent_without_dispatch) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.841s
+
+OK

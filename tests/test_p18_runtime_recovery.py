@@ -198,12 +198,17 @@ class RuntimeRecoveryTests(unittest.TestCase):
             self.prepare(f);f.host.tick()
             self.assertEqual(f.fake.effect_count,1)
             f.fake.mode='unknown';before=f.state.revision
+            calls=f.provider.calls
             for _ in range(4):f.advance(30);f.host.tick()
             self.assertEqual(f.fake.effect_count,1);self.assertEqual(f.fake.execute_calls,1)
-            self.assertEqual(f.fake.credits,1);self.assertEqual(f.state.revision,before)
+            self.assertEqual(f.fake.credits,1)
+            # Pre-P19 R1: world uncertainty cannot freeze independent cognition.
+            # Each new internal revision still needs its own completed Thinking.
+            self.assertGreater(f.state.revision,before)
+            self.assertEqual(f.state.revision-before,f.provider.calls-calls)
             f.fake.mode='success';f.advance(5);f.host.tick()
             self.assertEqual(f.fake.effect_count,1)
-            self.assertEqual(f.state.revision,before+1)
+            self.assertEqual(f.fake.credits,1)
 
     def test_cancel_uncommitted_cognition_does_not_create_new_effect_on_query(self):
         f=self.fixture(mode='contact')

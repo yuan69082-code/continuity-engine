@@ -172,6 +172,19 @@ class ExecutionService:
         if route.world=='REAL':
             raise ExecutionError('RECOVERABILITY_NOT_READY')
         if purpose=='execute':
+            # A new cognition identity is not a retry licence for an unresolved
+            # effect on the same capability/asset. Query prior original facts.
+            for entry in self.outbox.load()['entries']:
+                if entry['request_id'] == request.capability_request_id or entry['state'] in {'DELIVERED','CANCELLED'}:
+                    continue
+                prior = self.request(entry['request_id'])
+                if prior is None:
+                    raise ExecutionError('EXECUTION_LEDGER_BINDING')
+                if (prior.capability_type, prior.step.target) != (request.capability_type, request.step.target):
+                    continue
+                fact = self.query(prior)
+                if fact is ReceiptQuery.UNKNOWN:
+                    raise ExecutionError('EXECUTION_UNCONFIRMED')
             # Resource calculation may change local permission/readiness. It is
             # preparation, never the authorization snapshot for the world call.
             if self.port('RESOURCE_EXHAUSTED',self.boundary.capacity,route,request,self.limits) is not True:
@@ -261,6 +274,22 @@ class ExecutionService:
                 or request.step.argument_hash!=digest(['compensate',fact.canonical_hash()])
                 or (route.world,route.asset,route.subject_id,route.environment)!=(previous.world,previous.asset,previous.subject_id,previous.environment)):
             raise ExecutionError('EXECUTION_COMPENSATION_BINDING')
+
+    def retain_pending(self, run):
+        """Outbox projection of existing E5-A requests, never execution evidence."""
+        for request in run.requests:
+            if request.capability_type not in self.routes:
+                continue
+            route = self.route_for(request)
+            with self.outbox.transaction() as document:
+                if self._entry(document, request, route) is None:
+                    if len(document['entries']) >= min(256,self.limits.requests):
+                        # A full delivery projection prevents new effects;
+                        # E5-A still retains the refused request. It cannot
+                        # veto independently authorized internal state work.
+                        continue
+                    self._entry(document, request, route, create=True)
+                    self.outbox.save(document)
 
     def collect(self, run):
         for request,result in zip(run.requests,run.results):

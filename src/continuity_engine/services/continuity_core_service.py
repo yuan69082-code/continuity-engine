@@ -32,12 +32,10 @@ class CoreActionPolicy(Protocol):
 
 
 class CoreDecisionPolicy:
-    """Translate an approved Engine decision, never interpret commands in text."""
+    """Form a structured intent; its execution has a separate current gate."""
     producer_id = "c1-engine-decision-v1"
 
     def choose(self, operation, context, thinking, action):
-        if not action.decision.approved:
-            return None
         result = thinking.session.result
         if result is None or (result.update_subject_state and context.mind is None):
             return None  # The original UPDATE_STATE gate/Evolution retains ownership.
@@ -151,9 +149,53 @@ class ContinuityCoreService:
             self.growth = SubjectGrowthService(self,growth_repository)
 
     def process_thinking(self,perception,result):
+        if self.growth is not None and any(m.field_path in {'identity.self_narrative', 'relationship.objects'}
+                                          for m in result.proposed_mutations):
+            raise CapabilityValidationError('GROWTH_PROVIDER_CANNOT_SUPPLY_INTERNAL_STATE')
         if self.mind is not None:result=self.mind.process(perception,result)
         if self.growth is not None:result=self.growth.process(perception,result)
         return result
+
+    def state_authorization(self, action, context=None, *, choice=None):
+        """Commit only independently sourced internal proposals in a mixed turn.
+
+        The original result retains every proposal. Model proposals made before
+        an effect cannot prove that effect; later receipt-backed cognition may
+        reconsider them. This narrows, never creates, Action Gate authorization.
+        """
+        from continuity_engine.domain.action import ApprovedStateAction
+        approved = ApprovedStateAction.from_execution(action)
+        result = action.context.thinking_result
+        if approved is None:
+            return None
+        mutations = self.internal_mutations(result, context, choice=choice)
+        return replace(approved, mutations=mutations) if mutations else None
+
+    def state_choice(self, operation, thinking, action):
+        """Reuse the sealed actual route; never infer effects from prose."""
+        context=thinking.perception.continuity_context
+        existing=self.coordination.action_requests_by_decision('c1:'+digest(operation.operation_id)[7:])
+        if existing:
+            choice=existing[0].choice
+            if any(r.choice!=choice for r in existing):
+                raise CapabilityValidationError('C1_ACTION_HISTORY_INPUT_MISMATCH')
+            return choice
+        return self.policy.choose(operation,context,thinking,action) if context.actions_enabled else None
+
+    def internal_mutations(self, result, context, *, choice=None):
+        from continuity_engine.domain.action import ActionType
+        bindings={b.capability:b for b in self.capabilities}
+        routed_effect=choice is not None and any(
+            s.capability not in bindings or bindings[s.capability].action_type in {
+                ActionType.CONTACT_USER,ActionType.USE_TOOL,ActionType.REQUEST_MEMORY}
+            for s in choice.steps)
+        if (context is None or context.mind is None
+                or not (result.suggest_future_user_contact or result.suggest_tool_use or routed_effect)):
+            return result.proposed_mutations
+        paths = {'intentions.dynamic_mind'}
+        if context.growth_enabled:
+            paths.update({'identity.self_narrative', 'relationship.objects'})
+        return [m for m in result.proposed_mutations if m.field_path in paths]
 
     def validate_thinking_material(self, perception, result):
         for service in (self.external_capabilities,self.execution):
@@ -334,7 +376,7 @@ class ContinuityCoreService:
             raise CapabilityValidationError("C1_CONTEXT_STALE_OR_UNAUTHORIZED")
         self._trace(context)
 
-    def after_action(self, operation, thinking, action, *, replay=False, retry=False):
+    def after_action(self, operation, thinking, action, *, replay=False, retry=False, expression=None):
         context = operation.domain_progress.perception.continuity_context
         snapshot = thinking.session.perception_snapshot
         if (snapshot is None or snapshot != operation.domain_progress.perception
@@ -363,6 +405,25 @@ class ContinuityCoreService:
             return None
         if any(item.choice != choice for item in existing):
             raise CapabilityValidationError("C1_ACTION_HISTORY_INPUT_MISMATCH")
+        if expression is None and getattr(operation,'domain',None) is not None:
+            expression=operation.domain.expression
+        if expression is not None and expression.decision.status=='PLATFORM_DENIED':
+            if existing:
+                raise CapabilityValidationError('C1_ACTION_HISTORY_WITH_DENIED_EXPRESSION')
+            self.last_trace.update(action_intent_id=choice.decision_id,
+                                   dispatch_gate='EXPRESSION_DENIED')
+            self.last_action=None
+            return None
+        if not action.decision.approved:
+            # Retain the intent in the original Thinking/Action records, but
+            # forming a choice must not bypass the original platform refusal.
+            # Reopening that same refused request cannot grant dispatch rights.
+            if existing:
+                raise CapabilityValidationError("C1_ACTION_HISTORY_WITHOUT_APPROVAL")
+            self.last_trace.update(action_intent_id=choice.decision_id,
+                                   dispatch_gate="ORIGINAL_ACTION_DENIED")
+            self.last_action = None
+            return None
         service = ActionPlanningService(
             coordination=self.coordination, action_gate=self.action_gate, producer=producer,
             constraints=_CurrentConstraints(self, context), capabilities=self.capabilities,
@@ -374,16 +435,44 @@ class ContinuityCoreService:
         if replay:
             plan = service.planner.plan(choice, capability_requires_plan=any(
                 not service.capabilities[s.capability].atomic for s in choice.steps))
+            requests, results = [], []
             for step in choice.steps:
                 binding = service.capabilities[step.capability]
                 request = InternalActionRequest(choice, step.step_id, plan.plan_id if plan else None,
                                                 binding.adapter.adapter_id, binding.canonical_hash())
                 attempts = self.coordination.action_attempts(request, receipt_verifier=binding.adapter)
+                if context.mind is not None:
+                    # An internal Evolution is not evidence of world success.
+                    # Query the SAME request only; an advanced revision never
+                    # grants permission to execute an old choice again.
+                    result = attempts[-1].result if attempts else None
+                    if result is not None and not (result.status is CapabilityStatus.SUCCEEDED
+                                                   or result.status.failed_terminally):
+                        from continuity_engine.domain.action_capability import ActionReceipt, InternalActionResult
+                        fact = self.coordination._query_action_fact(request, binding.adapter)
+                        if isinstance(fact, ActionReceipt):
+                            result = InternalActionResult(request, CapabilityStatus(fact.status),
+                                'VERIFIED_RECEIPT', format_contract_datetime(self.clock()), fact,
+                                ('RECEIPT_RECOVERY',))
+                            self.coordination.accept_action_result(result, received_at=result.completed_at,
+                                                                   receipt_verifier=binding.adapter)
+                    requests.append(request); results.append(result)
+                    continue
                 if not attempts or attempts[-1].result.status is not CapabilityStatus.SUCCEEDED:
                     raise CapabilityValidationError("C1_COMPLETED_ACTION_FACT_MISSING")
+            if context.mind is not None:
+                from .action_planning_service import ActionRunResult
+                self.last_action = ActionRunResult(choice.decision_id, plan, tuple(requests), tuple(results))
+                if self.last_action.status == 'COMPLETED' and self.execution is not None:
+                    self.execution.collect(self.last_action)
+                return self.last_action
             return None
         self.last_action = service.run(choice, context.composition, retry=retry)
         if self.last_action.status != "COMPLETED":
+            if context.mind is not None:
+                if self.execution is not None:
+                    self.execution.retain_pending(self.last_action)
+                return self.last_action
             raise CapabilityValidationError("C1_ACTION_" + self.last_action.status)
         if self.external_capabilities is not None:
             self.external_capabilities.collect(self.last_action)

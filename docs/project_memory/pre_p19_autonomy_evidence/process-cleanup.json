@@ -1,0 +1,30 @@
+{
+  "remaining": [],
+  "scope": "Read-only Engine/test command match after completed full-final-02",
+  "manualTerminationPerformed": false,
+  "note": "Test controllers own STOP/reap and retain deliberate crash diagnostics; unrelated processes and retained failure data were not cleaned.",
+  "at": "2026-09-20T01:53:18.2255627+08:00",
+  "controllerLogs": [
+    {
+      "label": "combined-04",
+      "controllerCleanupRecords": 1,
+      "allReportedReaped": true
+    },
+    {
+      "label": "compatibility-final-02",
+      "controllerCleanupRecords": 0,
+      "allReportedReaped": null
+    },
+    {
+      "label": "full-final-02",
+      "controllerCleanupRecords": 32,
+      "allReportedReaped": true
+    }
+  ],
+  "finalObservation": {
+    "at": "2026-09-20T02:02:03.5739398+08:00",
+    "remaining": [],
+    "method": "Read-only Win32_Process query matching Engine/test command; no process termination",
+    "extraScenario": "progressive-02 was in-process and finished; progressive-01 retained STOP checkpoint has no owner; no child created by these two scenarios"
+  }
+}

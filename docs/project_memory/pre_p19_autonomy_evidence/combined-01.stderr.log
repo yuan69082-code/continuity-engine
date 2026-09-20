@@ -1,0 +1,83 @@
+test_broker_revoked_during_thinking_does_not_erase_internal_proposal (test_pre_p19_autonomy_execution.AutonomyExecutionTests.test_broker_revoked_during_thinking_does_not_erase_internal_proposal) ... ok
+test_current_world_resource_refusal_keeps_independent_mind_commit (test_pre_p19_autonomy_execution.AutonomyExecutionTests.test_current_world_resource_refusal_keeps_independent_mind_commit) ... ok
+test_denial_reopen_recovers_internal_fact_without_resubmitting (test_pre_p19_autonomy_execution.AutonomyExecutionTests.test_denial_reopen_recovers_internal_fact_without_resubmitting) ... ok
+test_external_gate_does_not_decide_whether_intent_exists (test_pre_p19_autonomy_execution.AutonomyExecutionTests.test_external_gate_does_not_decide_whether_intent_exists) ... ok
+test_mixed_provider_proposal_cannot_assert_an_unperformed_effect (test_pre_p19_autonomy_execution.AutonomyExecutionTests.test_mixed_provider_proposal_cannot_assert_an_unperformed_effect) ... ok
+test_normal_action_and_internal_commit_remain_once (test_pre_p19_autonomy_execution.AutonomyExecutionTests.test_normal_action_and_internal_commit_remain_once) ... ok
+test_normal_c1_input_preserves_internal_commit_on_reality_refusal (test_pre_p19_autonomy_execution.AutonomyExecutionTests.test_normal_c1_input_preserves_internal_commit_on_reality_refusal) ... ERROR
+test_reality_refusal_keeps_independent_mind_commit (test_pre_p19_autonomy_execution.AutonomyExecutionTests.test_reality_refusal_keeps_independent_mind_commit) ... ok
+test_refused_effect_internal_commit_survives_crashes_before_and_after_write (test_pre_p19_autonomy_execution.AutonomyExecutionTests.test_refused_effect_internal_commit_survives_crashes_before_and_after_write) ... {"stage": "native-exception-before-cleanup", "task_id": "cognition:fb9e18c83ee63f24b79571b643983be5a702f2cf91818e8e511e9dc4d7006a6b", "attempt_id": "p11-attempt-e401d820ccd740b035978f9467f9800c376efcb5a0434207ee2738635e86df8e", "chain": [{"frames": [{"file": "testing/p18_runtime_fixture.py", "line": 140, "function": "diagnosed_continue"}, {"file": "services/runtime_cognition.py", "line": 237, "function": "_continue"}, {"file": "services/wake_perception_thinking_action_service.py", "line": 90, "function": "wake_manual"}, {"file": "services/wake_perception_thinking_action_service.py", "line": 128, "function": "_continue"}, {"file": "services/wake_perception_thinking_action_service.py", "line": 310, "function": "_continue_mind"}, {"file": "services/runtime_cognition.py", "line": 84, "function": "<lambda>"}, {"file": "testing/p18_runtime_fixture.py", "line": 126, "function": "<lambda>"}], "code": "TEST_NATIVE_EXCEPTION"}], "systemChain": [{"type": "ENGINE_EXCEPTION", "operation": "other", "frames": [{"file": "testing/p18_runtime_fixture.py", "line": 140, "function": "diagnosed_continue"}, {"file": "services/runtime_cognition.py", "line": 237, "function": "_continue"}, {"file": "services/wake_perception_thinking_action_service.py", "line": 90, "function": "wake_manual"}, {"file": "services/wake_perception_thinking_action_service.py", "line": 128, "function": "_continue"}, {"file": "services/wake_perception_thinking_action_service.py", "line": 310, "function": "_continue_mind"}, {"file": "services/runtime_cognition.py", "line": 84, "function": "<lambda>"}, {"file": "testing/p18_runtime_fixture.py", "line": 126, "function": "<lambda>"}], "errno": null, "winerror": null}], "stateWriteLockOwnedAfterUnwind": false}
+{"stage": "native-exception-before-cleanup", "task_id": "cognition:72b22021401cde20777006292c6f319e66dd4a545e9473508611dc81cf983aff", "attempt_id": "p11-attempt-f3e9bdbf94146240e9e43e055998929e9b0bd5d2ef96cdd07f43b237971ba01f", "chain": [{"frames": [{"file": "testing/p18_runtime_fixture.py", "line": 140, "function": "diagnosed_continue"}, {"file": "services/runtime_cognition.py", "line": 237, "function": "_continue"}, {"file": "services/wake_perception_thinking_action_service.py", "line": 90, "function": "wake_manual"}, {"file": "services/wake_perception_thinking_action_service.py", "line": 128, "function": "_continue"}, {"file": "services/wake_perception_thinking_action_service.py", "line": 336, "function": "_continue_mind"}, {"file": "services/runtime_cognition.py", "line": 84, "function": "<lambda>"}, {"file": "testing/p18_runtime_fixture.py", "line": 126, "function": "<lambda>"}], "code": "TEST_NATIVE_EXCEPTION"}], "systemChain": [{"type": "ENGINE_EXCEPTION", "operation": "other", "frames": [{"file": "testing/p18_runtime_fixture.py", "line": 140, "function": "diagnosed_continue"}, {"file": "services/runtime_cognition.py", "line": 237, "function": "_continue"}, {"file": "services/wake_perception_thinking_action_service.py", "line": 90, "function": "wake_manual"}, {"file": "services/wake_perception_thinking_action_service.py", "line": 128, "function": "_continue"}, {"file": "services/wake_perception_thinking_action_service.py", "line": 336, "function": "_continue_mind"}, {"file": "services/runtime_cognition.py", "line": 84, "function": "<lambda>"}, {"file": "testing/p18_runtime_fixture.py", "line": 126, "function": "<lambda>"}], "errno": null, "winerror": null}], "stateWriteLockOwnedAfterUnwind": false}
+ok
+test_stale_context_still_prevents_new_internal_commit (test_pre_p19_autonomy_execution.AutonomyExecutionTests.test_stale_context_still_prevents_new_internal_commit) ... {"stage": "native-exception-before-cleanup", "task_id": "cognition:d97b7b71c6cb747d6599192fe19343a8d2e02001d0d2588d9575f8c5fc7d6f29", "attempt_id": "p11-attempt-aab9fc887d4ae81e149632cd22d97a3d0ebfcf9614290b435d36f1c59499f445", "chain": [{"frames": [{"file": "testing/p18_runtime_fixture.py", "line": 140, "function": "diagnosed_continue"}, {"file": "services/runtime_cognition.py", "line": 237, "function": "_continue"}, {"file": "services/wake_perception_thinking_action_service.py", "line": 90, "function": "wake_manual"}, {"file": "services/wake_perception_thinking_action_service.py", "line": 128, "function": "_continue"}, {"file": "services/wake_perception_thinking_action_service.py", "line": 228, "function": "_continue_mind"}, {"file": "services/thinking_service.py", "line": 190, "function": "handle_perception"}, {"file": "services/thinking_service.py", "line": 295, "function": "_run_provider"}], "code": "TEST_NATIVE_EXCEPTION"}, {"frames": [{"file": "services/thinking_service.py", "line": 248, "function": "_run_provider"}, {"file": "services/continuity_core_service.py", "line": 155, "function": "process_thinking"}, {"file": "services/dynamic_mind_service.py", "line": 512, "function": "process"}], "code": "TEST_NATIVE_EXCEPTION"}], "systemChain": [{"type": "ENGINE_EXCEPTION", "operation": "other", "frames": [{"file": "testing/p18_runtime_fixture.py", "line": 140, "function": "diagnosed_continue"}, {"file": "services/runtime_cognition.py", "line": 237, "function": "_continue"}, {"file": "services/wake_perception_thinking_action_service.py", "line": 90, "function": "wake_manual"}, {"file": "services/wake_perception_thinking_action_service.py", "line": 128, "function": "_continue"}, {"file": "services/wake_perception_thinking_action_service.py", "line": 228, "function": "_continue_mind"}, {"file": "services/thinking_service.py", "line": 190, "function": "handle_perception"}, {"file": "services/thinking_service.py", "line": 295, "function": "_run_provider"}], "errno": null, "winerror": null}, {"type": "ENGINE_EXCEPTION", "operation": "other", "frames": [{"file": "services/thinking_service.py", "line": 248, "function": "_run_provider"}, {"file": "services/continuity_core_service.py", "line": 155, "function": "process_thinking"}, {"file": "services/dynamic_mind_service.py", "line": 512, "function": "process"}], "errno": null, "winerror": null}], "stateWriteLockOwnedAfterUnwind": false}
+ok
+test_unknown_does_not_prevent_internal_commit_or_imply_success (test_pre_p19_autonomy_execution.AutonomyExecutionTests.test_unknown_does_not_prevent_internal_commit_or_imply_success) ... ok
+test_duplicate_root_does_not_create_disposition (test_pre_p19_autonomy_growth.AutonomyGrowthTests.test_duplicate_root_does_not_create_disposition) ... ok
+test_new_understanding_can_revise_commitment_not_only_hash (test_pre_p19_autonomy_growth.AutonomyGrowthTests.test_new_understanding_can_revise_commitment_not_only_hash) ... ok
+test_normal_experience_produces_disposition_and_survives_reopen (test_pre_p19_autonomy_growth.AutonomyGrowthTests.test_normal_experience_produces_disposition_and_survives_reopen) ... ok
+test_opposite_experiences_coexist_and_change_deliberation (test_pre_p19_autonomy_growth.AutonomyGrowthTests.test_opposite_experiences_coexist_and_change_deliberation) ... ok
+test_prior_commitment_is_used_and_unrelated_sources_do_not_erase_it (test_pre_p19_autonomy_growth.AutonomyGrowthTests.test_prior_commitment_is_used_and_unrelated_sources_do_not_erase_it) ... ok
+test_explicit_high_and_critical_cannot_be_downgraded_by_rename (test_pre_p19_autonomy_risk.AutonomyRiskTests.test_explicit_high_and_critical_cannot_be_downgraded_by_rename) ... ok
+test_internal_rename_does_not_change_low_risk_or_approval (test_pre_p19_autonomy_risk.AutonomyRiskTests.test_internal_rename_does_not_change_low_risk_or_approval) ... ok
+test_tool_names_cannot_lower_or_raise_trusted_type_minimum (test_pre_p19_autonomy_risk.AutonomyRiskTests.test_tool_names_cannot_lower_or_raise_trusted_type_minimum) ... ok
+test_explicit_abandonment_and_empty_concerns_do_not_force_provider (test_pre_p19_autonomy_runtime.AutonomyRuntimeTests.test_explicit_abandonment_and_empty_concerns_do_not_force_provider) ... ok
+test_gradual_native_cognition_continues_when_delta_gate_cannot_fire (test_pre_p19_autonomy_runtime.AutonomyRuntimeTests.test_gradual_native_cognition_continues_when_delta_gate_cannot_fire) ... ok
+test_same_basis_has_same_identity_and_respects_spacing (test_pre_p19_autonomy_runtime.AutonomyRuntimeTests.test_same_basis_has_same_identity_and_respects_spacing) ... ok
+test_saturated_and_near_saturated_concerns_still_request_cognition (test_pre_p19_autonomy_runtime.AutonomyRuntimeTests.test_saturated_and_near_saturated_concerns_still_request_cognition) ... ok
+test_world_unknown_does_not_block_next_internal_cognition_or_repeat_effect (test_pre_p19_autonomy_runtime.AutonomyRuntimeTests.test_world_unknown_does_not_block_next_internal_cognition_or_repeat_effect) ... ok
+
+======================================================================
+ERROR: test_normal_c1_input_preserves_internal_commit_on_reality_refusal (test_pre_p19_autonomy_execution.AutonomyExecutionTests.test_normal_c1_input_preserves_internal_commit_on_reality_refusal)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\thinking_service.py", line 100, in handle_perception
+    budget = self._token_budgets.allocate(budget_request)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\runtime_cognition.py", line 33, in allocate
+    self.guard('before_budget')
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\runtime_cognition.py", line 86, in <lambda>
+    thinking._token_budgets=RuntimeBudgets(resources,lambda stage:self.guard(stage))
+                                                                  ~~~~~~~~~~^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\persistent_runtime_service.py", line 129, in guard
+    raise RuntimeDeferred('RUNTIME_STALE_OWNER')
+continuity_engine.domain.persistent_runtime.RuntimeDeferred: RUNTIME_STALE_OWNER
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 265, in submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 738, in _run_domain
+    thinking = self._thinking.handle_perception(
+        perception,
+    ...<6 lines>...
+           if self._continuity_core is not None and (self._continuity_core.mind is not None or self._continuity_core.growth is not None) else {}),
+    )
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\thinking_service.py", line 142, in handle_perception
+    raise ThinkingExecutionError(
+    ...<2 lines>...
+    ) from exc
+continuity_engine.domain.errors.ThinkingExecutionError: ThinkSession failed and was logged: 4f6824da-b572-53cf-86d5-ac440a3bc5e2
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p19_autonomy_execution.py", line 36, in test_normal_c1_input_preserves_internal_commit_on_reality_refusal
+    f.submit()
+    ~~~~~~~~^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p17_execution_fixture.py", line 242, in submit
+    result=self.app.adapter.submit(request)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 277, in submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.
+
+----------------------------------------------------------------------
+Ran 24 tests in 60.971s
+
+FAILED (errors=1)

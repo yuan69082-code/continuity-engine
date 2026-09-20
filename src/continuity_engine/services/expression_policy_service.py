@@ -13,6 +13,10 @@ from continuity_engine.domain.expression import (
 from .expression_ports import DeterministicPresentation
 
 
+class _DeliveryDenied(ExpressionAccessError):
+    """A checked expression-only gate, not invalid cognition or Context."""
+
+
 class ExpressionPolicyService:
     def __init__(self, presentation=None, *, maximum_characters=8192):
         if type(maximum_characters) is not int or not 1<=maximum_characters<=65536:
@@ -85,9 +89,9 @@ class ExpressionPolicyService:
             environment=context.composition.snapshot.environment,limits=core.limits or ResourceLimits(),
             confirmed=core.constraints.confirmed(request))
         if not decision.approved:
-            raise ExpressionAccessError('EXPRESSION_CURRENT_'+decision.rejection_reason)
+            raise _DeliveryDenied('EXPRESSION_CURRENT_'+decision.rejection_reason)
         if not core.constraints.recoverable(request) or not core.constraints.reality_allowed(request):
-            raise ExpressionAccessError('EXPRESSION_CURRENT_BOUNDARY_DENIED')
+            raise _DeliveryDenied('EXPRESSION_CURRENT_BOUNDARY_DENIED')
 
     @staticmethod
     def _style_inputs(context,at):
@@ -121,8 +125,18 @@ class ExpressionPolicyService:
         result=thinking.session.result
         mode=self.mode(result)
         denied=not action.decision.approved or action.decision.requires_confirmation
+        delivery_denial=None
         if not denied and mode!='SILENCE':
-            self._authorize(core,operation,thinking,action,context)
+            try:
+                self._authorize(core,operation,thinking,action,context)
+            except _DeliveryDenied as exc:
+                from continuity_engine.domain.action import ApprovedStateAction
+                if context.mind is None or ApprovedStateAction.from_execution(action) is None:
+                    raise
+                # Preserve the explicit refusal as an empty, bound artifact.
+                # State authorization is still independently checked by Evolution.
+                delivery_denial=str(exc)
+                denied=True
         prefs,relationship,intensity,state_hash,source_reasons=self._style_inputs(context,thinking.perception.perceived_at)
         layout='quoted' if 'formal' in relationship else 'plain'
         compact='concise' in prefs
@@ -131,6 +145,8 @@ class ExpressionPolicyService:
         reasons=('FORMED_ENGINE_INTENT' if result.expression_mode else 'LEGACY_THINKING_FLAGS',
                  'CURRENT_CONTEXT',*source_reasons,
                  'ACTION_GATE_DENIED' if denied else ('NO_VISIBLE_EXPRESSION' if mode=='SILENCE' else 'CURRENT_ACTION_GATE_CHECKED'))
+        if delivery_denial is not None:
+            reasons=(*reasons[:-1],'INDEPENDENT_STATE_EXPRESSION_DENIED',delivery_denial)
         return ExpressionDecision(mode,binding,digest(result.result_summary),state_hash,
             context.binding_hash(),layout,compact,emphasis,reasons,status)
 
@@ -167,6 +183,16 @@ class ExpressionPolicyService:
         decision=artifact.decision
         result=thinking.session.result
         denied=not action.decision.approved or action.decision.requires_confirmation
+        independent_denial=('INDEPENDENT_STATE_EXPRESSION_DENIED' in decision.reason_codes)
+        if independent_denial:
+            from continuity_engine.domain.action import ApprovedStateAction
+            allowed={'EXPRESSION_CURRENT_'+code for code in (
+                'PERMISSION_DENIED','RESOURCE_EXHAUSTED','CRITICAL_RISK_DENIED',
+                'CONFIRMATION_REQUIRED','BOUNDARY_DENIED')}
+            if (context.mind is None or ApprovedStateAction.from_execution(action) is None
+                    or decision.reason_codes[-1] not in allowed):
+                raise ExpressionValidationError('EXPRESSION_DENIAL_BINDING_INVALID')
+            denied=True
         expected_status='PLATFORM_DENIED' if denied else ('SUBJECT_SILENCE' if self.mode(result)=='SILENCE' else 'SUBJECT_EXPRESSION')
         if (decision.binding_hash!=self.binding(operation,thinking,action,context)
                 or decision.context_hash!=context.binding_hash()
@@ -176,7 +202,10 @@ class ExpressionPolicyService:
                 or artifact.content!=render_body(result.result_summary,decision)
                 or operation.domain.response_content!=artifact.content):
             raise ExpressionValidationError('EXPRESSION_COMPLETED_BINDING_MISMATCH')
-        if current and decision!=self.decide(core,operation,thinking,action,context):
+        # An old empty refusal releases no content and never becomes permission
+        # to present after a revision or authorization change. Fact recovery is
+        # independent of present expression availability.
+        if current and not independent_denial and decision!=self.decide(core,operation,thinking,action,context):
             raise ExpressionValidationError('EXPRESSION_CURRENT_DECISION_MISMATCH')
         self.last_trace=decision.trace()
         return artifact

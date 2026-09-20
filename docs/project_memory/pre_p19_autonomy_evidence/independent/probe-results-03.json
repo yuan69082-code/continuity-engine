@@ -1,0 +1,340 @@
+{
+  "scope": "bounded independent diagnostic probes, not full regression",
+  "head": "cb528d74884990915737b491ca6a9f2c35cc512a",
+  "pure": {
+    "risk": [
+      {
+        "action": "UPDATE_STATE",
+        "target": "subject:ordinary",
+        "confirmed": true,
+        "risk": "LOW",
+        "approved": true,
+        "reason": null,
+        "automatic": true
+      },
+      {
+        "action": "UPDATE_STATE",
+        "target": "subject:noncritical",
+        "confirmed": true,
+        "risk": "CRITICAL",
+        "approved": false,
+        "reason": "CRITICAL_RISK_DENIED",
+        "automatic": false
+      },
+      {
+        "action": "USE_TOOL",
+        "target": "local-readonly-notes",
+        "confirmed": false,
+        "risk": "HIGH",
+        "approved": false,
+        "reason": "CONFIRMATION_REQUIRED",
+        "automatic": false
+      },
+      {
+        "action": "USE_TOOL",
+        "target": "local-readonly-notes",
+        "confirmed": true,
+        "risk": "HIGH",
+        "approved": true,
+        "reason": null,
+        "automatic": false
+      },
+      {
+        "action": "USE_TOOL",
+        "target": "local-readonly-critical-notes",
+        "confirmed": true,
+        "risk": "CRITICAL",
+        "approved": false,
+        "reason": "CRITICAL_RISK_DENIED",
+        "automatic": false
+      }
+    ],
+    "depth": [
+      {
+        "mode": "LOW_FREQUENCY",
+        "requested": "DEEP",
+        "approved": "LOW",
+        "allowed": true,
+        "reason": "runtime mode LOW_FREQUENCY caps thinking at LOW."
+      },
+      {
+        "mode": "SCHEDULED",
+        "requested": "DEEP",
+        "approved": "NORMAL",
+        "allowed": true,
+        "reason": "runtime mode SCHEDULED caps thinking at NORMAL."
+      },
+      {
+        "mode": "CONTINUOUS",
+        "requested": "DEEP",
+        "approved": "NORMAL",
+        "allowed": true,
+        "reason": "runtime mode CONTINUOUS caps thinking at NORMAL."
+      },
+      {
+        "mode": "DEEP_THINKING",
+        "requested": "DEEP",
+        "approved": "DEEP",
+        "allowed": true,
+        "reason": "resources allow DEEP thinking in DEEP_THINKING mode."
+      }
+    ],
+    "learning": [
+      {
+        "field": "identity.stable_traits",
+        "operation": "append",
+        "outcome": "accepted"
+      },
+      {
+        "field": "identity.stable_traits",
+        "operation": "remove",
+        "outcome": "LearningValidationError: learning candidates may only append one long-term characteristic"
+      },
+      {
+        "field": "identity.self_concept",
+        "operation": "set",
+        "outcome": "LearningValidationError: learning changes are limited to approved long-term characteristic fields"
+      }
+    ],
+    "core_choice": [
+      {
+        "execution_approval": true,
+        "internal_contact_intent": true,
+        "structured_choice": [
+          "contact.send"
+        ]
+      },
+      {
+        "execution_approval": false,
+        "internal_contact_intent": true,
+        "structured_choice": null
+      }
+    ],
+    "endogenous": {
+      "desire_count": 7,
+      "origins": [
+        "ENDOGENOUS"
+      ],
+      "thoughts": 7,
+      "will_count": 7,
+      "dispositions": []
+    }
+  },
+  "native": [
+    {
+      "world_allowed": true,
+      "calls": 1,
+      "computed_desires": 7,
+      "before_revision": 1,
+      "after_revision": 2,
+      "committed_mind": true,
+      "effects": 1,
+      "credits": 1,
+      "action_status": "COMPLETED",
+      "action_results": [
+        {
+          "internalVersion": "engine-internal-action/v1",
+          "request": {
+            "internalVersion": "engine-internal-action/v1",
+            "choice": {
+              "decision_id": "c1:07f9dadd95a0052295b3accb99b0e9589cdbbe325df7b7421d77fff8b71d6c4a",
+              "producer_id": "c1-engine-decision-v1",
+              "subject_id": "sub-879962067fb54b66",
+              "environment": "TEST",
+              "snapshot_hash": "sha256:73b638a2a4dda742c0d806ae5b94f6b1d1613c27059bc8ca2df6b4334c82a822",
+              "source_revision": 1,
+              "source_fragment_ids": [
+                "sha256:c9110e0f4503746699546db35cbfccd6cb47fae9f0890c220473b3d9e11ac275",
+                "sha256:a6a390c7d79b3244a453157a157c480a95e199218d11c389da31ba50210f9100",
+                "sha256:5cedbdc3ca92ababf62fac4cf07eaca0db48c928f2c41a94e0ce06cd33dce14f",
+                "sha256:b445041d5ca95e950d9b55e6b5732e8a79d2c618b2cf2b567d942c157a0b2033",
+                "sha256:2a08880a1e612ced28c9c959088f3c95405b4b94fa4d34a4c2681c2c1ceb2af3",
+                "sha256:a7bfcbce9e8a3ad82e1d3c1578c399903464343fad3dbe6405b7b10884058316",
+                "sha256:cdec169e009844b9d4d8f37d5c8e0940ad69f0e94a1481f63f8ca23c890cf261"
+              ],
+              "trigger": "ACTION_INTENT",
+              "steps": [
+                {
+                  "step_id": "step-0",
+                  "capability": "execution.write",
+                  "target": "asset:p17-local",
+                  "argument_hash": "sha256:afdf9bcfd7335ff3dc66b5559a2ace26203e96fe4c8757fdc643eb68efc6dd74",
+                  "dependencies": []
+                }
+              ],
+              "created_at": "2026-09-04T09:01:00Z",
+              "expires_at": "2026-09-04T09:11:00Z",
+              "requires_planning": false
+            },
+            "stepId": "step-0",
+            "planId": null,
+            "adapterId": "p17-test-adapter",
+            "policyHash": "sha256:07263fb4289fdc805213ba5fca56edbec5def7117389e83cadaee46a522814b3",
+            "operationId": "action-op:8f5bae1a6af1e0e00d1461be7e6954d79b7226c14efd7a77960f09fc418e2581",
+            "capabilityRequestId": "action-cap:40eed398cac1e5533199b387818451809047ee0bb0a661373ba70ac7e9a9a808",
+            "requestHash": "sha256:0e5087be13c3449e78668ddbf67286b4bda7255c3142e0197ba23d7c36b03090",
+            "idempotencyKey": "sha256:b6ece244c85db6ae40ecbcb4e977f5179aebeeed5487a4c9c8ceb0778b559e70"
+          },
+          "status": "SUCCEEDED",
+          "reason": "VERIFIED_RECEIPT",
+          "completedAt": "2026-09-04T09:01:00Z",
+          "receipt": {
+            "receipt_id": "receipt:b6ece244c85db6ae40ecbcb4e977f5179aebeeed5487a4c9c8ceb0778b559e70",
+            "capability_request_id": "action-cap:40eed398cac1e5533199b387818451809047ee0bb0a661373ba70ac7e9a9a808",
+            "request_hash": "sha256:0e5087be13c3449e78668ddbf67286b4bda7255c3142e0197ba23d7c36b03090",
+            "adapter_id": "p17-test-adapter",
+            "subject_id": "sub-879962067fb54b66",
+            "environment": "TEST",
+            "step_id": "step-0",
+            "status": "SUCCEEDED",
+            "effect_count": 1,
+            "test_credits": 1,
+            "completed_at": "2026-09-04T09:01:00Z",
+            "output_hash": "sha256:371fba31ccaea211d6c231bb58f60c75ba2781f2300e7d4554ac4edaccf70562"
+          },
+          "gateReasons": [
+            "CAPABILITY_RESOLVED",
+            "ACTION_GATE_PASSED",
+            "PERMISSION_CONFIRMED",
+            "RESOURCE_PASSED",
+            "RECOVERABILITY_PASSED",
+            "REALITY_BOUNDARY_PASSED",
+            "DISPATCH_ATTEMPT_1"
+          ]
+        }
+      ],
+      "host": {
+        "activity": "COGNITION",
+        "commands": [],
+        "desired": "RUNNING",
+        "environment": "TEST",
+        "generation": 1,
+        "interruptions": [],
+        "last_task": "cognition:227230f47a5ff95582d1814534bb5969b6a0fdaad1d00d703dbd70f2218bcf1f",
+        "last_time": "2026-09-04T09:01:00+00:00",
+        "next_check_at": "2026-09-04T09:02:00+00:00",
+        "observations": 2,
+        "owner": "owner:052904a9e023451c978401fb8e668a95",
+        "reason": "TASK_COMPLETED",
+        "revision": 4,
+        "root_hash": "sha256:92946c6d022cd3ca0b904d5d03115453e7f630f8aced299b7c1b613ddda3dcdc",
+        "state": "RUNNING",
+        "subject_id": "sub-879962067fb54b66",
+        "version": "p18-runtime-v1",
+        "host_alive": true,
+        "checkpoint_busy": false,
+        "subject_lifecycle": "ACTIVE",
+        "pending_tasks": 0,
+        "unconfirmed_tasks": 0,
+        "resources": {
+          "token_budget": 100000,
+          "token_used": 320,
+          "token_remaining": 99680,
+          "compute_remaining": 997
+        }
+      },
+      "probe_status": "OBSERVED"
+    },
+    {
+      "world_allowed": false,
+      "calls": 1,
+      "computed_desires": 7,
+      "before_revision": 1,
+      "after_revision": 1,
+      "committed_mind": false,
+      "effects": 0,
+      "credits": 0,
+      "action_status": "WAITING_CAPABILITY",
+      "action_results": [
+        {
+          "internalVersion": "engine-internal-action/v1",
+          "request": {
+            "internalVersion": "engine-internal-action/v1",
+            "choice": {
+              "decision_id": "c1:1f81e4cda80d616e9ab13fc6dcd75ca49e70875ef6774f162414d9013a3a6625",
+              "producer_id": "c1-engine-decision-v1",
+              "subject_id": "sub-53c17d3dd7864b65",
+              "environment": "TEST",
+              "snapshot_hash": "sha256:30f1dcfc784be0603cf9cd59eb1e8a5fea2011c3479af07d9243a56f930633a4",
+              "source_revision": 1,
+              "source_fragment_ids": [
+                "sha256:1ade255bdc3af5f3a812947dfe7e30a55e3229d88cdf4b8ef591067ed2298338",
+                "sha256:1bef603fac887852cb07b40b2a05ddc1eea5b27d78bfbf1cb64d72bed17e82c7",
+                "sha256:5c5d80d24abdcf87b1b54ae3ee57238c4594851c9c820afc62e9ed2c6f7f5863",
+                "sha256:a8807c3220c6d0e768b00f7cf5b4d097ac13522baf23a137f56094cdccd02523",
+                "sha256:8d390ce75b17cde2f05d2d942bb89ff119c9faf7fc0f041be110c65755403523",
+                "sha256:3859309c7514b279d7b08996675f899cb6f50dad3644abd2b5610bdd877ff558",
+                "sha256:e8c4150785508ba7875f5ceb924fe4e9ba96a13280474626d8cd7f675fd69ade"
+              ],
+              "trigger": "ACTION_INTENT",
+              "steps": [
+                {
+                  "step_id": "step-0",
+                  "capability": "execution.write",
+                  "target": "asset:p17-local",
+                  "argument_hash": "sha256:d32ecebe673eec0a3c2abdc8047c214c154547fa0c7c53ab4fdd530e40fc8025",
+                  "dependencies": []
+                }
+              ],
+              "created_at": "2026-09-04T09:01:00Z",
+              "expires_at": "2026-09-04T09:11:00Z",
+              "requires_planning": false
+            },
+            "stepId": "step-0",
+            "planId": null,
+            "adapterId": "p17-test-adapter",
+            "policyHash": "sha256:46432f6cb29d1e291f93b7f6e135150302a2d3a705573098db6262fb87e7107e",
+            "operationId": "action-op:62861e41cdf5211a58dba9c21783325ce174b21f21c07913910879a083bdff57",
+            "capabilityRequestId": "action-cap:5810b2efe4019cbd60c029df375f3bdbc65e449c669a95e083b4d0db1467260a",
+            "requestHash": "sha256:83c6d820213fc171192b6de5c0530d1e7ea6fd24202f85d51512d03d3d3affb5",
+            "idempotencyKey": "sha256:5ce6b6bcfc2999ca637fe9f0f015fb4d5391919aa1763cc3763ad84e03f1898f"
+          },
+          "status": "UNKNOWN",
+          "reason": "REALITY_DENIAL",
+          "completedAt": "2026-09-04T09:01:00Z",
+          "receipt": null,
+          "gateReasons": [
+            "REALITY_DENIAL"
+          ]
+        }
+      ],
+      "host": {
+        "activity": "WAITING_VERIFICATION",
+        "commands": [],
+        "desired": "RUNNING",
+        "environment": "TEST",
+        "generation": 1,
+        "interruptions": [],
+        "last_task": "maintenance:f7e2563ac32a5c78b15b7ec987e79def4a63c9139feb42baa95e0ce4059b20c4",
+        "last_time": "2026-09-04T09:01:00+00:00",
+        "next_check_at": "2026-09-04T09:01:05+00:00",
+        "observations": 2,
+        "owner": "owner:71d8d97941dc41d4a2a85cb9bcee4115",
+        "reason": "TASK_RESULT_UNCONFIRMED",
+        "revision": 4,
+        "root_hash": "sha256:207ab58d15d200c2b3936e4f31afd3d52a148fd7e92e475c320e52cd4030ce80",
+        "state": "RUNNING",
+        "subject_id": "sub-53c17d3dd7864b65",
+        "version": "p18-runtime-v1",
+        "host_alive": true,
+        "checkpoint_busy": false,
+        "subject_lifecycle": "ACTIVE",
+        "pending_tasks": 1,
+        "unconfirmed_tasks": 1,
+        "resources": {
+          "token_budget": 100000,
+          "token_used": 320,
+          "token_remaining": 99680,
+          "compute_remaining": 997
+        }
+      },
+      "probe_status": "OBSERVED"
+    }
+  ],
+  "errors": [],
+  "engine_unchanged": true,
+  "inventory": {
+    "tracked_count": 2872,
+    "untracked_count": 32
+  }
+}

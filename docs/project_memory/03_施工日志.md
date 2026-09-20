@@ -1,3 +1,44 @@
+<!-- PRE_P19_ACCEPTED_D074_20260920 -->
+## 当前批次正式验收：D-074
+
+用户于2026-09-20正式验收“P19开工前主体自主性边界R1—R4合并返修及A1/A2/A3补修”，并授权本批次按精确清单普通提交、普通push至现有Engine origin/main。该决定是D-074；不是重做P18验收，也不是P19开工。
+
+本批次R1—R4及A1/A2/A3 = ACCEPTED。P00—P18历史ACCEPTED与D-073保留；P19—P23 = NOT_STARTED。现行PLANNING_CONFLICT=NONE、EVIDENCE_CONFLICT=NONE仅表示本批次已知阻断依独立复核及用户确认闭合，不保证不存在其他缺陷。历史F1/H1/F2仍UNKNOWN，用户此前接受的不确定性、旧失败、辅助错误、中断、原始格式告警与SKIP不改写。
+
+本轮独立实跑：原八项8PASS（6.640秒）、正式交叉63PASS（120.684秒）、额外恢复/权限8PASS（10.708秒），均0FAIL/ERROR/SKIP。施工方最终全量1580项=1579PASS、1既有Windows符号链接权限1314 SKIP、0FAIL/ERROR，1687.548秒；该全量经独立核验后引用，本次归档没有重跑。独立额外探针不增加Engine正式测试数量，集合交叠不相加。
+
+维持默认持续运行、主体自主性、当前权限/资源/生命周期、现实效果限制与唯一权威通道。真实服务、生产凭据、正式联系/费用/隐私政策及原NOT_READY能力不开放。提交与推送实际结果另由操作后的Git/真实远端核查报告，不预填成功。
+
+[验收依据、逐项状态与最终清单](pre_p19_acceptance_evidence/acceptance-report.md)。
+
+## 以下为发生时的历史记录
+
+下方旧“待复核/未验收/禁止Git”及测试结果保留原貌，不代替本次明确的验收和收尾授权。
+
+<!-- PRE_P19_A1_A2_A3_20260920 -->
+## 当前批次：P19前A1/A2/A3补修已实现，等待独立复核
+
+用户授权在R1—R4成果上补齐三项漏口；本批次IMPLEMENTED_NOT_ACCEPTED / EVIDENCE_CONFLICT=PRESENT，PLANNING_CONFLICT=NONE。未登记验收、未执行Git写操作、未进入P19；P00—P18历史ACCEPTED及D-073不变，P19—P23 NOT_STARTED。
+
+已分离表达专属拒绝与合法内部Evolution，按实际绑定能力处理未获结果支持的混合提案，并恢复已满足需要经原动力学再次出现的认知路径。保留当前权限、来源、Context、生命周期、预算、PAUSE/STOP和无重复效果/计费边界；原失败与历史F1/H1/F2 UNKNOWN不变。
+
+本轮施工方原样复跑独立探针8PASS，交叉63PASS，兼容538PASS；最终完整回归1580项=1579PASS/1既有Win1314 SKIP、0FAIL/ERROR，1687.548秒，exit0。集合交叠不相加；旧1551全量属于此前版本。详见[补修报告、限制与复核入口](pre_p19_supplement_evidence/final-report.md)。
+
+下文保留为此前发生时的记录，不代替本批次状态。
+
+<!-- PRE_P19_AUTONOMY_REPAIR_20260920 -->
+## 当前批次：P19前R1—R4已实现，等待独立复核
+
+本批次 IMPLEMENTED_NOT_ACCEPTED；PLANNING_CONFLICT=NONE，EVIDENCE_CONFLICT=PRESENT。P00—P18历史ACCEPTED及D-073不变，P19—P23 NOT_STARTED。本轮授权仅为四项返修；没有新增验收决定、Git写操作或P19开工。
+
+已分离合法内部心智提交与世界执行结果、移除名称风险启发式、接通经历形成倾向及长期Will复议、补齐驱力稳定后的有界认知需求。权限/资源/恢复/现实效果门保留；不扩正式政策或新建Authority/账本。
+
+定点/交叉34PASS；最终受影响兼容175项=175PASS/0SKIP；最终全量1551项=1550PASS/1既有Win1314 SKIP、0FAIL/ERROR，1765.117秒。均为本轮实跑，集合重叠不相加。首次失败和两处旧测试预期纠正有完整记录；历史F1/H1/F2仍UNKNOWN。
+
+[返修交付、限制与独立复核命令](pre_p19_autonomy_evidence/final-report.md) · [矩阵](pre_p19_autonomy_evidence/matrix.md) · [精确清单](pre_p19_autonomy_evidence/final.pending-files.md)。
+
+以下内容保留为此前阶段发生时的历史状态；包括P18当时的现行冲突结论、提交授权与工作区描述，不代替本批次状态。
+
 <!-- P18_ACCEPTED_D073_20260919 -->
 ## 现行状态：P18 用户正式验收（D-073）
 

@@ -1,0 +1,46 @@
+test_duplicate_root_does_not_create_disposition (test_pre_p19_autonomy_growth.AutonomyGrowthTests.test_duplicate_root_does_not_create_disposition) ... ok
+test_new_understanding_can_revise_commitment_not_only_hash (test_pre_p19_autonomy_growth.AutonomyGrowthTests.test_new_understanding_can_revise_commitment_not_only_hash) ... FAIL
+test_normal_experience_produces_disposition_and_survives_reopen (test_pre_p19_autonomy_growth.AutonomyGrowthTests.test_normal_experience_produces_disposition_and_survives_reopen) ... FAIL
+test_opposite_experiences_coexist_and_change_deliberation (test_pre_p19_autonomy_growth.AutonomyGrowthTests.test_opposite_experiences_coexist_and_change_deliberation) ... FAIL
+test_prior_commitment_is_used_and_unrelated_sources_do_not_erase_it (test_pre_p19_autonomy_growth.AutonomyGrowthTests.test_prior_commitment_is_used_and_unrelated_sources_do_not_erase_it) ... FAIL
+
+======================================================================
+FAIL: test_new_understanding_can_revise_commitment_not_only_hash (test_pre_p19_autonomy_growth.AutonomyGrowthTests.test_new_understanding_can_revise_commitment_not_only_hash)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p19_autonomy_growth.py", line 74, in test_new_understanding_can_revise_commitment_not_only_hash
+    self.assertTrue(any(a['commitment']!=b['commitment'] for a,b in zip(before,after)))
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_normal_experience_produces_disposition_and_survives_reopen (test_pre_p19_autonomy_growth.AutonomyGrowthTests.test_normal_experience_produces_disposition_and_survives_reopen)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p19_autonomy_growth.py", line 33, in test_normal_experience_produces_disposition_and_survives_reopen
+    self.assertTrue(dispositions)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+AssertionError: [] is not true
+
+======================================================================
+FAIL: test_opposite_experiences_coexist_and_change_deliberation (test_pre_p19_autonomy_growth.AutonomyGrowthTests.test_opposite_experiences_coexist_and_change_deliberation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p19_autonomy_growth.py", line 55, in test_opposite_experiences_coexist_and_change_deliberation
+    self.assertTrue({'TRUST','DOUBT'} <= {d['kind'] for d in mind['dispositions']})
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_prior_commitment_is_used_and_unrelated_sources_do_not_erase_it (test_pre_p19_autonomy_growth.AutonomyGrowthTests.test_prior_commitment_is_used_and_unrelated_sources_do_not_erase_it)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p19_autonomy_growth.py", line 67, in test_prior_commitment_is_used_and_unrelated_sources_do_not_erase_it
+    self.assertIn('Prior commitment: '+old['commitment'],new['supporting_reasons'])
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'Prior commitment: Keep this desire distinct from deciding to perform a reality action.' not found in ['felt need for intimacy', 'elapsed need: intimacy']
+
+----------------------------------------------------------------------
+Ran 5 tests in 28.011s
+
+FAILED (failures=4)

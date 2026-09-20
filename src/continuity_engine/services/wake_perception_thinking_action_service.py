@@ -195,6 +195,7 @@ class WakePerceptionThinkingActionService:
         from continuity_engine.domain.dynamic_mind import MindValidationError
         from continuity_engine.domain.thinking import ThinkingExecutionResult
         from continuity_engine.domain.action import ActionType
+        from continuity_engine.domain.action_planning import digest
         core = self._continuity_core
         wake = awakening.session
         if (wake.subject_id != core.subject_id or awakening.context.subject_state.subject_id != core.subject_id
@@ -262,11 +263,15 @@ class WakePerceptionThinkingActionService:
                 available_permissions=self._available_permissions, resource_limits=self._resource_limits,
                 permission_context=(self._permission_service.get_context(core.subject_id)
                                     if self._permission_service is not None else None), context_id=context_id))
-        def dispatch(action, *, replay=False):
+        operation=SimpleNamespace(subject_id=core.subject_id,operation_id='native:'+wake.session_id,
+            request_id='native:'+wake.session_id,domain_progress=SimpleNamespace(perception=perception))
+        def choice_for(action):
+            return core.state_choice(operation,thinking,action) if self._native_dispatch else None
+        def authorized(action):
+            return core.state_authorization(action,perception.continuity_context,choice=choice_for(action))
+        def dispatch(action, *, replay=False, expression=None):
             if self._native_dispatch:
-                operation=SimpleNamespace(subject_id=core.subject_id,operation_id='native:'+wake.session_id,
-                    request_id='native:'+wake.session_id,domain_progress=SimpleNamespace(perception=perception))
-                core.after_action(operation,thinking,action,replay=replay)
+                core.after_action(operation,thinking,action,replay=replay,expression=expression)
         if update is not None:
             intent_id = self._action._id('intent', session.result.result_id, ActionType.UPDATE_STATE.value, '0')
             decision_id = self._action._id('decision', context_id, intent_id, 'True')
@@ -276,11 +281,32 @@ class WakePerceptionThinkingActionService:
                 'think_id': think_id, 'wake_session_id': wake.session_id,
                 'perception_id': perception.perception_id, 'thinking_result_id': session.result.result_id,
             }
+            original=None
+            if self._native_dispatch:
+                original=next((s for s in self._action.get_sessions(core.subject_id)
+                               if s.think_session_id==think_id and s.action_session_id==expected_metadata['action_session_id']),None)
+                if original is None:raise MindValidationError('MIND_NATIVE_ACTION_FACT_MISSING')
+            original_action=SimpleNamespace(decision=original.final_decision) if original is not None else None
+            refused_expression=None
+            if 'c1_expression_refusal' in update.event.metadata:
+                from continuity_engine.domain.expression import ExpressionArtifact
+                from .expression_policy_service import ExpressionPolicyService
+                refused_expression=ExpressionArtifact.from_dict(update.event.metadata['c1_expression_refusal'])
+                decision=refused_expression.decision
+                if (not self._native_dispatch or decision.status!='PLATFORM_DENIED'
+                        or decision.context_hash!=perception.continuity_context.binding_hash()
+                        or decision.content_hash!=digest(session.result.result_summary)
+                        or decision.mode!=ExpressionPolicyService.mode(session.result)
+                        or 'INDEPENDENT_STATE_EXPRESSION_DENIED' not in decision.reason_codes
+                        or refused_expression.content):
+                    raise MindValidationError('MIND_NATIVE_EXPRESSION_REFUSAL_BINDING')
+                expected_metadata['c1_expression_refusal']=refused_expression.to_dict()
             if (update.event.metadata != expected_metadata or update.subject_id != core.subject_id
                     or update.event.source != 'action_engine' or update.event.event_type != 'approved_internal_action'
                     or update.before_revision != perception.source_revision
                     or update.after_revision != perception.source_revision + 1
-                    or update.event.mutations != session.result.proposed_mutations
+                    or update.event.mutations != core.internal_mutations(session.result, perception.continuity_context,
+                        choice=choice_for(original_action))
                     or update.event.reason != session.result.rationale_summary
                     or update.event.content != session.result.result_summary):
                 raise MindValidationError('MIND_NATIVE_EVOLUTION_FACT_CONFLICT')
@@ -291,11 +317,7 @@ class WakePerceptionThinkingActionService:
             if self._native_dispatch:
                 # Recover the original Action session without rewriting it or
                 # treating a lifecycle change as permission for fresh dispatch.
-                original=next((s for s in self._action.get_sessions(core.subject_id)
-                               if s.think_session_id==think_id and s.action_session_id==expected_metadata['action_session_id']),None)
-                if original is None:raise MindValidationError('MIND_NATIVE_ACTION_FACT_MISSING')
-                from types import SimpleNamespace
-                dispatch(SimpleNamespace(decision=original.final_decision),replay=True)
+                dispatch(original_action,replay=True,expression=refused_expression)
             return WakePerceptionThinkingActionResult(awakening, perception, thinking, None, update)
         if session.state_update_id is not None or session.state_written_back:
             raise MindValidationError('MIND_NATIVE_EVOLUTION_FACT_MISSING')
@@ -304,22 +326,36 @@ class WakePerceptionThinkingActionService:
         action = native_action()
         self._runtime_fault('after_native_action_checkpoint')
         if self._runtime_guard is not None:self._runtime_guard('before_native_dispatch')
-        if self._native_expression is not None:
-            self._native_expression(wake,thinking,action)
-        dispatch(action)
+        expression=(self._native_expression(wake,thinking,action) if self._native_expression is not None else None)
+        evolution_metadata=({'c1_expression_refusal':expression.to_dict()}
+                            if expression is not None and expression.decision.status=='PLATFORM_DENIED' else None)
+        dispatch(action,expression=expression)
         self._runtime_fault('after_native_effect')
         # Current checks immediately precede the original atomic Evolution write.
         core.before_thinking(perception)
+        def current_state_permission():
+            if authorized(action) is None:
+                return
+            from dataclasses import replace
+            intent = replace(action.decision.selected_action, created_at=self._clock())
+            if any(p not in self._available_permissions for p in intent.required_permissions):
+                raise MindValidationError('MIND_STATE_PERMISSION_UNAVAILABLE')
+            assessment = self._action.assess_local_action(intent, subject_id=core.subject_id,
+                environment=core.environment, limits=self._resource_limits)
+            if not assessment.can_execute_automatically:
+                raise MindValidationError('MIND_STATE_CURRENT_AUTHORIZATION_DENIED')
+        current_state_permission()
         if self._runtime_guard is not None:self._runtime_guard('before_native_evolution')
         if self._runtime_guard is not None:
             from continuity_engine.storage.json_repository import state_write_retry_guard
             def retry_guard():
                 core.before_thinking(perception)
                 self._runtime_guard('before_native_evolution')
+                current_state_permission()
             with state_write_retry_guard(retry_guard):
-                update = self._action_evolution.evolve(ApprovedStateAction.from_execution(action), event_id=event_id)
+                update = self._action_evolution.evolve(authorized(action), event_id=event_id, metadata=evolution_metadata)
         else:
-            update = self._action_evolution.evolve(ApprovedStateAction.from_execution(action), event_id=event_id)
+            update = self._action_evolution.evolve(authorized(action), event_id=event_id, metadata=evolution_metadata)
         self._runtime_fault('after_native_evolution')
         if update is not None:
             self._thinking.record_evolution_result(thinking, update)

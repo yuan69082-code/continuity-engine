@@ -1,0 +1,34 @@
+test_saturated_internal_state_continues_in_new_real_runtime_process (test_pre_p19_autonomy_runtime.AutonomyProcessTests.test_saturated_internal_state_continues_in_new_real_runtime_process) ... FAIL
+test_explicit_abandonment_and_empty_concerns_do_not_force_provider (test_pre_p19_autonomy_runtime.AutonomyRuntimeTests.test_explicit_abandonment_and_empty_concerns_do_not_force_provider) ... ok
+test_gradual_native_cognition_continues_when_delta_gate_cannot_fire (test_pre_p19_autonomy_runtime.AutonomyRuntimeTests.test_gradual_native_cognition_continues_when_delta_gate_cannot_fire) ... ok
+test_hold_has_later_reconsideration_not_per_tick_dispatch (test_pre_p19_autonomy_runtime.AutonomyRuntimeTests.test_hold_has_later_reconsideration_not_per_tick_dispatch) ... ok
+test_same_basis_has_same_identity_and_respects_spacing (test_pre_p19_autonomy_runtime.AutonomyRuntimeTests.test_same_basis_has_same_identity_and_respects_spacing) ... ok
+test_saturated_and_near_saturated_concerns_still_request_cognition (test_pre_p19_autonomy_runtime.AutonomyRuntimeTests.test_saturated_and_near_saturated_concerns_still_request_cognition) ... ok
+test_stable_need_survives_resource_wait_and_resume_without_chat (test_pre_p19_autonomy_runtime.AutonomyRuntimeTests.test_stable_need_survives_resource_wait_and_resume_without_chat) ... FAIL
+test_world_unknown_does_not_block_next_internal_cognition_or_repeat_effect (test_pre_p19_autonomy_runtime.AutonomyRuntimeTests.test_world_unknown_does_not_block_next_internal_cognition_or_repeat_effect) ... ok
+
+======================================================================
+FAIL: test_saturated_internal_state_continues_in_new_real_runtime_process (test_pre_p19_autonomy_runtime.AutonomyProcessTests.test_saturated_internal_state_continues_in_new_real_runtime_process)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p19_autonomy_runtime.py", line 126, in test_saturated_internal_state_continues_in_new_real_runtime_process
+    self.until(lambda:f.state.revision>before,process=child)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p18_runtime_process.py", line 107, in until
+    self.fail('bounded test controller timed out')
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: bounded test controller timed out
+
+======================================================================
+FAIL: test_stable_need_survives_resource_wait_and_resume_without_chat (test_pre_p19_autonomy_runtime.AutonomyRuntimeTests.test_stable_need_survives_resource_wait_and_resume_without_chat)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p19_autonomy_runtime.py", line 28, in test_stable_need_survives_resource_wait_and_resume_without_chat
+    self.assertEqual(f.provider.calls,1);before=f.state.revision
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 1
+
+----------------------------------------------------------------------
+Ran 8 tests in 37.055s
+
+FAILED (failures=2)

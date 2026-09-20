@@ -1,0 +1,52 @@
+[
+  {
+    "original": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p19-autonomy-boundary-review-20260919\\repair-work-order.md",
+    "copy": "docs/project_memory/pre_p19_autonomy_evidence/independent/repair-work-order.md",
+    "sha256": "bff947f71990607adc4371ae7a657e6687951eb9723c161998b1795f6690a6d4"
+  },
+  {
+    "original": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p19-autonomy-boundary-review-20260919\\review-report.md",
+    "copy": "docs/project_memory/pre_p19_autonomy_evidence/independent/review-report.md",
+    "sha256": "f9c555c26642ce3c4ac97207ab2759b84f261aab4fcebb5772334f7e9ea7e8d3"
+  },
+  {
+    "original": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p19-autonomy-boundary-review-20260919\\probe_boundaries.py",
+    "copy": "docs/project_memory/pre_p19_autonomy_evidence/independent/probe_boundaries.py",
+    "sha256": "551bae17c5accdb12c605c8e5eadccee9a5b85e7871baebf4c3c70ac3ce5dbff"
+  },
+  {
+    "original": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p19-autonomy-boundary-review-20260919\\probe-results.json",
+    "copy": "docs/project_memory/pre_p19_autonomy_evidence/independent/probe-results.json",
+    "sha256": "805f736d681c812dae7976e04b399514b41c035e9d8eff77b890477630727468"
+  },
+  {
+    "original": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p19-autonomy-boundary-review-20260919\\probe-results-02.json",
+    "copy": "docs/project_memory/pre_p19_autonomy_evidence/independent/probe-results-02.json",
+    "sha256": "22d3148a10d7e9e498dd86c7b43ee05cd1487353d49f786d0ec09688301378ac"
+  },
+  {
+    "original": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p19-autonomy-boundary-review-20260919\\probe-results-03.json",
+    "copy": "docs/project_memory/pre_p19_autonomy_evidence/independent/probe-results-03.json",
+    "sha256": "e97c7ac48198fbb39bd4632a74ea343064bd67552c0eb472de9a90567e1f8fb7"
+  },
+  {
+    "original": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p19-autonomy-boundary-review-20260919\\probe-results-04.json",
+    "copy": "docs/project_memory/pre_p19_autonomy_evidence/independent/probe-results-04.json",
+    "sha256": "3ff5c40a14b5e00e5f0c919297903bbf57a3f2fbe3f31f2d4367279fdc4e4e24"
+  },
+  {
+    "original": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p19-autonomy-boundary-review-20260919\\probe-results-05.json",
+    "copy": "docs/project_memory/pre_p19_autonomy_evidence/independent/probe-results-05.json",
+    "sha256": "2e81d3bab1891f0423c71394ef996c1eefefad1818b6ee6ec4ca4fd20c78954c"
+  },
+  {
+    "original": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p19-autonomy-boundary-review-20260919\\engine-main-plan.json",
+    "copy": "docs/project_memory/pre_p19_autonomy_evidence/independent/engine-main-plan.json",
+    "sha256": "c39418a947511da5fdfb48a70996eeaeef5ae24034a76b5a913145542304243b"
+  },
+  {
+    "original": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p19-autonomy-boundary-review-20260919\\engine-long-term-plan.json",
+    "copy": "docs/project_memory/pre_p19_autonomy_evidence/independent/engine-long-term-plan.json",
+    "sha256": "cba40c38c4eefc409bf1f66c2d52d74d783ff4588214cb22188d00629237f5ff"
+  }
+]

@@ -1,0 +1,7 @@
+warning: in the working copy of 'src/continuity_engine/services/action_evaluators.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/continuity_engine/services/continuity_core_service.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/continuity_engine/services/dynamic_mind_service.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/continuity_engine/services/execution_service.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/continuity_engine/services/runtime_cognition.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/continuity_engine/services/wake_perception_thinking_action_service.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tests/test_action.py', LF will be replaced by CRLF the next time Git touches it

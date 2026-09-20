@@ -1,0 +1,11 @@
+{
+  "at": "2026-09-20T14:38:00.2187584Z",
+  "method": "Win32_Process read-only post-run snapshot",
+  "fullRun": "full-final-01",
+  "fullExitCode": 0,
+  "matchingProcesses": [],
+  "matchingCount": 0,
+  "processTerminationPerformed": false,
+  "unrelatedProcessesTouched": false,
+  "note": "No process cleanup command was issued. Existing test controllers retain their own STOP/exit diagnostics in raw test outputs; unrelated or retained failure evidence was not deleted."
+}

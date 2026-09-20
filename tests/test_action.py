@@ -256,7 +256,7 @@ class ActionEngineTests(unittest.TestCase):
     def test_high_and_critical_risk_actions_are_not_automatically_approved(self) -> None:
         for target, expected_risk in (
             ("filesystem-tool", RiskLevel.HIGH),
-            ("critical-admin-tool", RiskLevel.CRITICAL),
+            ("critical-admin-tool", RiskLevel.HIGH),
         ):
             with self.subTest(target=target):
                 permission = f"tool:use:{target}"

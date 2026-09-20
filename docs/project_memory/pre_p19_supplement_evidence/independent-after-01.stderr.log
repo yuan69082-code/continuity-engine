@@ -1,0 +1,13 @@
+test_execution_adapter_denial_control_keeps_internal_state (test_independent_boundaries.IndependentBoundaries.test_execution_adapter_denial_control_keeps_internal_state) ... ok
+test_expression_confirmation_refusal_does_not_discard_formed_internal_state (test_independent_boundaries.IndependentBoundaries.test_expression_confirmation_refusal_does_not_discard_formed_internal_state) ... ok
+test_expression_routed_effect_cannot_commit_a_premature_effect_claim (test_independent_boundaries.IndependentBoundaries.test_expression_routed_effect_cannot_commit_a_premature_effect_claim) ... ok
+test_expression_world_boundary_refusal_does_not_discard_formed_internal_state (test_independent_boundaries.IndependentBoundaries.test_expression_world_boundary_refusal_does_not_discard_formed_internal_state) ... ok
+test_fulfilled_desires_do_not_permanently_block_new_endogenous_needs (test_independent_boundaries.IndependentBoundaries.test_fulfilled_desires_do_not_permanently_block_new_endogenous_needs) ... ok
+test_rest_interval_remains_bounded_and_does_not_become_a_stop (test_independent_boundaries.IndependentBoundaries.test_rest_interval_remains_bounded_and_does_not_become_a_stop) ... ok
+test_same_native_path_with_authorized_expression_commits_once (test_independent_boundaries.IndependentBoundaries.test_same_native_path_with_authorized_expression_commits_once) ... ok
+test_unfinished_desires_control_requests_new_cognition (test_independent_boundaries.IndependentBoundaries.test_unfinished_desires_control_requests_new_cognition) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 6.368s
+
+OK

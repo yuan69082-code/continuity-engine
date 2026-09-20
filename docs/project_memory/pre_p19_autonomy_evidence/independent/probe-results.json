@@ -1,0 +1,12 @@
+{
+  "scope": "bounded independent diagnostic probes, not full regression",
+  "head": "cb528d74884990915737b491ca6a9f2c35cc512a",
+  "errors": [
+    "Traceback (most recent call last):\n  File \"C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p19-autonomy-boundary-review-20260919\\probe_boundaries.py\", line 146, in main\n    results['pure'] = pure_probes()\n                      ~~~~~~~~~~~^^\n  File \"C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\p19-autonomy-boundary-review-20260919\\probe_boundaries.py\", line 102, in pure_probes\n    choice = CoreDecisionPolicy().choose(operation, context, thinking, action)\n  File \"C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\continuity_core_service.py\", line 57, in choose\n    return ActionChoice(\n        \"c1:\" + digest(operation.operation_id)[7:], self.producer_id,\n    ...<3 lines>...\n        steps, format_contract_datetime(at), format_contract_datetime(at + timedelta(minutes=10)),\n    )\n  File \"<string>\", line 15, in __init__\n  File \"C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\domain\\action_planning.py\", line 101, in __post_init__\n    raise CapabilityValidationError(\"missing or duplicate source fragments\")\ncontinuity_engine.domain.errors.CapabilityValidationError: missing or duplicate source fragments\n"
+  ],
+  "engine_unchanged": true,
+  "inventory": {
+    "tracked_count": 2872,
+    "untracked_count": 32
+  }
+}

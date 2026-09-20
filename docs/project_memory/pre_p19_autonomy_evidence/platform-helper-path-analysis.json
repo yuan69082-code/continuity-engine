@@ -1,0 +1,24 @@
+[
+  {
+    "label": "platform-before-01",
+    "error": "FileNotFoundError",
+    "errno": 2,
+    "winerror": "not present in original traceback",
+    "failedPathCharacterLengths": [
+      262
+    ],
+    "operation": "NamedTemporaryFile/open before target behavior",
+    "control": "same fixture with shorter prefix ap- in platform-after-02 passed; no storage implementation change"
+  },
+  {
+    "label": "platform-after-01",
+    "error": "FileNotFoundError",
+    "errno": 2,
+    "winerror": "not present in original traceback",
+    "failedPathCharacterLengths": [
+      262
+    ],
+    "operation": "NamedTemporaryFile/open before target behavior",
+    "control": "same fixture with shorter prefix ap- in platform-after-02 passed; no storage implementation change"
+  }
+]

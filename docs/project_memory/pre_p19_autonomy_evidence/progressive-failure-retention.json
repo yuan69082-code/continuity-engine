@@ -1,0 +1,20 @@
+{
+  "at": "2026-09-19T18:02:23.256896+00:00",
+  "readOnlyObservation": true,
+  "isolatedRoot": "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\pg-kcb3et00",
+  "retained": true,
+  "documents": [
+    {
+      "path": "s/s/s3af0678c/b/bdb5d4026/data/persistent-runtime/runtime.v1.json",
+      "sha256": "9a3dde66c86a0137cccf6113786ab0f3be893aeb3f12db54d8096990642ecece",
+      "desired": "STOPPED",
+      "state": "STOP",
+      "activity": "STOPPED",
+      "owner": null,
+      "revision": 6,
+      "reason": "OWNER_STOP"
+    }
+  ],
+  "limitation": "Post-failure observation of persisted STOP and owner release, not a reconstruction of missing before-STOP diagnostics. Original failure logs preserved.",
+  "initialObservationHelper": "Initial search inspected envelope version instead of document.version and did not find the checkpoint. No runtime error inferred."
+}

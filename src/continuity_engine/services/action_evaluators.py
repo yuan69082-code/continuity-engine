@@ -52,9 +52,8 @@ class RiskEvaluator:
             )
         if any(item.revoked or item.expired or not item.within_scope for item in permission_checks):
             reasons.append("A permission problem increases uncertainty around the action.")
-        if "critical" in intent.target.lower():
-            level = RiskLevel.CRITICAL
-            reasons.append("The target is explicitly marked critical.")
+        # A display name, subject id or path is not trusted asset metadata.
+        # Retain the operation minimum and any stricter explicit declaration.
         return RiskAssessment(
             risk_level=level,
             reasons=reasons,

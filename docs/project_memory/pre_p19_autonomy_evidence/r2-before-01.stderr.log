@@ -1,0 +1,87 @@
+test_explicit_high_and_critical_cannot_be_downgraded_by_rename (test_pre_p19_autonomy_risk.AutonomyRiskTests.test_explicit_high_and_critical_cannot_be_downgraded_by_rename) ... FAIL
+test_internal_rename_does_not_change_low_risk_or_approval (test_pre_p19_autonomy_risk.AutonomyRiskTests.test_internal_rename_does_not_change_low_risk_or_approval) ... 
+  test_internal_rename_does_not_change_low_risk_or_approval (test_pre_p19_autonomy_risk.AutonomyRiskTests.test_internal_rename_does_not_change_low_risk_or_approval) (name='subject:critical') ... FAIL
+  test_internal_rename_does_not_change_low_risk_or_approval (test_pre_p19_autonomy_risk.AutonomyRiskTests.test_internal_rename_does_not_change_low_risk_or_approval) (name='subject:noncritical') ... FAIL
+  test_internal_rename_does_not_change_low_risk_or_approval (test_pre_p19_autonomy_risk.AutonomyRiskTests.test_internal_rename_does_not_change_low_risk_or_approval) (name='C:/noncritical/test') ... FAIL
+test_tool_names_cannot_lower_or_raise_trusted_type_minimum (test_pre_p19_autonomy_risk.AutonomyRiskTests.test_tool_names_cannot_lower_or_raise_trusted_type_minimum) ... 
+  test_tool_names_cannot_lower_or_raise_trusted_type_minimum (test_pre_p19_autonomy_risk.AutonomyRiskTests.test_tool_names_cannot_lower_or_raise_trusted_type_minimum) (name='critical-read', confirmed=False) ... FAIL
+  test_tool_names_cannot_lower_or_raise_trusted_type_minimum (test_pre_p19_autonomy_risk.AutonomyRiskTests.test_tool_names_cannot_lower_or_raise_trusted_type_minimum) (name='critical-read', confirmed=True) ... FAIL
+  test_tool_names_cannot_lower_or_raise_trusted_type_minimum (test_pre_p19_autonomy_risk.AutonomyRiskTests.test_tool_names_cannot_lower_or_raise_trusted_type_minimum) (name='noncritical-write', confirmed=False) ... FAIL
+  test_tool_names_cannot_lower_or_raise_trusted_type_minimum (test_pre_p19_autonomy_risk.AutonomyRiskTests.test_tool_names_cannot_lower_or_raise_trusted_type_minimum) (name='noncritical-write', confirmed=True) ... FAIL
+
+======================================================================
+FAIL: test_explicit_high_and_critical_cannot_be_downgraded_by_rename (test_pre_p19_autonomy_risk.AutonomyRiskTests.test_explicit_high_and_critical_cannot_be_downgraded_by_rename)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p19_autonomy_risk.py", line 41, in test_explicit_high_and_critical_cannot_be_downgraded_by_rename
+    self.assertEqual(r.evaluated_risks.risk_level,risk)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: <RiskLevel.CRITICAL: 'CRITICAL'> != <RiskLevel.HIGH: 'HIGH'>
+
+======================================================================
+FAIL: test_internal_rename_does_not_change_low_risk_or_approval (test_pre_p19_autonomy_risk.AutonomyRiskTests.test_internal_rename_does_not_change_low_risk_or_approval) (name='subject:critical')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p19_autonomy_risk.py", line 25, in test_internal_rename_does_not_change_low_risk_or_approval
+    self.assertEqual(r.evaluated_risks.risk_level,RiskLevel.LOW)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: <RiskLevel.CRITICAL: 'CRITICAL'> != <RiskLevel.LOW: 'LOW'>
+
+======================================================================
+FAIL: test_internal_rename_does_not_change_low_risk_or_approval (test_pre_p19_autonomy_risk.AutonomyRiskTests.test_internal_rename_does_not_change_low_risk_or_approval) (name='subject:noncritical')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p19_autonomy_risk.py", line 25, in test_internal_rename_does_not_change_low_risk_or_approval
+    self.assertEqual(r.evaluated_risks.risk_level,RiskLevel.LOW)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: <RiskLevel.CRITICAL: 'CRITICAL'> != <RiskLevel.LOW: 'LOW'>
+
+======================================================================
+FAIL: test_internal_rename_does_not_change_low_risk_or_approval (test_pre_p19_autonomy_risk.AutonomyRiskTests.test_internal_rename_does_not_change_low_risk_or_approval) (name='C:/noncritical/test')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p19_autonomy_risk.py", line 25, in test_internal_rename_does_not_change_low_risk_or_approval
+    self.assertEqual(r.evaluated_risks.risk_level,RiskLevel.LOW)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: <RiskLevel.CRITICAL: 'CRITICAL'> != <RiskLevel.LOW: 'LOW'>
+
+======================================================================
+FAIL: test_tool_names_cannot_lower_or_raise_trusted_type_minimum (test_pre_p19_autonomy_risk.AutonomyRiskTests.test_tool_names_cannot_lower_or_raise_trusted_type_minimum) (name='critical-read', confirmed=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p19_autonomy_risk.py", line 33, in test_tool_names_cannot_lower_or_raise_trusted_type_minimum
+    self.assertEqual(r.evaluated_risks.risk_level,RiskLevel.HIGH)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: <RiskLevel.CRITICAL: 'CRITICAL'> != <RiskLevel.HIGH: 'HIGH'>
+
+======================================================================
+FAIL: test_tool_names_cannot_lower_or_raise_trusted_type_minimum (test_pre_p19_autonomy_risk.AutonomyRiskTests.test_tool_names_cannot_lower_or_raise_trusted_type_minimum) (name='critical-read', confirmed=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p19_autonomy_risk.py", line 33, in test_tool_names_cannot_lower_or_raise_trusted_type_minimum
+    self.assertEqual(r.evaluated_risks.risk_level,RiskLevel.HIGH)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: <RiskLevel.CRITICAL: 'CRITICAL'> != <RiskLevel.HIGH: 'HIGH'>
+
+======================================================================
+FAIL: test_tool_names_cannot_lower_or_raise_trusted_type_minimum (test_pre_p19_autonomy_risk.AutonomyRiskTests.test_tool_names_cannot_lower_or_raise_trusted_type_minimum) (name='noncritical-write', confirmed=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p19_autonomy_risk.py", line 33, in test_tool_names_cannot_lower_or_raise_trusted_type_minimum
+    self.assertEqual(r.evaluated_risks.risk_level,RiskLevel.HIGH)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: <RiskLevel.CRITICAL: 'CRITICAL'> != <RiskLevel.HIGH: 'HIGH'>
+
+======================================================================
+FAIL: test_tool_names_cannot_lower_or_raise_trusted_type_minimum (test_pre_p19_autonomy_risk.AutonomyRiskTests.test_tool_names_cannot_lower_or_raise_trusted_type_minimum) (name='noncritical-write', confirmed=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p19_autonomy_risk.py", line 33, in test_tool_names_cannot_lower_or_raise_trusted_type_minimum
+    self.assertEqual(r.evaluated_risks.risk_level,RiskLevel.HIGH)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: <RiskLevel.CRITICAL: 'CRITICAL'> != <RiskLevel.HIGH: 'HIGH'>
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.006s
+
+FAILED (failures=8)

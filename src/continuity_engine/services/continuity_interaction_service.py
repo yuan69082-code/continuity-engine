@@ -1000,11 +1000,18 @@ class ContinuityInteractionService:
             self._record("action_reused")
             action = progress.action
         self._fault("after_action_completed", operation)
+        independent_internal=(perception.continuity_context is not None
+                              and perception.continuity_context.mind is not None)
         if perception.continuity_context is not None:
             if self._continuity_core is None:
                 raise CapabilityValidationError("C1_PENDING_FEATURE_DISABLED")
-            self._continuity_core.after_action(operation, thinking, action)
-            self._fault("after_c1_action_completed", operation)
+            if independent_internal:
+                # Form the original routed choice (including exact consent)
+                # before presentation assessment, without dispatching it.
+                self._continuity_core.state_choice(operation,thinking,action)
+            else:
+                self._continuity_core.after_action(operation,thinking,action)
+                self._fault("after_c1_action_completed", operation)
         expression = None
         if perception.continuity_context is not None and perception.continuity_context.expression_enabled:
             policy = self._continuity_core.expression_policy
@@ -1014,7 +1021,10 @@ class ContinuityInteractionService:
             response_content = expression.content
         else:
             response_content = self._reply_composer.compose(thinking, action)
-        approved = ApprovedStateAction.from_execution(action)
+        if independent_internal:
+            self._continuity_core.after_action(operation, thinking, action, expression=expression)
+            self._fault("after_c1_action_completed", operation)
+        approved = self._state_authorization(action, operation.domain_progress.perception, operation, thinking)
         checkpoint = IntegrationDomainCheckpoint(
             response_id=progress.response_id,
             response_content=response_content,
@@ -1437,7 +1447,8 @@ class ContinuityInteractionService:
             if session.result != progress.action.context.thinking_result:
                 raise CapabilityValidationError("C1_ACTION_THINKING_RESULT_MISMATCH")
             if operation.domain is not None and (
-                ApprovedStateAction.from_execution(progress.action) != operation.domain.approved_state_action
+                self._state_authorization(progress.action, perception, operation,
+                    ThinkingExecutionResult(perception,session)) != operation.domain.approved_state_action
             ):
                 raise CapabilityValidationError("C1_DOMAIN_ACTION_AUTHORIZATION_MISMATCH")
 
@@ -1474,6 +1485,14 @@ class ContinuityInteractionService:
             session=session,
             state_update=None,
         )
+
+    def _state_authorization(self, action, perception, operation, thinking):
+        if self._continuity_core is None:
+            return ApprovedStateAction.from_execution(action)
+        core=self._continuity_core
+        choice=(core.state_choice(operation,thinking,action)
+                if perception.continuity_context is not None and perception.continuity_context.mind is not None else None)
+        return core.state_authorization(action, perception.continuity_context, choice=choice)
 
     @staticmethod
     def _validate_evolution_binding(operation, approved, update, event_id):
@@ -1527,7 +1546,7 @@ class ContinuityInteractionService:
                 # Evolution below is an existing fact, not another execution.
                 self._validate_core_before_thinking(progress.perception)
                 action = progress.action
-                if action is None or ApprovedStateAction.from_execution(action) != approved:
+                if action is None or self._state_authorization(action, operation.domain_progress.perception, operation, thinking) != approved:
                     raise CapabilityValidationError("C1_STATE_ACTION_BINDING_INVALID")
                 intent = replace(action.decision.selected_action, created_at=self._clock())
                 if any(p not in self._available_permissions for p in intent.required_permissions):

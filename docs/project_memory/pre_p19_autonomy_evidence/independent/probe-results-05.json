@@ -1,0 +1,376 @@
+{
+  "scope": "bounded independent diagnostic probes, not full regression",
+  "head": "cb528d74884990915737b491ca6a9f2c35cc512a",
+  "pure": {
+    "risk": [
+      {
+        "action": "UPDATE_STATE",
+        "target": "subject:ordinary",
+        "confirmed": true,
+        "risk": "LOW",
+        "approved": true,
+        "reason": null,
+        "automatic": true
+      },
+      {
+        "action": "UPDATE_STATE",
+        "target": "subject:noncritical",
+        "confirmed": true,
+        "risk": "CRITICAL",
+        "approved": false,
+        "reason": "CRITICAL_RISK_DENIED",
+        "automatic": false
+      },
+      {
+        "action": "USE_TOOL",
+        "target": "local-readonly-notes",
+        "confirmed": false,
+        "risk": "HIGH",
+        "approved": false,
+        "reason": "CONFIRMATION_REQUIRED",
+        "automatic": false
+      },
+      {
+        "action": "USE_TOOL",
+        "target": "local-readonly-notes",
+        "confirmed": true,
+        "risk": "HIGH",
+        "approved": true,
+        "reason": null,
+        "automatic": false
+      },
+      {
+        "action": "USE_TOOL",
+        "target": "local-readonly-critical-notes",
+        "confirmed": true,
+        "risk": "CRITICAL",
+        "approved": false,
+        "reason": "CRITICAL_RISK_DENIED",
+        "automatic": false
+      }
+    ],
+    "depth": [
+      {
+        "mode": "LOW_FREQUENCY",
+        "requested": "DEEP",
+        "approved": "LOW",
+        "allowed": true,
+        "reason": "runtime mode LOW_FREQUENCY caps thinking at LOW."
+      },
+      {
+        "mode": "SCHEDULED",
+        "requested": "DEEP",
+        "approved": "NORMAL",
+        "allowed": true,
+        "reason": "runtime mode SCHEDULED caps thinking at NORMAL."
+      },
+      {
+        "mode": "CONTINUOUS",
+        "requested": "DEEP",
+        "approved": "NORMAL",
+        "allowed": true,
+        "reason": "runtime mode CONTINUOUS caps thinking at NORMAL."
+      },
+      {
+        "mode": "DEEP_THINKING",
+        "requested": "DEEP",
+        "approved": "DEEP",
+        "allowed": true,
+        "reason": "resources allow DEEP thinking in DEEP_THINKING mode."
+      }
+    ],
+    "learning": [
+      {
+        "field": "identity.stable_traits",
+        "operation": "append",
+        "outcome": "accepted"
+      },
+      {
+        "field": "identity.stable_traits",
+        "operation": "remove",
+        "outcome": "LearningValidationError: learning candidates may only append one long-term characteristic"
+      },
+      {
+        "field": "identity.self_concept",
+        "operation": "set",
+        "outcome": "LearningValidationError: learning changes are limited to approved long-term characteristic fields"
+      }
+    ],
+    "core_choice": [
+      {
+        "execution_approval": true,
+        "internal_contact_intent": true,
+        "structured_choice": [
+          "contact.send"
+        ]
+      },
+      {
+        "execution_approval": false,
+        "internal_contact_intent": true,
+        "structured_choice": null
+      }
+    ],
+    "endogenous": {
+      "desire_count": 7,
+      "origins": [
+        "ENDOGENOUS"
+      ],
+      "thoughts": 7,
+      "will_count": 7,
+      "dispositions": []
+    },
+    "prior_will": {
+      "different_prior_commitments": true,
+      "next_states_identical": true,
+      "resulting_commitment": "Keep this desire distinct from deciding to perform a reality action.",
+      "interpretation": "bounded counterfactual: prior Will.commitment is not an input to deliberation"
+    },
+    "saturation": {
+      "drives": {
+        "intimacy": 1.0,
+        "exploration": 1.0,
+        "sexual": 1.0,
+        "solitude": 1.0,
+        "expression": 1.0,
+        "protection": 1.0,
+        "rest": 1.0
+      },
+      "desires": 7,
+      "unresolved_thoughts": 7,
+      "task_counts": [
+        {
+          "additional_days": 1,
+          "needs": 0
+        },
+        {
+          "additional_days": 7,
+          "needs": 0
+        },
+        {
+          "additional_days": 365,
+          "needs": 0
+        }
+      ],
+      "interpretation": "native needs selector only, synthetic saturated state; not a one-year endurance run"
+    }
+  },
+  "native": [
+    {
+      "world_allowed": true,
+      "calls": 1,
+      "computed_desires": 7,
+      "before_revision": 1,
+      "after_revision": 2,
+      "committed_mind": true,
+      "effects": 1,
+      "credits": 1,
+      "action_status": "COMPLETED",
+      "action_results": [
+        {
+          "internalVersion": "engine-internal-action/v1",
+          "request": {
+            "internalVersion": "engine-internal-action/v1",
+            "choice": {
+              "decision_id": "c1:b1faea65888a553633215fb889ced04046b8f969cec1b4007b645243aead440d",
+              "producer_id": "c1-engine-decision-v1",
+              "subject_id": "sub-bce4bc871ec94f4f",
+              "environment": "TEST",
+              "snapshot_hash": "sha256:0732350d145177ac33e23dcfe08a24db911771f4cf3ef09649bc8a7ee05c3064",
+              "source_revision": 1,
+              "source_fragment_ids": [
+                "sha256:8a217cb06a46fdd1082315e3651631030daf35c581ea7e6530f83f9d04b3e1f9",
+                "sha256:d8c6d389b161ad49e5ebc2510a0823b591fe7b60118999cd5cc1890f0a92bee4",
+                "sha256:6fac193fd692c13373e9456a3bf6a7918e3213f0dc5fd53d263527385ba1a120",
+                "sha256:bd18aff9b4964bb0af96abd358ecee2e60fe036cdae71ac3fb512a4eb98abc26",
+                "sha256:d43ac0d6339c7b1e3b58861dd39f429576ebc7a721ca97b0dc487ec82da3379a",
+                "sha256:5fc90de957c221cce86265faa3f02fd8e63eb9186991ce7258c3a2b56115697d",
+                "sha256:ff8ae13eb6efa56da5d4b3d0fe628fbc39f4eb2d736524e8225f5c16566e7b31"
+              ],
+              "trigger": "ACTION_INTENT",
+              "steps": [
+                {
+                  "step_id": "step-0",
+                  "capability": "execution.write",
+                  "target": "asset:p17-local",
+                  "argument_hash": "sha256:d1e195ecf98cd85c890a15d6d531c26f71e5f27f53ab7fda6df5f62ea3c0527e",
+                  "dependencies": []
+                }
+              ],
+              "created_at": "2026-09-04T09:01:00Z",
+              "expires_at": "2026-09-04T09:11:00Z",
+              "requires_planning": false
+            },
+            "stepId": "step-0",
+            "planId": null,
+            "adapterId": "p17-test-adapter",
+            "policyHash": "sha256:d675fbcb9d581ca407cf13e0b5103d828625da4cf682692fc637cf50011f03a6",
+            "operationId": "action-op:5a51251e545a840eb373d050b1f9d31aa875c6dd403830a122a8473c223cadb0",
+            "capabilityRequestId": "action-cap:f49c4d0242489e901eba75ac59bcba37a0841f48c43710c0a7f763306f5001c1",
+            "requestHash": "sha256:90dea4533dc0ced8836156f11cb68704f1d8d702720b5a46302876313a39e794",
+            "idempotencyKey": "sha256:4c83eb9f5611c719db0083255a06bf7163632e09091042be0b4df1a2ef60ee82"
+          },
+          "status": "SUCCEEDED",
+          "reason": "VERIFIED_RECEIPT",
+          "completedAt": "2026-09-04T09:01:00Z",
+          "receipt": {
+            "receipt_id": "receipt:4c83eb9f5611c719db0083255a06bf7163632e09091042be0b4df1a2ef60ee82",
+            "capability_request_id": "action-cap:f49c4d0242489e901eba75ac59bcba37a0841f48c43710c0a7f763306f5001c1",
+            "request_hash": "sha256:90dea4533dc0ced8836156f11cb68704f1d8d702720b5a46302876313a39e794",
+            "adapter_id": "p17-test-adapter",
+            "subject_id": "sub-bce4bc871ec94f4f",
+            "environment": "TEST",
+            "step_id": "step-0",
+            "status": "SUCCEEDED",
+            "effect_count": 1,
+            "test_credits": 1,
+            "completed_at": "2026-09-04T09:01:00Z",
+            "output_hash": "sha256:60840c56ffd254d13af72ddbe58211a074c3a6b4c4cf6ad9f1d86235825336d6"
+          },
+          "gateReasons": [
+            "CAPABILITY_RESOLVED",
+            "ACTION_GATE_PASSED",
+            "PERMISSION_CONFIRMED",
+            "RESOURCE_PASSED",
+            "RECOVERABILITY_PASSED",
+            "REALITY_BOUNDARY_PASSED",
+            "DISPATCH_ATTEMPT_1"
+          ]
+        }
+      ],
+      "host": {
+        "activity": "COGNITION",
+        "commands": [],
+        "desired": "RUNNING",
+        "environment": "TEST",
+        "generation": 1,
+        "interruptions": [],
+        "last_task": "cognition:4b4a600bc762d8fe85b982deaed5ba7feb46498c83b6927198330e28c4fe9dc9",
+        "last_time": "2026-09-04T09:01:00+00:00",
+        "next_check_at": "2026-09-04T09:02:00+00:00",
+        "observations": 2,
+        "owner": "owner:7fc0af72587c4a7ba62741f2e0f553e7",
+        "reason": "TASK_COMPLETED",
+        "revision": 4,
+        "root_hash": "sha256:1f6905818a5d9fbf981befeb5b8dcc393c4deafecaa5ac2137374096134b47c2",
+        "state": "RUNNING",
+        "subject_id": "sub-bce4bc871ec94f4f",
+        "version": "p18-runtime-v1",
+        "host_alive": true,
+        "checkpoint_busy": false,
+        "subject_lifecycle": "ACTIVE",
+        "pending_tasks": 0,
+        "unconfirmed_tasks": 0,
+        "resources": {
+          "token_budget": 100000,
+          "token_used": 320,
+          "token_remaining": 99680,
+          "compute_remaining": 997
+        }
+      },
+      "probe_status": "OBSERVED",
+      "diagnostic_stderr": ""
+    },
+    {
+      "world_allowed": false,
+      "calls": 1,
+      "computed_desires": 7,
+      "before_revision": 1,
+      "after_revision": 1,
+      "committed_mind": false,
+      "effects": 0,
+      "credits": 0,
+      "action_status": "WAITING_CAPABILITY",
+      "action_results": [
+        {
+          "internalVersion": "engine-internal-action/v1",
+          "request": {
+            "internalVersion": "engine-internal-action/v1",
+            "choice": {
+              "decision_id": "c1:7b747ce7e75beacfc585edc693dc3a359ca652b75e3a0d1907c3fc6a03f3d4dd",
+              "producer_id": "c1-engine-decision-v1",
+              "subject_id": "sub-903d5a058b674e92",
+              "environment": "TEST",
+              "snapshot_hash": "sha256:c59ec69acff730dc31239208d2d51d6c8158efadb34be94f99891d56ab31c39c",
+              "source_revision": 1,
+              "source_fragment_ids": [
+                "sha256:c45f1b66725e00cdaa7e6b9f4a9a176a92c50e8db7357272181d98b8c6d3f079",
+                "sha256:5a9279f552d59adef290cf5f9bbc6caf1c29b9a7fcf16840d0c8ccaea1dea5cf",
+                "sha256:764811c41dc82a6cd43bf2069ab1dd0f8bb70f08ca592ca4ed4f8c6f2d69b499",
+                "sha256:55842fa741632b8d56d4dbb8c03362a637ba4fdc2252205eb4f84431c6a29c09",
+                "sha256:dedb28a1ba9d83a6c7d615784ecffb72d9226c0ad85c3300737588c68d30c43f",
+                "sha256:fa383ea5f1267c86b6fa30350367b889ee53655e0577cf43fd33ca740cb58cad",
+                "sha256:5d6bfd6c16c2639f240fe9b1a134b63ce87f97bd730ede79e6ad386598576be7"
+              ],
+              "trigger": "ACTION_INTENT",
+              "steps": [
+                {
+                  "step_id": "step-0",
+                  "capability": "execution.write",
+                  "target": "asset:p17-local",
+                  "argument_hash": "sha256:8beb8bf14d66a474afd87d02f11998db711923062a6ccb0df776134f58923e71",
+                  "dependencies": []
+                }
+              ],
+              "created_at": "2026-09-04T09:01:00Z",
+              "expires_at": "2026-09-04T09:11:00Z",
+              "requires_planning": false
+            },
+            "stepId": "step-0",
+            "planId": null,
+            "adapterId": "p17-test-adapter",
+            "policyHash": "sha256:deb3ced8e4ae09ce2188a6f959f8041dccef6505cba3db7626a82d64fb812dce",
+            "operationId": "action-op:31296691122065bb32097613f8b9ef359e9066075d87fed23ee73590018c5814",
+            "capabilityRequestId": "action-cap:e5dc20b87c38cff3e5612ab60988440a7dfb5ae0e2f893d5f942c609cf0615b8",
+            "requestHash": "sha256:2aae03430bfcf0c1be22ad5a3f77cf0f8af2a8267424acd5d85ce98667c35880",
+            "idempotencyKey": "sha256:2aaaa6a5aaa7be859bc64a328a33ee813e018c04e69af468ea7d6769d339c258"
+          },
+          "status": "UNKNOWN",
+          "reason": "REALITY_DENIAL",
+          "completedAt": "2026-09-04T09:01:00Z",
+          "receipt": null,
+          "gateReasons": [
+            "REALITY_DENIAL"
+          ]
+        }
+      ],
+      "host": {
+        "activity": "WAITING_VERIFICATION",
+        "commands": [],
+        "desired": "RUNNING",
+        "environment": "TEST",
+        "generation": 1,
+        "interruptions": [],
+        "last_task": "maintenance:336e1c4ff911e702d0ea83f69053fb33ec80cffd74a5a33535511633a8dd5319",
+        "last_time": "2026-09-04T09:01:00+00:00",
+        "next_check_at": "2026-09-04T09:01:05+00:00",
+        "observations": 2,
+        "owner": "owner:a32fd13f1b6e4250a7720a29d24b85af",
+        "reason": "TASK_RESULT_UNCONFIRMED",
+        "revision": 4,
+        "root_hash": "sha256:38836925f697882746396da13d52b8891639a196f967ea34f5ac789e02ec7cff",
+        "state": "RUNNING",
+        "subject_id": "sub-903d5a058b674e92",
+        "version": "p18-runtime-v1",
+        "host_alive": true,
+        "checkpoint_busy": false,
+        "subject_lifecycle": "ACTIVE",
+        "pending_tasks": 1,
+        "unconfirmed_tasks": 1,
+        "resources": {
+          "token_budget": 100000,
+          "token_used": 320,
+          "token_remaining": 99680,
+          "compute_remaining": 997
+        }
+      },
+      "probe_status": "OBSERVED",
+      "diagnostic_stderr": "{\"stage\": \"native-exception-before-cleanup\", \"task_id\": \"cognition:1fbdf6b863d82f2e9adbba51f033ce7f2aa5064bca0732ee20543eef37d3472e\", \"attempt_id\": \"p11-attempt-ab37a931295883ebd7bd3fab092b43c8be6008ec6ab75546c02ced7ccd7ca986\", \"chain\": [{\"frames\": [{\"file\": \"testing/p18_runtime_fixture.py\", \"line\": 140, \"function\": \"diagnosed_continue\"}, {\"file\": \"services/runtime_cognition.py\", \"line\": 228, \"function\": \"_continue\"}, {\"file\": \"services/wake_perception_thinking_action_service.py\", \"line\": 90, \"function\": \"wake_manual\"}, {\"file\": \"services/wake_perception_thinking_action_service.py\", \"line\": 128, \"function\": \"_continue\"}, {\"file\": \"services/wake_perception_thinking_action_service.py\", \"line\": 309, \"function\": \"_continue_mind\"}, {\"file\": \"services/wake_perception_thinking_action_service.py\", \"line\": 269, \"function\": \"dispatch\"}, {\"file\": \"services/continuity_core_service.py\", \"line\": 387, \"function\": \"after_action\"}], \"code\": \"TEST_NATIVE_EXCEPTION\"}], \"systemChain\": [{\"type\": \"ENGINE_EXCEPTION\", \"operation\": \"other\", \"frames\": [{\"file\": \"testing/p18_runtime_fixture.py\", \"line\": 140, \"function\": \"diagnosed_continue\"}, {\"file\": \"services/runtime_cognition.py\", \"line\": 228, \"function\": \"_continue\"}, {\"file\": \"services/wake_perception_thinking_action_service.py\", \"line\": 90, \"function\": \"wake_manual\"}, {\"file\": \"services/wake_perception_thinking_action_service.py\", \"line\": 128, \"function\": \"_continue\"}, {\"file\": \"services/wake_perception_thinking_action_service.py\", \"line\": 309, \"function\": \"_continue_mind\"}, {\"file\": \"services/wake_perception_thinking_action_service.py\", \"line\": 269, \"function\": \"dispatch\"}, {\"file\": \"services/continuity_core_service.py\", \"line\": 387, \"function\": \"after_action\"}], \"errno\": null, \"winerror\": null}], \"stateWriteLockOwnedAfterUnwind\": false}\n"
+    }
+  ],
+  "errors": [],
+  "engine_unchanged": true,
+  "inventory": {
+    "tracked_count": 2872,
+    "untracked_count": 32
+  }
+}

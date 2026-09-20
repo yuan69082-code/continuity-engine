@@ -177,7 +177,7 @@ class MindDynamics:
                 drives[desired['drive']] = 0.0
             desired['trajectory'] = (desired['trajectory'] + [{'at': now, 'phase': desired['phase'],
                                                                'reason': outcome['reason']}])[-8:]
-        will = self.deliberate(desires, conflicts, fatigue, episodes)
+        will = self.deliberate(desires, conflicts, fatigue, episodes, state.will, state.dispositions)
         thoughts = deepcopy(state.thoughts)
         for thought in thoughts:
             thought['conflict_ids'] = [c['id'] for c in conflicts]
@@ -226,11 +226,18 @@ class MindDynamics:
         return result
 
     @staticmethod
-    def deliberate(desires, conflicts, fatigue, episodes):
+    def deliberate(desires, conflicts, fatigue, episodes, previous=(), dispositions=()):
         result = []
         unresolved = [e for e in episodes if e['status'] != 'resolved']
         for desire in desires:
+            prior = next((w for w in previous if w['desire_id'] == desire['id']), None)
             supporting = ['felt need for ' + desire['drive'], desire['reason']]
+            if prior is not None:
+                supporting.append('Prior commitment: ' + prior['commitment'])
+                supporting.extend(r for r in prior['supporting_reasons']
+                                  if not r.startswith(('Prior commitment:', 'Current interpretation:')))
+            supporting.extend('Current interpretation: ' + d['kind'] + ' toward ' + d['object']
+                              for d in dispositions)
             supporting = list(dict.fromkeys(supporting))
             opposing = []
             if conflicts:
@@ -244,10 +251,16 @@ class MindDynamics:
             decision = 'DEFER' if terminal else 'QUESTION' if conflicts or unresolved else 'DEFER' if opposing else 'PURSUE'
             tendency = ('rest' if desire['drive'] == 'rest' else 'seek-understanding' if conflicts or unresolved
                         else 'wait' if opposing else desire['drive'])
+            commitment = (prior['commitment'] if prior is not None else
+                          'Attend to my need for ' + desire['drive'] + ' while distinguishing it from a reality action.')
+            if terminal:
+                commitment = 'End this pursuit: ' + desire['reason']
+            elif conflicts:
+                commitment = 'Reconsider my approach to ' + ', '.join(sorted({c['object'] for c in conflicts})) + '; retain both supporting and opposing understandings.'
             result.append(dict(desire_id=desire['id'], stance=stance,
-                supporting_reasons=supporting, opposing_reasons=opposing,
+                supporting_reasons=supporting[:32], opposing_reasons=opposing,
                 alternatives=['reconsider after new understanding', 'continue without resolving the conflict', 'defer'],
-                commitment='Keep this desire distinct from deciding to perform a reality action.',
+                commitment=commitment,
                 decision=decision, action_tendency=tendency))
         return result
 
@@ -260,7 +273,8 @@ class MindDynamics:
         narrowing = bounded((state.fatigue + state.arousal + state.somatic['tension'] + waiting_load) / 4)
         breadth = max(1, round(8 * (1 - narrowing)))
         return {'attention': {'breadth': breadth, 'narrowing': narrowing, 'themes': themes[:breadth]},
-                'interpretations': [e['interpretation'] for e in active[:breadth]],
+                'interpretations': ([e['interpretation'] for e in active[:breadth]] +
+                                    [w['commitment'] for w in state.will[:breadth]]),
                 'action_tendencies': list(dict.fromkeys(w['action_tendency'] for w in state.will)),
                 'decisions': list(dict.fromkeys(w['decision'] for w in state.will)),
                 'subjective_seconds': state.subjective_seconds,
@@ -328,6 +342,7 @@ class MindCognition:
                    'expectation_met': 'joy'}
         appraisals = []
         corroboration = {}
+        understandings = {}
         for fragment in composition.snapshot.fragments:
             raw = fragment.source_id == 'engine.timeline' and fragment.authority is ContextAuthority.RAW_SOURCE
             memory = fragment.source_id == 'engine.memory' and fragment.authority is ContextAuthority.CONFIRMED_MEMORY
@@ -360,6 +375,12 @@ class MindCognition:
             # The root identity, not a changed rendering/hash, defines an
             # independent experience. Exact versions stay bound in C1 input.
             source_key = root
+            # Repeated independent demonstrations of the same expectation can
+            # support a revisable attitude, not a factual verdict or LOVE/HATE.
+            pole = ('TRUST' if fact['observation'] == 'expectation_met' else
+                    'DOUBT' if fact['observation'] in {'boundary_crossed', 'threat', 'blocked_agency'} else None)
+            if pole is not None:
+                understandings.setdefault((fact['object'], pole, fact['expectation']), set()).add(root)
             if fact['observation'] == 'expectation_met':
                 group = corroboration.setdefault((fact['object'], fact['expectation']), {})
                 previous = group.get(source_key, (fragment.confidence, fragment.occurred_at))
@@ -383,6 +404,28 @@ class MindCognition:
             by_root.setdefault(appraisal['source_key'], appraisal)
         appraisals = sorted(by_root.values(), key=lambda a: (utc(a['occurred_at']), a['source_key']))
         frame = self.dynamics.advance(base, at=at, appraisals=appraisals)
+        # Current roots can support a new interpretation. Missing material is
+        # not a refutation of a previously formed subjective understanding.
+        marker = 'engine-understanding:'
+        dispositions = deepcopy(base.dispositions)
+        derived = {}
+        for (obj, pole, expectation), roots in sorted(understandings.items()):
+            if len(roots) < 2:
+                continue
+            item = derived.setdefault((obj, pole), {'object': obj, 'kind': pole, 'basis': []})
+            item['basis'] = sorted(set(item['basis']) | roots | {marker + expectation})
+        for key, value in sorted(derived.items()):
+            previous = next((d for d in dispositions if (d['object'],d['kind'])==key),None)
+            if previous is None:
+                dispositions.append(value)
+            elif any(b.startswith(marker) for b in previous['basis']):
+                dispositions[dispositions.index(previous)] = value
+        conflicts = self.dynamics._conflicts(dispositions, frame.state.episodes)
+        evolved = replace(frame.state, dispositions=dispositions, conflicts=conflicts,
+            will=self.dynamics.deliberate(frame.state.desires, conflicts, frame.state.fatigue,
+                                         frame.state.episodes, base.will, dispositions))
+        frame = MindEvolution(evolved, self.dynamics.influence(evolved), frame.changes +
+                              (('CURRENT_EXPERIENCE_UNDERSTANDING',) if dispositions != base.dispositions else ()))
         # Understanding compares the still-present negative interpretation with
         # current, independently identified experience. An apology is excluded.
         # This is a cognitive candidate, not a truth claim or a state write.
@@ -430,6 +473,23 @@ class MindCognition:
                     'strategy': 'reappraise', 'desire_id': target['id'],
                     'reason': 'Recurring unresolved concern competes with attention; attempt to contain its demand.'})
                 frame = MindEvolution(regulated.state, regulated.influence, frame.changes + regulated.changes)
+        # Keep historical attitudes, but do not silently reuse inaccessible or
+        # withdrawn roots as current support. Deliberation explicitly separates
+        # prior understanding from what this input can substantiate now.
+        unsupported = [d for d in dispositions if any(b.startswith(marker) for b in d['basis'])
+                       and (d['object'],d['kind']) not in derived]
+        supported = [d for d in dispositions if d not in unsupported]
+        will = self.dynamics.deliberate(frame.state.desires, frame.state.conflicts, frame.state.fatigue,
+                                       frame.state.episodes, base.will, supported)
+        if unsupported:
+            for w in will:
+                w['opposing_reasons'].append('Prior understanding lacks currently consumable support: ' +
+                    ', '.join(sorted({d['object']+':'+d['kind'] for d in unsupported})) +
+                    '; absence is not evidence of falsehood.')
+                if w['stance']!='abandon' and w['action_tendency']!='rest':
+                    w.update(stance='hold',decision='QUESTION',action_tendency='seek-understanding')
+        evolved = replace(frame.state,will=will)
+        frame = MindEvolution(evolved,self.dynamics.influence(evolved),frame.changes)
         return {**captured, 'proposal': frame.state.to_dict(), 'influence': frame.influence,
                 'appraisal_sources': [a['source_key'] for a in appraisals], 'change_reasons': list(frame.changes)}
 

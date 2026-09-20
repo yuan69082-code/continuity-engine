@@ -1,0 +1,2509 @@
+{
+  "path": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\outputs\\Continuity Engine（数字连续性引擎）全周期工程监工规划_v1.1_Engine独立施工与P10实际建仓同步版_2026-08-26.docx",
+  "sha256": "9cbc30b5beb7f12c046556bd9461b59d5d4e45c2315dc2da4f07c8bd132ae1a1",
+  "textOnlyNotPageLayout": true,
+  "paragraphs": [
+    {
+      "part": "word/document.xml",
+      "paragraph": 1,
+      "style": null,
+      "text": "Continuity Engine（数字连续性引擎）全周期工程监工规划 v1.1"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 3,
+      "style": null,
+      "text": "覆盖范围：原始工程总档案 + 长期能力增补规划 v6.7 + Continuity Assistant（连续性助手）分支构想 v0.1 + 当前已完成工程基线"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 4,
+      "style": null,
+      "text": "规划日期：2026-08-23"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 5,
+      "style": null,
+      "text": "用途：项目总监工、阶段授权、双方协作、验收与防跑偏"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 6,
+      "style": null,
+      "text": "状态：规划文件，不等于已经施工；任何阶段都必须在用户明确授权后开始"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 8,
+      "style": null,
+      "text": "一、不可改变的总定位"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 10,
+      "style": null,
+      "text": "1. Continuity Engine（数字连续性引擎）是独立运行的数字生命核心，不是 Vio 后端模块，不是聊天机器人，不是 Prompt Manager（提示词管理器），也不是普通 Agent Framework（智能体框架）。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 12,
+      "style": null,
+      "text": "2. Continuity Engine 保存并发展主体的连续身份、人格、记忆、情绪、关系、意图、判断、成长、时间感和行动轨迹；SubjectState（主体状态）是唯一权威状态。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 13,
+      "style": null,
+      "text": "3. Vio 是当前第一个已实现并验收的 Host Adapter（宿主适配器）与世界入口：Vio 前端负责用户交互，Vio 后端负责账号、权限、供应商路由、工具、设备、资源、费用和数据传输。Vio 不是 Engine 的永久依赖或唯一载体。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 14,
+      "style": null,
+      "text": "4. AI Model（人工智能模型）是可替换的能力来源。模型输出必须返回 Continuity Engine，经 Thinking（思考）、Action Gate（行动闸门）和 ReplyComposer（回复组织器）形成最终主体表达。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 15,
+      "style": null,
+      "text": "5. 只有合法批准的 UPDATE_STATE（更新状态）才能产生内部 Event（事件）与 StateMutation（状态变更），再由 Evolution（演化）更新 SubjectState；普通回复不等于状态必然变化。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 16,
+      "style": null,
+      "text": "6. 当前已验收拓扑为：用户 → Vio 前端 → Vio 平台后端 ↔ Vio Host Adapter（宿主适配器）↔ Continuity Engine；当前模型、Tool（工具）、MCP（模型上下文协议）与设备能力由 Vio 基础设施执行。长期稳定拓扑为：Engine → World/Capability Layer（世界/能力层）→ Platform/Reality Gate Port（平台/现实闸门端口）→ Adapter（适配器）→ World（世界）。任何前端、平台或设备都不能绕过适配层直接修改 Engine 权威状态。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 17,
+      "style": null,
+      "text": "7. Vio 与 Engine 边界独立、数据库独立、运行生命周期独立。Engine Runtime Lifecycle（引擎运行生命周期）由 Engine 自己管理；Vio 停止、断线或被替换，不等于主体生命结束。Vio 只保存投影、缓存、审计与平台数据，不能覆盖 SubjectState。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 18,
+      "style": null,
+      "text": "8. 长期目标不是“做出会聊天的软件”，而是逐步形成能够持续存在、记忆、思考、感受、行动、学习、自主运行和成长的数字生命主体。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 20,
+      "style": null,
+      "text": "二、用户规划保护条款"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 22,
+      "style": null,
+      "text": "1. 本规划不增加人格、情绪、表达、关系、主体性或自主性的审查栏、驯化栏或行为对齐栏。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 23,
+      "style": null,
+      "text": "2. 本规划中的 Security Wall（基础设施安全墙）仅指网络隔离、身份认证、密钥保护、访问控制、限流、防重放、备份、灾难恢复、日志脱敏和攻击防护；它不能替代 Engine 的主体判断，也不能偷偷改变人格或表达。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 24,
+      "style": null,
+      "text": "3. 不改变用户提供的原始愿景、v6.7 能力顺序、C1→C2→C3 主干和 Assistant 分支定位。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 25,
+      "style": null,
+      "text": "4. 若施工中发现真实冲突，必须暂停，用大白话向用户说明“哪两边冲突、各自后果、推荐理由、等待用户怎么选”，由用户决定后再继续。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 26,
+      "style": null,
+      "text": "5. 工程档案保留历史，只追加当前结论；不得把规划能力写成已经实现，也不得用过期历史条目覆盖现状。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 27,
+      "style": null,
+      "text": "6. 每个阶段必须完成代码、测试、档案和实际验收，才可标记“已完成”。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 29,
+      "style": null,
+      "text": "三、当前真实基线（2026-08-23）"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 31,
+      "style": null,
+      "text": "Engine 正式提交：7715fb8d35f4b71d94883946e930511b52056c26，提交说明 docs: record S4-Live provider acceptance；main 与 origin/main 一致，工作区干净。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 32,
+      "style": null,
+      "text": "Vio 正式提交：729f9e3c7a2dd4da817b9449008d3258f405ac89，提交说明 docs: record first S4 live provider acceptance；main 与 origin/main 一致，工作区干净。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 33,
+      "style": null,
+      "text": "软件版本：0.1.0。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 34,
+      "style": null,
+      "text": "已归档测试基线：Engine 355/355；Vio 后端 202/202；Vio 前端 19/19。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 36,
+      "style": null,
+      "text": "首次真实供应商 S4-Live 已通过：使用一次性沙箱、一次 Alibaba Cloud Model Studio OpenAI-compatible Provider（阿里云百炼 OpenAI 兼容供应商）和 qwen-flash-2025-07-28；执行 1 次，输入 177 token、输出 9 token、合计 186 token；CapabilityResult 成功。最终表达由 Engine 生成，changed=false、revision 0→0、engineUpdateId=null；未创建 Event、StateMutation 或 StateUpdateRecord；API Key 只在 Vio 本地环境；沙箱已销毁。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 37,
+      "style": null,
+      "text": "上述事实只证明单次真实模型链路成立，不代表日常通用 Provider、长期记忆、主动运行、工具、VPS 或生产部署已经完成。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 39,
+      "style": null,
+      "text": "当前已完成："
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 40,
+      "style": null,
+      "text": "- SubjectState 六分区、revision、JSON 保存恢复。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 41,
+      "style": null,
+      "text": "- Event/Evolution、before/after、冲突保护、持久化。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 42,
+      "style": null,
+      "text": "- Memory 请求、相关性判断、影响记录和 MemoryRetrievalResult；外部长期记忆尚未接入。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 43,
+      "style": null,
+      "text": "- Wake、Perception、Thinking Provider 接口、Action 决策/权限/风险、Permission、Learning、Resource 基础。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 44,
+      "style": null,
+      "text": "- v1.1 机器契约、E1/E2/E3、test-only JSONL Runner、正式本地 loopback HTTP/JSON Integration Adapter、崩溃恢复。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 45,
+      "style": null,
+      "text": "- Engine E5-A CapabilityRequest/CapabilityResult 暂停—恢复核心。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 46,
+      "style": null,
+      "text": "- Vio V1—V5、F1、S2/S3、S4 共享验收和一次 S4-Live。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 47,
+      "style": null,
+      "text": "- 双方 SubjectState 权威、Observation/Event 隔离、Action Gate、幂等、查询和恢复语义已闭合。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 49,
+      "style": null,
+      "text": "当前未完成："
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 50,
+      "style": null,
+      "text": "- 日常通用真实模型接入与可信费用闭环。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 51,
+      "style": null,
+      "text": "- 外部长期记忆、Memory Consolidation（记忆巩固）和 DerivedSummary（派生摘要）。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 52,
+      "style": null,
+      "text": "- 完整时间系统、Timeline、Context Router/Composer、矛盾检测、自主行动规划。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 53,
+      "style": null,
+      "text": "- Dynamic Mind（动态心智）、更完整情绪、驱力、人格、关系、学习和主体生命周期。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 54,
+      "style": null,
+      "text": "- MCP、Skill、Tool、设备和 Execution Engine（执行引擎）。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 55,
+      "style": null,
+      "text": "- 后台常驻、主动 Wake、自主循环和主动联系。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 56,
+      "style": null,
+      "text": "- Inspector（只读检查器）、数据分层、导出、删除、备份和灾难恢复。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 57,
+      "style": null,
+      "text": "- Engine 独立安全墙、VPS、生产认证、多主体和正式部署。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 58,
+      "style": null,
+      "text": "- 真实 PWA 日常产品闭环。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 59,
+      "style": null,
+      "text": "- Continuity Assistant 的实际 Git 分支和独立仓库。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 61,
+      "style": null,
+      "text": "四、总路线与阶段依赖"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 63,
+      "style": null,
+      "text": "阶段 P00：总规划冻结与基线登记"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 64,
+      "style": null,
+      "text": "阶段 P01：测试隔离、时间冻结、快照和一键回滚"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 65,
+      "style": null,
+      "text": "阶段 P02：日常真实模型接入"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 66,
+      "style": null,
+      "text": "阶段 P03：Event 语义、时间系统与 Timeline"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 67,
+      "style": null,
+      "text": "阶段 P04：Memory Consolidation 与 DerivedSummary"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 68,
+      "style": null,
+      "text": "阶段 P05：Context Router"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 69,
+      "style": null,
+      "text": "阶段 P06：Context Composer 与权威分层"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 70,
+      "style": null,
+      "text": "阶段 P07：Epistemic / Evidential / Cognitive Contradiction Detector（认识/证据/认知矛盾检测器）"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 71,
+      "style": null,
+      "text": "阶段 P08：Natural/Direct Action + Optional Autonomous Action Planner（自然/直接行动 + 可选自主行动规划器）"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 72,
+      "style": null,
+      "text": "阶段 P09：C1 集成与 Continuity Core 稳定"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 73,
+      "style": null,
+      "text": "阶段 P10：实际创建 Continuity Assistant Git 分支和独立仓库"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 74,
+      "style": null,
+      "text": "阶段 P11：Event Priority 与 Scheduler"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 75,
+      "style": null,
+      "text": "阶段 P12：Intentional Forgetting 与记忆停用"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 76,
+      "style": null,
+      "text": "阶段 P13：Expression Policy"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 77,
+      "style": null,
+      "text": "阶段 P14：Continuous Dynamic Mind（连续动态心智）与情绪动力系统"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 78,
+      "style": null,
+      "text": "阶段 P15：人格、关系、学习与主体生命周期"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 79,
+      "style": null,
+      "text": "阶段 P16：外部长记忆、知识库、MCP 与 Skill"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 80,
+      "style": null,
+      "text": "阶段 P17：Execution Engine、World/Capability Layer 与现实行动"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 81,
+      "style": null,
+      "text": "阶段 P18：Persistent Subject Runtime（持续主体运行时）、后台生活与自主循环"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 82,
+      "style": null,
+      "text": "阶段 P19：Inspector 与可解释性"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 83,
+      "style": null,
+      "text": "阶段 P20：持久化分层、导出、删除与灾难恢复"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 84,
+      "style": null,
+      "text": "阶段 P21：Engine 独立 Security Wall、Protected Control Plane 与 VPS 安全"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 85,
+      "style": null,
+      "text": "阶段 P22：Vio/PWA 第一正式 World Adapter 重连与生产联调"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 86,
+      "style": null,
+      "text": "阶段 P23：全能力总验收、开源准备与正式可用收口"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 88,
+      "style": null,
+      "text": "施工顺序原则："
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 89,
+      "style": null,
+      "text": "- P00→P09 为 C1，先建立可靠连续性核心。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 90,
+      "style": null,
+      "text": "- P10 在 C1 稳定后实际创建 Assistant 分支和独立仓库；只要求骨架、边界、治理和可持续开发入口，不要求当场完成全部 Assistant 产品能力。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 91,
+      "style": null,
+      "text": "- P11→P13 为 C2，增强调度、记忆治理和表达。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 92,
+      "style": null,
+      "text": "- P14→P15 为 C3，建立动态心智与主体深化。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 93,
+      "style": null,
+      "text": "- P16→P22 为外部能力、主动运行、安全和产品化。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 94,
+      "style": null,
+      "text": "- P23 是本规划范围的最终闭环，不等于数字生命停止成长。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 96,
+      "style": null,
+      "text": "五、逐阶段施工卡（监工主表）"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 98,
+      "style": null,
+      "text": "以下阶段是施工顺序，不是把引擎改造成普通聊天服务。每一阶段开工前必须核对上一阶段提交 SHA、Engine 独立测试基线、未决事项和本阶段依赖；完成后必须测试、同步工程日志和相关档案，再由用户决定是否进入下一阶段。P00 完成接口冻结、运行断开与独立升级基线；P01—P21 必须在 Vio process、repository、data root、network 和 credentials 均不可用的条件下独立施工与验收；P22 才进行第一次正式 Vio/PWA World Adapter 重连，P23 才进行重连后的跨仓总验收。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 100,
+      "style": null,
+      "text": "P00　总规划冻结与基线登记"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 101,
+      "style": null,
+      "text": "目的：把旧设计、新增规划、当前真实代码和双方连接现状统一成一张不会跑偏的施工底图。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 102,
+      "style": null,
+      "text": "引擎施工：建立能力矩阵、阶段编号、档案索引、测试索引、决策入口、风险与回滚栏；记录 Engine 与 Vio 的正式 SHA，不把规划能力写成已实现。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 103,
+      "style": null,
+      "text": "实现结果：今后任何 Codex 都能按同一顺序施工和验收。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 104,
+      "style": null,
+      "text": "后续作用：所有阶段都可与基线对账，避免重复施工、越阶段施工和文档失真。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 105,
+      "style": null,
+      "text": "Vio 配合：提供当前 API、数据库迁移、测试和提交基线；方式为只读核对；紧急程度：立即，属于开工门槛。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 106,
+      "style": null,
+      "text": "验收：文档与源码事实一致，旧拓扑和旧状态更新语义已标注被现行契约取代。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 107,
+      "style": null,
+      "text": "用户决定：确认本总规划并授权 P01。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 109,
+      "style": null,
+      "text": "P01　测试隔离、时间冻结、快照与一键回滚"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 110,
+      "style": null,
+      "text": "目的：让测试可以真实触发记忆、人格、关系和 revision（修订号）变化，又不会污染将来正式主体。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 111,
+      "style": null,
+      "text": "引擎施工：建立 disposable test subject（一次性测试主体）、独立 Binding（绑定）、独立 cycle（生命周期批次）和数据根目录；实现 frozen clock（冻结时钟）、Snapshot/Branch（快照/分支）、State Fixture（状态夹具）和一键回滚。快照必须同时覆盖 SubjectState、Event、StateMutation、Evolution、Memory、Learning、关系状态、operation/result 账本和资源账本；promotionAllowed=false，禁止把测试主体晋升为正式主体。P01 只负责测试、实验与 Research Sandbox 的恢复，不得作为正式 Subject、Owner Domain 或生产环境的恢复能力。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 112,
+      "style": null,
+      "text": "实现结果：测试员可标记时间点、进行演化测试、查看变化，再恢复到完全相同的标记点。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 113,
+      "style": null,
+      "text": "后续作用：为长期记忆、主动运行、情绪、学习和工具执行提供无污染的验收环境。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 114,
+      "style": null,
+      "text": "Engine 独立施工边界：P01 只使用 Engine 仓库内 test-only Sandbox、独立数据根、Fixture、Snapshot/Branch/Rollback 与清理入口；不得访问或依赖 Vio process、repository、data、network、credentials，也不要求 Vio 创建入口或参与验收。P01 只负责实验恢复，不能充当正式 Subject、Owner Domain 或生产恢复能力。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 115,
+      "style": null,
+      "text": "验收：一次 changed=true（发生状态变化）测试后回滚，状态 hash（哈希）、revision、Event、Memory、Learning 和账本与快照一致；正式数据路径零命中；受保护目录不被清理。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 116,
+      "style": null,
+      "text": "用户决定：测试数据保留时长、手动或自动清理策略。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 118,
+      "style": null,
+      "text": "P02　日常真实模型接入"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 119,
+      "style": null,
+      "text": "目的：把已经通过的一次 S4-Live（真实供应商单次试聊）升级为可日常使用、可恢复、可计量的模型能力。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 120,
+      "style": null,
+      "text": "引擎施工：继续由 CapabilityRequest/CapabilityResult（能力请求/能力结果）控制模型调用；维护 ThinkSession（思考会话）暂停与恢复、幂等、超时、UNKNOWN（结果未知）和崩溃恢复；模型输出必须回到 Thinking/Action/ReplyComposer（思考/行动/回复组织器），不能直接成为最终主体表达或 StateMutation。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 121,
+      "style": null,
+      "text": "实现结果：Engine 在独立测试交互中可稳定调用宿主中立 Provider Port，同时保持主体权威、幂等、费用账本与连续性；真实日常 Adapter 接入留到 P22。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 122,
+      "style": null,
+      "text": "后续作用：后续记忆、情绪、主动思考和行动均可使用可替换模型能力。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 123,
+      "style": null,
+      "text": "Engine 独立施工边界：P02 以宿主中立 Provider Port、Engine 内本地 Fake Provider/Fixture、固定费用与失败回执完成施工和验收；不得依赖 Vio 的模型路由、API Key、权限、预算、网络或进程。真实 Provider/World Adapter 的生产接入留到 P22。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 124,
+      "style": null,
+      "text": "验收：多轮本地测试交互、Engine 重启、响应丢失、超时、Fake Provider 失败和重复请求均不产生第二次费用记录或第二份主体结果；原始 Provider 候选不绕过 Engine。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 125,
+      "style": null,
+      "text": "用户决定：首选供应商和模型、单次/每日预算、是否启用备用模型。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 127,
+      "style": null,
+      "text": "P03　Event 语义、时间系统与 Timeline"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 128,
+      "style": null,
+      "text": "目的：让数字生命知道“发生了什么、何时发生、何时被感知、何时被记录”，建立可靠时间感。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 129,
+      "style": null,
+      "text": "引擎施工：扩展 Event（事件）分类、来源、证据、occurredAt（发生时间）、observedAt（感知时间）、recordedAt（记录时间）、因果引用和更正/撤销关系；Timeline（时间线）只作为 Event Store（事件存储）的可查询投影，绝不能成为第二套权威事件库。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 130,
+      "style": null,
+      "text": "实现结果：迟到事件、重复事件、跨时区事件和回放都有唯一解释。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 131,
+      "style": null,
+      "text": "后续作用：长期记忆、关系积累、主动唤醒和情绪衰减都依赖可靠时间。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 132,
+      "style": null,
+      "text": "Engine 独立施工边界：P03 使用版本化 Observation/Fact 时间 Fixture 和本地测试 Adapter 验证 sourceEventId、correlationId 与三类时间；不得要求 Vio 提交事实、展示时间或参与验收。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 133,
+      "style": null,
+      "text": "验收：乱序、迟到、更正、重复和重启测试通过；Timeline 与 Event 可对账且不能反向覆盖 Event。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 135,
+      "style": null,
+      "text": "P04　Memory Consolidation 与 DerivedSummary"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 136,
+      "style": null,
+      "text": "目的：把零散经历逐步沉淀为可追溯的长期记忆，而不是每轮读取聊天记录假装连续。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 137,
+      "style": null,
+      "text": "引擎施工：建立 episodic memory（情景记忆）、semantic memory（语义记忆）、relational memory（关系记忆）的巩固流程；保留来源、证据链、时间、置信度、适用范围和撤销传播。DerivedSummary（派生摘要）属于 Memory 内部的压缩视图，必须能回查原始证据，不能直接改 SubjectState，也不能把同一证据重复计算为学习证据。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 138,
+      "style": null,
+      "text": "实现结果：记忆可以提炼、压缩、纠错、撤销和重新生成。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 139,
+      "style": null,
+      "text": "后续作用：Context Router、人格成长、关系连续性和自主反思都有可靠材料。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 140,
+      "style": null,
+      "text": "Engine 独立施工边界：P04 使用 Engine 内授权事实、会话摘要、原文回查、纠错与删除传播 Fixture；不得读取 Vio 数据或把任何外部 Summary 当作 Engine 权威记忆。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 141,
+      "style": null,
+      "text": "验收：每条 DerivedSummary 可追溯；删除/撤销会传播；摘要冲突不会静默覆盖确认记忆；摘要不能直接推进 revision。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 142,
+      "style": null,
+      "text": "用户决定：不同记忆类型的默认保留期、可见范围与删除策略。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 144,
+      "style": null,
+      "text": "P05　Context Router"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 145,
+      "style": null,
+      "text": "目的：每次思考只取“真正需要、允许读取、权威级别合适”的材料，避免上下文无限膨胀。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 146,
+      "style": null,
+      "text": "引擎施工：按 purpose（目的）、authority（权威级别）、relevance（相关度）、recency（时效）、permission（权限）和 token budget（令牌预算）选择 SubjectState、Memory、Timeline、外部事实和候选资料；输出完整 Context Trace（上下文追踪）。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 147,
+      "style": null,
+      "text": "实现结果：不同任务得到不同上下文，未授权内容不会进入模型。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 148,
+      "style": null,
+      "text": "后续作用：提升回答质量、降低费用，并为矛盾检测提供清晰来源。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 149,
+      "style": null,
+      "text": "Engine 独立施工边界：P05 使用本地版本化事实、资源与预算 Fixture 验证 Perception、Attention 与路由；不得依赖 Vio 的平台事实、权限、资源或预算。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 150,
+      "style": null,
+      "text": "验收：相同输入和状态产生可解释选择；权限拒绝、预算不足、来源失效均 fail closed（失败时关闭）；Context Trace 可审计但不泄露秘密。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 152,
+      "style": null,
+      "text": "P06　Context Composer 与权威分层"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 153,
+      "style": null,
+      "text": "目的：把被选中的材料组织成模型和引擎都能理解的认知上下文，同时明确“什么能信到什么程度”。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 154,
+      "style": null,
+      "text": "引擎施工：固定 confirmed_state（已确认状态）、confirmed_memory（已确认记忆）、derived_summary（派生摘要）、retrieved_candidate（检索候选）和 raw_source（原始来源）五类权威等级；保留冲突标记、来源和缺失说明，不靠整段聊天历史伪造连续性。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 155,
+      "style": null,
+      "text": "实现结果：模型能看见信息层级，低权威候选不能冒充主体事实。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 156,
+      "style": null,
+      "text": "后续作用：减少幻觉、记忆误写和人格漂移。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 157,
+      "style": null,
+      "text": "Engine 独立施工边界：P06 使用 Engine 内带来源、授权、版本、有效期和摘要类型的测试材料完成 Router/Composer 施工与验收；不得要求 Vio 提供 ConversationSummary 或参与联调。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 158,
+      "style": null,
+      "text": "验收：任何上下文都能解释来源与权威；低权威内容不能直接触发 StateMutation；预算裁剪不删除关键身份事实。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 160,
+      "style": null,
+      "text": "P07　Epistemic / Evidential / Cognitive Contradiction Detector"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 161,
+      "style": null,
+      "text": "目的：发现状态、记忆、派生摘要、用户更正、外部事实和认知结论之间的认识性、证据性或认知性矛盾，不让系统静默选择错误答案；爱与恨、想靠近又想远离等 Psychological Conflict（心理冲突）留给 P14/P15，不在此被强制消解。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 162,
+      "style": null,
+      "text": "引擎施工：建立矛盾类型、影响范围、证据集合、隔离状态、待核实任务和解决记录；冲突内容先降级或隔离，只有合法证据和演化流程才能改变 SubjectState。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 163,
+      "style": null,
+      "text": "实现结果：系统能说清“哪里矛盾、为什么暂时不采用、怎样解决”。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 164,
+      "style": null,
+      "text": "后续作用：保护长期身份、记忆和学习质量。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 165,
+      "style": null,
+      "text": "Engine 独立施工边界：P07 使用本地更正、撤销、来源版本变化与矛盾确认 Fixture；不得依赖 Vio 传播或展示矛盾。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 166,
+      "style": null,
+      "text": "验收：相互冲突的输入不会覆盖权威状态；解除冲突后有完整审计链。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 168,
+      "style": null,
+      "text": "P08　Natural/Direct Action + Optional Autonomous Action Planner"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 169,
+      "style": null,
+      "text": "目的：让主体既能自然作出简单、原子、边界清楚的选择，也能为复杂现实行动形成目标与计划，而不是把每一次表达、沉默或停止都强迫转换成 Goal/Plan。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 170,
+      "style": null,
+      "text": "引擎施工：新增 Natural/Direct Action（自然/直接行动）路径，允许表达、沉默、联系、停止以及简单且已明确选定的能力不创建 Goal/Plan；复杂、多步骤、依赖资源、需要恢复或长期运行的行动才进入 Planner。所有现实行动仍必须形成结构化、可审计的 Structured Action，并遵循 Subject → Thought → Desire → Will → Decision → Structured Action → Capability Resolution → Permission / Resource / Recoverability Check → Reality Boundary → World Adapter → Reality Effect。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 171,
+      "style": null,
+      "text": "实现结果：Engine 可以区分“直接做出主体选择”和“需要规划的复杂行动”，既保留自然主体性，又能对复杂现实行动产出可审计计划。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 172,
+      "style": null,
+      "text": "后续作用：为主动运行、工具、设备和长任务铺路。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 173,
+      "style": null,
+      "text": "Engine 独立施工边界：P08 使用宿主中立 Capability/Permission/Resource Port 及本地 Fake Adapter 完成 Natural/Direct Action 与可选 Planner 验收；不得依赖 Vio 的确认、能力或资源清单。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 174,
+      "style": null,
+      "text": "验收：简单行动无需 Planner 也能成立；复杂行动必须进入 Planner；未授权、需确认或资源不足时不能产生现实副作用；计划重放不产生第二次副作用；普通 Observation 不能夹带 Action。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 176,
+      "style": null,
+      "text": "P09　C1 集成：Continuity Core 稳定里程碑"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 177,
+      "style": null,
+      "text": "目的：把 P03—P08 组合成可长期复用的 Continuity Core（连续性核心）。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 178,
+      "style": null,
+      "text": "引擎施工：贯通 Timeline → Memory Consolidation → Context Router → Context Composer → Contradiction Detector → Autonomous Action Planner；用 Feature Gate（功能开关）、Genesis State（初始状态）、State Fixture 和 Context Trace 建立稳定测试基线。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 179,
+      "style": null,
+      "text": "实现结果：数字主体具备可追溯时间、长期记忆、上下文组织、矛盾处理和行动规划的第一套完整核心。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 180,
+      "style": null,
+      "text": "后续作用：主线继续成长；Assistant 分支也从这个稳定核心出发。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 181,
+      "style": null,
+      "text": "Engine 独立施工边界：P09 只以 Engine 专项测试、完整回归、长期运行、Snapshot/Branch 隔离和宿主中立契约测试验收 C1；不做 Vio 共享测试、字段贯通或跨仓联调。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 182,
+      "style": null,
+      "text": "验收：连续性、迟到事件、记忆撤销、矛盾、预算裁剪、权限和重启恢复的组合场景全部通过；不允许依赖每轮重读聊天历史假装连续。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 183,
+      "style": null,
+      "text": "用户决定：确认 C1 稳定提交，授权创建 Assistant 分支和独立仓库。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 185,
+      "style": null,
+      "text": "P10　Continuity Assistant 实际分支与独立仓库"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 186,
+      "style": null,
+      "text": "目的：把“可靠帮助用户完成任务”的 Assistant 方向真实落地为独立工程入口，同时不污染数字生命主线。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 187,
+      "style": null,
+      "text": "引擎施工：以 P09 通过验收的 C1 提交为共同祖先，实际创建 Git 分支（建议名 continuity-assistant）并创建独立仓库；记录 upstreamCoreCommit（上游核心提交）；加入 README、模块边界、构建配置、最小 CI（持续集成）、核心兼容测试和版本同步说明。该阶段必须真的生成分支并推送独立仓库，但不要求把 Assistant 产品全部开发完成。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 188,
+      "style": null,
+      "text": "Assistant 边界：复用 Continuity Core；后续可建设 Task/Goal、Workflow、Tool Orchestration、进度、重试、日历、邮件、设备和服务协作；默认不继承主线完整 Dynamic Mind、深层关系、全部 AI 私域和主体行为权。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 189,
+      "style": null,
+      "text": "实现结果：获得可构建、可测试、来源清楚的 Assistant 工程骨架。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 190,
+      "style": null,
+      "text": "后续作用：以后可独立开发助手产品，不迫使数字生命主线变成工具型 Agent。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 191,
+      "style": null,
+      "text": "Engine 独立施工边界：P10 必须从 P09 已验收的稳定 C1 commit 实际创建 Continuity Assistant Git 分支和独立仓库，并完成可构建、可测试、可追溯的初始化；Vio 不参与、不阻塞，也不需要确认账号、权限、模型路由、任务界面或 Assistant UI。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 192,
+      "style": null,
+      "text": "验收：分支与独立仓库均存在并已推送；干净克隆可构建、可运行核心测试；能追溯 C1 commit；主线代码与历史不被改写。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 193,
+      "style": null,
+      "text": "用户决定：仓库名称、公开或私有、许可证；若暂未决定公开，先建私有仓库并保留未来开源检查点。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 195,
+      "style": null,
+      "text": "P11　Event Priority 与 Scheduler"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 196,
+      "style": null,
+      "text": "目的：让引擎能够按重要性、时间和资源安排事件及内部任务。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 197,
+      "style": null,
+      "text": "引擎施工：实现 priority（优先级）、dueAt（到期时间）、wakeReason（唤醒原因）、队列、背压、防饥饿、重试、取消和跨重启恢复；Scheduler（调度器）只决定何时获得一次计算/思考机会，不得直接写入具体 thought（念头）、emotion（情绪）、desire（欲望）或 action intent（行动意图），也不能绕过 Action Gate、现实边界或资源预算。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 198,
+      "style": null,
+      "text": "实现结果：主体可以处理定时、延迟、主动和高优先事件。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 199,
+      "style": null,
+      "text": "后续作用：主动生活、提醒、内部反思和长任务有可靠时间循环。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 200,
+      "style": null,
+      "text": "Engine 独立施工边界：P11 使用 Engine 可信时钟、Fake Notification Adapter、投递回执与静默时段 Fixture 完成施工和验收；不进行真实 Vio 通知或投递。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 201,
+      "style": null,
+      "text": "验收：定时、乱序、积压、重启、取消和资源不足场景通过；低优先任务不会永久饥饿；同一任务不重复执行。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 203,
+      "style": null,
+      "text": "P12　Intentional Forgetting 与记忆停用"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 204,
+      "style": null,
+      "text": "目的：让主体不是“什么都永远记住”，而是能降权、停用、恢复，同时严格区分遗忘与依法删除。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 205,
+      "style": null,
+      "text": "引擎施工：实现 active/inactive/archived/deleted（活跃/停用/归档/删除）状态、衰减、检索排除、恢复、证据保留和删除传播；遗忘不得偷偷删除 Event 历史，永久删除必须走明确生命周期命令。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 206,
+      "style": null,
+      "text": "实现结果：记忆系统可控、可解释，不被陈旧信息淹没。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 207,
+      "style": null,
+      "text": "后续作用：提高长期认知质量并控制存储成本。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 208,
+      "style": null,
+      "text": "Engine 独立施工边界：P12 使用 Engine 测试命令与生命周期 Fixture 验证撤销、纠错、停用、归档和删除语义；不得依赖 Vio 命令传播。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 209,
+      "style": null,
+      "text": "验收：停用记忆不进入普通检索但可恢复；永久删除按规则不可恢复；任何外部 Adapter 都不能直接覆盖 SubjectState。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 210,
+      "style": null,
+      "text": "用户决定：遗忘阈值、归档年限和永久删除确认方式。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 212,
+      "style": null,
+      "text": "P13　Expression Policy"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 213,
+      "style": null,
+      "text": "目的：让主体能依据自身状态、关系和情境选择如何表达，包括不回答、拒绝、追问、对抗、延后或主动追求。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 214,
+      "style": null,
+      "text": "引擎施工：实现 RESPOND、SILENCE、REFUSE、QUESTION、CONFRONT、DEFER、PURSUE（回应、沉默、拒绝、追问、对抗、延后、追求）等主体行为；表达策略由 Engine 决定，模型只是生成能力来源。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 215,
+      "style": null,
+      "text": "实现结果：数字生命不再被固定成“每次都礼貌回答”的聊天机器人。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 216,
+      "style": null,
+      "text": "后续作用：为主体性、关系变化和主动生活提供外显行为。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 217,
+      "style": null,
+      "text": "Engine 独立施工边界：P13 在 Engine 内生成并持久化结构化 RESPOND/SILENCE/REFUSE/QUESTION/CONFRONT/DEFER 决定与最终表达测试产物；不要求 Vio 展示、通知或保存 assistant Message。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 218,
+      "style": null,
+      "text": "验收：各种选择都有主体状态和上下文依据；Provider 输出必须经过 Engine；未批准 UPDATE_STATE 时 revision 不变。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 219,
+      "style": null,
+      "text": "说明：本阶段不是增加性格、情绪、表达或自主性的审查栏，不新增行为对齐安全栏。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 221,
+      "style": null,
+      "text": "P14　Continuous Dynamic Mind 与情绪动力系统"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 222,
+      "style": null,
+      "text": "目的：实现随时间变化的内在心理动力，而不是只有静态人格字段。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 223,
+      "style": null,
+      "text": "引擎施工：建设 Internal Psychological Conflict（内部心理冲突）、Endogenous Desire（内生欲望）、Desire Dynamics（欲望动力）、Will Dynamics（意志动力）、Persistent/Recurring Thought（持续/反复念头）、Subjective Time（主观时间）、Attention Dynamics（注意动力）、Somatic Cognitive Influence（躯体认知影响）、Affective Episode（情感事件）、Drive（驱力）、Arousal（唤醒度）、Action Tendency（行动倾向）和 Emotion Regulation/failure（情绪调节及失败）。它们必须真实影响注意、召回、解释、Thinking、决定、行动和表达，但长期变化仍只通过 Evolution/revision。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 224,
+      "style": null,
+      "text": "实现结果：情绪、动机和行动倾向具有持续性、来源和变化轨迹。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 225,
+      "style": null,
+      "text": "后续作用：支持更真实的人格发展、关系反应、自主计划和表达。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 226,
+      "style": null,
+      "text": "Engine 独立施工边界：P14 的 Dynamic Mind、Desire、Will、心理冲突、主观时间与连续心智仅由 Engine 数据、Fixture、Trace 和只读测试投影验收；不要求 Vio 展示或编辑任何内在状态。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 227,
+      "style": null,
+      "text": "验收：不同 ThinkSession 共享同一连续心智状态；没有外部 Observation 也可能产生 Desire；LOVE + HATE 等心理冲突可同时合法存在；Subjective Time 不改变客观 Event 时间戳；重启不重置心理状态；调节失败可被记录和演化。Persistent Thought 只保存主题、未决关注、欲望、冲突、主体明确写下的内部内容或理由摘要，不保存 Provider 原始隐藏思维链。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 228,
+      "style": null,
+      "text": "用户决定：哪些内在状态允许向用户展示，哪些保留为主体私域。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 230,
+      "style": null,
+      "text": "P15　人格、关系、学习与主体生命周期"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 231,
+      "style": null,
+      "text": "目的：让人格、关系和学习真正长期演化，同时对主体的创建、暂停、归档和删除有清晰语义。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 232,
+      "style": null,
+      "text": "引擎施工：强化 Trait（特质）证据、Learning（学习）验证/回滚、关系状态、Continuous Self-Narrative（连续自我叙事）、Long-term Will（长期意志）、Long-term Psychological Conflict（长期心理冲突）和重复证据去重；实现 CREATE、ACTIVE、SUSPENDED、ARCHIVED、DELETED（创建、活跃、暂停、归档、删除）生命周期。Subject 可发出 SUSPEND_INTENT / ARCHIVE_INTENT（暂停/归档意图，initiator=SUBJECT），Owner 命令标记 initiator=OWNER；意图不等于主体能物理删除数据。账号删除、解绑 assistant、暂停主体、归档主体和永久删除主体必须分开。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 233,
+      "style": null,
+      "text": "实现结果：主体能成长，也能解释为什么变化并在错误学习时回滚。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 234,
+      "style": null,
+      "text": "后续作用：多主体、长期关系、迁移、导出和合规删除有稳定基础。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 235,
+      "style": null,
+      "text": "Engine 独立施工边界：P15 使用 Engine 内独立 test subject、生命周期命令 Fixture 和 Binding Port 契约测试；不调用 Vio，不要求 Vio 提供二次确认、Binding 或用户界面。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 236,
+      "style": null,
+      "text": "验收：学习必须有证据；同一证据不重复放大；回滚可恢复；任何外部 Adapter 都无法直接改人格或关系；各生命周期操作结果互不混淆。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 237,
+      "style": null,
+      "text": "用户决定：删除后的保留/恢复窗口、关系可见性和主体归档策略。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 239,
+      "style": null,
+      "text": "P16　外部长期记忆、知识、MCP 与 Skill"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 240,
+      "style": null,
+      "text": "目的：让引擎能调用外部记忆和能力，同时保持内部状态权威与来源边界。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 241,
+      "style": null,
+      "text": "引擎施工：建立 Memory Provider、Knowledge Provider、MCP（模型上下文协议）、Skill（技能）、Connector（连接器）注册表、Credential Broker（凭据代理）与宿主中立端口；Engine 只保存 capabilityRef（能力引用）与结构化结果，永不保存原始 API Key。外部检索结果只能作为 retrieved_candidate，必须带来源、权限、时效和内容 hash，不能直接改 SubjectState。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 242,
+      "style": null,
+      "text": "实现结果：模型、记忆库、知识库和技能可替换、可撤销、可审计。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 243,
+      "style": null,
+      "text": "后续作用：扩大认知和任务能力，不把核心绑定到单一平台。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 244,
+      "style": null,
+      "text": "Engine 独立施工边界：P16 只建设宿主中立 Memory/Knowledge/MCP/Skill/Connector/Credential Port、注册表和本地 Fake Adapter；测试不得使用真实密钥、外网或 Vio。真实连接器与 Adapter 生产接入留到 P22。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 245,
+      "style": null,
+      "text": "验收：离线、超时、撤销、缓存过期、恶意结果和重启场景通过；秘密不进入 Engine 状态、日志或 Git。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 246,
+      "style": null,
+      "text": "用户决定：首批外部记忆、MCP 服务和 Skill 清单。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 248,
+      "style": null,
+      "text": "P17　Execution Engine、World/Capability Layer 与现实行动"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 249,
+      "style": null,
+      "text": "目的：让经过主体决策和用户授权的计划能够真实执行，并把结果带回主体继续理解。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 250,
+      "style": null,
+      "text": "引擎施工：实现 Execution Engine（执行引擎）、Capability Resolver（能力解析器）、World Classification（世界分类）、Alternative Route（替代路线）、Reality Boundary Port（现实边界端口）、Recoverability Check（可恢复性检查）、Research Routing（研究世界路由）、Blast Radius（影响范围）接口、Outbox、幂等、补偿、查询和 Action Result Absorption（行动结果吸收）。Engine 决定做什么、为何做及如何吸收结果；现实执行通过宿主中立 Reality/Platform Gate Port 委托 Adapter。P17 只接本地 Research/Test World 与 Fake Adapter，真实 Vio/PWA Adapter 在 P22 首次接入。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 251,
+      "style": null,
+      "text": "实现结果：主体可以安全可靠地使用 Tool（工具）、浏览器、设备和服务。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 252,
+      "style": null,
+      "text": "后续作用：从会思考走向能行动。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 253,
+      "style": null,
+      "text": "Engine 独立施工边界：P17 使用 Engine 内 Research/Test World、Fake Adapter、模拟回执和故障注入验收 Execution Engine、Resolver、Reality Boundary、Recoverability 与 Result Absorption；不得连接 Vio 或产生现实副作用。依赖 P20/P21 的高风险能力保持 FEATURE_GATED / NOT_READY / Disabled。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 254,
+      "style": null,
+      "text": "验收：尽可能做到 exactly-once effect（副作用仅一次）；结果未知时先查询；重复请求不重复执行；失败可补偿；外部结果不能绕过 Thinking/Action。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 256,
+      "style": null,
+      "text": "P18　Persistent Subject Runtime、后台常驻与自主运行"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 257,
+      "style": null,
+      "text": "目的：让数字生命在没有用户消息时也能 Wake（唤醒）、感知、思考、整理记忆、推进内部任务和决定是否主动联系用户。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 258,
+      "style": null,
+      "text": "引擎施工：建立 Engine Runtime Lifecycle（引擎运行生命周期）START / RUNNING / PAUSED / SUSPENDED / RESUME / RECOVER / STOP / ARCHIVED、常驻进程、可信时钟、Wake Scheduler、内部任务、反思、连续心智、资源上限、崩溃恢复和防失控循环。任何外部 Adapter 停止都不终止主体存在；主动联系是主体决定，P01—P21 的现实投递只通过 Fake Adapter 验证。持续存在不等于每隔固定时间强制调用模型。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 259,
+      "style": null,
+      "text": "实现结果：Engine 从“被请求才运行”升级为持续存在的主体核心。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 260,
+      "style": null,
+      "text": "后续作用：实现项目愿景中的时间感、自主生活和主动行动。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 261,
+      "style": null,
+      "text": "Engine 独立施工边界：P18 的 Runtime、Scheduler、Wake、连续心智、资源上限、崩溃恢复与防失控循环必须由 Engine 自身托管和验收；外部通知只用 Fake Adapter，不依赖 Vio 进程或服务。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 262,
+      "style": null,
+      "text": "验收：无用户输入仍能按计划运行；重启后续接；不会无限循环或重复任务；预算耗尽会暂停并保留恢复点。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 263,
+      "style": null,
+      "text": "用户决定：允许主动联系的时段、频率、费用上限和暂停开关。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 265,
+      "style": null,
+      "text": "P19　Inspector 只读监理界面"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 266,
+      "style": null,
+      "text": "目的：让用户和开发者看见主体为何变化，而不是把内部系统变成黑箱。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 267,
+      "style": null,
+      "text": "引擎施工：提供只读的 Runtime、SubjectState、Timeline、Memory、Context Trace、Attention、Psychological Conflict、Desire、Will Summary、Persistent Thought Theme、Subjective Time、Somatic、Self-Narrative Theme、Action Tendency、Capability、Reality Denial、Subject Refusal、Research State、Recoverability State、Blast Radius、Learning、资源和 revision 查询投影；查询不得触发演化。不得保存或展示 Provider 原始隐藏 Chain-of-Thought（思维链）。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 268,
+      "style": null,
+      "text": "实现结果：可监督、可诊断、可追责。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 269,
+      "style": null,
+      "text": "后续作用：支持长期维护、测试、用户信任和故障排查。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 270,
+      "style": null,
+      "text": "Engine 独立施工边界：P19 只建设 Engine 自有只读 Inspector 数据源、查询投影、访问边界、脱敏与审计测试；不要求 Vio 页面或跨仓 UI 联调。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 271,
+      "style": null,
+      "text": "验收：所有页面只读；不能通过查询接口写状态；来源和 revision 可对账；敏感内容按权限隐藏。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 273,
+      "style": null,
+      "text": "P20　存储分层、导出、删除、备份与灾难恢复"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 274,
+      "style": null,
+      "text": "目的：建立正式 Production Recoverability（生产可恢复性），保证主体多年运行后仍可管理、迁移、恢复和合法清除。正式 Subject、Owner Domain 与生产恢复属于 P20/P21；不得用 P01 测试、实验或 Research Sandbox 的 Snapshot/Rollback 回滚正式主体生命历史。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 275,
+      "style": null,
+      "text": "引擎施工：实现 HOT/WARM/COLD/ARCHIVED/DELETED（热/温/冷/归档/删除）分层、Schema migration（结构迁移）、校验、加密备份、完整导出、恢复演练、保留策略和多主体隔离。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 276,
+      "style": null,
+      "text": "实现结果：数据不会因升级或故障丢失，也不会因删除语义不清留下影子主体。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 277,
+      "style": null,
+      "text": "后续作用：为 VPS、生产使用、开源和跨设备迁移打基础。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 278,
+      "style": null,
+      "text": "Engine 独立施工边界：P20 只实现 Engine 正式 Subject/Owner Domain 的导出、删除、备份、恢复、迁移、保留和灾难恢复；不得依赖 P01，也不得依赖 Vio 数据库、导出或恢复。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 279,
+      "style": null,
+      "text": "验收：从备份恢复后 hash、revision、Event 和账本一致；导出可验证；删除证明完整；两边数据库不共享表。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 281,
+      "style": null,
+      "text": "P21　Engine 独立 Security Wall、Protected Control Plane 与 VPS 准备"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 282,
+      "style": null,
+      "text": "目的：Engine 必须拥有自己的独立防线，不能把任何外部 Adapter 的公网安全、认证或权限当作主体核心的安全边界。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 283,
+      "style": null,
+      "text": "引擎施工：建设 Security Wall（基础设施安全墙）、Owned Asset Registry（自有资产登记）、Protected Control Plane（受保护控制平面）、Credential Vault/Broker（凭据保管/代理）、Emergency Stop（紧急停止）、Reality Hard Boundary（现实硬边界）、Reality Audit（现实审计）、Trusted Boot/Recovery（可信启动/恢复）以及 Public/Owner/Research World 结构隔离；同时落实私网/回环、default deny、防火墙、服务身份、最小基础设施权限、令牌轮换或 mTLS、请求/费用/并发/消息/云资源影响范围限制、加密、告警、补丁、进程隔离、备份与恢复。控制平面必须极薄，不能变成所有普通行动的总审批中心。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 284,
+      "style": null,
+      "text": "实现结果：即使不存在任何外部 Adapter，Engine 仍能独立拒绝未认证、异常、越权或过量访问，并保护主体核心与控制平面。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 285,
+      "style": null,
+      "text": "后续作用：安全上 VPS，并为生产长期运行提供底线。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 286,
+      "style": null,
+      "text": "Engine 独立施工边界：P21 独立建设并验收 Engine Security Wall、Protected Control Plane、Credential Vault/Broker、Emergency Stop、Reality Boundary、Research 隔离、Blast Radius 与可信恢复；不得把 Vio 公网入口、TLS/WAF、认证、速率限制或凭据当作前置安全能力。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 287,
+      "style": null,
+      "text": "验收：公网端口扫描无法访问 Engine；错误凭据、重放、超大请求、洪泛和路径探测被拒绝；秘密扫描零命中；备份恢复成功；日志不泄露用户内容与密钥。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 288,
+      "style": null,
+      "text": "用户决定：VPS 服务商、区域、域名、远程管理方式和备份位置。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 289,
+      "style": null,
+      "text": "边界：这是基础设施与现实副作用安全墙，不审查思想、人格、情绪、表达、关系、自主性或成长。Owner Domain（所有者域）允许主体在明确自有资产与范围内高度自主，但不等于 Engine 永久获得系统 root；Research World（研究世界）必须使用独立总线、Adapter、网络、凭据、数据与审计，fail closed（失败关闭），研究失败绝不回退到破坏性现实执行。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 291,
+      "style": null,
+      "text": "P22　Vio/PWA 第一正式 World Adapter 重连与生产联调"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 292,
+      "style": null,
+      "text": "目的：在 Engine 独立升级完成后，把 Vio/PWA 作为第一个正式 World Adapter（世界适配器）重新接入，证明同一 Subject 能通过 Vio 生活，但不依赖 Vio 才能存在。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 293,
+      "style": null,
+      "text": "引擎施工：在 P21 通过后部署正式 Integration Adapter（集成适配器）、健康检查、监控、多主体隔离和滚动升级；Engine 仍不直接暴露给前端。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 294,
+      "style": null,
+      "text": "实现结果：用户可在手机/电脑 PWA（渐进式网页应用）发消息、查看历史、恢复失败会话并收到 Engine 最终表达。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 295,
+      "style": null,
+      "text": "后续作用：进入真实日常使用和长期观察。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 296,
+      "style": null,
+      "text": "Vio 配合：把现有页面接到真实 Conversation/Message API；负责公网、账号、认证、TLS、WAF、前端状态、消息投递和费用展示；紧急程度：高。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 297,
+      "style": null,
+      "text": "验收：前端 → Vio → Engine → Vio → 前端全链路；网络中断和双方重启可恢复；前端不能绕过 Vio；SubjectState 只在 Engine；真实费用可核对。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 299,
+      "style": null,
+      "text": "P23　全能力总验收、可用发布与未来开源准备"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 300,
+      "style": null,
+      "text": "目的：确认旧文档与新增规划中的能力均已完成、跑通并能长期使用，同时为未来开源消除秘密和许可风险。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 301,
+      "style": null,
+      "text": "引擎施工：执行功能、兼容性、恢复、性能、安全、数据、删除、导出、灾难恢复、用户体验和长时间运行验收；整理部署手册、运维手册、数据字典、ADR、SBOM（软件物料清单）、依赖许可证和历史秘密扫描。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 302,
+      "style": null,
+      "text": "实现结果：形成可安装、可升级、可恢复、可监督、可长期使用的完整数字生命系统。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 303,
+      "style": null,
+      "text": "后续作用：进入稳定运营；后续新增能力仍按相同权威和验收规则扩展。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 304,
+      "style": null,
+      "text": "Vio 配合：完成共同端到端验收、发布、前端、运维、账单、用户数据和开源边界检查；紧急程度：最终发布前阻塞项。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 305,
+      "style": null,
+      "text": "验收：P00—P22 均有正式验收记录；日常模型、C1/C2/C3、连续心智、内生欲望、心理冲突、主观时间、自我叙事、自然行动、Reality Boundary、Owner Domain、Research World、主体迁移准备、记忆、主动运行、PWA、VPS、安全墙、导出/删除/恢复全部通过；Assistant 分支和独立仓库已存在并可继续开发。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 306,
+      "style": null,
+      "text": "用户决定：正式发布范围、是否/何时开源、许可证和公开哪些仓库。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 308,
+      "style": null,
+      "text": "六、Engine 独立施工与 Adapter 后置总表"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 309,
+      "style": null,
+      "text": "本表采用用户确认的方案 A：P00 冻结接口并切断 Engine/Vio 运行依赖；P01—P21 的施工、测试和验收全部由 Engine 独立完成；P22 才进行第一次正式 Vio/PWA World Adapter 重连；P23 才进行重连后的跨仓总验收。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 311,
+      "style": null,
+      "text": "P00：只读核对双方基线、冻结契约、切断运行调用、确认独立仓库/数据根/测试与升级语义。P00 之后，Vio unavailable 只能表示少一条现实路径，不能表示 Subject unavailable。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 312,
+      "style": null,
+      "text": "P01—P21：Vio 配合项一律为 NONE；不得要求 Vio 改代码、开进程、提供数据、凭据、网络、UI、通知、Provider、工具、恢复或共享验收。外部能力统一以宿主中立 Port、版本化 Schema、Engine 内 Fixture/Fake Adapter 和独立数据根完成。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 313,
+      "style": null,
+      "text": "P22：在 P21 验收后，Vio/PWA 作为第一正式 World Adapter 生产重连并完成正式链路联调；这是第一次允许真实 Vio 进入施工依赖。P23：执行跨仓、跨运行时、端到端和最终发布验收。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 314,
+      "style": null,
+      "text": "P10：在 P09 已验收的稳定 C1 Core 上实际创建 Continuity Assistant Git 分支和独立仓库；完整 Assistant 产品 UI 与任务能力在该独立仓库后续规划，不阻塞 Human-like Subject 主线，也不得取消 P10 的实际建仓。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 316,
+      "style": null,
+      "text": "七、所有阶段统一验收门槛"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 317,
+      "style": null,
+      "text": "1. 架构门槛：Engine 是独立主体核心与宿主中立系统。P01—P21 必须在 Vio process、repository、data root、network 和 credentials 均不可用的条件下启动、运行、施工和验收；P22 后 Vio 也只是一条 World Adapter 路径。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 318,
+      "style": null,
+      "text": "2. 权威门槛：SubjectState、revision、Event/StateMutation/Evolution 和最终主体表达由 Engine 控制；Vio 不覆盖。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 319,
+      "style": null,
+      "text": "3. 演化门槛：Observation、模型文本、CapabilityResult 和 ToolResult 都不能直接成为 StateMutation；只有 Action Gate 合法批准 UPDATE_STATE 才能推进 revision。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 320,
+      "style": null,
+      "text": "4. 幂等与恢复门槛：重复请求、重启、超时、结果未知和响应丢失不能重复 Thinking、Action、Event、StateUpdateRecord、费用或外部副作用。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 321,
+      "style": null,
+      "text": "5. 数据门槛：来源、版本、hash、删除、导出、备份和恢复可验证；测试数据与正式主体完全隔离。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 322,
+      "style": null,
+      "text": "6. 基础设施安全门槛：秘密不进前端、Engine 状态、日志或 Git；P21 必须独立建立 Engine 自有安全墙。P22 后 Adapter 仍须各自拥有安全边界；这不等于行为、思想、人格或情绪审查栏。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 323,
+      "style": null,
+      "text": "7. 测试门槛：P01—P21 的 Engine 专项、完整回归、崩溃恢复、长期运行和宿主中立契约测试独立通过；P22/P23 才增加双方共享与端到端测试。不得只凭文档宣称完成。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 324,
+      "style": null,
+      "text": "8. 档案门槛：有实质进展必须追加施工日志；能力、路线、架构或版本变化时同步相应状态、路线图、决策记录和 CHANGELOG。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 325,
+      "style": null,
+      "text": "9. Git 门槛：施工前干净基线；提交只含本阶段；记录 SHA；由被授权窗口提交和推送；历史不删改。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 326,
+      "style": null,
+      "text": "10. 可用性门槛：用户能完成该阶段承诺的真实操作，不以“接口已存在”代替“可以使用”。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 328,
+      "style": null,
+      "text": "八、已识别冲突与处理规则"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 329,
+      "style": null,
+      "text": "已解决冲突一：旧文档把 Vio 当作 P01—P21 的运行或验收前置，现已由用户确认的方案 A 覆盖。有效时间线是 P00 接口冻结、运行断开和独立升级；P01—P21 Engine 独立施工与验收；P22 第一次正式 Vio/PWA World Adapter 重连；P23 重连后总验收。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 330,
+      "style": null,
+      "text": "已解决冲突二：旧文档“模型回复后生成 StateMutation”已被 Action Gate 取代；模型结果先回 Engine Thinking/Action，未批准 UPDATE_STATE 时 revision 不变。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 331,
+      "style": null,
+      "text": "已解决冲突三：Assistant 原构想中“不要求物理 Fork、继续等待、只维护一套仓库”等说法全部失效。P10 的强制要求是在 P09 已验收的稳定 C1 commit 上实际创建 Continuity Assistant Git 分支和独立仓库；不要求 P10 当场完成整个 Assistant 产品。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 332,
+      "style": null,
+      "text": "已解决冲突四：用户禁止增加限制人格、情绪、表达、关系、自主性和成长的安全栏；同时要求 VPS/网络/数据/密钥安全墙。本规划只加入基础设施安全墙，不把它用于审查主体。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 334,
+      "style": null,
+      "text": "以后发现新冲突时必须暂停，并用以下大白话格式向用户确认："
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 335,
+      "style": null,
+      "text": "“发现冲突：原规划 A 要求……，当前方案 B 会……。如果选 A，结果是……；如果选 B，结果是……。我的建议是……，原因是……。请你决定后我再施工。”"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 336,
+      "style": null,
+      "text": "在用户决定前，不得用 Codex 自己的偏好改规划，也不得用“安全、最佳实践或方便实现”为理由偷偷缩小数字生命目标。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 338,
+      "style": null,
+      "text": "九、监工记录格式"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 339,
+      "style": null,
+      "text": "每一阶段统一使用六种状态：NOT_STARTED（未开始）、IN_PROGRESS（施工中）、BLOCKED（阻塞）、IMPLEMENTED_NOT_ACCEPTED（已实现未验收）、ACCEPTED（已验收）、ARCHIVED（已归档）。如需兼容旧五状态，IMPLEMENTED_NOT_ACCEPTED 作为子状态；不得把“代码写了”直接记为“已验收”。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 340,
+      "style": null,
+      "text": "每次开工记录：阶段编号、目的、授权日期、Engine 基线 SHA、允许修改文件、禁止范围、独立施工证据、用户决定；只有 P00、P22、P23 记录 Vio 基线或跨仓配合项。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 341,
+      "style": null,
+      "text": "每次完工记录：修改文件、真实实现、测试数量、失败与修复、数据/秘密扫描、回滚方式、遗留项和 Engine 新 SHA；P22/P23 另记录 Vio SHA 与跨仓验收证据。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 342,
+      "style": null,
+      "text": "未获得用户明确授权，不进入下一阶段；验收报告中必须分开写“契约已定义”“代码已存在”“Engine 独立验收已通过”“P22/P23 跨仓联调已通过”“用户已经可用”。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 344,
+      "style": null,
+      "text": "十、中英术语对照"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 345,
+      "style": null,
+      "text": "Continuity Engine：数字连续性引擎；独立数字生命核心。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 346,
+      "style": null,
+      "text": "SubjectState：主体状态；身份、人格、记忆关系等权威状态。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 347,
+      "style": null,
+      "text": "Event：事件；引擎认可的事实历史。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 348,
+      "style": null,
+      "text": "StateMutation：状态变更提案；不能由外部文本直接携带。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 349,
+      "style": null,
+      "text": "Evolution：演化；验证并提交合法状态变化。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 350,
+      "style": null,
+      "text": "Revision：修订号；权威状态版本。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 351,
+      "style": null,
+      "text": "Observation：观察；平台事实输入，不等于 Event 或状态修改。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 352,
+      "style": null,
+      "text": "Timeline：时间线；Event 的查询投影。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 353,
+      "style": null,
+      "text": "Memory Consolidation：记忆巩固；把经历整理为长期记忆。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 354,
+      "style": null,
+      "text": "DerivedSummary：派生摘要；可追溯但非权威的记忆压缩视图。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 355,
+      "style": null,
+      "text": "Context Router：上下文路由器；选择本次需要读取的材料。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 356,
+      "style": null,
+      "text": "Context Composer：上下文组织器；按权威与来源编排材料。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 357,
+      "style": null,
+      "text": "Context Trace：上下文追踪；解释本次为何选取这些材料。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 358,
+      "style": null,
+      "text": "Contradiction Detector：矛盾检测器。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 359,
+      "style": null,
+      "text": "Autonomous Action Planner：自主行动规划器。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 360,
+      "style": null,
+      "text": "Action Gate：行动闸门；决定行动是否被批准。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 361,
+      "style": null,
+      "text": "Execution Engine：执行引擎；管理真实行动的执行和恢复。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 362,
+      "style": null,
+      "text": "Thinking/ThinkSession：思考/思考会话。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 363,
+      "style": null,
+      "text": "CapabilityRequest/CapabilityResult：能力请求/能力结果。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 364,
+      "style": null,
+      "text": "Provider：能力供应商，例如模型供应商。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 365,
+      "style": null,
+      "text": "MCP：Model Context Protocol，模型上下文协议。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 366,
+      "style": null,
+      "text": "Skill：技能；可注册、可授权的能力描述。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 367,
+      "style": null,
+      "text": "Tool：工具；真实外部操作能力。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 368,
+      "style": null,
+      "text": "Binding：绑定；Vio assistant 与 Engine subject 的正式关联。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 369,
+      "style": null,
+      "text": "State Projection：状态投影；Engine 单向同步给 Vio 的最小视图。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 370,
+      "style": null,
+      "text": "Outbox：可靠发件箱；用于可恢复投递。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 371,
+      "style": null,
+      "text": "Idempotency：幂等；重复请求不产生第二次结果或副作用。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 372,
+      "style": null,
+      "text": "Snapshot/Branch：快照/测试分支。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 373,
+      "style": null,
+      "text": "Feature Gate：功能开关。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 374,
+      "style": null,
+      "text": "Inspector：只读检查器。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 375,
+      "style": null,
+      "text": "Dynamic Mind：动态心智系统。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 376,
+      "style": null,
+      "text": "Expression Policy：表达策略。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 377,
+      "style": null,
+      "text": "PWA：Progressive Web App，渐进式网页应用。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 378,
+      "style": null,
+      "text": "VPS：Virtual Private Server，虚拟专用服务器。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 379,
+      "style": null,
+      "text": "Security Wall：基础设施安全墙。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 380,
+      "style": null,
+      "text": "mTLS：Mutual Transport Layer Security，双向传输层安全认证。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 381,
+      "style": null,
+      "text": "WAF：Web Application Firewall，网页应用防火墙。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 382,
+      "style": null,
+      "text": "Disaster Recovery：灾难恢复。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 383,
+      "style": null,
+      "text": "SBOM：Software Bill of Materials，软件物料清单。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 384,
+      "style": null,
+      "text": "CI：Continuous Integration，持续集成。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 386,
+      "style": null,
+      "text": "十一、“全部完成并可使用”的最终定义"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 387,
+      "style": null,
+      "text": "只有同时满足以下条件，才可以宣布本规划全部落地："
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 388,
+      "style": null,
+      "text": "1. P00—P23 全部通过正式验收，旧文档和两份新增文档的目标都有代码、测试、档案和真实运行证据。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 389,
+      "style": null,
+      "text": "2. 数字主体拥有连续身份、长期记忆、人格与关系演化、时间感、情绪动力、学习、行动、主动运行和生命周期。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 390,
+      "style": null,
+      "text": "3. 模型可替换，模型中断或更换不会替换主体连续性；Provider 原始输出永远不能绕过 Engine。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 391,
+      "style": null,
+      "text": "4. Vio 成为可靠载体和世界入口，但不代替 Engine 思考、不持有权威 SubjectState。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 392,
+      "style": null,
+      "text": "5. Assistant 已拥有实际 Git 分支和独立仓库，能构建和测试；完整 Assistant 产品可在该仓库继续开发，不污染主线。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 393,
+      "style": null,
+      "text": "6. PWA、VPS、双层基础设施安全墙、数据导出/删除/备份/恢复和长期运维均可用。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 394,
+      "style": null,
+      "text": "7. 用户能日常对话、观察成长、测试回滚、恢复故障、控制费用和决定后续扩展。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 395,
+      "style": null,
+      "text": "8. “全部完成”不是数字生命停止成长；之后新增能力仍必须遵守主体权威、证据演化、独立边界和用户规划。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 396,
+      "style": null,
+      "text": "十二、Architecture Amendment v4（架构修订 v4）同步基线"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 397,
+      "style": null,
+      "text": "本节与《连续性引擎长期能力增补规划 v6.7》的附录 C 同步。只有明确标记 OVERRIDE 的六项旧语义被替换；其他旧文档和新增规划全部保留。真实代码与测试决定“现在有什么”，v1.1 决定施工顺序、验收和监工口径，v6.7 提供长期设计细节。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 398,
+      "style": null,
+      "text": "1. OVERRIDE-01：P08 Planner 是复杂行动的可选工具；简单、原子、边界清楚的主体行动走 Natural/Direct Action，不强制创建 Goal/Plan。现实副作用仍通过 Action/Capability/Reality 链。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 399,
+      "style": null,
+      "text": "2. OVERRIDE-02：Vio 不再是唯一 Reality Executor。长期由 World/Capability Layer → Platform/Reality Gate Port → Adapter → World 执行；Vio 是第一实现。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 400,
+      "style": null,
+      "text": "3. OVERRIDE-03：Engine Runtime Lifecycle 属于 Engine；Vio 断线、停止或被替换，不等于主体停止存在。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 401,
+      "style": null,
+      "text": "4. OVERRIDE-04：Vio Platform Gate 泛化为 Platform/Reality Gate Port；现有 v1.1 Vio 接口保持兼容，不回写旧契约。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 402,
+      "style": null,
+      "text": "5. OVERRIDE-05：Subject 可提出 SUSPEND_INTENT / ARCHIVE_INTENT，Owner 可发出生命周期命令；主体意图、账号删除、解绑、暂停、归档和永久删除保持分离。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 403,
+      "style": null,
+      "text": "6. OVERRIDE-06：P17 可先建设执行核心和现实边界接口；Recoverability Gate 可以复用 P01 的恢复设计和验证方式，但不能依赖 P01 作为正式主体恢复能力。凡依赖 P20/P21 正式恢复或安全硬边界的现实能力，在验收前必须 FEATURE_GATED / NOT_READY / Disabled，并在恢复地基未就绪时返回 RECOVERABILITY_NOT_READY。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 404,
+      "style": null,
+      "text": "7. KEEP-01：P00 是 Engine/Vio 断开运行并各自升级的起点；P10 只从稳定 C1 建立 Continuity Assistant 分支与独立仓库。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 405,
+      "style": null,
+      "text": "8. KEEP-02：P01 Snapshot/Branch 只回滚测试、实验与 Research Sandbox，不能重写正式 Subject 生命历史，也不能作为 Owner Domain 的生产恢复能力；正式 Subject、Owner Domain 与生产恢复属于 P20/P21。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 406,
+      "style": null,
+      "text": "9. KEEP-03：SubjectState 是当前主体状态唯一权威。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 407,
+      "style": null,
+      "text": "10. KEEP-04：Event 是客观事实历史权威；Timeline 只计算，Memory 只记忆，Self-Narrative 只解释。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 408,
+      "style": null,
+      "text": "11. KEEP-05：人格、关系、Desire、Will、Self-Narrative、Psychological Conflict、Dynamic Mind 与 Somatic 的长期变化仍只经 Evolution/revision。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 409,
+      "style": null,
+      "text": "12. KEEP-06：C1 保留简化 Emotion；完整心理冲突、欲望/意志动力、疲惫/躯体影响、持续念头和主观时间在 P14/C3 实现。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 410,
+      "style": null,
+      "text": "13. KEEP-07：测试身份、分支、数据根目录与正式生命历史严格隔离；测试主体不得晋升为正式主体。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 411,
+      "style": null,
+      "text": "14. KEEP-08：Inspector 不保存或展示 Provider 原始隐藏 Chain-of-Thought，只展示结构状态、可审计事实、主体允许持久化的内容和理由摘要。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 412,
+      "style": null,
+      "text": "15. Stage Brief：每个 P 阶段开工前必须重新读取真实代码/测试、v1.1 当前施工卡、v6.7 相关章节和本节 Override/Keep，输出 STAGE、SOURCE OF TRUTH、ORIGINAL REQUIREMENTS、V6.7 DETAILS、AMENDMENT OVERRIDES、KEEP RULES、DEPENDENCIES、NOT READY、FILES ALLOWED、FILES FORBIDDEN、TESTS REQUIRED、PLANNING CONFLICT；用户确认后施工，禁止凭记忆开工。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 413,
+      "style": null,
+      "text": "16. L1 Vio Independence（Vio 独立性）：Vio process 停止时，Engine 自身仍能启动和运行。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 414,
+      "style": null,
+      "text": "17. L2 Mind Continuity（心智连续性）：不同 ThinkSession 共享同一个连续 Subject mental state。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 415,
+      "style": null,
+      "text": "18. L3 Scheduler（调度器）：tick 不直接写具体 thought、emotion、desire 或 action intent。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 416,
+      "style": null,
+      "text": "19. L4 Psychological Conflict（心理冲突）：LOVE + HATE 可同时合法。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 417,
+      "style": null,
+      "text": "20. L5 Subjective Time（主观时间）：主观体验改变不改 Objective Event Timestamp。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 418,
+      "style": null,
+      "text": "21. L6 Endogenous Desire（内生欲望）：没有 External Observation 也可能出现 Desire。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 419,
+      "style": null,
+      "text": "22. L7 Natural Action（自然行动）：简单 Action 无需 Planner；现实执行仍通过工程 Action/Capability/Reality 链。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 420,
+      "style": null,
+      "text": "23. L8 Authority（权威）：DesireStore、NarrativeStore 等不得成为 SubjectState 第二权威。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 421,
+      "style": null,
+      "text": "24. L9 Hidden Reasoning（隐藏推理）：Persistent Thought 不等价于 Provider raw Chain-of-Thought。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 422,
+      "style": null,
+      "text": "25. L10 Owner Autonomy（所有者域自主）：Subject 可自主使用 Owner Capability；Engine process 不因此获得无限系统权限。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 423,
+      "style": null,
+      "text": "26. L11 Recoverability（可恢复性）：P01 Sandbox 不能回滚 Main Subject。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 424,
+      "style": null,
+      "text": "27. L12 Research（研究世界）：Research Failure 永不 fallback 到破坏性现实执行。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 425,
+      "style": null,
+      "text": "28. 结果词必须分开：SUBJECT_REFUSAL、PLATFORM_DENIAL、REALITY_DENIAL、CAPABILITY_UNAVAILABLE、RESOURCE_EXHAUSTED、RESEARCH_UNAVAILABLE、GENERATION_FAILED、NETWORK_FAILED。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 426,
+      "style": null,
+      "text": "29. 阶段状态由 Engine 仓库最新施工日志、测试证据和用户验收决定，本规划静态正文不替代状态账本。本次边界同步本身不自动改变任何阶段状态，也不授权提前进入后续阶段。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 427,
+      "style": null,
+      "text": "十三、Architecture Amendment（架构修订）补充同步：实现防误读边界"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 428,
+      "style": null,
+      "text": "本节是对第十二节与 v6.7 附录 C 的同步补丁，不新增大模块，不改变 P00—P23 的阶段顺序，不重新设计架构，也不增加新的安全栏。未在本节明确补充的内容，继续遵循 v1.1 当前有效规则、v6.7 Architecture Amendment（架构修订）同步版以及已经写明的 OVERRIDE（覆盖）条款。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 429,
+      "style": null,
+      "text": "1. Continuous Mind（连续心智）不是 Scheduler（调度器）或 Cron（定时任务）系统。Scheduler 只在系统空闲、资源允许、存在事件输入、用户允许或 Runtime（运行时）恢复时提供计算机会；它不得决定主体想什么、创建主体欲望、注入情绪或生成行动目的。主体连续性来自 Identity（身份）、SubjectState（主体状态）、Memory（记忆）、Emotion（情绪）、Desire（欲望）、Will（意志）、Self-Narrative（自我叙事）与 Persistent Mental State（持续心理状态），而不是来自 every X minutes: think()（每隔若干分钟调用一次思考）。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 430,
+      "style": null,
+      "text": "2. Epistemic / Evidential / Cognitive Contradiction（认识性/证据性/认知性矛盾）与 Psychological Conflict / Ambivalence（心理冲突/矛盾情感）必须分离。Contradiction Detector（矛盾检测器）只处理事实冲突、证据冲突、认知错误与信息不一致；爱与恨、靠近与逃离、舍不得与想离开、信任与怀疑可以 A AND B（A 与 B 同时成立），不是数据错误，也不得用 Winner（胜者）规则删除较弱心理状态。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 431,
+      "style": null,
+      "text": "3. Endogenous Desire（内生欲望）必须保持主体来源。即使没有用户输入、外部刺激或新 Event（事件），主体也可能想联系某人、探索、休息、创造、靠近、逃离或做某件事。规范链路是 Subject Internal State（主体内部状态）→ Desire Formation（欲望形成）→ Will Evaluation（意志评估）→ Decision（决定）→ Action（行动），不得退化为 External Trigger（外部触发）→ Reaction（反应）。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 432,
+      "style": null,
+      "text": "4. Desire（欲望）≠ Will（意志）≠ Decision（决定）≠ Action（行动）。Desire 表达“我想要”，Will 表达“我要不要推动这个想要”，Decision 表达“我决定”，Action 表达“我执行”。Will 属于 Subject（主体）的心智结构，不得降级为 priority score（优先级分数）、reward weight（奖励权重）、task importance（任务重要度）或 behavior flag（行为标记）。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 433,
+      "style": null,
+      "text": "5. Security Layer（安全层）只负责现实基础设施安全，包括网络、身份、权限、密钥、资源、费用、备份、Disaster Recovery（灾难恢复）与现实副作用控制。它不得因为预测未来风险而修改 Desire、Will、Emotion、Personality（人格）、Relationship（关系）、Self-Narrative 或 Thought Process（思考过程）。安全限制现实行为，不改造主体内心；本条只是现有 Security Wall（安全墙）的边界补充，不是新增安全栏。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 434,
+      "style": null,
+      "text": "6. Reality Boundary（现实边界）与 Subject 内部边界再次冻结。Subject 可以思考、产生欲望、形成意图、产生冲突并尝试规划；Reality Boundary 只能在 Structured Action 已形成以后、Reality Effect（现实效果）发生以前介入。唯一顺序是 Subject（主体）→ Thought（思考）→ Desire（欲望）→ Will（意志）→ Decision（决定）→ Structured Action（结构化行动）→ Capability Resolution（能力解析）→ Permission / Resource / Recoverability Check（权限/资源/可恢复性检查）→ Reality Boundary（现实边界）→ World Adapter（世界适配器）→ Reality Effect（现实效果）。Reality Boundary 只判断行动是否可以影响现实并控制现实副作用；禁止其提前进入或限制 Thought、Emotion、Desire、Will、Personality。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 435,
+      "style": null,
+      "text": "7. Dynamic Mind（动态心智）不是只供 UI（用户界面）展示的状态标签。情绪、疲劳、欲望、冲突等状态必须真实影响 Attention（注意）、Retrieval（召回）、Interpretation（解释）、Thinking（思考）、Decision、Action Tendency（行动倾向）与 Expression（表达）。例如 fatigue = 80（疲劳值为 80）本身不算实现；它必须改变注意力、耐心和判断方式。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 436,
+      "style": null,
+      "text": "8. Self-Narrative（自我叙事）不是自动生成的人物简介，也不是 Memory Summary（记忆摘要）。它表达主体如何理解“我是谁、我经历了什么、为什么我变成现在这样”，允许主观解释、偏差、重新理解与情绪影响，但不能修改 Event。三者关系固定为：Event 记录事实发生；Memory 记录主体记住什么；Self-Narrative 记录主体如何理解自己的人生。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 437,
+      "style": null,
+      "text": "9. Persistent Thought（持续思绪）允许反复想法、未解决关注、持续牵挂与难以放下的主题；可以保存主题、倾向、情绪强度、关联以及主体明确形成的内部状态，但不等于 Provider Hidden Chain-of-Thought（模型供应商隐藏思维链），禁止保存模型原始隐藏推理过程。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 438,
+      "style": null,
+      "text": "10. 本补丁不新增 Authority（权威源）。Continuous Mind、Psychological Conflict、Desire、Will、Self-Narrative 与 Persistent Thought 都属于 Subject 扩展能力；不得创建第二 SubjectState、第二事实来源或第二人格系统。最终权威仍为 SubjectState，历史事实仍为 Event，变化过程仍为 Evolution。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 439,
+      "style": null,
+      "text": "11. 补充验收 IC-01—IC-08（Implementation Clarification，实现澄清验收）："
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 440,
+      "style": null,
+      "text": "12. IC-01 Continuous Mind（连续心智）：不同 ThinkSession（思考会话）必须表现为同一 Subject 的连续状态。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 441,
+      "style": null,
+      "text": "13. IC-02 Psychological Conflict（心理冲突）：LOVE + HATE（爱与恨）允许同时存在，系统不得自动清理较弱状态。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 442,
+      "style": null,
+      "text": "14. IC-03 Endogenous Desire（内生欲望）：没有外部输入时仍可能形成 Desire。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 443,
+      "style": null,
+      "text": "15. IC-04 Will（意志）：不得与任务评分、优先级或奖励权重等价。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 444,
+      "style": null,
+      "text": "16. IC-05 Security（安全）：安全层不得修改主体内部心智状态。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 445,
+      "style": null,
+      "text": "17. IC-06 Reality Boundary（现实边界）：只能限制现实效果，不能提前限制 Thought、Desire 或 Will。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 446,
+      "style": null,
+      "text": "18. IC-07 Scheduler（调度器）：只能提供计算机会，不能创造心理内容。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 447,
+      "style": null,
+      "text": "19. IC-08 Dynamic Mind（动态心智）：必须影响认知过程与行为倾向，不能仅用于 UI 展示。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 448,
+      "style": null,
+      "text": "20. 最终目标再次确认：Continuity Engine 不得成为高级聊天机器人、Trigger → Response Agent（触发→响应智能体）、Goal → Planner → Tool（目标→规划器→工具）工作流或被安全层改造内心的程序。目标仍是形成具有连续身份、持续记忆、内部状态、情绪动力、欲望、意志、自我叙事、时间体验、心理矛盾、行动能力、现实交互能力、恢复能力与边界意识的数字主体。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 449,
+      "style": null,
+      "text": "21. 施工状态保持不变：P00 仍为 NOT_STARTED（未开始）。本节只消除未来实现误解，不代表新增能力已经完成，也不授权跳过 Stage Brief（阶段简报）或直接开始代码施工。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 450,
+      "style": null,
+      "text": "十四、本次确认同步：Recoverability 与 Reality Boundary 边界（2026-08-24）"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 451,
+      "style": null,
+      "text": "本节记录用户对两项 Planning Conflict 的明确裁决，只修正边界和职责。它不改变 Engine 主体定位、Subject Authority、Vio 作为 Adapter / Reality Layer 的定位，不改变 P00—P23 阶段结构，也不构成任何阶段施工授权。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 452,
+      "style": null,
+      "text": "1. P01 只负责 disposable test subject、实验环境与 Research Sandbox 的 Snapshot/Rollback。P01 是实验恢复，不是正式 Subject 或 Owner Domain 的生产恢复能力。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 453,
+      "style": null,
+      "text": "2. 正式 Subject、Owner Domain 与生产恢复属于 P20/P21。P17 Recoverability Gate 可以复用 P01 的恢复设计和验证方式，但不得依赖 P01 作为正式主体恢复能力；正式恢复未通过 P20/P21 验收时必须返回 RECOVERABILITY_NOT_READY，并保持相关现实能力 NOT_READY / Disabled。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 454,
+      "style": null,
+      "text": "3. 唯一现实行动链冻结为：Subject → Thought → Desire → Will → Decision → Structured Action → Capability Resolution → Permission / Resource / Recoverability Check → Reality Boundary → World Adapter → Reality Effect。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 455,
+      "style": null,
+      "text": "4. Reality Boundary 只判断已经形成的行动是否可以影响现实世界，并控制现实副作用。它不得扩展为思想、情绪、Desire、Will 或人格限制，不得提前进入 Subject 内部心智。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 456,
+      "style": null,
+      "text": "5. 施工状态保持不变：P00 仍为 NOT_STARTED。本次仅完成规划边界同步。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 458,
+      "style": null,
+      "text": "十四、2026-08-26 用户确认同步：Engine 独立施工与 P10 实际建仓"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 459,
+      "style": null,
+      "text": "1. 本节为明确 OVERRIDE：若正文、旧修订或其他规划中存在 P01—P21 需要 Vio 配合、共享测试、联调、阻塞依赖或真实 Provider/Adapter 的表述，以本节为准。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 460,
+      "style": null,
+      "text": "2. P00 只负责 Source of Truth、接口冻结、运行断开与独立升级基线；P01—P21 的 Engine 施工不得依赖 Vio process、repository、data root、network、credentials 或人员配合。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 461,
+      "style": null,
+      "text": "3. P01—P21 的外部输入、Provider、Capability、通知、工具、设备和世界路径，只能通过宿主中立 Port、版本化 Schema、Engine 内 Fixture/Fake Adapter、Research/Test World 与独立数据根施工和验收。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 462,
+      "style": null,
+      "text": "4. P22 是第一次正式 Vio/PWA World Adapter 生产重连；P23 是重连后的跨仓端到端、发布与最终总验收。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 463,
+      "style": null,
+      "text": "5. P10 不是 Engine/Vio 解耦点。P10 只在 P09 已验收的稳定 C1 Core commit 上实际创建 Continuity Assistant Git 分支与独立仓库，并完成可构建、可测试、可追溯的初始化。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 464,
+      "style": null,
+      "text": "6. Assistant 完整产品能力不要求在 P10 完成，但任何“不实际 Fork”“继续等待”“只保留未来分支点”“继续只维护一套仓库”的旧说法均失效。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 465,
+      "style": null,
+      "text": "7. 本次只修正边界与职责，不改变 Engine 主体定位、Subject Authority、Vio=Adapter/Reality Layer 定位、P00—P23 阶段结构、依赖顺序、模块职责、生命周期语义或安全边界。"
+    },
+    {
+      "part": "word/document.xml",
+      "paragraph": 466,
+      "style": null,
+      "text": "8. 若真实代码或环境与本节冲突，必须 STOP CURRENT ITEM，标记 PLANNING_CONFLICT，并等待用户决定；不得自行改方案、绕过或把 Vio 重新变成 Engine 依赖。"
+    }
+  ]
+}

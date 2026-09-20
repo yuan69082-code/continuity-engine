@@ -1,0 +1,64 @@
+test_execution_adapter_denial_control_keeps_internal_state (test_independent_boundaries.IndependentBoundaries.test_execution_adapter_denial_control_keeps_internal_state) ... ok
+test_expression_confirmation_refusal_does_not_discard_formed_internal_state (test_independent_boundaries.IndependentBoundaries.test_expression_confirmation_refusal_does_not_discard_formed_internal_state) ... {"stage": "native-exception-before-cleanup", "task_id": "cognition:d6bf307cafb72033644d96f7d68ae06f909a830f6d2159fdde0a7912d10d2154", "attempt_id": "p11-attempt-aaaa55ceb0764e338bb82ff561a5234c2564b69db6d2031889aaf0f765360c78", "chain": [{"frames": [{"file": "testing/p18_runtime_fixture.py", "line": 140, "function": "diagnosed_continue"}, {"file": "services/runtime_cognition.py", "line": 237, "function": "_continue"}, {"file": "services/wake_perception_thinking_action_service.py", "line": 90, "function": "wake_manual"}, {"file": "services/wake_perception_thinking_action_service.py", "line": 128, "function": "_continue"}, {"file": "services/wake_perception_thinking_action_service.py", "line": 308, "function": "_continue_mind"}, {"file": "services/runtime_cognition.py", "line": 107, "function": "_expression"}, {"file": "services/expression_policy_service.py", "line": 139, "function": "compose"}, {"file": "services/expression_policy_service.py", "line": 125, "function": "decide"}, {"file": "services/expression_policy_service.py", "line": 88, "function": "_authorize"}], "code": "TEST_NATIVE_EXCEPTION"}], "systemChain": [{"type": "ENGINE_EXCEPTION", "operation": "other", "frames": [{"file": "testing/p18_runtime_fixture.py", "line": 140, "function": "diagnosed_continue"}, {"file": "services/runtime_cognition.py", "line": 237, "function": "_continue"}, {"file": "services/wake_perception_thinking_action_service.py", "line": 90, "function": "wake_manual"}, {"file": "services/wake_perception_thinking_action_service.py", "line": 128, "function": "_continue"}, {"file": "services/wake_perception_thinking_action_service.py", "line": 308, "function": "_continue_mind"}, {"file": "services/runtime_cognition.py", "line": 107, "function": "_expression"}, {"file": "services/expression_policy_service.py", "line": 139, "function": "compose"}, {"file": "services/expression_policy_service.py", "line": 125, "function": "decide"}, {"file": "services/expression_policy_service.py", "line": 88, "function": "_authorize"}], "errno": null, "winerror": null}], "stateWriteLockOwnedAfterUnwind": false}
+FAIL
+test_expression_routed_effect_cannot_commit_a_premature_effect_claim (test_independent_boundaries.IndependentBoundaries.test_expression_routed_effect_cannot_commit_a_premature_effect_claim) ... FAIL
+test_expression_world_boundary_refusal_does_not_discard_formed_internal_state (test_independent_boundaries.IndependentBoundaries.test_expression_world_boundary_refusal_does_not_discard_formed_internal_state) ... {"stage": "native-exception-before-cleanup", "task_id": "cognition:a2d33323384d6f562c605404b863b882b853935e91c51011e03e6de0fe8a1d1d", "attempt_id": "p11-attempt-3309be00a2848b48f360990bf40c95580656523ab413e76e1ed373f8cdbd0804", "chain": [{"frames": [{"file": "testing/p18_runtime_fixture.py", "line": 140, "function": "diagnosed_continue"}, {"file": "services/runtime_cognition.py", "line": 237, "function": "_continue"}, {"file": "services/wake_perception_thinking_action_service.py", "line": 90, "function": "wake_manual"}, {"file": "services/wake_perception_thinking_action_service.py", "line": 128, "function": "_continue"}, {"file": "services/wake_perception_thinking_action_service.py", "line": 308, "function": "_continue_mind"}, {"file": "services/runtime_cognition.py", "line": 107, "function": "_expression"}, {"file": "services/expression_policy_service.py", "line": 139, "function": "compose"}, {"file": "services/expression_policy_service.py", "line": 125, "function": "decide"}, {"file": "services/expression_policy_service.py", "line": 90, "function": "_authorize"}], "code": "TEST_NATIVE_EXCEPTION"}], "systemChain": [{"type": "ENGINE_EXCEPTION", "operation": "other", "frames": [{"file": "testing/p18_runtime_fixture.py", "line": 140, "function": "diagnosed_continue"}, {"file": "services/runtime_cognition.py", "line": 237, "function": "_continue"}, {"file": "services/wake_perception_thinking_action_service.py", "line": 90, "function": "wake_manual"}, {"file": "services/wake_perception_thinking_action_service.py", "line": 128, "function": "_continue"}, {"file": "services/wake_perception_thinking_action_service.py", "line": 308, "function": "_continue_mind"}, {"file": "services/runtime_cognition.py", "line": 107, "function": "_expression"}, {"file": "services/expression_policy_service.py", "line": 139, "function": "compose"}, {"file": "services/expression_policy_service.py", "line": 125, "function": "decide"}, {"file": "services/expression_policy_service.py", "line": 90, "function": "_authorize"}], "errno": null, "winerror": null}], "stateWriteLockOwnedAfterUnwind": false}
+FAIL
+test_fulfilled_desires_do_not_permanently_block_new_endogenous_needs (test_independent_boundaries.IndependentBoundaries.test_fulfilled_desires_do_not_permanently_block_new_endogenous_needs) ... FAIL
+test_rest_interval_remains_bounded_and_does_not_become_a_stop (test_independent_boundaries.IndependentBoundaries.test_rest_interval_remains_bounded_and_does_not_become_a_stop) ... ok
+test_same_native_path_with_authorized_expression_commits_once (test_independent_boundaries.IndependentBoundaries.test_same_native_path_with_authorized_expression_commits_once) ... ok
+test_unfinished_desires_control_requests_new_cognition (test_independent_boundaries.IndependentBoundaries.test_unfinished_desires_control_requests_new_cognition) ... ok
+
+======================================================================
+FAIL: test_expression_confirmation_refusal_does_not_discard_formed_internal_state (test_independent_boundaries.IndependentBoundaries.test_expression_confirmation_refusal_does_not_discard_formed_internal_state)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\docs\project_memory\pre_p19_supplement_evidence\independent\test_independent_boundaries.py", line 71, in test_expression_confirmation_refusal_does_not_discard_formed_internal_state
+    self.assertEqual(f.state.revision,before+1)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 2
+
+======================================================================
+FAIL: test_expression_routed_effect_cannot_commit_a_premature_effect_claim (test_independent_boundaries.IndependentBoundaries.test_expression_routed_effect_cannot_commit_a_premature_effect_claim)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\docs\project_memory\pre_p19_supplement_evidence\independent\test_independent_boundaries.py", line 100, in test_expression_routed_effect_cannot_commit_a_premature_effect_claim
+    self.assertEqual(f.state.continuity.current_focus,before_focus,
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        'Effect-dependent provider proposal must not be trusted solely because contact/tool flags are false')
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['world write completed'] != ['continuity']
+
+First differing element 0:
+'world write completed'
+'continuity'
+
+- ['world write completed']
++ ['continuity'] : Effect-dependent provider proposal must not be trusted solely because contact/tool flags are false
+
+======================================================================
+FAIL: test_expression_world_boundary_refusal_does_not_discard_formed_internal_state (test_independent_boundaries.IndependentBoundaries.test_expression_world_boundary_refusal_does_not_discard_formed_internal_state)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\docs\project_memory\pre_p19_supplement_evidence\independent\test_independent_boundaries.py", line 62, in test_expression_world_boundary_refusal_does_not_discard_formed_internal_state
+    self.assertEqual(f.state.revision,before+1,
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        'Current expression/world refusal must not gate independently authorized internal Evolution')
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 2 : Current expression/world refusal must not gate independently authorized internal Evolution
+
+======================================================================
+FAIL: test_fulfilled_desires_do_not_permanently_block_new_endogenous_needs (test_independent_boundaries.IndependentBoundaries.test_fulfilled_desires_do_not_permanently_block_new_endogenous_needs)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\docs\project_memory\pre_p19_supplement_evidence\independent\test_independent_boundaries.py", line 128, in test_fulfilled_desires_do_not_permanently_block_new_endogenous_needs
+    self.assertTrue(any(n.kind=='cognition' for n in needs),
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        'Individual completed desires are not a permanent global decision to stop cognition')
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Individual completed desires are not a permanent global decision to stop cognition
+
+----------------------------------------------------------------------
+Ran 8 tests in 6.195s
+
+FAILED (failures=4)

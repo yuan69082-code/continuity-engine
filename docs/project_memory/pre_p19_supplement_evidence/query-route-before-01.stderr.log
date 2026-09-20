@@ -1,0 +1,22 @@
+test_plain_memory_query_cannot_precommit_its_unreceived_result (tests.test_pre_p19_supplement.RoutedProposalTests.test_plain_memory_query_cannot_precommit_its_unreceived_result) ... FAIL
+
+======================================================================
+FAIL: test_plain_memory_query_cannot_precommit_its_unreceived_result (tests.test_pre_p19_supplement.RoutedProposalTests.test_plain_memory_query_cannot_precommit_its_unreceived_result)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p19_supplement.py", line 166, in test_plain_memory_query_cannot_precommit_its_unreceived_result
+    self.assertEqual(f.state.continuity.current_focus,before)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['not yet received query outcome'] != ['continuity']
+
+First differing element 0:
+'not yet received query outcome'
+'continuity'
+
+- ['not yet received query outcome']
++ ['continuity']
+
+----------------------------------------------------------------------
+Ran 1 test in 0.936s
+
+FAILED (failures=1)

@@ -1,0 +1,6 @@
+test_unknown_execution_never_replays_unverified_effect (test_p18_runtime_recovery.RuntimeRecoveryTests.test_unknown_execution_never_replays_unverified_effect) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 3.292s
+
+OK

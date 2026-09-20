@@ -1,0 +1,22 @@
+test_action_session_is_deterministic_serializable_and_traceable (test_action.ActionEngineTests.test_action_session_is_deterministic_serializable_and_traceable) ... ok
+test_confirmation_required_action_is_never_automatic (test_action.ActionEngineTests.test_confirmation_required_action_is_never_automatic) ... ok
+test_contact_user_without_permission_is_blocked (test_action.ActionEngineTests.test_contact_user_without_permission_is_blocked) ... ok
+test_defer_and_more_thinking_remain_non_executed_plans (test_action.ActionEngineTests.test_defer_and_more_thinking_remain_non_executed_plans) ... ok
+test_expired_and_out_of_scope_permissions_are_rejected (test_action.ActionEngineTests.test_expired_and_out_of_scope_permissions_are_rejected) ... ok
+test_full_wake_perception_thinking_action_evolution_flow (test_action.ActionEngineTests.test_full_wake_perception_thinking_action_evolution_flow) ... ok
+test_high_and_critical_risk_actions_are_not_automatically_approved (test_action.ActionEngineTests.test_high_and_critical_risk_actions_are_not_automatically_approved) ... ok
+test_no_action_tendency_returns_explicit_no_action (test_action.ActionEngineTests.test_no_action_tendency_returns_explicit_no_action) ... ok
+test_request_memory_only_creates_a_plan (test_action.ActionEngineTests.test_request_memory_only_creates_a_plan) ... ok
+test_resource_limit_failure_is_audited_and_blocked (test_action.ActionEngineTests.test_resource_limit_failure_is_audited_and_blocked) ... ok
+test_revision_mismatch_rejects_action (test_action.ActionEngineTests.test_revision_mismatch_rejects_action) ... ok
+test_revoked_permission_cannot_pass (test_action.ActionEngineTests.test_revoked_permission_cannot_pass) ... ok
+test_update_state_is_only_planned_inside_action_service (test_action.ActionEngineTests.test_update_state_is_only_planned_inside_action_service) ... ok
+test_use_tool_only_creates_a_non_executed_plan (test_action.ActionEngineTests.test_use_tool_only_creates_a_non_executed_plan) ... ok
+test_explicit_high_and_critical_cannot_be_downgraded_by_rename (test_pre_p19_autonomy_risk.AutonomyRiskTests.test_explicit_high_and_critical_cannot_be_downgraded_by_rename) ... ok
+test_internal_rename_does_not_change_low_risk_or_approval (test_pre_p19_autonomy_risk.AutonomyRiskTests.test_internal_rename_does_not_change_low_risk_or_approval) ... ok
+test_tool_names_cannot_lower_or_raise_trusted_type_minimum (test_pre_p19_autonomy_risk.AutonomyRiskTests.test_tool_names_cannot_lower_or_raise_trusted_type_minimum) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.074s
+
+OK

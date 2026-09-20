@@ -1,0 +1,32 @@
+[
+  {
+    "original": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\pre-p19-repair-independent-20260920\\review-report.md",
+    "copy": "docs/project_memory/pre_p19_supplement_evidence/independent/review-report.md",
+    "sha256": "e05eec9f9f1956c8e04ed661ea2c097bb0d7b20374f856f070c715a130f38d1a"
+  },
+  {
+    "original": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\pre-p19-repair-independent-20260920\\test_independent_boundaries.py",
+    "copy": "docs/project_memory/pre_p19_supplement_evidence/independent/test_independent_boundaries.py",
+    "sha256": "10600a9e54b7a9aa44142f0a11526aca9740d9be6416a351a1bc2d6418d01a55"
+  },
+  {
+    "original": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\pre-p19-repair-independent-20260920\\independent-03.json",
+    "copy": "docs/project_memory/pre_p19_supplement_evidence/independent/independent-03.json",
+    "sha256": "5baefddbcaacfd3dbc259300e407f428c09d86cd9892a5ee41d3d2ed43001b0a"
+  },
+  {
+    "original": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\pre-p19-repair-independent-20260920\\independent-03.log",
+    "copy": "docs/project_memory/pre_p19_supplement_evidence/independent/independent-03.log",
+    "sha256": "90db06398eaee8c35a7b2b4d957f1c6a728e792a18c51a9ed9c2009d255032db"
+  },
+  {
+    "original": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\pre-p19-repair-independent-20260920\\identity-audit.json",
+    "copy": "docs/project_memory/pre_p19_supplement_evidence/independent/identity-audit.json",
+    "sha256": "39c20d53fad6ccf999c6dd6d4945a2b797047cd9209e8fe748327eb40f5b0806"
+  },
+  {
+    "original": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\pre-p19-repair-independent-20260920\\independent-observations.jsonl",
+    "copy": "docs/project_memory/pre_p19_supplement_evidence/independent/independent-observations.jsonl",
+    "sha256": "aec27fa02748ca6c76a989ad9d08d0c93b3f8c8f7cb23264b89ddb7bd385f0a9"
+  }
+]

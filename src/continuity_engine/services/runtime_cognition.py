@@ -104,20 +104,34 @@ class RuntimeCognition:
         if self.expression_confirmation is not None:
             self.expression_confirmation(policy.authorization_request(self.core,operation,p.continuity_context,thinking,action))
         self.guard('before_native_expression')
-        policy.compose(self.core,operation,thinking,action)
+        artifact=policy.compose(self.core,operation,thinking,action)
         # Trace contains modes, hashes and reasons only, never the private body.
         self.expression_trace=policy.last_trace
+        return artifact
 
     def needs(self,at):
         state=self.core.subject_states.require_active(self.subject_id,self.environment)
         mind=MindState.from_dict(state.intentions.dynamic_mind) if state.intentions.dynamic_mind is not None else MindState.create(self.subject_id,self.environment,state.temporal.created_at)
         needs=[]
-        # Pure P14 projection tells whether elapsed internal needs changed enough
-        # to warrant cognition. Scheduler receives only kind/identity/due/priority.
+        # A numerical plateau is not a decision to stop thinking. Reconsider
+        # existing internal concerns at bounded opportunities, never fabricate
+        # a goal in Scheduler or use a pending world's UNKNOWN as a retry cue.
         if at>=mind.updated_at+timedelta(seconds=self.policy.minimum_spacing_seconds):
             proposal=self.core.mind.dynamics.advance(mind,at=at)
             delta=max(abs(proposal.state.drives[k]-mind.drives[k]) for k in mind.drives)
-            if delta>=self.policy.need_delta:
+            active={d['id'] for d in mind.desires if d['phase'] not in {'abandon','disappear','act','suppress'}}
+            commitments=[w for w in mind.will if w['desire_id'] in active and w['stance']!='abandon']
+            unresolved=bool(commitments or any(t['unresolved'] and active.intersection(t['desire_ids'])
+                                               for t in mind.thoughts))
+            held=bool(commitments) and all(w['stance']=='hold' or w['decision']=='DEFER'
+                                          or w['action_tendency']=='rest' for w in commitments)
+            due=mind.updated_at+timedelta(seconds=self.policy.minimum_spacing_seconds*(4 if held else 1))
+            abandoned={d['id'] for d in mind.desires if d['phase']=='abandon'}
+            # The original dynamics may renew a fulfilled need. That is not a
+            # Scheduler-created desire, nor permission to revive an abandoned goal.
+            renewed=any(d['id'] not in abandoned and d['phase'] not in {
+                'abandon','disappear','act','suppress'} for d in proposal.state.desires)
+            if at>=due and ((delta>=self.policy.need_delta and renewed) or unresolved):
                 basis=[self.subject_id,self.environment,state.revision,digest(mind.to_dict())]
                 identity = 'cognition:'+digest(basis)[7:]
                 tasks = {t.task_id: t for t in self.scheduler.list_tasks(
@@ -133,7 +147,7 @@ class RuntimeCognition:
                         break
                     identity = 'cognition:'+digest(['reassess', identity, session.think_id,
                                                    session.provider_execution])[7:]
-                needs.append(RuntimeNeed(identity,'cognition',mind.updated_at+timedelta(seconds=self.policy.minimum_spacing_seconds),10))
+                needs.append(RuntimeNeed(identity,'cognition',due,10))
         known={m.memory_id for m in self.core.memory.list_memories(self.subject_id,include_inactive=True)}
         missing=[e for e in self.core.timeline.rebuild(self.subject_id).entries if 'memory:'+e.event.event_id not in known and e.status.value=='active']
         if missing:
@@ -233,6 +247,9 @@ class RuntimeCognition:
             if usage and usage[0].actual_tokens is None:
                 self.resources.record_actual_usage(self.subject_id,session.think_id,usage[0].estimated_tokens)
         self.fault('before_runtime_receipt')
+        # This receipt proves delivery of a computation opportunity, NOT world
+        # success. Pending world facts stay in the original E5-A/Outbox channel;
+        # they must not consume cognition queue slots after internal completion.
         return self._receipt(request,NotificationStatus.DELIVERED)
 
     def query(self,request):

@@ -1,0 +1,12 @@
+test_broker_revoked_during_thinking_does_not_erase_internal_proposal (test_pre_p19_autonomy_execution.AutonomyExecutionTests.test_broker_revoked_during_thinking_does_not_erase_internal_proposal) ... ok
+test_current_world_resource_refusal_keeps_independent_mind_commit (test_pre_p19_autonomy_execution.AutonomyExecutionTests.test_current_world_resource_refusal_keeps_independent_mind_commit) ... ok
+test_denial_reopen_recovers_internal_fact_without_resubmitting (test_pre_p19_autonomy_execution.AutonomyExecutionTests.test_denial_reopen_recovers_internal_fact_without_resubmitting) ... ok
+test_external_gate_does_not_decide_whether_intent_exists (test_pre_p19_autonomy_execution.AutonomyExecutionTests.test_external_gate_does_not_decide_whether_intent_exists) ... ok
+test_normal_action_and_internal_commit_remain_once (test_pre_p19_autonomy_execution.AutonomyExecutionTests.test_normal_action_and_internal_commit_remain_once) ... ok
+test_reality_refusal_keeps_independent_mind_commit (test_pre_p19_autonomy_execution.AutonomyExecutionTests.test_reality_refusal_keeps_independent_mind_commit) ... ok
+test_unknown_does_not_prevent_internal_commit_or_imply_success (test_pre_p19_autonomy_execution.AutonomyExecutionTests.test_unknown_does_not_prevent_internal_commit_or_imply_success) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 8.342s
+
+OK

@@ -1,0 +1,18 @@
+test_normal_c1_explicit_expression_consent_still_presents (tests.test_pre_p19_supplement.ExpressionIndependenceTests.test_normal_c1_explicit_expression_consent_still_presents) ... FAIL
+
+======================================================================
+FAIL: test_normal_c1_explicit_expression_consent_still_presents (tests.test_pre_p19_supplement.ExpressionIndependenceTests.test_normal_c1_explicit_expression_consent_still_presents)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p19_supplement.py", line 50, in test_normal_c1_explicit_expression_consent_still_presents
+    self.assertEqual(f.artifact(request).decision.status,'SUBJECT_EXPRESSION')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'PLATFORM_DENIED' != 'SUBJECT_EXPRESSION'
+- PLATFORM_DENIED
++ SUBJECT_EXPRESSION
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.844s
+
+FAILED (failures=1)

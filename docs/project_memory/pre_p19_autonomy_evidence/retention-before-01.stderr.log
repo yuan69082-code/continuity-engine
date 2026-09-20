@@ -1,0 +1,26 @@
+test_unselected_old_sources_do_not_erase_established_subjective_understanding (test_pre_p19_autonomy_growth.AutonomyGrowthTests.test_unselected_old_sources_do_not_erase_established_subjective_understanding) ... FAIL
+
+======================================================================
+FAIL: test_unselected_old_sources_do_not_erase_established_subjective_understanding (test_pre_p19_autonomy_growth.AutonomyGrowthTests.test_unselected_old_sources_do_not_erase_established_subjective_understanding)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p19_autonomy_growth.py", line 22, in test_unselected_old_sources_do_not_erase_established_subjective_understanding
+    self.assertEqual(f.state.intentions.dynamic_mind['dispositions'],established)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: [] != [{'object': 'peer', 'kind': 'TRUST', 'basi[70 chars]2']}]
+
+Second list contains 1 additional elements.
+First extra element 0:
+{'object': 'peer', 'kind': 'TRUST', 'basis': ['engine-understanding:mutual respect', 'event:care1', 'event:care2']}
+
+- []
++ [{'basis': ['engine-understanding:mutual respect',
++             'event:care1',
++             'event:care2'],
++   'kind': 'TRUST',
++   'object': 'peer'}]
+
+----------------------------------------------------------------------
+Ran 1 test in 5.068s
+
+FAILED (failures=1)

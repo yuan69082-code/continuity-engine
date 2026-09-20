@@ -1,0 +1,81 @@
+[
+  {
+    "original": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\pre-p19-supplement-independent-20260920\\review-report.md",
+    "copy": "docs/project_memory/pre_p19_acceptance_evidence/independent/review-report.original.md",
+    "sha256": "3f0a3c3ecf8dd6a9d6bf8675c2362178acb81eb70892864f9cd56b116b2bccb4",
+    "kind": "EXACT_COPY"
+  },
+  {
+    "original": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\pre-p19-supplement-independent-20260920\\identity-audit.json",
+    "copy": "docs/project_memory/pre_p19_acceptance_evidence/independent/identity-audit.json",
+    "sha256": "182f3e8ae2f87d3bcc83774fa60d2a960d5df65e82da78f1217e41ce8ae926b6",
+    "kind": "EXACT_COPY"
+  },
+  {
+    "original": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\pre-p19-supplement-independent-20260920\\test_extra_controls.py",
+    "copy": "docs/project_memory/pre_p19_acceptance_evidence/independent/test_extra_controls.py",
+    "sha256": "aa7cf50f62531af98c25cf779738fef4f487c05755636ea4c5b3bd5723f08876",
+    "kind": "EXACT_COPY"
+  },
+  {
+    "original": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\pre-p19-supplement-independent-20260920\\original-01.json",
+    "copy": "docs/project_memory/pre_p19_acceptance_evidence/independent/original-01.json",
+    "sha256": "dbd94203989553722a68134b7ddb8c2a657dc4e0fef75b4ce126e1f958d5e0c5",
+    "kind": "EXACT_COPY"
+  },
+  {
+    "original": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\pre-p19-supplement-independent-20260920\\original-01.log",
+    "copy": "docs/project_memory/pre_p19_acceptance_evidence/independent/original-01.log",
+    "sha256": "5b889da9dcbd762ae6aabaf53ccf86524efc7ab42bc7136da69355ffd988093b",
+    "kind": "EXACT_COPY"
+  },
+  {
+    "original": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\pre-p19-supplement-independent-20260920\\formal-01.json",
+    "copy": "docs/project_memory/pre_p19_acceptance_evidence/independent/formal-01.json",
+    "sha256": "9d9778567ae1b5b6473fa62c43526ffd2122ad429a4521aed474a9ba05720730",
+    "kind": "EXACT_COPY"
+  },
+  {
+    "original": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\pre-p19-supplement-independent-20260920\\formal-01.log",
+    "copy": "docs/project_memory/pre_p19_acceptance_evidence/independent/formal-01.log",
+    "sha256": "62460a56d7d82aa0de2d18ea37a97c76a632f84fa838efb3d4f8ab6f1ece9217",
+    "kind": "EXACT_COPY"
+  },
+  {
+    "original": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\pre-p19-supplement-independent-20260920\\extra-01.json",
+    "copy": "docs/project_memory/pre_p19_acceptance_evidence/independent/extra-01.json",
+    "sha256": "4cd0b4262761e635d08b31fea3cf6188f68e7993b204823da51db5825c5c8ac9",
+    "kind": "EXACT_COPY"
+  },
+  {
+    "original": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\pre-p19-supplement-independent-20260920\\extra-01.log",
+    "copy": "docs/project_memory/pre_p19_acceptance_evidence/independent/extra-01.log",
+    "sha256": "3222329848a1e1d548be56a2c3339f162cdaaf58b037482a695dcc457186f15b",
+    "kind": "EXACT_COPY"
+  },
+  {
+    "original": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\pre-p19-supplement-independent-20260920\\independent-observations.jsonl",
+    "copy": "docs/project_memory/pre_p19_acceptance_evidence/independent/independent-observations.jsonl",
+    "sha256": "ae818fd4ad8c7d81aca1de9f81928352c3825a77fb5c198070956561b6f73dfb",
+    "kind": "EXACT_COPY"
+  },
+  {
+    "original": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\pre-p19-supplement-independent-20260920\\extra-observations.jsonl",
+    "copy": "docs/project_memory/pre_p19_acceptance_evidence/independent/extra-observations.jsonl",
+    "sha256": "9fc3a1f482d01d549a3c744b278c4c6e4d98e50b4a3c81708a581145030580e1",
+    "kind": "EXACT_COPY"
+  },
+  {
+    "original": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\pre-p19-supplement-independent-20260920\\review-report.md",
+    "copy": "docs/project_memory/pre_p19_acceptance_evidence/independent/review-report.md",
+    "originalSha256": "3f0a3c3ecf8dd6a9d6bf8675c2362178acb81eb70892864f9cd56b116b2bccb4",
+    "sha256": "39c27ef880ebc38fa4ea6f57378b7cd20f536610be260d66e4fdd6eb696dba50",
+    "kind": "LINK_ADAPTED_READING_COPY"
+  },
+  {
+    "original": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\reviews\\pre-p19-repair-independent-20260920\\test_independent_boundaries.py",
+    "copy": "docs/project_memory/pre_p19_supplement_evidence/independent/test_independent_boundaries.py",
+    "sha256": "10600a9e54b7a9aa44142f0a11526aca9740d9be6416a351a1bc2d6418d01a55",
+    "kind": "EXISTING_EXACT_COPY"
+  }
+]

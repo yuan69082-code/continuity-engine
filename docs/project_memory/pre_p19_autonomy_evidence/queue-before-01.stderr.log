@@ -1,0 +1,15 @@
+test_unresolved_world_does_not_exhaust_cognition_queue (test_pre_p19_autonomy_execution.AutonomyExecutionTests.test_unresolved_world_does_not_exhaust_cognition_queue) ... FAIL
+
+======================================================================
+FAIL: test_unresolved_world_does_not_exhaust_cognition_queue (test_pre_p19_autonomy_execution.AutonomyExecutionTests.test_unresolved_world_does_not_exhaust_cognition_queue)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_pre_p19_autonomy_execution.py", line 18, in test_unresolved_world_does_not_exhaust_cognition_queue
+    self.assertGreaterEqual(f.state.revision,before+3)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 3 not greater than or equal to 5
+
+----------------------------------------------------------------------
+Ran 1 test in 4.152s
+
+FAILED (failures=1)

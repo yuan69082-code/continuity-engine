@@ -1,0 +1,18 @@
+{
+  "processes": [
+    {
+      "ProcessId": 14488,
+      "ParentProcessId": 1952,
+      "CreationDate": "2026-09-20T00:46:37.4223+08:00",
+      "CommandLine": "\"E:\\Adobe\\python.exe\" -B docs/project_memory/pre_p19_autonomy_evidence/run.py full-final-01"
+    },
+    {
+      "ProcessId": 20812,
+      "ParentProcessId": 14488,
+      "CreationDate": "2026-09-20T00:52:45.988796+08:00",
+      "CommandLine": "E:\\Adobe\\python.exe -m continuity_engine.testing.p09_core_runner --worker-root C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\tmp9vhiblgk --sandbox-id sb-1eed691e87574586 --start 20 --stop 30"
+    }
+  ],
+  "purpose": "Known full-final-01 parent and direct children; read only",
+  "at": "2026-09-20T00:55:13.6450608+08:00"
+}

@@ -1,0 +1,12 @@
+{
+  "processes": [
+    {
+      "ProcessId": 14488,
+      "ParentProcessId": 1952,
+      "CreationDate": "2026-09-20T00:46:37.4223+08:00",
+      "CommandLine": "\"E:\\Adobe\\python.exe\" -B docs/project_memory/pre_p19_autonomy_evidence/run.py full-final-01"
+    }
+  ],
+  "at": "2026-09-20T00:53:38.5379672+08:00",
+  "purpose": "Read-only full-final-01 process observation; no process terminated"
+}

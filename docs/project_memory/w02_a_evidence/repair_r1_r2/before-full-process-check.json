@@ -1,0 +1,251 @@
+{
+  "at": "2026-09-23T18:33:36.154707+00:00",
+  "method": "Windows Toolhelp process ancestry, no process mutation",
+  "runnerRoots": {
+    "3640": {
+      "label": "compatibility-final-01",
+      "status": "FINISHED",
+      "exitCode": 0
+    },
+    "14932": {
+      "label": "formal-final-01",
+      "status": "FINISHED",
+      "exitCode": 0
+    },
+    "11384": {
+      "label": "formal-intermediate-01",
+      "status": "FINISHED",
+      "exitCode": 0
+    },
+    "3796": {
+      "label": "reproduction-after-01",
+      "status": "FINISHED",
+      "exitCode": 0
+    },
+    "3800": {
+      "label": "reproduction-before-01",
+      "status": "FINISHED",
+      "exitCode": 1
+    },
+    "21232": {
+      "label": "w02-final-01",
+      "status": "FINISHED",
+      "exitCode": 0
+    },
+    "3728": {
+      "label": "w02-intermediate-01",
+      "status": "FINISHED",
+      "exitCode": 1
+    }
+  },
+  "aliveRelated": [],
+  "allSelectedFinished": true,
+  "selectedChildResults": [
+    {
+      "label": "w02-final-01",
+      "line": 10,
+      "record": {
+        "childPid": 8816,
+        "exitCode": 0,
+        "stderr": "",
+        "forced": false
+      }
+    },
+    {
+      "label": "w02-final-01",
+      "line": 11,
+      "record": {
+        "command": [
+          "E:\\Adobe\\python.exe",
+          "-B",
+          "-m",
+          "continuity_engine.testing.w02_input_fixture",
+          "--root",
+          "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\tmp4lcvm5pa",
+          "--phase",
+          "prepare"
+        ],
+        "exitCode": 0,
+        "stdout": "{\"phase\": \"prepare\", \"calls\": 1, \"effects\": 1, \"credits\": 1}\n",
+        "stderr": ""
+      }
+    },
+    {
+      "label": "w02-final-01",
+      "line": 12,
+      "record": {
+        "command": [
+          "E:\\Adobe\\python.exe",
+          "-B",
+          "-m",
+          "continuity_engine.testing.w02_input_fixture",
+          "--root",
+          "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\tmp4lcvm5pa",
+          "--phase",
+          "resume"
+        ],
+        "exitCode": 0,
+        "stdout": "{\"phase\": \"resume\", \"calls\": 0, \"new_effects\": 0, \"total_effects\": 1, \"credits\": 1, \"view\": {\"status\": \"COMPLETED\", \"record\": {\"version\": \"w02-input-v1\", \"manifest\": {\"environment\": \"TEST\", \"interpretation\": {\"about\": \"SELF_REPORTED\", \"authority\": \"INPUT_INTERPRETATION_NOT_FACT\", \"content_hash\": \"sha256:7cb3c0cfb67998ee66c88b5ecc235df98b2aebc1172c000fa79796c0c4c3891a\", \"memory_requested\": false, \"nature\": \"DESIRE\", \"negated\": true, \"negation_scope\": \"OUTSIDE_QUOTE_CLAUSES\", \"negation_spans\": [[8, 11]], \"rule_version\": \"w02-bounded-reading-v2\", \"speaker\": \"platform_sender\", \"time_reference\": \"UNRESOLVED\", \"topic_span\": [0, 12], \"uncertain\": true}, \"operation_id\": \"operation-7cbc38c6-7244-4064-a202-f04bc4b92593\", \"perception_hash\": \"sha256:d3f3c0fa1e8d62825bc66d287ddf94098119ad7fedced48f96ee7eba9e67254c\", \"recorded_at\": \"2026-09-04T08:00:00Z\", \"request_id\": \"p01-request-35a237c5ddd0436a8a38aa8b055790a6\", \"source\": {\"conversation_id\": \"p01-conversation-a6e9cee3c2004bd0ac7e49a00566499d\", \"fact_id\": \"p01-fact-e4a4d24a81944641b23fa91a46d4d595\", \"message_id\": \"p01-message-5b0f2b1e635a4d0da400926a0257d8a9\", \"message_version_id\": \"p01-message-version-353c4b83063d46009c411d240bbd93e1\", \"observation_id\": \"p01-observation-49df179da0144b52a8fa4853d280b546\", \"observation_type\": \"message_created\", \"observed_at\": \"2026-09-04T08:00:00Z\", \"occurred_at\": \"2026-09-04T08:00:00Z\", \"source_event_id\": \"p01-platform-event-dd14cff138774f4e92f0e4d2c0cdce77\"}, \"stations\": [\"conversation\", \"verification\"], \"subject_id\": \"sub-7bfea849e87049da\"}, \"receipts\": [{\"station\": \"verification\", \"disposition\": \"NEEDS_EVIDENCE\", \"reason\": \"INPUT_INTERPRETATION_UNCERTAIN\", \"results\": [], \"attempt\": 1}, {\"station\": \"conversation\", \"disposition\": \"TEMP_USE\", \"reason\": \"CURRENT_INPUT_COMPOSED\", \"results\": [\"sha256:b5da700b2a81f2fbf4ebdf83d624634268959adcf08efc9d56ddbdc7745abc5f\"], \"attempt\": 1}]}, \"received_not_necessarily_remembered\": true, \"thinking_result_id\": \"6ed67268-ace2-5d80-a29f-1dc89bd35225\", \"state_update_id\": null, \"expression_status\": null, \"resume_stations\": [], \"internal_station\": {\"disposition\": \"NOT_ADOPTED\", \"reason\": \"NO_INTERNAL_UPDATE_PROPOSAL\", \"source_result_id\": \"6ed67268-ace2-5d80-a29f-1dc89bd35225\", \"update_id\": null}}}\n",
+        "stderr": ""
+      }
+    },
+    {
+      "label": "compatibility-final-01",
+      "line": 9,
+      "record": {
+        "phase": "prepare",
+        "command": [
+          "E:\\Adobe\\python.exe",
+          "-m",
+          "continuity_engine.testing.p16_provider_fixture",
+          "--phase",
+          "prepare",
+          "--root",
+          "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\p16g-qbngo5tn"
+        ],
+        "exit_code": 0,
+        "stdout": "{\"phase\": \"prepare\", \"fact_count\": 1, \"interruption\": \"after_adapter_before_result\", \"new_calls\": 1}\n",
+        "stderr": "",
+        "seconds": 1.375
+      }
+    },
+    {
+      "label": "compatibility-final-01",
+      "line": 10,
+      "record": {
+        "phase": "resume",
+        "command": [
+          "E:\\Adobe\\python.exe",
+          "-m",
+          "continuity_engine.testing.p16_provider_fixture",
+          "--phase",
+          "resume",
+          "--root",
+          "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\p16g-qbngo5tn"
+        ],
+        "exit_code": 0,
+        "stdout": "{\"phase\": \"resume\", \"restored_without_execute\": true, \"consumed_candidate\": true, \"new_calls\": 1}\n",
+        "stderr": "",
+        "seconds": 1.971
+      }
+    },
+    {
+      "label": "compatibility-final-01",
+      "line": 11,
+      "record": {
+        "phase": "replace-revoke",
+        "command": [
+          "E:\\Adobe\\python.exe",
+          "-m",
+          "continuity_engine.testing.p16_provider_fixture",
+          "--phase",
+          "replace-revoke",
+          "--root",
+          "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\p16g-qbngo5tn"
+        ],
+        "exit_code": 0,
+        "stdout": "{\"phase\": \"replace-revoke\", \"replacement\": \"local.memory:v2\", \"historical_replay\": true, \"revoked_new_execution\": true, \"new_calls\": 2}\n",
+        "stderr": "",
+        "seconds": 6.118
+      }
+    },
+    {
+      "label": "compatibility-final-01",
+      "line": 12,
+      "record": {
+        "phase": "prepare",
+        "command": [
+          "E:\\Adobe\\python.exe",
+          "-m",
+          "continuity_engine.testing.p17_execution_fixture",
+          "--root",
+          "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\p17-process-6smv2ni0",
+          "--phase",
+          "prepare"
+        ],
+        "exitCode": 0,
+        "stdout": "{\"phase\": \"prepare\", \"effects\": 1, \"crash\": \"after_adapter_before_result\"}\n",
+        "stderr": "",
+        "seconds": 1.4299682000018947
+      }
+    },
+    {
+      "label": "compatibility-final-01",
+      "line": 13,
+      "record": {
+        "phase": "resume",
+        "command": [
+          "E:\\Adobe\\python.exe",
+          "-m",
+          "continuity_engine.testing.p17_execution_fixture",
+          "--root",
+          "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\p17-process-6smv2ni0",
+          "--phase",
+          "resume"
+        ],
+        "exitCode": 0,
+        "stdout": "{\"phase\": \"resume\", \"new_execute_calls\": 0, \"effects\": 1, \"revision\": 2, \"absorbed_through_evolution\": true}\n",
+        "stderr": "",
+        "seconds": 1.9334168000023055
+      }
+    },
+    {
+      "label": "compatibility-final-01",
+      "line": 14,
+      "record": {
+        "phase": "replay",
+        "command": [
+          "E:\\Adobe\\python.exe",
+          "-m",
+          "continuity_engine.testing.p17_execution_fixture",
+          "--root",
+          "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\p17-process-6smv2ni0",
+          "--phase",
+          "replay"
+        ],
+        "exitCode": 0,
+        "stdout": "{\"phase\": \"replay\", \"effects\": 1, \"revision\": 2, \"new_execute_calls\": 0}\n",
+        "stderr": "",
+        "seconds": 1.0579598000003898
+      }
+    },
+    {
+      "label": "compatibility-final-01",
+      "line": 15,
+      "record": {
+        "command": [
+          "E:\\Adobe\\python.exe",
+          "-m",
+          "continuity_engine.testing.p17_execution_fixture",
+          "--root",
+          "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\p17-test-4hfuvnn0",
+          "--phase",
+          "worker"
+        ],
+        "exitCode": 0,
+        "stdout": "{\"phase\": \"worker\", \"receipt_hash\": \"sha256:5eca9f48866c32a57217f6fa09bf0fb8d2d40b16f50a647a32fe6d3199e04198\", \"effects\": 2}\n",
+        "stderr": ""
+      }
+    },
+    {
+      "label": "compatibility-final-01",
+      "line": 16,
+      "record": {
+        "command": [
+          "E:\\Adobe\\python.exe",
+          "-m",
+          "continuity_engine.testing.p17_execution_fixture",
+          "--root",
+          "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\p17-test-4hfuvnn0",
+          "--phase",
+          "worker"
+        ],
+        "exitCode": 0,
+        "stdout": "{\"phase\": \"worker\", \"busy\": true, \"effects\": 1}\n",
+        "stderr": ""
+      }
+    }
+  ],
+  "cleanupPerformedBy": "original bounded test controllers; communicate/wait/explicit STOP, not this audit",
+  "limitation": "Point-in-time PID/parent snapshot plus recorded child exits; no claim about unrelated user processes. No unrelated processes or Temp artifacts removed."
+}

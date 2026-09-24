@@ -1,0 +1,20 @@
+test_explicit_input_gate_exists_without_changing_legacy_default (tests.test_w02_input_processing.InputProcessingTests.test_explicit_input_gate_exists_without_changing_legacy_default) ... ok
+test_negation_desire_other_and_history_are_not_claimed_experience (tests.test_w02_input_processing.InputProcessingTests.test_negation_desire_other_and_history_are_not_claimed_experience) ... ok
+test_plain_claim_received_does_not_create_event_or_memory (tests.test_w02_input_processing.InputProcessingTests.test_plain_claim_received_does_not_create_event_or_memory) ... FAIL
+test_question_routes_without_all_stations (tests.test_w02_input_processing.InputProcessingTests.test_question_routes_without_all_stations) ... ok
+test_raw_message_reaches_thinking_through_actual_composition (tests.test_w02_input_processing.InputProcessingTests.test_raw_message_reaches_thinking_through_actual_composition) ... ok
+test_uncertain_report_has_verification_reason_without_fact_upgrade (tests.test_w02_input_processing.InputProcessingTests.test_uncertain_report_has_verification_reason_without_fact_upgrade) ... ok
+
+======================================================================
+FAIL: test_plain_claim_received_does_not_create_event_or_memory (tests.test_w02_input_processing.InputProcessingTests.test_plain_claim_received_does_not_create_event_or_memory)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w02_input_processing.py", line 41, in test_plain_claim_received_does_not_create_event_or_memory
+    self.assertFalse(f.core.memory.list_memories(f.runtime.descriptor.subject_id))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [MemoryRecord(memory_id='memory:p01-fixture-event-c40e57235fbc424c', subject_id='sub-a34ca5d981504588', environment='TEST', kind=<MemoryKind.EPISODIC: 'episodic'>, evidence_type=<MemoryEvidenceType.EXPERIENTIAL: 'experiential'>, content='legacy: Apply a synthetic P01 State Fixture through Event/Evolution.', root_evidence_ids=['event:p01-fixture-event-c40e57235fbc424c'], occurred_at=datetime.datetime(2026, 9, 4, 8, 0, tzinfo=datetime.timezone.utc), observed_at=datetime.datetime(2026, 9, 4, 8, 0, tzinfo=datetime.timezone.utc), recorded_at=datetime.datetime(2026, 9, 4, 8, 0, tzinfo=datetime.timezone.utc), consolidated_at=datetime.datetime(2026, 9, 4, 8, 0, tzinfo=datetime.timezone.utc), confidence=0.8, importance=0.6, activation=0.41, scope='c1.event:p01-fixture-event-c40e57235fbc424c', time_range=MemoryTimeRange(start_at=datetime.datetime(2026, 9, 4, 8, 0, tzinfo=datetime.timezone.utc), end_at=datetime.datetime(2026, 9, 4, 8, 0, tzinfo=datetime.timezone.utc)), consolidation_id='c1-consolidation:p01-fixture-event-c40e57235fbc424c', source_event_ids=['p01-fixture-event-c40e57235fbc424c'], source_memory_ids=[], source_message_ids=[], tags=['legacy'], temperature=<MemoryTemperature.COLD: 'COLD'>, visibility=<MemoryVisibility.ENGINE_PRIVATE: 'ENGINE_PRIVATE'>, status=<MemoryStatus.ACTIVE: 'ACTIVE'>, revision=0, memory_version=1, access_count=0, last_accessed_at=None, relation_relevance=0.0, emotional_weight=0.0, activation_explanation=['importance=0.600000', 'recency=1.000000', 'relation_relevance=0.000000', 'emotional_weight=0.000000', 'unique_reinforcement=0.200000'], lineage_event_id=None, consolidation_input_hash='sha256:075a83df31fd55d4b224d08ce6347946d1be7e871a123d03bb886725eac218f2', lifecycle=None, retrieval_weight=None, weight_updated_at=None, lifecycle_command_id=None, source_memory_bindings=None)] is not false
+
+----------------------------------------------------------------------
+Ran 6 tests in 2.858s
+
+FAILED (failures=1)

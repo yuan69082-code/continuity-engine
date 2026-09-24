@@ -1,0 +1,8 @@
+{
+  "kind": "AUXILIARY_ERROR",
+  "command": "pre-full readonly AST/protection inline check",
+  "exitCode": 1,
+  "errorType": "LookupError",
+  "message": "unknown encoding: utf8-sig",
+  "effect": "No runtime/test change, no baseline overwrite, no complete audit result produced. Correct spelling utf-8-sig used on follow-up."
+}

@@ -725,6 +725,7 @@ class JsonIntegrationResultLedger:
             "input_revision",
             "consumed_observation_ids",
             "reserved_at",
+            "input_processing_enabled",
         )
         if any(
             getattr(previous, field) != getattr(current, field)
@@ -780,6 +781,18 @@ class JsonIntegrationResultLedger:
                 raise IntegrationLedgerConflictError(
                     "durable domain progress cannot be removed"
                 )
+            if previous.domain_progress.input_processing is not None:
+                previous.domain_progress.input_processing.validate_successor(current.domain_progress.input_processing)
+            prepared = previous.domain_progress.input_preparation
+            if prepared is not None:
+                candidate = current.domain_progress.input_preparation
+                if candidate is None:
+                    raise IntegrationLedgerConflictError('INPUT_PREPARATION_REMOVED')
+                before, after = prepared.to_dict(), candidate.to_dict()
+                before.pop('continuity_context', None)
+                after.pop('continuity_context', None)
+                if (before != after or (prepared.continuity_context is not None and prepared != candidate)):
+                    raise IntegrationLedgerConflictError('INPUT_PREPARATION_CHANGED')
             progress_identity_fields = (
                 "wake_session_id",
                 "wake_context_id",

@@ -1,0 +1,6 @@
+{
+  "ignoredCount": 172,
+  "modifiedSinceBaseline": [],
+  "scope": "read-only mtimes of ignored paths; existing caches and official data not removed",
+  "limitation": "Timestamp check is not a historical content hash; official files separately verified by SHA256."
+}

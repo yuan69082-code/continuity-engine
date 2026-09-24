@@ -179,6 +179,20 @@ class ContinuityInteractionService:
     def submit(
         self,
         payload: Any,
+    ):
+        processor = self._continuity_core.input_processing if self._continuity_core is not None else None
+        if processor is not None:
+            with processor.admission():
+                try:
+                    return self._submit(payload)
+                finally:
+                    if isinstance(payload, Mapping) and isinstance(payload.get('requestId'), str):
+                        processor.source.release(payload['requestId'])
+        return self._submit(payload)
+
+    def _submit(
+        self,
+        payload: Any,
     ) -> (
         FirstRoundSuccessResult
         | FirstRoundErrorEnvelope
@@ -203,6 +217,11 @@ class ContinuityInteractionService:
             binding = self._validated_binding(request)
             if binding is None:
                 return self._error(request_id, FirstRoundErrorCode.SUBJECT_BINDING_MISMATCH)
+
+            if self._continuity_core is not None and self._continuity_core.input_processing is not None:
+                # W02 raw input must pass the existing credential-material boundary
+                # before the first operation/Wake/Perception write, not at Provider time.
+                self._validate_capability_material(payload)
 
             stage = "ledger"
             self._record("ledger")
@@ -254,11 +273,17 @@ class ContinuityInteractionService:
                     stage=IntegrationOperationStage.RESERVED,
                     reserved_at=now,
                     updated_at=now,
+                    input_processing_enabled=(self._continuity_core is not None
+                        and self._continuity_core.enabled and self._continuity_core.gates.input_processing),
                 )
                 self._ledger.save_operation(operation)
                 self._fault("after_operation_reserved", operation)
             else:
                 self._record("operation_recovery")
+
+            if operation.input_processing_enabled and (
+                    self._continuity_core is None or self._continuity_core.input_processing is None):
+                raise CapabilityValidationError('INPUT_PENDING_FEATURE_DISABLED')
 
             if operation.domain is None:
                 stage = "domain"
@@ -282,6 +307,16 @@ class ContinuityInteractionService:
             ) from exc
 
     def submit_capability_result(
+        self,
+        payload: Any,
+    ):
+        processor = self._continuity_core.input_processing if self._continuity_core is not None else None
+        if processor is not None:
+            with processor.admission():
+                return self._submit_capability_result(payload)
+        return self._submit_capability_result(payload)
+
+    def _submit_capability_result(
         self,
         payload: Any,
     ) -> FirstRoundSuccessResult | CapabilityRequiredEnvelope | CapabilityFailedEnvelope:
@@ -462,6 +497,56 @@ class ContinuityInteractionService:
         except ExpressionAccessError:
             return {"status": "CURRENTLY_UNAVAILABLE", "artifact": None, "verified_facts": facts}
         return {"status": artifact.decision.status, "artifact": artifact.to_dict(), "verified_facts": facts}
+
+    def input_outcome(self, request_id: str):
+        """Read-only structural view; receiving input is not remembering it."""
+        core = self._continuity_core
+        if core is None or core.input_processing is None:
+            return {'status': 'FEATURE_DISABLED', 'record': None}
+        operation = self._ledger.load_operation(request_id)
+        if operation is None or not operation.input_processing_enabled:
+            return {'status': 'NO_INPUT_RECORD', 'record': None}
+        progress = operation.domain_progress
+        if progress is None or progress.input_processing is None:
+            return {'status': 'PENDING_INPUT', 'record': None}
+        record = progress.input_processing
+        if progress.perception is None and progress.input_preparation is None:
+            # Legacy partial records have no durable material proof. Do not expose
+            # them as verified; an explicit submit can rebuild the original input.
+            return {'status': 'PENDING_PERCEPTION', 'record': None}
+        source = core.input_processing.source
+        source.authorize(request_id)
+        core.input_processing.verify_receipts(operation, partial=progress.perception is None)
+        completed = self._ledger.load_completed(request_id)
+        if operation.domain is not None or completed is not None:
+            self._verify_core_completed(operation, completed, expression_current=False)
+        outcome = {'status': 'COMPLETED' if completed is not None else 'PENDING',
+                   'record': record.to_dict(), 'received_not_necessarily_remembered': True,
+                   'thinking_result_id': operation.domain.thinking_result_id if operation.domain else None,
+                   'state_update_id': completed.state_projection.engine_update_id if completed else None,
+                   'expression_status': (operation.domain.expression.decision.status
+                                         if operation.domain and operation.domain.expression else None)}
+        outcome['resume_stations'] = [station for station in record.manifest['stations']
+            if record.latest(station) is None or record.latest(station).disposition.value == 'FAILED_WAITING']
+        session = self._load_think_session_if_present(operation.subject_id, progress.think_session_id)
+        if session is not None and session.result is not None:
+            proposed = bool(session.result.proposed_mutations)
+            committed = completed is not None and completed.state_projection.changed
+            outcome['internal_station'] = {
+                'disposition': ('REFERENCE_EXISTING' if committed else 'LONG_TERM_PROPOSAL'
+                    if proposed and operation.domain and operation.domain.approved_state_action is not None
+                    else 'CANDIDATE' if proposed else 'NOT_ADOPTED'),
+                'reason': ('EVOLUTION_FACT_VERIFIED' if committed else 'ORIGINAL_ACTION_EVOLUTION_REQUIRED'
+                           if proposed else 'NO_INTERNAL_UPDATE_PROPOSAL'),
+                'source_result_id': session.result.result_id,
+                'update_id': completed.state_projection.engine_update_id if committed else None,
+            }
+        source.authorize(request_id)
+        if progress.perception is None:
+            core.input_processing.verify_receipts(operation, partial=True)
+        if self._ledger.load_operation(request_id) != operation:
+            raise CapabilityValidationError('INPUT_READ_CHANGED')
+        return outcome
 
     def _finish_operation(
         self,
@@ -693,7 +778,16 @@ class ContinuityInteractionService:
                     perception_id=progress.perception_id,
                 )
             if existing_thinking is None and self._continuity_core is not None and self._continuity_core.enabled:
-                perception = self._continuity_core.prepare(perception, operation)
+                def save_input(record, *, prepared=None):
+                    nonlocal operation, progress
+                    proof = progress.input_preparation
+                    if proof is None or proof.continuity_context is None:
+                        proof = prepared or proof or perception
+                    progress = replace(progress, input_processing=record, input_preparation=proof)
+                    operation = self._save_domain_progress(operation, progress)
+                    self._fault('after_input_checkpoint_saved', operation)
+                perception = self._continuity_core.prepare(perception, operation,
+                    **({'save_input': save_input} if operation.input_processing_enabled else {}))
             self._validate_perception(
                 perception,
                 operation=operation,
@@ -711,6 +805,8 @@ class ContinuityInteractionService:
             )
             operation = self._save_domain_progress(operation, progress)
             self._fault("after_perception_checkpoint_saved", operation)
+            if self._continuity_core is not None and self._continuity_core.input_processing is not None:
+                self._continuity_core.input_processing.source.release(operation.request_id)
         else:
             perception = progress.perception
             self._validate_perception(
@@ -1063,6 +1159,10 @@ class ContinuityInteractionService:
         core = self._continuity_core
         if operation is None:
             return
+        if operation.input_processing_enabled and (core is None or core.input_processing is None):
+            raise CapabilityValidationError('INPUT_PENDING_FEATURE_DISABLED')
+        if operation.input_processing_enabled:
+            core.input_processing.verify_receipts(operation)
         if completed is not None and (
             completed.request_id != operation.request_id
             or completed.request_hash != operation.request_hash

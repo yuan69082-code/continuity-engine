@@ -68,6 +68,7 @@ class ContinuityCoreGates:
     contradictions: bool = True
     actions: bool = True
     emotion_decay: bool = True
+    input_processing: bool = False
 
     def __post_init__(self):
         if any(type(v) is not bool for v in self.__dict__.values()):
@@ -110,7 +111,8 @@ class ContinuityCoreService:
                  coordination, action_gate, constraints, capabilities, clock,
                  permission_policy, policy=None, gates=None, retrieval_budget=None,
                  context_budget=None, context_ttl=timedelta(minutes=10), planner=None, limits=None, fault=None, expression_policy=None,
-                 dynamic_mind=False, subject_growth=False, growth_repository=None, external_capabilities=None, execution=None):
+                 dynamic_mind=False, subject_growth=False, growth_repository=None, external_capabilities=None, execution=None,
+                 input_processing=None):
         if environment not in {"TEST", "RESEARCH"}:
             raise ValueError("P09 requires a TEST/RESEARCH boundary")
         self.subject_id, self.environment = subject_id, environment
@@ -139,6 +141,7 @@ class ContinuityCoreService:
         self.last_action = None
         self.external_capabilities=external_capabilities
         self.execution=execution
+        self.input_processing = input_processing
         if type(subject_growth) is not bool:
             raise ValueError('subject_growth must be an explicit feature gate')
         self.growth = None
@@ -273,7 +276,22 @@ class ContinuityCoreService:
                     source_memory_ids=[m.memory_id for m in sources])
         return max(0, len(pending) - 64)
 
-    def prepare(self, perception, operation):
+    def prepare(self, perception, operation, *, save_input=None):
+        try:
+            return self._prepare(perception, operation, save_input=save_input)
+        except Exception as primary:
+            if getattr(operation, 'input_processing_enabled', False) and self.input_processing is not None and save_input is not None:
+                latest = self.input_processing.source.ledger.load_operation(operation.request_id)
+                record = latest.domain_progress.input_processing if latest and latest.domain_progress else None
+                if record is not None and record.latest('conversation') is None:
+                    from continuity_engine.domain.input_processing import InputDisposition
+                    try:
+                        save_input(record.append('conversation', InputDisposition.FAILED_WAITING, 'CONTEXT_PREPARATION_FAILED'))
+                    except Exception:
+                        primary.add_note('INPUT_FAILURE_RECEIPT_NOT_SAVED')
+            raise
+
+    def _prepare(self, perception, operation, *, save_input=None):
         self.subject_states.require_active(self.subject_id, self.environment)
         if not self.enabled:
             return perception
@@ -282,7 +300,14 @@ class ContinuityCoreService:
         if perception.continuity_context is not None:
             perception.continuity_context.validate_perception(perception)
             return perception
-        pending_events = self._consolidate_events() if self.gates.memory else 0
+        input_record = None
+        input_failure = None
+        if getattr(operation, 'input_processing_enabled', False):
+            if self.input_processing is None or save_input is None:
+                raise CapabilityValidationError('INPUT_PENDING_FEATURE_DISABLED')
+            input_record, pending_events, input_failure = self.input_processing.prepare(perception, operation, save_input)
+        else:
+            pending_events = self._consolidate_events() if self.gates.memory else 0
         mind = self.mind.capture(perception, operation) if self.mind is not None else None
         route = self.router.route(perception, request_id=operation.request_id,
                                   environment=self.environment, budget=self.retrieval_budget,
@@ -306,7 +331,14 @@ class ContinuityCoreService:
         context = ContinuityCoreContext(digest(perception.to_dict()), route, composition, detection,
                                         emotion, self.gates.actions, pending_events,
                                         expression_enabled=self.expression_policy is not None, mind=mind,
-                                        growth_enabled=self.growth is not None)
+                                        growth_enabled=self.growth is not None,
+                                        input_manifest_hash=input_record.binding_hash if input_record else None)
+        if input_record is not None:
+            self.input_processing.finish_context(input_record, context,
+                lambda record: save_input(record, prepared=replace(perception, continuity_context=context)))
+        if input_failure is not None:
+            # Other independent stations have receipts; do not fabricate a completed turn.
+            raise input_failure
         enriched = replace(perception, continuity_context=context)
         context.validate_perception(enriched)
         self._trace(context)
@@ -328,6 +360,8 @@ class ContinuityCoreService:
     def current(self, context):
         """Re-resolve the exact selected sources before NEW work; never rewrite them."""
         snapshot = context.composition.snapshot
+        if context.input_manifest_hash is not None and self.input_processing is None:
+            return False
         if (snapshot.subject_id, snapshot.environment) != (self.subject_id, self.environment):
             return False
         from continuity_engine.domain.subject_lifecycle import LifecycleError
@@ -372,6 +406,10 @@ class ContinuityCoreService:
         if context is None or not self.enabled:
             raise CapabilityValidationError("C1_CONTEXT_REQUIRED")
         context.validate_perception(perception)
+        if context.input_manifest_hash is not None:
+            if self.input_processing is None:
+                raise CapabilityValidationError('INPUT_PENDING_FEATURE_DISABLED')
+            self.input_processing.verify_receipts(self.input_processing.source.ledger.load_operation(context.route.plan.request.request_id))
         if not self.current(context):
             raise CapabilityValidationError("C1_CONTEXT_STALE_OR_UNAUTHORIZED")
         self._trace(context)

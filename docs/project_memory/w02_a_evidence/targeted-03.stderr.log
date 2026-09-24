@@ -1,0 +1,51 @@
+test_existing_authoritative_event_can_be_referenced_by_memory_station (tests.test_w02_input_processing.InputProcessingTests.test_existing_authoritative_event_can_be_referenced_by_memory_station) ... ok
+test_explicit_input_gate_exists_without_changing_legacy_default (tests.test_w02_input_processing.InputProcessingTests.test_explicit_input_gate_exists_without_changing_legacy_default) ... ok
+test_input_statement_does_not_grant_permission (tests.test_w02_input_processing.InputProcessingTests.test_input_statement_does_not_grant_permission) ... ok
+test_negation_desire_other_and_history_are_not_claimed_experience (tests.test_w02_input_processing.InputProcessingTests.test_negation_desire_other_and_history_are_not_claimed_experience) ... ok
+test_plain_claim_received_does_not_create_event_or_memory (tests.test_w02_input_processing.InputProcessingTests.test_plain_claim_received_does_not_create_event_or_memory) ... ok
+test_question_routes_without_all_stations (tests.test_w02_input_processing.InputProcessingTests.test_question_routes_without_all_stations) ... ok
+test_raw_message_reaches_thinking_through_actual_composition (tests.test_w02_input_processing.InputProcessingTests.test_raw_message_reaches_thinking_through_actual_composition) ... ok
+test_same_event_name_with_different_content_is_not_evidence (tests.test_w02_input_processing.InputProcessingTests.test_same_event_name_with_different_content_is_not_evidence) ... ok
+test_uncertain_report_has_verification_reason_without_fact_upgrade (tests.test_w02_input_processing.InputProcessingTests.test_uncertain_report_has_verification_reason_without_fact_upgrade) ... ok
+test_completed_station_not_reexecuted_after_later_checkpoint_fault (tests.test_w02_input_recovery.InputRecoveryTests.test_completed_station_not_reexecuted_after_later_checkpoint_fault) ... ok
+test_composer_failure_preserves_finished_memory_and_safe_reason (tests.test_w02_input_recovery.InputRecoveryTests.test_composer_failure_preserves_finished_memory_and_safe_reason) ... ok
+test_concurrent_submission_is_replayed_or_explicitly_busy_without_duplicate (tests.test_w02_input_recovery.InputRecoveryTests.test_concurrent_submission_is_replayed_or_explicitly_busy_without_duplicate) ... ok
+test_context_expired_after_checkpoint_rejects (tests.test_w02_input_recovery.InputRecoveryTests.test_context_expired_after_checkpoint_rejects) ... ok
+test_cross_operation_record_rejected (tests.test_w02_input_recovery.InputRecoveryTests.test_cross_operation_record_rejected) ... ok
+test_current_permission_revocation_stops_new_thinking_without_effect (tests.test_w02_input_recovery.InputRecoveryTests.test_current_permission_revocation_stops_new_thinking_without_effect) ... ok
+test_disabled_after_original_enabled_checkpoint_refuses_downgrade (tests.test_w02_input_recovery.InputRecoveryTests.test_disabled_after_original_enabled_checkpoint_refuses_downgrade) ... ok
+test_idempotency_conflict_preserves_original_receipts (tests.test_w02_input_recovery.InputRecoveryTests.test_idempotency_conflict_preserves_original_receipts) ... ok
+test_local_memory_failure_is_recorded_then_resumed (tests.test_w02_input_recovery.InputRecoveryTests.test_local_memory_failure_is_recorded_then_resumed) ... ok
+test_missing_input_checkpoint_cannot_be_downgraded_to_legacy (tests.test_w02_input_recovery.InputRecoveryTests.test_missing_input_checkpoint_cannot_be_downgraded_to_legacy) ... ok
+test_missing_original_gate_is_rejected (tests.test_w02_input_recovery.InputRecoveryTests.test_missing_original_gate_is_rejected) ... ok
+test_receipt_cannot_be_rewritten_or_removed (tests.test_w02_input_recovery.InputRecoveryTests.test_receipt_cannot_be_rewritten_or_removed) ... ok
+test_restart_completed_request_is_byte_stable_and_no_duplicate_effect (tests.test_w02_input_recovery.InputRecoveryTests.test_restart_completed_request_is_byte_stable_and_no_duplicate_effect) ... ok
+test_saved_memory_fact_before_receipt_loss_is_not_written_twice (tests.test_w02_input_recovery.InputRecoveryTests.test_saved_memory_fact_before_receipt_loss_is_not_written_twice) ... ok
+test_thinking_saved_before_checkpoint_reuses_original_session (tests.test_w02_input_recovery.InputRecoveryTests.test_thinking_saved_before_checkpoint_reuses_original_session) ... ok
+test_budget_clipping_is_explicit_and_does_not_claim_input_consumed (tests.test_w02_input_integration.InputIntegrationTests.test_budget_clipping_is_explicit_and_does_not_claim_input_consumed) ... ok
+test_current_material_is_bound_to_original_message_version (tests.test_w02_input_integration.InputIntegrationTests.test_current_material_is_bound_to_original_message_version) ... ok
+test_disabled_feature_has_no_new_fields_or_component_calls (tests.test_w02_input_integration.InputIntegrationTests.test_disabled_feature_has_no_new_fields_or_component_calls) ... ok
+test_material_rejected_before_any_w02_persistence (tests.test_w02_input_integration.InputIntegrationTests.test_material_rejected_before_any_w02_persistence) ... FAIL
+test_ordinary_psychological_content_not_screened (tests.test_w02_input_integration.InputIntegrationTests.test_ordinary_psychological_content_not_screened) ... ok
+test_protected_fixture_rejected_without_writes (tests.test_w02_input_integration.InputIntegrationTests.test_protected_fixture_rejected_without_writes) ... ok
+test_read_rechecks_permission_before_return (tests.test_w02_input_integration.InputIntegrationTests.test_read_rechecks_permission_before_return) ... ok
+test_read_view_does_not_call_model_or_write (tests.test_w02_input_integration.InputIntegrationTests.test_read_view_does_not_call_model_or_write) ... ok
+test_snapshot_branch_preserves_input_progress (tests.test_w02_input_integration.InputIntegrationTests.test_snapshot_branch_preserves_input_progress) ... ok
+test_w02_internal_evolution_survives_expression_refusal_and_replay (tests.test_w02_input_integration.InputIntegrationTests.test_w02_internal_evolution_survives_expression_refusal_and_replay) ... ok
+
+======================================================================
+FAIL: test_material_rejected_before_any_w02_persistence (tests.test_w02_input_integration.InputIntegrationTests.test_material_rejected_before_any_w02_persistence)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w02_input_integration.py", line 105, in test_material_rejected_before_any_w02_persistence
+    self.assertEqual(tree_inventory_hash(f.runtime.data_root),before)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'sha256:6bcf042b61dc73fc66b17f622bad2125046d0f74695464872c506bedeaec44bb' != 'sha256:2b895d4abe44486465e434c27c7d42b74c35089f87835fcce2fe1a221738528d'
+- sha256:6bcf042b61dc73fc66b17f622bad2125046d0f74695464872c506bedeaec44bb
++ sha256:2b895d4abe44486465e434c27c7d42b74c35089f87835fcce2fe1a221738528d
+
+
+----------------------------------------------------------------------
+Ran 34 tests in 23.654s
+
+FAILED (failures=1)

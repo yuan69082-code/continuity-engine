@@ -1,0 +1,17 @@
+{
+  "command": [
+    "E:/Adobe/python.exe",
+    "-B",
+    "-m",
+    "unittest",
+    "tests.test_w02_input_processing",
+    "-v"
+  ],
+  "exitCode": 1,
+  "seconds": 0.9745511000000988,
+  "at": "2026-09-23T15:56:33.632746+00:00",
+  "classification": "新增 W02-A 开关尚未实现；不是已验收阶段回归",
+  "sourceBefore": "baseline.json",
+  "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderrSha256": "2c115c89bc0a9f54817521454933b65d7a64fe57769041af0d44fafc72dc7292"
+}

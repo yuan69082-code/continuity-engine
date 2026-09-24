@@ -1,0 +1,93 @@
+test_partial_read_rejects_unbound_completed_result (tests.test_w02_input_recovery.PartialInputQueryTests.test_partial_read_rejects_unbound_completed_result) ... ERROR
+{"test": "tests.test_w02_input_recovery.PartialInputQueryTests.test_partial_read_rejects_unbound_completed_result", "stage": "before-TEST-cleanup", "files": {"independent-peer/s/.p01-sandbox-root.v1.json": {"bytes": 98, "sha256": "3ced39d6b395df89d9b1f34e1b3faf46c14ccc6edab679a616f588a978e002f7"}, "independent-peer/s/s/s49d89e37/b/b468ac980/branch-manifest.v1.json": {"bytes": 243, "sha256": "8ecab7690bc787e4de631fbfdccdfe3519a26770566403dbec8d64afa448ead4"}, "independent-peer/s/s/s49d89e37/b/b468ac980/data/awakening/cycles/1a0d6f396f80690edcfc14d3b049b3232c338a9d20d480a13b6ba8aacb57ff8a.json": {"bytes": 235, "sha256": "83145c01dd99cdc3c3ef029425a761fcb5b7619885076f1019faea6be4e93a8c"}, "independent-peer/s/s/s49d89e37/b/b468ac980/data/c1-receipts/p08-fake-receipts.json": {"bytes": 148, "sha256": "a411df96a3b6eea514baf41f59d45ab70c55b96ee9f28e118d79525ea3bfe8c8"}, "independent-peer/s/s/s49d89e37/b/b468ac980/data/clock/subject-clock.v1.json": {"bytes": 109, "sha256": "9215b6977c7811370330d01c8bfe7e63b8e43ba8b12a8f09d85b24e7efac24ad"}, "independent-peer/s/s/s49d89e37/b/b468ac980/data/contradiction/test/2cd40f6df02179adf7f01a7f440e7136a0df86b320bad04bfa733eb42026d5e9.json": {"bytes": 228, "sha256": "dc620b6d9fe78b0bc5462e81d6ddb470eb31dba2468847ba9d668668cde6f281"}, "independent-peer/s/s/s49d89e37/b/b468ac980/data/fixture/c1-profile.v1.json": {"bytes": 102, "sha256": "964576f16e6918d4641e10411f6195de2afd42f15c2e0079e0960cec7564ac98"}, "independent-peer/s/s/s49d89e37/b/b468ac980/data/fixture/state-fixture.v1.json": {"bytes": 635, "sha256": "32b14ce03b9023e77f0da3a57bf5a0681a2f4dbdde42fc2233701781eb6941c4"}, "independent-peer/s/s/s49d89e37/b/b468ac980/data/integration/capability-ledger.v1.json": {"bytes": 82, "sha256": "95f292f0db842e43cccb490ce10bbeefd3bab92d43fa69f4bb1b6188d4ed43de"}, "independent-peer/s/s/s49d89e37/b/b468ac980/data/integration/operation-journal.first-round-v1.json": {"bytes": 1591, "sha256": "b959f687e9a4598701a7a71924c4105b2ebffcfcca1ccc01456ddbd08aae2fba"}, "independent-peer/s/s/s49d89e37/b/b468ac980/data/integration/result-ledger.first-round-v1.json": {"bytes": 63, "sha256": "5407f91ac04019966f84bfbad51ebc1fb904bd085a6579febfa75a9ea068592a"}, "independent-peer/s/s/s49d89e37/b/b468ac980/data/integration/subject-binding.runtime-v1.json": {"bytes": 613, "sha256": "a56b72f558176a7f54a4429644f2024cb5d0166c78e09779dbb6363370e7e7ee"}, "independent-peer/s/s/s49d89e37/b/b468ac980/data/learning/2cd40f6df02179adf7f01a7f440e7136a0df86b320bad04bfa733eb42026d5e9.json": {"bytes": 2154, "sha256": "2aa071250e671ddef9c94f887ab7e2b53ba5a448043784815821046acf93448d"}, "independent-peer/s/s/s49d89e37/b/b468ac980/data/memory/test/2cd40f6df02179adf7f01a7f440e7136a0df86b320bad04bfa733eb42026d5e9.json": {"bytes": 302, "sha256": "c0e073b7e9c7f1734464dcfb8742adb88623e7c6f668451ddfdb48b369321af5"}, "independent-peer/s/s/s49d89e37/b/b468ac980/data/resources/2cd40f6df02179adf7f01a7f440e7136a0df86b320bad04bfa733eb42026d5e9.json": {"bytes": 437, "sha256": "eb264f5c382456ad4a46c1adfebf8d48af540fb9a5d3261587585e2fbc249412"}, "independent-peer/s/s/s49d89e37/b/b468ac980/data/subject-state/2cd40f6df02179adf7f01a7f440e7136a0df86b320bad04bfa733eb42026d5e9.json": {"bytes": 4912, "sha256": "b9887f6705f385ec2a173a8a19a9485e444478aae4524c7ba0ada1147bc896ee"}, "independent-peer/s/s/s49d89e37/b/b468ac980/data/test-actions/action-sessions.v1.json": {"bytes": 128, "sha256": "d5e7a599f41f54e5ee02fcfaccfd16c4516fdc6c857c23c3d9f67c37b56d9abf"}, "independent-peer/s/s/s49d89e37/b/b468ac980/data/test-indexes/events.v1.json": {"bytes": 138, "sha256": "22879f4d138661289ccdcd8ce0f5341ce0e90c27433814e1af0633c1b2b05507"}, "independent-peer/s/s/s49d89e37/b/b468ac980/data/test-indexes/evolution.v1.json": {"bytes": 141, "sha256": "b763e75a75eb5996c361dadf8cedc8ee015f563ef2f7c37fd21ea8b820e2f717"}, "independent-peer/s/s/s49d89e37/b/b468ac980/data/test-indexes/relationship-state.v1.json": {"bytes": 150, "sha256": "b8fe62a991d0ecb4b452f484d53c29e8b2e7781ba486b1027b582b841054728b"}, "independent-peer/s/s/s49d89e37/b/b468ac980/data/test-indexes/state-mutations.v1.json": {"bytes": 147, "sha256": "d8febb6c72897f773caba27d7effbfd6f01181cef53889b3b48ab75ccb084f80"}, "independent-peer/s/s/s49d89e37/b/b468ac980/data/test-indexes/thinking-sessions.v1.json": {"bytes": 149, "sha256": "f08819060f63969826ecdc8a8944451170f5d1b63efa77b353ee2e093c0e7a71"}, "independent-peer/s/s/s49d89e37/b/b468ac980/data/test-indexes/wake-sessions.v1.json": {"bytes": 145, "sha256": "c9c9eb28411eb9a61c165dfa506cb4c01c0faf563281e0fc7aaca34b14de54db"}, "independent-peer/s/s/s49d89e37/b/b468ac980/data/test-memory/memory-ledger.v1.json": {"bytes": 631, "sha256": "fb37fe3d0ba9ea42d737154255b3a6426c0ec8ed2558f62cfe1a31bf190acba1"}, "independent-peer/s/s/s49d89e37/b/b468ac980/data/test-trace/subject-clock-trace.v1.json": {"bytes": 1558, "sha256": "1455addef07378493357553b760253e6f54f6f05fa51b6df373c0e9e39db7a11"}, "independent-peer/s/s/s49d89e37/sandbox-manifest.v1.json": {"bytes": 946, "sha256": "2ccc89ca7222c286f5ecb91fc7d6b062d75ff0ffffb7bc915249d1a3f6e3de07"}, "independent-peer/s/sandbox-registry.v1.json": {"bytes": 494, "sha256": "f9fd0948d29e0bb50aeb4f4bfb124c9d0c43ab5618771f12430ed962b95dd9d7"}, "s/.p01-sandbox-root.v1.json": {"bytes": 98, "sha256": "3ced39d6b395df89d9b1f34e1b3faf46c14ccc6edab679a616f588a978e002f7"}, "s/s/sf8615ed5/b/b8f2d95ed/branch-manifest.v1.json": {"bytes": 243, "sha256": "5d09b2fdb9483c9d9f4293ef018305059d1c69b89cb2d056d0394e121f3196c9"}, "s/s/sf8615ed5/b/b8f2d95ed/data/awakening/cycles/9c1c538a2e871e158ef15f46de9d249e7ed0556cb10579e19fb0ed0cbc555a47.json": {"bytes": 253, "sha256": "24c6414afe8e53a152d197e1e0901a658266416e443dd7455ef2631b0dc22a15"}, "s/s/sf8615ed5/b/b8f2d95ed/data/awakening/sessions/6ffb1261c89499c6940f76e0d0e5346143c37747d2429cce62b8039b6c9e00c5/73e41c671533ab39b717f48e315c8da1a4f7f1a7670c6e0bf1627aa860640fc8.json": {"bytes": 10657, "sha256": "82e6187ac0cc95b7ba7c64827fc4eabfd3cbada7aca5c0868b0ba0bd4e4a231e"}, "s/s/sf8615ed5/b/b8f2d95ed/data/c1-receipts/p08-fake-receipts.json": {"bytes": 148, "sha256": "a411df96a3b6eea514baf41f59d45ab70c55b96ee9f28e118d79525ea3bfe8c8"}, "s/s/sf8615ed5/b/b8f2d95ed/data/clock/subject-clock.v1.json": {"bytes": 109, "sha256": "9215b6977c7811370330d01c8bfe7e63b8e43ba8b12a8f09d85b24e7efac24ad"}, "s/s/sf8615ed5/b/b8f2d95ed/data/contradiction/test/6ffb1261c89499c6940f76e0d0e5346143c37747d2429cce62b8039b6c9e00c5.json": {"bytes": 228, "sha256": "53a6cccf472db12bac7357ad931f2a022ce674c90c4d3ac8ad94e19ca1dd8e10"}, "s/s/sf8615ed5/b/b8f2d95ed/data/fixture/c1-profile.v1.json": {"bytes": 102, "sha256": "983b07ada7c7fba1e61edb91475e53047b060c8aeada366d7fd673de7f467ef5"}, "s/s/sf8615ed5/b/b8f2d95ed/data/fixture/state-fixture.v1.json": {"bytes": 635, "sha256": "161d2aad95cf8c22caf595f05268cba927dc26b0b33254d9205c0d3fd8a57c08"}, "s/s/sf8615ed5/b/b8f2d95ed/data/integration/capability-ledger.v1.json": {"bytes": 82, "sha256": "95f292f0db842e43cccb490ce10bbeefd3bab92d43fa69f4bb1b6188d4ed43de"}, "s/s/sf8615ed5/b/b8f2d95ed/data/integration/operation-journal.first-round-v1.json": {"bytes": 72649, "sha256": "1008b596117db801340846b7ffd6955376a07686ee4a477ec8f8f98b72603eb0"}, "s/s/sf8615ed5/b/b8f2d95ed/data/integration/result-ledger.first-round-v1.json": {"bytes": 63, "sha256": "5407f91ac04019966f84bfbad51ebc1fb904bd085a6579febfa75a9ea068592a"}, "s/s/sf8615ed5/b/b8f2d95ed/data/integration/subject-binding.runtime-v1.json": {"bytes": 613, "sha256": "9c33d4f1c8aba98efc96a61dbdf9ec73fb0e550e796aa92bb948eb055ab27386"}, "s/s/sf8615ed5/b/b8f2d95ed/data/learning/6ffb1261c89499c6940f76e0d0e5346143c37747d2429cce62b8039b6c9e00c5.json": {"bytes": 2154, "sha256": "78ae0e6f9ef0bcc7d097bdce64fed58d7861890435c4b86e407441a0aa2dab8f"}, "s/s/sf8615ed5/b/b8f2d95ed/data/memory/test/6ffb1261c89499c6940f76e0d0e5346143c37747d2429cce62b8039b6c9e00c5.json": {"bytes": 302, "sha256": "f17d953d516f091d0cc0e10d7a71dfa3784f835587a63c9078528b99fadecf2b"}, "s/s/sf8615ed5/b/b8f2d95ed/data/resources/6ffb1261c89499c6940f76e0d0e5346143c37747d2429cce62b8039b6c9e00c5.json": {"bytes": 437, "sha256": "192f64b35143bc41477d7fb661039972e24583dd87c38d2023cfb0f99eb5f151"}, "s/s/sf8615ed5/b/b8f2d95ed/data/subject-state/6ffb1261c89499c6940f76e0d0e5346143c37747d2429cce62b8039b6c9e00c5.json": {"bytes": 4912, "sha256": "21d773c94b40c465e69c50ce516d585c92c926f1a150a0e2931a99f6410cf4cb"}, "s/s/sf8615ed5/b/b8f2d95ed/data/test-actions/action-sessions.v1.json": {"bytes": 128, "sha256": "a55d502ec97aa4f4439ed2769a0abe08e0dbc68f99415649ba387ef657c0614b"}, "s/s/sf8615ed5/b/b8f2d95ed/data/test-indexes/events.v1.json": {"bytes": 138, "sha256": "c05c0887c84ca494f2c31f42dcf04b9079346495c8218d0203573e67f4f22150"}, "s/s/sf8615ed5/b/b8f2d95ed/data/test-indexes/evolution.v1.json": {"bytes": 141, "sha256": "80b86f0d205dcc36d2f68b103585cd6b2e69610e19c4082e5be7b81d8e23d6f6"}, "s/s/sf8615ed5/b/b8f2d95ed/data/test-indexes/relationship-state.v1.json": {"bytes": 150, "sha256": "75a2639f2231a7089ed2e919bc284e9fca2032214bb86e56497828b97f40597b"}, "s/s/sf8615ed5/b/b8f2d95ed/data/test-indexes/state-mutations.v1.json": {"bytes": 147, "sha256": "6acb55ba5b69d2620bac13bfc81da2744783511ad4174d67459da7524e5bdf72"}, "s/s/sf8615ed5/b/b8f2d95ed/data/test-indexes/thinking-sessions.v1.json": {"bytes": 149, "sha256": "21298eee33ccad79370b8efbddc80ecbbe5631bc17be312df9604b6549aa0f6f"}, "s/s/sf8615ed5/b/b8f2d95ed/data/test-indexes/wake-sessions.v1.json": {"bytes": 145, "sha256": "0b220b0d98bf7ad9636a678a51b8cdfc794ac48a75f6e68344695ba314e87bef"}, "s/s/sf8615ed5/b/b8f2d95ed/data/test-memory/memory-ledger.v1.json": {"bytes": 631, "sha256": "14fd9505b5628798931bf4d7d96d540168eff1ac839d8df583f0b50ab8d62e83"}, "s/s/sf8615ed5/b/b8f2d95ed/data/test-trace/subject-clock-trace.v1.json": {"bytes": 1558, "sha256": "eefdfa66e04749f181bb2b92b300272b456331b3e2e2251bb7e85301b6701b5c"}, "s/s/sf8615ed5/sandbox-manifest.v1.json": {"bytes": 910, "sha256": "69749409dd11571c4ccf6ac0f4e97d9de994b6b4eab2858461c2b583ea3b1e8f"}, "s/sandbox-registry.v1.json": {"bytes": 476, "sha256": "d5cc4d906c0dd77e73dd351365b6525991a442a5066f1a2d3f42ba63d2d02a59"}}}
+
+======================================================================
+ERROR: test_partial_read_rejects_unbound_completed_result (tests.test_w02_input_recovery.PartialInputQueryTests.test_partial_read_rejects_unbound_completed_result)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 690, in _run_domain
+    wake_session = self._awakening.get_session(
+        operation.subject_id,
+        progress.wake_session_id,
+    )
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\awakening_service.py", line 162, in get_session
+    return self._repository.load_session(subject_id, session_id)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_awakening_repository.py", line 86, in load_session
+    raise StateNotFoundError(f"wake session not found: {session_id}")
+continuity_engine.domain.errors.StateNotFoundError: wake session not found: 981312d1-90d8-53d7-8433-824415e399fc
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 290, in _submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 695, in _run_domain
+    awakening = self._awakening.wake_manual(
+        binding.cycle_id,
+    ...<3 lines>...
+        preserve_recovery_context=True,
+    )
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\awakening_service.py", line 109, in wake_manual
+    return self._run(
+           ~~~~~~~~~^
+        cycle,
+        ^^^^^^
+    ...<3 lines>...
+        preserve_recovery_context=preserve_recovery_context,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\awakening_service.py", line 266, in _run
+    self._repository.save_session(session)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_awakening_repository.py", line 81, in save_session
+    self._write_json(path, session.to_dict())
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_awakening_repository.py", line 118, in _write_json
+    with tempfile.NamedTemporaryFile(
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        mode="w",
+        ^^^^^^^^^
+    ...<5 lines>...
+        delete=False,
+        ^^^^^^^^^^^^^
+    ) as temporary:
+    ^
+  File "E:\Adobe\Lib\tempfile.py", line 603, in NamedTemporaryFile
+    file = _io.open(dir, mode, buffering=buffering,
+                    newline=newline, encoding=encoding, errors=errors,
+                    opener=opener)
+  File "E:\Adobe\Lib\tempfile.py", line 600, in opener
+    fd, name = _mkstemp_inner(dir, prefix, suffix, flags, output_type)
+               ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Adobe\Lib\tempfile.py", line 255, in _mkstemp_inner
+    fd = _os.open(file, flags, 0o600)
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\Administrator\\AppData\\Local\\Temp\\tmpjgy56pnr\\independent-peer\\s\\s\\s49d89e37\\b\\b468ac980\\data\\awakening\\sessions\\2cd40f6df02179adf7f01a7f440e7136a0df86b320bad04bfa733eb42026d5e9\\.4cbde7cea0ba0f1ec39a7ae4cf15189057540cb2684d340a71dc229a038e3c8d.lq7t0i18.tmp'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w02_input_recovery.py", line 184, in test_partial_read_rejects_unbound_completed_result
+    foreign = peer.submit(peer.message('今天好吗？')).to_dict()
+              ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p09_core_fixture.py", line 165, in submit
+    return self.app.adapter.submit(request or self.request())
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 187, in submit
+    return self._submit(payload)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 302, in _submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.
+
+----------------------------------------------------------------------
+Ran 1 test in 0.797s
+
+FAILED (errors=1)

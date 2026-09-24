@@ -1,0 +1,25 @@
+test_forged_memory_receipt_cannot_claim_message_was_remembered (tests.test_w02_input_recovery.InputRecoveryTests.test_forged_memory_receipt_cannot_claim_message_was_remembered) ... FAIL
+test_forged_conversation_receipt_cannot_claim_a_missing_fragment (tests.test_w02_input_recovery.InputRecoveryTests.test_forged_conversation_receipt_cannot_claim_a_missing_fragment) ... FAIL
+
+======================================================================
+FAIL: test_forged_memory_receipt_cannot_claim_message_was_remembered (tests.test_w02_input_recovery.InputRecoveryTests.test_forged_memory_receipt_cannot_claim_message_was_remembered)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w02_input_recovery.py", line 205, in test_forged_memory_receipt_cannot_claim_message_was_remembered
+    with self.assertRaises(Exception):f.app.adapter.service.input_outcome(request['requestId'])
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: Exception not raised
+
+======================================================================
+FAIL: test_forged_conversation_receipt_cannot_claim_a_missing_fragment (tests.test_w02_input_recovery.InputRecoveryTests.test_forged_conversation_receipt_cannot_claim_a_missing_fragment)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w02_input_recovery.py", line 214, in test_forged_conversation_receipt_cannot_claim_a_missing_fragment
+    with self.assertRaises(Exception):f.submit(request)
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: Exception not raised
+
+----------------------------------------------------------------------
+Ran 2 tests in 1.643s
+
+FAILED (failures=2)

@@ -458,8 +458,31 @@ class IntegrationDomainProgress:
     response_completed_at: str | None = None
     action: ActionExecutionResult | None = None
     continuity_context_hash: str | None = None
+    input_processing: object | None = None
+    input_preparation: PerceptionResult | None = None
 
     def __post_init__(self) -> None:
+        from .input_processing import InputProcessingRecord
+        if self.input_processing is not None and not isinstance(self.input_processing, InputProcessingRecord):
+            raise MachineContractValidationError('INPUT_CHECKPOINT_INVALID')
+        if self.input_preparation is not None:
+            prepared = self.input_preparation
+            if (self.input_processing is None or self.wake_context is None
+                    or prepared.perception_id != self.perception_id
+                    or prepared.wake_session_id != self.wake_session_id
+                    or prepared.wake_context_id != self.wake_context_id):
+                raise MachineContractValidationError('INPUT_PREPARATION_IDENTITY_INVALID')
+            context = prepared.continuity_context
+            if context is not None:
+                context.validate_perception(prepared)
+                if context.input_manifest_hash != self.input_processing.binding_hash:
+                    raise MachineContractValidationError('INPUT_PREPARATION_CONTEXT_INVALID')
+        if self.perception is not None:
+            context = self.perception.continuity_context
+            expected = self.input_processing.binding_hash if self.input_processing is not None else None
+            actual = context.input_manifest_hash if context is not None else None
+            if expected != actual:
+                raise MachineContractValidationError('INPUT_CONTEXT_CHECKPOINT_MISMATCH')
         if not isinstance(self.stage, IntegrationDomainProgressStage):
             raise MachineContractValidationError(
                 "operation domain progress stage is invalid"
@@ -621,10 +644,16 @@ class IntegrationDomainProgress:
             "action": self.action.to_dict() if self.action is not None else None,
             **({"continuityContextHash": self.continuity_context_hash}
                if self.continuity_context_hash is not None else {}),
+            **({'inputProcessing': self.input_processing.to_dict()} if self.input_processing is not None else {}),
+            **({'inputPreparation': self.input_preparation.to_dict()} if self.input_preparation is not None else {}),
         }
 
     @classmethod
     def from_dict(cls, value: Any) -> IntegrationDomainProgress:
+        from .input_processing import InputProcessingRecord
+        if isinstance(value, dict):
+            value = {**value, 'inputProcessing': value.get('inputProcessing'),
+                     'inputPreparation': value.get('inputPreparation')}
         if isinstance(value, dict) and "action" not in value:
             value = {**value, "action": None}
         if isinstance(value, dict) and "continuityContextHash" not in value:
@@ -649,6 +678,8 @@ class IntegrationDomainProgress:
                 "responseCompletedAt",
                 "action",
                 "continuityContextHash",
+                "inputProcessing",
+                "inputPreparation",
             },
         )
         try:
@@ -711,6 +742,10 @@ class IntegrationDomainProgress:
                 else None
             ),
             continuity_context_hash=data["continuityContextHash"],
+            input_processing=(InputProcessingRecord.from_dict(data['inputProcessing'])
+                              if data['inputProcessing'] is not None else None),
+            input_preparation=(PerceptionResult.from_dict(data['inputPreparation'])
+                               if data['inputPreparation'] is not None else None),
         )
 
 
@@ -991,8 +1026,25 @@ class IntegrationOperationRecord:
     evolution: IntegrationEvolutionCheckpoint | None = None
     domain_progress: IntegrationDomainProgress | None = None
     capability: IntegrationCapabilityCheckpoint | None = None
+    input_processing_enabled: bool = False
 
     def __post_init__(self) -> None:
+        if type(self.input_processing_enabled) is not bool:
+            raise MachineContractValidationError('INPUT_GATE_INVALID')
+        if self.domain_progress is not None:
+            record = self.domain_progress.input_processing
+            if record is not None:
+                if not self.input_processing_enabled:
+                    raise MachineContractValidationError('INPUT_GATE_BINDING_MISSING')
+                record.validate_binding(self, self.domain_progress.perception)
+                prepared = self.domain_progress.input_preparation
+                if prepared is not None:
+                    record.validate_binding(self, prepared)
+                    if (prepared.subject_id != self.subject_id or prepared.source_revision != self.input_revision
+                            or tuple(f.observation_id for f in prepared.external_facts) != self.consumed_observation_ids):
+                        raise MachineContractValidationError('INPUT_PREPARATION_OPERATION_INVALID')
+            if self.input_processing_enabled and self.domain_progress.perception is not None and record is None:
+                raise MachineContractValidationError('INPUT_CHECKPOINT_MISSING')
         _text(self.request_id, "operation requestId")
         _hash(self.request_hash, "operation requestHash")
         _text(self.operation_id, "operation operationId")
@@ -1109,6 +1161,7 @@ class IntegrationOperationRecord:
             "bindingId": self.binding_id,
             "bindingVersion": self.binding_version,
             "inputRevision": self.input_revision,
+            **({'inputProcessingEnabled': True} if self.input_processing_enabled else {}),
             "consumedObservationIds": list(self.consumed_observation_ids),
             "stage": self.stage.value,
             "reservedAt": self.reserved_at,
@@ -1129,6 +1182,9 @@ class IntegrationOperationRecord:
 
     @classmethod
     def from_dict(cls, value: Any) -> IntegrationOperationRecord:
+        enabled = value.get('inputProcessingEnabled', False) if isinstance(value, dict) else False
+        if isinstance(value, dict) and 'inputProcessingEnabled' in value:
+            value = {k: v for k, v in value.items() if k != 'inputProcessingEnabled'}
         legacy_keys = {
                 "requestId",
                 "requestHash",
@@ -1173,6 +1229,7 @@ class IntegrationOperationRecord:
                 data["bindingVersion"], "operation bindingVersion"
             ),
             input_revision=_integer(data["inputRevision"], "operation inputRevision"),
+            input_processing_enabled=enabled,
             consumed_observation_ids=tuple(raw_observations),
             stage=stage,
             reserved_at=_utc_datetime(data["reservedAt"], "operation reservedAt"),

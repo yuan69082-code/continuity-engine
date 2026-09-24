@@ -1,0 +1,6 @@
+test_partial_read_rejects_unbound_completed_result (tests.test_w02_input_recovery.PartialInputQueryTests.test_partial_read_rejects_unbound_completed_result) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 1.311s
+
+OK

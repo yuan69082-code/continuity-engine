@@ -1,0 +1,9 @@
+test_partial_public_query_after_local_failure (tests.test_w02_input_recovery.PartialInputQueryTests.test_partial_public_query_after_local_failure) ... ok
+test_partial_public_query_after_reopen (tests.test_w02_input_recovery.PartialInputQueryTests.test_partial_public_query_after_reopen) ... ok
+test_other_colors_is_not_another_person_through_real_ingress (tests.test_w02_input_processing.InputLanguageRepairTests.test_other_colors_is_not_another_person_through_real_ingress) ... ok
+test_plain_negation_through_real_ingress (tests.test_w02_input_processing.InputLanguageRepairTests.test_plain_negation_through_real_ingress) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 2.793s
+
+OK

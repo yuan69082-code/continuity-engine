@@ -1,0 +1,15 @@
+test_explicit_input_gate_exists_without_changing_legacy_default (tests.test_w02_input_processing.InputProcessingTests.test_explicit_input_gate_exists_without_changing_legacy_default) ... FAIL
+
+======================================================================
+FAIL: test_explicit_input_gate_exists_without_changing_legacy_default (tests.test_w02_input_processing.InputProcessingTests.test_explicit_input_gate_exists_without_changing_legacy_default)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w02_input_processing.py", line 8, in test_explicit_input_gate_exists_without_changing_legacy_default
+    self.assertIn('input_processing', ContinuityCoreGates.__dataclass_fields__)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'input_processing' not found in {'enabled': Field(name='enabled',type='bool',default=True,default_factory=<dataclasses._MISSING_TYPE object at 0x0000019887068590>,init=True,repr=True,hash=None,compare=True,metadata=mappingproxy({}),kw_only=False,doc=None,_field_type=_FIELD), 'memory': Field(name='memory',type='bool',default=True,default_factory=<dataclasses._MISSING_TYPE object at 0x0000019887068590>,init=True,repr=True,hash=None,compare=True,metadata=mappingproxy({}),kw_only=False,doc=None,_field_type=_FIELD), 'contradictions': Field(name='contradictions',type='bool',default=True,default_factory=<dataclasses._MISSING_TYPE object at 0x0000019887068590>,init=True,repr=True,hash=None,compare=True,metadata=mappingproxy({}),kw_only=False,doc=None,_field_type=_FIELD), 'actions': Field(name='actions',type='bool',default=True,default_factory=<dataclasses._MISSING_TYPE object at 0x0000019887068590>,init=True,repr=True,hash=None,compare=True,metadata=mappingproxy({}),kw_only=False,doc=None,_field_type=_FIELD), 'emotion_decay': Field(name='emotion_decay',type='bool',default=True,default_factory=<dataclasses._MISSING_TYPE object at 0x0000019887068590>,init=True,repr=True,hash=None,compare=True,metadata=mappingproxy({}),kw_only=False,doc=None,_field_type=_FIELD)}
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+FAILED (failures=1)

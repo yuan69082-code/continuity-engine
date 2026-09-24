@@ -1,0 +1,23 @@
+{
+  "at": "2026-09-23T19:04:48.495060+00:00",
+  "source": "frozen-source-02.json",
+  "status": "FINISHED",
+  "results": [
+    {
+      "label": "w02-final-02",
+      "exitCode": 0,
+      "valid": true
+    },
+    {
+      "label": "compatibility-final-02",
+      "exitCode": 0,
+      "valid": true
+    },
+    {
+      "label": "full-final-02",
+      "exitCode": 0,
+      "valid": true
+    }
+  ],
+  "active": null
+}

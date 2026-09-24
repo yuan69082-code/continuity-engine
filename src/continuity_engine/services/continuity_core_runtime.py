@@ -62,6 +62,14 @@ def build_continuity_core(*, data_dir, binding, ledger, subject_states, action_g
             "derived_summary")])
     sources.extend(extra_sources)
     resolvers.extend(extra_resolvers)
+    input_processing = None
+    if gates.enabled and gates.input_processing:
+        from .input_context_source import InputContextSource
+        from .input_processing_service import InputProcessingService
+        source = InputContextSource(ledger, permission, clock, binding.subject_id, environment)
+        input_processing = InputProcessingService(source)
+        sources.append(ContextSourceBinding(source))
+        resolvers.append(TrustedContextResolverBinding(source, ContextAuthority.RETRIEVED_CANDIDATE, 'current_message'))
     external=options.pop('external_capabilities',None)
     if external is not None and gates.enabled:
         from .external_context_source import ExternalContextSource
@@ -96,7 +104,9 @@ def build_continuity_core(*, data_dir, binding, ledger, subject_states, action_g
         consolidation=MemoryConsolidationService(memory, clock=clock), subject_states=subject_states,
         coordination=CapabilityCoordinationService(ledger), action_gate=action_gate, constraints=constraints,
         capabilities=capabilities, clock=clock, permission_policy=permission, gates=gates,
-        external_capabilities=external, execution=execution, **options)
+        external_capabilities=external, execution=execution, input_processing=input_processing, **options)
+    if input_processing is not None:
+        input_processing.core = core
     if external is not None:external.bind(core)
     if execution is not None:execution.bind(core)
     return core

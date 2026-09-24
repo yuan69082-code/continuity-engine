@@ -1,0 +1,15 @@
+{
+  "modules": [
+    "tests.test_integration_contract",
+    "tests.test_integration_persistence",
+    "tests.test_e4_crash_recovery",
+    "tests.test_e4_local_integration",
+    "tests.test_p09_boundaries",
+    "tests.test_p09_continuity_core",
+    "tests.test_p09_evolution_review",
+    "tests.test_p09_review_regressions",
+    "tests.test_p13_expression_recovery",
+    "tests.test_pre_p19_supplement"
+  ],
+  "reason": "Final additional implementation change is one input_outcome completed-result guard. Revalidate original ledger binding/recovery, C1 query, expression/state recovery and autonomy callers at the final identity. Earlier broader 686 tests are retained as prior-version actual results, not claimed as final-version reruns; final full regression covers every module."
+}

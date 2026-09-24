@@ -1,0 +1,1620 @@
+{
+  "at": "2026-09-23T19:39:16.839932+00:00",
+  "errors": [],
+  "sourceCount": 282,
+  "sourceHash": "sha256:1021239d8214b38493aa3ff8ea5011c7b27856966bfe3395545607a8c066c523",
+  "sourceFrozenEqual": true,
+  "repairSourceDelta": [
+    "src/continuity_engine/domain/integration_results.py",
+    "src/continuity_engine/services/continuity_core_service.py",
+    "src/continuity_engine/services/continuity_interaction_service.py",
+    "src/continuity_engine/services/input_context_source.py",
+    "src/continuity_engine/services/input_processing_service.py",
+    "src/continuity_engine/storage/json_integration_repository.py",
+    "tests/test_w02_input_processing.py",
+    "tests/test_w02_input_recovery.py"
+  ],
+  "originalTestBodiesExact": {
+    "tests/test_w02_input_processing.py": true,
+    "tests/test_w02_input_recovery.py": true
+  },
+  "historicalDocBodiesExact": {
+    "README.md": true,
+    "docs/project_memory/01_当前状态.md": true,
+    "docs/project_memory/03_施工日志.md": true,
+    "docs/project_memory/04_决策记录.md": true,
+    "docs/project_memory/06_未完成事项.md": true,
+    "docs/project_memory/CHANGELOG.md": true,
+    "docs/project_memory/工程总档案.md": true
+  },
+  "priorEvidenceUnchanged": {
+    "docs/project_memory/w02_a_evidence/admission-before-01.json": true,
+    "docs/project_memory/w02_a_evidence/admission-before-01.stderr.log": true,
+    "docs/project_memory/w02_a_evidence/admission-before-01.stdout.log": true,
+    "docs/project_memory/w02_a_evidence/architecture-and-recovery.md": true,
+    "docs/project_memory/w02_a_evidence/audit-helper-error-01.json": true,
+    "docs/project_memory/w02_a_evidence/audit.py": true,
+    "docs/project_memory/w02_a_evidence/baseline.json": true,
+    "docs/project_memory/w02_a_evidence/compatibility-final-01.json": true,
+    "docs/project_memory/w02_a_evidence/compatibility-final-01.stderr.log": true,
+    "docs/project_memory/w02_a_evidence/compatibility-final-01.stdout.log": true,
+    "docs/project_memory/w02_a_evidence/compatibility-final-02.json": true,
+    "docs/project_memory/w02_a_evidence/compatibility-final-02.stderr.log": true,
+    "docs/project_memory/w02_a_evidence/compatibility-final-02.stdout.log": true,
+    "docs/project_memory/w02_a_evidence/compatibility-plan.json": true,
+    "docs/project_memory/w02_a_evidence/continuation.md": true,
+    "docs/project_memory/w02_a_evidence/failure-history.md": true,
+    "docs/project_memory/w02_a_evidence/feature-before-01.json": true,
+    "docs/project_memory/w02_a_evidence/feature-before-01.stderr.log": true,
+    "docs/project_memory/w02_a_evidence/feature-before-01.stdout.log": true,
+    "docs/project_memory/w02_a_evidence/final-report.md": true,
+    "docs/project_memory/w02_a_evidence/final.audit.json": true,
+    "docs/project_memory/w02_a_evidence/final.inventory.json": true,
+    "docs/project_memory/w02_a_evidence/final.pending-files.md": true,
+    "docs/project_memory/w02_a_evidence/finalize_docs.py": true,
+    "docs/project_memory/w02_a_evidence/frozen-source-02.json": true,
+    "docs/project_memory/w02_a_evidence/frozen-source-03.json": true,
+    "docs/project_memory/w02_a_evidence/frozen-source.json": true,
+    "docs/project_memory/w02_a_evidence/full-final-01.json": true,
+    "docs/project_memory/w02_a_evidence/full-final-01.stderr.log": true,
+    "docs/project_memory/w02_a_evidence/full-final-01.stdout.log": true,
+    "docs/project_memory/w02_a_evidence/golden-example.json": true,
+    "docs/project_memory/w02_a_evidence/ignored-material-check.json": true,
+    "docs/project_memory/w02_a_evidence/matrix.md": true,
+    "docs/project_memory/w02_a_evidence/native-before-01.json": true,
+    "docs/project_memory/w02_a_evidence/native-before-01.stderr.log": true,
+    "docs/project_memory/w02_a_evidence/native-before-01.stdout.log": true,
+    "docs/project_memory/w02_a_evidence/pre-full-check.json": true,
+    "docs/project_memory/w02_a_evidence/process-check-01.json": true,
+    "docs/project_memory/w02_a_evidence/process-check-before-full.json": true,
+    "docs/project_memory/w02_a_evidence/process-check-during-full-01.json": true,
+    "docs/project_memory/w02_a_evidence/process-cleanup.json": true,
+    "docs/project_memory/w02_a_evidence/process_audit.py": true,
+    "docs/project_memory/w02_a_evidence/receipt-before-01.json": true,
+    "docs/project_memory/w02_a_evidence/receipt-before-01.stderr.log": true,
+    "docs/project_memory/w02_a_evidence/receipt-before-01.stdout.log": true,
+    "docs/project_memory/w02_a_evidence/review-entry.md": true,
+    "docs/project_memory/w02_a_evidence/run-v1-preserved.py": true,
+    "docs/project_memory/w02_a_evidence/run.py": true,
+    "docs/project_memory/w02_a_evidence/selected-runs.json": true,
+    "docs/project_memory/w02_a_evidence/stage-brief.md": true,
+    "docs/project_memory/w02_a_evidence/targeted-01.json": true,
+    "docs/project_memory/w02_a_evidence/targeted-01.stderr.log": true,
+    "docs/project_memory/w02_a_evidence/targeted-01.stdout.log": true,
+    "docs/project_memory/w02_a_evidence/targeted-02.json": true,
+    "docs/project_memory/w02_a_evidence/targeted-02.stderr.log": true,
+    "docs/project_memory/w02_a_evidence/targeted-02.stdout.log": true,
+    "docs/project_memory/w02_a_evidence/targeted-03.json": true,
+    "docs/project_memory/w02_a_evidence/targeted-03.stderr.log": true,
+    "docs/project_memory/w02_a_evidence/targeted-03.stdout.log": true,
+    "docs/project_memory/w02_a_evidence/targeted-04.json": true,
+    "docs/project_memory/w02_a_evidence/targeted-04.stderr.log": true,
+    "docs/project_memory/w02_a_evidence/targeted-04.stdout.log": true,
+    "docs/project_memory/w02_a_evidence/targeted-05.json": true,
+    "docs/project_memory/w02_a_evidence/targeted-05.stderr.log": true,
+    "docs/project_memory/w02_a_evidence/targeted-05.stdout.log": true,
+    "docs/project_memory/w02_a_evidence/targeted-06.json": true,
+    "docs/project_memory/w02_a_evidence/targeted-06.stderr.log": true,
+    "docs/project_memory/w02_a_evidence/targeted-06.stdout.log": true,
+    "docs/project_memory/w02_a_evidence/targeted-final-01.json": true,
+    "docs/project_memory/w02_a_evidence/targeted-final-01.stderr.log": true,
+    "docs/project_memory/w02_a_evidence/targeted-final-01.stdout.log": true,
+    "docs/project_memory/w02_a_evidence/targeted-final-02.json": true,
+    "docs/project_memory/w02_a_evidence/targeted-final-02.stderr.log": true,
+    "docs/project_memory/w02_a_evidence/targeted-final-02.stdout.log": true,
+    "docs/project_memory/w02_a_evidence/targeted-final-03.json": true,
+    "docs/project_memory/w02_a_evidence/targeted-final-03.stderr.log": true,
+    "docs/project_memory/w02_a_evidence/targeted-final-03.stdout.log": true,
+    "docs/project_memory/w02_a_evidence/test-history.md": true
+  },
+  "repairChangedFiles": [
+    "README.md",
+    "docs/project_memory/01_当前状态.md",
+    "docs/project_memory/03_施工日志.md",
+    "docs/project_memory/04_决策记录.md",
+    "docs/project_memory/06_未完成事项.md",
+    "docs/project_memory/CHANGELOG.md",
+    "docs/project_memory/工程总档案.md",
+    "src/continuity_engine/domain/integration_results.py",
+    "src/continuity_engine/services/continuity_core_service.py",
+    "src/continuity_engine/services/continuity_interaction_service.py",
+    "src/continuity_engine/storage/json_integration_repository.py",
+    "src/continuity_engine/services/input_context_source.py",
+    "src/continuity_engine/services/input_processing_service.py",
+    "tests/test_w02_input_processing.py",
+    "tests/test_w02_input_recovery.py"
+  ],
+  "sourceChanges": [
+    "src/continuity_engine/domain/continuity_core.py",
+    "src/continuity_engine/domain/integration_results.py",
+    "src/continuity_engine/services/continuity_core_runtime.py",
+    "src/continuity_engine/services/continuity_core_service.py",
+    "src/continuity_engine/services/continuity_interaction_service.py",
+    "src/continuity_engine/storage/json_integration_repository.py"
+  ],
+  "sourceNew": [
+    "src/continuity_engine/domain/input_processing.py",
+    "src/continuity_engine/services/input_context_source.py",
+    "src/continuity_engine/services/input_processing_service.py",
+    "src/continuity_engine/testing/w02_input_fixture.py",
+    "tests/test_w02_input_integration.py",
+    "tests/test_w02_input_processing.py",
+    "tests/test_w02_input_recovery.py"
+  ],
+  "runs": {
+    "formal": {
+      "label": "formal-final-02",
+      "valid": true,
+      "sourceMatches": true,
+      "run": 25,
+      "passed": 25,
+      "seconds": 18.586,
+      "failures": 0,
+      "errors": 0,
+      "skips": [],
+      "exitCode": 0,
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-B",
+        "docs/project_memory/w02_a_evidence/repair_r1_r2/run.py",
+        "formal-final-02",
+        "tests.test_w02_input_recovery.PartialInputQueryTests",
+        "tests.test_w02_input_processing.InputLanguageRepairTests"
+      ]
+    },
+    "special": {
+      "label": "w02-final-02",
+      "valid": true,
+      "sourceMatches": true,
+      "run": 66,
+      "passed": 66,
+      "seconds": 53.283,
+      "failures": 0,
+      "errors": 0,
+      "skips": [],
+      "exitCode": 0,
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-B",
+        "docs\\project_memory\\w02_a_evidence\\repair_r1_r2\\run.py",
+        "w02-final-02",
+        "tests.test_w02_input_processing",
+        "tests.test_w02_input_recovery",
+        "tests.test_w02_input_integration"
+      ]
+    },
+    "compatibility": {
+      "label": "compatibility-final-02",
+      "valid": true,
+      "sourceMatches": true,
+      "run": 218,
+      "passed": 218,
+      "seconds": 131.728,
+      "failures": 0,
+      "errors": 0,
+      "skips": [],
+      "exitCode": 0,
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-B",
+        "docs\\project_memory\\w02_a_evidence\\repair_r1_r2\\run.py",
+        "compatibility-final-02",
+        "tests.test_integration_contract",
+        "tests.test_integration_persistence",
+        "tests.test_e4_crash_recovery",
+        "tests.test_e4_local_integration",
+        "tests.test_p09_boundaries",
+        "tests.test_p09_continuity_core",
+        "tests.test_p09_evolution_review",
+        "tests.test_p09_review_regressions",
+        "tests.test_p13_expression_recovery",
+        "tests.test_pre_p19_supplement"
+      ]
+    },
+    "full": {
+      "label": "full-final-02",
+      "valid": true,
+      "sourceMatches": true,
+      "run": 1646,
+      "passed": 1645,
+      "seconds": 1659.112,
+      "failures": 0,
+      "errors": 0,
+      "skips": [
+        [
+          "test_p08_fixture_paths.P08FixturePathTests.test_symlink_component_rejected_without_writes",
+          "OS does not grant symlink creation: 1314"
+        ]
+      ],
+      "exitCode": 0,
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-B",
+        "docs\\project_memory\\w02_a_evidence\\repair_r1_r2\\run.py",
+        "full-final-02"
+      ]
+    }
+  },
+  "testIdentity": {
+    "oldCount": 1580,
+    "fullCount": 1646,
+    "removed": [],
+    "added": [
+      "test_w02_input_integration.InputIntegrationTests.test_budget_clipping_is_explicit_and_does_not_claim_input_consumed",
+      "test_w02_input_integration.InputIntegrationTests.test_cross_process_busy_admission_does_not_create_operation",
+      "test_w02_input_integration.InputIntegrationTests.test_current_material_is_bound_to_original_message_version",
+      "test_w02_input_integration.InputIntegrationTests.test_disabled_feature_has_no_new_fields_or_component_calls",
+      "test_w02_input_integration.InputIntegrationTests.test_material_rejected_before_any_w02_persistence",
+      "test_w02_input_integration.InputIntegrationTests.test_model_capability_input_uses_the_same_current_input_composition",
+      "test_w02_input_integration.InputIntegrationTests.test_native_opportunity_without_input_flag_preserves_original_chain",
+      "test_w02_input_integration.InputIntegrationTests.test_ordinary_psychological_content_not_screened",
+      "test_w02_input_integration.InputIntegrationTests.test_protected_fixture_rejected_without_writes",
+      "test_w02_input_integration.InputIntegrationTests.test_read_rechecks_permission_before_return",
+      "test_w02_input_integration.InputIntegrationTests.test_read_view_does_not_call_model_or_write",
+      "test_w02_input_integration.InputIntegrationTests.test_real_process_restart_restores_original_effect_once",
+      "test_w02_input_integration.InputIntegrationTests.test_snapshot_branch_preserves_input_progress",
+      "test_w02_input_integration.InputIntegrationTests.test_w02_internal_evolution_survives_expression_refusal_and_replay",
+      "test_w02_input_processing.InputLanguageRepairTests.test_affirmative_sender_through_real_ingress",
+      "test_w02_input_processing.InputLanguageRepairTests.test_incomplete_quote_and_reported_scope_remain_uncertain",
+      "test_w02_input_processing.InputLanguageRepairTests.test_negation_lexemes_and_ambiguous_scope",
+      "test_w02_input_processing.InputLanguageRepairTests.test_other_colors_is_not_another_person_through_real_ingress",
+      "test_w02_input_processing.InputLanguageRepairTests.test_plain_negation_through_real_ingress",
+      "test_w02_input_processing.InputLanguageRepairTests.test_pronoun_words_and_object_are_not_sentence_subject",
+      "test_w02_input_processing.InputLanguageRepairTests.test_quote_and_scope_reach_real_context_without_fact_upgrade",
+      "test_w02_input_processing.InputLanguageRepairTests.test_quoted_negation_is_not_sender_negation",
+      "test_w02_input_processing.InputLanguageRepairTests.test_reported_friend_through_real_ingress",
+      "test_w02_input_processing.InputLanguageRepairTests.test_v1_pending_recovery_preserves_original_interpretation",
+      "test_w02_input_processing.InputProcessingTests.test_existing_authoritative_event_can_be_referenced_by_memory_station",
+      "test_w02_input_processing.InputProcessingTests.test_explicit_input_gate_exists_without_changing_legacy_default",
+      "test_w02_input_processing.InputProcessingTests.test_input_statement_does_not_grant_permission",
+      "test_w02_input_processing.InputProcessingTests.test_negation_desire_other_and_history_are_not_claimed_experience",
+      "test_w02_input_processing.InputProcessingTests.test_plain_claim_received_does_not_create_event_or_memory",
+      "test_w02_input_processing.InputProcessingTests.test_question_routes_without_all_stations",
+      "test_w02_input_processing.InputProcessingTests.test_raw_message_reaches_thinking_through_actual_composition",
+      "test_w02_input_processing.InputProcessingTests.test_same_event_name_with_different_content_is_not_evidence",
+      "test_w02_input_processing.InputProcessingTests.test_uncertain_report_has_verification_reason_without_fact_upgrade",
+      "test_w02_input_recovery.InputRecoveryTests.test_admission_does_not_reclassify_an_application_runtime_error",
+      "test_w02_input_recovery.InputRecoveryTests.test_completed_station_not_reexecuted_after_later_checkpoint_fault",
+      "test_w02_input_recovery.InputRecoveryTests.test_composer_failure_preserves_finished_memory_and_safe_reason",
+      "test_w02_input_recovery.InputRecoveryTests.test_concurrent_submission_is_replayed_or_explicitly_busy_without_duplicate",
+      "test_w02_input_recovery.InputRecoveryTests.test_context_expired_after_checkpoint_rejects",
+      "test_w02_input_recovery.InputRecoveryTests.test_cross_operation_record_rejected",
+      "test_w02_input_recovery.InputRecoveryTests.test_current_permission_revocation_stops_new_thinking_without_effect",
+      "test_w02_input_recovery.InputRecoveryTests.test_disabled_after_original_enabled_checkpoint_refuses_downgrade",
+      "test_w02_input_recovery.InputRecoveryTests.test_forged_conversation_receipt_cannot_claim_a_missing_fragment",
+      "test_w02_input_recovery.InputRecoveryTests.test_forged_memory_receipt_cannot_claim_message_was_remembered",
+      "test_w02_input_recovery.InputRecoveryTests.test_idempotency_conflict_preserves_original_receipts",
+      "test_w02_input_recovery.InputRecoveryTests.test_local_memory_failure_is_recorded_then_resumed",
+      "test_w02_input_recovery.InputRecoveryTests.test_missing_input_checkpoint_cannot_be_downgraded_to_legacy",
+      "test_w02_input_recovery.InputRecoveryTests.test_missing_original_gate_is_rejected",
+      "test_w02_input_recovery.InputRecoveryTests.test_receipt_cannot_be_rewritten_or_removed",
+      "test_w02_input_recovery.InputRecoveryTests.test_restart_completed_request_is_byte_stable_and_no_duplicate_effect",
+      "test_w02_input_recovery.InputRecoveryTests.test_saved_memory_fact_before_receipt_loss_is_not_written_twice",
+      "test_w02_input_recovery.InputRecoveryTests.test_thinking_saved_before_checkpoint_reuses_original_session",
+      "test_w02_input_recovery.PartialInputQueryTests.test_composition_failure_exposes_other_station_and_resumes_only_failed",
+      "test_w02_input_recovery.PartialInputQueryTests.test_legacy_partial_read_remains_unverified_until_explicit_resubmit",
+      "test_w02_input_recovery.PartialInputQueryTests.test_partial_preparation_cannot_be_removed_or_rewritten",
+      "test_w02_input_recovery.PartialInputQueryTests.test_partial_public_query_after_local_failure",
+      "test_w02_input_recovery.PartialInputQueryTests.test_partial_public_query_after_reopen",
+      "test_w02_input_recovery.PartialInputQueryTests.test_partial_read_corruption_and_forged_success_refused",
+      "test_w02_input_recovery.PartialInputQueryTests.test_partial_read_expired_context",
+      "test_w02_input_recovery.PartialInputQueryTests.test_partial_read_in_separate_process_is_read_only",
+      "test_w02_input_recovery.PartialInputQueryTests.test_partial_read_rechecks_revision_before_return",
+      "test_w02_input_recovery.PartialInputQueryTests.test_partial_read_rejects_unbound_completed_result",
+      "test_w02_input_recovery.PartialInputQueryTests.test_partial_read_revoked_during_query",
+      "test_w02_input_recovery.PartialInputQueryTests.test_partial_read_revoked_permission",
+      "test_w02_input_recovery.PartialInputQueryTests.test_partial_read_subject_and_environment_mismatch",
+      "test_w02_input_recovery.PartialInputQueryTests.test_partial_read_subject_revision_changed",
+      "test_w02_input_recovery.PartialInputQueryTests.test_repeat_read_and_resume_do_not_repeat_successful_stations"
+    ]
+  },
+  "repairTestIdentity": {
+    "oldCount": 1621,
+    "fullCount": 1646,
+    "removed": [],
+    "added": [
+      "test_w02_input_processing.InputLanguageRepairTests.test_affirmative_sender_through_real_ingress",
+      "test_w02_input_processing.InputLanguageRepairTests.test_incomplete_quote_and_reported_scope_remain_uncertain",
+      "test_w02_input_processing.InputLanguageRepairTests.test_negation_lexemes_and_ambiguous_scope",
+      "test_w02_input_processing.InputLanguageRepairTests.test_other_colors_is_not_another_person_through_real_ingress",
+      "test_w02_input_processing.InputLanguageRepairTests.test_plain_negation_through_real_ingress",
+      "test_w02_input_processing.InputLanguageRepairTests.test_pronoun_words_and_object_are_not_sentence_subject",
+      "test_w02_input_processing.InputLanguageRepairTests.test_quote_and_scope_reach_real_context_without_fact_upgrade",
+      "test_w02_input_processing.InputLanguageRepairTests.test_quoted_negation_is_not_sender_negation",
+      "test_w02_input_processing.InputLanguageRepairTests.test_reported_friend_through_real_ingress",
+      "test_w02_input_processing.InputLanguageRepairTests.test_v1_pending_recovery_preserves_original_interpretation",
+      "test_w02_input_recovery.PartialInputQueryTests.test_composition_failure_exposes_other_station_and_resumes_only_failed",
+      "test_w02_input_recovery.PartialInputQueryTests.test_legacy_partial_read_remains_unverified_until_explicit_resubmit",
+      "test_w02_input_recovery.PartialInputQueryTests.test_partial_preparation_cannot_be_removed_or_rewritten",
+      "test_w02_input_recovery.PartialInputQueryTests.test_partial_public_query_after_local_failure",
+      "test_w02_input_recovery.PartialInputQueryTests.test_partial_public_query_after_reopen",
+      "test_w02_input_recovery.PartialInputQueryTests.test_partial_read_corruption_and_forged_success_refused",
+      "test_w02_input_recovery.PartialInputQueryTests.test_partial_read_expired_context",
+      "test_w02_input_recovery.PartialInputQueryTests.test_partial_read_in_separate_process_is_read_only",
+      "test_w02_input_recovery.PartialInputQueryTests.test_partial_read_rechecks_revision_before_return",
+      "test_w02_input_recovery.PartialInputQueryTests.test_partial_read_rejects_unbound_completed_result",
+      "test_w02_input_recovery.PartialInputQueryTests.test_partial_read_revoked_during_query",
+      "test_w02_input_recovery.PartialInputQueryTests.test_partial_read_revoked_permission",
+      "test_w02_input_recovery.PartialInputQueryTests.test_partial_read_subject_and_environment_mismatch",
+      "test_w02_input_recovery.PartialInputQueryTests.test_partial_read_subject_revision_changed",
+      "test_w02_input_recovery.PartialInputQueryTests.test_repeat_read_and_resume_do_not_repeat_successful_stations"
+    ]
+  },
+  "protected": {
+    "protected": {
+      "src/continuity_engine/interfaces/models.py": {
+        "expected": "bf79e56545cf3ca726139130cc827dd7cb258172af0eb3930435230ab3164056",
+        "actual": "bf79e56545cf3ca726139130cc827dd7cb258172af0eb3930435230ab3164056",
+        "equal": true
+      },
+      "pyproject.toml": {
+        "expected": "40703a155ab1c1626901d1b61363384e49b5c64e58303cc110fe499ff6c25419",
+        "actual": "40703a155ab1c1626901d1b61363384e49b5c64e58303cc110fe499ff6c25419",
+        "equal": true
+      },
+      "src/continuity_engine/interfaces/ports.py": {
+        "expected": "938737f18341596802edfe953192565bd71090acce15997225d922236b15e85e",
+        "actual": "938737f18341596802edfe953192565bd71090acce15997225d922236b15e85e",
+        "equal": true
+      },
+      "src/continuity_engine/interfaces/integration_contract_schema.py": {
+        "expected": "136765997f4314b8e4f5fb1f353ce90a6278ade0b16e1e59fbea349670c11550",
+        "actual": "136765997f4314b8e4f5fb1f353ce90a6278ade0b16e1e59fbea349670c11550",
+        "equal": true
+      },
+      "src/continuity_engine/interfaces/schemas/capability-model-output.v1.schema.json": {
+        "expected": "babdf85c2aa28609d2eb16178ab0a57e3b648f686ab05def0f86dca898526426",
+        "actual": "babdf85c2aa28609d2eb16178ab0a57e3b648f686ab05def0f86dca898526426",
+        "equal": true
+      },
+      "src/continuity_engine/interfaces/local_frontend_app.py": {
+        "expected": "9649514d102e905b07ec7c2df05ce6e5bebfb94203f8fe587ec851cc9cdcd70d",
+        "actual": "9649514d102e905b07ec7c2df05ce6e5bebfb94203f8fe587ec851cc9cdcd70d",
+        "equal": true
+      },
+      "src/continuity_engine/interfaces/schemas/capability-result.v1.schema.json": {
+        "expected": "3359228260eeb5a48f52c2f7ca20bf4821705aa7e50ecd41973d495e703a7001",
+        "actual": "3359228260eeb5a48f52c2f7ca20bf4821705aa7e50ecd41973d495e703a7001",
+        "equal": true
+      },
+      "src/continuity_engine/interfaces/schemas/capability-request.v1.schema.json": {
+        "expected": "093284bfc70d0bd5679b34c68d4197a49103680094443ac9d7d6550f9a44e949",
+        "actual": "093284bfc70d0bd5679b34c68d4197a49103680094443ac9d7d6550f9a44e949",
+        "equal": true
+      },
+      "src/continuity_engine/interfaces/core_views.py": {
+        "expected": "2b6ee55a0e08dde0d015cebc9ee49fb2a581a1f9e655f79e93834cbf93b24092",
+        "actual": "2b6ee55a0e08dde0d015cebc9ee49fb2a581a1f9e655f79e93834cbf93b24092",
+        "equal": true
+      },
+      "src/continuity_engine/interfaces/schemas/platform-observation.message-created.first-round-v1.schema.json": {
+        "expected": "bc3aaff3d5a928975e9ec434a74d05c7f18bffaaa1bdca46da78142552a98ace",
+        "actual": "bc3aaff3d5a928975e9ec434a74d05c7f18bffaaa1bdca46da78142552a98ace",
+        "equal": true
+      },
+      "src/continuity_engine/interfaces/__init__.py": {
+        "expected": "54565f8093e65116139496461b82f529a8e3179ccfa90bd8816e4be85db5801b",
+        "actual": "54565f8093e65116139496461b82f529a8e3179ccfa90bd8816e4be85db5801b",
+        "equal": true
+      },
+      "src/continuity_engine/interfaces/security.py": {
+        "expected": "40d7f863350e1699dbb460660813adbe4f9cd590bbabe94fae28eb560dc039c9",
+        "actual": "40d7f863350e1699dbb460660813adbe4f9cd590bbabe94fae28eb560dc039c9",
+        "equal": true
+      },
+      "src/continuity_engine/interfaces/local_integration_app.py": {
+        "expected": "445638fced092e77b3cd600da2348061b269c94af516fe935188b610e369c1ef",
+        "actual": "445638fced092e77b3cd600da2348061b269c94af516fe935188b610e369c1ef",
+        "equal": true
+      },
+      "src/continuity_engine/interfaces/local_model_capability_app.py": {
+        "expected": "51f18d21bb2ff5171109134f71ca05db72d91ef01db80d01c85a3c347218aef4",
+        "actual": "51f18d21bb2ff5171109134f71ca05db72d91ef01db80d01c85a3c347218aef4",
+        "equal": true
+      },
+      "src/continuity_engine/interfaces/skill_adapter.py": {
+        "expected": "72ae15b7ad8fbb94dbdfc3d21ec153667cdfc264d13685189e707cbd1fa65edb",
+        "actual": "72ae15b7ad8fbb94dbdfc3d21ec153667cdfc264d13685189e707cbd1fa65edb",
+        "equal": true
+      },
+      "src/continuity_engine/interfaces/capability_schema.py": {
+        "expected": "474de9fd9130885e7ddd7607aa361bfed5bfb64cfbb2dc7d2b7a5103ce9e6701",
+        "actual": "474de9fd9130885e7ddd7607aa361bfed5bfb64cfbb2dc7d2b7a5103ce9e6701",
+        "equal": true
+      },
+      "src/continuity_engine/interfaces/schemas/continuity-interaction-request.first-round-v1.schema.json": {
+        "expected": "18d9656cf4a3842cc55b18411593dfc48a79522ac742b64d83a6fa17d9add656",
+        "actual": "18d9656cf4a3842cc55b18411593dfc48a79522ac742b64d83a6fa17d9add656",
+        "equal": true
+      },
+      "src/continuity_engine/interfaces/integration_adapter.py": {
+        "expected": "3a6c4cd987779d3712242993baaa4c460a30f06a5e7a30fd11419a2db240d487",
+        "actual": "3a6c4cd987779d3712242993baaa4c460a30f06a5e7a30fd11419a2db240d487",
+        "equal": true
+      },
+      "src/continuity_engine/interfaces/mcp_adapter.py": {
+        "expected": "2d4d01f44d10f2bcac348fdb82e56bc8bf57591dad814e80b0b02203377e4a6a",
+        "actual": "2d4d01f44d10f2bcac348fdb82e56bc8bf57591dad814e80b0b02203377e4a6a",
+        "equal": true
+      },
+      "src/continuity_engine/interfaces/http_server.py": {
+        "expected": "15c7843fac6435fa3ae9194604f7993dd3ead2c67401653c2f3446dd17877786",
+        "actual": "15c7843fac6435fa3ae9194604f7993dd3ead2c67401653c2f3446dd17877786",
+        "equal": true
+      },
+      "src/continuity_engine/interfaces/api_service.py": {
+        "expected": "1a2d6f3cd5d5b1ae40c5dd081332b27bc68349f5ca3d0667063b3011bed12979",
+        "actual": "1a2d6f3cd5d5b1ae40c5dd081332b27bc68349f5ca3d0667063b3011bed12979",
+        "equal": true
+      },
+      "src/continuity_engine/interfaces/schemas/platform-fact.message-version.first-round-v1.schema.json": {
+        "expected": "2ccf8fea7dc69cc1d89e5da5ae8f798f3c170285e61a5d4191d3cbfad1a8746b",
+        "actual": "2ccf8fea7dc69cc1d89e5da5ae8f798f3c170285e61a5d4191d3cbfad1a8746b",
+        "equal": true
+      },
+      "src/continuity_engine/interfaces/integration_config.py": {
+        "expected": "2e06bafd253c09127fa3a3b537271f84390c57d73c5f3a93909505bf97121572",
+        "actual": "2e06bafd253c09127fa3a3b537271f84390c57d73c5f3a93909505bf97121572",
+        "equal": true
+      },
+      "src/continuity_engine/interfaces/integration_http_server.py": {
+        "expected": "131da59540ab2f3f0403f939d38528d6a964412d05643bbf7ddac47ffc418ba1",
+        "actual": "131da59540ab2f3f0403f939d38528d6a964412d05643bbf7ddac47ffc418ba1",
+        "equal": true
+      },
+      "src/continuity_engine/interfaces/contract_test_adapter.py": {
+        "expected": "1c9b988fe875151570ab27215099c7f5ca0af881aee99f1139c57cc1768a3043",
+        "actual": "1c9b988fe875151570ab27215099c7f5ca0af881aee99f1139c57cc1768a3043",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/closeout-20260904/check_stop.py": {
+        "expected": "04ba52bc0eb8467a3e81649f715a36781cced94e2141e1dd43004f0f63e64a50",
+        "actual": "04ba52bc0eb8467a3e81649f715a36781cced94e2141e1dd43004f0f63e64a50",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/closeout-20260904/closeout.py": {
+        "expected": "13b25e473f2eee7c3b2dd72fe9f793f0a59d47817a08e0e8c204ca8c40652f3b",
+        "actual": "13b25e473f2eee7c3b2dd72fe9f793f0a59d47817a08e0e8c204ca8c40652f3b",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/closeout-20260904/preserve_failed_closeout.py": {
+        "expected": "4ad73b1f340edec31a27e9a0bb4948901ca2e8eb7b241765d5368c14c7c38c9b",
+        "actual": "4ad73b1f340edec31a27e9a0bb4948901ca2e8eb7b241765d5368c14c7c38c9b",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/closeout-20260904/record_stop.py": {
+        "expected": "071010b697c3d432a002a6c5d4b6de3ecc5ed26eae06946bd24a85430c5d0d53",
+        "actual": "071010b697c3d432a002a6c5d4b6de3ecc5ed26eae06946bd24a85430c5d0d53",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/closeout-20260904/sync_assistant.py": {
+        "expected": "7d6f95f77bb2a30243c8d915753215628eef8fc63d4ae339d81c90fca26b70bc",
+        "actual": "7d6f95f77bb2a30243c8d915753215628eef8fc63d4ae339d81c90fca26b70bc",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/create_repositories.py": {
+        "expected": "4496367cfa2ff990712651ef4f4c118443539b845442b5be206ccdcc83c861ed",
+        "actual": "4496367cfa2ff990712651ef4f4c118443539b845442b5be206ccdcc83c861ed",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/final_audit.py": {
+        "expected": "26e3e2d4e266e64258af975c746f4a73f7d5d3e990f113e0534df617a8ac4ca4",
+        "actual": "26e3e2d4e266e64258af975c746f4a73f7d5d3e990f113e0534df617a8ac4ca4",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/fixture-case-repair-20260904/audit.py": {
+        "expected": "bc3456b46f56b80906c8e1f903ac6dc217d9645a5e4a4a338d176d54925030cc",
+        "actual": "bc3456b46f56b80906c8e1f903ac6dc217d9645a5e4a4a338d176d54925030cc",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/fixture-case-repair-20260904/independent/p10_fixture_repair_review_probe.py": {
+        "expected": "39ec62e764bb1876ab8d3ffa9129f1fefdb2b3e26059badf02bc5e219906873c",
+        "actual": "39ec62e764bb1876ab8d3ffa9129f1fefdb2b3e26059badf02bc5e219906873c",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/fixture-case-repair-20260904/prepare.py": {
+        "expected": "d2c2671acd152891040527632e461d1114ac469540e7400a7004486a67e5c339",
+        "actual": "d2c2671acd152891040527632e461d1114ac469540e7400a7004486a67e5c339",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/fixture-case-repair-20260904/run.py": {
+        "expected": "94411ef7a5f5fe43dd0f6fc86eb56f8a922deb87703921b28693566aa780c71a",
+        "actual": "94411ef7a5f5fe43dd0f6fc86eb56f8a922deb87703921b28693566aa780c71a",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/fixture-case-repair-20260904/sync_docs.py": {
+        "expected": "40a7a76730fe057ec66fa195ce58464eb2da77db6d5b03745ffe53c48e9bb914",
+        "actual": "40a7a76730fe057ec66fa195ce58464eb2da77db6d5b03745ffe53c48e9bb914",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/fixture-repair-20260904/audit.py": {
+        "expected": "aa5289290bb2a112a64ccb79090d571e61e3f5f29f7877a03844177501f83a7f",
+        "actual": "aa5289290bb2a112a64ccb79090d571e61e3f5f29f7877a03844177501f83a7f",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/fixture-repair-20260904/baseline.py": {
+        "expected": "c5bec025138c31135289697b71445e7950389881fd6a6a0425fb919ea2fdb1f6",
+        "actual": "c5bec025138c31135289697b71445e7950389881fd6a6a0425fb919ea2fdb1f6",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/fixture-repair-20260904/engineering_resume.py": {
+        "expected": "b090517464ec893de606b8c98a0ecf1de709ab59340523b35747907cbbc106c1",
+        "actual": "b090517464ec893de606b8c98a0ecf1de709ab59340523b35747907cbbc106c1",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/fixture-repair-20260904/engineering.py": {
+        "expected": "4c2a9047fc486025fa821341054c2a5fba43a2480c8e9f88e33ddb3ff1183f73",
+        "actual": "4c2a9047fc486025fa821341054c2a5fba43a2480c8e9f88e33ddb3ff1183f73",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/fixture-repair-20260904/run.py": {
+        "expected": "94411ef7a5f5fe43dd0f6fc86eb56f8a922deb87703921b28693566aa780c71a",
+        "actual": "94411ef7a5f5fe43dd0f6fc86eb56f8a922deb87703921b28693566aa780c71a",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/fixture-repair-20260904/sync_docs.py": {
+        "expected": "7dcc07b812d687f04241b9ab241a1496240bf377b2df719cd19bc4cd1424f927",
+        "actual": "7dcc07b812d687f04241b9ab241a1496240bf377b2df719cd19bc4cd1424f927",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/fixture-repair-20260904/temp_probe.py": {
+        "expected": "513c9131b46f1738d2b711eff67917dfd4e58b40572aae81a7b2653dfbce87a3",
+        "actual": "513c9131b46f1738d2b711eff67917dfd4e58b40572aae81a7b2653dfbce87a3",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/launcher-repair-20260905/advance.py": {
+        "expected": "7c03e2199a0471f3375a20e91dbdbc60cfc202c88033a175f77b5f64f8a77ca1",
+        "actual": "7c03e2199a0471f3375a20e91dbdbc60cfc202c88033a175f77b5f64f8a77ca1",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/launcher-repair-20260905/build_review_report.py": {
+        "expected": "d56cb9e2396a7f511a99ef5cf97b824d96ed0097b41aa0283a4c3ebb2795ac5c",
+        "actual": "d56cb9e2396a7f511a99ef5cf97b824d96ed0097b41aa0283a4c3ebb2795ac5c",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/launcher-repair-20260905/ci_evidence.py": {
+        "expected": "5e4478967a6b5c1eae802364f751b836fce6e3efb77fe78d2c383fbea59fd09e",
+        "actual": "5e4478967a6b5c1eae802364f751b836fce6e3efb77fe78d2c383fbea59fd09e",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/launcher-repair-20260905/document_check.py": {
+        "expected": "4d7f95ac7fb336631af13a168cb200e6515cca729a945861a36f896cd7f7f1cc",
+        "actual": "4d7f95ac7fb336631af13a168cb200e6515cca729a945861a36f896cd7f7f1cc",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/launcher-repair-20260905/final_audit.py": {
+        "expected": "1a0bff72b2faf30a601c5fce1c5d58156be6f6b0c15f54c825d57c81880bce47",
+        "actual": "1a0bff72b2faf30a601c5fce1c5d58156be6f6b0c15f54c825d57c81880bce47",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/launcher-repair-20260905/repair_namespace_diagnostic.py": {
+        "expected": "646bd35f3288b269bedf366375682df58e6fc3de484faecefc9e5ac7fe111b1d",
+        "actual": "646bd35f3288b269bedf366375682df58e6fc3de484faecefc9e5ac7fe111b1d",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/launcher-repair-20260905/temp_checkout_probe.py": {
+        "expected": "c18ed4b0a1d73b30940071b38ab16ef037f1f80490f29bb532a0a9275d255d31",
+        "actual": "c18ed4b0a1d73b30940071b38ab16ef037f1f80490f29bb532a0a9275d255d31",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/launcher-repair-20260905/validate_temp.py": {
+        "expected": "568952b47f8778ec163a73bc2d5d77e159a5140d8b6c13be13f2e9c9b8ba8664",
+        "actual": "568952b47f8778ec163a73bc2d5d77e159a5140d8b6c13be13f2e9c9b8ba8664",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/launcher-repair-20260905/workflow.py": {
+        "expected": "a5085108309375d577ba4f29d40b91ac0baf4e932282a64b6558cacad30dc067",
+        "actual": "a5085108309375d577ba4f29d40b91ac0baf4e932282a64b6558cacad30dc067",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/outside_temp_clone.py": {
+        "expected": "ffd885f4dee710a9f7e1b8e7d4911ac795168c8dbb9e0626cdb18c96e75b16f2",
+        "actual": "ffd885f4dee710a9f7e1b8e7d4911ac795168c8dbb9e0626cdb18c96e75b16f2",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/publish_assistant.py": {
+        "expected": "73c6f6aa6edd0c56b9468504e8522e20383ecc9d1bf6f8c49676d9cf5be961be",
+        "actual": "73c6f6aa6edd0c56b9468504e8522e20383ecc9d1bf6f8c49676d9cf5be961be",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/remote_review.py": {
+        "expected": "6b5d99bf2a8330156efd5b948874d251ceb5ad26be7e947b9bdca04c406bc34f",
+        "actual": "6b5d99bf2a8330156efd5b948874d251ceb5ad26be7e947b9bdca04c406bc34f",
+        "equal": true
+      },
+      ".continuity-data/66343283d4a54390b47b4f9ef82d62553faa3a25d9c89fb002cf9fcd626dd1b9.json": {
+        "expected": "77cd26e175a22e4078a89597a475cd5be9be2691b4a689c01838a370381c1281",
+        "actual": "77cd26e175a22e4078a89597a475cd5be9be2691b4a689c01838a370381c1281",
+        "equal": true
+      },
+      ".continuity-data/a940747044d25cbbc065d4c65e6418ed7ac50c4ad85cd03fcfa6cb3560fb11ef.json": {
+        "expected": "399ce8a82c69249fe5560382319e2d87f198869de2d918858955562b4d1275f8",
+        "actual": "399ce8a82c69249fe5560382319e2d87f198869de2d918858955562b4d1275f8",
+        "equal": true
+      },
+      ".continuity-data/awakening/cycles/9206d2b588ec3f039d36855e0fdda3f1d24e66d479ab1ac71a847001996c5fce.json": {
+        "expected": "f3c472a94e1e2b4687bc8dd15025ca47592f30a91dbaca90daf25be07210430a",
+        "actual": "f3c472a94e1e2b4687bc8dd15025ca47592f30a91dbaca90daf25be07210430a",
+        "equal": true
+      },
+      ".continuity-data/awakening/cycles/ad7ca61028768690c65473d3918e757c9966927a44535a964a65b188c973caa5.json": {
+        "expected": "d26a8164b0dacd647010d87330004f1d9e42172d31062a8f07293898af6d9c86",
+        "actual": "d26a8164b0dacd647010d87330004f1d9e42172d31062a8f07293898af6d9c86",
+        "equal": true
+      },
+      ".continuity-data/awakening/sessions/a940747044d25cbbc065d4c65e6418ed7ac50c4ad85cd03fcfa6cb3560fb11ef/14a54f0b7fca71545600cdb46d0320cc4be2659da62bf764d76500cd4531f410.json": {
+        "expected": "8d5724fac3c4b8a665c6832cea2bcb87773440d788b6a87dbee599aea1873304",
+        "actual": "8d5724fac3c4b8a665c6832cea2bcb87773440d788b6a87dbee599aea1873304",
+        "equal": true
+      },
+      ".continuity-data/awakening/sessions/a940747044d25cbbc065d4c65e6418ed7ac50c4ad85cd03fcfa6cb3560fb11ef/678ae6f20c2099e8c9bd5e8a09aa103a2361ec9e7aa14b442aefd3c74f3b4b31.json": {
+        "expected": "693efe42584b732cb0f3c1388edcce0cf144f0866194bf2dd59f2c8a2ab0913b",
+        "actual": "693efe42584b732cb0f3c1388edcce0cf144f0866194bf2dd59f2c8a2ab0913b",
+        "equal": true
+      },
+      ".continuity-data/thinking/sessions/a940747044d25cbbc065d4c65e6418ed7ac50c4ad85cd03fcfa6cb3560fb11ef/8492dba044e1c1841b3c394d7de7d6e8469138f6263a0633d065dac7ed0bad15.json": {
+        "expected": "59beb2523a89285e3d525b63b55e45016da53fb9d609f6a13c1428677b66a982",
+        "actual": "59beb2523a89285e3d525b63b55e45016da53fb9d609f6a13c1428677b66a982",
+        "equal": true
+      }
+    },
+    "plans": {
+      "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\outputs\\Continuity Assistant 分支构想 v0.1_P10实际建仓同步版_2026-08-26.docx": {
+        "expected": "5513e8241a96f4d661d9520cbcb3c2ea9914ca8d430b2db4dacc13ba3dd744a1",
+        "actual": "5513e8241a96f4d661d9520cbcb3c2ea9914ca8d430b2db4dacc13ba3dd744a1",
+        "equal": true
+      },
+      "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\outputs\\Continuity Engine（数字连续性引擎）全周期工程监工规划_v1.1_Engine独立施工与P10实际建仓同步版_2026-08-26.docx": {
+        "expected": "9cbc30b5beb7f12c046556bd9461b59d5d4e45c2315dc2da4f07c8bd132ae1a1",
+        "actual": "9cbc30b5beb7f12c046556bd9461b59d5d4e45c2315dc2da4f07c8bd132ae1a1",
+        "equal": true
+      },
+      "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-24\\https-github-com-yuan69082-code-continuity\\outputs\\连续性引擎长期能力增补规划_v6.7_Engine独立施工与P10实际建仓同步版_2026-08-26.docx": {
+        "expected": "a47bfb5e19092ee11963c0554897fbb29cbbba775183bddecb284c24f3788027",
+        "actual": "a47bfb5e19092ee11963c0554897fbb29cbbba775183bddecb284c24f3788027",
+        "equal": true
+      }
+    },
+    "formalFiles": {
+      ".continuity-data/66343283d4a54390b47b4f9ef82d62553faa3a25d9c89fb002cf9fcd626dd1b9.json": {
+        "expected": "77cd26e175a22e4078a89597a475cd5be9be2691b4a689c01838a370381c1281",
+        "actual": "77cd26e175a22e4078a89597a475cd5be9be2691b4a689c01838a370381c1281",
+        "equal": true
+      },
+      ".continuity-data/a940747044d25cbbc065d4c65e6418ed7ac50c4ad85cd03fcfa6cb3560fb11ef.json": {
+        "expected": "399ce8a82c69249fe5560382319e2d87f198869de2d918858955562b4d1275f8",
+        "actual": "399ce8a82c69249fe5560382319e2d87f198869de2d918858955562b4d1275f8",
+        "equal": true
+      },
+      ".continuity-data/thinking/sessions/a940747044d25cbbc065d4c65e6418ed7ac50c4ad85cd03fcfa6cb3560fb11ef/8492dba044e1c1841b3c394d7de7d6e8469138f6263a0633d065dac7ed0bad15.json": {
+        "expected": "59beb2523a89285e3d525b63b55e45016da53fb9d609f6a13c1428677b66a982",
+        "actual": "59beb2523a89285e3d525b63b55e45016da53fb9d609f6a13c1428677b66a982",
+        "equal": true
+      },
+      ".continuity-data/awakening/cycles/9206d2b588ec3f039d36855e0fdda3f1d24e66d479ab1ac71a847001996c5fce.json": {
+        "expected": "f3c472a94e1e2b4687bc8dd15025ca47592f30a91dbaca90daf25be07210430a",
+        "actual": "f3c472a94e1e2b4687bc8dd15025ca47592f30a91dbaca90daf25be07210430a",
+        "equal": true
+      },
+      ".continuity-data/awakening/cycles/ad7ca61028768690c65473d3918e757c9966927a44535a964a65b188c973caa5.json": {
+        "expected": "d26a8164b0dacd647010d87330004f1d9e42172d31062a8f07293898af6d9c86",
+        "actual": "d26a8164b0dacd647010d87330004f1d9e42172d31062a8f07293898af6d9c86",
+        "equal": true
+      },
+      ".continuity-data/awakening/sessions/a940747044d25cbbc065d4c65e6418ed7ac50c4ad85cd03fcfa6cb3560fb11ef/14a54f0b7fca71545600cdb46d0320cc4be2659da62bf764d76500cd4531f410.json": {
+        "expected": "8d5724fac3c4b8a665c6832cea2bcb87773440d788b6a87dbee599aea1873304",
+        "actual": "8d5724fac3c4b8a665c6832cea2bcb87773440d788b6a87dbee599aea1873304",
+        "equal": true
+      },
+      ".continuity-data/awakening/sessions/a940747044d25cbbc065d4c65e6418ed7ac50c4ad85cd03fcfa6cb3560fb11ef/678ae6f20c2099e8c9bd5e8a09aa103a2361ec9e7aa14b442aefd3c74f3b4b31.json": {
+        "expected": "693efe42584b732cb0f3c1388edcce0cf144f0866194bf2dd59f2c8a2ab0913b",
+        "actual": "693efe42584b732cb0f3c1388edcce0cf144f0866194bf2dd59f2c8a2ab0913b",
+        "equal": true
+      }
+    },
+    "excludedP10": {
+      "docs/project_memory/p10_evidence/closeout-20260904/check_stop.py": {
+        "expected": "04ba52bc0eb8467a3e81649f715a36781cced94e2141e1dd43004f0f63e64a50",
+        "actual": "04ba52bc0eb8467a3e81649f715a36781cced94e2141e1dd43004f0f63e64a50",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/closeout-20260904/closeout.py": {
+        "expected": "13b25e473f2eee7c3b2dd72fe9f793f0a59d47817a08e0e8c204ca8c40652f3b",
+        "actual": "13b25e473f2eee7c3b2dd72fe9f793f0a59d47817a08e0e8c204ca8c40652f3b",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/closeout-20260904/preserve_failed_closeout.py": {
+        "expected": "4ad73b1f340edec31a27e9a0bb4948901ca2e8eb7b241765d5368c14c7c38c9b",
+        "actual": "4ad73b1f340edec31a27e9a0bb4948901ca2e8eb7b241765d5368c14c7c38c9b",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/closeout-20260904/record_stop.py": {
+        "expected": "071010b697c3d432a002a6c5d4b6de3ecc5ed26eae06946bd24a85430c5d0d53",
+        "actual": "071010b697c3d432a002a6c5d4b6de3ecc5ed26eae06946bd24a85430c5d0d53",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/closeout-20260904/sync_assistant.py": {
+        "expected": "7d6f95f77bb2a30243c8d915753215628eef8fc63d4ae339d81c90fca26b70bc",
+        "actual": "7d6f95f77bb2a30243c8d915753215628eef8fc63d4ae339d81c90fca26b70bc",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/create_repositories.py": {
+        "expected": "4496367cfa2ff990712651ef4f4c118443539b845442b5be206ccdcc83c861ed",
+        "actual": "4496367cfa2ff990712651ef4f4c118443539b845442b5be206ccdcc83c861ed",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/final_audit.py": {
+        "expected": "26e3e2d4e266e64258af975c746f4a73f7d5d3e990f113e0534df617a8ac4ca4",
+        "actual": "26e3e2d4e266e64258af975c746f4a73f7d5d3e990f113e0534df617a8ac4ca4",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/fixture-case-repair-20260904/audit.py": {
+        "expected": "bc3456b46f56b80906c8e1f903ac6dc217d9645a5e4a4a338d176d54925030cc",
+        "actual": "bc3456b46f56b80906c8e1f903ac6dc217d9645a5e4a4a338d176d54925030cc",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/fixture-case-repair-20260904/independent/p10_fixture_repair_review_probe.py": {
+        "expected": "39ec62e764bb1876ab8d3ffa9129f1fefdb2b3e26059badf02bc5e219906873c",
+        "actual": "39ec62e764bb1876ab8d3ffa9129f1fefdb2b3e26059badf02bc5e219906873c",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/fixture-case-repair-20260904/prepare.py": {
+        "expected": "d2c2671acd152891040527632e461d1114ac469540e7400a7004486a67e5c339",
+        "actual": "d2c2671acd152891040527632e461d1114ac469540e7400a7004486a67e5c339",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/fixture-case-repair-20260904/run.py": {
+        "expected": "94411ef7a5f5fe43dd0f6fc86eb56f8a922deb87703921b28693566aa780c71a",
+        "actual": "94411ef7a5f5fe43dd0f6fc86eb56f8a922deb87703921b28693566aa780c71a",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/fixture-case-repair-20260904/sync_docs.py": {
+        "expected": "40a7a76730fe057ec66fa195ce58464eb2da77db6d5b03745ffe53c48e9bb914",
+        "actual": "40a7a76730fe057ec66fa195ce58464eb2da77db6d5b03745ffe53c48e9bb914",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/fixture-repair-20260904/audit.py": {
+        "expected": "aa5289290bb2a112a64ccb79090d571e61e3f5f29f7877a03844177501f83a7f",
+        "actual": "aa5289290bb2a112a64ccb79090d571e61e3f5f29f7877a03844177501f83a7f",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/fixture-repair-20260904/baseline.py": {
+        "expected": "c5bec025138c31135289697b71445e7950389881fd6a6a0425fb919ea2fdb1f6",
+        "actual": "c5bec025138c31135289697b71445e7950389881fd6a6a0425fb919ea2fdb1f6",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/fixture-repair-20260904/engineering.py": {
+        "expected": "4c2a9047fc486025fa821341054c2a5fba43a2480c8e9f88e33ddb3ff1183f73",
+        "actual": "4c2a9047fc486025fa821341054c2a5fba43a2480c8e9f88e33ddb3ff1183f73",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/fixture-repair-20260904/engineering_resume.py": {
+        "expected": "b090517464ec893de606b8c98a0ecf1de709ab59340523b35747907cbbc106c1",
+        "actual": "b090517464ec893de606b8c98a0ecf1de709ab59340523b35747907cbbc106c1",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/fixture-repair-20260904/run.py": {
+        "expected": "94411ef7a5f5fe43dd0f6fc86eb56f8a922deb87703921b28693566aa780c71a",
+        "actual": "94411ef7a5f5fe43dd0f6fc86eb56f8a922deb87703921b28693566aa780c71a",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/fixture-repair-20260904/sync_docs.py": {
+        "expected": "7dcc07b812d687f04241b9ab241a1496240bf377b2df719cd19bc4cd1424f927",
+        "actual": "7dcc07b812d687f04241b9ab241a1496240bf377b2df719cd19bc4cd1424f927",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/fixture-repair-20260904/temp_probe.py": {
+        "expected": "513c9131b46f1738d2b711eff67917dfd4e58b40572aae81a7b2653dfbce87a3",
+        "actual": "513c9131b46f1738d2b711eff67917dfd4e58b40572aae81a7b2653dfbce87a3",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/launcher-repair-20260905/advance.py": {
+        "expected": "7c03e2199a0471f3375a20e91dbdbc60cfc202c88033a175f77b5f64f8a77ca1",
+        "actual": "7c03e2199a0471f3375a20e91dbdbc60cfc202c88033a175f77b5f64f8a77ca1",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/launcher-repair-20260905/build_review_report.py": {
+        "expected": "d56cb9e2396a7f511a99ef5cf97b824d96ed0097b41aa0283a4c3ebb2795ac5c",
+        "actual": "d56cb9e2396a7f511a99ef5cf97b824d96ed0097b41aa0283a4c3ebb2795ac5c",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/launcher-repair-20260905/ci_evidence.py": {
+        "expected": "5e4478967a6b5c1eae802364f751b836fce6e3efb77fe78d2c383fbea59fd09e",
+        "actual": "5e4478967a6b5c1eae802364f751b836fce6e3efb77fe78d2c383fbea59fd09e",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/launcher-repair-20260905/document_check.py": {
+        "expected": "4d7f95ac7fb336631af13a168cb200e6515cca729a945861a36f896cd7f7f1cc",
+        "actual": "4d7f95ac7fb336631af13a168cb200e6515cca729a945861a36f896cd7f7f1cc",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/launcher-repair-20260905/final_audit.py": {
+        "expected": "1a0bff72b2faf30a601c5fce1c5d58156be6f6b0c15f54c825d57c81880bce47",
+        "actual": "1a0bff72b2faf30a601c5fce1c5d58156be6f6b0c15f54c825d57c81880bce47",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/launcher-repair-20260905/repair_namespace_diagnostic.py": {
+        "expected": "646bd35f3288b269bedf366375682df58e6fc3de484faecefc9e5ac7fe111b1d",
+        "actual": "646bd35f3288b269bedf366375682df58e6fc3de484faecefc9e5ac7fe111b1d",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/launcher-repair-20260905/temp_checkout_probe.py": {
+        "expected": "c18ed4b0a1d73b30940071b38ab16ef037f1f80490f29bb532a0a9275d255d31",
+        "actual": "c18ed4b0a1d73b30940071b38ab16ef037f1f80490f29bb532a0a9275d255d31",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/launcher-repair-20260905/validate_temp.py": {
+        "expected": "568952b47f8778ec163a73bc2d5d77e159a5140d8b6c13be13f2e9c9b8ba8664",
+        "actual": "568952b47f8778ec163a73bc2d5d77e159a5140d8b6c13be13f2e9c9b8ba8664",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/launcher-repair-20260905/workflow.py": {
+        "expected": "a5085108309375d577ba4f29d40b91ac0baf4e932282a64b6558cacad30dc067",
+        "actual": "a5085108309375d577ba4f29d40b91ac0baf4e932282a64b6558cacad30dc067",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/outside_temp_clone.py": {
+        "expected": "ffd885f4dee710a9f7e1b8e7d4911ac795168c8dbb9e0626cdb18c96e75b16f2",
+        "actual": "ffd885f4dee710a9f7e1b8e7d4911ac795168c8dbb9e0626cdb18c96e75b16f2",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/publish_assistant.py": {
+        "expected": "73c6f6aa6edd0c56b9468504e8522e20383ecc9d1bf6f8c49676d9cf5be961be",
+        "actual": "73c6f6aa6edd0c56b9468504e8522e20383ecc9d1bf6f8c49676d9cf5be961be",
+        "equal": true
+      },
+      "docs/project_memory/p10_evidence/remote_review.py": {
+        "expected": "6b5d99bf2a8330156efd5b948874d251ceb5ad26be7e947b9bdca04c406bc34f",
+        "actual": "6b5d99bf2a8330156efd5b948874d251ceb5ad26be7e947b9bdca04c406bc34f",
+        "equal": true
+      }
+    },
+    "otherPreserved": {
+      "docs/project_memory/p14_evidence/handoff-discrepancy-20260908.json": {
+        "expected": "842a92a6ba08d72d7b4521d7858c90e9f32f36153b751af44f1cc8f1660f6c0f",
+        "actual": "842a92a6ba08d72d7b4521d7858c90e9f32f36153b751af44f1cc8f1660f6c0f",
+        "equal": true
+      }
+    }
+  },
+  "currentPlanningSources": [
+    {
+      "path": "C:\\Users\\Administrator\\Desktop\\Continuity_Engine_总施工规划_v1.5_W施工正文完整版.md",
+      "expected": "465be409311d5ded8522021770506dc86d7f84ec0f120d3f1c117be6f66de388",
+      "actual": "465be409311d5ded8522021770506dc86d7f84ec0f120d3f1c117be6f66de388",
+      "equal": true
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Desktop\\Continuity_Engine_最终新增规划_v1.5_W施工正文完整版.md",
+      "expected": "55ddcffaffe8e216ab1d0561e72ca5b81ae55bebdec40a805295697d5d103cfc",
+      "actual": "55ddcffaffe8e216ab1d0561e72ca5b81ae55bebdec40a805295697d5d103cfc",
+      "equal": true
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Desktop\\连续性引擎长期能力增补规划_v6.9_W施工正文同步版.md",
+      "expected": "c125ef6dae3fbd03c63e02c87316647ca2c44a02c56aa6f8191e6c2fcdcfe5e0",
+      "actual": "c125ef6dae3fbd03c63e02c87316647ca2c44a02c56aa6f8191e6c2fcdcfe5e0",
+      "equal": true
+    }
+  ],
+  "existingUntracked": {
+    "docs/project_memory/p10_evidence/closeout-20260904/check_stop.py": {
+      "sha256": "04ba52bc0eb8467a3e81649f715a36781cced94e2141e1dd43004f0f63e64a50",
+      "equal": true
+    },
+    "docs/project_memory/p10_evidence/closeout-20260904/closeout.py": {
+      "sha256": "13b25e473f2eee7c3b2dd72fe9f793f0a59d47817a08e0e8c204ca8c40652f3b",
+      "equal": true
+    },
+    "docs/project_memory/p10_evidence/closeout-20260904/preserve_failed_closeout.py": {
+      "sha256": "4ad73b1f340edec31a27e9a0bb4948901ca2e8eb7b241765d5368c14c7c38c9b",
+      "equal": true
+    },
+    "docs/project_memory/p10_evidence/closeout-20260904/record_stop.py": {
+      "sha256": "071010b697c3d432a002a6c5d4b6de3ecc5ed26eae06946bd24a85430c5d0d53",
+      "equal": true
+    },
+    "docs/project_memory/p10_evidence/closeout-20260904/sync_assistant.py": {
+      "sha256": "7d6f95f77bb2a30243c8d915753215628eef8fc63d4ae339d81c90fca26b70bc",
+      "equal": true
+    },
+    "docs/project_memory/p10_evidence/create_repositories.py": {
+      "sha256": "4496367cfa2ff990712651ef4f4c118443539b845442b5be206ccdcc83c861ed",
+      "equal": true
+    },
+    "docs/project_memory/p10_evidence/final_audit.py": {
+      "sha256": "26e3e2d4e266e64258af975c746f4a73f7d5d3e990f113e0534df617a8ac4ca4",
+      "equal": true
+    },
+    "docs/project_memory/p10_evidence/fixture-case-repair-20260904/audit.py": {
+      "sha256": "bc3456b46f56b80906c8e1f903ac6dc217d9645a5e4a4a338d176d54925030cc",
+      "equal": true
+    },
+    "docs/project_memory/p10_evidence/fixture-case-repair-20260904/independent/p10_fixture_repair_review_probe.py": {
+      "sha256": "39ec62e764bb1876ab8d3ffa9129f1fefdb2b3e26059badf02bc5e219906873c",
+      "equal": true
+    },
+    "docs/project_memory/p10_evidence/fixture-case-repair-20260904/prepare.py": {
+      "sha256": "d2c2671acd152891040527632e461d1114ac469540e7400a7004486a67e5c339",
+      "equal": true
+    },
+    "docs/project_memory/p10_evidence/fixture-case-repair-20260904/run.py": {
+      "sha256": "94411ef7a5f5fe43dd0f6fc86eb56f8a922deb87703921b28693566aa780c71a",
+      "equal": true
+    },
+    "docs/project_memory/p10_evidence/fixture-case-repair-20260904/sync_docs.py": {
+      "sha256": "40a7a76730fe057ec66fa195ce58464eb2da77db6d5b03745ffe53c48e9bb914",
+      "equal": true
+    },
+    "docs/project_memory/p10_evidence/fixture-repair-20260904/audit.py": {
+      "sha256": "aa5289290bb2a112a64ccb79090d571e61e3f5f29f7877a03844177501f83a7f",
+      "equal": true
+    },
+    "docs/project_memory/p10_evidence/fixture-repair-20260904/baseline.py": {
+      "sha256": "c5bec025138c31135289697b71445e7950389881fd6a6a0425fb919ea2fdb1f6",
+      "equal": true
+    },
+    "docs/project_memory/p10_evidence/fixture-repair-20260904/engineering.py": {
+      "sha256": "4c2a9047fc486025fa821341054c2a5fba43a2480c8e9f88e33ddb3ff1183f73",
+      "equal": true
+    },
+    "docs/project_memory/p10_evidence/fixture-repair-20260904/engineering_resume.py": {
+      "sha256": "b090517464ec893de606b8c98a0ecf1de709ab59340523b35747907cbbc106c1",
+      "equal": true
+    },
+    "docs/project_memory/p10_evidence/fixture-repair-20260904/run.py": {
+      "sha256": "94411ef7a5f5fe43dd0f6fc86eb56f8a922deb87703921b28693566aa780c71a",
+      "equal": true
+    },
+    "docs/project_memory/p10_evidence/fixture-repair-20260904/sync_docs.py": {
+      "sha256": "7dcc07b812d687f04241b9ab241a1496240bf377b2df719cd19bc4cd1424f927",
+      "equal": true
+    },
+    "docs/project_memory/p10_evidence/fixture-repair-20260904/temp_probe.py": {
+      "sha256": "513c9131b46f1738d2b711eff67917dfd4e58b40572aae81a7b2653dfbce87a3",
+      "equal": true
+    },
+    "docs/project_memory/p10_evidence/launcher-repair-20260905/advance.py": {
+      "sha256": "7c03e2199a0471f3375a20e91dbdbc60cfc202c88033a175f77b5f64f8a77ca1",
+      "equal": true
+    },
+    "docs/project_memory/p10_evidence/launcher-repair-20260905/build_review_report.py": {
+      "sha256": "d56cb9e2396a7f511a99ef5cf97b824d96ed0097b41aa0283a4c3ebb2795ac5c",
+      "equal": true
+    },
+    "docs/project_memory/p10_evidence/launcher-repair-20260905/ci_evidence.py": {
+      "sha256": "5e4478967a6b5c1eae802364f751b836fce6e3efb77fe78d2c383fbea59fd09e",
+      "equal": true
+    },
+    "docs/project_memory/p10_evidence/launcher-repair-20260905/document_check.py": {
+      "sha256": "4d7f95ac7fb336631af13a168cb200e6515cca729a945861a36f896cd7f7f1cc",
+      "equal": true
+    },
+    "docs/project_memory/p10_evidence/launcher-repair-20260905/final_audit.py": {
+      "sha256": "1a0bff72b2faf30a601c5fce1c5d58156be6f6b0c15f54c825d57c81880bce47",
+      "equal": true
+    },
+    "docs/project_memory/p10_evidence/launcher-repair-20260905/repair_namespace_diagnostic.py": {
+      "sha256": "646bd35f3288b269bedf366375682df58e6fc3de484faecefc9e5ac7fe111b1d",
+      "equal": true
+    },
+    "docs/project_memory/p10_evidence/launcher-repair-20260905/temp_checkout_probe.py": {
+      "sha256": "c18ed4b0a1d73b30940071b38ab16ef037f1f80490f29bb532a0a9275d255d31",
+      "equal": true
+    },
+    "docs/project_memory/p10_evidence/launcher-repair-20260905/validate_temp.py": {
+      "sha256": "568952b47f8778ec163a73bc2d5d77e159a5140d8b6c13be13f2e9c9b8ba8664",
+      "equal": true
+    },
+    "docs/project_memory/p10_evidence/launcher-repair-20260905/workflow.py": {
+      "sha256": "a5085108309375d577ba4f29d40b91ac0baf4e932282a64b6558cacad30dc067",
+      "equal": true
+    },
+    "docs/project_memory/p10_evidence/outside_temp_clone.py": {
+      "sha256": "ffd885f4dee710a9f7e1b8e7d4911ac795168c8dbb9e0626cdb18c96e75b16f2",
+      "equal": true
+    },
+    "docs/project_memory/p10_evidence/publish_assistant.py": {
+      "sha256": "73c6f6aa6edd0c56b9468504e8522e20383ecc9d1bf6f8c49676d9cf5be961be",
+      "equal": true
+    },
+    "docs/project_memory/p10_evidence/remote_review.py": {
+      "sha256": "6b5d99bf2a8330156efd5b948874d251ceb5ad26be7e947b9bdca04c406bc34f",
+      "equal": true
+    },
+    "docs/project_memory/p14_evidence/handoff-discrepancy-20260908.json": {
+      "sha256": "842a92a6ba08d72d7b4521d7858c90e9f32f36153b751af44f1cc8f1660f6c0f",
+      "equal": true
+    },
+    "docs/project_memory/w01_planning_20260923/README.md": {
+      "sha256": "e273e31a7977f9041bb6a402428adb3e8de6a7fe899d546657250fbb18176d14",
+      "equal": true
+    },
+    "docs/project_memory/w01_planning_20260923/baseline.json": {
+      "sha256": "b68bbb60b0c606fe70ea2fff903727d5e6ad9a1e414eaad552842b32f530236f",
+      "equal": true
+    },
+    "docs/project_memory/w01_planning_20260923/evidence-index.md": {
+      "sha256": "6e5df045f7c418a0ed600cb6d7d79b3c7e8d16b73eb62f12a273073912b47d98",
+      "equal": true
+    },
+    "docs/project_memory/w01_planning_20260923/evidence-map.json": {
+      "sha256": "30acf2718072016566eff7a697256af384f70904cbf2268e4a85584809d1e2d0",
+      "equal": true
+    },
+    "docs/project_memory/w01_planning_20260923/final.audit.json": {
+      "sha256": "63f9f301164469bfa89e357200eda40136cd3d441b6381cdb2b791cff95541d6",
+      "equal": true
+    },
+    "docs/project_memory/w01_planning_20260923/final.files.md": {
+      "sha256": "cb82c6c25051bef89a79a73f9887a78bba80431f7856002b214776fad12928d5",
+      "equal": true
+    },
+    "docs/project_memory/w01_planning_20260923/planning-sources.json": {
+      "sha256": "8d83c8f1f491425b1845457b7069f49a44e8e6dda43f4d7c8b1d80b17714d92f",
+      "equal": true
+    },
+    "docs/project_memory/w01_planning_20260923/planning/Continuity_Engine_总施工规划_v1.4_三份规划同步版.md": {
+      "sha256": "6bd6b93bc38137a2dbfc66bf400128f110fb1574b433f17a6eb9596370960019",
+      "equal": true
+    },
+    "docs/project_memory/w01_planning_20260923/planning/Continuity_Engine_最终新增规划_v1.4.md": {
+      "sha256": "e859aaa0ed7fdb16664d45bf4a81349ef7e931c09f21606feb52cbda29aab93e",
+      "equal": true
+    },
+    "docs/project_memory/w01_planning_20260923/planning/连续性引擎长期能力增补规划_v6.8_三份规划同步版.md": {
+      "sha256": "64a660d7a028a00783a31e4ed15b9188cabb3657e4972da6c6ed28ced135976b",
+      "equal": true
+    },
+    "docs/project_memory/w01_planning_20260923/source-location-observation.json": {
+      "sha256": "4c3741f794d2bbaa07f1b092b9856b6e9a182b25f58f77ea5c5cfcb725424597",
+      "equal": true
+    },
+    "docs/project_memory/w01_planning_20260923/stage-brief.md": {
+      "sha256": "29343ac851bdcb32490fdb264496f86baa267b61fd0149aa023aac36fbb51869",
+      "equal": true
+    },
+    "docs/project_memory/w01_planning_20260923/w01-report.md": {
+      "sha256": "f5afb10fc5e011a6c9a3f890202d628b559a5a4f91ecdae235456e5be2b05c57",
+      "equal": true
+    },
+    "docs/project_memory/w01_planning_v15_20260923/baseline.json": {
+      "sha256": "115c00d5f1ac2fda0b909161153252430cfeeddba93aae45ecd847ea2a1d8c75",
+      "equal": true
+    },
+    "docs/project_memory/w01_planning_v15_20260923/comparison.json": {
+      "sha256": "b52e2dada0347a9a6be417199083351948b730a0353e8e6fc38405a5704586e0",
+      "equal": true
+    },
+    "docs/project_memory/w01_planning_v15_20260923/final.audit.json": {
+      "sha256": "0728872c25fd18012671213bc407f186a14af8f9019d5fb5375c525d7d962c1b",
+      "equal": true
+    },
+    "docs/project_memory/w01_planning_v15_20260923/final.files.md": {
+      "sha256": "0f8222473a0d9938926532f37a52365e298d7c194a4ecc147f039a04892e0f03",
+      "equal": true
+    },
+    "docs/project_memory/w01_planning_v15_20260923/planning-sources.json": {
+      "sha256": "7ca5c34d37d3980c3142ce473e12201938f5da3604043256d63173608bb0c9a3",
+      "equal": true
+    },
+    "docs/project_memory/w01_planning_v15_20260923/planning/Continuity_Engine_总施工规划_v1.5_W施工正文完整版.md": {
+      "sha256": "465be409311d5ded8522021770506dc86d7f84ec0f120d3f1c117be6f66de388",
+      "equal": true
+    },
+    "docs/project_memory/w01_planning_v15_20260923/planning/Continuity_Engine_最终新增规划_v1.5_W施工正文完整版.md": {
+      "sha256": "55ddcffaffe8e216ab1d0561e72ca5b81ae55bebdec40a805295697d5d103cfc",
+      "equal": true
+    },
+    "docs/project_memory/w01_planning_v15_20260923/planning/连续性引擎长期能力增补规划_v6.9_W施工正文同步版.md": {
+      "sha256": "c125ef6dae3fbd03c63e02c87316647ca2c44a02c56aa6f8191e6c2fcdcfe5e0",
+      "equal": true
+    },
+    "docs/project_memory/w01_planning_v15_20260923/test-stage-map.md": {
+      "sha256": "3bfa0e746b3097add8b76ae0a51e46bee5530f8e2bc7199a7c904dd199075e1a",
+      "equal": true
+    },
+    "docs/project_memory/w01_planning_v15_20260923/w01-delta-report.md": {
+      "sha256": "fed23dd949f8e0e0da288dcd13605204d9a8f314d2ce0672c76111b20bd54002",
+      "equal": true
+    },
+    "docs/project_memory/w01_planning_v15_20260923/w02-a-proposed-brief.md": {
+      "sha256": "b5deb8fc8573f3eed6665c3a5ae7d7c13cd12c207d84098826633419f410af59",
+      "equal": true
+    },
+    "docs/project_memory/现行规划版本索引.md": {
+      "sha256": "8a7c654cd9995ebb95f9fd36c91958931a4156e34fb3e44bdda9a380672a98c8",
+      "equal": true
+    }
+  },
+  "formalFiles": [
+    {
+      "relativePath": "66343283d4a54390b47b4f9ef82d62553faa3a25d9c89fb002cf9fcd626dd1b9.json",
+      "fileHash": "sha256:77cd26e175a22e4078a89597a475cd5be9be2691b4a689c01838a370381c1281"
+    },
+    {
+      "relativePath": "a940747044d25cbbc065d4c65e6418ed7ac50c4ad85cd03fcfa6cb3560fb11ef.json",
+      "fileHash": "sha256:399ce8a82c69249fe5560382319e2d87f198869de2d918858955562b4d1275f8"
+    },
+    {
+      "relativePath": "awakening/cycles/9206d2b588ec3f039d36855e0fdda3f1d24e66d479ab1ac71a847001996c5fce.json",
+      "fileHash": "sha256:f3c472a94e1e2b4687bc8dd15025ca47592f30a91dbaca90daf25be07210430a"
+    },
+    {
+      "relativePath": "awakening/cycles/ad7ca61028768690c65473d3918e757c9966927a44535a964a65b188c973caa5.json",
+      "fileHash": "sha256:d26a8164b0dacd647010d87330004f1d9e42172d31062a8f07293898af6d9c86"
+    },
+    {
+      "relativePath": "awakening/sessions/a940747044d25cbbc065d4c65e6418ed7ac50c4ad85cd03fcfa6cb3560fb11ef/14a54f0b7fca71545600cdb46d0320cc4be2659da62bf764d76500cd4531f410.json",
+      "fileHash": "sha256:8d5724fac3c4b8a665c6832cea2bcb87773440d788b6a87dbee599aea1873304"
+    },
+    {
+      "relativePath": "awakening/sessions/a940747044d25cbbc065d4c65e6418ed7ac50c4ad85cd03fcfa6cb3560fb11ef/678ae6f20c2099e8c9bd5e8a09aa103a2361ec9e7aa14b442aefd3c74f3b4b31.json",
+      "fileHash": "sha256:693efe42584b732cb0f3c1388edcce0cf144f0866194bf2dd59f2c8a2ab0913b"
+    },
+    {
+      "relativePath": "thinking/sessions/a940747044d25cbbc065d4c65e6418ed7ac50c4ad85cd03fcfa6cb3560fb11ef/8492dba044e1c1841b3c394d7de7d6e8469138f6263a0633d065dac7ed0bad15.json",
+      "fileHash": "sha256:59beb2523a89285e3d525b63b55e45016da53fb9d609f6a13c1428677b66a982"
+    }
+  ],
+  "formalTreeHash": "sha256:f9c710c6085e430a251f74463d57133f8c5a4497fe8ffa2ccb96be2db1037bb2",
+  "version": "0.1.0 (pyproject byte identity verified)",
+  "ast": {
+    "count": 272,
+    "errors": []
+  },
+  "links": {
+    "count": 217,
+    "broken": []
+  },
+  "sensitiveScan": {
+    "rules": [
+      "privateKey",
+      "awsKey",
+      "githubToken"
+    ],
+    "hits": [],
+    "limitation": "Pattern scan plus scoped diff review, not proof of absence of every possible secret"
+  },
+  "artifactRisks": [],
+  "newWhitespaceWarnings": [],
+  "historicalWhitespaceWarnings": [],
+  "diffCheck": {
+    "exitCode": 0,
+    "stdout": "",
+    "stderr": "warning: in the working copy of 'src/continuity_engine/domain/continuity_core.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'src/continuity_engine/domain/integration_results.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'src/continuity_engine/services/continuity_core_runtime.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'src/continuity_engine/services/continuity_core_service.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'src/continuity_engine/services/continuity_interaction_service.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'src/continuity_engine/storage/json_integration_repository.py', LF will be replaced by CRLF the next time Git touches it\n"
+  },
+  "pendingCount": 174,
+  "pendingFiles": [
+    "README.md",
+    "docs/project_memory/01_当前状态.md",
+    "docs/project_memory/03_施工日志.md",
+    "docs/project_memory/04_决策记录.md",
+    "docs/project_memory/06_未完成事项.md",
+    "docs/project_memory/CHANGELOG.md",
+    "docs/project_memory/w02_a_evidence/admission-before-01.json",
+    "docs/project_memory/w02_a_evidence/admission-before-01.stderr.log",
+    "docs/project_memory/w02_a_evidence/admission-before-01.stdout.log",
+    "docs/project_memory/w02_a_evidence/architecture-and-recovery.md",
+    "docs/project_memory/w02_a_evidence/audit-helper-error-01.json",
+    "docs/project_memory/w02_a_evidence/audit.py",
+    "docs/project_memory/w02_a_evidence/baseline.json",
+    "docs/project_memory/w02_a_evidence/compatibility-final-01.json",
+    "docs/project_memory/w02_a_evidence/compatibility-final-01.stderr.log",
+    "docs/project_memory/w02_a_evidence/compatibility-final-01.stdout.log",
+    "docs/project_memory/w02_a_evidence/compatibility-final-02.json",
+    "docs/project_memory/w02_a_evidence/compatibility-final-02.stderr.log",
+    "docs/project_memory/w02_a_evidence/compatibility-final-02.stdout.log",
+    "docs/project_memory/w02_a_evidence/compatibility-plan.json",
+    "docs/project_memory/w02_a_evidence/continuation.md",
+    "docs/project_memory/w02_a_evidence/failure-history.md",
+    "docs/project_memory/w02_a_evidence/feature-before-01.json",
+    "docs/project_memory/w02_a_evidence/feature-before-01.stderr.log",
+    "docs/project_memory/w02_a_evidence/feature-before-01.stdout.log",
+    "docs/project_memory/w02_a_evidence/final-report.md",
+    "docs/project_memory/w02_a_evidence/final.audit.json",
+    "docs/project_memory/w02_a_evidence/final.inventory.json",
+    "docs/project_memory/w02_a_evidence/final.pending-files.md",
+    "docs/project_memory/w02_a_evidence/finalize_docs.py",
+    "docs/project_memory/w02_a_evidence/frozen-source-02.json",
+    "docs/project_memory/w02_a_evidence/frozen-source-03.json",
+    "docs/project_memory/w02_a_evidence/frozen-source.json",
+    "docs/project_memory/w02_a_evidence/full-final-01.json",
+    "docs/project_memory/w02_a_evidence/full-final-01.stderr.log",
+    "docs/project_memory/w02_a_evidence/full-final-01.stdout.log",
+    "docs/project_memory/w02_a_evidence/golden-example.json",
+    "docs/project_memory/w02_a_evidence/ignored-material-check.json",
+    "docs/project_memory/w02_a_evidence/matrix.md",
+    "docs/project_memory/w02_a_evidence/native-before-01.json",
+    "docs/project_memory/w02_a_evidence/native-before-01.stderr.log",
+    "docs/project_memory/w02_a_evidence/native-before-01.stdout.log",
+    "docs/project_memory/w02_a_evidence/pre-full-check.json",
+    "docs/project_memory/w02_a_evidence/process-check-01.json",
+    "docs/project_memory/w02_a_evidence/process-check-before-full.json",
+    "docs/project_memory/w02_a_evidence/process-check-during-full-01.json",
+    "docs/project_memory/w02_a_evidence/process-cleanup.json",
+    "docs/project_memory/w02_a_evidence/process_audit.py",
+    "docs/project_memory/w02_a_evidence/receipt-before-01.json",
+    "docs/project_memory/w02_a_evidence/receipt-before-01.stderr.log",
+    "docs/project_memory/w02_a_evidence/receipt-before-01.stdout.log",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/audit.py",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/baseline.json",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/before-full-02-process-check.json",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/before-full-process-check.json",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/compatibility-final-01.json",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/compatibility-final-01.stderr.log",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/compatibility-final-01.stdout.log",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/compatibility-final-02.json",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/compatibility-final-02.stderr.log",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/compatibility-final-02.stdout.log",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/compatibility-scope-02.json",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/compatibility-scope.json",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/continuation-mid-history.md",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/continuation.md",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/final-report.md",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/final.audit.json",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/final.inventory.json",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/final.pending-files.md",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/finalize_docs.py",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/formal-final-01.json",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/formal-final-01.stderr.log",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/formal-final-01.stdout.log",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/formal-final-02.json",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/formal-final-02.stderr.log",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/formal-final-02.stdout.log",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/formal-intermediate-01.json",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/formal-intermediate-01.stderr.log",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/formal-intermediate-01.stdout.log",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/frozen-source-02.json",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/frozen-source.json",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/full-final-01.json",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/full-final-01.stderr.log",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/full-final-01.stdout.log",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/full-final-02.json",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/full-final-02.stderr.log",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/full-final-02.stdout.log",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/integrity-check-outcome.json",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/matrix.md",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/pending-integrity-check.md",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/pipeline-02.json",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/plan.md",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/preflight-check-01.json",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/process-cleanup.json",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/process_audit.py",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/reproduction-after-01.json",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/reproduction-after-01.stderr.log",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/reproduction-after-01.stdout.log",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/reproduction-before-01.json",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/reproduction-before-01.stderr.log",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/reproduction-before-01.stdout.log",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/result-binding-after-01.json",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/result-binding-after-01.stderr.log",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/result-binding-after-01.stdout.log",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/result-binding-after-02.json",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/result-binding-after-02.stderr.log",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/result-binding-after-02.stdout.log",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/result-binding-before-01.json",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/result-binding-before-01.stderr.log",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/result-binding-before-01.stdout.log",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/result-binding-before-02.json",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/result-binding-before-02.stderr.log",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/result-binding-before-02.stdout.log",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/review-entry.md",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/run.py",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/selected-runs-01-preserved.json",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/selected-runs.json",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/test-history.md",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/w02-final-01.json",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/w02-final-01.stderr.log",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/w02-final-01.stdout.log",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/w02-final-02.json",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/w02-final-02.stderr.log",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/w02-final-02.stdout.log",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/w02-intermediate-01.json",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/w02-intermediate-01.stderr.log",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/w02-intermediate-01.stdout.log",
+    "docs/project_memory/w02_a_evidence/review-entry.md",
+    "docs/project_memory/w02_a_evidence/run-v1-preserved.py",
+    "docs/project_memory/w02_a_evidence/run.py",
+    "docs/project_memory/w02_a_evidence/selected-runs.json",
+    "docs/project_memory/w02_a_evidence/stage-brief.md",
+    "docs/project_memory/w02_a_evidence/targeted-01.json",
+    "docs/project_memory/w02_a_evidence/targeted-01.stderr.log",
+    "docs/project_memory/w02_a_evidence/targeted-01.stdout.log",
+    "docs/project_memory/w02_a_evidence/targeted-02.json",
+    "docs/project_memory/w02_a_evidence/targeted-02.stderr.log",
+    "docs/project_memory/w02_a_evidence/targeted-02.stdout.log",
+    "docs/project_memory/w02_a_evidence/targeted-03.json",
+    "docs/project_memory/w02_a_evidence/targeted-03.stderr.log",
+    "docs/project_memory/w02_a_evidence/targeted-03.stdout.log",
+    "docs/project_memory/w02_a_evidence/targeted-04.json",
+    "docs/project_memory/w02_a_evidence/targeted-04.stderr.log",
+    "docs/project_memory/w02_a_evidence/targeted-04.stdout.log",
+    "docs/project_memory/w02_a_evidence/targeted-05.json",
+    "docs/project_memory/w02_a_evidence/targeted-05.stderr.log",
+    "docs/project_memory/w02_a_evidence/targeted-05.stdout.log",
+    "docs/project_memory/w02_a_evidence/targeted-06.json",
+    "docs/project_memory/w02_a_evidence/targeted-06.stderr.log",
+    "docs/project_memory/w02_a_evidence/targeted-06.stdout.log",
+    "docs/project_memory/w02_a_evidence/targeted-final-01.json",
+    "docs/project_memory/w02_a_evidence/targeted-final-01.stderr.log",
+    "docs/project_memory/w02_a_evidence/targeted-final-01.stdout.log",
+    "docs/project_memory/w02_a_evidence/targeted-final-02.json",
+    "docs/project_memory/w02_a_evidence/targeted-final-02.stderr.log",
+    "docs/project_memory/w02_a_evidence/targeted-final-02.stdout.log",
+    "docs/project_memory/w02_a_evidence/targeted-final-03.json",
+    "docs/project_memory/w02_a_evidence/targeted-final-03.stderr.log",
+    "docs/project_memory/w02_a_evidence/targeted-final-03.stdout.log",
+    "docs/project_memory/w02_a_evidence/test-history.md",
+    "docs/project_memory/工程总档案.md",
+    "src/continuity_engine/domain/continuity_core.py",
+    "src/continuity_engine/domain/input_processing.py",
+    "src/continuity_engine/domain/integration_results.py",
+    "src/continuity_engine/services/continuity_core_runtime.py",
+    "src/continuity_engine/services/continuity_core_service.py",
+    "src/continuity_engine/services/continuity_interaction_service.py",
+    "src/continuity_engine/services/input_context_source.py",
+    "src/continuity_engine/services/input_processing_service.py",
+    "src/continuity_engine/storage/json_integration_repository.py",
+    "src/continuity_engine/testing/w02_input_fixture.py",
+    "tests/test_w02_input_integration.py",
+    "tests/test_w02_input_processing.py",
+    "tests/test_w02_input_recovery.py"
+  ],
+  "excludedCount": 32,
+  "preservedPlanningCount": 25,
+  "git": {
+    "branch": "main",
+    "head": "ce6f4771140c4b6bdb0f5ae81d4c68bfc8653e88",
+    "localOrigin": "ce6f4771140c4b6bdb0f5ae81d4c68bfc8653e88",
+    "aheadBehind": "0\t0",
+    "origin": "https://github.com/yuan69082-code/continuity-engine.git",
+    "indexHash": "7a631827cde3385d2286bd51fe385abef4f2eeeb5d53a172cc5118a5cf858557",
+    "staged": [],
+    "tracked": [
+      "README.md",
+      "docs/project_memory/01_当前状态.md",
+      "docs/project_memory/03_施工日志.md",
+      "docs/project_memory/04_决策记录.md",
+      "docs/project_memory/06_未完成事项.md",
+      "docs/project_memory/CHANGELOG.md",
+      "docs/project_memory/工程总档案.md",
+      "src/continuity_engine/domain/continuity_core.py",
+      "src/continuity_engine/domain/integration_results.py",
+      "src/continuity_engine/services/continuity_core_runtime.py",
+      "src/continuity_engine/services/continuity_core_service.py",
+      "src/continuity_engine/services/continuity_interaction_service.py",
+      "src/continuity_engine/storage/json_integration_repository.py"
+    ],
+    "untracked": [
+      "docs/project_memory/p10_evidence/closeout-20260904/check_stop.py",
+      "docs/project_memory/p10_evidence/closeout-20260904/closeout.py",
+      "docs/project_memory/p10_evidence/closeout-20260904/preserve_failed_closeout.py",
+      "docs/project_memory/p10_evidence/closeout-20260904/record_stop.py",
+      "docs/project_memory/p10_evidence/closeout-20260904/sync_assistant.py",
+      "docs/project_memory/p10_evidence/create_repositories.py",
+      "docs/project_memory/p10_evidence/final_audit.py",
+      "docs/project_memory/p10_evidence/fixture-case-repair-20260904/audit.py",
+      "docs/project_memory/p10_evidence/fixture-case-repair-20260904/independent/p10_fixture_repair_review_probe.py",
+      "docs/project_memory/p10_evidence/fixture-case-repair-20260904/prepare.py",
+      "docs/project_memory/p10_evidence/fixture-case-repair-20260904/run.py",
+      "docs/project_memory/p10_evidence/fixture-case-repair-20260904/sync_docs.py",
+      "docs/project_memory/p10_evidence/fixture-repair-20260904/audit.py",
+      "docs/project_memory/p10_evidence/fixture-repair-20260904/baseline.py",
+      "docs/project_memory/p10_evidence/fixture-repair-20260904/engineering.py",
+      "docs/project_memory/p10_evidence/fixture-repair-20260904/engineering_resume.py",
+      "docs/project_memory/p10_evidence/fixture-repair-20260904/run.py",
+      "docs/project_memory/p10_evidence/fixture-repair-20260904/sync_docs.py",
+      "docs/project_memory/p10_evidence/fixture-repair-20260904/temp_probe.py",
+      "docs/project_memory/p10_evidence/launcher-repair-20260905/advance.py",
+      "docs/project_memory/p10_evidence/launcher-repair-20260905/build_review_report.py",
+      "docs/project_memory/p10_evidence/launcher-repair-20260905/ci_evidence.py",
+      "docs/project_memory/p10_evidence/launcher-repair-20260905/document_check.py",
+      "docs/project_memory/p10_evidence/launcher-repair-20260905/final_audit.py",
+      "docs/project_memory/p10_evidence/launcher-repair-20260905/repair_namespace_diagnostic.py",
+      "docs/project_memory/p10_evidence/launcher-repair-20260905/temp_checkout_probe.py",
+      "docs/project_memory/p10_evidence/launcher-repair-20260905/validate_temp.py",
+      "docs/project_memory/p10_evidence/launcher-repair-20260905/workflow.py",
+      "docs/project_memory/p10_evidence/outside_temp_clone.py",
+      "docs/project_memory/p10_evidence/publish_assistant.py",
+      "docs/project_memory/p10_evidence/remote_review.py",
+      "docs/project_memory/p14_evidence/handoff-discrepancy-20260908.json",
+      "docs/project_memory/w01_planning_20260923/README.md",
+      "docs/project_memory/w01_planning_20260923/baseline.json",
+      "docs/project_memory/w01_planning_20260923/evidence-index.md",
+      "docs/project_memory/w01_planning_20260923/evidence-map.json",
+      "docs/project_memory/w01_planning_20260923/final.audit.json",
+      "docs/project_memory/w01_planning_20260923/final.files.md",
+      "docs/project_memory/w01_planning_20260923/planning-sources.json",
+      "docs/project_memory/w01_planning_20260923/planning/Continuity_Engine_总施工规划_v1.4_三份规划同步版.md",
+      "docs/project_memory/w01_planning_20260923/planning/Continuity_Engine_最终新增规划_v1.4.md",
+      "docs/project_memory/w01_planning_20260923/planning/连续性引擎长期能力增补规划_v6.8_三份规划同步版.md",
+      "docs/project_memory/w01_planning_20260923/source-location-observation.json",
+      "docs/project_memory/w01_planning_20260923/stage-brief.md",
+      "docs/project_memory/w01_planning_20260923/w01-report.md",
+      "docs/project_memory/w01_planning_v15_20260923/baseline.json",
+      "docs/project_memory/w01_planning_v15_20260923/comparison.json",
+      "docs/project_memory/w01_planning_v15_20260923/final.audit.json",
+      "docs/project_memory/w01_planning_v15_20260923/final.files.md",
+      "docs/project_memory/w01_planning_v15_20260923/planning-sources.json",
+      "docs/project_memory/w01_planning_v15_20260923/planning/Continuity_Engine_总施工规划_v1.5_W施工正文完整版.md",
+      "docs/project_memory/w01_planning_v15_20260923/planning/Continuity_Engine_最终新增规划_v1.5_W施工正文完整版.md",
+      "docs/project_memory/w01_planning_v15_20260923/planning/连续性引擎长期能力增补规划_v6.9_W施工正文同步版.md",
+      "docs/project_memory/w01_planning_v15_20260923/test-stage-map.md",
+      "docs/project_memory/w01_planning_v15_20260923/w01-delta-report.md",
+      "docs/project_memory/w01_planning_v15_20260923/w02-a-proposed-brief.md",
+      "docs/project_memory/w02_a_evidence/admission-before-01.json",
+      "docs/project_memory/w02_a_evidence/admission-before-01.stderr.log",
+      "docs/project_memory/w02_a_evidence/admission-before-01.stdout.log",
+      "docs/project_memory/w02_a_evidence/architecture-and-recovery.md",
+      "docs/project_memory/w02_a_evidence/audit-helper-error-01.json",
+      "docs/project_memory/w02_a_evidence/audit.py",
+      "docs/project_memory/w02_a_evidence/baseline.json",
+      "docs/project_memory/w02_a_evidence/compatibility-final-01.json",
+      "docs/project_memory/w02_a_evidence/compatibility-final-01.stderr.log",
+      "docs/project_memory/w02_a_evidence/compatibility-final-01.stdout.log",
+      "docs/project_memory/w02_a_evidence/compatibility-final-02.json",
+      "docs/project_memory/w02_a_evidence/compatibility-final-02.stderr.log",
+      "docs/project_memory/w02_a_evidence/compatibility-final-02.stdout.log",
+      "docs/project_memory/w02_a_evidence/compatibility-plan.json",
+      "docs/project_memory/w02_a_evidence/continuation.md",
+      "docs/project_memory/w02_a_evidence/failure-history.md",
+      "docs/project_memory/w02_a_evidence/feature-before-01.json",
+      "docs/project_memory/w02_a_evidence/feature-before-01.stderr.log",
+      "docs/project_memory/w02_a_evidence/feature-before-01.stdout.log",
+      "docs/project_memory/w02_a_evidence/final-report.md",
+      "docs/project_memory/w02_a_evidence/final.audit.json",
+      "docs/project_memory/w02_a_evidence/final.inventory.json",
+      "docs/project_memory/w02_a_evidence/final.pending-files.md",
+      "docs/project_memory/w02_a_evidence/finalize_docs.py",
+      "docs/project_memory/w02_a_evidence/frozen-source-02.json",
+      "docs/project_memory/w02_a_evidence/frozen-source-03.json",
+      "docs/project_memory/w02_a_evidence/frozen-source.json",
+      "docs/project_memory/w02_a_evidence/full-final-01.json",
+      "docs/project_memory/w02_a_evidence/full-final-01.stderr.log",
+      "docs/project_memory/w02_a_evidence/full-final-01.stdout.log",
+      "docs/project_memory/w02_a_evidence/golden-example.json",
+      "docs/project_memory/w02_a_evidence/ignored-material-check.json",
+      "docs/project_memory/w02_a_evidence/matrix.md",
+      "docs/project_memory/w02_a_evidence/native-before-01.json",
+      "docs/project_memory/w02_a_evidence/native-before-01.stderr.log",
+      "docs/project_memory/w02_a_evidence/native-before-01.stdout.log",
+      "docs/project_memory/w02_a_evidence/pre-full-check.json",
+      "docs/project_memory/w02_a_evidence/process-check-01.json",
+      "docs/project_memory/w02_a_evidence/process-check-before-full.json",
+      "docs/project_memory/w02_a_evidence/process-check-during-full-01.json",
+      "docs/project_memory/w02_a_evidence/process-cleanup.json",
+      "docs/project_memory/w02_a_evidence/process_audit.py",
+      "docs/project_memory/w02_a_evidence/receipt-before-01.json",
+      "docs/project_memory/w02_a_evidence/receipt-before-01.stderr.log",
+      "docs/project_memory/w02_a_evidence/receipt-before-01.stdout.log",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/audit.py",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/baseline.json",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/before-full-02-process-check.json",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/before-full-process-check.json",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/compatibility-final-01.json",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/compatibility-final-01.stderr.log",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/compatibility-final-01.stdout.log",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/compatibility-final-02.json",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/compatibility-final-02.stderr.log",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/compatibility-final-02.stdout.log",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/compatibility-scope-02.json",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/compatibility-scope.json",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/continuation-mid-history.md",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/continuation.md",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/final-report.md",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/final.audit.json",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/final.inventory.json",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/final.pending-files.md",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/finalize_docs.py",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/formal-final-01.json",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/formal-final-01.stderr.log",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/formal-final-01.stdout.log",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/formal-final-02.json",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/formal-final-02.stderr.log",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/formal-final-02.stdout.log",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/formal-intermediate-01.json",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/formal-intermediate-01.stderr.log",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/formal-intermediate-01.stdout.log",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/frozen-source-02.json",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/frozen-source.json",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/full-final-01.json",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/full-final-01.stderr.log",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/full-final-01.stdout.log",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/full-final-02.json",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/full-final-02.stderr.log",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/full-final-02.stdout.log",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/integrity-check-outcome.json",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/matrix.md",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/pending-integrity-check.md",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/pipeline-02.json",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/plan.md",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/preflight-check-01.json",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/process-cleanup.json",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/process_audit.py",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/reproduction-after-01.json",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/reproduction-after-01.stderr.log",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/reproduction-after-01.stdout.log",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/reproduction-before-01.json",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/reproduction-before-01.stderr.log",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/reproduction-before-01.stdout.log",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/result-binding-after-01.json",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/result-binding-after-01.stderr.log",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/result-binding-after-01.stdout.log",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/result-binding-after-02.json",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/result-binding-after-02.stderr.log",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/result-binding-after-02.stdout.log",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/result-binding-before-01.json",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/result-binding-before-01.stderr.log",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/result-binding-before-01.stdout.log",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/result-binding-before-02.json",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/result-binding-before-02.stderr.log",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/result-binding-before-02.stdout.log",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/review-entry.md",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/run.py",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/selected-runs-01-preserved.json",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/selected-runs.json",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/test-history.md",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/w02-final-01.json",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/w02-final-01.stderr.log",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/w02-final-01.stdout.log",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/w02-final-02.json",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/w02-final-02.stderr.log",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/w02-final-02.stdout.log",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/w02-intermediate-01.json",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/w02-intermediate-01.stderr.log",
+      "docs/project_memory/w02_a_evidence/repair_r1_r2/w02-intermediate-01.stdout.log",
+      "docs/project_memory/w02_a_evidence/review-entry.md",
+      "docs/project_memory/w02_a_evidence/run-v1-preserved.py",
+      "docs/project_memory/w02_a_evidence/run.py",
+      "docs/project_memory/w02_a_evidence/selected-runs.json",
+      "docs/project_memory/w02_a_evidence/stage-brief.md",
+      "docs/project_memory/w02_a_evidence/targeted-01.json",
+      "docs/project_memory/w02_a_evidence/targeted-01.stderr.log",
+      "docs/project_memory/w02_a_evidence/targeted-01.stdout.log",
+      "docs/project_memory/w02_a_evidence/targeted-02.json",
+      "docs/project_memory/w02_a_evidence/targeted-02.stderr.log",
+      "docs/project_memory/w02_a_evidence/targeted-02.stdout.log",
+      "docs/project_memory/w02_a_evidence/targeted-03.json",
+      "docs/project_memory/w02_a_evidence/targeted-03.stderr.log",
+      "docs/project_memory/w02_a_evidence/targeted-03.stdout.log",
+      "docs/project_memory/w02_a_evidence/targeted-04.json",
+      "docs/project_memory/w02_a_evidence/targeted-04.stderr.log",
+      "docs/project_memory/w02_a_evidence/targeted-04.stdout.log",
+      "docs/project_memory/w02_a_evidence/targeted-05.json",
+      "docs/project_memory/w02_a_evidence/targeted-05.stderr.log",
+      "docs/project_memory/w02_a_evidence/targeted-05.stdout.log",
+      "docs/project_memory/w02_a_evidence/targeted-06.json",
+      "docs/project_memory/w02_a_evidence/targeted-06.stderr.log",
+      "docs/project_memory/w02_a_evidence/targeted-06.stdout.log",
+      "docs/project_memory/w02_a_evidence/targeted-final-01.json",
+      "docs/project_memory/w02_a_evidence/targeted-final-01.stderr.log",
+      "docs/project_memory/w02_a_evidence/targeted-final-01.stdout.log",
+      "docs/project_memory/w02_a_evidence/targeted-final-02.json",
+      "docs/project_memory/w02_a_evidence/targeted-final-02.stderr.log",
+      "docs/project_memory/w02_a_evidence/targeted-final-02.stdout.log",
+      "docs/project_memory/w02_a_evidence/targeted-final-03.json",
+      "docs/project_memory/w02_a_evidence/targeted-final-03.stderr.log",
+      "docs/project_memory/w02_a_evidence/targeted-final-03.stdout.log",
+      "docs/project_memory/w02_a_evidence/test-history.md",
+      "docs/project_memory/现行规划版本索引.md",
+      "src/continuity_engine/domain/input_processing.py",
+      "src/continuity_engine/services/input_context_source.py",
+      "src/continuity_engine/services/input_processing_service.py",
+      "src/continuity_engine/testing/w02_input_fixture.py",
+      "tests/test_w02_input_integration.py",
+      "tests/test_w02_input_processing.py",
+      "tests/test_w02_input_recovery.py"
+    ],
+    "status": " M README.md\n M docs/project_memory/01_当前状态.md\n M docs/project_memory/03_施工日志.md\n M docs/project_memory/04_决策记录.md\n M docs/project_memory/06_未完成事项.md\n M docs/project_memory/CHANGELOG.md\n M docs/project_memory/工程总档案.md\n M src/continuity_engine/domain/continuity_core.py\n M src/continuity_engine/domain/integration_results.py\n M src/continuity_engine/services/continuity_core_runtime.py\n M src/continuity_engine/services/continuity_core_service.py\n M src/continuity_engine/services/continuity_interaction_service.py\n M src/continuity_engine/storage/json_integration_repository.py\n?? docs/project_memory/p10_evidence/closeout-20260904/check_stop.py\n?? docs/project_memory/p10_evidence/closeout-20260904/closeout.py\n?? docs/project_memory/p10_evidence/closeout-20260904/preserve_failed_closeout.py\n?? docs/project_memory/p10_evidence/closeout-20260904/record_stop.py\n?? docs/project_memory/p10_evidence/closeout-20260904/sync_assistant.py\n?? docs/project_memory/p10_evidence/create_repositories.py\n?? docs/project_memory/p10_evidence/final_audit.py\n?? docs/project_memory/p10_evidence/fixture-case-repair-20260904/audit.py\n?? docs/project_memory/p10_evidence/fixture-case-repair-20260904/independent/p10_fixture_repair_review_probe.py\n?? docs/project_memory/p10_evidence/fixture-case-repair-20260904/prepare.py\n?? docs/project_memory/p10_evidence/fixture-case-repair-20260904/run.py\n?? docs/project_memory/p10_evidence/fixture-case-repair-20260904/sync_docs.py\n?? docs/project_memory/p10_evidence/fixture-repair-20260904/audit.py\n?? docs/project_memory/p10_evidence/fixture-repair-20260904/baseline.py\n?? docs/project_memory/p10_evidence/fixture-repair-20260904/engineering.py\n?? docs/project_memory/p10_evidence/fixture-repair-20260904/engineering_resume.py\n?? docs/project_memory/p10_evidence/fixture-repair-20260904/run.py\n?? docs/project_memory/p10_evidence/fixture-repair-20260904/sync_docs.py\n?? docs/project_memory/p10_evidence/fixture-repair-20260904/temp_probe.py\n?? docs/project_memory/p10_evidence/launcher-repair-20260905/advance.py\n?? docs/project_memory/p10_evidence/launcher-repair-20260905/build_review_report.py\n?? docs/project_memory/p10_evidence/launcher-repair-20260905/ci_evidence.py\n?? docs/project_memory/p10_evidence/launcher-repair-20260905/document_check.py\n?? docs/project_memory/p10_evidence/launcher-repair-20260905/final_audit.py\n?? docs/project_memory/p10_evidence/launcher-repair-20260905/repair_namespace_diagnostic.py\n?? docs/project_memory/p10_evidence/launcher-repair-20260905/temp_checkout_probe.py\n?? docs/project_memory/p10_evidence/launcher-repair-20260905/validate_temp.py\n?? docs/project_memory/p10_evidence/launcher-repair-20260905/workflow.py\n?? docs/project_memory/p10_evidence/outside_temp_clone.py\n?? docs/project_memory/p10_evidence/publish_assistant.py\n?? docs/project_memory/p10_evidence/remote_review.py\n?? docs/project_memory/p14_evidence/handoff-discrepancy-20260908.json\n?? docs/project_memory/w01_planning_20260923/README.md\n?? docs/project_memory/w01_planning_20260923/baseline.json\n?? docs/project_memory/w01_planning_20260923/evidence-index.md\n?? docs/project_memory/w01_planning_20260923/evidence-map.json\n?? docs/project_memory/w01_planning_20260923/final.audit.json\n?? docs/project_memory/w01_planning_20260923/final.files.md\n?? docs/project_memory/w01_planning_20260923/planning-sources.json\n?? docs/project_memory/w01_planning_20260923/planning/Continuity_Engine_总施工规划_v1.4_三份规划同步版.md\n?? docs/project_memory/w01_planning_20260923/planning/Continuity_Engine_最终新增规划_v1.4.md\n?? docs/project_memory/w01_planning_20260923/planning/连续性引擎长期能力增补规划_v6.8_三份规划同步版.md\n?? docs/project_memory/w01_planning_20260923/source-location-observation.json\n?? docs/project_memory/w01_planning_20260923/stage-brief.md\n?? docs/project_memory/w01_planning_20260923/w01-report.md\n?? docs/project_memory/w01_planning_v15_20260923/baseline.json\n?? docs/project_memory/w01_planning_v15_20260923/comparison.json\n?? docs/project_memory/w01_planning_v15_20260923/final.audit.json\n?? docs/project_memory/w01_planning_v15_20260923/final.files.md\n?? docs/project_memory/w01_planning_v15_20260923/planning-sources.json\n?? docs/project_memory/w01_planning_v15_20260923/planning/Continuity_Engine_总施工规划_v1.5_W施工正文完整版.md\n?? docs/project_memory/w01_planning_v15_20260923/planning/Continuity_Engine_最终新增规划_v1.5_W施工正文完整版.md\n?? docs/project_memory/w01_planning_v15_20260923/planning/连续性引擎长期能力增补规划_v6.9_W施工正文同步版.md\n?? docs/project_memory/w01_planning_v15_20260923/test-stage-map.md\n?? docs/project_memory/w01_planning_v15_20260923/w01-delta-report.md\n?? docs/project_memory/w01_planning_v15_20260923/w02-a-proposed-brief.md\n?? docs/project_memory/w02_a_evidence/admission-before-01.json\n?? docs/project_memory/w02_a_evidence/admission-before-01.stderr.log\n?? docs/project_memory/w02_a_evidence/admission-before-01.stdout.log\n?? docs/project_memory/w02_a_evidence/architecture-and-recovery.md\n?? docs/project_memory/w02_a_evidence/audit-helper-error-01.json\n?? docs/project_memory/w02_a_evidence/audit.py\n?? docs/project_memory/w02_a_evidence/baseline.json\n?? docs/project_memory/w02_a_evidence/compatibility-final-01.json\n?? docs/project_memory/w02_a_evidence/compatibility-final-01.stderr.log\n?? docs/project_memory/w02_a_evidence/compatibility-final-01.stdout.log\n?? docs/project_memory/w02_a_evidence/compatibility-final-02.json\n?? docs/project_memory/w02_a_evidence/compatibility-final-02.stderr.log\n?? docs/project_memory/w02_a_evidence/compatibility-final-02.stdout.log\n?? docs/project_memory/w02_a_evidence/compatibility-plan.json\n?? docs/project_memory/w02_a_evidence/continuation.md\n?? docs/project_memory/w02_a_evidence/failure-history.md\n?? docs/project_memory/w02_a_evidence/feature-before-01.json\n?? docs/project_memory/w02_a_evidence/feature-before-01.stderr.log\n?? docs/project_memory/w02_a_evidence/feature-before-01.stdout.log\n?? docs/project_memory/w02_a_evidence/final-report.md\n?? docs/project_memory/w02_a_evidence/final.audit.json\n?? docs/project_memory/w02_a_evidence/final.inventory.json\n?? docs/project_memory/w02_a_evidence/final.pending-files.md\n?? docs/project_memory/w02_a_evidence/finalize_docs.py\n?? docs/project_memory/w02_a_evidence/frozen-source-02.json\n?? docs/project_memory/w02_a_evidence/frozen-source-03.json\n?? docs/project_memory/w02_a_evidence/frozen-source.json\n?? docs/project_memory/w02_a_evidence/full-final-01.json\n?? docs/project_memory/w02_a_evidence/full-final-01.stderr.log\n?? docs/project_memory/w02_a_evidence/full-final-01.stdout.log\n?? docs/project_memory/w02_a_evidence/golden-example.json\n?? docs/project_memory/w02_a_evidence/ignored-material-check.json\n?? docs/project_memory/w02_a_evidence/matrix.md\n?? docs/project_memory/w02_a_evidence/native-before-01.json\n?? docs/project_memory/w02_a_evidence/native-before-01.stderr.log\n?? docs/project_memory/w02_a_evidence/native-before-01.stdout.log\n?? docs/project_memory/w02_a_evidence/pre-full-check.json\n?? docs/project_memory/w02_a_evidence/process-check-01.json\n?? docs/project_memory/w02_a_evidence/process-check-before-full.json\n?? docs/project_memory/w02_a_evidence/process-check-during-full-01.json\n?? docs/project_memory/w02_a_evidence/process-cleanup.json\n?? docs/project_memory/w02_a_evidence/process_audit.py\n?? docs/project_memory/w02_a_evidence/receipt-before-01.json\n?? docs/project_memory/w02_a_evidence/receipt-before-01.stderr.log\n?? docs/project_memory/w02_a_evidence/receipt-before-01.stdout.log\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/audit.py\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/baseline.json\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/before-full-02-process-check.json\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/before-full-process-check.json\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/compatibility-final-01.json\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/compatibility-final-01.stderr.log\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/compatibility-final-01.stdout.log\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/compatibility-final-02.json\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/compatibility-final-02.stderr.log\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/compatibility-final-02.stdout.log\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/compatibility-scope-02.json\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/compatibility-scope.json\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/continuation-mid-history.md\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/continuation.md\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/final-report.md\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/final.audit.json\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/final.inventory.json\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/final.pending-files.md\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/finalize_docs.py\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/formal-final-01.json\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/formal-final-01.stderr.log\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/formal-final-01.stdout.log\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/formal-final-02.json\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/formal-final-02.stderr.log\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/formal-final-02.stdout.log\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/formal-intermediate-01.json\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/formal-intermediate-01.stderr.log\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/formal-intermediate-01.stdout.log\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/frozen-source-02.json\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/frozen-source.json\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/full-final-01.json\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/full-final-01.stderr.log\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/full-final-01.stdout.log\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/full-final-02.json\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/full-final-02.stderr.log\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/full-final-02.stdout.log\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/integrity-check-outcome.json\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/matrix.md\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/pending-integrity-check.md\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/pipeline-02.json\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/plan.md\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/preflight-check-01.json\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/process-cleanup.json\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/process_audit.py\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/reproduction-after-01.json\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/reproduction-after-01.stderr.log\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/reproduction-after-01.stdout.log\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/reproduction-before-01.json\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/reproduction-before-01.stderr.log\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/reproduction-before-01.stdout.log\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/result-binding-after-01.json\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/result-binding-after-01.stderr.log\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/result-binding-after-01.stdout.log\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/result-binding-after-02.json\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/result-binding-after-02.stderr.log\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/result-binding-after-02.stdout.log\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/result-binding-before-01.json\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/result-binding-before-01.stderr.log\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/result-binding-before-01.stdout.log\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/result-binding-before-02.json\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/result-binding-before-02.stderr.log\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/result-binding-before-02.stdout.log\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/review-entry.md\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/run.py\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/selected-runs-01-preserved.json\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/selected-runs.json\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/test-history.md\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/w02-final-01.json\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/w02-final-01.stderr.log\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/w02-final-01.stdout.log\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/w02-final-02.json\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/w02-final-02.stderr.log\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/w02-final-02.stdout.log\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/w02-intermediate-01.json\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/w02-intermediate-01.stderr.log\n?? docs/project_memory/w02_a_evidence/repair_r1_r2/w02-intermediate-01.stdout.log\n?? docs/project_memory/w02_a_evidence/review-entry.md\n?? docs/project_memory/w02_a_evidence/run-v1-preserved.py\n?? docs/project_memory/w02_a_evidence/run.py\n?? docs/project_memory/w02_a_evidence/selected-runs.json\n?? docs/project_memory/w02_a_evidence/stage-brief.md\n?? docs/project_memory/w02_a_evidence/targeted-01.json\n?? docs/project_memory/w02_a_evidence/targeted-01.stderr.log\n?? docs/project_memory/w02_a_evidence/targeted-01.stdout.log\n?? docs/project_memory/w02_a_evidence/targeted-02.json\n?? docs/project_memory/w02_a_evidence/targeted-02.stderr.log\n?? docs/project_memory/w02_a_evidence/targeted-02.stdout.log\n?? docs/project_memory/w02_a_evidence/targeted-03.json\n?? docs/project_memory/w02_a_evidence/targeted-03.stderr.log\n?? docs/project_memory/w02_a_evidence/targeted-03.stdout.log\n?? docs/project_memory/w02_a_evidence/targeted-04.json\n?? docs/project_memory/w02_a_evidence/targeted-04.stderr.log\n?? docs/project_memory/w02_a_evidence/targeted-04.stdout.log\n?? docs/project_memory/w02_a_evidence/targeted-05.json\n?? docs/project_memory/w02_a_evidence/targeted-05.stderr.log\n?? docs/project_memory/w02_a_evidence/targeted-05.stdout.log\n?? docs/project_memory/w02_a_evidence/targeted-06.json\n?? docs/project_memory/w02_a_evidence/targeted-06.stderr.log\n?? docs/project_memory/w02_a_evidence/targeted-06.stdout.log\n?? docs/project_memory/w02_a_evidence/targeted-final-01.json\n?? docs/project_memory/w02_a_evidence/targeted-final-01.stderr.log\n?? docs/project_memory/w02_a_evidence/targeted-final-01.stdout.log\n?? docs/project_memory/w02_a_evidence/targeted-final-02.json\n?? docs/project_memory/w02_a_evidence/targeted-final-02.stderr.log\n?? docs/project_memory/w02_a_evidence/targeted-final-02.stdout.log\n?? docs/project_memory/w02_a_evidence/targeted-final-03.json\n?? docs/project_memory/w02_a_evidence/targeted-final-03.stderr.log\n?? docs/project_memory/w02_a_evidence/targeted-final-03.stdout.log\n?? docs/project_memory/w02_a_evidence/test-history.md\n?? docs/project_memory/现行规划版本索引.md\n?? src/continuity_engine/domain/input_processing.py\n?? src/continuity_engine/services/input_context_source.py\n?? src/continuity_engine/services/input_processing_service.py\n?? src/continuity_engine/testing/w02_input_fixture.py\n?? tests/test_w02_input_integration.py\n?? tests/test_w02_input_processing.py\n?? tests/test_w02_input_recovery.py\n",
+    "unexpected": [],
+    "writesPerformed": false,
+    "actualRemoteQueried": false,
+    "ciQueried": false
+  },
+  "selfHashExcluded": [
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/final.audit.json",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/final.pending-files.md",
+    "docs/project_memory/w02_a_evidence/repair_r1_r2/final.inventory.json"
+  ]
+}

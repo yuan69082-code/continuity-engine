@@ -1,0 +1,44 @@
+test_native_opportunity_without_input_flag_preserves_original_chain (tests.test_w02_input_integration.InputIntegrationTests.test_native_opportunity_without_input_flag_preserves_original_chain) ... ERROR
+{"test": "tests.test_w02_input_integration.InputIntegrationTests.test_native_opportunity_without_input_flag_preserves_original_chain", "stage": "before-TEST-cleanup", "files": {"s/.p01-sandbox-root.v1.json": {"bytes": 98, "sha256": "3ced39d6b395df89d9b1f34e1b3faf46c14ccc6edab679a616f588a978e002f7"}, "s/s/sbced4460/b/b6019de05/branch-manifest.v1.json": {"bytes": 243, "sha256": "63af0edffa85322f7ae019c66f730da6c24803569cfdcf64de5c0e93d02c9934"}, "s/s/sbced4460/b/b6019de05/data/awakening/cycles/76ef8c56780b7ecd9094a9940ce3f7132b2654092666f23c226ba7a3814bd724.json": {"bytes": 253, "sha256": "77859f72490159e87ad28edc168450767b6000b6b12c0f580e740148615ca0cf"}, "s/s/sbced4460/b/b6019de05/data/awakening/sessions/43ca1dd537e421f93197d3111cab78e647d43077021ea8350a85ac428ae10e85/6c136b1ee0fcd3acbaa159f81d065d7372a8fba3ca9d2b71ab74cf23c2727f8b.json": {"bytes": 10636, "sha256": "125b81bd6e02550d4f70c1b59edec20f458b3c526a9a842a8c7cfc71d0fc7508"}, "s/s/sbced4460/b/b6019de05/data/c1-receipts/p08-fake-receipts.json": {"bytes": 148, "sha256": "a411df96a3b6eea514baf41f59d45ab70c55b96ee9f28e118d79525ea3bfe8c8"}, "s/s/sbced4460/b/b6019de05/data/clock/subject-clock.v1.json": {"bytes": 109, "sha256": "56a56d0b6a498cfca782bc0159303b1aa3f955696e541bda5ecee025aa66601e"}, "s/s/sbced4460/b/b6019de05/data/contradiction/test/43ca1dd537e421f93197d3111cab78e647d43077021ea8350a85ac428ae10e85.json": {"bytes": 228, "sha256": "bc4b43a53369cb5481344bdfbc4c2b741cbcd863a890b94dfdb9bdf839b3fee7"}, "s/s/sbced4460/b/b6019de05/data/fixture/c1-profile.v1.json": {"bytes": 102, "sha256": "bedbe3999cca5be81fd944fdb201e7507c9487f2aa00b320f331f9e748e8d7f6"}, "s/s/sbced4460/b/b6019de05/data/fixture/state-fixture.v1.json": {"bytes": 635, "sha256": "542c20d38ee7df72105483771bbf9ba1fad59c1994cae26ee6149214aa9b24ec"}, "s/s/sbced4460/b/b6019de05/data/integration/capability-ledger.v1.json": {"bytes": 82, "sha256": "95f292f0db842e43cccb490ce10bbeefd3bab92d43fa69f4bb1b6188d4ed43de"}, "s/s/sbced4460/b/b6019de05/data/integration/operation-journal.first-round-v1.json": {"bytes": 65, "sha256": "d99f9c31a9492c478a6023ebeabc5d660810a3e6d9ba6f1d9b76a425b89b2eab"}, "s/s/sbced4460/b/b6019de05/data/integration/result-ledger.first-round-v1.json": {"bytes": 63, "sha256": "5407f91ac04019966f84bfbad51ebc1fb904bd085a6579febfa75a9ea068592a"}, "s/s/sbced4460/b/b6019de05/data/integration/subject-binding.runtime-v1.json": {"bytes": 613, "sha256": "ccffe1bba2bbaee1a8adf8265fceef3b0a356f55532893c371530747d8960c92"}, "s/s/sbced4460/b/b6019de05/data/learning/43ca1dd537e421f93197d3111cab78e647d43077021ea8350a85ac428ae10e85.json": {"bytes": 2154, "sha256": "04fce73f2a535892c0d203abc36787ca33c58387c55d6ba1b33fabfc84f9162d"}, "s/s/sbced4460/b/b6019de05/data/memory/test/43ca1dd537e421f93197d3111cab78e647d43077021ea8350a85ac428ae10e85.json": {"bytes": 302, "sha256": "d1f10124ace0f802d657d5ac4a072c9ed5070806b39ee44d6e5a606a029d894b"}, "s/s/sbced4460/b/b6019de05/data/resources/43ca1dd537e421f93197d3111cab78e647d43077021ea8350a85ac428ae10e85.json": {"bytes": 437, "sha256": "d62c7785ec72bd56df10c5d0fc473ebfc510941641f91584092b42819f7b1d2a"}, "s/s/sbced4460/b/b6019de05/data/subject-state/43ca1dd537e421f93197d3111cab78e647d43077021ea8350a85ac428ae10e85.json": {"bytes": 4912, "sha256": "36e021f637294a4310917e48142dc664fbfcc478e6fabec7bca043221f7f9f94"}, "s/s/sbced4460/b/b6019de05/data/test-actions/action-sessions.v1.json": {"bytes": 128, "sha256": "51b83039d632f8eba7ecee30fe77f29cc8e28d12ce098f40b083380d6d1a6099"}, "s/s/sbced4460/b/b6019de05/data/test-indexes/events.v1.json": {"bytes": 138, "sha256": "c936eb5270162084a813a0ccdc33dc0c330ab6dd90c34ca80ef05b7deeffd75f"}, "s/s/sbced4460/b/b6019de05/data/test-indexes/evolution.v1.json": {"bytes": 141, "sha256": "14ff127f88eea4db1bac39f0b84b90fb5801d9b4719bace042d7ed0d1acbe0db"}, "s/s/sbced4460/b/b6019de05/data/test-indexes/relationship-state.v1.json": {"bytes": 150, "sha256": "2b3384a0a74ddafed87031ccc3ea542a763447d8a7bb8b01400e21f3204e4c88"}, "s/s/sbced4460/b/b6019de05/data/test-indexes/state-mutations.v1.json": {"bytes": 147, "sha256": "e7d5980f4d744bac9ad1d81fb0bd9efb33a0e9630db047e7e0a4e87719a3cf8b"}, "s/s/sbced4460/b/b6019de05/data/test-indexes/thinking-sessions.v1.json": {"bytes": 149, "sha256": "d78785e572284cffbe4d0200adf6c28fe32ba328e59885844888804ef1b891fa"}, "s/s/sbced4460/b/b6019de05/data/test-indexes/wake-sessions.v1.json": {"bytes": 145, "sha256": "6fb65c265372250746f1d09d96584fd4393219a6597785f7b3a52848b64e205f"}, "s/s/sbced4460/b/b6019de05/data/test-memory/memory-ledger.v1.json": {"bytes": 631, "sha256": "e5036b52699c2fa1fe7e520485f0ba047929162e590488ed0445a72b62ca5d86"}, "s/s/sbced4460/b/b6019de05/data/test-trace/subject-clock-trace.v1.json": {"bytes": 1558, "sha256": "564cccd33d49eab2909bfaa664bfb88d5f28d05639341259d34630ec200d855f"}, "s/s/sbced4460/sandbox-manifest.v1.json": {"bytes": 910, "sha256": "c951a48662864f2c786fd5db3876f35abd2d14d07a110d73332889ca8eb622c1"}, "s/sandbox-registry.v1.json": {"bytes": 476, "sha256": "b3d9195231b9fed7aa4bf92d7cabdc1eadc7728fdb075a1cd904655f2f49d251"}}}
+
+======================================================================
+ERROR: test_native_opportunity_without_input_flag_preserves_original_chain (tests.test_w02_input_integration.InputIntegrationTests.test_native_opportunity_without_input_flag_preserves_original_chain)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 281, in prepare
+    return self._prepare(perception, operation, save_input=save_input)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 305, in _prepare
+    if operation.input_processing_enabled:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'types.SimpleNamespace' object has no attribute 'input_processing_enabled'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w02_input_integration.py", line 39, in test_native_opportunity_without_input_flag_preserves_original_chain
+    f.opportunity('w02-native-legacy-shape')
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p14_mind_fixture.py", line 19, in opportunity
+    return service.wake_manual(self.app.binding.cycle_id, detail='Authorized native P14 computation opportunity.',
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                               session_id=session_id)
+                               ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\wake_perception_thinking_action_service.py", line 93, in wake_manual
+    return self._continue(awakening, depth)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\wake_perception_thinking_action_service.py", line 128, in _continue
+    return self._continue_mind(awakening, depth)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\wake_perception_thinking_action_service.py", line 221, in _continue_mind
+    perception = core.prepare(perception, SimpleNamespace(
+        subject_id=core.subject_id, request_id='native:' + wake.session_id))
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 283, in prepare
+    if operation.input_processing_enabled and self.input_processing is not None and save_input is not None:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'types.SimpleNamespace' object has no attribute 'input_processing_enabled'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.378s
+
+FAILED (errors=1)

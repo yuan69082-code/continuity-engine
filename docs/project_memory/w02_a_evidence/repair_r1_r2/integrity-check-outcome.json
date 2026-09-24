@@ -1,0 +1,14 @@
+{
+  "closedLocally": true,
+  "before": "result-binding-before-02",
+  "after": "result-binding-after-02",
+  "preRuntimeMatchesFirstFrozenVersion": true,
+  "classification": "R1 partial query completed-result association guard omitted; now reuse original completed-operation verification even if domain checkpoint is absent. No authority or permission policy change.",
+  "auxiliaryErrors": [
+    "result-binding-before-01",
+    "result-binding-after-01"
+  ],
+  "auxiliaryExplanation": "Nested peer TEST root failed to create the original Awakening temporary file (FileNotFoundError) before query assertion; use separate bounded TemporaryDirectory with same real ingress. Original assertions retained.",
+  "earlierFull": "full-final-01 (1645/1644 PASS/1 SKIP, 1649.505s; prior source only)",
+  "finalSource": "frozen-source-02.json"
+}

@@ -1,0 +1,173 @@
+{
+  "at": "2026-09-23T19:07:54.104024+00:00",
+  "method": "Windows Toolhelp process ancestry, no process mutation",
+  "runnerRoots": {
+    "3640": {
+      "label": "compatibility-final-01",
+      "status": "FINISHED",
+      "exitCode": 0
+    },
+    "8788": {
+      "label": "compatibility-final-02",
+      "status": "FINISHED",
+      "exitCode": 0
+    },
+    "14932": {
+      "label": "formal-final-01",
+      "status": "FINISHED",
+      "exitCode": 0
+    },
+    "4300": {
+      "label": "formal-final-02",
+      "status": "FINISHED",
+      "exitCode": 0
+    },
+    "11384": {
+      "label": "formal-intermediate-01",
+      "status": "FINISHED",
+      "exitCode": 0
+    },
+    "14472": {
+      "label": "full-final-01",
+      "status": "FINISHED",
+      "exitCode": 0
+    },
+    "3796": {
+      "label": "reproduction-after-01",
+      "status": "FINISHED",
+      "exitCode": 0
+    },
+    "3800": {
+      "label": "reproduction-before-01",
+      "status": "FINISHED",
+      "exitCode": 1
+    },
+    "4924": {
+      "label": "result-binding-after-01",
+      "status": "FINISHED",
+      "exitCode": 1
+    },
+    "10388": {
+      "label": "result-binding-after-02",
+      "status": "FINISHED",
+      "exitCode": 0
+    },
+    "21844": {
+      "label": "result-binding-before-01",
+      "status": "FINISHED",
+      "exitCode": 1
+    },
+    "10008": {
+      "label": "result-binding-before-02",
+      "status": "FINISHED",
+      "exitCode": 1
+    },
+    "21232": {
+      "label": "w02-final-01",
+      "status": "FINISHED",
+      "exitCode": 0
+    },
+    "22968": {
+      "label": "w02-final-02",
+      "status": "FINISHED",
+      "exitCode": 0
+    },
+    "3728": {
+      "label": "w02-intermediate-01",
+      "status": "FINISHED",
+      "exitCode": 1
+    }
+  },
+  "aliveRelated": [],
+  "allSelectedFinished": true,
+  "selectedChildResults": [
+    {
+      "label": "formal-final-02",
+      "line": 3,
+      "record": {
+        "command": [
+          "E:\\Adobe\\python.exe",
+          "-B",
+          "-c",
+          "import json,sys\nfrom pathlib import Path\nfrom continuity_engine.testing.sandbox import P01SandboxManager\nfrom continuity_engine.testing.w02_input_fixture import W02InputFixture\nfrom continuity_engine.testing.persistence import tree_inventory_hash\nroot=Path(sys.argv[1])\nmanager=P01SandboxManager(root/'s',formal_data_roots=(root/'formal-canary',))\nf=W02InputFixture(root,manager=manager,runtime=manager.open_runtime(sys.argv[2]))\nbefore=tree_inventory_hash(f.runtime.data_root)\nview=f.app.adapter.service.input_outcome(sys.argv[3])\nassert tree_inventory_hash(f.runtime.data_root)==before\nassert (f.provider.calls,f.adapter.effect_count,f.adapter.credits)==(0,0,0)\nprint(json.dumps(view))\n",
+          "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\tmpgt78oquj",
+          "sb-41eafeb8b66c4cbd",
+          "p01-request-99c2cc9453544bcabba85b330034fa34"
+        ],
+        "exitCode": 0,
+        "stdout": "{\"status\": \"PENDING\", \"record\": {\"version\": \"w02-input-v1\", \"manifest\": {\"environment\": \"TEST\", \"interpretation\": {\"about\": \"OTHER_REPORTED\", \"authority\": \"INPUT_INTERPRETATION_NOT_FACT\", \"content_hash\": \"sha256:de78dcd85065aac66ef244c7ae5bc190046bda2ece3b7e9877369b02b9f35643\", \"memory_requested\": false, \"nature\": \"CLAIM\", \"negated\": false, \"negation_scope\": \"OUTSIDE_QUOTE_CLAUSES\", \"negation_spans\": [], \"rule_version\": \"w02-bounded-reading-v2\", \"speaker\": \"platform_sender\", \"time_reference\": \"UNRESOLVED\", \"topic_span\": [0, 9], \"uncertain\": true}, \"operation_id\": \"operation-c7a23d47-5e29-4b14-b828-a2537c2d640c\", \"perception_hash\": \"sha256:492c4496a667fd269291b63f7261e4b072fe3ec2c0c790a7b6543744b4cb775e\", \"recorded_at\": \"2026-09-04T08:00:00Z\", \"request_id\": \"p01-request-99c2cc9453544bcabba85b330034fa34\", \"source\": {\"conversation_id\": \"p01-conversation-dc059b2211a746228881f21981042c7e\", \"fact_id\": \"p01-fact-2923cd0fdd22400e9cb30089d05fc1ef\", \"message_id\": \"p01-message-e02f98c7f5514cf4a4380cc6ea3a72a6\", \"message_version_id\": \"p01-message-version-386b249372894e708c04aa9c8861e3df\", \"observation_id\": \"p01-observation-e9176eb15a7d4f79a1515953ed652720\", \"observation_type\": \"message_created\", \"observed_at\": \"2026-09-04T08:00:00Z\", \"occurred_at\": \"2026-09-04T08:00:00Z\", \"source_event_id\": \"p01-platform-event-2cdd0e3f30484e9a8a5611b2e1673636\"}, \"stations\": [\"conversation\", \"memory\", \"verification\"], \"subject_id\": \"sub-06dd70094947435c\"}, \"receipts\": [{\"station\": \"memory\", \"disposition\": \"FAILED_WAITING\", \"reason\": \"MEMORY_PROCESSING_FAILED\", \"results\": [], \"attempt\": 1}, {\"station\": \"verification\", \"disposition\": \"NEEDS_EVIDENCE\", \"reason\": \"INPUT_INTERPRETATION_UNCERTAIN\", \"results\": [], \"attempt\": 1}, {\"station\": \"conversation\", \"disposition\": \"TEMP_USE\", \"reason\": \"CURRENT_INPUT_COMPOSED\", \"results\": [\"sha256:0030064a5a3a11e83bf9f220a18cbd7fcaafaa1d0df50abae3fd725ec3500b24\"], \"attempt\": 1}]}, \"received_not_necessarily_remembered\": true, \"thinking_result_id\": null, \"state_update_id\": null, \"expression_status\": null, \"resume_stations\": [\"memory\"]}\n",
+        "stderr": "",
+        "forced": false
+      }
+    },
+    {
+      "label": "w02-final-02",
+      "line": 7,
+      "record": {
+        "command": [
+          "E:\\Adobe\\python.exe",
+          "-B",
+          "-c",
+          "import json,sys\nfrom pathlib import Path\nfrom continuity_engine.testing.sandbox import P01SandboxManager\nfrom continuity_engine.testing.w02_input_fixture import W02InputFixture\nfrom continuity_engine.testing.persistence import tree_inventory_hash\nroot=Path(sys.argv[1])\nmanager=P01SandboxManager(root/'s',formal_data_roots=(root/'formal-canary',))\nf=W02InputFixture(root,manager=manager,runtime=manager.open_runtime(sys.argv[2]))\nbefore=tree_inventory_hash(f.runtime.data_root)\nview=f.app.adapter.service.input_outcome(sys.argv[3])\nassert tree_inventory_hash(f.runtime.data_root)==before\nassert (f.provider.calls,f.adapter.effect_count,f.adapter.credits)==(0,0,0)\nprint(json.dumps(view))\n",
+          "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\tmpl0im8jul",
+          "sb-95a75411beb6497d",
+          "p01-request-0aca8601685344b988d965b73893ff64"
+        ],
+        "exitCode": 0,
+        "stdout": "{\"status\": \"PENDING\", \"record\": {\"version\": \"w02-input-v1\", \"manifest\": {\"environment\": \"TEST\", \"interpretation\": {\"about\": \"OTHER_REPORTED\", \"authority\": \"INPUT_INTERPRETATION_NOT_FACT\", \"content_hash\": \"sha256:de78dcd85065aac66ef244c7ae5bc190046bda2ece3b7e9877369b02b9f35643\", \"memory_requested\": false, \"nature\": \"CLAIM\", \"negated\": false, \"negation_scope\": \"OUTSIDE_QUOTE_CLAUSES\", \"negation_spans\": [], \"rule_version\": \"w02-bounded-reading-v2\", \"speaker\": \"platform_sender\", \"time_reference\": \"UNRESOLVED\", \"topic_span\": [0, 9], \"uncertain\": true}, \"operation_id\": \"operation-23ebabd7-e449-485c-977b-bb5661536855\", \"perception_hash\": \"sha256:82f44e07662eb6979e682ae36915ad52d10b6b79c65ca9417ed3ca66a4430b38\", \"recorded_at\": \"2026-09-04T08:00:00Z\", \"request_id\": \"p01-request-0aca8601685344b988d965b73893ff64\", \"source\": {\"conversation_id\": \"p01-conversation-eb0db1e2b50340b5af0f77fdf21fa1dd\", \"fact_id\": \"p01-fact-af3aa9ded517433e9b2121e497112477\", \"message_id\": \"p01-message-8f65db5a263e47e498012bd0c7a43544\", \"message_version_id\": \"p01-message-version-33fc41031d2f4f0d86c565258eee0d93\", \"observation_id\": \"p01-observation-83c159bf42dd4fbdbe69ccc9b87322ee\", \"observation_type\": \"message_created\", \"observed_at\": \"2026-09-04T08:00:00Z\", \"occurred_at\": \"2026-09-04T08:00:00Z\", \"source_event_id\": \"p01-platform-event-39deef2cbf414013b48c44d6420c5f25\"}, \"stations\": [\"conversation\", \"memory\", \"verification\"], \"subject_id\": \"sub-0ae3cf39b66843be\"}, \"receipts\": [{\"station\": \"memory\", \"disposition\": \"FAILED_WAITING\", \"reason\": \"MEMORY_PROCESSING_FAILED\", \"results\": [], \"attempt\": 1}, {\"station\": \"verification\", \"disposition\": \"NEEDS_EVIDENCE\", \"reason\": \"INPUT_INTERPRETATION_UNCERTAIN\", \"results\": [], \"attempt\": 1}, {\"station\": \"conversation\", \"disposition\": \"TEMP_USE\", \"reason\": \"CURRENT_INPUT_COMPOSED\", \"results\": [\"sha256:300a556f7c59aed7bf6fe4acd864527896ef55df1cd30b9a3eeec93f2531588e\"], \"attempt\": 1}]}, \"received_not_necessarily_remembered\": true, \"thinking_result_id\": null, \"state_update_id\": null, \"expression_status\": null, \"resume_stations\": [\"memory\"]}\n",
+        "stderr": "",
+        "forced": false
+      }
+    },
+    {
+      "label": "w02-final-02",
+      "line": 10,
+      "record": {
+        "childPid": 15208,
+        "exitCode": 0,
+        "stderr": "",
+        "forced": false
+      }
+    },
+    {
+      "label": "w02-final-02",
+      "line": 11,
+      "record": {
+        "command": [
+          "E:\\Adobe\\python.exe",
+          "-B",
+          "-m",
+          "continuity_engine.testing.w02_input_fixture",
+          "--root",
+          "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\tmp9sg8fs53",
+          "--phase",
+          "prepare"
+        ],
+        "exitCode": 0,
+        "stdout": "{\"phase\": \"prepare\", \"calls\": 1, \"effects\": 1, \"credits\": 1}\n",
+        "stderr": ""
+      }
+    },
+    {
+      "label": "w02-final-02",
+      "line": 12,
+      "record": {
+        "command": [
+          "E:\\Adobe\\python.exe",
+          "-B",
+          "-m",
+          "continuity_engine.testing.w02_input_fixture",
+          "--root",
+          "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\tmp9sg8fs53",
+          "--phase",
+          "resume"
+        ],
+        "exitCode": 0,
+        "stdout": "{\"phase\": \"resume\", \"calls\": 0, \"new_effects\": 0, \"total_effects\": 1, \"credits\": 1, \"view\": {\"status\": \"COMPLETED\", \"record\": {\"version\": \"w02-input-v1\", \"manifest\": {\"environment\": \"TEST\", \"interpretation\": {\"about\": \"SELF_REPORTED\", \"authority\": \"INPUT_INTERPRETATION_NOT_FACT\", \"content_hash\": \"sha256:7cb3c0cfb67998ee66c88b5ecc235df98b2aebc1172c000fa79796c0c4c3891a\", \"memory_requested\": false, \"nature\": \"DESIRE\", \"negated\": true, \"negation_scope\": \"OUTSIDE_QUOTE_CLAUSES\", \"negation_spans\": [[8, 11]], \"rule_version\": \"w02-bounded-reading-v2\", \"speaker\": \"platform_sender\", \"time_reference\": \"UNRESOLVED\", \"topic_span\": [0, 12], \"uncertain\": true}, \"operation_id\": \"operation-e23c3299-08ca-472d-bbc2-e5d7047d4250\", \"perception_hash\": \"sha256:1f531f4f124f00d3d58152a4d2cd1e56965d737bdedf8d6c1bce6ca2ee171052\", \"recorded_at\": \"2026-09-04T08:00:00Z\", \"request_id\": \"p01-request-03680a26f4f04e0b897b597719b8eac6\", \"source\": {\"conversation_id\": \"p01-conversation-8fd0d0a5a5c54436b8f606006c171897\", \"fact_id\": \"p01-fact-d68316807b0e4bd2b86cc81dedf23b81\", \"message_id\": \"p01-message-9dcfd8476cba4c929be51f9d9e1b6c34\", \"message_version_id\": \"p01-message-version-e93e130bebd5427aa55e2181d8572bfc\", \"observation_id\": \"p01-observation-93aa140b2bf94554986754dc689cd7ee\", \"observation_type\": \"message_created\", \"observed_at\": \"2026-09-04T08:00:00Z\", \"occurred_at\": \"2026-09-04T08:00:00Z\", \"source_event_id\": \"p01-platform-event-8736f70f23244372a33ae14b3792117b\"}, \"stations\": [\"conversation\", \"verification\"], \"subject_id\": \"sub-a3bf230af38f494e\"}, \"receipts\": [{\"station\": \"verification\", \"disposition\": \"NEEDS_EVIDENCE\", \"reason\": \"INPUT_INTERPRETATION_UNCERTAIN\", \"results\": [], \"attempt\": 1}, {\"station\": \"conversation\", \"disposition\": \"TEMP_USE\", \"reason\": \"CURRENT_INPUT_COMPOSED\", \"results\": [\"sha256:df509292b3331551e6c2f82ae6a0b78cfc07c81e46871d84bafb4638422b7cfe\"], \"attempt\": 1}]}, \"received_not_necessarily_remembered\": true, \"thinking_result_id\": \"1acd22fb-b9af-5adb-b487-98efaca1fdd5\", \"state_update_id\": null, \"expression_status\": null, \"resume_stations\": [], \"internal_station\": {\"disposition\": \"NOT_ADOPTED\", \"reason\": \"NO_INTERNAL_UPDATE_PROPOSAL\", \"source_result_id\": \"1acd22fb-b9af-5adb-b487-98efaca1fdd5\", \"update_id\": null}}}\n",
+        "stderr": ""
+      }
+    }
+  ],
+  "cleanupPerformedBy": "original bounded test controllers; communicate/wait/explicit STOP, not this audit",
+  "limitation": "Point-in-time PID/parent snapshot plus recorded child exits; no claim about unrelated user processes. No unrelated processes or Temp artifacts removed."
+}

@@ -1,0 +1,62 @@
+test_negative_preference_does_not_become_consumption (tests.test_w02_recall.AutomaticRecallTests.test_negative_preference_does_not_become_consumption) ... ok
+test_no_relevant_cue_is_assessed_without_forced_recall (tests.test_w02_recall.AutomaticRecallTests.test_no_relevant_cue_is_assessed_without_forced_recall) ... ok
+test_original_message_is_assessed_before_thinking (tests.test_w02_recall.AutomaticRecallTests.test_original_message_is_assessed_before_thinking) ... ok
+test_t03_raw_noon_and_afternoon_messages_recall_before_answer (tests.test_w02_recall.AutomaticRecallTests.test_t03_raw_noon_and_afternoon_messages_recall_before_answer) ... ERROR
+test_t05_variants_preserve_report_scope (tests.test_w02_recall.AutomaticRecallTests.test_t05_variants_preserve_report_scope) ... ok
+
+======================================================================
+ERROR: test_t03_raw_noon_and_afternoon_messages_recall_before_answer (tests.test_w02_recall.AutomaticRecallTests.test_t03_raw_noon_and_afternoon_messages_recall_before_answer)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 291, in _submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 798, in _run_domain
+    perception = self._continuity_core.prepare(perception, operation,
+        **({'save_input': save_input} if operation.input_processing_enabled else {}),
+        **({'save_recall':save_recall} if operation.recall_enabled else {}))
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 288, in prepare
+    return self._prepare(perception, operation, save_input=save_input,save_recall=save_recall)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 330, in _prepare
+    route,composition,recall_record=self.recall.prepare(perception,operation,save_recall)
+                                    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\associative_recall_service.py", line 105, in prepare
+    current=core.router.route(perception,request_id=operation.request_id,
+        environment=core.environment,budget=budget,
+        recall_terms=terms)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\context_router_service.py", line 777, in route
+    return self._execute(plan, query_terms, by_partition, allocations)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\context_router_service.py", line 902, in _execute
+    batch = source.retrieve(query)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\input_context_source.py", line 142, in retrieve
+    return ContextSourceBatch(self.source_id,self.partition,digest([c.to_dict() for c in candidates]),candidates)
+                                                                    ^^^^^^^^^
+AttributeError: 'ContextSourceCandidate' object has no attribute 'to_dict'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w02_recall.py", line 41, in test_t03_raw_noon_and_afternoon_messages_recall_before_answer
+    afternoon=f.message('我又在吃螺蛳粉。');f.submit(afternoon)
+                                            ~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p09_core_fixture.py", line 165, in submit
+    return self.app.adapter.submit(request or self.request())
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 187, in submit
+    return self._submit(payload)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 303, in _submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.
+
+----------------------------------------------------------------------
+Ran 5 tests in 3.745s
+
+FAILED (errors=1)

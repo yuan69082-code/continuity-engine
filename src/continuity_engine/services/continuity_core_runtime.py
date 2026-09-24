@@ -63,6 +63,7 @@ def build_continuity_core(*, data_dir, binding, ledger, subject_states, action_g
     sources.extend(extra_sources)
     resolvers.extend(extra_resolvers)
     input_processing = None
+    input_history = None
     if gates.enabled and gates.input_processing:
         from .input_context_source import InputContextSource
         from .input_processing_service import InputProcessingService
@@ -70,6 +71,11 @@ def build_continuity_core(*, data_dir, binding, ledger, subject_states, action_g
         input_processing = InputProcessingService(source)
         sources.append(ContextSourceBinding(source))
         resolvers.append(TrustedContextResolverBinding(source, ContextAuthority.RETRIEVED_CANDIDATE, 'current_message'))
+        if gates.automatic_recall:
+            from .input_context_source import HistoricalInputContextSource
+            input_history=HistoricalInputContextSource(ledger,permission,clock,binding.subject_id,environment)
+            sources.append(ContextSourceBinding(input_history))
+            resolvers.append(TrustedContextResolverBinding(input_history,ContextAuthority.RETRIEVED_CANDIDATE,'historical_message'))
     external=options.pop('external_capabilities',None)
     if external is not None and gates.enabled:
         from .external_context_source import ExternalContextSource
@@ -97,7 +103,7 @@ def build_continuity_core(*, data_dir, binding, ledger, subject_states, action_g
     core=ContinuityCoreService(subject_id=binding.subject_id, environment=environment,
         router=ContextRouterService(sources, permission_policy=permission, enabled=gates.enabled),
         composer=ContextComposerService(resolvers, clock=clock, enabled=gates.enabled,
-                                        material_token_cost=model_material_tokens),
+                                        material_token_cost=(lambda m:model_material_tokens(m,recall=True)) if gates.automatic_recall else model_material_tokens),
         detector=ContradictionDetectorService(claim_resolver, repository, clock=clock,
                                               resolution_evidence_verifier=resolution_verifier),
         timeline=timeline, memory_repository=memory,
@@ -107,6 +113,14 @@ def build_continuity_core(*, data_dir, binding, ledger, subject_states, action_g
         external_capabilities=external, execution=execution, input_processing=input_processing, **options)
     if input_processing is not None:
         input_processing.core = core
+    if input_history is not None:
+        def current_input_root(fact):
+            from continuity_engine.domain.timeline import TimelineEventStatus
+            entries=core.timeline.rebuild(core.subject_id).entries
+            entry=next((e for e in entries if e.event.event_id==fact.source_event_id),None)
+            if entry is not None and entry.status is not TimelineEventStatus.ACTIVE:return False
+            return not gates.memory or core.memory.event_recall_weights(core.subject_id).get(fact.source_event_id,1.0)>0
+        input_history.current_source=current_input_root
     if external is not None:external.bind(core)
     if execution is not None:execution.bind(core)
     return core

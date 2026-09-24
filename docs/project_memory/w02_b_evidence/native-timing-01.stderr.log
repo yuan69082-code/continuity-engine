@@ -1,0 +1,7 @@
+test_t03_raw_noon_and_afternoon_messages_recall_before_answer (tests.test_w02_recall.AutomaticRecallTests.test_t03_raw_noon_and_afternoon_messages_recall_before_answer) ... ok
+test_p18_native_recall_keeps_pause_stop_and_continuous_host (tests.test_w02_recall_combinations.RecallCombinationTests.test_p18_native_recall_keeps_pause_stop_and_continuous_host) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 5.859s
+
+OK

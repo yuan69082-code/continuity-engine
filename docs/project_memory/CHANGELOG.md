@@ -1,3 +1,31 @@
+<!-- W02_B_ACCEPTED_D078_20260924 -->
+## 2026-09-24 W02-B 正式验收（D-078）
+
+用户验收回答形成前自动关联回忆；W02-B=ACCEPTED，W02整体仍IN_PROGRESS。验收归档引用规划窗口只读复核与施工方固定源码实际测试：专项57 PASS、A兼容66 PASS、相关兼容509 PASS、全量1702 PASS/1既有Windows1314 SKIP；本次未重跑。首次失败、辅助错误及F1/H1/F2历史UNKNOWN保留。详见[验收报告](w02_b_acceptance_evidence/acceptance-report.md)与[矩阵](w02_b_acceptance_evidence/acceptance-matrix.md)。下文保留施工时状态。
+
+---
+
+<!-- W02_B_IMPLEMENTED_D077 -->
+## W02-B 已实现，等待独立复核（D-077）
+
+用户授权仅回答形成前自动关联回忆；现行依据总施工v1.5、最终新增v1.5、长期v6.9及W01/A批范围。W02-B = IMPLEMENTED_NOT_ACCEPTED；W02整体IN_PROGRESS；W02-A/D-076 ACCEPTED，P00—P18历史验收保留。W02-C、W03、P19未启动。PLANNING_CONFLICT=NONE；EVIDENCE_CONFLICT=PRESENT仅针对本批首次失败及修补待独立确认；历史F1/H1/F2仍UNKNOWN，不倒改旧案。
+
+原入站→W02-A→C1准备→相关性/有界关联→原Router/Composer→Thinking已接通。当前输入及旧材料保持来源/候选属性；T04复用原DerivedSummary保留独立根、策略和未确认候选，不直接写主体。公开内部只读查询能核验并展示准备/失败原因；重开沿原请求复用成功事实，不重复模型、效果、扣费或revision。权限、失效传播、内部合法成长、现实执行、持续运行及PAUSE/STOP保持原边界。
+
+本批施工方真实实跑：W02-B新增正式专项 57项：57 PASS、0 SKIP、0 FAIL、0 ERROR；退出码0，164.630秒; W02-A兼容 66项：66 PASS、0 SKIP、0 FAIL、0 ERROR；退出码0，91.768秒; 实际受影响公共兼容 509项：509 PASS、0 SKIP、0 FAIL、0 ERROR；退出码0，644.300秒; 最终完整回归 1703项：1702 PASS、1 SKIP、0 FAIL、0 ERROR；退出码0，3191.570秒。集合交叠不相加；原1646身份及原测试字节保留，新增57。修改前A全量为引用，不是本轮重跑；不声称独立实跑或远端CI。最终290份源码/测试/资源`sha256:c3e9649dbf8590a202e5fc82de79bdc6f641fbb41bd4355efd912eaa62c62aed`，四组前后身份一致。
+
+首次缺少接线、预算排序/native Context、重复解析导致超时及辅助构造错误均保留；尤其首轮全量1691PASS/1SKIP/1ERROR、退出1、2182.850秒，以及第二轮1689PASS/1SKIP/1FAIL/4ERROR、退出1、2569.981秒均原样保留。定向定位后在本批允许文件内减少重复读取，增加仅准备期间的当前字节校验/解析复用；返回副本隔离，旧调用不启用，权限不缓存，并补读取中变更/损坏及副本对照；不放宽原时限、原断言或既有测试。随后还核查并修正一般偏好被误归进食域的问题，保留真实入口反例；最终04版本重新核验，具体标签和源码见交付历史。语言理解仍有界，JSON来源仍需完整文档校验；完整外部吸收、W03长期认识及生产接入未开放。下一步仅独立复核，无验收/Git写操作。
+
+[交付与复核入口](w02_b_evidence/final-report.md) · [矩阵](w02_b_evidence/matrix.md) · [真实测试及首次失败](w02_b_evidence/test-index.md) · [精确成果/排除清单](w02_b_evidence/final.pending-files.md) · [保护与Git审计](w02_b_evidence/final.audit.json)。下文保留为发生时的历史状态，不代替本条。
+
+---
+
+## W02-B 开工（D-077，2026-09-24）
+
+本轮用户授权回答形成前自动关联回忆，状态 IN_PROGRESS。W02-A已验收；W02整体未完成。现行规划及实际基线已核对；源码282项与A最终证据一致，保护/57排除项未变；本轮尚未运行测试。[范围、候选文件、公共影响及验证矩阵](w02_b_evidence/stage-brief.md)。不改变历史F1/H1/F2 UNKNOWN；不验收、不写Git、不启动后续批次。下文为原历史记录。
+
+---
+
 <!-- W02_A_ACCEPTED_D076_20260924 -->
 ## W02-A 正式验收（D-076，2026-09-24）
 

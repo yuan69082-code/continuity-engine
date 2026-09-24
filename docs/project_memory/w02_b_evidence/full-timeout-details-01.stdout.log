@@ -1,0 +1,68 @@
+PREPARATION 1
+         154896 function calls (150957 primitive calls) in 0.256 seconds
+
+   Ordered by: cumulative time
+   List reduced from 562 to 24 due to restriction <24>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.001    0.001    0.261    0.261 associative_recall_service.py:80(prepare)
+        1    0.000    0.000    0.111    0.111 context_router_service.py:691(route)
+        1    0.001    0.001    0.110    0.110 context_router_service.py:786(_execute)
+       18    0.000    0.000    0.082    0.005 json_memory_repository.py:509(_load_if_exists)
+        1    0.001    0.001    0.080    0.080 context_composer_service.py:103(compose)
+       18    0.001    0.000    0.072    0.004 json_memory_repository.py:705(_read_document)
+        9    0.000    0.000    0.059    0.007 json_integration_repository.py:648(_load_operations)
+       18    0.003    0.000    0.054    0.003 json_memory_repository.py:720(_validate_document)
+        1    0.001    0.001    0.053    0.053 associative_recall_service.py:202(_preference_candidates)
+        6    0.000    0.000    0.052    0.009 input_context_source.py:32(_material)
+        2    0.000    0.000    0.048    0.024 input_context_source.py:90(retrieve)
+        7    0.000    0.000    0.046    0.007 json_memory_repository.py:169(list_memories)
+        9    0.001    0.000    0.041    0.005 integration_results.py:1206(from_dict)
+        6    0.000    0.000    0.038    0.006 json_integration_repository.py:569(load_operation)
+       62    0.000    0.000    0.038    0.001 action_planning.py:12(digest)
+       62    0.000    0.000    0.036    0.001 integration_hashing.py:31(canonicalize_json)
+        1    0.000    0.000    0.033    0.033 input_context_source.py:98(revalidate)
+        2    0.000    0.000    0.031    0.015 input_context_source.py:70(authorize)
+      178    0.005    0.000    0.031    0.000 memory.py:783(from_dict)
+       40    0.000    0.000    0.029    0.001 __init__.py:780(read_text)
+       62    0.000    0.000    0.028    0.000 _impl.py:177(dumps)
+  1993/62    0.008    0.000    0.028    0.000 _impl.py:188(dump)
+       25    0.000    0.000    0.027    0.001 input_processing.py:97(validate_binding)
+        2    0.000    0.000    0.026    0.013 context_material_resolvers.py:148(resolve)
+
+
+
+PREPARATION 2
+         1737436 function calls (1524240 primitive calls) in 1.441 seconds
+
+   Ordered by: cumulative time
+   List reduced from 768 to 24 due to restriction <24>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    1.465    1.465 associative_recall_service.py:80(prepare)
+       11    0.001    0.000    1.006    0.091 json_integration_repository.py:648(_load_operations)
+       22    0.003    0.000    0.960    0.044 integration_results.py:1206(from_dict)
+       22    0.002    0.000    0.834    0.038 integration_results.py:655(from_dict)
+        8    0.000    0.000    0.807    0.101 input_context_source.py:32(_material)
+        8    0.006    0.001    0.788    0.098 json_integration_repository.py:569(load_operation)
+        1    0.000    0.000    0.770    0.770 context_router_service.py:691(route)
+        1    0.001    0.001    0.770    0.770 context_router_service.py:786(_execute)
+      213    0.001    0.000    0.683    0.003 action_planning.py:12(digest)
+      213    0.007    0.000    0.673    0.003 integration_hashing.py:31(canonicalize_json)
+       23    0.002    0.000    0.521    0.023 integration_results.py:465(__post_init__)
+      213    0.001    0.000    0.510    0.002 _impl.py:177(dumps)
+47398/213    0.150    0.000    0.508    0.002 _impl.py:188(dump)
+        2    0.000    0.000    0.505    0.253 input_context_source.py:90(retrieve)
+        1    0.001    0.001    0.501    0.501 context_composer_service.py:103(compose)
+       22    0.003    0.000    0.429    0.020 continuity_core.py:116(binding_hash)
+        2    0.001    0.000    0.330    0.165 input_context_source.py:107(_resolve)
+        2    0.000    0.000    0.303    0.152 input_context_source.py:98(revalidate)
+        2    0.000    0.000    0.272    0.136 input_context_source.py:70(authorize)
+       33    0.004    0.000    0.265    0.008 perception.py:695(from_dict)
+       22    0.002    0.000    0.246    0.011 continuity_core.py:120(from_dict)
+       10    0.000    0.000    0.235    0.023 input_context_source.py:63(_candidate)
+    66636    0.102    0.000    0.214    0.000 _impl.py:79(_serialize_str)
+       47    0.004    0.000    0.199    0.004 associative_recall.py:39(validate_record)
+
+
+

@@ -1,0 +1,24 @@
+{
+  "date": "2026-09-24",
+  "purpose": "Read-only Engine origin/main verification; no fetch, push or configuration change",
+  "command": ["git", "-c", "credential.interactive=never", "ls-remote", "origin", "refs/heads/main"],
+  "attempts": [
+    {
+      "environment": "workspace sandbox",
+      "exitCode": 1,
+      "stderrStaticCode": "schannel: AcquireCredentialsHandle failed: SEC_E_NO_CREDENTIALS (0x8009030e)",
+      "stdout": "",
+      "note": "Tool-rendered localized stderr suffix had replacement characters; exact localized byte sequence is not recoverable from that rendering. Credential environment error, not Engine test failure or evidence of remote divergence."
+    },
+    {
+      "environment": "approved host read-only query",
+      "exitCode": 0,
+      "stdout": "de710773ef6c12c12c1422711f1aab5113abd3e3\trefs/heads/main\n",
+      "stderr": "",
+      "toolWallSeconds": 1.5699833
+    }
+  ],
+  "actualRemoteMain": "de710773ef6c12c12c1422711f1aab5113abd3e3",
+  "gitWritesPerformed": false,
+  "ci": "No remote CI run/check result acquired; no CI PASS claim"
+}

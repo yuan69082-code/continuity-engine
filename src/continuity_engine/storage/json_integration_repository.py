@@ -1,10 +1,15 @@
 from __future__ import annotations
 
+from contextlib import contextmanager
+from contextvars import ContextVar
+from copy import deepcopy
+from dataclasses import replace
 import json
 import os
 from pathlib import Path
 from tempfile import NamedTemporaryFile
 from typing import Any
+from types import SimpleNamespace
 
 from continuity_engine.domain.errors import (
     CapabilityConflictError,
@@ -207,6 +212,21 @@ class JsonIntegrationResultLedger:
         self._path = Path(root) / "integration" / _LEDGER_FILE_NAME
         self._operation_path = Path(root) / "integration" / _OPERATION_FILE_NAME
         self._capability_path = Path(root) / "integration" / _CAPABILITY_FILE_NAME
+        self._operation_read_scope = ContextVar('verified_operation_reads', default=None)
+
+    @contextmanager
+    def _verified_operation_reads(self):
+        """Opt-in parse reuse for one preparation, never a permission cache.
+
+        Every read still reads the authoritative file. Only byte-identical,
+        fully validated documents reuse parsing; callers receive private copies.
+        Scope/context isolation leaves all existing callers on the original path.
+        """
+        token = self._operation_read_scope.set({})
+        try:
+            yield
+        finally:
+            self._operation_read_scope.reset(token)
 
     @property
     def path(self) -> Path:
@@ -569,10 +589,39 @@ class JsonIntegrationResultLedger:
     def load_operation(self, request_id: str) -> IntegrationOperationRecord | None:
         if not isinstance(request_id, str) or not request_id.strip():
             raise IntegrationPersistenceError("request_id must be a non-empty string")
-        for operation in self._load_operations():
+        operations = (self._load_operations() if self._operation_read_scope.get() is None
+                      else self._load_operations(_request_id=request_id))
+        for operation in operations:
             if operation.request_id == request_id:
                 return operation
         return None
+
+    def _load_operation_input(self, request_id):
+        """Read projection only inside the opt-in scope; full document validated.
+
+        This view has no persistence API. Excluding response context mirrors the
+        existing input manifest hash; the original record is neither changed nor
+        exempted from validation. Outside the scope use the exact legacy read.
+        """
+        if self._operation_read_scope.get() is None:
+            return self.load_operation(request_id)
+        if not isinstance(request_id, str) or not request_id.strip():
+            raise IntegrationPersistenceError("request_id must be a non-empty string")
+        records = self._load_operations(_request_id=request_id, _input_view=True)
+        return records[0] if records else None
+
+    @staticmethod
+    def _input_view(operation):
+        progress = operation.domain_progress
+        def input_only(perception):
+            return replace(perception, continuity_context=None) if perception is not None else None
+        return SimpleNamespace(request_id=operation.request_id, operation_id=operation.operation_id,
+            subject_id=operation.subject_id, binding_id=operation.binding_id,
+            input_processing_enabled=operation.input_processing_enabled,
+            recall_enabled=operation.recall_enabled,
+            domain_progress=None if progress is None else SimpleNamespace(
+                input_processing=progress.input_processing, perception=input_only(progress.perception),
+                input_preparation=input_only(progress.input_preparation)))
 
     def save_operation(self, operation: IntegrationOperationRecord) -> None:
         if not isinstance(operation, IntegrationOperationRecord):
@@ -645,13 +694,32 @@ class JsonIntegrationResultLedger:
             name="first-round result ledger",
         )
 
-    def _load_operations(self) -> list[IntegrationOperationRecord]:
+    def _load_operations(self, *, _request_id=None, _input_view=False) -> list[IntegrationOperationRecord]:
         if not self._operation_path.exists():
             return []
-        raw = _read_json(
-            self._operation_path,
-            name="first-round operation journal",
-        )
+        scope = self._operation_read_scope.get()
+        if scope is None:
+            raw = _read_json(
+                self._operation_path,
+                name="first-round operation journal",
+            )
+        else:
+            try:
+                current_bytes = self._operation_path.read_bytes()
+                cached = scope.get('document')
+                if cached is not None and cached[0] == current_bytes:
+                    selected = cached[1] if _request_id is None else [
+                        item for item in cached[1] if item.request_id == _request_id]
+                    if _input_view:
+                        selected = [self._input_view(item) for item in selected]
+                    return deepcopy(selected)
+                raw = json.loads(current_bytes.decode('utf-8'))
+            except FileNotFoundError:
+                raise
+            except (OSError, UnicodeError, json.JSONDecodeError) as exc:
+                raise IntegrationPersistenceError(
+                    f"cannot read valid first-round operation journal: {self._operation_path}"
+                ) from exc
         document = _strict_document(
             raw,
             name="first-round operation journal document",
@@ -674,7 +742,11 @@ class JsonIntegrationResultLedger:
                 f"persisted first-round operation is invalid: {exc}"
             ) from exc
         self._validate_operation_set(operations)
-        return operations
+        if scope is not None:
+            scope['document'] = (current_bytes, deepcopy(operations))
+        selected = operations if _request_id is None else [
+            item for item in operations if item.request_id == _request_id]
+        return deepcopy([self._input_view(item) for item in selected]) if _input_view else selected
 
     @staticmethod
     def _validate_operation_set(
@@ -726,6 +798,7 @@ class JsonIntegrationResultLedger:
             "consumed_observation_ids",
             "reserved_at",
             "input_processing_enabled",
+            "recall_enabled",
         )
         if any(
             getattr(previous, field) != getattr(current, field)
@@ -783,6 +856,10 @@ class JsonIntegrationResultLedger:
                 )
             if previous.domain_progress.input_processing is not None:
                 previous.domain_progress.input_processing.validate_successor(current.domain_progress.input_processing)
+            old_recall=previous.domain_progress.recall_progress
+            new_recall=current.domain_progress.recall_progress
+            if new_recall[:len(old_recall)]!=old_recall or len(new_recall)<len(old_recall):
+                raise IntegrationLedgerConflictError('RECALL_HISTORY_CHANGED')
             prepared = previous.domain_progress.input_preparation
             if prepared is not None:
                 candidate = current.domain_progress.input_preparation

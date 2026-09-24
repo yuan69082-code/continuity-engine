@@ -1,0 +1,18 @@
+test_color_preference_is_not_a_meal_in_real_response_context (tests.test_w02_recall_semantics.RecallEventScopeTests.test_color_preference_is_not_a_meal_in_real_response_context) ... ok
+test_food_preference_recalls_same_object_without_other_meal_expansion (tests.test_w02_recall_semantics.RecallEventScopeTests.test_food_preference_recalls_same_object_without_other_meal_expansion) ... ok
+test_music_preference_is_not_a_meal_in_real_response_context (tests.test_w02_recall_semantics.RecallEventScopeTests.test_music_preference_is_not_a_meal_in_real_response_context) ... ok
+test_quoted_preference_is_not_consumption_or_verified_fact (tests.test_w02_recall_semantics.RecallEventScopeTests.test_quoted_preference_is_not_consumption_or_verified_fact) ... ok
+test_candidate_record_changed_during_permission_blocks_before_model (tests.test_w02_recall_consistency.RecallReadConsistencyTests.test_candidate_record_changed_during_permission_blocks_before_model) ... ok
+test_historical_root_revoked_during_permission_cannot_be_returned (tests.test_w02_recall_consistency.RecallReadConsistencyTests.test_historical_root_revoked_during_permission_cannot_be_returned) ... ok
+test_parse_reuse_ends_with_scope_and_keeps_legacy_validation (tests.test_w02_recall_consistency.RecallReadConsistencyTests.test_parse_reuse_ends_with_scope_and_keeps_legacy_validation) ... ok
+test_scoped_journal_reads_do_not_share_mutation_or_hide_corruption (tests.test_w02_recall_consistency.RecallReadConsistencyTests.test_scoped_journal_reads_do_not_share_mutation_or_hide_corruption) ... ok
+test_t03_raw_noon_and_afternoon_messages_recall_before_answer (tests.test_w02_recall.AutomaticRecallTests.test_t03_raw_noon_and_afternoon_messages_recall_before_answer) ... ok
+test_t04_preference_candidate_uses_original_roots_without_state_write (tests.test_w02_recall.AutomaticRecallTests.test_t04_preference_candidate_uses_original_roots_without_state_write) ... ok
+test_negative_counterevidence_prevents_candidate_confirmation (tests.test_w02_recall_combinations.RecallCombinationTests.test_negative_counterevidence_prevents_candidate_confirmation) ... ok
+test_new_independent_root_keeps_prior_candidate_source_readable (tests.test_w02_recall_combinations.RecallCombinationTests.test_new_independent_root_keeps_prior_candidate_source_readable) ... ok
+test_measure_original_dependency_flow (docs.project_memory.w02_b_evidence.profile_candidate_dependency.CandidateDependencyProfile.test_measure_original_dependency_flow) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 68.528s
+
+OK

@@ -1,0 +1,111 @@
+test_failure_and_reopen_resume_same_request (tests.test_w02_recall.AutomaticRecallTests.test_failure_and_reopen_resume_same_request) ... ok
+test_negative_preference_does_not_become_consumption (tests.test_w02_recall.AutomaticRecallTests.test_negative_preference_does_not_become_consumption) ... ok
+test_no_relevant_cue_is_assessed_without_forced_recall (tests.test_w02_recall.AutomaticRecallTests.test_no_relevant_cue_is_assessed_without_forced_recall) ... ok
+test_original_message_is_assessed_before_thinking (tests.test_w02_recall.AutomaticRecallTests.test_original_message_is_assessed_before_thinking) ... ok
+test_read_only_recall_query_does_not_resume_or_write (tests.test_w02_recall.AutomaticRecallTests.test_read_only_recall_query_does_not_resume_or_write) ... ok
+test_t03_raw_noon_and_afternoon_messages_recall_before_answer (tests.test_w02_recall.AutomaticRecallTests.test_t03_raw_noon_and_afternoon_messages_recall_before_answer) ... ok
+test_t04_preference_candidate_uses_original_roots_without_state_write (tests.test_w02_recall.AutomaticRecallTests.test_t04_preference_candidate_uses_original_roots_without_state_write) ... ok
+test_t05_variants_preserve_report_scope (tests.test_w02_recall.AutomaticRecallTests.test_t05_variants_preserve_report_scope) ... ok
+test_actual_effect_return_lost_replays_without_duplicate (tests.test_w02_recall_boundaries.RecallBoundaryTests.test_actual_effect_return_lost_replays_without_duplicate) ... ok
+test_bound_policy_does_not_force_fixed_depth (tests.test_w02_recall_boundaries.RecallBoundaryTests.test_bound_policy_does_not_force_fixed_depth) ... ok
+test_corrupt_recall_hash_is_refused_without_writes (tests.test_w02_recall_boundaries.RecallBoundaryTests.test_corrupt_recall_hash_is_refused_without_writes) ... ok
+test_disabled_gate_preserves_original_round_trip (tests.test_w02_recall_boundaries.RecallBoundaryTests.test_disabled_gate_preserves_original_round_trip) ... ok
+test_native_cognition_uses_same_pre_answer_evaluation (tests.test_w02_recall_boundaries.RecallBoundaryTests.test_native_cognition_uses_same_pre_answer_evaluation) ... ok
+test_no_match_is_distinct_from_source_failure (tests.test_w02_recall_boundaries.RecallBoundaryTests.test_no_match_is_distinct_from_source_failure) ... ok
+test_ready_preparation_return_lost_reuses_receipt (tests.test_w02_recall_boundaries.RecallBoundaryTests.test_ready_preparation_return_lost_reuses_receipt) ... ok
+test_reference_withdrawal_prevents_new_model (tests.test_w02_recall_boundaries.RecallBoundaryTests.test_reference_withdrawal_prevents_new_model) ... ok
+test_retrieval_and_context_budgets_are_independent (tests.test_w02_recall_boundaries.RecallBoundaryTests.test_retrieval_and_context_budgets_are_independent) ... ok
+test_source_revocation_excludes_memory_and_history_projection (tests.test_w02_recall_boundaries.RecallBoundaryTests.test_source_revocation_excludes_memory_and_history_projection) ... ok
+test_stale_context_does_not_authorize_resume (tests.test_w02_recall_boundaries.RecallBoundaryTests.test_stale_context_does_not_authorize_resume) ... ok
+test_stale_source_version_cannot_be_consumed (tests.test_w02_recall_boundaries.RecallBoundaryTests.test_stale_source_version_cannot_be_consumed) ... ok
+test_timeout_is_blocked_before_model_and_query_is_read_only (tests.test_w02_recall_boundaries.RecallBoundaryTests.test_timeout_is_blocked_before_model_and_query_is_read_only) ... ok
+test_wrong_subject_record_is_rejected (tests.test_w02_recall_boundaries.RecallBoundaryTests.test_wrong_subject_record_is_rejected) ... ok
+test_archive_and_delete_cannot_reenter_through_input_history (tests.test_w02_recall_combinations.RecallCombinationTests.test_archive_and_delete_cannot_reenter_through_input_history) ... ok
+test_blocked_record_after_revision_change_cannot_be_shown_as_current (tests.test_w02_recall_combinations.RecallCombinationTests.test_blocked_record_after_revision_change_cannot_be_shown_as_current) ... ok
+test_cross_environment_source_is_rejected_without_resolution (tests.test_w02_recall_combinations.RecallCombinationTests.test_cross_environment_source_is_rejected_without_resolution) ... ok
+test_cross_process_restore_and_read_only_show (tests.test_w02_recall_combinations.RecallCombinationTests.test_cross_process_restore_and_read_only_show) ... ok
+test_current_context_invalidated_by_corrected_root (tests.test_w02_recall_combinations.RecallCombinationTests.test_current_context_invalidated_by_corrected_root) ... ok
+test_denied_memory_source_is_not_recorded_as_empty_history (tests.test_w02_recall_combinations.RecallCombinationTests.test_denied_memory_source_is_not_recorded_as_empty_history) ... ok
+test_finite_association_records_a_reason_and_stops_on_repetition (tests.test_w02_recall_combinations.RecallCombinationTests.test_finite_association_records_a_reason_and_stops_on_repetition) ... ok
+test_legacy_gate_disabled_does_not_construct_recall (tests.test_w02_recall_combinations.RecallCombinationTests.test_legacy_gate_disabled_does_not_construct_recall) ... ok
+test_local_recall_preserves_existing_external_capability_wait_channel (tests.test_w02_recall_combinations.RecallCombinationTests.test_local_recall_preserves_existing_external_capability_wait_channel) ... ok
+test_negative_counterevidence_prevents_candidate_confirmation (tests.test_w02_recall_combinations.RecallCombinationTests.test_negative_counterevidence_prevents_candidate_confirmation) ... ok
+test_new_independent_root_keeps_prior_candidate_source_readable (tests.test_w02_recall_combinations.RecallCombinationTests.test_new_independent_root_keeps_prior_candidate_source_readable) ... ERROR
+{"test": "tests.test_w02_recall_combinations.RecallCombinationTests.test_new_independent_root_keeps_prior_candidate_source_readable", "stage": "before-TEST-cleanup", "files": {"s/.p01-sandbox-root.v1.json": {"bytes": 98, "sha256": "3ced39d6b395df89d9b1f34e1b3faf46c14ccc6edab679a616f588a978e002f7"}, "s/s/sc78e269f/b/bc785b1dc/branch-manifest.v1.json": {"bytes": 243, "sha256": "aa1b8ed15ac7c7c5791274354a2abdb66979b0daaaae803eae05dbb9fef0f1f7"}, "s/s/sc78e269f/b/bc785b1dc/data/awakening/cycles/6f44bb11f1a98e35376056eba3518f5c916419c222804b1c4edf1b50f42cf9db.json": {"bytes": 253, "sha256": "ad9a504fe450fea37e3d65921bd1a09a8d7fb75927ad17158e1532fcae785334"}, "s/s/sc78e269f/b/bc785b1dc/data/awakening/sessions/9a229e6688095ad7b8d206a6716e7b294c766f4eb4c00f9cd0a836c910d7341d/ae59803bbff26269927f56c9d78cb54aa2cb2f2d899d9afff04c89b538de7e8f.json": {"bytes": 16098, "sha256": "808011e6b17988484314fc53bc5daca49c1a0266b61e8300128170733fb8ea6e"}, "s/s/sc78e269f/b/bc785b1dc/data/awakening/sessions/9a229e6688095ad7b8d206a6716e7b294c766f4eb4c00f9cd0a836c910d7341d/d8a560968d2b6e817ba2aee5dcfdef9506cb49a6a28a73e10991029b05fa64d0.json": {"bytes": 12466, "sha256": "8e697ed74b584429ee2647a77dbd03d4eb353d58d0182f155abdafba8cae03c2"}, "s/s/sc78e269f/b/bc785b1dc/data/awakening/sessions/9a229e6688095ad7b8d206a6716e7b294c766f4eb4c00f9cd0a836c910d7341d/e46f9bfdda5fd44bf2e8607a3d65db95ea42c2f73cba68da2063829869ad871a.json": {"bytes": 14275, "sha256": "86b3ef42249fa77f302ed3c1d28daea313fc51dc157df7bc4c0722f9a45a81a7"}, "s/s/sc78e269f/b/bc785b1dc/data/c1-receipts/p08-fake-receipts.json": {"bytes": 1508, "sha256": "e7788404b36429dfb807810f57e75a72d8aa19bf469086c7735d623b6b8dbfe7"}, "s/s/sc78e269f/b/bc785b1dc/data/clock/subject-clock.v1.json": {"bytes": 109, "sha256": "9215b6977c7811370330d01c8bfe7e63b8e43ba8b12a8f09d85b24e7efac24ad"}, "s/s/sc78e269f/b/bc785b1dc/data/contradiction/test/9a229e6688095ad7b8d206a6716e7b294c766f4eb4c00f9cd0a836c910d7341d.json": {"bytes": 228, "sha256": "d9f5359771b53773ebbf9a6cec5dd4eeb619d16224586e7c4222b82bda232008"}, "s/s/sc78e269f/b/bc785b1dc/data/fixture/c1-profile.v1.json": {"bytes": 102, "sha256": "7e6dfd8151ea6e62a08290f3b07cdcfa226114cbf84cb181c72cb355f6202300"}, "s/s/sc78e269f/b/bc785b1dc/data/fixture/state-fixture.v1.json": {"bytes": 635, "sha256": "3e97a8a78558d2879635d4984b5515135320736210d4cfb4752e206997673a4c"}, "s/s/sc78e269f/b/bc785b1dc/data/integration/capability-ledger.v1.json": {"bytes": 17822, "sha256": "b632f2b0fc0cb2b9eb2963ba0a42305675d90b3296b8a678d77945a3cbfbe18c"}, "s/s/sc78e269f/b/bc785b1dc/data/integration/operation-journal.first-round-v1.json": {"bytes": 458909, "sha256": "aadc003a603e887334422749fb11831e8e075c6d4f608a105f3cdb38bc675b86"}, "s/s/sc78e269f/b/bc785b1dc/data/integration/result-ledger.first-round-v1.json": {"bytes": 3112, "sha256": "32441bc54a1d007447d5df5908a3dce556f14a9fc149eee57b77d3dacceb379c"}, "s/s/sc78e269f/b/bc785b1dc/data/integration/subject-binding.runtime-v1.json": {"bytes": 613, "sha256": "e74b5e98b77d25ab2c3b57043f4b386464e76d92da4ce5c8b51e342446826289"}, "s/s/sc78e269f/b/bc785b1dc/data/learning/9a229e6688095ad7b8d206a6716e7b294c766f4eb4c00f9cd0a836c910d7341d.json": {"bytes": 2154, "sha256": "dee866dd8d853b23404fe92c19d0d4a7ef0b740b3f67d4a669d7c3989f5a811c"}, "s/s/sc78e269f/b/bc785b1dc/data/memory/test/9a229e6688095ad7b8d206a6716e7b294c766f4eb4c00f9cd0a836c910d7341d.json": {"bytes": 22253, "sha256": "795cd57b86d2dee133cba275efe0c981a57f876b24da45ae419e206f42d6e4ad"}, "s/s/sc78e269f/b/bc785b1dc/data/resources/9a229e6688095ad7b8d206a6716e7b294c766f4eb4c00f9cd0a836c910d7341d.json": {"bytes": 437, "sha256": "b55025e5080105cb9ad151ce2c3a7d51118d6c79553d72d827b934bed3422f55"}, "s/s/sc78e269f/b/bc785b1dc/data/subject-state/9a229e6688095ad7b8d206a6716e7b294c766f4eb4c00f9cd0a836c910d7341d.json": {"bytes": 7869, "sha256": "4c1eb0914779fbb7943ed4c30fa1018c8ac4611e1b222ffdcbac78eee48c556f"}, "s/s/sc78e269f/b/bc785b1dc/data/test-actions/action-sessions.v1.json": {"bytes": 128, "sha256": "cb6a17b18694a9699a9c5f1dccdc6ed0b952de9033e9273a595cb7e53d7b3576"}, "s/s/sc78e269f/b/bc785b1dc/data/test-indexes/events.v1.json": {"bytes": 138, "sha256": "e58a17c4e44ccfcba9651d1d4c89c44e25c359280e521e39bfcf8af5d7009564"}, "s/s/sc78e269f/b/bc785b1dc/data/test-indexes/evolution.v1.json": {"bytes": 141, "sha256": "588094f6a89c47e4811eca61c727fae4921dc83c70c6add27689eddfaa1a29ae"}, "s/s/sc78e269f/b/bc785b1dc/data/test-indexes/relationship-state.v1.json": {"bytes": 150, "sha256": "2cd79edbc19448d79e5efc2a2a8ac4ef8d9ff4a16538a46d0ded9060ca69aacd"}, "s/s/sc78e269f/b/bc785b1dc/data/test-indexes/state-mutations.v1.json": {"bytes": 147, "sha256": "1fe901b56a861d5c831a165507044c951534e88fe4db4b5f3296351f3822800a"}, "s/s/sc78e269f/b/bc785b1dc/data/test-indexes/thinking-sessions.v1.json": {"bytes": 149, "sha256": "baaed843be37b5c35e1c5edaf1645836f4519af15644d37b8ae92df1ba2f2a58"}, "s/s/sc78e269f/b/bc785b1dc/data/test-indexes/wake-sessions.v1.json": {"bytes": 145, "sha256": "c45cbd35962dd9c075397165b5f01fdceebefe93d5e7e1c7668988fae57868c7"}, "s/s/sc78e269f/b/bc785b1dc/data/test-memory/memory-ledger.v1.json": {"bytes": 631, "sha256": "fa796ef37511f036c062737e55fe808dba3013603943a9d172429d0924ac0958"}, "s/s/sc78e269f/b/bc785b1dc/data/test-trace/subject-clock-trace.v1.json": {"bytes": 1558, "sha256": "0d2ccd64ffefc3ab0d7a0dcf817f078e36f0c460bd418b77c29190e4b2dd982c"}, "s/s/sc78e269f/b/bc785b1dc/data/thinking/sessions/9a229e6688095ad7b8d206a6716e7b294c766f4eb4c00f9cd0a836c910d7341d/3249ef61e1160845836c8f81803b0b2f17fb0ddadb2bad3ec2777216fd6208d3.json": {"bytes": 78552, "sha256": "b7ef5831f8a403ab76a0dd89698149d8e7ca6bd0c58519008c9396c2cc59331e"}, "s/s/sc78e269f/b/bc785b1dc/data/thinking/sessions/9a229e6688095ad7b8d206a6716e7b294c766f4eb4c00f9cd0a836c910d7341d/71af9838325edde343214d2906c3e674ec0706e5c2dd5149bf2e509320748890.json": {"bytes": 70319, "sha256": "4e84d1737c89f7dcca2bf78dceb27474f636e7cf794aa308c313715a0bf8a3a7"}, "s/s/sc78e269f/sandbox-manifest.v1.json": {"bytes": 910, "sha256": "d373e03dd18ac079ab645005816967528926a51baaeb7c4a1b66d2ae01b1e62b"}, "s/sandbox-registry.v1.json": {"bytes": 476, "sha256": "17782e221f32c9bb8ec107b39738430cf69430cd22f37995d9e5740b4839ce45"}}}
+test_not_wanting_is_not_positive_intent (tests.test_w02_recall_combinations.RecallCombinationTests.test_not_wanting_is_not_positive_intent) ... ok
+test_other_person_report_does_not_count_as_user_preference (tests.test_w02_recall_combinations.RecallCombinationTests.test_other_person_report_does_not_count_as_user_preference) ... ok
+test_p18_native_recall_keeps_pause_stop_and_continuous_host (tests.test_w02_recall_combinations.RecallCombinationTests.test_p18_native_recall_keeps_pause_stop_and_continuous_host) ... ok
+test_permission_withdrawn_during_view_is_rechecked (tests.test_w02_recall_combinations.RecallCombinationTests.test_permission_withdrawn_during_view_is_rechecked) ... ok
+test_quoted_and_ambiguous_reports_never_confirm_preference (tests.test_w02_recall_combinations.RecallCombinationTests.test_quoted_and_ambiguous_reports_never_confirm_preference) ... ok
+test_read_only_view_does_not_start_recall_or_provider (tests.test_w02_recall_combinations.RecallCombinationTests.test_read_only_view_does_not_start_recall_or_provider) ... ok
+test_recalled_information_does_not_force_expression (tests.test_w02_recall_combinations.RecallCombinationTests.test_recalled_information_does_not_force_expression) ... ok
+test_snapshot_branch_preserves_recall_and_does_not_pollute_origin (tests.test_w02_recall_combinations.RecallCombinationTests.test_snapshot_branch_preserves_recall_and_does_not_pollute_origin) ... ok
+test_sufficient_material_stops_before_configured_depth (tests.test_w02_recall_combinations.RecallCombinationTests.test_sufficient_material_stops_before_configured_depth) ... ok
+test_t04_configured_candidate_rule_is_recorded_and_never_confirms (tests.test_w02_recall_combinations.RecallCombinationTests.test_t04_configured_candidate_rule_is_recorded_and_never_confirms) ... ok
+test_t04_no_fixed_number_implies_true_preference (tests.test_w02_recall_combinations.RecallCombinationTests.test_t04_no_fixed_number_implies_true_preference) ... ok
+test_t04_replay_and_derived_summary_do_not_add_roots (tests.test_w02_recall_combinations.RecallCombinationTests.test_t04_replay_and_derived_summary_do_not_add_roots) ... ok
+test_t05_actual_ingress_variants_reach_final_context (tests.test_w02_recall_combinations.RecallCombinationTests.test_t05_actual_ingress_variants_reach_final_context) ... ok
+test_unrelated_material_does_not_trigger_association (tests.test_w02_recall_combinations.RecallCombinationTests.test_unrelated_material_does_not_trigger_association) ... ok
+test_candidate_record_changed_during_permission_blocks_before_model (tests.test_w02_recall_consistency.RecallReadConsistencyTests.test_candidate_record_changed_during_permission_blocks_before_model) ... ok
+test_historical_root_revoked_during_permission_cannot_be_returned (tests.test_w02_recall_consistency.RecallReadConsistencyTests.test_historical_root_revoked_during_permission_cannot_be_returned) ... ok
+test_parse_reuse_ends_with_scope_and_keeps_legacy_validation (tests.test_w02_recall_consistency.RecallReadConsistencyTests.test_parse_reuse_ends_with_scope_and_keeps_legacy_validation) ... ok
+test_scoped_journal_reads_do_not_share_mutation_or_hide_corruption (tests.test_w02_recall_consistency.RecallReadConsistencyTests.test_scoped_journal_reads_do_not_share_mutation_or_hide_corruption) ... ok
+test_color_preference_is_not_a_meal_in_real_response_context (tests.test_w02_recall_semantics.RecallEventScopeTests.test_color_preference_is_not_a_meal_in_real_response_context) ... ok
+test_food_preference_recalls_same_object_without_other_meal_expansion (tests.test_w02_recall_semantics.RecallEventScopeTests.test_food_preference_recalls_same_object_without_other_meal_expansion) ... ok
+test_music_preference_is_not_a_meal_in_real_response_context (tests.test_w02_recall_semantics.RecallEventScopeTests.test_music_preference_is_not_a_meal_in_real_response_context) ... ok
+test_quoted_preference_is_not_consumption_or_verified_fact (tests.test_w02_recall_semantics.RecallEventScopeTests.test_quoted_preference_is_not_consumption_or_verified_fact) ... ok
+
+======================================================================
+ERROR: test_new_independent_root_keeps_prior_candidate_source_readable (tests.test_w02_recall_combinations.RecallCombinationTests.test_new_independent_root_keeps_prior_candidate_source_readable)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 291, in _submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 846, in _run_domain
+    perception = self._continuity_core.prepare(perception, operation,
+        **({'save_input': save_input} if operation.input_processing_enabled else {}),
+        **({'save_recall':save_recall} if operation.recall_enabled else {}))
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 288, in prepare
+    return self._prepare(perception, operation, save_input=save_input,save_recall=save_recall)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 338, in _prepare
+    route,composition,recall_record=self.recall.prepare(perception,operation,save_recall,
+                                    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        attention=mind['influence']['attention'] if mind is not None else None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\associative_recall_service.py", line 90, in prepare
+    return self._prepare(perception,operation,save,attention=attention)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\associative_recall_service.py", line 201, in _prepare
+    raise CapabilityValidationError(stop)
+continuity_engine.domain.errors.CapabilityValidationError: RECALL_TIMEOUT
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w02_recall_combinations.py", line 209, in test_new_independent_root_keeps_prior_candidate_source_readable
+    next_request=self.report(f,'three','我又在吃螺蛳粉。')
+                 ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w02_recall_combinations.py", line 28, in report
+    r=f.message(text,source_event_id=event);f.submit(r)
+                                            ~~~~~~~~^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p09_core_fixture.py", line 165, in submit
+    return self.app.adapter.submit(request or self.request())
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 187, in submit
+    return self._submit(payload)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 303, in _submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.
+
+----------------------------------------------------------------------
+Ran 55 tests in 156.588s
+
+FAILED (errors=1)

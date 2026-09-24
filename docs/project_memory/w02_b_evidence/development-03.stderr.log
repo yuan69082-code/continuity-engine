@@ -1,0 +1,21 @@
+test_negative_preference_does_not_become_consumption (tests.test_w02_recall.AutomaticRecallTests.test_negative_preference_does_not_become_consumption) ... ok
+test_no_relevant_cue_is_assessed_without_forced_recall (tests.test_w02_recall.AutomaticRecallTests.test_no_relevant_cue_is_assessed_without_forced_recall) ... ok
+test_original_message_is_assessed_before_thinking (tests.test_w02_recall.AutomaticRecallTests.test_original_message_is_assessed_before_thinking) ... ok
+test_t03_raw_noon_and_afternoon_messages_recall_before_answer (tests.test_w02_recall.AutomaticRecallTests.test_t03_raw_noon_and_afternoon_messages_recall_before_answer) ... FAIL
+test_t05_variants_preserve_report_scope (tests.test_w02_recall.AutomaticRecallTests.test_t05_variants_preserve_report_scope) ... ok
+
+======================================================================
+FAIL: test_t03_raw_noon_and_afternoon_messages_recall_before_answer (tests.test_w02_recall.AutomaticRecallTests.test_t03_raw_noon_and_afternoon_messages_recall_before_answer)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w02_recall.py", line 44, in test_t03_raw_noon_and_afternoon_messages_recall_before_answer
+    self.assertTrue(any(noon['requestId'] in x.stable_source_id for x in fragments),
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                    [(x.source_id,x.stable_source_id) for x in fragments])
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : [('engine.current-input', 'input:p01-request-cc770cf0979c42b98782f6d995011fe5'), ('engine.memory', 'memory:old-meal'), ('engine.derived-summary', 'c1-summary:706af87f33bdfeb275850b27a6406f9a30ca26bcc7e5e717a5363fb3b7e2fe24'), ('engine.timeline', 'old-meal')]
+
+----------------------------------------------------------------------
+Ran 5 tests in 5.728s
+
+FAILED (failures=1)

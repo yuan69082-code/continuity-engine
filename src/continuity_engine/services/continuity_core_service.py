@@ -69,6 +69,7 @@ class ContinuityCoreGates:
     actions: bool = True
     emotion_decay: bool = True
     input_processing: bool = False
+    automatic_recall: bool = False
 
     def __post_init__(self):
         if any(type(v) is not bool for v in self.__dict__.values()):
@@ -112,7 +113,7 @@ class ContinuityCoreService:
                  permission_policy, policy=None, gates=None, retrieval_budget=None,
                  context_budget=None, context_ttl=timedelta(minutes=10), planner=None, limits=None, fault=None, expression_policy=None,
                  dynamic_mind=False, subject_growth=False, growth_repository=None, external_capabilities=None, execution=None,
-                 input_processing=None):
+                 input_processing=None, recall_policy=None):
         if environment not in {"TEST", "RESEARCH"}:
             raise ValueError("P09 requires a TEST/RESEARCH boundary")
         self.subject_id, self.environment = subject_id, environment
@@ -124,7 +125,7 @@ class ContinuityCoreService:
         self.policy = policy or CoreDecisionPolicy()
         self.gates = gates or ContinuityCoreGates()
         self.retrieval_budget = retrieval_budget or RetrievalBudget()
-        self.context_budget = context_budget or ContextBudget(token_limit=768)
+        self.context_budget = context_budget or ContextBudget(token_limit=900 if self.gates.automatic_recall else 768)
         if not isinstance(context_ttl, timedelta) or context_ttl.total_seconds() <= 0:
             raise ValueError("C1 context TTL must be positive")
         self.context_ttl = context_ttl
@@ -142,6 +143,12 @@ class ContinuityCoreService:
         self.external_capabilities=external_capabilities
         self.execution=execution
         self.input_processing = input_processing
+        self.recall = None
+        if self.gates.enabled and self.gates.automatic_recall:
+            if not self.gates.input_processing or input_processing is None:
+                raise ValueError('automatic recall requires the accepted input chain')
+            from .associative_recall_service import AssociativeRecallService
+            self.recall=AssociativeRecallService(self,policy=recall_policy)
         if type(subject_growth) is not bool:
             raise ValueError('subject_growth must be an explicit feature gate')
         self.growth = None
@@ -276,9 +283,9 @@ class ContinuityCoreService:
                     source_memory_ids=[m.memory_id for m in sources])
         return max(0, len(pending) - 64)
 
-    def prepare(self, perception, operation, *, save_input=None):
+    def prepare(self, perception, operation, *, save_input=None, save_recall=None):
         try:
-            return self._prepare(perception, operation, save_input=save_input)
+            return self._prepare(perception, operation, save_input=save_input,save_recall=save_recall)
         except Exception as primary:
             if getattr(operation, 'input_processing_enabled', False) and self.input_processing is not None and save_input is not None:
                 latest = self.input_processing.source.ledger.load_operation(operation.request_id)
@@ -291,7 +298,7 @@ class ContinuityCoreService:
                         primary.add_note('INPUT_FAILURE_RECEIPT_NOT_SAVED')
             raise
 
-    def _prepare(self, perception, operation, *, save_input=None):
+    def _prepare(self, perception, operation, *, save_input=None, save_recall=None):
         self.subject_states.require_active(self.subject_id, self.environment)
         if not self.enabled:
             return perception
@@ -300,6 +307,15 @@ class ContinuityCoreService:
         if perception.continuity_context is not None:
             perception.continuity_context.validate_perception(perception)
             return perception
+        if getattr(operation,'recall_enabled',False):
+            if self.recall is None or save_recall is None:
+                raise CapabilityValidationError('RECALL_PENDING_FEATURE_DISABLED')
+            prepared=operation.domain_progress.input_preparation
+            if prepared is not None and prepared.continuity_context is not None:
+                prepared.continuity_context.validate_perception(perception)
+                if not self.current(prepared.continuity_context):
+                    raise CapabilityValidationError('RECALL_PREPARED_CONTEXT_STALE')
+                return prepared
         input_record = None
         input_failure = None
         if getattr(operation, 'input_processing_enabled', False):
@@ -309,10 +325,23 @@ class ContinuityCoreService:
         else:
             pending_events = self._consolidate_events() if self.gates.memory else 0
         mind = self.mind.capture(perception, operation) if self.mind is not None else None
-        route = self.router.route(perception, request_id=operation.request_id,
+        recall_record=None
+        native_recall=self.recall is not None and not perception.external_facts
+        if native_recall:
+            from types import SimpleNamespace
+            recall_operation=SimpleNamespace(subject_id=operation.subject_id,request_id=operation.request_id,
+                operation_id=operation.request_id)
+            route,composition,recall_record=self.recall.prepare(perception,recall_operation,
+                lambda record:setattr(self,'last_trace',{'recall':record}),
+                attention=mind['influence']['attention'] if mind is not None else None)
+        elif getattr(operation,'recall_enabled',False):
+            route,composition,recall_record=self.recall.prepare(perception,operation,save_recall,
+                attention=mind['influence']['attention'] if mind is not None else None)
+        else:
+            route = self.router.route(perception, request_id=operation.request_id,
                                   environment=self.environment, budget=self.retrieval_budget,
                                   **({'attention': mind['influence']['attention']} if mind is not None else {}))
-        composition = self.composer.compose(route, budget=self.context_budget)
+            composition = self.composer.compose(route, budget=self.context_budget)
         if composition.status is not CompositionStatus.COMPLETE:
             raise CapabilityValidationError("C1_CONTEXT_NOT_CONSUMABLE")
         if mind is not None:
@@ -332,7 +361,8 @@ class ContinuityCoreService:
                                         emotion, self.gates.actions, pending_events,
                                         expression_enabled=self.expression_policy is not None, mind=mind,
                                         growth_enabled=self.growth is not None,
-                                        input_manifest_hash=input_record.binding_hash if input_record else None)
+                                        input_manifest_hash=input_record.binding_hash if input_record else None,
+                                        recall=recall_record)
         if input_record is not None:
             self.input_processing.finish_context(input_record, context,
                 lambda record: save_input(record, prepared=replace(perception, continuity_context=context)))
@@ -351,6 +381,8 @@ class ContinuityCoreService:
             "contradictions": context.contradictions.trace.to_dict(),
             "consolidation_pending_events": context.pending_event_count,
             "direct_state_write_allowed": False}
+        if context.recall is not None:
+            self.last_trace['recall']=context.recall
         if self.external_capabilities is not None:
             self.last_trace['external_source']=dict(self.external_capabilities.projection_audit)
             entry=self.external_capabilities.last_trace_entry
@@ -360,6 +392,8 @@ class ContinuityCoreService:
     def current(self, context):
         """Re-resolve the exact selected sources before NEW work; never rewrite them."""
         snapshot = context.composition.snapshot
+        if context.recall is not None and (self.recall is None or context.recall['policy']!=self.recall.policy.to_dict()):
+            return False
         if context.input_manifest_hash is not None and self.input_processing is None:
             return False
         if (snapshot.subject_id, snapshot.environment) != (self.subject_id, self.environment):

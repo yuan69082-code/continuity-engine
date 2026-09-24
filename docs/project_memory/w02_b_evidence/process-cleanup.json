@@ -1,0 +1,334 @@
+{
+  "at": "2026-09-24T14:51:41.7318002+00:00",
+  "ownedRunPidsAlive": [],
+  "pythonProcessesObserved": [],
+  "runIdentities": [
+    {
+      "label": "affected-compatibility-01",
+      "pid": 21320,
+      "startedAt": "2026-09-24T19:34:45.016413+08:00",
+      "status": "FINISHED",
+      "exitCode": 0
+    },
+    {
+      "label": "affected-compatibility-02",
+      "pid": 7840,
+      "startedAt": "2026-09-24T20:32:28.288396+08:00",
+      "status": "FINISHED",
+      "exitCode": 0
+    },
+    {
+      "label": "affected-compatibility-04",
+      "pid": 22692,
+      "startedAt": "2026-09-24T21:46:43.106548+08:00",
+      "status": "FINISHED",
+      "exitCode": 0
+    },
+    {
+      "label": "before-01",
+      "pid": 11380,
+      "startedAt": "2026-09-24T18:31:28.168342+08:00",
+      "status": "FINISHED",
+      "exitCode": 1
+    },
+    {
+      "label": "budget-correction-01",
+      "pid": 21368,
+      "startedAt": "2026-09-24T19:06:42.806761+08:00",
+      "status": "FINISHED",
+      "exitCode": 1
+    },
+    {
+      "label": "budget-diagnostic-01",
+      "pid": 15864,
+      "startedAt": "2026-09-24T19:01:09.44137+08:00",
+      "status": "FINISHED",
+      "exitCode": 0
+    },
+    {
+      "label": "byte-identity-correction-01",
+      "pid": 17956,
+      "startedAt": "2026-09-24T21:27:10.030831+08:00",
+      "status": "FINISHED",
+      "exitCode": 1
+    },
+    {
+      "label": "byte-identity-correction-02",
+      "pid": 29544,
+      "startedAt": "2026-09-24T21:29:33.423789+08:00",
+      "status": "FINISHED",
+      "exitCode": 0
+    },
+    {
+      "label": "combinations-01",
+      "pid": 23048,
+      "startedAt": "2026-09-24T19:13:07.345265+08:00",
+      "status": "FINISHED",
+      "exitCode": 1
+    },
+    {
+      "label": "combinations-02",
+      "pid": 16124,
+      "startedAt": "2026-09-24T19:15:53.789151+08:00",
+      "status": "FINISHED",
+      "exitCode": 1
+    },
+    {
+      "label": "consistency-diagnostic-01",
+      "pid": 23052,
+      "startedAt": "2026-09-24T20:26:17.460162+08:00",
+      "status": "FINISHED",
+      "exitCode": 1
+    },
+    {
+      "label": "deadline-check-01",
+      "pid": 16260,
+      "startedAt": "2026-09-24T19:18:50.895893+08:00",
+      "status": "FINISHED",
+      "exitCode": 1
+    },
+    {
+      "label": "deadline-optimization-01",
+      "pid": 28220,
+      "startedAt": "2026-09-24T19:22:53.675866+08:00",
+      "status": "FINISHED",
+      "exitCode": 1
+    },
+    {
+      "label": "deadline-profile-01",
+      "pid": 27308,
+      "startedAt": "2026-09-24T19:21:09.001351+08:00",
+      "status": "FINISHED",
+      "exitCode": 1
+    },
+    {
+      "label": "dependency-profile-01",
+      "pid": 29100,
+      "startedAt": "2026-09-24T21:35:39.318192+08:00",
+      "status": "FINISHED",
+      "exitCode": 0
+    },
+    {
+      "label": "development-01",
+      "pid": 15244,
+      "startedAt": "2026-09-24T18:38:41.85173+08:00",
+      "status": "FINISHED",
+      "exitCode": 0
+    },
+    {
+      "label": "development-02",
+      "pid": 19844,
+      "startedAt": "2026-09-24T18:41:48.912083+08:00",
+      "status": "FINISHED",
+      "exitCode": 1
+    },
+    {
+      "label": "development-03",
+      "pid": 23632,
+      "startedAt": "2026-09-24T18:42:31.934023+08:00",
+      "status": "FINISHED",
+      "exitCode": 1
+    },
+    {
+      "label": "development-04",
+      "pid": 22204,
+      "startedAt": "2026-09-24T18:43:37.502445+08:00",
+      "status": "FINISHED",
+      "exitCode": 0
+    },
+    {
+      "label": "development-05",
+      "pid": 10732,
+      "startedAt": "2026-09-24T18:48:56.628508+08:00",
+      "status": "FINISHED",
+      "exitCode": 0
+    },
+    {
+      "label": "development-06",
+      "pid": 19108,
+      "startedAt": "2026-09-24T18:55:15.619041+08:00",
+      "status": "FINISHED",
+      "exitCode": 1
+    },
+    {
+      "label": "development-07",
+      "pid": 28404,
+      "startedAt": "2026-09-24T18:58:08.574103+08:00",
+      "status": "FINISHED",
+      "exitCode": 1
+    },
+    {
+      "label": "development-08",
+      "pid": 6704,
+      "startedAt": "2026-09-24T19:00:02.034235+08:00",
+      "status": "FINISHED",
+      "exitCode": 1
+    },
+    {
+      "label": "extended-boundaries-01",
+      "pid": 4848,
+      "startedAt": "2026-09-24T19:25:13.178305+08:00",
+      "status": "FINISHED",
+      "exitCode": 1
+    },
+    {
+      "label": "full-final-01",
+      "pid": 11892,
+      "startedAt": "2026-09-24T19:44:03.450454+08:00",
+      "status": "FINISHED",
+      "exitCode": 1
+    },
+    {
+      "label": "full-final-02",
+      "pid": 11028,
+      "startedAt": "2026-09-24T20:39:06.380926+08:00",
+      "status": "FINISHED",
+      "exitCode": 1
+    },
+    {
+      "label": "full-final-04",
+      "pid": 20596,
+      "startedAt": "2026-09-24T21:57:28.967409+08:00",
+      "status": "FINISHED",
+      "exitCode": 0
+    },
+    {
+      "label": "full-timeout-details-01",
+      "pid": 28920,
+      "startedAt": "2026-09-24T21:24:07.750989+08:00",
+      "status": "FINISHED",
+      "exitCode": 1
+    },
+    {
+      "label": "full-timeout-profile-01",
+      "pid": 10512,
+      "startedAt": "2026-09-24T20:21:43.967577+08:00",
+      "status": "FINISHED",
+      "exitCode": 0
+    },
+    {
+      "label": "input-projection-correction-01",
+      "pid": 4940,
+      "startedAt": "2026-09-24T21:37:08.901199+08:00",
+      "status": "FINISHED",
+      "exitCode": 0
+    },
+    {
+      "label": "input-projection-correction-02",
+      "pid": 14704,
+      "startedAt": "2026-09-24T21:40:12.337608+08:00",
+      "status": "FINISHED",
+      "exitCode": 0
+    },
+    {
+      "label": "native-timing-01",
+      "pid": 20700,
+      "startedAt": "2026-09-24T19:29:53.676795+08:00",
+      "status": "FINISHED",
+      "exitCode": 0
+    },
+    {
+      "label": "relevance-correction-01",
+      "pid": 17820,
+      "startedAt": "2026-09-24T19:07:48.918378+08:00",
+      "status": "FINISHED",
+      "exitCode": 1
+    },
+    {
+      "label": "relevance-correction-02",
+      "pid": 2824,
+      "startedAt": "2026-09-24T19:08:56.328126+08:00",
+      "status": "FINISHED",
+      "exitCode": 0
+    },
+    {
+      "label": "semantic-before-01",
+      "pid": 28916,
+      "startedAt": "2026-09-24T21:23:00.489395+08:00",
+      "status": "FINISHED",
+      "exitCode": 1
+    },
+    {
+      "label": "semantic-correction-01",
+      "pid": 16608,
+      "startedAt": "2026-09-24T21:25:15.088874+08:00",
+      "status": "FINISHED",
+      "exitCode": 1
+    },
+    {
+      "label": "timeout-correction-01",
+      "pid": 7644,
+      "startedAt": "2026-09-24T20:25:05.117802+08:00",
+      "status": "FINISHED",
+      "exitCode": 1
+    },
+    {
+      "label": "timeout-correction-02",
+      "pid": 9572,
+      "startedAt": "2026-09-24T20:26:55.146595+08:00",
+      "status": "FINISHED",
+      "exitCode": 0
+    },
+    {
+      "label": "w02-a-compatibility-01",
+      "pid": 28096,
+      "startedAt": "2026-09-24T19:32:54.436067+08:00",
+      "status": "FINISHED",
+      "exitCode": 0
+    },
+    {
+      "label": "w02-a-compatibility-02",
+      "pid": 5344,
+      "startedAt": "2026-09-24T20:30:39.107851+08:00",
+      "status": "FINISHED",
+      "exitCode": 0
+    },
+    {
+      "label": "w02-a-compatibility-04",
+      "pid": 22088,
+      "startedAt": "2026-09-24T21:45:10.442662+08:00",
+      "status": "FINISHED",
+      "exitCode": 0
+    },
+    {
+      "label": "w02-b-candidate-01",
+      "pid": 14480,
+      "startedAt": "2026-09-24T19:27:10.218326+08:00",
+      "status": "FINISHED",
+      "exitCode": 0
+    },
+    {
+      "label": "w02-b-final-01",
+      "pid": 15708,
+      "startedAt": "2026-09-24T19:30:53.666779+08:00",
+      "status": "FINISHED",
+      "exitCode": 0
+    },
+    {
+      "label": "w02-b-final-02",
+      "pid": 1156,
+      "startedAt": "2026-09-24T20:28:02.595052+08:00",
+      "status": "FINISHED",
+      "exitCode": 0
+    },
+    {
+      "label": "w02-b-final-03",
+      "pid": 7028,
+      "startedAt": "2026-09-24T21:31:29.354122+08:00",
+      "status": "FINISHED",
+      "exitCode": 1
+    },
+    {
+      "label": "w02-b-final-04",
+      "pid": 15956,
+      "startedAt": "2026-09-24T21:42:25.06452+08:00",
+      "status": "FINISHED",
+      "exitCode": 0
+    }
+  ],
+  "parentControllerPid": 16128,
+  "parentControllerAlive": false,
+  "additionalControllerForcedTermination": false,
+  "testInternalFaultInjectionMayTerminateProcess": true,
+  "note": "Final full runner and parent ended normally. No extra process kill or unrelated directory cleanup. Test-internal fault injections retain their original records."
+}

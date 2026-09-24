@@ -15,16 +15,19 @@ from .contradiction import ContradictionDetectionResult, ContradictionDetectionS
 from .errors import CapabilityValidationError
 
 
-def model_fragment(fragment):
-    return {"id": getattr(fragment, "fragment_id", "sha256:" + "0" * 64),
+def model_fragment(fragment, *, recall=False):
+    result = {"id": getattr(fragment, "fragment_id", "sha256:" + "0" * 64),
             "authority": fragment.authority.value, "source": fragment.stable_source_id,
             "version": fragment.version, "hash": fragment.content_hash,
             "provenance": list(fragment.provenance_roots), "content": fragment.content}
+    if recall and fragment.source_id != 'engine.subject-state':
+        result['source_time'] = fragment.occurred_at.isoformat()
+    return result
 
 
-def model_material_tokens(material):
+def model_material_tokens(material, *, recall=False):
     """Deterministic serialized-input estimate, including source metadata."""
-    size = len(json.dumps(model_fragment(material), ensure_ascii=False, separators=(",", ":"))) + 1
+    size = len(json.dumps(model_fragment(material, recall=recall), ensure_ascii=False, separators=(",", ":"))) + 1
     return (size + 3) // 4
 
 
@@ -42,8 +45,16 @@ class ContinuityCoreContext:
     mind: dict | None = None
     growth_enabled: bool = False
     input_manifest_hash: str | None = None
+    recall: dict | None = None
 
     def __post_init__(self):
+        if self.recall is not None:
+            from .associative_recall import validate_record
+            validate_record(self.recall)
+            if (self.recall['status']!='READY' or self.recall['perception_hash']!=self.perception_hash
+                    or self.recall['snapshot_hash']!=self.composition.snapshot.snapshot_hash
+                    or self.recall['request_id']!=self.route.plan.request.request_id):
+                raise CapabilityValidationError('C1_RECALL_BINDING_INVALID')
         if self.input_manifest_hash is not None:
             import re
             if not re.fullmatch(r'sha256:[0-9a-f]{64}', self.input_manifest_hash):
@@ -99,7 +110,8 @@ class ContinuityCoreContext:
                 **({"expression_enabled": True} if self.expression_enabled else {}),
                 **({"mind": self.mind} if self.mind is not None else {}),
                 **({'growth_enabled':True} if self.growth_enabled else {}),
-                **({'input_manifest_hash': self.input_manifest_hash} if self.input_manifest_hash is not None else {})}
+                **({'input_manifest_hash': self.input_manifest_hash} if self.input_manifest_hash is not None else {}),
+                **({'recall': self.recall} if self.recall is not None else {})}
 
     def binding_hash(self):
         """Bind the full input and original gates, not the truth of a receipt."""
@@ -107,25 +119,30 @@ class ContinuityCoreContext:
 
     @classmethod
     def from_dict(cls, value):
-        if not isinstance(value, dict) or set(value)-{"expression_enabled", "mind", "growth_enabled", "input_manifest_hash"} != {
+        if not isinstance(value, dict) or set(value)-{"expression_enabled", "mind", "growth_enabled", "input_manifest_hash", "recall"} != {
                 "version", "perception_hash", "route", "composition", "contradictions",
                 "effective_emotion", "actions_enabled", "pending_event_count"}:
             raise CapabilityValidationError("C1_CONTEXT_SHAPE_INVALID")
         return cls(value["perception_hash"], ContextRouteResult.from_dict(value["route"]),
                    ContextCompositionResult.from_dict(value["composition"]),
                    ContradictionDetectionResult.from_dict(value["contradictions"]),
-                   value["effective_emotion"], value["actions_enabled"], value["pending_event_count"], value["version"], value.get("expression_enabled",False), value.get('mind'), value.get('growth_enabled',False), value.get('input_manifest_hash'))
+                   value["effective_emotion"], value["actions_enabled"], value["pending_event_count"], value["version"], value.get("expression_enabled",False), value.get('mind'), value.get('growth_enabled',False), value.get('input_manifest_hash'),value.get('recall'))
 
     def model_summary(self):
         """Bounded content belongs to model input, not to the structural Trace."""
         snapshot = self.composition.snapshot
         payload = {
-            "context": [model_fragment(f) for f in snapshot.fragments],
+            "context": [model_fragment(f,recall=self.recall is not None) for f in snapshot.fragments],
             "disputed": dict(Counter(c.proposition_id for c in self.contradictions.cases)),
             "missing": dict(Counter(n.reason_code for n in snapshot.missing_notices)),
             "emotion": self.effective_emotion,
             "direct_state_write_allowed": False,
         }
+        if self.recall is not None:
+            payload['time_semantics']='SOURCE_TIME_NOT_INFERRED_EVENT_TIME; HUNGER_NOT_DETERMINED'
+            payload['recall_limits']={'stop':self.recall['stop_reason'],
+                'excluded':dict(Counter(d.reason_code for d in self.route.trace.candidate_decisions
+                                        if d.status.value=='REJECTED'))}
         if self.pending_event_count:
             payload["missing"]["C1_CONSOLIDATION_BACKLOG"] = self.pending_event_count
         if self.mind is not None:

@@ -1,0 +1,76 @@
+test_color_preference_is_not_a_meal_in_real_response_context (tests.test_w02_recall_semantics.RecallEventScopeTests.test_color_preference_is_not_a_meal_in_real_response_context) ... ok
+test_food_preference_recalls_same_object_without_other_meal_expansion (tests.test_w02_recall_semantics.RecallEventScopeTests.test_food_preference_recalls_same_object_without_other_meal_expansion) ... ok
+test_music_preference_is_not_a_meal_in_real_response_context (tests.test_w02_recall_semantics.RecallEventScopeTests.test_music_preference_is_not_a_meal_in_real_response_context) ... ok
+test_quoted_preference_is_not_consumption_or_verified_fact (tests.test_w02_recall_semantics.RecallEventScopeTests.test_quoted_preference_is_not_consumption_or_verified_fact) ... ok
+test_candidate_record_changed_during_permission_blocks_before_model (tests.test_w02_recall_consistency.RecallReadConsistencyTests.test_candidate_record_changed_during_permission_blocks_before_model) ... ok
+test_historical_root_revoked_during_permission_cannot_be_returned (tests.test_w02_recall_consistency.RecallReadConsistencyTests.test_historical_root_revoked_during_permission_cannot_be_returned) ... ok
+test_parse_reuse_ends_with_scope_and_keeps_legacy_validation (tests.test_w02_recall_consistency.RecallReadConsistencyTests.test_parse_reuse_ends_with_scope_and_keeps_legacy_validation) ... ok
+test_scoped_journal_reads_do_not_share_mutation_or_hide_corruption (tests.test_w02_recall_consistency.RecallReadConsistencyTests.test_scoped_journal_reads_do_not_share_mutation_or_hide_corruption) ... ok
+test_t03_raw_noon_and_afternoon_messages_recall_before_answer (tests.test_w02_recall.AutomaticRecallTests.test_t03_raw_noon_and_afternoon_messages_recall_before_answer) ... ok
+test_t04_preference_candidate_uses_original_roots_without_state_write (tests.test_w02_recall.AutomaticRecallTests.test_t04_preference_candidate_uses_original_roots_without_state_write) ... ok
+test_negative_counterevidence_prevents_candidate_confirmation (tests.test_w02_recall_combinations.RecallCombinationTests.test_negative_counterevidence_prevents_candidate_confirmation) ... ok
+test_new_independent_root_keeps_prior_candidate_source_readable (tests.test_w02_recall_combinations.RecallCombinationTests.test_new_independent_root_keeps_prior_candidate_source_readable) ... ok
+test_preparation_cost_locations (docs.project_memory.w02_b_evidence.profile_details.PreparationProfile.test_preparation_cost_locations) ... ERROR
+
+======================================================================
+ERROR: test_preparation_cost_locations (docs.project_memory.w02_b_evidence.profile_details.PreparationProfile.test_preparation_cost_locations)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 291, in _submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 846, in _run_domain
+    perception = self._continuity_core.prepare(perception, operation,
+        **({'save_input': save_input} if operation.input_processing_enabled else {}),
+        **({'save_recall':save_recall} if operation.recall_enabled else {}))
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 288, in prepare
+    return self._prepare(perception, operation, save_input=save_input,save_recall=save_recall)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 338, in _prepare
+    route,composition,recall_record=self.recall.prepare(perception,operation,save_recall,
+                                    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        attention=mind['influence']['attention'] if mind is not None else None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Adobe\Lib\unittest\mock.py", line 1176, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "E:\Adobe\Lib\unittest\mock.py", line 1180, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "E:\Adobe\Lib\unittest\mock.py", line 1247, in _execute_mock_call
+    result = effect(*args, **kwargs)
+  File "C:\Users\Administrator\Documents\continuity-engine\docs\project_memory\w02_b_evidence\profile_details.py", line 18, in measured
+    try:return original(*args,**kwargs)
+               ~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\associative_recall_service.py", line 90, in prepare
+    return self._prepare(perception,operation,save,attention=attention)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\associative_recall_service.py", line 201, in _prepare
+    raise CapabilityValidationError(stop)
+continuity_engine.domain.errors.CapabilityValidationError: RECALL_TIMEOUT
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\docs\project_memory\w02_b_evidence\profile_details.py", line 26, in test_preparation_cost_locations
+    f.submit(f.message(text,source_event_id='meal'+str(i)))
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p09_core_fixture.py", line 165, in submit
+    return self.app.adapter.submit(request or self.request())
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 187, in submit
+    return self._submit(payload)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 303, in _submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.
+
+----------------------------------------------------------------------
+Ran 13 tests in 66.032s
+
+FAILED (errors=1)

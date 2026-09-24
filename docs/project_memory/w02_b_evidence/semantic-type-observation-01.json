@@ -1,0 +1,137 @@
+{
+  "kind": "DIRECT_FUNCTION_OBSERVATION_NOT_ACCEPTANCE",
+  "command": "assess controlled preference and eating texts; no Fixture, model or storage call",
+  "sourceHash": "sha256:e87ceea10e6c00ff6c5d3e94c6e13f764c82228681f2029dcc648d3cb512a33a",
+  "observations": {
+    "我喜欢其他颜色。": {
+      "version": "w02-utterance-assessment-v1",
+      "authority": "INTERPRETATION_NOT_FACT",
+      "content_hash": "sha256:42f977db45151d75b1ed3d5d5aac2eaa5b85f140523a9752ac6bb401a03f3222",
+      "actor": "SELF_REPORTED",
+      "frames": [
+        {
+          "actor": "SELF_REPORTED",
+          "object": "其他颜色",
+          "event": "meal",
+          "modality": "POSITIVE_PREFERENCE_REPORT",
+          "time": "SOURCE_TIME",
+          "source_time": "2026-09-24T12:00:00+00:00",
+          "verified_fact": false
+        }
+      ],
+      "uncertain": false,
+      "query_terms": [
+        "其他颜色",
+        "吃",
+        "饭",
+        "进食",
+        "用餐",
+        "午餐",
+        "meal"
+      ],
+      "reason": "EVENT_AND_OBJECT",
+      "assumptions": [
+        "SOURCE_TIME_IS_NOT_PROOF_OF_EVENT_TIME",
+        "HUNGER_NOT_DETERMINED"
+      ]
+    },
+    "我喜欢音乐。": {
+      "version": "w02-utterance-assessment-v1",
+      "authority": "INTERPRETATION_NOT_FACT",
+      "content_hash": "sha256:0506da1a4391b7bbcd022f9ada6abf1e8b6757328b521d51c1c5cd45893f77ff",
+      "actor": "SELF_REPORTED",
+      "frames": [
+        {
+          "actor": "SELF_REPORTED",
+          "object": "音乐",
+          "event": "meal",
+          "modality": "POSITIVE_PREFERENCE_REPORT",
+          "time": "SOURCE_TIME",
+          "source_time": "2026-09-24T12:00:00+00:00",
+          "verified_fact": false
+        }
+      ],
+      "uncertain": false,
+      "query_terms": [
+        "音乐",
+        "吃",
+        "饭",
+        "进食",
+        "用餐",
+        "午餐",
+        "meal"
+      ],
+      "reason": "EVENT_AND_OBJECT",
+      "assumptions": [
+        "SOURCE_TIME_IS_NOT_PROOF_OF_EVENT_TIME",
+        "HUNGER_NOT_DETERMINED"
+      ]
+    },
+    "我喜欢螺蛳粉。": {
+      "version": "w02-utterance-assessment-v1",
+      "authority": "INTERPRETATION_NOT_FACT",
+      "content_hash": "sha256:0b4067e035bfb7f8eb25f6dc8f091748741fcd0681babbe9fdf0bc5ef2b30424",
+      "actor": "SELF_REPORTED",
+      "frames": [
+        {
+          "actor": "SELF_REPORTED",
+          "object": "螺蛳粉",
+          "event": "meal",
+          "modality": "POSITIVE_PREFERENCE_REPORT",
+          "time": "SOURCE_TIME",
+          "source_time": "2026-09-24T12:00:00+00:00",
+          "verified_fact": false
+        }
+      ],
+      "uncertain": false,
+      "query_terms": [
+        "螺蛳粉",
+        "吃",
+        "饭",
+        "进食",
+        "用餐",
+        "午餐",
+        "螺丝粉"
+      ],
+      "reason": "EVENT_AND_OBJECT",
+      "assumptions": [
+        "SOURCE_TIME_IS_NOT_PROOF_OF_EVENT_TIME",
+        "HUNGER_NOT_DETERMINED"
+      ]
+    },
+    "我在吃螺蛳粉。": {
+      "version": "w02-utterance-assessment-v1",
+      "authority": "INTERPRETATION_NOT_FACT",
+      "content_hash": "sha256:224d4692779b9b83ae2b8a88c80048d391b5d41a6a18cce3d70c0b04eb197f50",
+      "actor": "SELF_REPORTED",
+      "frames": [
+        {
+          "actor": "SELF_REPORTED",
+          "object": "螺蛳粉",
+          "event": "meal",
+          "modality": "CONSUMPTION_REPORT",
+          "time": "SOURCE_TIME",
+          "source_time": "2026-09-24T12:00:00+00:00",
+          "verified_fact": false
+        }
+      ],
+      "uncertain": false,
+      "query_terms": [
+        "螺蛳粉",
+        "吃",
+        "饭",
+        "进食",
+        "用餐",
+        "午餐",
+        "螺丝粉"
+      ],
+      "reason": "EVENT_AND_OBJECT",
+      "assumptions": [
+        "SOURCE_TIME_IS_NOT_PROOF_OF_EVENT_TIME",
+        "HUNGER_NOT_DETERMINED"
+      ]
+    }
+  },
+  "sourceUnchanged": true,
+  "incorrectMealClassificationObserved": true
+}

@@ -303,6 +303,7 @@ class MemoryContextSource:
 
     def _query(self, query: ContextSourceQuery):
         preferred = (
+            () if 'automatic_recall' in query.purpose else
             (MemoryKind.RELATIONAL,)
             if "relationship" in query.purpose
             else tuple(MemoryKind)
@@ -348,7 +349,7 @@ class MemoryContextSource:
                     permission_scope=item.visibility.value,
                     authority_label="MEMORY_RECORD",
                     relevance=max(
-                        0.9
+                        0.0 if 'automatic_recall' in query.purpose else 0.9
                         if "relationship" in query.purpose
                         and item.kind.value == "relational"
                         else 0.6
@@ -416,6 +417,7 @@ class DerivedSummaryContextSource:
 
     def _query(self, query: ContextSourceQuery):
         preferred = (
+            () if 'automatic_recall' in query.purpose else
             ("relationship",)
             if "relationship" in query.purpose
             else ("memory",)
@@ -462,7 +464,7 @@ class DerivedSummaryContextSource:
                     permission_scope=MemoryVisibility.ENGINE_PRIVATE.value,
                     authority_label="DERIVED_MEMORY_VIEW",
                     relevance=max(
-                        0.9
+                        0.0 if 'automatic_recall' in query.purpose else 0.9
                         if "relationship" in query.purpose
                         and "relationship" in item.scope.casefold()
                         else 0.6
@@ -545,7 +547,7 @@ class TimelineContextSource:
                 eligible,
                 key=lambda item: (
                     -max(
-                        0.9
+                        0.0 if 'automatic_recall' in query.purpose else 0.9
                         if "relationship" in query.purpose
                         and any(
                             section.value == "relationship"
@@ -595,7 +597,7 @@ class TimelineContextSource:
                     permission_scope=MemoryVisibility.ENGINE_PRIVATE.value,
                     authority_label="TIMELINE_EVENT_PROJECTION",
                     relevance=max(
-                        0.9
+                        0.0 if 'automatic_recall' in query.purpose else 0.9
                         if "relationship" in query.purpose
                         and any(
                             section.value == "relationship"
@@ -695,6 +697,7 @@ class ContextRouterService:
         budget: RetrievalBudget | None = None,
         required_partitions: Sequence[ContextPartition] = (ContextPartition.SUBJECT_STATE,),
         attention: dict | None = None,
+        recall_terms: tuple[str, ...] | None = None,
     ) -> ContextRouteResult:
         if not isinstance(perception, PerceptionResult):
             raise ContextRoutingValidationError("routing requires a PerceptionResult")
@@ -711,6 +714,15 @@ class ContextRouterService:
                 signals = (*signals, RoutingSignal(
                     signal_id=f'signal:{perception.perception_id}:mind', signal_kind='internal_drive',
                     value_hash=hash_signal('|'.join(terms)), weight=1 - attention['narrowing'] / 2))
+        state_query_terms=query_terms
+        if recall_terms is not None:
+            if (not isinstance(recall_terms, tuple) or len(recall_terms)>80
+                    or any(not isinstance(t,str) or not t.strip() or len(t)>512 for t in recall_terms)):
+                raise ContextRoutingValidationError('RECALL_QUERY_INVALID')
+            query_terms = _terms(recall_terms)
+            purposes = tuple(sorted(set(purposes)|{'automatic_recall'}))
+            signals = (*signals, RoutingSignal('signal:'+perception.perception_id+':recall',
+                'automatic_recall',hash_signal('|'.join(recall_terms) or 'NO_RELEVANT_CUE'),1.0))
         request = ContextRoutingRequest(
             request_id=request_id,
             perception_id=perception.perception_id,
@@ -728,7 +740,14 @@ class ContextRouterService:
             if binding.required:
                 required.add(binding.source.partition)
         selected = self._select_partitions(request.purpose, required)
+        if recall_terms:
+            selected.update((ContextPartition.MEMORY,ContextPartition.DERIVED_SUMMARY,ContextPartition.TIMELINE))
+        elif recall_terms is not None:
+            selected.difference_update({ContextPartition.MEMORY,ContextPartition.DERIVED_SUMMARY,ContextPartition.TIMELINE}-required)
         allocations = self._allocate_budget(request.budget, selected, by_partition)
+        if recall_terms is not None and not perception.external_facts:
+            for source_id in ('engine.current-input','engine.input-history'):
+                allocations[source_id]=0
         partitions = tuple(
             ContextPartitionRequest(
                 partition=partition,
@@ -761,7 +780,8 @@ class ContextRouterService:
         plan = RoutePlan(request, signals, partitions, self._feature_gate_version)
         if not self._enabled:
             return self._feature_gated(plan)
-        return self._execute(plan, query_terms, by_partition, allocations)
+        return self._execute(plan, query_terms, by_partition, allocations,
+                             state_query_terms=state_query_terms if recall_terms is not None else None)
 
     def _execute(
         self,
@@ -769,6 +789,7 @@ class ContextRouterService:
         query_terms: tuple[str, ...],
         by_partition: dict[ContextPartition, list[ContextSourceBinding]],
         allocations: dict[str, int],
+        state_query_terms: tuple[str,...] | None = None,
     ) -> ContextRouteResult:
         request = plan.request
         ranked_pool: list[tuple[float, ContextSourceCandidate, tuple[str, ...]]] = []
@@ -882,7 +903,7 @@ class ContextRouterService:
                     request.source_revision,
                     request.routed_at,
                     request.purpose,
-                    query_terms,
+                    state_query_terms if source.partition is ContextPartition.SUBJECT_STATE and state_query_terms is not None else query_terms,
                     limit,
                 )
                 try:

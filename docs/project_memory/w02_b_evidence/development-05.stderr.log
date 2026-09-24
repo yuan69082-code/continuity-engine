@@ -1,0 +1,13 @@
+test_failure_and_reopen_resume_same_request (tests.test_w02_recall.AutomaticRecallTests.test_failure_and_reopen_resume_same_request) ... ok
+test_negative_preference_does_not_become_consumption (tests.test_w02_recall.AutomaticRecallTests.test_negative_preference_does_not_become_consumption) ... ok
+test_no_relevant_cue_is_assessed_without_forced_recall (tests.test_w02_recall.AutomaticRecallTests.test_no_relevant_cue_is_assessed_without_forced_recall) ... ok
+test_original_message_is_assessed_before_thinking (tests.test_w02_recall.AutomaticRecallTests.test_original_message_is_assessed_before_thinking) ... ok
+test_read_only_recall_query_does_not_resume_or_write (tests.test_w02_recall.AutomaticRecallTests.test_read_only_recall_query_does_not_resume_or_write) ... ok
+test_t03_raw_noon_and_afternoon_messages_recall_before_answer (tests.test_w02_recall.AutomaticRecallTests.test_t03_raw_noon_and_afternoon_messages_recall_before_answer) ... ok
+test_t04_preference_candidate_uses_original_roots_without_state_write (tests.test_w02_recall.AutomaticRecallTests.test_t04_preference_candidate_uses_original_roots_without_state_write) ... ok
+test_t05_variants_preserve_report_scope (tests.test_w02_recall.AutomaticRecallTests.test_t05_variants_preserve_report_scope) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 17.638s
+
+OK

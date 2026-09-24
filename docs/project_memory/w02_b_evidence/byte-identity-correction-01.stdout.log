@@ -1,0 +1,102 @@
+PREPARATION 1
+         168825 function calls (154763 primitive calls) in 0.175 seconds
+
+   Ordered by: cumulative time
+   List reduced from 601 to 24 due to restriction <24>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    0.178    0.178 associative_recall_service.py:82(prepare)
+        1    0.001    0.001    0.177    0.177 associative_recall_service.py:92(_prepare)
+        1    0.000    0.000    0.076    0.076 context_router_service.py:691(route)
+        1    0.001    0.001    0.075    0.075 context_router_service.py:786(_execute)
+       18    0.000    0.000    0.062    0.003 json_memory_repository.py:509(_load_if_exists)
+       18    0.001    0.000    0.053    0.003 json_memory_repository.py:705(_read_document)
+        1    0.000    0.000    0.048    0.048 context_composer_service.py:103(compose)
+       18    0.002    0.000    0.040    0.002 json_memory_repository.py:720(_validate_document)
+        1    0.000    0.000    0.039    0.039 associative_recall_service.py:215(_preference_candidates)
+        9    0.001    0.000    0.036    0.004 json_integration_repository.py:666(_load_operations)
+        7    0.000    0.000    0.032    0.005 json_memory_repository.py:169(list_memories)
+        6    0.000    0.000    0.029    0.005 input_context_source.py:32(_material)
+   9225/9    0.008    0.000    0.026    0.003 copy.py:110(deepcopy)
+    639/9    0.001    0.000    0.026    0.003 copy.py:172(_deepcopy_list)
+    666/9    0.003    0.000    0.025    0.003 copy.py:228(_reconstruct)
+        2    0.000    0.000    0.024    0.012 context_material_resolvers.py:148(resolve)
+        2    0.000    0.000    0.024    0.012 input_context_source.py:90(retrieve)
+   486/27    0.002    0.000    0.022    0.001 copy.py:198(_deepcopy_dict)
+      178    0.004    0.000    0.022    0.000 memory.py:783(from_dict)
+   432/45    0.001    0.000    0.022    0.000 copy.py:181(_deepcopy_tuple)
+        6    0.000    0.000    0.021    0.004 json_integration_repository.py:587(load_operation)
+        3    0.000    0.000    0.020    0.007 json_memory_repository.py:163(load_memory)
+       54    0.000    0.000    0.017    0.000 action_planning.py:12(digest)
+       54    0.000    0.000    0.016    0.000 integration_hashing.py:31(canonicalize_json)
+
+
+
+PREPARATION 2
+         816801 function calls (706574 primitive calls) in 0.633 seconds
+
+   Ordered by: cumulative time
+   List reduced from 725 to 24 due to restriction <24>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    0.639    0.639 associative_recall_service.py:82(prepare)
+        1    0.001    0.001    0.639    0.639 associative_recall_service.py:92(_prepare)
+       12    0.004    0.000    0.324    0.027 json_integration_repository.py:666(_load_operations)
+        1    0.000    0.000    0.315    0.315 context_router_service.py:691(route)
+        1    0.001    0.001    0.315    0.315 context_router_service.py:786(_execute)
+        8    0.000    0.000    0.253    0.032 input_context_source.py:32(_material)
+ 81900/12    0.066    0.000    0.248    0.021 copy.py:110(deepcopy)
+  5148/12    0.017    0.000    0.248    0.021 copy.py:172(_deepcopy_list)
+  5388/24    0.020    0.000    0.247    0.010 copy.py:228(_reconstruct)
+        8    0.001    0.000    0.240    0.030 json_integration_repository.py:587(load_operation)
+ 2628/108    0.016    0.000    0.237    0.002 copy.py:198(_deepcopy_dict)
+ 3648/144    0.011    0.000    0.236    0.002 copy.py:181(_deepcopy_tuple)
+        1    0.000    0.000    0.231    0.231 context_composer_service.py:103(compose)
+       36    0.001    0.000    0.179    0.005 json_memory_repository.py:509(_load_if_exists)
+        2    0.000    0.000    0.162    0.081 input_context_source.py:90(retrieve)
+       36    0.002    0.000    0.161    0.004 json_memory_repository.py:705(_read_document)
+       36    0.006    0.000    0.121    0.003 json_memory_repository.py:720(_validate_document)
+        2    0.000    0.000    0.116    0.058 input_context_source.py:70(authorize)
+        2    0.000    0.000    0.111    0.055 input_context_source.py:107(_resolve)
+       15    0.000    0.000    0.085    0.006 json_memory_repository.py:169(list_memories)
+        4    0.000    0.000    0.085    0.021 json_integration_repository.py:274(list_operations)
+        2    0.000    0.000    0.084    0.042 input_context_source.py:98(revalidate)
+        1    0.000    0.000    0.078    0.078 associative_recall_service.py:215(_preference_candidates)
+      534    0.011    0.000    0.073    0.000 memory.py:783(from_dict)
+
+
+
+PREPARATION 3
+         2099710 function calls (1621465 primitive calls) in 1.380 seconds
+
+   Ordered by: cumulative time
+   List reduced from 806 to 24 due to restriction <24>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    1.389    1.389 associative_recall_service.py:82(prepare)
+        1    0.000    0.000    1.388    1.388 associative_recall_service.py:92(_prepare)
+       14    0.014    0.001    0.780    0.056 json_integration_repository.py:666(_load_operations)
+        1    0.000    0.000    0.681    0.681 context_router_service.py:691(route)
+        1    0.001    0.001    0.681    0.681 context_router_service.py:786(_execute)
+       10    0.000    0.000    0.632    0.063 input_context_source.py:32(_material)
+       10    0.004    0.000    0.613    0.061 json_integration_repository.py:587(load_operation)
+185514/14    0.157    0.000    0.604    0.043 copy.py:110(deepcopy)
+ 11480/14    0.039    0.000    0.603    0.043 copy.py:172(_deepcopy_list)
+ 12124/42    0.046    0.000    0.601    0.014 copy.py:228(_reconstruct)
+ 5614/210    0.037    0.000    0.581    0.003 copy.py:198(_deepcopy_dict)
+ 7994/266    0.030    0.000    0.580    0.002 copy.py:181(_deepcopy_tuple)
+        1    0.001    0.001    0.475    0.475 context_composer_service.py:103(compose)
+        2    0.000    0.000    0.379    0.189 input_context_source.py:90(retrieve)
+        3    0.001    0.000    0.296    0.099 input_context_source.py:107(_resolve)
+        2    0.000    0.000    0.261    0.131 input_context_source.py:70(authorize)
+       46    0.000    0.000    0.260    0.006 json_memory_repository.py:509(_load_if_exists)
+        3    0.000    0.000    0.258    0.086 input_context_source.py:98(revalidate)
+       46    0.003    0.000    0.240    0.005 json_memory_repository.py:705(_read_document)
+        1    0.000    0.000    0.219    0.219 continuity_interaction_service.py:842(save_recall)
+        1    0.000    0.000    0.216    0.216 continuity_interaction_service.py:1473(_save_domain_progress)
+        1    0.001    0.001    0.210    0.210 json_integration_repository.py:595(save_operation)
+        2    0.000    0.000    0.210    0.105 input_context_source.py:183(resolve)
+        3    0.001    0.000    0.200    0.067 input_context_source.py:154(retrieve)
+
+
+

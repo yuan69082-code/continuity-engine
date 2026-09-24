@@ -1,0 +1,27 @@
+test_failure_and_reopen_resume_same_request (tests.test_w02_recall.AutomaticRecallTests.test_failure_and_reopen_resume_same_request) ... ok
+test_negative_preference_does_not_become_consumption (tests.test_w02_recall.AutomaticRecallTests.test_negative_preference_does_not_become_consumption) ... ok
+test_no_relevant_cue_is_assessed_without_forced_recall (tests.test_w02_recall.AutomaticRecallTests.test_no_relevant_cue_is_assessed_without_forced_recall) ... ok
+test_original_message_is_assessed_before_thinking (tests.test_w02_recall.AutomaticRecallTests.test_original_message_is_assessed_before_thinking) ... ok
+test_read_only_recall_query_does_not_resume_or_write (tests.test_w02_recall.AutomaticRecallTests.test_read_only_recall_query_does_not_resume_or_write) ... ok
+test_t03_raw_noon_and_afternoon_messages_recall_before_answer (tests.test_w02_recall.AutomaticRecallTests.test_t03_raw_noon_and_afternoon_messages_recall_before_answer) ... ok
+test_t04_preference_candidate_uses_original_roots_without_state_write (tests.test_w02_recall.AutomaticRecallTests.test_t04_preference_candidate_uses_original_roots_without_state_write) ... ok
+test_t05_variants_preserve_report_scope (tests.test_w02_recall.AutomaticRecallTests.test_t05_variants_preserve_report_scope) ... ok
+test_actual_effect_return_lost_replays_without_duplicate (tests.test_w02_recall_boundaries.RecallBoundaryTests.test_actual_effect_return_lost_replays_without_duplicate) ... ok
+test_bound_policy_does_not_force_fixed_depth (tests.test_w02_recall_boundaries.RecallBoundaryTests.test_bound_policy_does_not_force_fixed_depth) ... ok
+test_corrupt_recall_hash_is_refused_without_writes (tests.test_w02_recall_boundaries.RecallBoundaryTests.test_corrupt_recall_hash_is_refused_without_writes) ... ok
+test_disabled_gate_preserves_original_round_trip (tests.test_w02_recall_boundaries.RecallBoundaryTests.test_disabled_gate_preserves_original_round_trip) ... ok
+test_native_cognition_uses_same_pre_answer_evaluation (tests.test_w02_recall_boundaries.RecallBoundaryTests.test_native_cognition_uses_same_pre_answer_evaluation) ... ok
+test_no_match_is_distinct_from_source_failure (tests.test_w02_recall_boundaries.RecallBoundaryTests.test_no_match_is_distinct_from_source_failure) ... ok
+test_ready_preparation_return_lost_reuses_receipt (tests.test_w02_recall_boundaries.RecallBoundaryTests.test_ready_preparation_return_lost_reuses_receipt) ... ok
+test_reference_withdrawal_prevents_new_model (tests.test_w02_recall_boundaries.RecallBoundaryTests.test_reference_withdrawal_prevents_new_model) ... ok
+test_retrieval_and_context_budgets_are_independent (tests.test_w02_recall_boundaries.RecallBoundaryTests.test_retrieval_and_context_budgets_are_independent) ... ok
+test_source_revocation_excludes_memory_and_history_projection (tests.test_w02_recall_boundaries.RecallBoundaryTests.test_source_revocation_excludes_memory_and_history_projection) ... ok
+test_stale_context_does_not_authorize_resume (tests.test_w02_recall_boundaries.RecallBoundaryTests.test_stale_context_does_not_authorize_resume) ... ok
+test_stale_source_version_cannot_be_consumed (tests.test_w02_recall_boundaries.RecallBoundaryTests.test_stale_source_version_cannot_be_consumed) ... ok
+test_timeout_is_blocked_before_model_and_query_is_read_only (tests.test_w02_recall_boundaries.RecallBoundaryTests.test_timeout_is_blocked_before_model_and_query_is_read_only) ... ok
+test_wrong_subject_record_is_rejected (tests.test_w02_recall_boundaries.RecallBoundaryTests.test_wrong_subject_record_is_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 35.966s
+
+OK

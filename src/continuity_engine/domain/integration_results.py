@@ -460,9 +460,12 @@ class IntegrationDomainProgress:
     continuity_context_hash: str | None = None
     input_processing: object | None = None
     input_preparation: PerceptionResult | None = None
+    recall_progress: tuple = ()
 
     def __post_init__(self) -> None:
         from .input_processing import InputProcessingRecord
+        from .associative_recall import validate_history
+        validate_history(self.recall_progress)
         if self.input_processing is not None and not isinstance(self.input_processing, InputProcessingRecord):
             raise MachineContractValidationError('INPUT_CHECKPOINT_INVALID')
         if self.input_preparation is not None:
@@ -645,6 +648,7 @@ class IntegrationDomainProgress:
             **({"continuityContextHash": self.continuity_context_hash}
                if self.continuity_context_hash is not None else {}),
             **({'inputProcessing': self.input_processing.to_dict()} if self.input_processing is not None else {}),
+            **({'recallProgress': list(self.recall_progress)} if self.recall_progress else {}),
             **({'inputPreparation': self.input_preparation.to_dict()} if self.input_preparation is not None else {}),
         }
 
@@ -653,7 +657,7 @@ class IntegrationDomainProgress:
         from .input_processing import InputProcessingRecord
         if isinstance(value, dict):
             value = {**value, 'inputProcessing': value.get('inputProcessing'),
-                     'inputPreparation': value.get('inputPreparation')}
+                     'inputPreparation': value.get('inputPreparation'), 'recallProgress':value.get('recallProgress',[])}
         if isinstance(value, dict) and "action" not in value:
             value = {**value, "action": None}
         if isinstance(value, dict) and "continuityContextHash" not in value:
@@ -680,6 +684,7 @@ class IntegrationDomainProgress:
                 "continuityContextHash",
                 "inputProcessing",
                 "inputPreparation",
+                "recallProgress",
             },
         )
         try:
@@ -742,6 +747,7 @@ class IntegrationDomainProgress:
                 else None
             ),
             continuity_context_hash=data["continuityContextHash"],
+            recall_progress=tuple(data['recallProgress']),
             input_processing=(InputProcessingRecord.from_dict(data['inputProcessing'])
                               if data['inputProcessing'] is not None else None),
             input_preparation=(PerceptionResult.from_dict(data['inputPreparation'])
@@ -1027,8 +1033,24 @@ class IntegrationOperationRecord:
     domain_progress: IntegrationDomainProgress | None = None
     capability: IntegrationCapabilityCheckpoint | None = None
     input_processing_enabled: bool = False
+    recall_enabled: bool = False
 
     def __post_init__(self) -> None:
+        if type(self.recall_enabled) is not bool or self.recall_enabled and not self.input_processing_enabled:
+            raise MachineContractValidationError('RECALL_GATE_INVALID')
+        if self.domain_progress is not None:
+            from .associative_recall import validate_record
+            for item in self.domain_progress.recall_progress:
+                if not self.recall_enabled:
+                    raise MachineContractValidationError('RECALL_GATE_BINDING_MISSING')
+                validate_record(item,operation=self,perception=self.domain_progress.perception or self.domain_progress.input_preparation)
+            for p in (self.domain_progress.perception,self.domain_progress.input_preparation):
+                if p is not None and p.continuity_context is not None:
+                    r=p.continuity_context.recall
+                    if self.recall_enabled != (r is not None):
+                        raise MachineContractValidationError('RECALL_CONTEXT_MISSING')
+                    if r is not None and (not self.domain_progress.recall_progress or r!=self.domain_progress.recall_progress[-1]):
+                        raise MachineContractValidationError('RECALL_CHECKPOINT_MISMATCH')
         if type(self.input_processing_enabled) is not bool:
             raise MachineContractValidationError('INPUT_GATE_INVALID')
         if self.domain_progress is not None:
@@ -1162,6 +1184,7 @@ class IntegrationOperationRecord:
             "bindingVersion": self.binding_version,
             "inputRevision": self.input_revision,
             **({'inputProcessingEnabled': True} if self.input_processing_enabled else {}),
+            **({'recallEnabled':True} if self.recall_enabled else {}),
             "consumedObservationIds": list(self.consumed_observation_ids),
             "stage": self.stage.value,
             "reservedAt": self.reserved_at,
@@ -1182,6 +1205,8 @@ class IntegrationOperationRecord:
 
     @classmethod
     def from_dict(cls, value: Any) -> IntegrationOperationRecord:
+        recall_enabled=value.get('recallEnabled',False) if isinstance(value,dict) else False
+        if isinstance(value,dict):value={k:v for k,v in value.items() if k!='recallEnabled'}
         enabled = value.get('inputProcessingEnabled', False) if isinstance(value, dict) else False
         if isinstance(value, dict) and 'inputProcessingEnabled' in value:
             value = {k: v for k, v in value.items() if k != 'inputProcessingEnabled'}
@@ -1230,6 +1255,7 @@ class IntegrationOperationRecord:
             ),
             input_revision=_integer(data["inputRevision"], "operation inputRevision"),
             input_processing_enabled=enabled,
+            recall_enabled=recall_enabled,
             consumed_observation_ids=tuple(raw_observations),
             stage=stage,
             reserved_at=_utc_datetime(data["reservedAt"], "operation reservedAt"),

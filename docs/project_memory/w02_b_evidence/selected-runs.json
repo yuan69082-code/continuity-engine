@@ -1,0 +1,58 @@
+{
+  "labels": [
+    "w02-b-final-04",
+    "w02-a-compatibility-04",
+    "affected-compatibility-04",
+    "full-final-04"
+  ],
+  "sourceHash": "sha256:c3e9649dbf8590a202e5fc82de79bdc6f641fbb41bd4355efd912eaa62c62aed",
+  "sourceFiles": 290,
+  "original": 1646,
+  "added": 57,
+  "results": [
+    {
+      "label": "w02-b-final-04",
+      "status": "FINISHED",
+      "run": 57,
+      "passed": 57,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0,
+      "seconds": 164.63,
+      "exitCode": 0
+    },
+    {
+      "label": "w02-a-compatibility-04",
+      "status": "FINISHED",
+      "run": 66,
+      "passed": 66,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0,
+      "seconds": 91.768,
+      "exitCode": 0
+    },
+    {
+      "label": "affected-compatibility-04",
+      "status": "FINISHED",
+      "run": 509,
+      "passed": 509,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0,
+      "seconds": 644.3,
+      "exitCode": 0
+    },
+    {
+      "label": "full-final-04",
+      "status": "FINISHED",
+      "run": 1703,
+      "passed": 1702,
+      "skipped": 1,
+      "failures": 0,
+      "errors": 0,
+      "seconds": 3191.57,
+      "exitCode": 0
+    }
+  ]
+}

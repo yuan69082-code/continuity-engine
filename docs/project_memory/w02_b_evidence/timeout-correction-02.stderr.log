@@ -1,0 +1,8 @@
+test_candidate_record_changed_during_permission_blocks_before_model (tests.test_w02_recall_consistency.RecallReadConsistencyTests.test_candidate_record_changed_during_permission_blocks_before_model) ... ok
+test_historical_root_revoked_during_permission_cannot_be_returned (tests.test_w02_recall_consistency.RecallReadConsistencyTests.test_historical_root_revoked_during_permission_cannot_be_returned) ... ok
+test_t04_preference_candidate_uses_original_roots_without_state_write (tests.test_w02_recall.AutomaticRecallTests.test_t04_preference_candidate_uses_original_roots_without_state_write) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 15.487s
+
+OK

@@ -275,6 +275,7 @@ class ContinuityInteractionService:
                     updated_at=now,
                     input_processing_enabled=(self._continuity_core is not None
                         and self._continuity_core.enabled and self._continuity_core.gates.input_processing),
+                    recall_enabled=(self._continuity_core is not None and self._continuity_core.recall is not None),
                 )
                 self._ledger.save_operation(operation)
                 self._fault("after_operation_reserved", operation)
@@ -497,6 +498,54 @@ class ContinuityInteractionService:
         except ExpressionAccessError:
             return {"status": "CURRENTLY_UNAVAILABLE", "artifact": None, "verified_facts": facts}
         return {"status": artifact.decision.status, "artifact": artifact.to_dict(), "verified_facts": facts}
+
+    def recall_outcome(self, request_id: str):
+        """Read original evidence only; never resume, retrieve, learn or dispatch."""
+        from continuity_engine.domain.associative_recall import validate_record
+        core=self._continuity_core
+        operation=self._ledger.load_operation(request_id)
+        if operation is None or not operation.recall_enabled:
+            return {'status':'NOT_READY','reason':'NO_RECALL_REQUEST','record':None}
+        if core is None or core.recall is None or core.input_processing is None:
+            raise CapabilityValidationError('RECALL_PENDING_FEATURE_DISABLED')
+        core.subject_states.require_active(operation.subject_id,core.environment)
+        core.input_processing.source.authorize(request_id)
+        progress=operation.domain_progress
+        if progress is None or not progress.recall_progress:
+            return {'status':'PENDING','reason':'RECALL_NOT_COMPLETED','record':None}
+        perception=progress.perception or progress.input_preparation
+        record=progress.recall_progress[-1]
+        validate_record(record,operation=operation,perception=perception)
+        from .associative_recall_service import assess
+        if perception is None or not perception.external_facts or record['assessment']!=assess(
+                perception.external_facts[0].content,perception.external_facts[0].occurred_at):
+            raise CapabilityValidationError('RECALL_QUERY_MATERIAL_MISMATCH')
+        def verify_current():
+            core.subject_states.require_active(operation.subject_id,core.environment)
+            core.input_processing.source.authorize(request_id)
+            if (core.subject_states.load(core.subject_id).revision!=operation.input_revision
+                    or record['environment']!=core.environment
+                    or core.clock()>=perception.perceived_at+core.context_ttl):
+                raise CapabilityValidationError('RECALL_QUERY_STALE_OR_UNAUTHORIZED')
+        verify_current()
+        if record['status']=='READY':
+            context=perception.continuity_context
+            if context is None or context.recall!=record or not core.current(context):
+                raise CapabilityValidationError('RECALL_QUERY_STALE_OR_UNAUTHORIZED')
+            session=self._load_think_session_if_present(operation.subject_id,progress.think_session_id)
+            if session is not None and session.perception_snapshot!=perception:
+                raise CapabilityValidationError('RECALL_QUERY_SESSION_MISMATCH')
+        if self._ledger.load_operation(request_id)!=operation:
+            raise CapabilityValidationError('RECALL_QUERY_CHANGED')
+        verify_current()
+        if record['status']=='READY' and not core.current(perception.continuity_context):
+            raise CapabilityValidationError('RECALL_QUERY_STALE_OR_UNAUTHORIZED')
+        context=perception.continuity_context if perception is not None else None
+        return {'status':record['status'],'record':record,'resumes_original_request':record['status']=='BLOCKED',
+                'turn_completed':operation.stage.value=='COMPLETED',
+                'context_sources':([{'source':r.source_id,'id':r.stable_id,'version':r.version,'hash':r.content_hash}
+                                    for r in context.route.manifest.candidates] if context else []),
+                'composition':context.composition.trace.to_dict() if context else None}
 
     def input_outcome(self, request_id: str):
         """Read-only structural view; receiving input is not remembering it."""
@@ -783,11 +832,20 @@ class ContinuityInteractionService:
                     proof = progress.input_preparation
                     if proof is None or proof.continuity_context is None:
                         proof = prepared or proof or perception
-                    progress = replace(progress, input_processing=record, input_preparation=proof)
+                    recall=progress.recall_progress
+                    if proof is not None and proof.continuity_context is not None and proof.continuity_context.recall is not None:
+                        ready=proof.continuity_context.recall
+                        if not recall or recall[-1]!=ready: recall=(*recall,ready)
+                    progress = replace(progress, input_processing=record, input_preparation=proof,recall_progress=recall)
                     operation = self._save_domain_progress(operation, progress)
                     self._fault('after_input_checkpoint_saved', operation)
+                def save_recall(record):
+                    nonlocal operation, progress
+                    progress=replace(progress,recall_progress=(*progress.recall_progress,record))
+                    operation=self._save_domain_progress(operation,progress)
                 perception = self._continuity_core.prepare(perception, operation,
-                    **({'save_input': save_input} if operation.input_processing_enabled else {}))
+                    **({'save_input': save_input} if operation.input_processing_enabled else {}),
+                    **({'save_recall':save_recall} if operation.recall_enabled else {}))
             self._validate_perception(
                 perception,
                 operation=operation,

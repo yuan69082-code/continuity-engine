@@ -1,0 +1,799 @@
+test_failure_and_reopen_resume_same_request (tests.test_w02_recall.AutomaticRecallTests.test_failure_and_reopen_resume_same_request) ... ERROR
+{"test": "tests.test_w02_recall.AutomaticRecallTests.test_failure_and_reopen_resume_same_request", "stage": "before-TEST-cleanup", "files": {"s/.p01-sandbox-root.v1.json": {"bytes": 98, "sha256": "3ced39d6b395df89d9b1f34e1b3faf46c14ccc6edab679a616f588a978e002f7"}, "s/s/sea41b518/b/b0cf71ea3/branch-manifest.v1.json": {"bytes": 243, "sha256": "c3e5e2cb940e7a0caa66624b07cea8d4575b7af0dc0d032e795959742c66d32d"}, "s/s/sea41b518/b/b0cf71ea3/data/awakening/cycles/5e391b2cb349bcc464aa1db1f1a639112eded7afb5f53bfd01aa9c5f79d29bbf.json": {"bytes": 253, "sha256": "80076e3cf541e240dfb6f9f01f72365e948fd7aebf8b216c3f285edf5e544b63"}, "s/s/sea41b518/b/b0cf71ea3/data/awakening/sessions/0e275ac8b14878310d031851bcac1f67ad676ee6c76deabb47e3b38f62099d59/a66d9296ae56dba388d0c1a2006c8392cf0d8848b7e3e5d3ffc0d6d96417137b.json": {"bytes": 10657, "sha256": "d65f47dfd45a597516982c2ab9f3834bc0fc437a5153305a1e33f0e7d5296b6d"}, "s/s/sea41b518/b/b0cf71ea3/data/c1-receipts/p08-fake-receipts.json": {"bytes": 148, "sha256": "a411df96a3b6eea514baf41f59d45ab70c55b96ee9f28e118d79525ea3bfe8c8"}, "s/s/sea41b518/b/b0cf71ea3/data/clock/subject-clock.v1.json": {"bytes": 109, "sha256": "9215b6977c7811370330d01c8bfe7e63b8e43ba8b12a8f09d85b24e7efac24ad"}, "s/s/sea41b518/b/b0cf71ea3/data/contradiction/test/0e275ac8b14878310d031851bcac1f67ad676ee6c76deabb47e3b38f62099d59.json": {"bytes": 228, "sha256": "f69f8f2018fbe52fc047d92caab332cb76b41eb4a8f5468fffef0271aa011c01"}, "s/s/sea41b518/b/b0cf71ea3/data/fixture/c1-profile.v1.json": {"bytes": 102, "sha256": "cf146237100c4137ce9a9496fa41ed99cd6717819d340fdb9284c95eb752c805"}, "s/s/sea41b518/b/b0cf71ea3/data/fixture/state-fixture.v1.json": {"bytes": 635, "sha256": "cac2a22202b40d6063243d3e5197a765fa988d4153edbedbed38411ba625e88b"}, "s/s/sea41b518/b/b0cf71ea3/data/integration/capability-ledger.v1.json": {"bytes": 82, "sha256": "95f292f0db842e43cccb490ce10bbeefd3bab92d43fa69f4bb1b6188d4ed43de"}, "s/s/sea41b518/b/b0cf71ea3/data/integration/operation-journal.first-round-v1.json": {"bytes": 41223, "sha256": "7a78689da12a8eb70c0304aad38902e0a572cf27e437b45a0cde6c63e149e778"}, "s/s/sea41b518/b/b0cf71ea3/data/integration/result-ledger.first-round-v1.json": {"bytes": 63, "sha256": "5407f91ac04019966f84bfbad51ebc1fb904bd085a6579febfa75a9ea068592a"}, "s/s/sea41b518/b/b0cf71ea3/data/integration/subject-binding.runtime-v1.json": {"bytes": 613, "sha256": "a24d229f279189316537f2ba6e9f989f30036c767a2d3ee0d6a0981ca8090ed9"}, "s/s/sea41b518/b/b0cf71ea3/data/learning/0e275ac8b14878310d031851bcac1f67ad676ee6c76deabb47e3b38f62099d59.json": {"bytes": 2154, "sha256": "5166b28c2bc62fa092c1aa54bf6fe940de65921c1d44a6e31b94f70e49c001d0"}, "s/s/sea41b518/b/b0cf71ea3/data/memory/test/0e275ac8b14878310d031851bcac1f67ad676ee6c76deabb47e3b38f62099d59.json": {"bytes": 4202, "sha256": "3dca52106b579f1631c1538c29d947fb71512591e16e663a3ed164a0550b9000"}, "s/s/sea41b518/b/b0cf71ea3/data/resources/0e275ac8b14878310d031851bcac1f67ad676ee6c76deabb47e3b38f62099d59.json": {"bytes": 437, "sha256": "b024e4c861b67f243623bf4857da6adc2f94bb0cb1a946ca2b8ca2486a8167ca"}, "s/s/sea41b518/b/b0cf71ea3/data/subject-state/0e275ac8b14878310d031851bcac1f67ad676ee6c76deabb47e3b38f62099d59.json": {"bytes": 4912, "sha256": "052c3caba8e9d91bc6554804f7da4376205aebfa4c19febadb1daaf6bc34200f"}, "s/s/sea41b518/b/b0cf71ea3/data/test-actions/action-sessions.v1.json": {"bytes": 128, "sha256": "473a50b7340714080fd2552ba75c345acb9045bbabfaf294edc06151cb2b5c0b"}, "s/s/sea41b518/b/b0cf71ea3/data/test-indexes/events.v1.json": {"bytes": 138, "sha256": "2a855507dea57a9eeb025a9f123a37adfc1ea2e53db89b1c5ccfeb25cb1b3ef5"}, "s/s/sea41b518/b/b0cf71ea3/data/test-indexes/evolution.v1.json": {"bytes": 141, "sha256": "bfca6f164875488a1e05c6063413f09318834af376156bcdaf5ed532f1500551"}, "s/s/sea41b518/b/b0cf71ea3/data/test-indexes/relationship-state.v1.json": {"bytes": 150, "sha256": "7aa69bb6153f601e4050573b1933bcbeab58dad6c299a30e80a6f35fcb18c374"}, "s/s/sea41b518/b/b0cf71ea3/data/test-indexes/state-mutations.v1.json": {"bytes": 147, "sha256": "221989112222f426d8b298438b646c5c27a9cfdae1eb2a745c89c3956ee099a7"}, "s/s/sea41b518/b/b0cf71ea3/data/test-indexes/thinking-sessions.v1.json": {"bytes": 149, "sha256": "33ebdb11fe46fa863c78b05e7923c6798b2fe7c4ec7f12705f9f003aeab13bf9"}, "s/s/sea41b518/b/b0cf71ea3/data/test-indexes/wake-sessions.v1.json": {"bytes": 145, "sha256": "9d635a8bba38a9793284c1464f4e02482381c253bceaeb3c1730dccd30196fb8"}, "s/s/sea41b518/b/b0cf71ea3/data/test-memory/memory-ledger.v1.json": {"bytes": 631, "sha256": "7f113542f701801fc42a7aacc83edecb416468090717b3e3a19f54a68a79cd9c"}, "s/s/sea41b518/b/b0cf71ea3/data/test-trace/subject-clock-trace.v1.json": {"bytes": 1558, "sha256": "67dc48b2270076243410125d521a753765027bfa7239795b3c84c517635fae95"}, "s/s/sea41b518/sandbox-manifest.v1.json": {"bytes": 910, "sha256": "3551d0412babc68f503d7ddbf570f346ec5d69809e3e148e7ca0c8fc8706bb4c"}, "s/sandbox-registry.v1.json": {"bytes": 476, "sha256": "c8e2a797380bd9875abd20f21c2697a2c57eafd09bbacca4a9c61ef3590fb427"}}}
+test_negative_preference_does_not_become_consumption (tests.test_w02_recall.AutomaticRecallTests.test_negative_preference_does_not_become_consumption) ... ok
+test_no_relevant_cue_is_assessed_without_forced_recall (tests.test_w02_recall.AutomaticRecallTests.test_no_relevant_cue_is_assessed_without_forced_recall) ... ERROR
+{"test": "tests.test_w02_recall.AutomaticRecallTests.test_no_relevant_cue_is_assessed_without_forced_recall", "stage": "before-TEST-cleanup", "files": {"s/.p01-sandbox-root.v1.json": {"bytes": 98, "sha256": "3ced39d6b395df89d9b1f34e1b3faf46c14ccc6edab679a616f588a978e002f7"}, "s/s/s776e32ba/b/bccb382f9/branch-manifest.v1.json": {"bytes": 243, "sha256": "0331e0f0a8831e62350fae2636fc299f074bd20671783a642b68a4575cf66f61"}, "s/s/s776e32ba/b/bccb382f9/data/awakening/cycles/2f76a4d90729ef6fd3a38d9e92b2522425e18abff612143ec9d77b916c874baa.json": {"bytes": 253, "sha256": "9b280266926fc6d762d685f6d9662afe31628547a6a01170091178257a24b6d4"}, "s/s/s776e32ba/b/bccb382f9/data/awakening/sessions/73423b071112ab401312de53c6e0df91022f578c53497a629612778bf2e649df/e32a66c546e6d6913f6823a333efc3c338be2e14854823a605bde93fdcdd898b.json": {"bytes": 12464, "sha256": "05f85ca97f8cf703af7d1a6cc140ec002a2af7c16eb33523749722397c8e950d"}, "s/s/s776e32ba/b/bccb382f9/data/c1-receipts/p08-fake-receipts.json": {"bytes": 148, "sha256": "a411df96a3b6eea514baf41f59d45ab70c55b96ee9f28e118d79525ea3bfe8c8"}, "s/s/s776e32ba/b/bccb382f9/data/clock/subject-clock.v1.json": {"bytes": 109, "sha256": "9215b6977c7811370330d01c8bfe7e63b8e43ba8b12a8f09d85b24e7efac24ad"}, "s/s/s776e32ba/b/bccb382f9/data/contradiction/test/73423b071112ab401312de53c6e0df91022f578c53497a629612778bf2e649df.json": {"bytes": 228, "sha256": "e9c64e2e337c4a3b6953121c2e14dbb79efaa9282d263257513571e3119944dd"}, "s/s/s776e32ba/b/bccb382f9/data/fixture/c1-profile.v1.json": {"bytes": 102, "sha256": "1ae9fcbb0e0e7f75e856c1f0e963ed869ec47707d1b78f59acb9e115ce336583"}, "s/s/s776e32ba/b/bccb382f9/data/fixture/state-fixture.v1.json": {"bytes": 635, "sha256": "b3e739403bcafda3fe287aa6dc23a7ac9aa770ea9576b04db5014cf7bd054aee"}, "s/s/s776e32ba/b/bccb382f9/data/integration/capability-ledger.v1.json": {"bytes": 82, "sha256": "95f292f0db842e43cccb490ce10bbeefd3bab92d43fa69f4bb1b6188d4ed43de"}, "s/s/s776e32ba/b/bccb382f9/data/integration/operation-journal.first-round-v1.json": {"bytes": 32288, "sha256": "ef51a27b3cc60ac56e419c97141d01d864e22f8b68bd4345a61249f9f1c7905f"}, "s/s/s776e32ba/b/bccb382f9/data/integration/result-ledger.first-round-v1.json": {"bytes": 63, "sha256": "5407f91ac04019966f84bfbad51ebc1fb904bd085a6579febfa75a9ea068592a"}, "s/s/s776e32ba/b/bccb382f9/data/integration/subject-binding.runtime-v1.json": {"bytes": 613, "sha256": "866ae06a339e4c21892fae108d7ee35da4ef02feff0565e39751786aecd3e4ab"}, "s/s/s776e32ba/b/bccb382f9/data/learning/73423b071112ab401312de53c6e0df91022f578c53497a629612778bf2e649df.json": {"bytes": 2154, "sha256": "9647e988b775ea2520a3f5ecbe00ff07f1dc4e0175a4fad59dcf0e4a41b63ba5"}, "s/s/s776e32ba/b/bccb382f9/data/memory/test/73423b071112ab401312de53c6e0df91022f578c53497a629612778bf2e649df.json": {"bytes": 8720, "sha256": "6090d1d7939ab685e933edc637dc54ea4ed282e1b40a1356d695c241fbf89184"}, "s/s/s776e32ba/b/bccb382f9/data/resources/73423b071112ab401312de53c6e0df91022f578c53497a629612778bf2e649df.json": {"bytes": 437, "sha256": "b9c72a9c9b533606d5b21eae9bb3f281b7b3d34cb58bf46912e5e27da2e96dfd"}, "s/s/s776e32ba/b/bccb382f9/data/subject-state/73423b071112ab401312de53c6e0df91022f578c53497a629612778bf2e649df.json": {"bytes": 5894, "sha256": "3bb7f618e04d77573798998a54f9eb0b8be9a69b25f3a6c1972f6b845741f9da"}, "s/s/s776e32ba/b/bccb382f9/data/test-actions/action-sessions.v1.json": {"bytes": 128, "sha256": "28d928b3a4de46872766176fcff4b77b9ac08baaa7acc8cfa2c4d834268872ca"}, "s/s/s776e32ba/b/bccb382f9/data/test-indexes/events.v1.json": {"bytes": 138, "sha256": "9676b74714f37ead037810e9da0e70a0355bd46cd81a9d54ca747ada6afef983"}, "s/s/s776e32ba/b/bccb382f9/data/test-indexes/evolution.v1.json": {"bytes": 141, "sha256": "c4e31824b8bb2394a909380beb4d2168b64101d5deb29f2149ee05c6906f50f9"}, "s/s/s776e32ba/b/bccb382f9/data/test-indexes/relationship-state.v1.json": {"bytes": 150, "sha256": "f4dbee4d5b3eef0a4549a4a17fa44e170f7cd90f5103abdaa22df9b51ac734d2"}, "s/s/s776e32ba/b/bccb382f9/data/test-indexes/state-mutations.v1.json": {"bytes": 147, "sha256": "00df1e1511c1cfcf8c1b8b6766988561f4624493b42d59258a6f1101a754c4b3"}, "s/s/s776e32ba/b/bccb382f9/data/test-indexes/thinking-sessions.v1.json": {"bytes": 149, "sha256": "f77c04c9a757c859fdb0c6a315fc02410b5012eaa694092dd13ba231aefce6c5"}, "s/s/s776e32ba/b/bccb382f9/data/test-indexes/wake-sessions.v1.json": {"bytes": 145, "sha256": "4afc18d8b84ab0e81c175e2ce75ef8bf84b43c76fa64f57856c0e34603951463"}, "s/s/s776e32ba/b/bccb382f9/data/test-memory/memory-ledger.v1.json": {"bytes": 631, "sha256": "708b6dfb3bbf414d2fba6b79ec848760c300e79927507b9c07a6b863c184eaf8"}, "s/s/s776e32ba/b/bccb382f9/data/test-trace/subject-clock-trace.v1.json": {"bytes": 1558, "sha256": "cf0fd7e1c2987c70a57eec6a11c89fb72b9c7315e8ff2e36e24912fa9fb720e9"}, "s/s/s776e32ba/sandbox-manifest.v1.json": {"bytes": 910, "sha256": "1264a087192775c7b977b54c89aa1fc252775ff06e6264e9c5c3f41a3d04e59d"}, "s/sandbox-registry.v1.json": {"bytes": 476, "sha256": "33ac853dce4eae078fba98fa20e39173d6b7429b523d6409879c0bd3410e22cf"}}}
+test_original_message_is_assessed_before_thinking (tests.test_w02_recall.AutomaticRecallTests.test_original_message_is_assessed_before_thinking) ... ERROR
+{"test": "tests.test_w02_recall.AutomaticRecallTests.test_original_message_is_assessed_before_thinking", "stage": "before-TEST-cleanup", "files": {"s/.p01-sandbox-root.v1.json": {"bytes": 98, "sha256": "3ced39d6b395df89d9b1f34e1b3faf46c14ccc6edab679a616f588a978e002f7"}, "s/s/sb6284d30/b/be00d1303/branch-manifest.v1.json": {"bytes": 243, "sha256": "1705beafe81593fbc9d88b43755358ab96733d512ddef05bfeadcc771b9fd3c0"}, "s/s/sb6284d30/b/be00d1303/data/awakening/cycles/d4abefda562f1e764bc15516460002c034959de212d8664624889b52e924ba80.json": {"bytes": 253, "sha256": "d3a9264965f882c84b31650d1818805668563d6933e2a5b28d072780c27fe36c"}, "s/s/sb6284d30/b/be00d1303/data/awakening/sessions/4ab7081c33fa73027396cd9dbc442fa9787fb90974b675032bcbb77f2d3e25a7/d93480c9b1641a34c015ba8d4ef5f6a17eabfe14d19c421f81a0fbfd7053752c.json": {"bytes": 12464, "sha256": "6032edb7169f641b7a0174ef15d66ed9d8149f60c93deb0a3121049ea9e1532e"}, "s/s/sb6284d30/b/be00d1303/data/c1-receipts/p08-fake-receipts.json": {"bytes": 148, "sha256": "a411df96a3b6eea514baf41f59d45ab70c55b96ee9f28e118d79525ea3bfe8c8"}, "s/s/sb6284d30/b/be00d1303/data/clock/subject-clock.v1.json": {"bytes": 109, "sha256": "9215b6977c7811370330d01c8bfe7e63b8e43ba8b12a8f09d85b24e7efac24ad"}, "s/s/sb6284d30/b/be00d1303/data/contradiction/test/4ab7081c33fa73027396cd9dbc442fa9787fb90974b675032bcbb77f2d3e25a7.json": {"bytes": 228, "sha256": "78c7acabcbe1f6d727a68d66be60b774995b4dd766dc7d06e27735bdcf0c3149"}, "s/s/sb6284d30/b/be00d1303/data/fixture/c1-profile.v1.json": {"bytes": 102, "sha256": "9354cb442caad2a3a0160d2985bf81e64bb61a3298d434b7744c4d4edc144670"}, "s/s/sb6284d30/b/be00d1303/data/fixture/state-fixture.v1.json": {"bytes": 635, "sha256": "6feaa27252a370327dd5863acf069caec5ad6a6e83e631db6566e8d4b9e2c67e"}, "s/s/sb6284d30/b/be00d1303/data/integration/capability-ledger.v1.json": {"bytes": 82, "sha256": "95f292f0db842e43cccb490ce10bbeefd3bab92d43fa69f4bb1b6188d4ed43de"}, "s/s/sb6284d30/b/be00d1303/data/integration/operation-journal.first-round-v1.json": {"bytes": 34563, "sha256": "ecfcba7bcb25584d473a6cc3f9254fe044c96ee6bd111d3c47fae84e27ae8d5e"}, "s/s/sb6284d30/b/be00d1303/data/integration/result-ledger.first-round-v1.json": {"bytes": 63, "sha256": "5407f91ac04019966f84bfbad51ebc1fb904bd085a6579febfa75a9ea068592a"}, "s/s/sb6284d30/b/be00d1303/data/integration/subject-binding.runtime-v1.json": {"bytes": 613, "sha256": "93f06422c7f5efcf3b80867ff59926025b7b49d401f6c0361c6bdfe39406bef7"}, "s/s/sb6284d30/b/be00d1303/data/learning/4ab7081c33fa73027396cd9dbc442fa9787fb90974b675032bcbb77f2d3e25a7.json": {"bytes": 2154, "sha256": "7df4d5e5973503912612953cd1fa213035aacc160ce11ea061c9763a602536cf"}, "s/s/sb6284d30/b/be00d1303/data/memory/test/4ab7081c33fa73027396cd9dbc442fa9787fb90974b675032bcbb77f2d3e25a7.json": {"bytes": 8720, "sha256": "7ecc9a2a9fc8264158b045426328dec9cc653a6e4998fef24edee00ca63f9485"}, "s/s/sb6284d30/b/be00d1303/data/resources/4ab7081c33fa73027396cd9dbc442fa9787fb90974b675032bcbb77f2d3e25a7.json": {"bytes": 437, "sha256": "9e5462e3035f0ff91d7bad0f89353b706c97d6ac112d767a3d8e6bc6b4f1dcb5"}, "s/s/sb6284d30/b/be00d1303/data/subject-state/4ab7081c33fa73027396cd9dbc442fa9787fb90974b675032bcbb77f2d3e25a7.json": {"bytes": 5894, "sha256": "6b21ca9245d1b641f8d1e69b0e81b76b44a749aac4d84aa9c548f162098207b5"}, "s/s/sb6284d30/b/be00d1303/data/test-actions/action-sessions.v1.json": {"bytes": 128, "sha256": "448610d9528b05400c3de1a1c0bb708c40eaea68247053838bbea6a4b673cf81"}, "s/s/sb6284d30/b/be00d1303/data/test-indexes/events.v1.json": {"bytes": 138, "sha256": "3b9222387134ddf69eeddf879ddee1898e2f7c437de1259d7c0b7512d804c66f"}, "s/s/sb6284d30/b/be00d1303/data/test-indexes/evolution.v1.json": {"bytes": 141, "sha256": "ae4479fc2146c5fa148ebc88b762076fb2f8cbd21ee6efb743b0c844e49d6d33"}, "s/s/sb6284d30/b/be00d1303/data/test-indexes/relationship-state.v1.json": {"bytes": 150, "sha256": "1d42af82f8e0a549e20c04d051f6f4caf2b6482f982c8fd6a9fead5b4f7cb102"}, "s/s/sb6284d30/b/be00d1303/data/test-indexes/state-mutations.v1.json": {"bytes": 147, "sha256": "19b80dd02d6eb85bc45f51b20c6842c901e32c8a3581b595e1213317fde2b6b7"}, "s/s/sb6284d30/b/be00d1303/data/test-indexes/thinking-sessions.v1.json": {"bytes": 149, "sha256": "118dd9f473a154c2fdbb80df137fe3333d7352c864f169faf3b7caed4806b108"}, "s/s/sb6284d30/b/be00d1303/data/test-indexes/wake-sessions.v1.json": {"bytes": 145, "sha256": "b042a67fa82ec0cf6f16baa60ee200fa030a61184d383b0c300437c73f10919f"}, "s/s/sb6284d30/b/be00d1303/data/test-memory/memory-ledger.v1.json": {"bytes": 631, "sha256": "6b6c897ad52b328be742cbfe80ac472ca7cd732bc291373c2d86770a405845dc"}, "s/s/sb6284d30/b/be00d1303/data/test-trace/subject-clock-trace.v1.json": {"bytes": 1558, "sha256": "f7ddb5dbe45a2303d5ef356363d87e57d828d557b19349f5e854277aab34f83d"}, "s/s/sb6284d30/sandbox-manifest.v1.json": {"bytes": 910, "sha256": "4f89afec0bc8d80e60f4d73bac7b517d344e7ea8eb29ebcf4010338394ebd792"}, "s/sandbox-registry.v1.json": {"bytes": 476, "sha256": "ff710dd230e2efaed7cb850877812220639e0815c25e7baa3b5a7496fd1b2d65"}}}
+test_read_only_recall_query_does_not_resume_or_write (tests.test_w02_recall.AutomaticRecallTests.test_read_only_recall_query_does_not_resume_or_write) ... ERROR
+{"test": "tests.test_w02_recall.AutomaticRecallTests.test_read_only_recall_query_does_not_resume_or_write", "stage": "before-TEST-cleanup", "files": {"s/.p01-sandbox-root.v1.json": {"bytes": 98, "sha256": "3ced39d6b395df89d9b1f34e1b3faf46c14ccc6edab679a616f588a978e002f7"}, "s/s/s69567107/b/bd432c41e/branch-manifest.v1.json": {"bytes": 243, "sha256": "8e1b15c315023f13b22ebfe90801521c39e23126012a7205413006bebb715aa2"}, "s/s/s69567107/b/bd432c41e/data/awakening/cycles/a1bf21f74d59d694217aa990ad3579f59f2e329d6e5123df6096b04a5afad9fb.json": {"bytes": 253, "sha256": "d8256a1ec8639b07c1ae48a1c4c17ccf817650d9c4408ff27132025d99cbd96e"}, "s/s/s69567107/b/bd432c41e/data/awakening/sessions/e69f8b43122396d745170e1c49b7b10591a256df3bdae3124e9c0ea4c7a78c6d/dab6189fee2d8bcaa767714b6ed6d4017e3d6a607008ac92952ee6def324428d.json": {"bytes": 10657, "sha256": "9f56e995b614a6c91dbca45d343714a29e6c7a342a3d404ccbfab82cd1348539"}, "s/s/s69567107/b/bd432c41e/data/c1-receipts/p08-fake-receipts.json": {"bytes": 148, "sha256": "a411df96a3b6eea514baf41f59d45ab70c55b96ee9f28e118d79525ea3bfe8c8"}, "s/s/s69567107/b/bd432c41e/data/clock/subject-clock.v1.json": {"bytes": 109, "sha256": "9215b6977c7811370330d01c8bfe7e63b8e43ba8b12a8f09d85b24e7efac24ad"}, "s/s/s69567107/b/bd432c41e/data/contradiction/test/e69f8b43122396d745170e1c49b7b10591a256df3bdae3124e9c0ea4c7a78c6d.json": {"bytes": 228, "sha256": "a166863b37f4e01ce3bcf175dc84a8c02c7e31387236777a428930966f6a1e20"}, "s/s/s69567107/b/bd432c41e/data/fixture/c1-profile.v1.json": {"bytes": 102, "sha256": "adf99aedd02e5c177db43e88ba65dc53f18ba7f8b0e0369b0794ec891245b61b"}, "s/s/s69567107/b/bd432c41e/data/fixture/state-fixture.v1.json": {"bytes": 635, "sha256": "eb7920b0e1924bb07c5c8b47ae3784a73efa37b2698f5f913b4fe7e8ce3e71e5"}, "s/s/s69567107/b/bd432c41e/data/integration/capability-ledger.v1.json": {"bytes": 82, "sha256": "95f292f0db842e43cccb490ce10bbeefd3bab92d43fa69f4bb1b6188d4ed43de"}, "s/s/s69567107/b/bd432c41e/data/integration/operation-journal.first-round-v1.json": {"bytes": 30089, "sha256": "b1bc9ec0697b0c90e14cbeae4d99260a8f696f1ac7e4f24838845a32942f738e"}, "s/s/s69567107/b/bd432c41e/data/integration/result-ledger.first-round-v1.json": {"bytes": 63, "sha256": "5407f91ac04019966f84bfbad51ebc1fb904bd085a6579febfa75a9ea068592a"}, "s/s/s69567107/b/bd432c41e/data/integration/subject-binding.runtime-v1.json": {"bytes": 613, "sha256": "cef7ebf693ab4327eb20a5c1ce104b6a17c059f5eb1e1917cfa5e00732d6d50e"}, "s/s/s69567107/b/bd432c41e/data/learning/e69f8b43122396d745170e1c49b7b10591a256df3bdae3124e9c0ea4c7a78c6d.json": {"bytes": 2154, "sha256": "b5b4cd83772c4203871acd4ac3dd9d84363c27ce22bd91333f083921d09a4ca6"}, "s/s/s69567107/b/bd432c41e/data/memory/test/e69f8b43122396d745170e1c49b7b10591a256df3bdae3124e9c0ea4c7a78c6d.json": {"bytes": 4202, "sha256": "e50edc0b9d169578e9298c711888bf15d10107eee4fedb256d66db53d31dfbba"}, "s/s/s69567107/b/bd432c41e/data/resources/e69f8b43122396d745170e1c49b7b10591a256df3bdae3124e9c0ea4c7a78c6d.json": {"bytes": 437, "sha256": "63b62e35e15daec5f0d77d660b6d5fd6be07c37a2f165c81f850bf0cab933b98"}, "s/s/s69567107/b/bd432c41e/data/subject-state/e69f8b43122396d745170e1c49b7b10591a256df3bdae3124e9c0ea4c7a78c6d.json": {"bytes": 4912, "sha256": "a540c0a0a396878124fd1393a981496f38565f1f130cbd01d3b7794ad9ed279d"}, "s/s/s69567107/b/bd432c41e/data/test-actions/action-sessions.v1.json": {"bytes": 128, "sha256": "4a55fbb8e1327dbac28332b31904691f99f4af764fb5f0a314e14739b0f302b1"}, "s/s/s69567107/b/bd432c41e/data/test-indexes/events.v1.json": {"bytes": 138, "sha256": "ffa36c6631f6b382479aee4f15d986b0e379fa1ce65ac7f6150f1990567d11ed"}, "s/s/s69567107/b/bd432c41e/data/test-indexes/evolution.v1.json": {"bytes": 141, "sha256": "e5cadbf1a004b64d049afb14fa955c97c514549bcf11172e7263a90ced298272"}, "s/s/s69567107/b/bd432c41e/data/test-indexes/relationship-state.v1.json": {"bytes": 150, "sha256": "f70b4de88aacb337a43199190c7b82f88bf18450ff87278435ab5bd767d1ab78"}, "s/s/s69567107/b/bd432c41e/data/test-indexes/state-mutations.v1.json": {"bytes": 147, "sha256": "dd97d054b7d460120959108581380453c4b5714e798306129038a8fc7e8ec793"}, "s/s/s69567107/b/bd432c41e/data/test-indexes/thinking-sessions.v1.json": {"bytes": 149, "sha256": "8cc078a523ad3926c87ee7746fe691cf7a301353cb8f8bde812f1b67c2e151ef"}, "s/s/s69567107/b/bd432c41e/data/test-indexes/wake-sessions.v1.json": {"bytes": 145, "sha256": "5fb4ab4e7f3c454b1e8816a1d308265ab9635158a300738850e68bdf6b251ce1"}, "s/s/s69567107/b/bd432c41e/data/test-memory/memory-ledger.v1.json": {"bytes": 631, "sha256": "ca69cd30808cd929238a16f8c763c7382849bd6475db1a331dca7aaaaaad9f9d"}, "s/s/s69567107/b/bd432c41e/data/test-trace/subject-clock-trace.v1.json": {"bytes": 1558, "sha256": "bb2ed4f67cb4515492ae1fbce696e0d5adbe3d4e576656d8e61ab744d9bade35"}, "s/s/s69567107/sandbox-manifest.v1.json": {"bytes": 910, "sha256": "d937ba11b995e02a8c9f28b770c1b9b60ceae9d946c4475a22caaad2906aa115"}, "s/sandbox-registry.v1.json": {"bytes": 476, "sha256": "24c9a71991b321f4f394086f600ad39596b4d4149b936c88fd5a91a1e9a4de2f"}}}
+test_t03_raw_noon_and_afternoon_messages_recall_before_answer (tests.test_w02_recall.AutomaticRecallTests.test_t03_raw_noon_and_afternoon_messages_recall_before_answer) ... ERROR
+{"test": "tests.test_w02_recall.AutomaticRecallTests.test_t03_raw_noon_and_afternoon_messages_recall_before_answer", "stage": "before-TEST-cleanup", "files": {"s/.p01-sandbox-root.v1.json": {"bytes": 98, "sha256": "3ced39d6b395df89d9b1f34e1b3faf46c14ccc6edab679a616f588a978e002f7"}, "s/s/sbf2e0415/b/b8e80f0f6/branch-manifest.v1.json": {"bytes": 243, "sha256": "3f72985db5b2e9346aa479b692e98b3f95324feeed3ec0814e250414738a4bdd"}, "s/s/sbf2e0415/b/b8e80f0f6/data/awakening/cycles/a317d60330717638d5d3bb64c560a699afbdabb973b41d6b1892a14a467887e3.json": {"bytes": 253, "sha256": "db2d207e75dc6919e30c85b11d577dd0754e9ea4d8a81d8528d6903baf4c623b"}, "s/s/sbf2e0415/b/b8e80f0f6/data/awakening/sessions/7e27f9723e78097845a897a2cdc5328af0811f010bafa9ddebaef84cb087dff5/64462b97eb31b0d498cc716ad05f145200cc92b1766bd2d7965282e5da0fc0c1.json": {"bytes": 12498, "sha256": "c131d8cee43d404a597ef9eeab42b73d5fd92546a1ebba559c94bac9e357e0bd"}, "s/s/sbf2e0415/b/b8e80f0f6/data/c1-receipts/p08-fake-receipts.json": {"bytes": 148, "sha256": "a411df96a3b6eea514baf41f59d45ab70c55b96ee9f28e118d79525ea3bfe8c8"}, "s/s/sbf2e0415/b/b8e80f0f6/data/clock/subject-clock.v1.json": {"bytes": 109, "sha256": "99284164c7c88e8e7a720cd8eeba1122c14f9ad30167d7de6eaddfea453d7d6e"}, "s/s/sbf2e0415/b/b8e80f0f6/data/contradiction/test/7e27f9723e78097845a897a2cdc5328af0811f010bafa9ddebaef84cb087dff5.json": {"bytes": 228, "sha256": "3503139c1b111e033e8451f64a908760008721e95c36e063c4cae29f811197a0"}, "s/s/sbf2e0415/b/b8e80f0f6/data/fixture/c1-profile.v1.json": {"bytes": 102, "sha256": "1a31a27325e6eccd436461d5b77cf7206413aec2ae5f788ec9bcb1b5b786182a"}, "s/s/sbf2e0415/b/b8e80f0f6/data/fixture/state-fixture.v1.json": {"bytes": 635, "sha256": "830647a340752491571956a2ac26a76fb9b78d1821bdb8a879b64ce45d74b43f"}, "s/s/sbf2e0415/b/b8e80f0f6/data/integration/capability-ledger.v1.json": {"bytes": 82, "sha256": "95f292f0db842e43cccb490ce10bbeefd3bab92d43fa69f4bb1b6188d4ed43de"}, "s/s/sbf2e0415/b/b8e80f0f6/data/integration/operation-journal.first-round-v1.json": {"bytes": 34628, "sha256": "c18bd09a9d566822a8885c2684abd89cccf89b25dea7e44078191e70e224f5c5"}, "s/s/sbf2e0415/b/b8e80f0f6/data/integration/result-ledger.first-round-v1.json": {"bytes": 63, "sha256": "5407f91ac04019966f84bfbad51ebc1fb904bd085a6579febfa75a9ea068592a"}, "s/s/sbf2e0415/b/b8e80f0f6/data/integration/subject-binding.runtime-v1.json": {"bytes": 613, "sha256": "1f87d3b08dbc7bc13d8ff211b9db87c08214946f6a24b2df662da24ddcd36b0c"}, "s/s/sbf2e0415/b/b8e80f0f6/data/learning/7e27f9723e78097845a897a2cdc5328af0811f010bafa9ddebaef84cb087dff5.json": {"bytes": 2154, "sha256": "811e4e85ea3eda3db44a408fd8f7ab778e458edf937bbad9f0441a75c1b19c7a"}, "s/s/sbf2e0415/b/b8e80f0f6/data/memory/test/7e27f9723e78097845a897a2cdc5328af0811f010bafa9ddebaef84cb087dff5.json": {"bytes": 8807, "sha256": "bb2162a2f6d46a0464d8765b94b8b4e2dd1fd6f23bf1dfa3a99cef7d811b408a"}, "s/s/sbf2e0415/b/b8e80f0f6/data/resources/7e27f9723e78097845a897a2cdc5328af0811f010bafa9ddebaef84cb087dff5.json": {"bytes": 437, "sha256": "ffe8963a4e1aed3d15c7ab1666916a02de3ca987794c673675f4ac2735a6a518"}, "s/s/sbf2e0415/b/b8e80f0f6/data/subject-state/7e27f9723e78097845a897a2cdc5328af0811f010bafa9ddebaef84cb087dff5.json": {"bytes": 5907, "sha256": "64ca40d4611affe9e9e1599414f1095d9c98e9f2e8a70292fb6f138579a35d67"}, "s/s/sbf2e0415/b/b8e80f0f6/data/test-actions/action-sessions.v1.json": {"bytes": 128, "sha256": "25a28af7046245f339f0d5cf1536f8ff9d3703dded2dd85f21d3af04213ccc77"}, "s/s/sbf2e0415/b/b8e80f0f6/data/test-indexes/events.v1.json": {"bytes": 138, "sha256": "f9878e5ec0cbaf80e45f9b477bcfcdbe283d41b8071f80592f6137ef9c9095dd"}, "s/s/sbf2e0415/b/b8e80f0f6/data/test-indexes/evolution.v1.json": {"bytes": 141, "sha256": "e6a65f15ae6c00bc62d742b11325952e1262f7e36923c182fd5d494b0ebb0edd"}, "s/s/sbf2e0415/b/b8e80f0f6/data/test-indexes/relationship-state.v1.json": {"bytes": 150, "sha256": "677060f976d382d7a361511f5b83b6b21ecc24e6b0bb5651b8f97172aa589408"}, "s/s/sbf2e0415/b/b8e80f0f6/data/test-indexes/state-mutations.v1.json": {"bytes": 147, "sha256": "0c3578ae5dc0a94c1c1869219a4738e22d2ee914a623d9afd92240553f91cfa1"}, "s/s/sbf2e0415/b/b8e80f0f6/data/test-indexes/thinking-sessions.v1.json": {"bytes": 149, "sha256": "152ebaf1da7aead1a8ad4afd5255bc98e06d9639b08f739e041ca93a6047e6f5"}, "s/s/sbf2e0415/b/b8e80f0f6/data/test-indexes/wake-sessions.v1.json": {"bytes": 145, "sha256": "451954c71d4f68f58aafd78fa1adf27ba7f087f05469eb9c186ae273bd68b206"}, "s/s/sbf2e0415/b/b8e80f0f6/data/test-memory/memory-ledger.v1.json": {"bytes": 631, "sha256": "07c346a9d2d39d809fa4180888ddb0e55d5553de3fd909c4f70b16fcf7291c23"}, "s/s/sbf2e0415/b/b8e80f0f6/data/test-trace/subject-clock-trace.v1.json": {"bytes": 1558, "sha256": "1eea5887bba57bfbbfa8649cbb76b86c4f05f7898d66dd874c4bfca9080b9407"}, "s/s/sbf2e0415/sandbox-manifest.v1.json": {"bytes": 910, "sha256": "a537f90353892f2eed00887c822ec068ee7bc3efbbf44af008f79bab58547939"}, "s/sandbox-registry.v1.json": {"bytes": 476, "sha256": "ccc9d17d9e827bcec6d45b8e6de97dffe4b4f7a4f4473da8a2a6eb99ad9b6dbd"}}}
+test_t04_preference_candidate_uses_original_roots_without_state_write (tests.test_w02_recall.AutomaticRecallTests.test_t04_preference_candidate_uses_original_roots_without_state_write) ... ERROR
+{"test": "tests.test_w02_recall.AutomaticRecallTests.test_t04_preference_candidate_uses_original_roots_without_state_write", "stage": "before-TEST-cleanup", "files": {"s/.p01-sandbox-root.v1.json": {"bytes": 98, "sha256": "3ced39d6b395df89d9b1f34e1b3faf46c14ccc6edab679a616f588a978e002f7"}, "s/s/s8cc430b6/b/be9ad70de/branch-manifest.v1.json": {"bytes": 243, "sha256": "8e68fd943eb6fd4323be7b6d3baec94634216e628e7eb5626ffe7516254630cf"}, "s/s/s8cc430b6/b/be9ad70de/data/awakening/cycles/e3789317649247b3c6922271dbd3edc55a9ff2363137132b6b5e2c2f5adeb356.json": {"bytes": 253, "sha256": "00ab2e1d53d08d735ad7289d21bc5bc591a21a768bb3979a591b1fcf0fa2bb4b"}, "s/s/s8cc430b6/b/be9ad70de/data/awakening/sessions/ed6cbaf31c4e700cbe011853d5162a315995addff7e4381c3607caa4e0a5dc14/daaeeb35b318e6ea02dc50aff5e08529acd8308218a54ab6fea58ef45160d687.json": {"bytes": 12478, "sha256": "3133d2a87abfd6c8f5296ccc86d14a8e009dfe3657e78089ae0db1f3f107f6b1"}, "s/s/s8cc430b6/b/be9ad70de/data/c1-receipts/p08-fake-receipts.json": {"bytes": 148, "sha256": "a411df96a3b6eea514baf41f59d45ab70c55b96ee9f28e118d79525ea3bfe8c8"}, "s/s/s8cc430b6/b/be9ad70de/data/clock/subject-clock.v1.json": {"bytes": 109, "sha256": "9215b6977c7811370330d01c8bfe7e63b8e43ba8b12a8f09d85b24e7efac24ad"}, "s/s/s8cc430b6/b/be9ad70de/data/contradiction/test/ed6cbaf31c4e700cbe011853d5162a315995addff7e4381c3607caa4e0a5dc14.json": {"bytes": 228, "sha256": "47a59ecc1f8022174b8157eb626c04298e5807fe2b23974e61eb0caa8333edb8"}, "s/s/s8cc430b6/b/be9ad70de/data/fixture/c1-profile.v1.json": {"bytes": 102, "sha256": "31575280aca3cb797d888443d9f4b4b6eb67bd00b7b00eadc9f3dbdafaff5c4f"}, "s/s/s8cc430b6/b/be9ad70de/data/fixture/state-fixture.v1.json": {"bytes": 635, "sha256": "af384bf9a42f963f6c01446f38b1934216f926f2397fe7fd8694cb02f3aa636f"}, "s/s/s8cc430b6/b/be9ad70de/data/integration/capability-ledger.v1.json": {"bytes": 82, "sha256": "95f292f0db842e43cccb490ce10bbeefd3bab92d43fa69f4bb1b6188d4ed43de"}, "s/s/s8cc430b6/b/be9ad70de/data/integration/operation-journal.first-round-v1.json": {"bytes": 34622, "sha256": "790cf6a564f8a5744c3e6076f6cc24bb52a69f0cdaa92f9574d74f210db3a87c"}, "s/s/s8cc430b6/b/be9ad70de/data/integration/result-ledger.first-round-v1.json": {"bytes": 63, "sha256": "5407f91ac04019966f84bfbad51ebc1fb904bd085a6579febfa75a9ea068592a"}, "s/s/s8cc430b6/b/be9ad70de/data/integration/subject-binding.runtime-v1.json": {"bytes": 613, "sha256": "bddeca3bdcfe392f694c773103919fa301841997dcdccf46328438a72bb8ceab"}, "s/s/s8cc430b6/b/be9ad70de/data/learning/ed6cbaf31c4e700cbe011853d5162a315995addff7e4381c3607caa4e0a5dc14.json": {"bytes": 2154, "sha256": "532751e78ce54b108dfcf990255f6caa40a9a59ad5a00d9669bce939e71a24b2"}, "s/s/s8cc430b6/b/be9ad70de/data/memory/test/ed6cbaf31c4e700cbe011853d5162a315995addff7e4381c3607caa4e0a5dc14.json": {"bytes": 8759, "sha256": "79f8b7311f4463e82634cf2c25e1b13514bec73a9868d55f275abc87c70064f2"}, "s/s/s8cc430b6/b/be9ad70de/data/resources/ed6cbaf31c4e700cbe011853d5162a315995addff7e4381c3607caa4e0a5dc14.json": {"bytes": 437, "sha256": "16bf8c1ea86936fe0bc2522bc1f7daee90526a1d3743abf472321cb91149b65a"}, "s/s/s8cc430b6/b/be9ad70de/data/subject-state/ed6cbaf31c4e700cbe011853d5162a315995addff7e4381c3607caa4e0a5dc14.json": {"bytes": 5899, "sha256": "39101a656a689deefdeaf329bd6d51eed5e0186903f0a999f4a3ea459ef33b4d"}, "s/s/s8cc430b6/b/be9ad70de/data/test-actions/action-sessions.v1.json": {"bytes": 128, "sha256": "b486a70d266f1695961976af2a1e30b94a255390bd9fc63ddbbb94d23bb8f927"}, "s/s/s8cc430b6/b/be9ad70de/data/test-indexes/events.v1.json": {"bytes": 138, "sha256": "9fedf8815946e33b3ab4e9a27e65cdee31c104b1ff1074af1bb6c278331bf488"}, "s/s/s8cc430b6/b/be9ad70de/data/test-indexes/evolution.v1.json": {"bytes": 141, "sha256": "26014833a0e69fbe452252b927263b767e1ea74f817cec621d4f5cdf2d35bace"}, "s/s/s8cc430b6/b/be9ad70de/data/test-indexes/relationship-state.v1.json": {"bytes": 150, "sha256": "7772f51450541bd0e9c1999fbbb3a1df675556a86642bb464a2c64585390c401"}, "s/s/s8cc430b6/b/be9ad70de/data/test-indexes/state-mutations.v1.json": {"bytes": 147, "sha256": "b0bdb1abacfd10bc9cde8efa5e67e9f67701ce7acbb0a786a7d36a561df03da9"}, "s/s/s8cc430b6/b/be9ad70de/data/test-indexes/thinking-sessions.v1.json": {"bytes": 149, "sha256": "a0dbcb8432c1adff6177acd1e22b9a43401f474c84c7aaef970acf4efb1718d0"}, "s/s/s8cc430b6/b/be9ad70de/data/test-indexes/wake-sessions.v1.json": {"bytes": 145, "sha256": "9c92e92c6fd4810d08bb28f53c4959c1d5c025f1bf93423865fed7b96549a0ef"}, "s/s/s8cc430b6/b/be9ad70de/data/test-memory/memory-ledger.v1.json": {"bytes": 631, "sha256": "57bb289c4559c271a0f51bea3f4d4fe17fb42768343bb1d0a47d2f60f67e690f"}, "s/s/s8cc430b6/b/be9ad70de/data/test-trace/subject-clock-trace.v1.json": {"bytes": 1558, "sha256": "22a992926524d35f935009e7bc954706f645d71c19531863c596bbd34944b583"}, "s/s/s8cc430b6/sandbox-manifest.v1.json": {"bytes": 910, "sha256": "c9e82e64da32e849799da806ddf9c68cb744e49a37d16ff7fc63bbc8f02d260f"}, "s/sandbox-registry.v1.json": {"bytes": 476, "sha256": "bfbac1c72f2d7911655a73035594896fca2f9c4e4ecc81dd1dc7f5e2209fb06f"}}}
+test_t05_variants_preserve_report_scope (tests.test_w02_recall.AutomaticRecallTests.test_t05_variants_preserve_report_scope) ... ok
+test_actual_effect_return_lost_replays_without_duplicate (tests.test_w02_recall_boundaries.RecallBoundaryTests.test_actual_effect_return_lost_replays_without_duplicate) ... FAIL
+{"test": "tests.test_w02_recall_boundaries.RecallBoundaryTests.test_actual_effect_return_lost_replays_without_duplicate", "stage": "before-TEST-cleanup", "files": {"s/.p01-sandbox-root.v1.json": {"bytes": 98, "sha256": "3ced39d6b395df89d9b1f34e1b3faf46c14ccc6edab679a616f588a978e002f7"}, "s/s/s1688fda3/b/bb1792ea0/branch-manifest.v1.json": {"bytes": 243, "sha256": "f8363593fb21e6fbfead6e54d1aa51f449d05ca5a3e87ad5b261c03ab67d2bb3"}, "s/s/s1688fda3/b/bb1792ea0/data/awakening/cycles/2aad3b67450e9ce032b9253bddac58e812a5afeda5b1199cba69f7308d755c2b.json": {"bytes": 253, "sha256": "33e0a39c71c1188b4306426bbdbbd2385944a7c36398fddb257a28fbe3e55d11"}, "s/s/s1688fda3/b/bb1792ea0/data/awakening/sessions/826ab92717ca395122537944a6da6daeaec5b09f9aa2333b70afcf141ed9fb24/cc446bbb5b362e6398413b135245c2f88e7ff5f017ca7e6d3bc354c7ab8f97d8.json": {"bytes": 10657, "sha256": "aa08afd4d049d84d26a263dda22e147bd881d5e7f17370a26816a66c160672c5"}, "s/s/s1688fda3/b/bb1792ea0/data/c1-receipts/p08-fake-receipts.json": {"bytes": 148, "sha256": "a411df96a3b6eea514baf41f59d45ab70c55b96ee9f28e118d79525ea3bfe8c8"}, "s/s/s1688fda3/b/bb1792ea0/data/clock/subject-clock.v1.json": {"bytes": 109, "sha256": "9215b6977c7811370330d01c8bfe7e63b8e43ba8b12a8f09d85b24e7efac24ad"}, "s/s/s1688fda3/b/bb1792ea0/data/contradiction/test/826ab92717ca395122537944a6da6daeaec5b09f9aa2333b70afcf141ed9fb24.json": {"bytes": 228, "sha256": "d8c5d6189d37b0ed35e0e146b295bf1f21588b50cbdcdd8f4e8b90820305e177"}, "s/s/s1688fda3/b/bb1792ea0/data/fixture/c1-profile.v1.json": {"bytes": 102, "sha256": "bbf5809d42b08473fafde7fad83e0b5e9450cc0bb487173f5b033c9151587b6a"}, "s/s/s1688fda3/b/bb1792ea0/data/fixture/state-fixture.v1.json": {"bytes": 635, "sha256": "180bd0f81d4632a7c087aeeedc5bf2fd54281fc4dfdc2f8cd3461fb59da60620"}, "s/s/s1688fda3/b/bb1792ea0/data/integration/capability-ledger.v1.json": {"bytes": 82, "sha256": "95f292f0db842e43cccb490ce10bbeefd3bab92d43fa69f4bb1b6188d4ed43de"}, "s/s/s1688fda3/b/bb1792ea0/data/integration/operation-journal.first-round-v1.json": {"bytes": 30089, "sha256": "d18ead7f60ba35306bfbe4e642bf9c01404ef1a1afae38cd817e598100320609"}, "s/s/s1688fda3/b/bb1792ea0/data/integration/result-ledger.first-round-v1.json": {"bytes": 63, "sha256": "5407f91ac04019966f84bfbad51ebc1fb904bd085a6579febfa75a9ea068592a"}, "s/s/s1688fda3/b/bb1792ea0/data/integration/subject-binding.runtime-v1.json": {"bytes": 613, "sha256": "c98671a3b2e3c9833730b062d9b9d47813df93218b5d50e52c50f69cc17fc408"}, "s/s/s1688fda3/b/bb1792ea0/data/learning/826ab92717ca395122537944a6da6daeaec5b09f9aa2333b70afcf141ed9fb24.json": {"bytes": 2154, "sha256": "a6cd42214744589a6d9ee06278841ab4f0e609d6b4e4dd89c68055ee3561cf0a"}, "s/s/s1688fda3/b/bb1792ea0/data/memory/test/826ab92717ca395122537944a6da6daeaec5b09f9aa2333b70afcf141ed9fb24.json": {"bytes": 4202, "sha256": "fd203fc302929c71181bc250d7f03acd7cc087bb5f5accdad26460cfff9186cc"}, "s/s/s1688fda3/b/bb1792ea0/data/resources/826ab92717ca395122537944a6da6daeaec5b09f9aa2333b70afcf141ed9fb24.json": {"bytes": 437, "sha256": "49fcb8557c0859c7c9f3b061e873891fed857c86e88ad627a5ed3838f3000304"}, "s/s/s1688fda3/b/bb1792ea0/data/subject-state/826ab92717ca395122537944a6da6daeaec5b09f9aa2333b70afcf141ed9fb24.json": {"bytes": 4912, "sha256": "a56caa8d443792e1cf8ce95848f15bee66761fbee7c1ba73e2e50889b5253e1a"}, "s/s/s1688fda3/b/bb1792ea0/data/test-actions/action-sessions.v1.json": {"bytes": 128, "sha256": "52073362652c581152d60580a8b5af3a5aa2a5ba9e753379d306b2fd550a075b"}, "s/s/s1688fda3/b/bb1792ea0/data/test-indexes/events.v1.json": {"bytes": 138, "sha256": "135154540099984831e2765b6f0180b71f0cfb26c55a89b0807fe2b3593aa51f"}, "s/s/s1688fda3/b/bb1792ea0/data/test-indexes/evolution.v1.json": {"bytes": 141, "sha256": "7ed620a51c0c0f1e5f1a2040f6f47bd2aeb6bb0ad988ca20a83e28244730b991"}, "s/s/s1688fda3/b/bb1792ea0/data/test-indexes/relationship-state.v1.json": {"bytes": 150, "sha256": "fd053d94cf75bc46e52a99eb4fd06ba0356fd3ea65b489410cb83ba66e826a71"}, "s/s/s1688fda3/b/bb1792ea0/data/test-indexes/state-mutations.v1.json": {"bytes": 147, "sha256": "9db226c393b607c1226b9a8465344ed90d25596c3d1d0488d497df935c82a7cb"}, "s/s/s1688fda3/b/bb1792ea0/data/test-indexes/thinking-sessions.v1.json": {"bytes": 149, "sha256": "6381055ad03f4a0ecd1c586adfde067e0053faa2602af5ef3dd9597de2eb10d2"}, "s/s/s1688fda3/b/bb1792ea0/data/test-indexes/wake-sessions.v1.json": {"bytes": 145, "sha256": "bb0a57719f889fe5c6e94e11415e6a6c7731c9c7efa4ace9cb27c44e0db52421"}, "s/s/s1688fda3/b/bb1792ea0/data/test-memory/memory-ledger.v1.json": {"bytes": 631, "sha256": "a70254727ec9e350fb8301a2623a7d26061b8b0ba0d2b07f678ed7b5657b1a96"}, "s/s/s1688fda3/b/bb1792ea0/data/test-trace/subject-clock-trace.v1.json": {"bytes": 1558, "sha256": "aa76a680ca9ae8880d456c154c2fc0a648a1d584acdb18b675f708aebb0eeae5"}, "s/s/s1688fda3/sandbox-manifest.v1.json": {"bytes": 910, "sha256": "d90c0001f1079b1103f224b070fd09e0624b3cb97f7c53bb78546b07e044b1d0"}, "s/sandbox-registry.v1.json": {"bytes": 476, "sha256": "d55b7bd9a3cac9f7f375beb8ccfd9fe021df111f6e5e88cbec04381b70764072"}}}
+test_bound_policy_does_not_force_fixed_depth (tests.test_w02_recall_boundaries.RecallBoundaryTests.test_bound_policy_does_not_force_fixed_depth) ... ERROR
+{"test": "tests.test_w02_recall_boundaries.RecallBoundaryTests.test_bound_policy_does_not_force_fixed_depth", "stage": "before-TEST-cleanup", "files": {"s/.p01-sandbox-root.v1.json": {"bytes": 98, "sha256": "3ced39d6b395df89d9b1f34e1b3faf46c14ccc6edab679a616f588a978e002f7"}, "s/s/s5efbd150/b/b9e57ce96/branch-manifest.v1.json": {"bytes": 243, "sha256": "032b5f3fa6680e199dedd6729e3b95a13f8742532246d0f46838f3575952c7d5"}, "s/s/s5efbd150/b/b9e57ce96/data/awakening/cycles/ccedf9cc471092d6e7b7ca6664f85a0c1a4db74d4915821323327155ab0e8bd6.json": {"bytes": 253, "sha256": "a1489328d77d83620832fe67f6d1f791640a3ece14291b2eefe692565d8eb420"}, "s/s/s5efbd150/b/b9e57ce96/data/awakening/sessions/4a8b07b7ca5db0ae24c7970764e258ea8fff51a406f21a1e73381b027eae2216/7552c543fd7b8e13b85870b46514999797e680385e92a38bc0578be49d2dc53d.json": {"bytes": 10657, "sha256": "ee1e6e024b59af276ac145025357f3d82aa59c28b9ccd3d032e8d2064b372c3b"}, "s/s/s5efbd150/b/b9e57ce96/data/c1-receipts/p08-fake-receipts.json": {"bytes": 148, "sha256": "a411df96a3b6eea514baf41f59d45ab70c55b96ee9f28e118d79525ea3bfe8c8"}, "s/s/s5efbd150/b/b9e57ce96/data/clock/subject-clock.v1.json": {"bytes": 109, "sha256": "9215b6977c7811370330d01c8bfe7e63b8e43ba8b12a8f09d85b24e7efac24ad"}, "s/s/s5efbd150/b/b9e57ce96/data/contradiction/test/4a8b07b7ca5db0ae24c7970764e258ea8fff51a406f21a1e73381b027eae2216.json": {"bytes": 228, "sha256": "0e609a7ce8e2b91af498ba79c876a8b672ee40c02708fbb046d62e396cb3eef2"}, "s/s/s5efbd150/b/b9e57ce96/data/fixture/c1-profile.v1.json": {"bytes": 102, "sha256": "cb1dfc93f41eca8aea4ddad88973dcc663f1805f5a80ab94084f1097a4256fd5"}, "s/s/s5efbd150/b/b9e57ce96/data/fixture/state-fixture.v1.json": {"bytes": 635, "sha256": "7b9b62537cc3a44d73f97b66ece8f7fb65b54a5001aa19ac228cd2cc197b7725"}, "s/s/s5efbd150/b/b9e57ce96/data/integration/capability-ledger.v1.json": {"bytes": 82, "sha256": "95f292f0db842e43cccb490ce10bbeefd3bab92d43fa69f4bb1b6188d4ed43de"}, "s/s/s5efbd150/b/b9e57ce96/data/integration/operation-journal.first-round-v1.json": {"bytes": 30089, "sha256": "d4edd93efd7e7667f9d83f2c23212e258206c0fc65ba1e14f4cf3de32014058b"}, "s/s/s5efbd150/b/b9e57ce96/data/integration/result-ledger.first-round-v1.json": {"bytes": 63, "sha256": "5407f91ac04019966f84bfbad51ebc1fb904bd085a6579febfa75a9ea068592a"}, "s/s/s5efbd150/b/b9e57ce96/data/integration/subject-binding.runtime-v1.json": {"bytes": 613, "sha256": "37dd89cb413937fc4fb52217190e65ba27901510a07e0a8f85f452114ea22f5b"}, "s/s/s5efbd150/b/b9e57ce96/data/learning/4a8b07b7ca5db0ae24c7970764e258ea8fff51a406f21a1e73381b027eae2216.json": {"bytes": 2154, "sha256": "3c8c53b7fd882729c8ca413465d699c59679d9c8bc35eaa0017361d2f0b2c831"}, "s/s/s5efbd150/b/b9e57ce96/data/memory/test/4a8b07b7ca5db0ae24c7970764e258ea8fff51a406f21a1e73381b027eae2216.json": {"bytes": 4202, "sha256": "d80ce3ee634424daa76b77b4f85898d0ad8b62d3b18257b757ea573fa17308b6"}, "s/s/s5efbd150/b/b9e57ce96/data/resources/4a8b07b7ca5db0ae24c7970764e258ea8fff51a406f21a1e73381b027eae2216.json": {"bytes": 437, "sha256": "a94dfbc0a03a4ae70c3dbd4b2c1f5eda1a7a1caaacc4bb4be3d85a531fab0c95"}, "s/s/s5efbd150/b/b9e57ce96/data/subject-state/4a8b07b7ca5db0ae24c7970764e258ea8fff51a406f21a1e73381b027eae2216.json": {"bytes": 4912, "sha256": "ca19193f49c5adbbaa1abce052777e953077d695c067aad2fba81890d87092eb"}, "s/s/s5efbd150/b/b9e57ce96/data/test-actions/action-sessions.v1.json": {"bytes": 128, "sha256": "b264322bdf8d871b5fcd4d22a7c9878e4c465a9e938c167c78dd874c890d84a5"}, "s/s/s5efbd150/b/b9e57ce96/data/test-indexes/events.v1.json": {"bytes": 138, "sha256": "c498e70fab06b73b2e17420f288aaaad1e5acc2228546da8fcbd65ad1158e335"}, "s/s/s5efbd150/b/b9e57ce96/data/test-indexes/evolution.v1.json": {"bytes": 141, "sha256": "550cfedc14db96a43c96d371ed67ef1a9097809afc6dd72c2bbea56b3e1a0a03"}, "s/s/s5efbd150/b/b9e57ce96/data/test-indexes/relationship-state.v1.json": {"bytes": 150, "sha256": "db2b22ec0af0a90b06d88ba56fe2d0c9d9e07755596d18f843f0c401c128adfe"}, "s/s/s5efbd150/b/b9e57ce96/data/test-indexes/state-mutations.v1.json": {"bytes": 147, "sha256": "dc813aae1fefc5be90d927e2332c96d474f28bf242e4ad04977e67250fc8d7dc"}, "s/s/s5efbd150/b/b9e57ce96/data/test-indexes/thinking-sessions.v1.json": {"bytes": 149, "sha256": "70b3a6ad397c00a340f09806d41f060db3df16d402cfff71aaab05e795ac93ba"}, "s/s/s5efbd150/b/b9e57ce96/data/test-indexes/wake-sessions.v1.json": {"bytes": 145, "sha256": "aa36bbeeaa71dd6d233a4c814d3788f6e4d4f3ee6bba8f52751be50c46ef290c"}, "s/s/s5efbd150/b/b9e57ce96/data/test-memory/memory-ledger.v1.json": {"bytes": 631, "sha256": "34947764b1009aa913ea2fe6664eb665a435a8bc636688392a456a84f443c2ae"}, "s/s/s5efbd150/b/b9e57ce96/data/test-trace/subject-clock-trace.v1.json": {"bytes": 1558, "sha256": "3c7997f854f51e1551c23b8c08d29d6514cb7be4f7185d177427143ce70e224b"}, "s/s/s5efbd150/sandbox-manifest.v1.json": {"bytes": 910, "sha256": "59a0f68d2c00e3efb094330d504bd62cce925268bc5b9554f7648d9ddb5a3ef9"}, "s/sandbox-registry.v1.json": {"bytes": 476, "sha256": "8440f3f40ed3e43fa6def26036b509dc94a4fd39c81f539d1ee4de8c8323f5d4"}}}
+test_corrupt_recall_hash_is_refused_without_writes (tests.test_w02_recall_boundaries.RecallBoundaryTests.test_corrupt_recall_hash_is_refused_without_writes) ... ERROR
+{"test": "tests.test_w02_recall_boundaries.RecallBoundaryTests.test_corrupt_recall_hash_is_refused_without_writes", "stage": "before-TEST-cleanup", "files": {"s/.p01-sandbox-root.v1.json": {"bytes": 98, "sha256": "3ced39d6b395df89d9b1f34e1b3faf46c14ccc6edab679a616f588a978e002f7"}, "s/s/s7c3ae2b6/b/b98eebb8b/branch-manifest.v1.json": {"bytes": 243, "sha256": "ba63f7380f99e55f5acc8b833b96c26aa9243046984dfc92d94bdd084227cf82"}, "s/s/s7c3ae2b6/b/b98eebb8b/data/awakening/cycles/4ceeb961468df9a2a4a06e8210fc879c8a8c38e9402cc75f84ec0591ec37f7a5.json": {"bytes": 253, "sha256": "84b9c22d8e4e8041264a673b42b2653fce9c5e96cbad8e80968edd36864c80a1"}, "s/s/s7c3ae2b6/b/b98eebb8b/data/awakening/sessions/5dc2fecf083621e155d147dc10d0b33223253d895929857128daede5d20ad64b/5e4300413ea2fdf75c7e610d123ec11f765d08a44823a3ae774e08dfa7f0f1fa.json": {"bytes": 10657, "sha256": "039c58b8f0331ccd7ff3ae872df7a0cdb37447f28beb68b859a8143d482fdaab"}, "s/s/s7c3ae2b6/b/b98eebb8b/data/c1-receipts/p08-fake-receipts.json": {"bytes": 148, "sha256": "a411df96a3b6eea514baf41f59d45ab70c55b96ee9f28e118d79525ea3bfe8c8"}, "s/s/s7c3ae2b6/b/b98eebb8b/data/clock/subject-clock.v1.json": {"bytes": 109, "sha256": "9215b6977c7811370330d01c8bfe7e63b8e43ba8b12a8f09d85b24e7efac24ad"}, "s/s/s7c3ae2b6/b/b98eebb8b/data/contradiction/test/5dc2fecf083621e155d147dc10d0b33223253d895929857128daede5d20ad64b.json": {"bytes": 228, "sha256": "e2a3e8ac157f98423b8da4a94a2eba625e5abbd5d30cb1666989383f07aa2eb9"}, "s/s/s7c3ae2b6/b/b98eebb8b/data/fixture/c1-profile.v1.json": {"bytes": 102, "sha256": "42acaa0d57191aa9d9a9c5a3777bc1ca2a2b010a270bdbcf196905439236a2cb"}, "s/s/s7c3ae2b6/b/b98eebb8b/data/fixture/state-fixture.v1.json": {"bytes": 635, "sha256": "b400e1f8aa2ae271d64888ed5b15c84657afab178003877ebc4df8bd32bf8682"}, "s/s/s7c3ae2b6/b/b98eebb8b/data/integration/capability-ledger.v1.json": {"bytes": 82, "sha256": "95f292f0db842e43cccb490ce10bbeefd3bab92d43fa69f4bb1b6188d4ed43de"}, "s/s/s7c3ae2b6/b/b98eebb8b/data/integration/operation-journal.first-round-v1.json": {"bytes": 30089, "sha256": "78f58200f8d674856c33f8ab2180cf9eda9ea4851b738b073cbe1b7afed9bace"}, "s/s/s7c3ae2b6/b/b98eebb8b/data/integration/result-ledger.first-round-v1.json": {"bytes": 63, "sha256": "5407f91ac04019966f84bfbad51ebc1fb904bd085a6579febfa75a9ea068592a"}, "s/s/s7c3ae2b6/b/b98eebb8b/data/integration/subject-binding.runtime-v1.json": {"bytes": 613, "sha256": "b4f840aa6154e43bf7b5efec4af652490dd60f9c58bb1e7e99e92b4cfa278d67"}, "s/s/s7c3ae2b6/b/b98eebb8b/data/learning/5dc2fecf083621e155d147dc10d0b33223253d895929857128daede5d20ad64b.json": {"bytes": 2154, "sha256": "ee0f43f9cc0184ae8187ed19596fbc2ef4b839c53e59e09eb6c98ac9eb9cfc16"}, "s/s/s7c3ae2b6/b/b98eebb8b/data/memory/test/5dc2fecf083621e155d147dc10d0b33223253d895929857128daede5d20ad64b.json": {"bytes": 4202, "sha256": "c777fc83f7688ac360ff7d1ef608fbe6fdd05608f2c583f98516144140fa7e71"}, "s/s/s7c3ae2b6/b/b98eebb8b/data/resources/5dc2fecf083621e155d147dc10d0b33223253d895929857128daede5d20ad64b.json": {"bytes": 437, "sha256": "bd4b34617990ee0ba6f966739200dcd77ce7df3a977c17a94f711928ce3e5f18"}, "s/s/s7c3ae2b6/b/b98eebb8b/data/subject-state/5dc2fecf083621e155d147dc10d0b33223253d895929857128daede5d20ad64b.json": {"bytes": 4912, "sha256": "1f36f4fcafbacf9c2eb24434375b0efd64c2b7d9afff01bc03e8665d9d27462f"}, "s/s/s7c3ae2b6/b/b98eebb8b/data/test-actions/action-sessions.v1.json": {"bytes": 128, "sha256": "d003ec1d21524bd0d6a34b6e9a614b8e7f8084f349cc83ce7a845c8b4ae542a5"}, "s/s/s7c3ae2b6/b/b98eebb8b/data/test-indexes/events.v1.json": {"bytes": 138, "sha256": "44f10b2aae7ef13cc3be0ea6740f9e82b07220d329906808e5ff6aff76d21a91"}, "s/s/s7c3ae2b6/b/b98eebb8b/data/test-indexes/evolution.v1.json": {"bytes": 141, "sha256": "364dc560a845f2f0f290a37e43d3f66dc638e17b94dcd6b2396d684eb9ec9f6f"}, "s/s/s7c3ae2b6/b/b98eebb8b/data/test-indexes/relationship-state.v1.json": {"bytes": 150, "sha256": "d0d929629f67762d2a6caafbde0ae52e35317c2d76a2cc616bd7ca9461e9eef9"}, "s/s/s7c3ae2b6/b/b98eebb8b/data/test-indexes/state-mutations.v1.json": {"bytes": 147, "sha256": "cded7cfcfac3e7a16c23c7244ecc4d36fbe3390a917d98ff4894beaa18f2f149"}, "s/s/s7c3ae2b6/b/b98eebb8b/data/test-indexes/thinking-sessions.v1.json": {"bytes": 149, "sha256": "8e2c059008b0ed374cd7937526c2bbc4f03fc210e4783b73f32b1eb8d9bfa4d6"}, "s/s/s7c3ae2b6/b/b98eebb8b/data/test-indexes/wake-sessions.v1.json": {"bytes": 145, "sha256": "a6666db9654f0c987aee787fb902766f9b7afdd4729e73cb5b05b3c36a9f5b51"}, "s/s/s7c3ae2b6/b/b98eebb8b/data/test-memory/memory-ledger.v1.json": {"bytes": 631, "sha256": "206b9044280d7550e06d77cad50f9f7a784a6d6d6146611bfa76784b17ae910a"}, "s/s/s7c3ae2b6/b/b98eebb8b/data/test-trace/subject-clock-trace.v1.json": {"bytes": 1558, "sha256": "e644918d86684536e06204feab95f1dee71f36da31e553529f833dd0c96667d2"}, "s/s/s7c3ae2b6/sandbox-manifest.v1.json": {"bytes": 910, "sha256": "397982aa19ac612ea22804911eb2c388a646bbe204374b915d79d2f16191a8a7"}, "s/sandbox-registry.v1.json": {"bytes": 476, "sha256": "3b7c2792ad9c1a5d88502d913800c1957305a1e0b749dc2fffa61bc297bec037"}}}
+test_disabled_gate_preserves_original_round_trip (tests.test_w02_recall_boundaries.RecallBoundaryTests.test_disabled_gate_preserves_original_round_trip) ... ok
+test_native_cognition_uses_same_pre_answer_evaluation (tests.test_w02_recall_boundaries.RecallBoundaryTests.test_native_cognition_uses_same_pre_answer_evaluation) ... ERROR
+{"test": "tests.test_w02_recall_boundaries.RecallBoundaryTests.test_native_cognition_uses_same_pre_answer_evaluation", "stage": "before-TEST-cleanup", "files": {"s/.p01-sandbox-root.v1.json": {"bytes": 98, "sha256": "3ced39d6b395df89d9b1f34e1b3faf46c14ccc6edab679a616f588a978e002f7"}, "s/s/s4e441a4e/b/b3793fa7f/branch-manifest.v1.json": {"bytes": 243, "sha256": "077bf70967c151e912b313f1811cf049b685820ff1ed5eb63ca60325316710cc"}, "s/s/s4e441a4e/b/b3793fa7f/data/awakening/cycles/e27f0d145bc6ba6848a8bb340161b3fea75e66bce077d3abb610d3578ea34278.json": {"bytes": 253, "sha256": "f1e1b3cb12ed32ffaabe91aeb9e1b97700c755064259200b22517dcf1357a4a8"}, "s/s/s4e441a4e/b/b3793fa7f/data/awakening/sessions/c23c539f42e3b0185b677322b417a018c0b436dfd790059f5161fffaf44e96eb/8918318faf7babb104e3bb21233abad8f3ac9e615106703ea88357ff99afca36.json": {"bytes": 10630, "sha256": "d6f637690ea60048294b2c6c1ec489a6e827d4abfeae567030bf9a9c5bfd7bfd"}, "s/s/s4e441a4e/b/b3793fa7f/data/c1-receipts/p08-fake-receipts.json": {"bytes": 148, "sha256": "a411df96a3b6eea514baf41f59d45ab70c55b96ee9f28e118d79525ea3bfe8c8"}, "s/s/s4e441a4e/b/b3793fa7f/data/clock/subject-clock.v1.json": {"bytes": 109, "sha256": "56a56d0b6a498cfca782bc0159303b1aa3f955696e541bda5ecee025aa66601e"}, "s/s/s4e441a4e/b/b3793fa7f/data/contradiction/test/c23c539f42e3b0185b677322b417a018c0b436dfd790059f5161fffaf44e96eb.json": {"bytes": 228, "sha256": "545b5c0cfcb42515991120a4489541ef7258ef7abc0ba82c5f16ff840f2a9ce4"}, "s/s/s4e441a4e/b/b3793fa7f/data/fixture/c1-profile.v1.json": {"bytes": 102, "sha256": "10fcc50c2463cca568401ba33236ec35755fa511ed7fe727d4bc57c5d686982a"}, "s/s/s4e441a4e/b/b3793fa7f/data/fixture/state-fixture.v1.json": {"bytes": 635, "sha256": "d4ad60c0acf5ce866cef58c524a6d73aa84302cac35b9385a5bb3eac410f9564"}, "s/s/s4e441a4e/b/b3793fa7f/data/integration/capability-ledger.v1.json": {"bytes": 82, "sha256": "95f292f0db842e43cccb490ce10bbeefd3bab92d43fa69f4bb1b6188d4ed43de"}, "s/s/s4e441a4e/b/b3793fa7f/data/integration/operation-journal.first-round-v1.json": {"bytes": 65, "sha256": "d99f9c31a9492c478a6023ebeabc5d660810a3e6d9ba6f1d9b76a425b89b2eab"}, "s/s/s4e441a4e/b/b3793fa7f/data/integration/result-ledger.first-round-v1.json": {"bytes": 63, "sha256": "5407f91ac04019966f84bfbad51ebc1fb904bd085a6579febfa75a9ea068592a"}, "s/s/s4e441a4e/b/b3793fa7f/data/integration/subject-binding.runtime-v1.json": {"bytes": 613, "sha256": "f5373839b20c1a89606b13a6a75c74dcc7f0c52e17e59cbaaedf88b9c91842fa"}, "s/s/s4e441a4e/b/b3793fa7f/data/learning/c23c539f42e3b0185b677322b417a018c0b436dfd790059f5161fffaf44e96eb.json": {"bytes": 2154, "sha256": "e08bf661a185cbc516154fe075941bb80763c7a36250e75abf0c4a91defc4938"}, "s/s/s4e441a4e/b/b3793fa7f/data/memory/test/c23c539f42e3b0185b677322b417a018c0b436dfd790059f5161fffaf44e96eb.json": {"bytes": 4202, "sha256": "a2e646ee92b8dcaaaf75bf2ba9eed07a95426d7d94a2d60871fa8d26ef6ad804"}, "s/s/s4e441a4e/b/b3793fa7f/data/resources/c23c539f42e3b0185b677322b417a018c0b436dfd790059f5161fffaf44e96eb.json": {"bytes": 437, "sha256": "64c1287c25f22258bc58c3bb3091954c089e32feb3928d030d981164e34c2a66"}, "s/s/s4e441a4e/b/b3793fa7f/data/subject-state/c23c539f42e3b0185b677322b417a018c0b436dfd790059f5161fffaf44e96eb.json": {"bytes": 4912, "sha256": "4e1ec2b6ae014eecf59b26b8ae4dcd019fb83dad259f690896fe47d1d54f631a"}, "s/s/s4e441a4e/b/b3793fa7f/data/test-actions/action-sessions.v1.json": {"bytes": 128, "sha256": "86d65b5aaf35e1c0a258cdff1f27dc25c5e87401e786c0efa9c87fcbce3b56bd"}, "s/s/s4e441a4e/b/b3793fa7f/data/test-indexes/events.v1.json": {"bytes": 138, "sha256": "6917c413639e4fe109bc65c0984f8a836730650263a9fdecaab7fe9cb054f51b"}, "s/s/s4e441a4e/b/b3793fa7f/data/test-indexes/evolution.v1.json": {"bytes": 141, "sha256": "e30c2feb5d7339adb306030a26f24b68f5f46989ad863251092957d6a47bae95"}, "s/s/s4e441a4e/b/b3793fa7f/data/test-indexes/relationship-state.v1.json": {"bytes": 150, "sha256": "fc9ed5029676408f91e31c3b175cb93092f4b2fe9e2ea7341b33ea0c258e6997"}, "s/s/s4e441a4e/b/b3793fa7f/data/test-indexes/state-mutations.v1.json": {"bytes": 147, "sha256": "2dc5fc589e18437edca2ed26623b647e36cbd2317333db2e4338a4d6e86ce764"}, "s/s/s4e441a4e/b/b3793fa7f/data/test-indexes/thinking-sessions.v1.json": {"bytes": 149, "sha256": "84ff54a403ed690433ca52793388d4f60c436e9a8af7951619b3962108c16032"}, "s/s/s4e441a4e/b/b3793fa7f/data/test-indexes/wake-sessions.v1.json": {"bytes": 145, "sha256": "e58736906b37cfe91e64f9b6c432bd1ea30aee79cba63ba8b89319ea13b6cc5e"}, "s/s/s4e441a4e/b/b3793fa7f/data/test-memory/memory-ledger.v1.json": {"bytes": 631, "sha256": "1e155e9ea5977280f720cbdc941db7c398118781f54c1b8a83ec8063f9970edd"}, "s/s/s4e441a4e/b/b3793fa7f/data/test-trace/subject-clock-trace.v1.json": {"bytes": 1558, "sha256": "12782cf76a0f7953d8ce9be0d15362571079e7cd8fec395b099a21b07d163df7"}, "s/s/s4e441a4e/sandbox-manifest.v1.json": {"bytes": 910, "sha256": "55f415c7e76b9fb3bc1cf5425c7ff9f3d9e76c50c0d743c022b7643ad2374af1"}, "s/sandbox-registry.v1.json": {"bytes": 476, "sha256": "a3b5959f6f8e770ad4cb6545e91aed7f0050da72e90141c6e831320b66aec775"}}}
+test_no_match_is_distinct_from_source_failure (tests.test_w02_recall_boundaries.RecallBoundaryTests.test_no_match_is_distinct_from_source_failure) ... ERROR
+{"test": "tests.test_w02_recall_boundaries.RecallBoundaryTests.test_no_match_is_distinct_from_source_failure", "stage": "before-TEST-cleanup", "files": {"s/.p01-sandbox-root.v1.json": {"bytes": 98, "sha256": "3ced39d6b395df89d9b1f34e1b3faf46c14ccc6edab679a616f588a978e002f7"}, "s/s/s731342cc/b/b97682649/branch-manifest.v1.json": {"bytes": 243, "sha256": "8295a6a14cff09e104dd852bd7981fb23d47a2b159ebb11c2edace4081f55281"}, "s/s/s731342cc/b/b97682649/data/awakening/cycles/fc3e7835908e4afda741796cbf794ef464497fcba5f8a4ea91729a4de2fd3208.json": {"bytes": 253, "sha256": "ada459c27d3b2f3718eb42730d91db293b52d4286473bf1197439bc7c13c4768"}, "s/s/s731342cc/b/b97682649/data/awakening/sessions/9c26838c88cafcff6ef1d5ecc48a11112774c7a614bba7e445d3d9da2a4e3d91/3788bea2f85964cbc7dedd0647cb5bae818b4f1475434779b96b61d5506ccaf5.json": {"bytes": 10657, "sha256": "810bfcb2766042a016d07e251653c17b28613bb2b95d358ab341e8ea67f88504"}, "s/s/s731342cc/b/b97682649/data/c1-receipts/p08-fake-receipts.json": {"bytes": 148, "sha256": "a411df96a3b6eea514baf41f59d45ab70c55b96ee9f28e118d79525ea3bfe8c8"}, "s/s/s731342cc/b/b97682649/data/clock/subject-clock.v1.json": {"bytes": 109, "sha256": "9215b6977c7811370330d01c8bfe7e63b8e43ba8b12a8f09d85b24e7efac24ad"}, "s/s/s731342cc/b/b97682649/data/contradiction/test/9c26838c88cafcff6ef1d5ecc48a11112774c7a614bba7e445d3d9da2a4e3d91.json": {"bytes": 228, "sha256": "ec2b9dd1b61e7bd73c55ff610fd18158b8e11c9346f842c1d24375923a3b991a"}, "s/s/s731342cc/b/b97682649/data/fixture/c1-profile.v1.json": {"bytes": 102, "sha256": "3e373a2217fb102bf1881e4446c4f40d9d476c0873758215b8157a5c8f0a4322"}, "s/s/s731342cc/b/b97682649/data/fixture/state-fixture.v1.json": {"bytes": 635, "sha256": "bb818d7476a1b0bb31db2232f0a5addddb2283dcd888fc4bbebaa56534dcdbcd"}, "s/s/s731342cc/b/b97682649/data/integration/capability-ledger.v1.json": {"bytes": 82, "sha256": "95f292f0db842e43cccb490ce10bbeefd3bab92d43fa69f4bb1b6188d4ed43de"}, "s/s/s731342cc/b/b97682649/data/integration/operation-journal.first-round-v1.json": {"bytes": 31020, "sha256": "006f05bfe03bf4bedd98952c9d4f7dd803c6f4a3ae40f9fe7c6fb82152ed87e2"}, "s/s/s731342cc/b/b97682649/data/integration/result-ledger.first-round-v1.json": {"bytes": 63, "sha256": "5407f91ac04019966f84bfbad51ebc1fb904bd085a6579febfa75a9ea068592a"}, "s/s/s731342cc/b/b97682649/data/integration/subject-binding.runtime-v1.json": {"bytes": 613, "sha256": "6b38d039a47b43e1e0832b0ca8e26eacd0e0dbbfaff100362276aa0c98ef8a2a"}, "s/s/s731342cc/b/b97682649/data/learning/9c26838c88cafcff6ef1d5ecc48a11112774c7a614bba7e445d3d9da2a4e3d91.json": {"bytes": 2154, "sha256": "47b2f43481223762860b7507a0950d87358ee362ebeb7a432c514afb04f7dd9e"}, "s/s/s731342cc/b/b97682649/data/memory/test/9c26838c88cafcff6ef1d5ecc48a11112774c7a614bba7e445d3d9da2a4e3d91.json": {"bytes": 4202, "sha256": "c2d23e9a3f8f42db0797b058f65ec9eda40098bae56ca87c91064f57da4c4418"}, "s/s/s731342cc/b/b97682649/data/resources/9c26838c88cafcff6ef1d5ecc48a11112774c7a614bba7e445d3d9da2a4e3d91.json": {"bytes": 437, "sha256": "cf2f8a40bb70e624cdc2e5ec943b47303597b4749d4b3a852b77f10dce304013"}, "s/s/s731342cc/b/b97682649/data/subject-state/9c26838c88cafcff6ef1d5ecc48a11112774c7a614bba7e445d3d9da2a4e3d91.json": {"bytes": 4912, "sha256": "8784ad324028b154b5504096fff7d95597bb82b6fb5ddda58a4b46e3678230cf"}, "s/s/s731342cc/b/b97682649/data/test-actions/action-sessions.v1.json": {"bytes": 128, "sha256": "57c6c2bb8efa681f175c7a93bf028f89feffd861643990dbba64a5842a5523f8"}, "s/s/s731342cc/b/b97682649/data/test-indexes/events.v1.json": {"bytes": 138, "sha256": "4f792649f1e14e18c60a121106451c30b054d0c4bc049dd439023fecf7808dca"}, "s/s/s731342cc/b/b97682649/data/test-indexes/evolution.v1.json": {"bytes": 141, "sha256": "23de9241e66700586540bc1f2fb63fc5124362761cff68553690e64723d985b6"}, "s/s/s731342cc/b/b97682649/data/test-indexes/relationship-state.v1.json": {"bytes": 150, "sha256": "a25cfb346262855e695dfb59e66b0289238f428eb67561198044ba2fe207f5b9"}, "s/s/s731342cc/b/b97682649/data/test-indexes/state-mutations.v1.json": {"bytes": 147, "sha256": "5907f12b1b2769756b1b52f1344fc9479f379c998f955d4482cbaecb364b288d"}, "s/s/s731342cc/b/b97682649/data/test-indexes/thinking-sessions.v1.json": {"bytes": 149, "sha256": "b7a13f29d258194b6a9460f15d4b978f7a5c068eb48a97775a10031717fd9b02"}, "s/s/s731342cc/b/b97682649/data/test-indexes/wake-sessions.v1.json": {"bytes": 145, "sha256": "4fcb2789780221e07110ac0320bd788c1c6df859a2bdde47d8e0761281dc4c54"}, "s/s/s731342cc/b/b97682649/data/test-memory/memory-ledger.v1.json": {"bytes": 631, "sha256": "d6f3b41b1a5a9a0feea38a060df4286fcb1c26a7c5c8c070bb63671b1eeb8582"}, "s/s/s731342cc/b/b97682649/data/test-trace/subject-clock-trace.v1.json": {"bytes": 1558, "sha256": "232d4a2f597cf85caf58e953434b079b2db75c52ce8617aaab8722745aff7369"}, "s/s/s731342cc/sandbox-manifest.v1.json": {"bytes": 910, "sha256": "cd3e48db7e3eb6540f2439b66d50fef0e735b7a03479ad4429dfddc31e31b403"}, "s/sandbox-registry.v1.json": {"bytes": 476, "sha256": "15746ede8ec18135ac90bff4b2a2f59fd748ca238c73f6dbf2fb59a046f71b73"}}}
+test_ready_preparation_return_lost_reuses_receipt (tests.test_w02_recall_boundaries.RecallBoundaryTests.test_ready_preparation_return_lost_reuses_receipt) ... ERROR
+{"test": "tests.test_w02_recall_boundaries.RecallBoundaryTests.test_ready_preparation_return_lost_reuses_receipt", "stage": "before-TEST-cleanup", "files": {"s/.p01-sandbox-root.v1.json": {"bytes": 98, "sha256": "3ced39d6b395df89d9b1f34e1b3faf46c14ccc6edab679a616f588a978e002f7"}, "s/s/s542a63e1/b/ba2fedc0b/branch-manifest.v1.json": {"bytes": 243, "sha256": "70fcba194c973287bd2a22537e82bac210821053fbaa6fbe832a79c88e8d18d6"}, "s/s/s542a63e1/b/ba2fedc0b/data/awakening/cycles/497e6ba79b2a21f51db918fc69fe8b9273cede1b0d1f80e34088f1caf8fb94da.json": {"bytes": 253, "sha256": "d74f19c064148b142a310d3b64631e62dc4443aa98d5013a477eea738d71e3e3"}, "s/s/s542a63e1/b/ba2fedc0b/data/awakening/sessions/c58214f6db1df6575064bead635d57becc84c53d6567dc4aedc0d3b3836cf50c/309fdbe2bed42c073400b947c12a25147480be7407d6ec9106e719d31eac0c40.json": {"bytes": 10657, "sha256": "2753586f8b24ef140d547b0a2a9c9c703a81305e20999bf2b2406c999325a7ab"}, "s/s/s542a63e1/b/ba2fedc0b/data/c1-receipts/p08-fake-receipts.json": {"bytes": 148, "sha256": "a411df96a3b6eea514baf41f59d45ab70c55b96ee9f28e118d79525ea3bfe8c8"}, "s/s/s542a63e1/b/ba2fedc0b/data/clock/subject-clock.v1.json": {"bytes": 109, "sha256": "9215b6977c7811370330d01c8bfe7e63b8e43ba8b12a8f09d85b24e7efac24ad"}, "s/s/s542a63e1/b/ba2fedc0b/data/contradiction/test/c58214f6db1df6575064bead635d57becc84c53d6567dc4aedc0d3b3836cf50c.json": {"bytes": 228, "sha256": "e7437698870cc0c4a0f04c0f5b2a8759a02a28271abc6e27e4efc936e46be070"}, "s/s/s542a63e1/b/ba2fedc0b/data/fixture/c1-profile.v1.json": {"bytes": 102, "sha256": "26bb310f2fe793ed51384466bcbb87db832cb4cf6deb8db9ae3d193ea2e200be"}, "s/s/s542a63e1/b/ba2fedc0b/data/fixture/state-fixture.v1.json": {"bytes": 635, "sha256": "e290a53d218a1fc519b3700a688f111cb9f974359029da4ca6518b9f60ca3bf0"}, "s/s/s542a63e1/b/ba2fedc0b/data/integration/capability-ledger.v1.json": {"bytes": 82, "sha256": "95f292f0db842e43cccb490ce10bbeefd3bab92d43fa69f4bb1b6188d4ed43de"}, "s/s/s542a63e1/b/ba2fedc0b/data/integration/operation-journal.first-round-v1.json": {"bytes": 30089, "sha256": "22223dcd33bdf85565e194833b06ec123aec703fa602f3ca48a2bc256c25bdd9"}, "s/s/s542a63e1/b/ba2fedc0b/data/integration/result-ledger.first-round-v1.json": {"bytes": 63, "sha256": "5407f91ac04019966f84bfbad51ebc1fb904bd085a6579febfa75a9ea068592a"}, "s/s/s542a63e1/b/ba2fedc0b/data/integration/subject-binding.runtime-v1.json": {"bytes": 613, "sha256": "58c023ebf071ca87e77b301c16a2b433261f7b902ccbd19fe34331d46dd9f82c"}, "s/s/s542a63e1/b/ba2fedc0b/data/learning/c58214f6db1df6575064bead635d57becc84c53d6567dc4aedc0d3b3836cf50c.json": {"bytes": 2154, "sha256": "b569b61a7f7bfecad6e880124a19f18dce53ac2d20dcb50f0bc3cd1bbfaf71f9"}, "s/s/s542a63e1/b/ba2fedc0b/data/memory/test/c58214f6db1df6575064bead635d57becc84c53d6567dc4aedc0d3b3836cf50c.json": {"bytes": 4202, "sha256": "9ce8d0813e6388914354588fd0aeb539a0b00e4be3bdcdd360c3712cde9f4bda"}, "s/s/s542a63e1/b/ba2fedc0b/data/resources/c58214f6db1df6575064bead635d57becc84c53d6567dc4aedc0d3b3836cf50c.json": {"bytes": 437, "sha256": "4f0142bdebe0c40d20a7ee8cb8d14bfb33eb7d1aeabf5fce872d0652f05f6f85"}, "s/s/s542a63e1/b/ba2fedc0b/data/subject-state/c58214f6db1df6575064bead635d57becc84c53d6567dc4aedc0d3b3836cf50c.json": {"bytes": 4912, "sha256": "1004eebd6bdcb476667eaf3e9fdfa2c315acddea9c0abc9718e8f19a97af8d1f"}, "s/s/s542a63e1/b/ba2fedc0b/data/test-actions/action-sessions.v1.json": {"bytes": 128, "sha256": "ac526f15bd8d16ab4dd9b31a5d87401c033cc28cdc4369a34d9a6df88916e8bc"}, "s/s/s542a63e1/b/ba2fedc0b/data/test-indexes/events.v1.json": {"bytes": 138, "sha256": "78daba113370bdd01a4e305f2af2740a52bf137bfd85e99942e76e18ad3ed7d5"}, "s/s/s542a63e1/b/ba2fedc0b/data/test-indexes/evolution.v1.json": {"bytes": 141, "sha256": "abc2b30f25c296bdea640e397ad51c1f15ad9089e04157dda9724d3df5744048"}, "s/s/s542a63e1/b/ba2fedc0b/data/test-indexes/relationship-state.v1.json": {"bytes": 150, "sha256": "85dbff489321ccba31a0b309638a9d91a53193900cbca3aafed80f9b91300f73"}, "s/s/s542a63e1/b/ba2fedc0b/data/test-indexes/state-mutations.v1.json": {"bytes": 147, "sha256": "cb66fea8448940e93b9946a41c2242c3112568debb3ae3c6679f68cc397f6bb6"}, "s/s/s542a63e1/b/ba2fedc0b/data/test-indexes/thinking-sessions.v1.json": {"bytes": 149, "sha256": "171dc2c62f7a1855fa6f2cde0187fb1567143bdbfd55038e4184a2b6c943ee0e"}, "s/s/s542a63e1/b/ba2fedc0b/data/test-indexes/wake-sessions.v1.json": {"bytes": 145, "sha256": "a584febc24ddbc150f5c92a92a794c2d800af300e909329ac2455b19767b7399"}, "s/s/s542a63e1/b/ba2fedc0b/data/test-memory/memory-ledger.v1.json": {"bytes": 631, "sha256": "0d59413ab431bec1d152ed46b40a3a9a611e76d31b503b33b2a6b2e805a9e87d"}, "s/s/s542a63e1/b/ba2fedc0b/data/test-trace/subject-clock-trace.v1.json": {"bytes": 1558, "sha256": "31711bca4393611d7f01450f67cc68d0c9e2a0bc84e306c43039b5fd3a1c2b20"}, "s/s/s542a63e1/sandbox-manifest.v1.json": {"bytes": 910, "sha256": "9cd826a121d8a5cf77067b9a43fa825a3e587427fd6eb43564e009a3a9f1d205"}, "s/sandbox-registry.v1.json": {"bytes": 476, "sha256": "8967a1dce74dd85fff2cbc9d024b0dcab87c3da31060abe6fb5ee3380c96f994"}}}
+test_reference_withdrawal_prevents_new_model (tests.test_w02_recall_boundaries.RecallBoundaryTests.test_reference_withdrawal_prevents_new_model) ... ok
+test_retrieval_and_context_budgets_are_independent (tests.test_w02_recall_boundaries.RecallBoundaryTests.test_retrieval_and_context_budgets_are_independent) ... ERROR
+{"test": "tests.test_w02_recall_boundaries.RecallBoundaryTests.test_retrieval_and_context_budgets_are_independent", "stage": "before-TEST-cleanup", "files": {"s/.p01-sandbox-root.v1.json": {"bytes": 98, "sha256": "3ced39d6b395df89d9b1f34e1b3faf46c14ccc6edab679a616f588a978e002f7"}, "s/s/s806c4f14/b/b4b6b8b45/branch-manifest.v1.json": {"bytes": 243, "sha256": "853953423cfd95ed50cae82e31d9a0a4975495c9d65bb04ac0dd79e87d95129a"}, "s/s/s806c4f14/b/b4b6b8b45/data/awakening/cycles/8608bdeca0aaa6af29deaf31b61810a6f38bbdbfa6aa0488560b85212a1944e5.json": {"bytes": 253, "sha256": "73450ac8b44b9a0f440230681317d76e47fe5a62328e2a16ec4abc24ccbe9153"}, "s/s/s806c4f14/b/b4b6b8b45/data/awakening/sessions/25967ca7cbd958e97e9f2d81b875f82e1338d87ba11ab78b8236f1cbac55623d/632d94ab1027e9ebe86eeadf442bd2fee8723fa2a2f303ef4a801f815e6d401c.json": {"bytes": 19712, "sha256": "7c0dd188ef8c30b5e2122e22602d8f4adca8d65a0494d721b677f801387365f7"}, "s/s/s806c4f14/b/b4b6b8b45/data/c1-receipts/p08-fake-receipts.json": {"bytes": 148, "sha256": "a411df96a3b6eea514baf41f59d45ab70c55b96ee9f28e118d79525ea3bfe8c8"}, "s/s/s806c4f14/b/b4b6b8b45/data/clock/subject-clock.v1.json": {"bytes": 109, "sha256": "9215b6977c7811370330d01c8bfe7e63b8e43ba8b12a8f09d85b24e7efac24ad"}, "s/s/s806c4f14/b/b4b6b8b45/data/contradiction/test/25967ca7cbd958e97e9f2d81b875f82e1338d87ba11ab78b8236f1cbac55623d.json": {"bytes": 228, "sha256": "e9f479c8a001ee41515ee38ec9c2ebc07b963e6c64a61ea9aba7ca7eb7710b33"}, "s/s/s806c4f14/b/b4b6b8b45/data/fixture/c1-profile.v1.json": {"bytes": 102, "sha256": "5d7d709368c3a029dbc26a08fe14b24da8b718a0bf6c016b2d704602391ac966"}, "s/s/s806c4f14/b/b4b6b8b45/data/fixture/state-fixture.v1.json": {"bytes": 635, "sha256": "ec357bdfd7c618c10c0da7bc3cef12c349dca5c52a16c5ab42ca09356550c74f"}, "s/s/s806c4f14/b/b4b6b8b45/data/integration/capability-ledger.v1.json": {"bytes": 82, "sha256": "95f292f0db842e43cccb490ce10bbeefd3bab92d43fa69f4bb1b6188d4ed43de"}, "s/s/s806c4f14/b/b4b6b8b45/data/integration/operation-journal.first-round-v1.json": {"bytes": 42771, "sha256": "8c0b39a433146e947da95ca4261dc62a02fda4b1c8596b59579ec22a6da025ca"}, "s/s/s806c4f14/b/b4b6b8b45/data/integration/result-ledger.first-round-v1.json": {"bytes": 63, "sha256": "5407f91ac04019966f84bfbad51ebc1fb904bd085a6579febfa75a9ea068592a"}, "s/s/s806c4f14/b/b4b6b8b45/data/integration/subject-binding.runtime-v1.json": {"bytes": 613, "sha256": "189c1b36a9d5806d853ac10a3fd37136ed86767a96ead7318911c3067e28a61d"}, "s/s/s806c4f14/b/b4b6b8b45/data/learning/25967ca7cbd958e97e9f2d81b875f82e1338d87ba11ab78b8236f1cbac55623d.json": {"bytes": 2154, "sha256": "38256fb63582e16d69d25ca2c5ac9e0fa5d3da8d7889042a467b5f81aaa41763"}, "s/s/s806c4f14/b/b4b6b8b45/data/memory/test/25967ca7cbd958e97e9f2d81b875f82e1338d87ba11ab78b8236f1cbac55623d.json": {"bytes": 23015, "sha256": "e9094c46660a67377a00b7d3211fa4a69eafe2896b2b5c2c4a3e0c5e1cee4ec6"}, "s/s/s806c4f14/b/b4b6b8b45/data/resources/25967ca7cbd958e97e9f2d81b875f82e1338d87ba11ab78b8236f1cbac55623d.json": {"bytes": 437, "sha256": "4eb95f0e4383fc253733fa6208af628317c71c613f541ff496a530ed51d0c202"}, "s/s/s806c4f14/b/b4b6b8b45/data/subject-state/25967ca7cbd958e97e9f2d81b875f82e1338d87ba11ab78b8236f1cbac55623d.json": {"bytes": 9827, "sha256": "b201c67c70bbc9d81c0d14b2db73e84ad9853629f3cdaec1c70da87e7936aae1"}, "s/s/s806c4f14/b/b4b6b8b45/data/test-actions/action-sessions.v1.json": {"bytes": 128, "sha256": "888615df97866d742d4e30d160571898e61716fc9786503aa21bfb9482591ba6"}, "s/s/s806c4f14/b/b4b6b8b45/data/test-indexes/events.v1.json": {"bytes": 138, "sha256": "830f956c6ee820ad6cf0b2e492494803c4d016f22cca20af2c149eaf6030691b"}, "s/s/s806c4f14/b/b4b6b8b45/data/test-indexes/evolution.v1.json": {"bytes": 141, "sha256": "be75714113004c3e752af19b51bda4c6fb47479445e7b723b69f2e2e4fa9ed8c"}, "s/s/s806c4f14/b/b4b6b8b45/data/test-indexes/relationship-state.v1.json": {"bytes": 150, "sha256": "1906083fc820f087b828186f122a188b20666b55c3715f5e5a6bd858e0592ce4"}, "s/s/s806c4f14/b/b4b6b8b45/data/test-indexes/state-mutations.v1.json": {"bytes": 147, "sha256": "42ca5998f780affec29eeca4ee7e8b5fca193be8f1c78085eef8e3e5f221955f"}, "s/s/s806c4f14/b/b4b6b8b45/data/test-indexes/thinking-sessions.v1.json": {"bytes": 149, "sha256": "64b67a32c211ea6cf307390889e1b80fd9d1a7c78ee99e9b489d64a1b34091ce"}, "s/s/s806c4f14/b/b4b6b8b45/data/test-indexes/wake-sessions.v1.json": {"bytes": 145, "sha256": "ada4d13fc4effdf50a1ae0b59ef0e222e82e5e196c697925dbf6b4a3bfcaa1cb"}, "s/s/s806c4f14/b/b4b6b8b45/data/test-memory/memory-ledger.v1.json": {"bytes": 631, "sha256": "ec5fbb68c0ac0b2c44b318091a15d106f8c0e5dd9e6ddc00889c94349f053472"}, "s/s/s806c4f14/b/b4b6b8b45/data/test-trace/subject-clock-trace.v1.json": {"bytes": 1558, "sha256": "0e06e1a916b007e350bb65d7d3ba28ebafcc741cb731d7af349daa47316d1c88"}, "s/s/s806c4f14/sandbox-manifest.v1.json": {"bytes": 910, "sha256": "ac71975e4b6bcc521e582650e70215d44a25595655f5373202af6f34537060ff"}, "s/sandbox-registry.v1.json": {"bytes": 476, "sha256": "27b55db70351326f2737d232a8dbf25cbfbee52291487c3332ea2744c98af6a6"}}}
+test_source_revocation_excludes_memory_and_history_projection (tests.test_w02_recall_boundaries.RecallBoundaryTests.test_source_revocation_excludes_memory_and_history_projection) ... ERROR
+{"test": "tests.test_w02_recall_boundaries.RecallBoundaryTests.test_source_revocation_excludes_memory_and_history_projection", "stage": "before-TEST-cleanup", "files": {"s/.p01-sandbox-root.v1.json": {"bytes": 98, "sha256": "3ced39d6b395df89d9b1f34e1b3faf46c14ccc6edab679a616f588a978e002f7"}, "s/s/s36f40b67/b/b8d1426ee/branch-manifest.v1.json": {"bytes": 243, "sha256": "06cb9ca027cda7e9a007a76b453c3ab7d4cf7a2c80adc3cdc73b7bf735c2c680"}, "s/s/s36f40b67/b/b8d1426ee/data/awakening/cycles/5648e4e9a6113cf629a4c2bbdbf30dcddc2f2d59d28fef43cbb0dadaa9517940.json": {"bytes": 253, "sha256": "3856d43d5849a64c6ddc3c90813ec953826c1f26b1354484cdadbd2e1327adca"}, "s/s/s36f40b67/b/b8d1426ee/data/awakening/sessions/2b8e2576494e9d3322da702bdaa4b76560416692f9389edba906bb1d8e6d8c5f/e5227b922a4a2fa91acc38b9ec93fa9a43f2ee6e6fc461a6cf2028c5df9d66f2.json": {"bytes": 12464, "sha256": "a63ecad73dd76855b45309b761620f12d30e36fb1ced52fa80229a2124e23dfa"}, "s/s/s36f40b67/b/b8d1426ee/data/c1-receipts/p08-fake-receipts.json": {"bytes": 148, "sha256": "a411df96a3b6eea514baf41f59d45ab70c55b96ee9f28e118d79525ea3bfe8c8"}, "s/s/s36f40b67/b/b8d1426ee/data/clock/subject-clock.v1.json": {"bytes": 109, "sha256": "9215b6977c7811370330d01c8bfe7e63b8e43ba8b12a8f09d85b24e7efac24ad"}, "s/s/s36f40b67/b/b8d1426ee/data/contradiction/test/2b8e2576494e9d3322da702bdaa4b76560416692f9389edba906bb1d8e6d8c5f.json": {"bytes": 228, "sha256": "cfe2d98278f3f54021892e252df2a65ea951c678fa7c460123130edf574158a7"}, "s/s/s36f40b67/b/b8d1426ee/data/fixture/c1-profile.v1.json": {"bytes": 102, "sha256": "ae3236715746342e8c7cbe1c3fbf7ddf8c3acd6c25d5e65bf8766dfb6fd4079d"}, "s/s/s36f40b67/b/b8d1426ee/data/fixture/state-fixture.v1.json": {"bytes": 635, "sha256": "b1a37ebf73df714d1b83f5dbefca453c97df58d05081963004df306a108a18f5"}, "s/s/s36f40b67/b/b8d1426ee/data/integration/capability-ledger.v1.json": {"bytes": 82, "sha256": "95f292f0db842e43cccb490ce10bbeefd3bab92d43fa69f4bb1b6188d4ed43de"}, "s/s/s36f40b67/b/b8d1426ee/data/integration/operation-journal.first-round-v1.json": {"bytes": 34595, "sha256": "131cce51eb50193cb173c5ab4b609779cb4b7685880ed03321f0af4f1e5475c4"}, "s/s/s36f40b67/b/b8d1426ee/data/integration/result-ledger.first-round-v1.json": {"bytes": 63, "sha256": "5407f91ac04019966f84bfbad51ebc1fb904bd085a6579febfa75a9ea068592a"}, "s/s/s36f40b67/b/b8d1426ee/data/integration/subject-binding.runtime-v1.json": {"bytes": 613, "sha256": "5b9f0974ef3763507d13dada63ea19c17889f3f54419d585d4341a906718c61b"}, "s/s/s36f40b67/b/b8d1426ee/data/learning/2b8e2576494e9d3322da702bdaa4b76560416692f9389edba906bb1d8e6d8c5f.json": {"bytes": 2154, "sha256": "c7e4a98a1f21058e3a8b6a4c4dbd3846255499814e8f74998b32ab71f0f46a56"}, "s/s/s36f40b67/b/b8d1426ee/data/memory/test/2b8e2576494e9d3322da702bdaa4b76560416692f9389edba906bb1d8e6d8c5f.json": {"bytes": 8720, "sha256": "7afbc83513d3fc59d38d2798b4cf65ec1dc5b57b9ba159c328152f9f178d1e02"}, "s/s/s36f40b67/b/b8d1426ee/data/resources/2b8e2576494e9d3322da702bdaa4b76560416692f9389edba906bb1d8e6d8c5f.json": {"bytes": 437, "sha256": "283ceb34d35cb40271b276a259872aca24025ea3e3000f5a37aed4b4a3c8c535"}, "s/s/s36f40b67/b/b8d1426ee/data/subject-state/2b8e2576494e9d3322da702bdaa4b76560416692f9389edba906bb1d8e6d8c5f.json": {"bytes": 5894, "sha256": "2c5324f2ffc82039202609fe883430f9dcdc81d3446d2ba0806c04db20cb9ac5"}, "s/s/s36f40b67/b/b8d1426ee/data/test-actions/action-sessions.v1.json": {"bytes": 128, "sha256": "5e79a5c06955c699d8d949c39a9ec77bd447ed144cbb31c4c5f4c1f02a35a296"}, "s/s/s36f40b67/b/b8d1426ee/data/test-indexes/events.v1.json": {"bytes": 138, "sha256": "d16e01070e5fa32402231d00bc53558115730686b52bdf8f3c4202aa4946e565"}, "s/s/s36f40b67/b/b8d1426ee/data/test-indexes/evolution.v1.json": {"bytes": 141, "sha256": "a95de563e75bb9a1914d75f1dc505dda6f807c18c90b21c14e9150c0ecacf241"}, "s/s/s36f40b67/b/b8d1426ee/data/test-indexes/relationship-state.v1.json": {"bytes": 150, "sha256": "f5c0d47a59cd8c698f4fa85ecb3c3dc734c01d5ec7ddabb9fe0a092626195cd3"}, "s/s/s36f40b67/b/b8d1426ee/data/test-indexes/state-mutations.v1.json": {"bytes": 147, "sha256": "e5a9ae62de953e1da3dda205186f9887998dbac35d27a6496b50a90e44d95eed"}, "s/s/s36f40b67/b/b8d1426ee/data/test-indexes/thinking-sessions.v1.json": {"bytes": 149, "sha256": "c74524be6d7c5d84ad3a122ebcc6f801c455daffe2701145f4d4c82d3f3fa371"}, "s/s/s36f40b67/b/b8d1426ee/data/test-indexes/wake-sessions.v1.json": {"bytes": 145, "sha256": "96d6b14c8d3f2d8e093303fe394a56b88a106394a11a4b9621d46614110a10fa"}, "s/s/s36f40b67/b/b8d1426ee/data/test-memory/memory-ledger.v1.json": {"bytes": 631, "sha256": "2c9963bc3df24cdaaaa33de2e2d82bf71228f2e7608c0c0bf7e8f02b8bf40648"}, "s/s/s36f40b67/b/b8d1426ee/data/test-trace/subject-clock-trace.v1.json": {"bytes": 1558, "sha256": "18b87093162a4c1bf388e8f0378d7714f25eec656a2a960b91dadf07126b34b5"}, "s/s/s36f40b67/sandbox-manifest.v1.json": {"bytes": 910, "sha256": "e1d05a1e7f39de521e7baf778c1494056ee2193589e0dca4c49103f5cc3a9c74"}, "s/sandbox-registry.v1.json": {"bytes": 476, "sha256": "03b47e1729768856a6292712edef66219d4c039f192c8f84c62797785d682969"}}}
+test_stale_context_does_not_authorize_resume (tests.test_w02_recall_boundaries.RecallBoundaryTests.test_stale_context_does_not_authorize_resume) ... ok
+test_stale_source_version_cannot_be_consumed (tests.test_w02_recall_boundaries.RecallBoundaryTests.test_stale_source_version_cannot_be_consumed) ... ERROR
+{"test": "tests.test_w02_recall_boundaries.RecallBoundaryTests.test_stale_source_version_cannot_be_consumed", "stage": "before-TEST-cleanup", "files": {"s/.p01-sandbox-root.v1.json": {"bytes": 98, "sha256": "3ced39d6b395df89d9b1f34e1b3faf46c14ccc6edab679a616f588a978e002f7"}, "s/s/s47c8b9ea/b/b918d425b/branch-manifest.v1.json": {"bytes": 243, "sha256": "3c1ba59147901cc7defc840c125b6f3ab0c73b555bb3622eb552d27e43065a3d"}, "s/s/s47c8b9ea/b/b918d425b/data/awakening/cycles/d2b8e94c25fbe6fa0cc97556cd08a4b90fe166cf1fc80b41eb69b81ec0b7fde9.json": {"bytes": 253, "sha256": "b84e6044d87345bb05c6c19f8a3dd23187d0e03cbaac44a49be0f5fcf7886ec0"}, "s/s/s47c8b9ea/b/b918d425b/data/awakening/sessions/f4a22506e8ac00cce2b20fe481ecc24c9affe149d47e6c9fcb0915aa7a95c9c5/1bcbad281c8b79cba0b9a02d00b41f4800ac32421f10df982cc648badd7ef6fd.json": {"bytes": 12458, "sha256": "542426b8271ea6a77c983a9c4a5826cc032c073eaa5800e86fb39c862be5b844"}, "s/s/s47c8b9ea/b/b918d425b/data/c1-receipts/p08-fake-receipts.json": {"bytes": 148, "sha256": "a411df96a3b6eea514baf41f59d45ab70c55b96ee9f28e118d79525ea3bfe8c8"}, "s/s/s47c8b9ea/b/b918d425b/data/clock/subject-clock.v1.json": {"bytes": 109, "sha256": "9215b6977c7811370330d01c8bfe7e63b8e43ba8b12a8f09d85b24e7efac24ad"}, "s/s/s47c8b9ea/b/b918d425b/data/contradiction/test/f4a22506e8ac00cce2b20fe481ecc24c9affe149d47e6c9fcb0915aa7a95c9c5.json": {"bytes": 228, "sha256": "5e4d72e0ce43f001bc0b0c18d9ab7a467c3ee735b02758d8451d2ee96679e3b1"}, "s/s/s47c8b9ea/b/b918d425b/data/fixture/c1-profile.v1.json": {"bytes": 102, "sha256": "1b32526f5296b33b0f65e64d295e2216b3e5287ffc79aacb0e3eea8bcb74106a"}, "s/s/s47c8b9ea/b/b918d425b/data/fixture/state-fixture.v1.json": {"bytes": 635, "sha256": "2738b70e44631245b51cd02d4a753f5681ebc3cd5d412923063a6ae0247ef49b"}, "s/s/s47c8b9ea/b/b918d425b/data/integration/capability-ledger.v1.json": {"bytes": 82, "sha256": "95f292f0db842e43cccb490ce10bbeefd3bab92d43fa69f4bb1b6188d4ed43de"}, "s/s/s47c8b9ea/b/b918d425b/data/integration/operation-journal.first-round-v1.json": {"bytes": 34512, "sha256": "6d495bee8aa443cf93c56b1e8badbe284a8706f5aec00041fe684ddc93acdb51"}, "s/s/s47c8b9ea/b/b918d425b/data/integration/result-ledger.first-round-v1.json": {"bytes": 63, "sha256": "5407f91ac04019966f84bfbad51ebc1fb904bd085a6579febfa75a9ea068592a"}, "s/s/s47c8b9ea/b/b918d425b/data/integration/subject-binding.runtime-v1.json": {"bytes": 613, "sha256": "90c6e05d05b84e7229a2907c74321ce247e3b2abd4abd8d36d92e852bbda6805"}, "s/s/s47c8b9ea/b/b918d425b/data/learning/f4a22506e8ac00cce2b20fe481ecc24c9affe149d47e6c9fcb0915aa7a95c9c5.json": {"bytes": 2154, "sha256": "7f6eeae2b10d21e69df33f5f7203b935fd5d1ae51f6993b22e50d586485a170b"}, "s/s/s47c8b9ea/b/b918d425b/data/memory/test/f4a22506e8ac00cce2b20fe481ecc24c9affe149d47e6c9fcb0915aa7a95c9c5.json": {"bytes": 8711, "sha256": "1c0a756b6f1eef54a1c1b48362bbee195762e44a515faa8d957aed3922489997"}, "s/s/s47c8b9ea/b/b918d425b/data/resources/f4a22506e8ac00cce2b20fe481ecc24c9affe149d47e6c9fcb0915aa7a95c9c5.json": {"bytes": 437, "sha256": "6af5d2def99d897309b1aa275a38c6907d67a71b712c7c162183eef493f9e646"}, "s/s/s47c8b9ea/b/b918d425b/data/subject-state/f4a22506e8ac00cce2b20fe481ecc24c9affe149d47e6c9fcb0915aa7a95c9c5.json": {"bytes": 5891, "sha256": "92717c71b2f9af9b317b6cbf85c3dc640e237891fc7a9a9ba1b779086c70d76d"}, "s/s/s47c8b9ea/b/b918d425b/data/test-actions/action-sessions.v1.json": {"bytes": 128, "sha256": "b138a6d6b98b8a786a1e0a4d06ecd35133e45e03fc44e425833981767bd0207c"}, "s/s/s47c8b9ea/b/b918d425b/data/test-indexes/events.v1.json": {"bytes": 138, "sha256": "dbd0c62a711e8ed6c209e1b1ee90515ab3c548c2aa2972227e61b07e45a0519d"}, "s/s/s47c8b9ea/b/b918d425b/data/test-indexes/evolution.v1.json": {"bytes": 141, "sha256": "596db6b73c4e6594b5e73a9fd48bca4c8e3ddc5f58cf8f043c0dd7c17e368a63"}, "s/s/s47c8b9ea/b/b918d425b/data/test-indexes/relationship-state.v1.json": {"bytes": 150, "sha256": "088c68694a2643bf19f77b6860dad89073353c438fd76eb37312e4c20ef4539b"}, "s/s/s47c8b9ea/b/b918d425b/data/test-indexes/state-mutations.v1.json": {"bytes": 147, "sha256": "61feb064089da03445287561300e36f1fb82ddb56f52dcd54866dde87715611c"}, "s/s/s47c8b9ea/b/b918d425b/data/test-indexes/thinking-sessions.v1.json": {"bytes": 149, "sha256": "6be8a5891f0ef422031dc223f9aac92071b58524a26182866682d15165d8e682"}, "s/s/s47c8b9ea/b/b918d425b/data/test-indexes/wake-sessions.v1.json": {"bytes": 145, "sha256": "f139fa69ce25ba6ff6345e62e0e92e61737d3426cbd74e0f7ed9a1904ff74878"}, "s/s/s47c8b9ea/b/b918d425b/data/test-memory/memory-ledger.v1.json": {"bytes": 631, "sha256": "f338549167ccd4e64b258fe6b61e497bf3d497897dd3ca775ef8150e4f53dea0"}, "s/s/s47c8b9ea/b/b918d425b/data/test-trace/subject-clock-trace.v1.json": {"bytes": 1558, "sha256": "64aae6ebb5bb1a516bd953f62e86efb5dcfacb32c7bfd07b27cf01bf566b50fa"}, "s/s/s47c8b9ea/sandbox-manifest.v1.json": {"bytes": 910, "sha256": "71c058f369793e2d0d228dba859bfe6e4b6249f7b9e207ec5e2491b17a87ea50"}, "s/sandbox-registry.v1.json": {"bytes": 476, "sha256": "832adcdbd4723d5f66fd949da1f72f88462c09182a26c615a0b07784d7e7f257"}}}
+test_timeout_is_blocked_before_model_and_query_is_read_only (tests.test_w02_recall_boundaries.RecallBoundaryTests.test_timeout_is_blocked_before_model_and_query_is_read_only) ... ok
+test_wrong_subject_record_is_rejected (tests.test_w02_recall_boundaries.RecallBoundaryTests.test_wrong_subject_record_is_rejected) ... ERROR
+{"test": "tests.test_w02_recall_boundaries.RecallBoundaryTests.test_wrong_subject_record_is_rejected", "stage": "before-TEST-cleanup", "files": {"s/.p01-sandbox-root.v1.json": {"bytes": 98, "sha256": "3ced39d6b395df89d9b1f34e1b3faf46c14ccc6edab679a616f588a978e002f7"}, "s/s/seaff66ac/b/b300c8aad/branch-manifest.v1.json": {"bytes": 243, "sha256": "ba0cbc238c27c5de986227eebdb43ae8d16b14d7f756cbdba58e4a2b85cbd63e"}, "s/s/seaff66ac/b/b300c8aad/data/awakening/cycles/1812452413ae7b5c88fb351548b52e36b9c149937127d22ea068a26df4fc3e38.json": {"bytes": 253, "sha256": "0b6ae01700cd821c7540f727fbefbccf140cffc00eccd301a700027ee57e151e"}, "s/s/seaff66ac/b/b300c8aad/data/awakening/sessions/7e814c21d086907e09ebe228810a05ec80adbbf3b1be8a0675797fba09669db9/36b123c417a8f544f430196c5350a0b3c61da7db404c41b6974645367732f61d.json": {"bytes": 10657, "sha256": "56279d7f02b976132c354cb098f60730ed622ae8bed9ea926b01ae92d888013f"}, "s/s/seaff66ac/b/b300c8aad/data/c1-receipts/p08-fake-receipts.json": {"bytes": 148, "sha256": "a411df96a3b6eea514baf41f59d45ab70c55b96ee9f28e118d79525ea3bfe8c8"}, "s/s/seaff66ac/b/b300c8aad/data/clock/subject-clock.v1.json": {"bytes": 109, "sha256": "9215b6977c7811370330d01c8bfe7e63b8e43ba8b12a8f09d85b24e7efac24ad"}, "s/s/seaff66ac/b/b300c8aad/data/contradiction/test/7e814c21d086907e09ebe228810a05ec80adbbf3b1be8a0675797fba09669db9.json": {"bytes": 228, "sha256": "04d4132f563db375593ed8f0bf5ffa3634f96ed6061f7748b71e5b3a2750ec3e"}, "s/s/seaff66ac/b/b300c8aad/data/fixture/c1-profile.v1.json": {"bytes": 102, "sha256": "cbff6ea36f282bce92c13edc6de993b405f9be0985a66510b9e7160fed77ba25"}, "s/s/seaff66ac/b/b300c8aad/data/fixture/state-fixture.v1.json": {"bytes": 635, "sha256": "b8b24fa851c9892cc4c5fc91f8cf5601458b6d1e53a500c3562e2a2108c0de7e"}, "s/s/seaff66ac/b/b300c8aad/data/integration/capability-ledger.v1.json": {"bytes": 82, "sha256": "95f292f0db842e43cccb490ce10bbeefd3bab92d43fa69f4bb1b6188d4ed43de"}, "s/s/seaff66ac/b/b300c8aad/data/integration/operation-journal.first-round-v1.json": {"bytes": 30089, "sha256": "db42de61344052523200e023fd1a65c8cae4edf3fc116c1a33928ede413e7bbb"}, "s/s/seaff66ac/b/b300c8aad/data/integration/result-ledger.first-round-v1.json": {"bytes": 63, "sha256": "5407f91ac04019966f84bfbad51ebc1fb904bd085a6579febfa75a9ea068592a"}, "s/s/seaff66ac/b/b300c8aad/data/integration/subject-binding.runtime-v1.json": {"bytes": 613, "sha256": "f6803301a8787c5551d67a2be53432c4231e02ae6c3619bf4f627c621fd1b81a"}, "s/s/seaff66ac/b/b300c8aad/data/learning/7e814c21d086907e09ebe228810a05ec80adbbf3b1be8a0675797fba09669db9.json": {"bytes": 2154, "sha256": "65d5f513efdffe6c472b0a98fa7a954a47a7c57b4c0f0bfa1dfe5a8e6fc86fee"}, "s/s/seaff66ac/b/b300c8aad/data/memory/test/7e814c21d086907e09ebe228810a05ec80adbbf3b1be8a0675797fba09669db9.json": {"bytes": 4202, "sha256": "fec12f445278f0cb8e8c0bf3d9ce94e954457be713529a2cbfed8f7dd0ec54be"}, "s/s/seaff66ac/b/b300c8aad/data/resources/7e814c21d086907e09ebe228810a05ec80adbbf3b1be8a0675797fba09669db9.json": {"bytes": 437, "sha256": "7949374af2042a117ca49a66cee0732f4feb753db6d74776d382871ae8891b1e"}, "s/s/seaff66ac/b/b300c8aad/data/subject-state/7e814c21d086907e09ebe228810a05ec80adbbf3b1be8a0675797fba09669db9.json": {"bytes": 4912, "sha256": "0d1965b0be0e3d52d257c2e5b4c2fe3d19ac3fca4de09895e62a9222a0586d79"}, "s/s/seaff66ac/b/b300c8aad/data/test-actions/action-sessions.v1.json": {"bytes": 128, "sha256": "3e5edffb690c4733e556d2e2d88a879cc9a114290a802567a50aab41c91aca95"}, "s/s/seaff66ac/b/b300c8aad/data/test-indexes/events.v1.json": {"bytes": 138, "sha256": "7ef6145af032b3dfa1187e61412895c79a335bd005df9b3e106f6026a875b8d4"}, "s/s/seaff66ac/b/b300c8aad/data/test-indexes/evolution.v1.json": {"bytes": 141, "sha256": "c5aa19a4ab413aeb0dfb76dc7c0dbffabb05b7c1ef59d579f0a0cbde62839c94"}, "s/s/seaff66ac/b/b300c8aad/data/test-indexes/relationship-state.v1.json": {"bytes": 150, "sha256": "b24b3ebeb8f74f3e3290e755d52106e2f873b4da05c5a1af50da562564e1a824"}, "s/s/seaff66ac/b/b300c8aad/data/test-indexes/state-mutations.v1.json": {"bytes": 147, "sha256": "0e602c9beed9cb4f3e113688c5fc9626bdd78315488538fab510f9a1cf4b306e"}, "s/s/seaff66ac/b/b300c8aad/data/test-indexes/thinking-sessions.v1.json": {"bytes": 149, "sha256": "ed84274e808319361d9ad59b4bef651c15a5bf1702eeb12dabebe9a5f990efcc"}, "s/s/seaff66ac/b/b300c8aad/data/test-indexes/wake-sessions.v1.json": {"bytes": 145, "sha256": "49e2f51635dd56a7d615dcce06e5a3e0786ea4d9b627dead62d18cc2d44ad4db"}, "s/s/seaff66ac/b/b300c8aad/data/test-memory/memory-ledger.v1.json": {"bytes": 631, "sha256": "e8048e984f932bd7335f0114e909d271269d2cae0aac340531b0fd43b799eaaa"}, "s/s/seaff66ac/b/b300c8aad/data/test-trace/subject-clock-trace.v1.json": {"bytes": 1558, "sha256": "70ef2c54c2505f37f032e1923b4d879e5b690d2c99122957367cc35676e39f9c"}, "s/s/seaff66ac/sandbox-manifest.v1.json": {"bytes": 910, "sha256": "5d835a0b364608e056f399aaeb50e0055a3c96ff633ebd1c7c9c14ff9366ba8d"}, "s/sandbox-registry.v1.json": {"bytes": 476, "sha256": "b4c1c5c53c0c0446eceff6afe3e7ecb21045185a4d8faffbc397a1f3ae48ae54"}}}
+
+======================================================================
+ERROR: test_failure_and_reopen_resume_same_request (tests.test_w02_recall.AutomaticRecallTests.test_failure_and_reopen_resume_same_request)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 291, in _submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 832, in _run_domain
+    perception = self._continuity_core.prepare(perception, operation,
+        **({'save_input': save_input} if operation.input_processing_enabled else {}),
+        **({'save_recall':save_recall} if operation.recall_enabled else {}))
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 288, in prepare
+    return self._prepare(perception, operation, save_input=save_input,save_recall=save_recall)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 338, in _prepare
+    route,composition,recall_record=self.recall.prepare(perception,operation,save_recall,
+                                    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        attention=mind['influence']['attention'] if mind is not None else None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\associative_recall_service.py", line 135, in prepare
+    route=self._merge(routes, attention=attention)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\associative_recall_service.py", line 289, in _merge
+    manifest=CandidateManifest(plan.request.request_id,plan.canonical_hash(),tuple(
+                                                                             ^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\associative_recall_service.py", line 290, in <genexpr>
+    replace(ref,rank=i,reason_codes=(*ref.reason_codes,'PRE_RESPONSE_RELEVANCE_ORDER')) for i,ref in enumerate(sorted(refs.values(),
+                                      ^^^^^^^^^^^^^^^^
+AttributeError: 'ContextCandidateReference' object has no attribute 'reason_codes'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w02_recall.py", line 107, in test_failure_and_reopen_resume_same_request
+    f.submit(r);self.assertEqual(f.provider.calls,1)
+    ~~~~~~~~^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p09_core_fixture.py", line 165, in submit
+    return self.app.adapter.submit(request or self.request())
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 187, in submit
+    return self._submit(payload)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 303, in _submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.
+
+======================================================================
+ERROR: test_no_relevant_cue_is_assessed_without_forced_recall (tests.test_w02_recall.AutomaticRecallTests.test_no_relevant_cue_is_assessed_without_forced_recall)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 291, in _submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 832, in _run_domain
+    perception = self._continuity_core.prepare(perception, operation,
+        **({'save_input': save_input} if operation.input_processing_enabled else {}),
+        **({'save_recall':save_recall} if operation.recall_enabled else {}))
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 288, in prepare
+    return self._prepare(perception, operation, save_input=save_input,save_recall=save_recall)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 338, in _prepare
+    route,composition,recall_record=self.recall.prepare(perception,operation,save_recall,
+                                    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        attention=mind['influence']['attention'] if mind is not None else None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\associative_recall_service.py", line 135, in prepare
+    route=self._merge(routes, attention=attention)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\associative_recall_service.py", line 289, in _merge
+    manifest=CandidateManifest(plan.request.request_id,plan.canonical_hash(),tuple(
+                                                                             ^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\associative_recall_service.py", line 290, in <genexpr>
+    replace(ref,rank=i,reason_codes=(*ref.reason_codes,'PRE_RESPONSE_RELEVANCE_ORDER')) for i,ref in enumerate(sorted(refs.values(),
+                                      ^^^^^^^^^^^^^^^^
+AttributeError: 'ContextCandidateReference' object has no attribute 'reason_codes'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w02_recall.py", line 29, in test_no_relevant_cue_is_assessed_without_forced_recall
+    req=f.message('你好');f.submit(req)
+                          ~~~~~~~~^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p09_core_fixture.py", line 165, in submit
+    return self.app.adapter.submit(request or self.request())
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 187, in submit
+    return self._submit(payload)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 303, in _submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.
+
+======================================================================
+ERROR: test_original_message_is_assessed_before_thinking (tests.test_w02_recall.AutomaticRecallTests.test_original_message_is_assessed_before_thinking)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 291, in _submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 832, in _run_domain
+    perception = self._continuity_core.prepare(perception, operation,
+        **({'save_input': save_input} if operation.input_processing_enabled else {}),
+        **({'save_recall':save_recall} if operation.recall_enabled else {}))
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 288, in prepare
+    return self._prepare(perception, operation, save_input=save_input,save_recall=save_recall)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 338, in _prepare
+    route,composition,recall_record=self.recall.prepare(perception,operation,save_recall,
+                                    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        attention=mind['influence']['attention'] if mind is not None else None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\associative_recall_service.py", line 135, in prepare
+    route=self._merge(routes, attention=attention)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\associative_recall_service.py", line 289, in _merge
+    manifest=CandidateManifest(plan.request.request_id,plan.canonical_hash(),tuple(
+                                                                             ^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\associative_recall_service.py", line 290, in <genexpr>
+    replace(ref,rank=i,reason_codes=(*ref.reason_codes,'PRE_RESPONSE_RELEVANCE_ORDER')) for i,ref in enumerate(sorted(refs.values(),
+                                      ^^^^^^^^^^^^^^^^
+AttributeError: 'ContextCandidateReference' object has no attribute 'reason_codes'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w02_recall.py", line 20, in test_original_message_is_assessed_before_thinking
+    request=f.message('我又在吃螺蛳粉。'); f.submit(request)
+                                           ~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p09_core_fixture.py", line 165, in submit
+    return self.app.adapter.submit(request or self.request())
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 187, in submit
+    return self._submit(payload)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 303, in _submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.
+
+======================================================================
+ERROR: test_read_only_recall_query_does_not_resume_or_write (tests.test_w02_recall.AutomaticRecallTests.test_read_only_recall_query_does_not_resume_or_write)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 291, in _submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 832, in _run_domain
+    perception = self._continuity_core.prepare(perception, operation,
+        **({'save_input': save_input} if operation.input_processing_enabled else {}),
+        **({'save_recall':save_recall} if operation.recall_enabled else {}))
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 288, in prepare
+    return self._prepare(perception, operation, save_input=save_input,save_recall=save_recall)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 338, in _prepare
+    route,composition,recall_record=self.recall.prepare(perception,operation,save_recall,
+                                    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        attention=mind['influence']['attention'] if mind is not None else None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\associative_recall_service.py", line 135, in prepare
+    route=self._merge(routes, attention=attention)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\associative_recall_service.py", line 289, in _merge
+    manifest=CandidateManifest(plan.request.request_id,plan.canonical_hash(),tuple(
+                                                                             ^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\associative_recall_service.py", line 290, in <genexpr>
+    replace(ref,rank=i,reason_codes=(*ref.reason_codes,'PRE_RESPONSE_RELEVANCE_ORDER')) for i,ref in enumerate(sorted(refs.values(),
+                                      ^^^^^^^^^^^^^^^^
+AttributeError: 'ContextCandidateReference' object has no attribute 'reason_codes'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w02_recall.py", line 89, in test_read_only_recall_query_does_not_resume_or_write
+    f=W02RecallFixture(self.root);r=f.message('你好');f.submit(r)
+                                                      ~~~~~~~~^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p09_core_fixture.py", line 165, in submit
+    return self.app.adapter.submit(request or self.request())
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 187, in submit
+    return self._submit(payload)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 303, in _submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.
+
+======================================================================
+ERROR: test_t03_raw_noon_and_afternoon_messages_recall_before_answer (tests.test_w02_recall.AutomaticRecallTests.test_t03_raw_noon_and_afternoon_messages_recall_before_answer)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 291, in _submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 832, in _run_domain
+    perception = self._continuity_core.prepare(perception, operation,
+        **({'save_input': save_input} if operation.input_processing_enabled else {}),
+        **({'save_recall':save_recall} if operation.recall_enabled else {}))
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 288, in prepare
+    return self._prepare(perception, operation, save_input=save_input,save_recall=save_recall)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 338, in _prepare
+    route,composition,recall_record=self.recall.prepare(perception,operation,save_recall,
+                                    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        attention=mind['influence']['attention'] if mind is not None else None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\associative_recall_service.py", line 135, in prepare
+    route=self._merge(routes, attention=attention)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\associative_recall_service.py", line 289, in _merge
+    manifest=CandidateManifest(plan.request.request_id,plan.canonical_hash(),tuple(
+                                                                             ^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\associative_recall_service.py", line 290, in <genexpr>
+    replace(ref,rank=i,reason_codes=(*ref.reason_codes,'PRE_RESPONSE_RELEVANCE_ORDER')) for i,ref in enumerate(sorted(refs.values(),
+                                      ^^^^^^^^^^^^^^^^
+AttributeError: 'ContextCandidateReference' object has no attribute 'reason_codes'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w02_recall.py", line 43, in test_t03_raw_noon_and_afternoon_messages_recall_before_answer
+    noon=f.message('我中午12点吃过午饭。');f.submit(noon)
+                                           ~~~~~~~~^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p09_core_fixture.py", line 165, in submit
+    return self.app.adapter.submit(request or self.request())
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 187, in submit
+    return self._submit(payload)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 303, in _submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.
+
+======================================================================
+ERROR: test_t04_preference_candidate_uses_original_roots_without_state_write (tests.test_w02_recall.AutomaticRecallTests.test_t04_preference_candidate_uses_original_roots_without_state_write)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 291, in _submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 832, in _run_domain
+    perception = self._continuity_core.prepare(perception, operation,
+        **({'save_input': save_input} if operation.input_processing_enabled else {}),
+        **({'save_recall':save_recall} if operation.recall_enabled else {}))
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 288, in prepare
+    return self._prepare(perception, operation, save_input=save_input,save_recall=save_recall)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 338, in _prepare
+    route,composition,recall_record=self.recall.prepare(perception,operation,save_recall,
+                                    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        attention=mind['influence']['attention'] if mind is not None else None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\associative_recall_service.py", line 135, in prepare
+    route=self._merge(routes, attention=attention)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\associative_recall_service.py", line 289, in _merge
+    manifest=CandidateManifest(plan.request.request_id,plan.canonical_hash(),tuple(
+                                                                             ^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\associative_recall_service.py", line 290, in <genexpr>
+    replace(ref,rank=i,reason_codes=(*ref.reason_codes,'PRE_RESPONSE_RELEVANCE_ORDER')) for i,ref in enumerate(sorted(refs.values(),
+                                      ^^^^^^^^^^^^^^^^
+AttributeError: 'ContextCandidateReference' object has no attribute 'reason_codes'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w02_recall.py", line 71, in test_t04_preference_candidate_uses_original_roots_without_state_write
+    request=f.message(text,source_event_id=event);f.submit(request)
+                                                  ~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p09_core_fixture.py", line 165, in submit
+    return self.app.adapter.submit(request or self.request())
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 187, in submit
+    return self._submit(payload)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 303, in _submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.
+
+======================================================================
+ERROR: test_bound_policy_does_not_force_fixed_depth (tests.test_w02_recall_boundaries.RecallBoundaryTests.test_bound_policy_does_not_force_fixed_depth)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 291, in _submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 832, in _run_domain
+    perception = self._continuity_core.prepare(perception, operation,
+        **({'save_input': save_input} if operation.input_processing_enabled else {}),
+        **({'save_recall':save_recall} if operation.recall_enabled else {}))
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 288, in prepare
+    return self._prepare(perception, operation, save_input=save_input,save_recall=save_recall)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 338, in _prepare
+    route,composition,recall_record=self.recall.prepare(perception,operation,save_recall,
+                                    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        attention=mind['influence']['attention'] if mind is not None else None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\associative_recall_service.py", line 135, in prepare
+    route=self._merge(routes, attention=attention)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\associative_recall_service.py", line 289, in _merge
+    manifest=CandidateManifest(plan.request.request_id,plan.canonical_hash(),tuple(
+                                                                             ^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\associative_recall_service.py", line 290, in <genexpr>
+    replace(ref,rank=i,reason_codes=(*ref.reason_codes,'PRE_RESPONSE_RELEVANCE_ORDER')) for i,ref in enumerate(sorted(refs.values(),
+                                      ^^^^^^^^^^^^^^^^
+AttributeError: 'ContextCandidateReference' object has no attribute 'reason_codes'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w02_recall_boundaries.py", line 121, in test_bound_policy_does_not_force_fixed_depth
+    r=f.message('你好');f.submit(r)
+                        ~~~~~~~~^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p09_core_fixture.py", line 165, in submit
+    return self.app.adapter.submit(request or self.request())
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 187, in submit
+    return self._submit(payload)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 303, in _submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.
+
+======================================================================
+ERROR: test_corrupt_recall_hash_is_refused_without_writes (tests.test_w02_recall_boundaries.RecallBoundaryTests.test_corrupt_recall_hash_is_refused_without_writes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 291, in _submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 832, in _run_domain
+    perception = self._continuity_core.prepare(perception, operation,
+        **({'save_input': save_input} if operation.input_processing_enabled else {}),
+        **({'save_recall':save_recall} if operation.recall_enabled else {}))
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 288, in prepare
+    return self._prepare(perception, operation, save_input=save_input,save_recall=save_recall)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 338, in _prepare
+    route,composition,recall_record=self.recall.prepare(perception,operation,save_recall,
+                                    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        attention=mind['influence']['attention'] if mind is not None else None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\associative_recall_service.py", line 135, in prepare
+    route=self._merge(routes, attention=attention)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\associative_recall_service.py", line 289, in _merge
+    manifest=CandidateManifest(plan.request.request_id,plan.canonical_hash(),tuple(
+                                                                             ^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\associative_recall_service.py", line 290, in <genexpr>
+    replace(ref,rank=i,reason_codes=(*ref.reason_codes,'PRE_RESPONSE_RELEVANCE_ORDER')) for i,ref in enumerate(sorted(refs.values(),
+                                      ^^^^^^^^^^^^^^^^
+AttributeError: 'ContextCandidateReference' object has no attribute 'reason_codes'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w02_recall_boundaries.py", line 82, in test_corrupt_recall_hash_is_refused_without_writes
+    f=W02RecallFixture(self.root);r=f.message('你好');f.submit(r)
+                                                      ~~~~~~~~^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p09_core_fixture.py", line 165, in submit
+    return self.app.adapter.submit(request or self.request())
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 187, in submit
+    return self._submit(payload)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 303, in _submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.
+
+======================================================================
+ERROR: test_native_cognition_uses_same_pre_answer_evaluation (tests.test_w02_recall_boundaries.RecallBoundaryTests.test_native_cognition_uses_same_pre_answer_evaluation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w02_recall_boundaries.py", line 147, in test_native_cognition_uses_same_pre_answer_evaluation
+    result=f.opportunity('w02-native-recall')
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p14_mind_fixture.py", line 19, in opportunity
+    return service.wake_manual(self.app.binding.cycle_id, detail='Authorized native P14 computation opportunity.',
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                               session_id=session_id)
+                               ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\wake_perception_thinking_action_service.py", line 93, in wake_manual
+    return self._continue(awakening, depth)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\wake_perception_thinking_action_service.py", line 128, in _continue
+    return self._continue_mind(awakening, depth)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\wake_perception_thinking_action_service.py", line 221, in _continue_mind
+    perception = core.prepare(perception, SimpleNamespace(
+        subject_id=core.subject_id, request_id='native:' + wake.session_id))
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 288, in prepare
+    return self._prepare(perception, operation, save_input=save_input,save_recall=save_recall)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 334, in _prepare
+    route,composition,recall_record=self.recall.prepare(perception,recall_operation,
+                                    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        lambda record:setattr(self,'last_trace',{'recall':record}),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        attention=mind['influence']['attention'] if mind is not None else None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\associative_recall_service.py", line 135, in prepare
+    route=self._merge(routes, attention=attention)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\associative_recall_service.py", line 289, in _merge
+    manifest=CandidateManifest(plan.request.request_id,plan.canonical_hash(),tuple(
+                                                                             ^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\associative_recall_service.py", line 290, in <genexpr>
+    replace(ref,rank=i,reason_codes=(*ref.reason_codes,'PRE_RESPONSE_RELEVANCE_ORDER')) for i,ref in enumerate(sorted(refs.values(),
+                                      ^^^^^^^^^^^^^^^^
+AttributeError: 'ContextCandidateReference' object has no attribute 'reason_codes'
+
+======================================================================
+ERROR: test_no_match_is_distinct_from_source_failure (tests.test_w02_recall_boundaries.RecallBoundaryTests.test_no_match_is_distinct_from_source_failure)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 291, in _submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 832, in _run_domain
+    perception = self._continuity_core.prepare(perception, operation,
+        **({'save_input': save_input} if operation.input_processing_enabled else {}),
+        **({'save_recall':save_recall} if operation.recall_enabled else {}))
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 288, in prepare
+    return self._prepare(perception, operation, save_input=save_input,save_recall=save_recall)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 338, in _prepare
+    route,composition,recall_record=self.recall.prepare(perception,operation,save_recall,
+                                    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        attention=mind['influence']['attention'] if mind is not None else None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\associative_recall_service.py", line 135, in prepare
+    route=self._merge(routes, attention=attention)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\associative_recall_service.py", line 289, in _merge
+    manifest=CandidateManifest(plan.request.request_id,plan.canonical_hash(),tuple(
+                                                                             ^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\associative_recall_service.py", line 290, in <genexpr>
+    replace(ref,rank=i,reason_codes=(*ref.reason_codes,'PRE_RESPONSE_RELEVANCE_ORDER')) for i,ref in enumerate(sorted(refs.values(),
+                                      ^^^^^^^^^^^^^^^^
+AttributeError: 'ContextCandidateReference' object has no attribute 'reason_codes'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w02_recall_boundaries.py", line 104, in test_no_match_is_distinct_from_source_failure
+    f.submit(r);record=f.context(r).recall
+    ~~~~~~~~^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p09_core_fixture.py", line 165, in submit
+    return self.app.adapter.submit(request or self.request())
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 187, in submit
+    return self._submit(payload)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 303, in _submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.
+
+======================================================================
+ERROR: test_ready_preparation_return_lost_reuses_receipt (tests.test_w02_recall_boundaries.RecallBoundaryTests.test_ready_preparation_return_lost_reuses_receipt)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 291, in _submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 832, in _run_domain
+    perception = self._continuity_core.prepare(perception, operation,
+        **({'save_input': save_input} if operation.input_processing_enabled else {}),
+        **({'save_recall':save_recall} if operation.recall_enabled else {}))
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 288, in prepare
+    return self._prepare(perception, operation, save_input=save_input,save_recall=save_recall)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 338, in _prepare
+    route,composition,recall_record=self.recall.prepare(perception,operation,save_recall,
+                                    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        attention=mind['influence']['attention'] if mind is not None else None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Adobe\Lib\unittest\mock.py", line 1176, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "E:\Adobe\Lib\unittest\mock.py", line 1180, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "E:\Adobe\Lib\unittest\mock.py", line 1241, in _execute_mock_call
+    raise effect
+AssertionError: must reuse READY
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w02_recall_boundaries.py", line 77, in test_ready_preparation_return_lost_reuses_receipt
+    with patch.object(f.core.recall,'prepare',side_effect=AssertionError('must reuse READY')):f.submit(r)
+                                                                                              ~~~~~~~~^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p09_core_fixture.py", line 165, in submit
+    return self.app.adapter.submit(request or self.request())
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 187, in submit
+    return self._submit(payload)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 303, in _submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.
+
+======================================================================
+ERROR: test_retrieval_and_context_budgets_are_independent (tests.test_w02_recall_boundaries.RecallBoundaryTests.test_retrieval_and_context_budgets_are_independent)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 291, in _submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 832, in _run_domain
+    perception = self._continuity_core.prepare(perception, operation,
+        **({'save_input': save_input} if operation.input_processing_enabled else {}),
+        **({'save_recall':save_recall} if operation.recall_enabled else {}))
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 288, in prepare
+    return self._prepare(perception, operation, save_input=save_input,save_recall=save_recall)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 338, in _prepare
+    route,composition,recall_record=self.recall.prepare(perception,operation,save_recall,
+                                    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        attention=mind['influence']['attention'] if mind is not None else None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\associative_recall_service.py", line 135, in prepare
+    route=self._merge(routes, attention=attention)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\associative_recall_service.py", line 289, in _merge
+    manifest=CandidateManifest(plan.request.request_id,plan.canonical_hash(),tuple(
+                                                                             ^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\associative_recall_service.py", line 290, in <genexpr>
+    replace(ref,rank=i,reason_codes=(*ref.reason_codes,'PRE_RESPONSE_RELEVANCE_ORDER')) for i,ref in enumerate(sorted(refs.values(),
+                                      ^^^^^^^^^^^^^^^^
+AttributeError: 'ContextCandidateReference' object has no attribute 'reason_codes'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w02_recall_boundaries.py", line 113, in test_retrieval_and_context_budgets_are_independent
+    r=f.message('我又吃了午饭');f.submit(r);ctx=f.context(r)
+                                ~~~~~~~~^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p09_core_fixture.py", line 165, in submit
+    return self.app.adapter.submit(request or self.request())
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 187, in submit
+    return self._submit(payload)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 303, in _submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.
+
+======================================================================
+ERROR: test_source_revocation_excludes_memory_and_history_projection (tests.test_w02_recall_boundaries.RecallBoundaryTests.test_source_revocation_excludes_memory_and_history_projection)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 291, in _submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 832, in _run_domain
+    perception = self._continuity_core.prepare(perception, operation,
+        **({'save_input': save_input} if operation.input_processing_enabled else {}),
+        **({'save_recall':save_recall} if operation.recall_enabled else {}))
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 288, in prepare
+    return self._prepare(perception, operation, save_input=save_input,save_recall=save_recall)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 338, in _prepare
+    route,composition,recall_record=self.recall.prepare(perception,operation,save_recall,
+                                    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        attention=mind['influence']['attention'] if mind is not None else None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\associative_recall_service.py", line 135, in prepare
+    route=self._merge(routes, attention=attention)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\associative_recall_service.py", line 289, in _merge
+    manifest=CandidateManifest(plan.request.request_id,plan.canonical_hash(),tuple(
+                                                                             ^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\associative_recall_service.py", line 290, in <genexpr>
+    replace(ref,rank=i,reason_codes=(*ref.reason_codes,'PRE_RESPONSE_RELEVANCE_ORDER')) for i,ref in enumerate(sorted(refs.values(),
+                                      ^^^^^^^^^^^^^^^^
+AttributeError: 'ContextCandidateReference' object has no attribute 'reason_codes'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w02_recall_boundaries.py", line 136, in test_source_revocation_excludes_memory_and_history_projection
+    r=f.message('我吃了螺蛳粉',source_event_id='meal');f.submit(r)
+                                                       ~~~~~~~~^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p09_core_fixture.py", line 165, in submit
+    return self.app.adapter.submit(request or self.request())
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 187, in submit
+    return self._submit(payload)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 303, in _submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.
+
+======================================================================
+ERROR: test_stale_source_version_cannot_be_consumed (tests.test_w02_recall_boundaries.RecallBoundaryTests.test_stale_source_version_cannot_be_consumed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 291, in _submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 832, in _run_domain
+    perception = self._continuity_core.prepare(perception, operation,
+        **({'save_input': save_input} if operation.input_processing_enabled else {}),
+        **({'save_recall':save_recall} if operation.recall_enabled else {}))
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 288, in prepare
+    return self._prepare(perception, operation, save_input=save_input,save_recall=save_recall)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 338, in _prepare
+    route,composition,recall_record=self.recall.prepare(perception,operation,save_recall,
+                                    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        attention=mind['influence']['attention'] if mind is not None else None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\associative_recall_service.py", line 135, in prepare
+    route=self._merge(routes, attention=attention)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\associative_recall_service.py", line 289, in _merge
+    manifest=CandidateManifest(plan.request.request_id,plan.canonical_hash(),tuple(
+                                                                             ^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\associative_recall_service.py", line 290, in <genexpr>
+    replace(ref,rank=i,reason_codes=(*ref.reason_codes,'PRE_RESPONSE_RELEVANCE_ORDER')) for i,ref in enumerate(sorted(refs.values(),
+                                      ^^^^^^^^^^^^^^^^
+AttributeError: 'ContextCandidateReference' object has no attribute 'reason_codes'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w02_recall_boundaries.py", line 129, in test_stale_source_version_cannot_be_consumed
+    f.submit(r)
+    ~~~~~~~~^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p09_core_fixture.py", line 165, in submit
+    return self.app.adapter.submit(request or self.request())
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 187, in submit
+    return self._submit(payload)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 303, in _submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.
+
+======================================================================
+ERROR: test_wrong_subject_record_is_rejected (tests.test_w02_recall_boundaries.RecallBoundaryTests.test_wrong_subject_record_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 291, in _submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 832, in _run_domain
+    perception = self._continuity_core.prepare(perception, operation,
+        **({'save_input': save_input} if operation.input_processing_enabled else {}),
+        **({'save_recall':save_recall} if operation.recall_enabled else {}))
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 288, in prepare
+    return self._prepare(perception, operation, save_input=save_input,save_recall=save_recall)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 338, in _prepare
+    route,composition,recall_record=self.recall.prepare(perception,operation,save_recall,
+                                    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        attention=mind['influence']['attention'] if mind is not None else None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\associative_recall_service.py", line 135, in prepare
+    route=self._merge(routes, attention=attention)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\associative_recall_service.py", line 289, in _merge
+    manifest=CandidateManifest(plan.request.request_id,plan.canonical_hash(),tuple(
+                                                                             ^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\associative_recall_service.py", line 290, in <genexpr>
+    replace(ref,rank=i,reason_codes=(*ref.reason_codes,'PRE_RESPONSE_RELEVANCE_ORDER')) for i,ref in enumerate(sorted(refs.values(),
+                                      ^^^^^^^^^^^^^^^^
+AttributeError: 'ContextCandidateReference' object has no attribute 'reason_codes'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w02_recall_boundaries.py", line 97, in test_wrong_subject_record_is_rejected
+    f=W02RecallFixture(self.root);r=f.message('你好');f.submit(r)
+                                                      ~~~~~~~~^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p09_core_fixture.py", line 165, in submit
+    return self.app.adapter.submit(request or self.request())
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 187, in submit
+    return self._submit(payload)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 303, in _submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.
+
+======================================================================
+FAIL: test_actual_effect_return_lost_replays_without_duplicate (tests.test_w02_recall_boundaries.RecallBoundaryTests.test_actual_effect_return_lost_replays_without_duplicate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w02_recall_boundaries.py", line 157, in test_actual_effect_return_lost_replays_without_duplicate
+    self.assertEqual((f.provider.calls,f.adapter.effect_count,f.adapter.credits),(1,1,1))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (0, 0, 0) != (1, 1, 1)
+
+First differing element 0:
+0
+1
+
+- (0, 0, 0)
++ (1, 1, 1)
+
+----------------------------------------------------------------------
+Ran 22 tests in 10.181s
+
+FAILED (failures=1, errors=15)

@@ -1,0 +1,23 @@
+E
+======================================================================
+ERROR: test_existing_structured_item_can_bind_legacy_on_terminal_transition (tests.test_w03_n06_repair.W03N06RepairTests.test_existing_structured_item_can_bind_legacy_on_terminal_transition)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w03_n06_repair.py", line 152, in test_existing_structured_item_can_bind_legacy_on_terminal_transition
+    self.submit(completed,'existing-cancel-with-binding',legacy_binding=binding)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w03_n06_repair.py", line 45, in submit
+    return self.service.submit(item, command_id=command,
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+        expected_revision=self.f.runtime.subject_state().revision,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        context=context, reason='Bound original N06 command.', **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\unfinished_item_service.py", line 86, in submit
+    raise StateEvolutionError('W03_ITEM_LEGACY_BINDING_CHANGED')
+continuity_engine.domain.errors.StateEvolutionError: W03_ITEM_LEGACY_BINDING_CHANGED
+
+----------------------------------------------------------------------
+Ran 1 test in 0.316s
+
+FAILED (errors=1)

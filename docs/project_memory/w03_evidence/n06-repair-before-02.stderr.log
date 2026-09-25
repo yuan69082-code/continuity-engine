@@ -1,0 +1,58 @@
+EEE
+======================================================================
+ERROR: test_same_title_needs_explicit_version_bound_legacy_migration (tests.test_w03_n06_repair.W03N06RepairTests.test_same_title_needs_explicit_version_bound_legacy_migration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w03_n06_repair.py", line 84, in test_same_title_needs_explicit_version_bound_legacy_migration
+    self.submit(item,'bad-migration',legacy_binding=wrong)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w03_n06_repair.py", line 45, in submit
+    return self.service.submit(item, command_id=command,
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+        expected_revision=self.f.runtime.subject_state().revision,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        context=context, reason='Bound original N06 command.', **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: UnfinishedItemService.submit() got an unexpected keyword argument 'legacy_binding'
+
+======================================================================
+ERROR: test_unavailable_local_memory_is_not_ready_and_read_is_read_only (tests.test_w03_n06_repair.W03N06RepairTests.test_unavailable_local_memory_is_not_ready_and_read_is_read_only)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w03_n06_repair.py", line 107, in test_unavailable_local_memory_is_not_ready_and_read_is_read_only
+    self.submit(self.item('memory-matter',roots=('memory:'+memory.memory_id,)),'memory-create')
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w03_n06_repair.py", line 45, in submit
+    return self.service.submit(item, command_id=command,
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+        expected_revision=self.f.runtime.subject_state().revision,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        context=context, reason='Bound original N06 command.', **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\unfinished_item_service.py", line 64, in submit
+    self._verify_roots(item.source_roots)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\unfinished_item_service.py", line 98, in _verify_roots
+    raise StateEvolutionError('W03_ITEM_SOURCE_NOT_CURRENT')
+continuity_engine.domain.errors.StateEvolutionError: W03_ITEM_SOURCE_NOT_CURRENT
+
+======================================================================
+ERROR: test_withdrawn_external_rendering_stops_item_after_reopen (tests.test_w03_n06_repair.W03N06RepairTests.test_withdrawn_external_rendering_stops_item_after_reopen)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w03_n06_repair.py", line 136, in test_withdrawn_external_rendering_stops_item_after_reopen
+    service.submit(item,command_id='external-create',expected_revision=f.state.revision,
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        reason='Current external source')
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\unfinished_item_service.py", line 64, in submit
+    self._verify_roots(item.source_roots)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\unfinished_item_service.py", line 98, in _verify_roots
+    raise StateEvolutionError('W03_ITEM_SOURCE_NOT_CURRENT')
+continuity_engine.domain.errors.StateEvolutionError: W03_ITEM_SOURCE_NOT_CURRENT
+
+----------------------------------------------------------------------
+Ran 3 tests in 3.792s
+
+FAILED (errors=3)

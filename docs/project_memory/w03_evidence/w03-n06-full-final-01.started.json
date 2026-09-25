@@ -1,0 +1,14 @@
+{
+  "started_at": "2026-09-25T15:29:17.942237+00:00",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-p",
+    "test_*.py"
+  ],
+  "source_before": "sha256:7d404c99cd730c2c26b62bae8349809e088c912447f90722c6802bf2eef58ec5"
+}

@@ -1,0 +1,167 @@
+{
+  "head": "ec9c59054a599d028e39a80134abec6aa9802eba",
+  "archive_sha256": "760406bcaa542f7345bfcab548c6e1720e373a6e3e77f9ddc2a28e6a381303d4",
+  "python": "E:\\Adobe\\python.exe",
+  "temporary_parent": "C:\\Users\\Administrator\\AppData\\Local\\Temp",
+  "same_length_source_paths": true,
+  "overlays": [
+    {
+      "path": "src/continuity_engine/domain/unfinished_item.py",
+      "sha256": "e3ddfe5321a77a2c611ecb2df1e8d3651141ed33aa030fb7277343ebdaeec7da"
+    },
+    {
+      "path": "src/continuity_engine/services/recognition_service.py",
+      "sha256": "e2406f8907835a3a846f5fcc9e4593a6c8491a161ea862746605fd3d754dbc1d"
+    },
+    {
+      "path": "src/continuity_engine/services/unfinished_item_service.py",
+      "sha256": "549c65fd31d38b5762e22a6583b0ef16ae3722fed848ffe78775b3e39806be26"
+    },
+    {
+      "path": "tests/test_w03_core_context.py",
+      "sha256": "6c52c1bd678d6b6bd20c2abe13e5408e6ebd5d368e13af89e2aca495074d9813"
+    },
+    {
+      "path": "tests/test_w03_n06_repair.py",
+      "sha256": "a9116b74c22766d7a9651e77d09d7e5a6095e6e235b3c3f0f5ccabafe9dd9ac1"
+    },
+    {
+      "path": "tests/test_w03_recognition.py",
+      "sha256": "22ade148e9126ed5d911f0fc320857b90a4f2daa9ac2f4720e16b3cdff2afa56"
+    },
+    {
+      "path": "tests/test_w03_unfinished_items.py",
+      "sha256": "daf2093a328757651738aeaf966c9e7f33f81aa20ce06f03743c4983916810bf"
+    },
+    {
+      "path": "src/continuity_engine/domain/awakening_rules.py",
+      "sha256": "8db0b64610a5f29b12a064d63de06cf5a85ee990e89b9ac80eeed9ec7256d5df"
+    },
+    {
+      "path": "src/continuity_engine/domain/dynamic_mind.py",
+      "sha256": "a9aeb6c83896f653058771be028e914231bdb9516d527a69e556aaeea052803e"
+    },
+    {
+      "path": "src/continuity_engine/domain/evolution.py",
+      "sha256": "fe60991a27e9fd724acb34449e102e16d851d08a616eb027eaea24c9c072fc6f"
+    },
+    {
+      "path": "src/continuity_engine/domain/models.py",
+      "sha256": "0c08815225a876c1aa05de1b8426a1129a3fffa7fdb156ad446d471446a420c2"
+    },
+    {
+      "path": "src/continuity_engine/domain/perception_rules.py",
+      "sha256": "38b32acdb344616394433cab70ea37ef979a9d2f4a7ae1bf087d762098569f1a"
+    },
+    {
+      "path": "src/continuity_engine/services/awakening_service.py",
+      "sha256": "f67aa69844432f453956db58fbd16d23cb77c325eb404fcf2fc8a6c060d456ca"
+    },
+    {
+      "path": "src/continuity_engine/services/continuity_core_service.py",
+      "sha256": "f43f4f172ab7cbaa696b1a9dcf2ecf3a6208503c09121a7013619c472272c0d9"
+    },
+    {
+      "path": "src/continuity_engine/services/subject_growth_service.py",
+      "sha256": "aa1b9c5d335b52c03925307d73cd5215e13a649919ff9097f8c9fcba610746a5"
+    }
+  ],
+  "runs": [
+    {
+      "revision": "old",
+      "exit_code": 0,
+      "process_elapsed_seconds": 6.770712,
+      "isolated_path": "C:\\Users\\Administrator\\AppData\\Local\\Temp\\wp-wjpedoc3\\old",
+      "stdout_sha256": "1a88b0138d6148c8c7fd8abdb7c6cfbbe03c0bc2f1a7f137a21a3a0b433f166e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "result": {
+        "outcome": "ERROR",
+        "error_type": "IntegrationExecutionError",
+        "error_code": "Local integration encountered an unexpected execution fault during domain.",
+        "deepest_stack": [
+          "_submit",
+          "_run_domain",
+          "prepare",
+          "_prepare",
+          "prepare",
+          "_prepare"
+        ],
+        "test_elapsed_seconds": 5.197732,
+        "recall_records": [
+          {
+            "status": "READY",
+            "stop_reason": "RELEVANCE_INSUFFICIENT",
+            "elapsed_ms": 35.651,
+            "retrieved_count": 9,
+            "model_calls": 0,
+            "external_calls": 0
+          },
+          {
+            "status": "READY",
+            "stop_reason": "NO_NEW_ASSOCIATION",
+            "elapsed_ms": 227.062,
+            "retrieved_count": 11,
+            "model_calls": 0,
+            "external_calls": 0
+          },
+          {
+            "status": "BLOCKED",
+            "stop_reason": "RECALL_TIMEOUT",
+            "elapsed_ms": 1062.669,
+            "retrieved_count": 16,
+            "model_calls": 0,
+            "external_calls": 0
+          }
+        ]
+      }
+    },
+    {
+      "revision": "new",
+      "exit_code": 0,
+      "process_elapsed_seconds": 6.785513,
+      "isolated_path": "C:\\Users\\Administrator\\AppData\\Local\\Temp\\wp-wjpedoc3\\new",
+      "stdout_sha256": "704f0921c558b31287cca5e1132f754cc95df881b4c44a4c49ec29e7d765d43a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "result": {
+        "outcome": "ERROR",
+        "error_type": "IntegrationExecutionError",
+        "error_code": "Local integration encountered an unexpected execution fault during domain.",
+        "deepest_stack": [
+          "_submit",
+          "_run_domain",
+          "prepare",
+          "_prepare",
+          "prepare",
+          "_prepare"
+        ],
+        "test_elapsed_seconds": 5.226548,
+        "recall_records": [
+          {
+            "status": "READY",
+            "stop_reason": "RELEVANCE_INSUFFICIENT",
+            "elapsed_ms": 38.615,
+            "retrieved_count": 9,
+            "model_calls": 0,
+            "external_calls": 0
+          },
+          {
+            "status": "READY",
+            "stop_reason": "NO_NEW_ASSOCIATION",
+            "elapsed_ms": 234.99,
+            "retrieved_count": 11,
+            "model_calls": 0,
+            "external_calls": 0
+          },
+          {
+            "status": "BLOCKED",
+            "stop_reason": "RECALL_TIMEOUT",
+            "elapsed_ms": 1049.201,
+            "retrieved_count": 16,
+            "model_calls": 0,
+            "external_calls": 0
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "started_at": "2026-09-25T12:51:48.095367+00:00",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_w02_integration.W02IntegratedChainTests.test_partial_derived_withdrawal_invalidates_integrated_reply_and_support"
+  ],
+  "exit_code": 1,
+  "elapsed_seconds": 6.284361500001978,
+  "source_before": "sha256:faf867faf3c9eeb4d9cb03698a30e931e9a67e5858ba7821529e19ba4065115e",
+  "source_after": "sha256:faf867faf3c9eeb4d9cb03698a30e931e9a67e5858ba7821529e19ba4065115e"
+}

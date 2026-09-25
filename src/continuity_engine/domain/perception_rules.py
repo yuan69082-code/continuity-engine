@@ -61,7 +61,8 @@ class PerceptionPolicy:
     def _current_focus(context: PerceptionContext) -> CurrentFocus:
         state = context.subject_state
         topics = list(state.continuity.current_focus)
-        unfinished = list(state.continuity.unfinished_items)
+        from .unfinished_item import active_titles
+        unfinished = active_titles(state.continuity)
         if topics and unfinished:
             summary = (
                 f"Attention remains on {topics[0]}, with unfinished work still present: "

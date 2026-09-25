@@ -1,0 +1,13 @@
+{
+  "started_at": "2026-09-25T15:31:28.273595+00:00",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_w03_n06_repair.W03N06RepairTests.test_existing_structured_item_can_bind_legacy_on_terminal_transition"
+  ],
+  "exit_code": 1,
+  "elapsed_seconds": 0.7618510000029346,
+  "source_before": "sha256:f818bd8f68135fb1531b6ffb22813d6e7842a6be840caa81ac423da43f88ab78",
+  "source_after": "sha256:f818bd8f68135fb1531b6ffb22813d6e7842a6be840caa81ac423da43f88ab78"
+}

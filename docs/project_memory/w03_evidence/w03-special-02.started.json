@@ -1,0 +1,12 @@
+{
+  "started_at": "2026-09-25T13:29:37.394590+00:00",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_w03_core_context",
+    "tests.test_w03_unfinished_items",
+    "tests.test_w03_recognition"
+  ],
+  "source_before": "sha256:1793802ced5696dfdfc40018e9b0b220322906560ddc3e6d1f49b43960649a25"
+}

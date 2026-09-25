@@ -1,0 +1,20 @@
+F
+======================================================================
+FAIL: test_withdrawn_external_rendering_stops_item_after_reopen (tests.test_w03_n06_repair.W03N06RepairTests.test_withdrawn_external_rendering_stops_item_after_reopen)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w03_n06_repair.py", line 163, in test_withdrawn_external_rendering_stops_item_after_reopen
+    self.assertEqual(service.ready(context),())
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (UnfinishedItem(item_id='external-matter',[481 chars]ne),) != ()
+
+First tuple contains 1 additional elements.
+First extra element 0:
+UnfinishedItem(item_id='external-matter', subject_id='sub-35ab52e089394d18', environment='TEST', title='Current external evidence matter', source_roots=('memory:w02c-memory:0a3c6c9aa3bbf0f923b670e550fc8c3cffdbd22d76041944172eec53972754ea',), willing=True, importance_reason='Subject chose a TEST matter.', urgency='NORMAL', due_at=None, wait_condition=None, next_step='Check current source', status='OPEN', created_at='2026-09-04T08:00:03Z', updated_at='2026-09-04T08:00:03Z', revision=0, completion=None, last_progress=None)
+
+Diff is 824 characters long. Set self.maxDiff to None to see it.
+
+----------------------------------------------------------------------
+Ran 1 test in 37.939s
+
+FAILED (failures=1)

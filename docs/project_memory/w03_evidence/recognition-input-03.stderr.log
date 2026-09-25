@@ -1,0 +1,81 @@
+E
+======================================================================
+ERROR: test_raw_messages_enter_w02_then_original_learning_before_recognition (tests.test_w03_recognition.W03RecognitionTests.test_raw_messages_enter_w02_then_original_learning_before_recognition)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\thinking_service.py", line 248, in _run_provider
+    result = result_processor(perception, result)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 172, in process_thinking
+    if self.growth is not None:result=self.growth.process(perception,result)
+                                      ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\subject_growth_service.py", line 292, in process
+    self.capture(context)
+    ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\subject_growth_service.py", line 86, in capture
+    result=self.learning.create_candidate(c.subject_id,learning_id=identity,source_event_id=event.event_id,
+        source_memory_id=None,related_state_revision=context.composition.snapshot.source_revision,
+    ...<4 lines>...
+        original_experience={'p15_source_binding':binding},reason='Consumed annotated experience',
+        source='p15-c1-experience',root_evidence_ids=roots)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\learning_service.py", line 178, in create_candidate
+    self._repository.save_change(subject_id, candidate, record)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_learning_repository.py", line 70, in save_change
+    self._save_change(subject_id, learning_event, record, trait)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_learning_repository.py", line 156, in _save_change
+    raise LearningValidationError(
+        "learning candidate revision must advance by one"
+    )
+continuity_engine.domain.errors.LearningValidationError: learning candidate revision must advance by one
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 291, in _submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 892, in _run_domain
+    thinking = self._thinking.handle_perception(
+        perception,
+    ...<6 lines>...
+           if self._continuity_core is not None and (self._continuity_core.mind is not None or self._continuity_core.growth is not None) else {}),
+    )
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\thinking_service.py", line 190, in handle_perception
+    return self._run_provider(session, perception, result_id=result_id,
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        result_processor=result_processor, result_validator=result_validator,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        execution_guard=execution_guard)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\thinking_service.py", line 295, in _run_provider
+    raise ThinkingExecutionError(
+    ...<2 lines>...
+    ) from exc
+continuity_engine.domain.errors.ThinkingExecutionError: ThinkSession failed and was logged: 979916c5-77ea-50cf-bc05-f976e292e348
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w03_recognition.py", line 176, in test_raw_messages_enter_w02_then_original_learning_before_recognition
+    f.submit(request)
+    ~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p09_core_fixture.py", line 165, in submit
+    return self.app.adapter.submit(request or self.request())
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 187, in submit
+    return self._submit(payload)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 303, in _submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.
+
+----------------------------------------------------------------------
+Ran 1 test in 1.155s
+
+FAILED (errors=1)

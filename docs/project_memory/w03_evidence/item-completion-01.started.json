@@ -1,0 +1,10 @@
+{
+  "started_at": "2026-09-25T12:42:57.036582+00:00",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_w03_unfinished_items.W03UnfinishedItemTests.test_internal_result_must_bind_the_same_item_not_its_creation"
+  ],
+  "source_before": "sha256:faf867faf3c9eeb4d9cb03698a30e931e9a67e5858ba7821529e19ba4065115e"
+}

@@ -1,3 +1,10 @@
+<!-- W03_ACCEPTED_D083_20260926 -->
+## 2026-09-26 — W03 正式验收（D-083）
+
+用户验收长期对象认识、回应前必要核心和来源绑定的未完事项，包括 N06 终态下沉、旧记录显式迁移及当前来源/权限重查。原 Event/Learning/Evolution、SubjectState、C1 与 E5-A 权威保持；施工方同版专项 32 PASS、兼容 176 PASS、全量 1767 PASS/1 既有 SKIP。首次失败、中断、辅助错误和早期 W02 `RECALL_TIMEOUT` 记录保留，四份资料负载限制未证实解决；F1/H1/F2 根因仍 UNKNOWN。[验收报告](w03_acceptance_evidence/acceptance-report.md)。本次归档不改源码或正式测试，不开放 W04/W05/P19 或生产服务。
+
+---
+
 <!-- W02_INTEGRATION_ACCEPTED_D081_20260925 -->
 ## 2026-09-25 — W02 整体贯通正式验收（D-081）
 

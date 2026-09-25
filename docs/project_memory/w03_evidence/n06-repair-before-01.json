@@ -1,0 +1,13 @@
+{
+  "started_at": "2026-09-25T14:59:43.498572+00:00",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_w03_n06_repair"
+  ],
+  "exit_code": 1,
+  "elapsed_seconds": 40.43689230000018,
+  "source_before": "sha256:b10b78597b21ef3e9189b14c843cab12d0e3e983808f631ca90bf582a91babd6",
+  "source_after": "sha256:b10b78597b21ef3e9189b14c843cab12d0e3e983808f631ca90bf582a91babd6"
+}

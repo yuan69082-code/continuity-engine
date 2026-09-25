@@ -1,0 +1,13 @@
+{
+  "started_at": "2026-09-25T12:13:02.390525+00:00",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_w03_core_context"
+  ],
+  "exit_code": 1,
+  "elapsed_seconds": 2.6592952000064543,
+  "source_before": "sha256:358fee42bd54bfbce907e4df37b71df492fba26c7eca5fe3bbe60fbaf6319afa",
+  "source_after": "sha256:358fee42bd54bfbce907e4df37b71df492fba26c7eca5fe3bbe60fbaf6319afa"
+}

@@ -1,0 +1,12 @@
+{
+  "started_at": "2026-09-25T15:01:04.009910+00:00",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_w03_n06_repair.W03N06RepairTests.test_same_title_needs_explicit_version_bound_legacy_migration",
+    "tests.test_w03_n06_repair.W03N06RepairTests.test_unavailable_local_memory_is_not_ready_and_read_is_read_only",
+    "tests.test_w03_n06_repair.W03N06RepairTests.test_withdrawn_external_rendering_stops_item_after_reopen"
+  ],
+  "source_before": "sha256:f21a320cd6cfa422d936ce28cb01c94c59f9e66e59ca9668203978efaf75014f"
+}

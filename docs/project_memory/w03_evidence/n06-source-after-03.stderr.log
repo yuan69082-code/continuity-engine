@@ -1,0 +1,18 @@
+.E
+======================================================================
+ERROR: test_withdrawn_external_rendering_stops_item_after_reopen (tests.test_w03_n06_repair.W03N06RepairTests.test_withdrawn_external_rendering_stops_item_after_reopen)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w03_n06_repair.py", line 204, in test_withdrawn_external_rendering_stops_item_after_reopen
+    self.assertEqual(service.ready(context),())
+                     ~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\unfinished_item_service.py", line 247, in ready
+    view=self.read(context)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\unfinished_item_service.py", line 197, in read
+    raise StateEvolutionError('W03_ITEM_READ_CONTEXT_STALE_OR_UNAUTHORIZED')
+continuity_engine.domain.errors.StateEvolutionError: W03_ITEM_READ_CONTEXT_STALE_OR_UNAUTHORIZED
+
+----------------------------------------------------------------------
+Ran 2 tests in 43.141s
+
+FAILED (errors=1)

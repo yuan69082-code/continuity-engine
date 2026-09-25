@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\docs\project_memory\w03_evidence\diagnose_w02_deadline.py", line 5, in <module>
+    from tests.test_w02_integration import W02IntegratedChainTests
+ModuleNotFoundError: No module named 'tests'

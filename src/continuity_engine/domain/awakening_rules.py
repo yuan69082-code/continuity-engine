@@ -36,13 +36,15 @@ class WakeDecisionPolicy:
             )
 
         continuity = context.subject_state.continuity
-        if continuity.unfinished_items or continuity.current_focus:
+        from .unfinished_item import active_titles
+        unfinished = active_titles(continuity)
+        if unfinished or continuity.current_focus:
             return WakeDecision(
                 action=WakeAction.READY,
                 reason="The subject has active continuity items and the wake context is ready.",
                 decided_at=context.time_info.current_time,
                 evidence=[
-                    *[f"unfinished:{item}" for item in continuity.unfinished_items],
+                    *[f"unfinished:{item}" for item in unfinished],
                     *[f"focus:{item}" for item in continuity.current_focus],
                 ],
             )

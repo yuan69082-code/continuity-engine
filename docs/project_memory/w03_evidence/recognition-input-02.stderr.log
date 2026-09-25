@@ -1,0 +1,20 @@
+F
+======================================================================
+FAIL: test_raw_messages_enter_w02_then_original_learning_before_recognition (tests.test_w03_recognition.W03RecognitionTests.test_raw_messages_enter_w02_then_original_learning_before_recognition)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w03_recognition.py", line 180, in test_raw_messages_enter_w02_then_original_learning_before_recognition
+    self.assertEqual(len(candidates),1,repr({
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+        'fragments':[(fragment.source_id,fragment.provenance_roots)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     for fragment in f.context(request).composition.snapshot.fragments],
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        'route':[(ref.source_id,ref.stable_id) for ref in f.context(request).route.manifest.candidates]}))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 1 : {'fragments': [('engine.subject-state', ('subject-state:sub-fc19e0ebc0d540dc:revision:1:relationship',)), ('engine.subject-state', ('subject-state:sub-fc19e0ebc0d540dc:revision:1:continuity',)), ('engine.subject-state', ('subject-state:sub-fc19e0ebc0d540dc:revision:1:identity',)), ('engine.current-input', ('message:p01-message-0092e4ed7e7b4eaabaa5ab0b7ad14cb8:p01-message-version-077ab1bc876144c4bc09f23f772ad6c5',)), ('engine.subject-state', ('subject-state:sub-fc19e0ebc0d540dc:revision:1:intentions',))], 'route': [('engine.subject-state', 'sub-fc19e0ebc0d540dc:relationship'), ('engine.subject-state', 'sub-fc19e0ebc0d540dc:continuity'), ('engine.subject-state', 'sub-fc19e0ebc0d540dc:identity'), ('engine.current-input', 'input:p01-request-f62162261ed341328c611eba52501d83'), ('engine.subject-state', 'sub-fc19e0ebc0d540dc:intentions'), ('engine.subject-state', 'sub-fc19e0ebc0d540dc:emotion_state'), ('engine.timeline', 'original-0'), ('engine.timeline', 'p01-fixture-event-3ae3947d44ad4b0e'), ('engine.memory', 'memory:original-0'), ('engine.memory', 'memory:p01-fixture-event-3ae3947d44ad4b0e'), ('engine.derived-summary', 'c1-summary:b50d4e975e44b97a6f0c4c1dd49923da4bf97e8609230e2e914cfd972f901648')]}
+
+----------------------------------------------------------------------
+Ran 1 test in 1.511s
+
+FAILED (failures=1)

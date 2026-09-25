@@ -70,6 +70,7 @@ class ContinuityCoreGates:
     emotion_decay: bool = True
     input_processing: bool = False
     automatic_recall: bool = False
+    essential_core: bool = False
 
     def __post_init__(self):
         if any(type(v) is not bool for v in self.__dict__.values()):
@@ -152,11 +153,16 @@ class ContinuityCoreService:
         if type(subject_growth) is not bool:
             raise ValueError('subject_growth must be an explicit feature gate')
         self.growth = None
+        self.recognition = None
         if subject_growth and self.gates.enabled:
             if growth_repository is None:
                 raise ValueError('P15 requires the existing Learning repository')
             from .subject_growth_service import SubjectGrowthService
             self.growth = SubjectGrowthService(self,growth_repository)
+            from .recognition_service import RecognitionService
+            self.recognition = RecognitionService(self)
+        from .unfinished_item_service import UnfinishedItemService
+        self.unfinished = UnfinishedItemService(self)
 
     def process_thinking(self,perception,result):
         if self.growth is not None and any(m.field_path in {'identity.self_narrative', 'relationship.objects'}
@@ -165,6 +171,44 @@ class ContinuityCoreService:
         if self.mind is not None:result=self.mind.process(perception,result)
         if self.growth is not None:result=self.growth.process(perception,result)
         return result
+
+    def core_status(self, context):
+        """Read-only evidence that essential state reached this exact answer snapshot."""
+        if not self.gates.essential_core:
+            return {'status':'FEATURE_GATED','sections':(),
+                    'layers':{'core':0,'long_term_memory':0,'temporary_material':0}}
+        if context is None:
+            return {'status':'CORE_CONTEXT_MISSING','sections':(),
+                    'layers':{'core':0,'long_term_memory':0,'temporary_material':0}}
+        snapshot=context.composition.snapshot
+        expected={f'{self.subject_id}:identity',f'{self.subject_id}:relationship'}
+        found={fragment.stable_source_id for fragment in snapshot.fragments
+               if fragment.source_id=='engine.subject-state'
+               and fragment.authority is ContextAuthority.CONFIRMED_STATE
+               and fragment.protected}
+        layers={'core':len(found & expected),
+                'long_term_memory':sum(fragment.authority is ContextAuthority.CONFIRMED_MEMORY
+                    for fragment in snapshot.fragments),
+                'temporary_material':sum(fragment.authority in {
+                    ContextAuthority.RAW_SOURCE,ContextAuthority.RETRIEVED_CANDIDATE}
+                    for fragment in snapshot.fragments)}
+        return {'status':'CORE_PROVIDED' if expected<=found else 'CORE_NOT_PROVIDED',
+                'sections':tuple(sorted(found & expected)),
+                'source_revision':snapshot.source_revision,'layers':layers}
+
+    def _require_essential_core(self, context):
+        if not self.gates.essential_core:
+            return
+        state=self.subject_states.require_active(self.subject_id,self.environment)
+        if not (state.identity.stable_traits or state.identity.self_concept.strip()
+                or state.identity.self_narrative is not None):
+            raise CapabilityValidationError('W03_IDENTITY_CORE_MISSING')
+        if not (state.relationship.definition.strip() or state.relationship.current_status.strip()
+                or state.relationship.objects is not None):
+            raise CapabilityValidationError('W03_RELATIONSHIP_CORE_MISSING')
+        if (context.composition.snapshot.source_revision!=state.revision
+                or self.core_status(context)['status']!='CORE_PROVIDED'):
+            raise CapabilityValidationError('W03_ESSENTIAL_CORE_NOT_CURRENT_OR_NOT_PROVIDED')
 
     def state_authorization(self, action, context=None, *, choice=None):
         """Commit only independently sourced internal proposals in a mixed turn.
@@ -392,6 +436,7 @@ class ContinuityCoreService:
                                         growth_enabled=self.growth is not None,
                                         input_manifest_hash=input_record.binding_hash if input_record else None,
                                         recall=recall_record)
+        self._require_essential_core(context)
         if input_record is not None:
             self.input_processing.finish_context(input_record, context,
                 lambda record: save_input(record, prepared=replace(perception, continuity_context=context)))
@@ -469,6 +514,7 @@ class ContinuityCoreService:
         if context is None or not self.enabled:
             raise CapabilityValidationError("C1_CONTEXT_REQUIRED")
         context.validate_perception(perception)
+        self._require_essential_core(context)
         if context.input_manifest_hash is not None:
             if self.input_processing is None:
                 raise CapabilityValidationError('INPUT_PENDING_FEATURE_DISABLED')

@@ -1,0 +1,13 @@
+{
+  "started_at": "2026-09-25T13:44:01.919527+00:00",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_w03_unfinished_items.W03UnfinishedItemTests.test_future_deadline_does_not_hide_actionable_matter"
+  ],
+  "exit_code": 1,
+  "elapsed_seconds": 2.1178069000015967,
+  "source_before": "sha256:762a29be5b621ea3dd8a5122e60e1fbc003a07dd4358cccbfff33c52a693e5ea",
+  "source_after": "sha256:762a29be5b621ea3dd8a5122e60e1fbc003a07dd4358cccbfff33c52a693e5ea"
+}

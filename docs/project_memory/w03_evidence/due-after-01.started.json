@@ -1,0 +1,12 @@
+{
+  "started_at": "2026-09-25T13:45:07.597027+00:00",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_w03_unfinished_items.W03UnfinishedItemTests.test_future_deadline_does_not_hide_actionable_matter",
+    "tests.test_w03_unfinished_items.W03UnfinishedItemTests.test_defer_due_and_cancel_keep_one_identity_without_dispatch",
+    "tests.test_w03_unfinished_items.W03UnfinishedItemTests.test_older_low_priority_eventually_passes_continuous_urgent_arrivals"
+  ],
+  "source_before": "sha256:f8425eaaed4e031c219c83312be1bbbf9e070643eebdca7a50d5cf3fe70d4d03"
+}

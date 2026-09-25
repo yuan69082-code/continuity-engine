@@ -1,0 +1,13 @@
+{
+  "started_at": "2026-09-25T12:30:01.723846+00:00",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_w03_unfinished_items.W03UnfinishedItemTests.test_revoked_source_stops_new_opportunity_but_keeps_item_history"
+  ],
+  "exit_code": 1,
+  "elapsed_seconds": 2.211512900001253,
+  "source_before": "sha256:b8c1580184a82315055c09ae4535db461c521d6a33dd9d845f2991f85a1d695d",
+  "source_after": "sha256:b8c1580184a82315055c09ae4535db461c521d6a33dd9d845f2991f85a1d695d"
+}

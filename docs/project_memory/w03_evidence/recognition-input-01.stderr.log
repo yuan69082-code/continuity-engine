@@ -1,0 +1,14 @@
+E
+======================================================================
+ERROR: test_raw_messages_enter_w02_then_original_learning_before_recognition (tests.test_w03_recognition.W03RecognitionTests.test_raw_messages_enter_w02_then_original_learning_before_recognition)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w03_recognition.py", line 178, in test_raw_messages_enter_w02_then_original_learning_before_recognition
+    candidate=next(candidate for candidate in f.core.growth.learning.list_learning_events(
+        f.runtime.descriptor.subject_id) if candidate.source_event_id==event_id)
+StopIteration
+
+----------------------------------------------------------------------
+Ran 1 test in 1.446s
+
+FAILED (errors=1)

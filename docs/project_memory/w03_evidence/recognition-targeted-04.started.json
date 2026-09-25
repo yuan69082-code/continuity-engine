@@ -1,0 +1,10 @@
+{
+  "started_at": "2026-09-25T12:36:45.013940+00:00",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_w03_recognition"
+  ],
+  "source_before": "sha256:99bd4d95cc54afd82ad19f10f2203357ed4e59d4dffa16286db1a93d9ecf4696"
+}

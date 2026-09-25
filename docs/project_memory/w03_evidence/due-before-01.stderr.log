@@ -1,0 +1,23 @@
+F
+======================================================================
+FAIL: test_future_deadline_does_not_hide_actionable_matter (tests.test_w03_unfinished_items.W03UnfinishedItemTests.test_future_deadline_does_not_hide_actionable_matter)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w03_unfinished_items.py", line 173, in test_future_deadline_does_not_hide_actionable_matter
+    self.assertEqual([item.item_id for item in self.service.ready(self.context())],
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     ['deadline'])
+                     ^^^^^^^^^^^^^
+AssertionError: Lists differ: [] != ['deadline']
+
+Second list contains 1 additional elements.
+First extra element 0:
+'deadline'
+
+- []
++ ['deadline']
+
+----------------------------------------------------------------------
+Ran 1 test in 1.608s
+
+FAILED (failures=1)

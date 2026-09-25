@@ -1,0 +1,14 @@
+.....F..........
+======================================================================
+FAIL: test_atomic_storage_failure_and_legacy_serialization (tests.test_w03_unfinished_items.W03UnfinishedItemTests.test_atomic_storage_failure_and_legacy_serialization)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w03_unfinished_items.py", line 159, in test_atomic_storage_failure_and_legacy_serialization
+    with self.assertRaises(OSError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^
+AssertionError: OSError not raised
+
+----------------------------------------------------------------------
+Ran 16 tests in 44.808s
+
+FAILED (failures=1)

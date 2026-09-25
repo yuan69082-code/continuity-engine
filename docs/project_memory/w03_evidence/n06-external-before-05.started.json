@@ -1,0 +1,10 @@
+{
+  "started_at": "2026-09-25T15:04:40.685695+00:00",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_w03_n06_repair.W03N06RepairTests.test_withdrawn_external_rendering_stops_item_after_reopen"
+  ],
+  "source_before": "sha256:d88410d54172c955d66328ee8de1bff8390d9af6776311123fc26c0ea9805649"
+}

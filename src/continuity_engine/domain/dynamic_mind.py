@@ -239,6 +239,18 @@ def context_state_document(state):
     """
     from .action_planning import digest
     value = state.to_dict()
+    records = value['continuity'].get('item_records')
+    if records:
+        # The full current record remains in SubjectState and Evolution. Daily
+        # context contains only a bounded pointer and the next actionable items.
+        active = [item for item in records if item['status'] not in {'COMPLETED','CANCELLED'}]
+        value['continuity']['item_records'] = {
+            'state_hash': digest(records), 'active_count': len(active),
+            'next': [{'item_id': item['item_id'], 'title': item['title'],
+                      'status': item['status'], 'next_step': item['next_step']}
+                     for item in active[:3]],
+            'detail': 'bounded current-state projection; full history remains in SubjectState/Evolution',
+        }
     for section,key in [('identity','self_narrative'),('relationship','objects')]:
         growth=value[section].get(key)
         if growth is not None:

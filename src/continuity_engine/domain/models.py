@@ -109,16 +109,19 @@ class ContinuityState:
     unfinished_items: list[str] = field(default_factory=list)
     current_focus: list[str] = field(default_factory=list)
     recent_changes: list[str] = field(default_factory=list)
+    item_records: list[dict] = field(default_factory=list)
 
     @classmethod
     def from_dict(cls, value: Any) -> ContinuityState:
         data = _mapping(value, "continuity")
+        from .unfinished_item import item_records
         return cls(
             unfinished_items=_string_list(
                 data.get("unfinished_items"), "continuity.unfinished_items"
             ),
             current_focus=_string_list(data.get("current_focus"), "continuity.current_focus"),
             recent_changes=_string_list(data.get("recent_changes"), "continuity.recent_changes"),
+            item_records=item_records(data.get("item_records", [])),
         )
 
 
@@ -279,6 +282,8 @@ class SubjectState:
         from .subject_growth import growth_document
         for value,kind in [(self.identity.self_narrative,'narrative'),(self.relationship.objects,'relationships')]:
             if value is not None:growth_document(value,kind=kind,subject_id=self.subject_id)
+        from .unfinished_item import item_records
+        item_records(self.continuity.item_records,subject_id=self.subject_id)
 
     @classmethod
     def create(cls, subject_id: str, now: datetime | None = None) -> SubjectState:
@@ -299,6 +304,7 @@ class SubjectState:
     def to_dict(self) -> dict[str, Any]:
         mind = self.intentions.dynamic_mind
         from .subject_growth import growth_document
+        from .unfinished_item import item_records
         narrative = (growth_document(self.identity.self_narrative,kind='narrative',subject_id=self.subject_id)
                      if self.identity.self_narrative is not None else None)
         relationships = (growth_document(self.relationship.objects,kind='relationships',subject_id=self.subject_id)
@@ -338,6 +344,8 @@ class SubjectState:
                 "unfinished_items": list(self.continuity.unfinished_items),
                 "current_focus": list(self.continuity.current_focus),
                 "recent_changes": list(self.continuity.recent_changes),
+                **({"item_records": item_records(self.continuity.item_records,subject_id=self.subject_id)}
+                   if self.continuity.item_records else {}),
             },
             "temporal": {
                 "created_at": _format_datetime(self.temporal.created_at),

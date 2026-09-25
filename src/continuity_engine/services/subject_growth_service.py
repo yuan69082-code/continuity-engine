@@ -79,7 +79,8 @@ class SubjectGrowthService:
             if not keys<=set(metadata):continue
             identity='p15-learning:'+digest([c.subject_id,roots[0]])[7:]
             if identity in existing:
-                added.append(identity); continue
+                if identity not in added:added.append(identity)
+                continue
             reference=refs[fragment.stable_source_id]
             binding={'reference':reference.to_dict(),'request':context.route.plan.request.to_dict(),'roots':roots,
                      'event_id':event.event_id,'event_hash':event.canonical_hash()}
@@ -91,6 +92,7 @@ class SubjectGrowthService:
                 confidence=metadata.get('learning_confidence',0.5),
                 original_experience={'p15_source_binding':binding},reason='Consumed annotated experience',
                 source='p15-c1-experience',root_evidence_ids=roots)
+            existing[identity]=result.learning_event
             added.append(result.learning_event.learning_id)
         return tuple(added)
 

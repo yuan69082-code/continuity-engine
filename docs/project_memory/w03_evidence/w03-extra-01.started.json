@@ -1,0 +1,13 @@
+{
+  "started_at": "2026-09-25T13:31:56.503118+00:00",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_w03_recognition.W03RecognitionTests.test_expired_transient_interpretation_cannot_become_current",
+    "tests.test_w03_recognition.W03RecognitionTests.test_same_root_and_different_object_cannot_corroborate",
+    "tests.test_w03_unfinished_items.W03UnfinishedItemTests.test_defer_due_and_cancel_keep_one_identity_without_dispatch",
+    "tests.test_w03_unfinished_items.W03UnfinishedItemTests.test_two_writers_with_one_revision_accept_one_item_only"
+  ],
+  "source_before": "sha256:4248110c900ad3caac92c423df9b2a6a78192cd3fdfbd1096aa680835cf8e81c"
+}

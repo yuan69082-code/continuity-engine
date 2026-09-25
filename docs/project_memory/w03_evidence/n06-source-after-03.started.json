@@ -1,0 +1,11 @@
+{
+  "started_at": "2026-09-25T15:13:29.693050+00:00",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_w03_n06_repair.W03N06RepairTests.test_unavailable_local_memory_is_not_ready_and_read_is_read_only",
+    "tests.test_w03_n06_repair.W03N06RepairTests.test_withdrawn_external_rendering_stops_item_after_reopen"
+  ],
+  "source_before": "sha256:4db79f5e3676281250114984f9e8777eee48da969d0ed1a044536f9de3111283"
+}

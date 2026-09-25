@@ -1,0 +1,13 @@
+{
+  "started_at": "2026-09-25T12:39:25.376548+00:00",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_w03_recognition.W03RecognitionTests.test_raw_messages_enter_w02_then_original_learning_before_recognition"
+  ],
+  "exit_code": 1,
+  "elapsed_seconds": 1.9603776000003563,
+  "source_before": "sha256:c880311348725b95e0cecf5e906f766fba1a5af3cb2269a7bb77dbc9dad19a69",
+  "source_after": "sha256:c880311348725b95e0cecf5e906f766fba1a5af3cb2269a7bb77dbc9dad19a69"
+}

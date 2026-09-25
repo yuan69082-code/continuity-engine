@@ -1,0 +1,10 @@
+{
+  "checked_at_utc": "2026-09-25T14:35:38.1278204Z",
+  "observed_w03_process_ids": [
+    18144,
+    21932
+  ],
+  "still_running": [],
+  "forced_cleanup": false,
+  "note": "Only the two process IDs observed for full-final-02 were checked; unrelated processes were not touched."
+}

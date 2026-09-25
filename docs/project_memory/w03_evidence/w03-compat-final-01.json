@@ -1,0 +1,22 @@
+{
+  "started_at": "2026-09-25T13:37:10.553961+00:00",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_p09_continuity_core",
+    "tests.test_p15_subject_growth",
+    "tests.test_p15_repair_edges",
+    "tests.test_p14_dynamic_mind",
+    "tests.test_p11_scheduler",
+    "tests.test_p18_runtime",
+    "tests.test_w02_input_integration",
+    "tests.test_w02_integration",
+    "tests.test_w02_external_absorption",
+    "tests.test_w02_recall"
+  ],
+  "exit_code": 1,
+  "elapsed_seconds": 383.61928179999813,
+  "source_before": "sha256:8ebacdae82a9519159e3aec8aa8a8d32cda9f33589f416ac269bbbc73950c88a",
+  "source_after": "sha256:8ebacdae82a9519159e3aec8aa8a8d32cda9f33589f416ac269bbbc73950c88a"
+}

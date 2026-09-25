@@ -1,0 +1,168 @@
+EEEE
+======================================================================
+ERROR: test_completed_and_cancelled_sink_without_exhausting_64_current_slots (tests.test_w03_n06_repair.W03N06RepairTests.test_completed_and_cancelled_sink_without_exhausting_64_current_slots)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w03_n06_repair.py", line 51, in test_completed_and_cancelled_sink_without_exhausting_64_current_slots
+    self.submit(item,'create-%03d' % number)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w03_n06_repair.py", line 44, in submit
+    return self.service.submit(item, command_id=command,
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+        expected_revision=self.f.runtime.subject_state().revision,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        context=context, reason='Bound original N06 command.', **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\unfinished_item_service.py", line 81, in submit
+    return c.subject_states.apply_event(c.subject_id,event,expected_revision=expected_revision).update
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\subject_state_service.py", line 79, in apply_event
+    return self._apply_event(subject_id, event, expected_revision=expected_revision)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\subject_state_service.py", line 148, in _apply_event
+    result = self._evolver.evolve(state, event, applied_at=applied_at)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\domain\evolution.py", line 106, in evolve
+    after = self._apply_mutation(before, mutation.operation, mutation.value, rule)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\domain\evolution.py", line 207, in _apply_mutation
+    return item_records(value)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\domain\unfinished_item.py", line 103, in item_records
+    raise StateValidationError('W03_ITEM_RECORDS_INVALID')
+continuity_engine.domain.errors.StateValidationError: W03_ITEM_RECORDS_INVALID
+
+======================================================================
+ERROR: test_same_title_needs_explicit_version_bound_legacy_migration (tests.test_w03_n06_repair.W03N06RepairTests.test_same_title_needs_explicit_version_bound_legacy_migration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w03_n06_repair.py", line 68, in test_same_title_needs_explicit_version_bound_legacy_migration
+    self.f.event('legacy-matter',mutations=(StateMutation(
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        'continuity.unfinished_items', ChangeOperation.SET,[title],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        'Synthetic old-format item.'),))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p09_core_fixture.py", line 181, in event
+    return self.runtime.subject_states.apply_event(self.runtime.descriptor.subject_id, event)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\subject_state_service.py", line 79, in apply_event
+    return self._apply_event(subject_id, event, expected_revision=expected_revision)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\subject_state_service.py", line 138, in _apply_event
+    raise EventReferenceError(
+    ...<3 lines>...
+    )
+continuity_engine.domain.errors.EventReferenceError: fact, observation, intention, correction, and revocation events cannot mutate current SubjectState; append the history without mutations and use an Action-Gate-approved state_change event
+
+======================================================================
+ERROR: test_unavailable_local_memory_is_not_ready_and_read_is_read_only (tests.test_w03_n06_repair.W03N06RepairTests.test_unavailable_local_memory_is_not_ready_and_read_is_read_only)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w03_n06_repair.py", line 99, in test_unavailable_local_memory_is_not_ready_and_read_is_read_only
+    self.submit(self.item('memory-matter',roots=('memory:'+memory.memory_id,)),'memory-create')
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w03_n06_repair.py", line 44, in submit
+    return self.service.submit(item, command_id=command,
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+        expected_revision=self.f.runtime.subject_state().revision,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        context=context, reason='Bound original N06 command.', **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\unfinished_item_service.py", line 64, in submit
+    self._verify_roots(item.source_roots)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\unfinished_item_service.py", line 98, in _verify_roots
+    raise StateEvolutionError('W03_ITEM_SOURCE_NOT_CURRENT')
+continuity_engine.domain.errors.StateEvolutionError: W03_ITEM_SOURCE_NOT_CURRENT
+
+======================================================================
+ERROR: test_withdrawn_external_rendering_stops_item_after_reopen (tests.test_w03_n06_repair.W03N06RepairTests.test_withdrawn_external_rendering_stops_item_after_reopen)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 739, in _run_domain
+    wake_session = self._awakening.get_session(
+        operation.subject_id,
+        progress.wake_session_id,
+    )
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\awakening_service.py", line 162, in get_session
+    return self._repository.load_session(subject_id, session_id)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_awakening_repository.py", line 86, in load_session
+    raise StateNotFoundError(f"wake session not found: {session_id}")
+continuity_engine.domain.errors.StateNotFoundError: wake session not found: f1a6e4ae-ea04-561c-a5e6-2b285e478f40
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 291, in _submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 744, in _run_domain
+    awakening = self._awakening.wake_manual(
+        binding.cycle_id,
+    ...<3 lines>...
+        preserve_recovery_context=True,
+    )
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\awakening_service.py", line 109, in wake_manual
+    return self._run(
+           ~~~~~~~~~^
+        cycle,
+        ^^^^^^
+    ...<3 lines>...
+        preserve_recovery_context=preserve_recovery_context,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\awakening_service.py", line 266, in _run
+    self._repository.save_session(session)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_awakening_repository.py", line 81, in save_session
+    self._write_json(path, session.to_dict())
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_awakening_repository.py", line 118, in _write_json
+    with tempfile.NamedTemporaryFile(
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        mode="w",
+        ^^^^^^^^^
+    ...<5 lines>...
+        delete=False,
+        ^^^^^^^^^^^^^
+    ) as temporary:
+    ^
+  File "E:\Adobe\Lib\tempfile.py", line 603, in NamedTemporaryFile
+    file = _io.open(dir, mode, buffering=buffering,
+                    newline=newline, encoding=encoding, errors=errors,
+                    opener=opener)
+  File "E:\Adobe\Lib\tempfile.py", line 600, in opener
+    fd, name = _mkstemp_inner(dir, prefix, suffix, flags, output_type)
+               ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Adobe\Lib\tempfile.py", line 255, in _mkstemp_inner
+    fd = _os.open(file, flags, 0o600)
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\Administrator\\AppData\\Local\\Temp\\w03-n06-external-052o8c7s\\s\\s\\s4d8ffb83\\b\\b548340a1\\data\\awakening\\sessions\\160b90ff33b8ef339e3dc6afee962bb8c9f470ebd48790856c930d3b364e2c5b\\.ef3a5d55850e9dffc2f523607044eb7324b781ed5c5b85c7c0d80fc7566b9b13.9gm1iurs.tmp'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w03_n06_repair.py", line 114, in test_withdrawn_external_rendering_stops_item_after_reopen
+    f.submit()
+    ~~~~~~~~^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\w02_c_fixture.py", line 85, in submit
+    return self.base.submit(request)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p16_provider_fixture.py", line 166, in submit
+    request=request or self.request();value=self.app.adapter.submit(request)
+                                            ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 191, in submit
+    return self._submit(payload)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 303, in _submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.
+
+----------------------------------------------------------------------
+Ran 4 tests in 39.845s
+
+FAILED (errors=4)

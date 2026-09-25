@@ -1,0 +1,32 @@
+EE.E
+======================================================================
+ERROR: test_everyday_response_contains_identity_and_relationship_before_thinking (tests.test_w03_core_context.W03CoreContextTests.test_everyday_response_contains_identity_and_relationship_before_thinking)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w03_core_context.py", line 20, in test_everyday_response_contains_identity_and_relationship_before_thinking
+    fixture = P09Fixture(self.root, gates=ContinuityCoreGates(essential_core=True))
+                                          ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+TypeError: ContinuityCoreGates.__init__() got an unexpected keyword argument 'essential_core'
+
+======================================================================
+ERROR: test_insufficient_budget_does_not_silently_omit_core (tests.test_w03_core_context.W03CoreContextTests.test_insufficient_budget_does_not_silently_omit_core)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w03_core_context.py", line 42, in test_insufficient_budget_does_not_silently_omit_core
+    fixture = P09Fixture(self.root, gates=ContinuityCoreGates(essential_core=True),
+                                          ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+TypeError: ContinuityCoreGates.__init__() got an unexpected keyword argument 'essential_core'
+
+======================================================================
+ERROR: test_missing_core_fails_before_thinking_or_action (tests.test_w03_core_context.W03CoreContextTests.test_missing_core_fails_before_thinking_or_action)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w03_core_context.py", line 30, in test_missing_core_fails_before_thinking_or_action
+    fixture = P09Fixture(self.root, gates=ContinuityCoreGates(essential_core=True))
+                                          ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+TypeError: ContinuityCoreGates.__init__() got an unexpected keyword argument 'essential_core'
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.703s
+
+FAILED (errors=3)

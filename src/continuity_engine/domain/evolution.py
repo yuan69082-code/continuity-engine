@@ -37,6 +37,7 @@ FIELD_RULES: dict[str, FieldRule] = {
     "relationship.important_moments": FieldRule(StateSection.RELATIONSHIP, list, str),
     "relationship.current_status": FieldRule(StateSection.RELATIONSHIP, str),
     "continuity.unfinished_items": FieldRule(StateSection.CONTINUITY, list, str),
+    "continuity.item_records": FieldRule(StateSection.CONTINUITY, list, dict, document_type="unfinished_items"),
     "continuity.current_focus": FieldRule(StateSection.CONTINUITY, list, str),
     "continuity.recent_changes": FieldRule(StateSection.CONTINUITY, list, str),
     "temporal.lifecycle_events": FieldRule(StateSection.TEMPORAL, list, str),
@@ -201,6 +202,9 @@ class SubjectStateEvolver:
                 if not isinstance(value, str):
                     raise StateEvolutionError("set value must be a string for this field")
                 return value
+            if rule.document_type == 'unfinished_items':
+                from .unfinished_item import item_records
+                return item_records(value)
             if not isinstance(value, list) or any(
                 not isinstance(item, rule.list_item_type) for item in value
             ):
@@ -209,6 +213,8 @@ class SubjectStateEvolver:
 
         if rule.value_type is not list:
             raise StateEvolutionError(f"{operation.value} is only supported for list fields")
+        if rule.document_type == 'unfinished_items':
+            raise StateEvolutionError('W03_ITEM_RECORDS_REQUIRE_ATOMIC_SET')
         if not isinstance(value, rule.list_item_type):
             raise StateEvolutionError("list mutation value has an invalid type")
 

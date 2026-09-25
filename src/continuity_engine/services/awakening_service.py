@@ -359,7 +359,8 @@ class AwakeningService:
         request_id: str | None = None,
     ) -> MemoryRetrievalRequest:
         focus = state.continuity.current_focus
-        unfinished = state.continuity.unfinished_items
+        from continuity_engine.domain.unfinished_item import active_titles
+        unfinished = active_titles(state.continuity)
         query_parts = ["Retrieve memories relevant to the subject's current continuity."]
         if focus:
             query_parts.append(f"Current focus: {'; '.join(focus)}.")

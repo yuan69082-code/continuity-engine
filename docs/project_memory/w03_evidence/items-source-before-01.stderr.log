@@ -1,0 +1,20 @@
+F
+======================================================================
+FAIL: test_revoked_source_stops_new_opportunity_but_keeps_item_history (tests.test_w03_unfinished_items.W03UnfinishedItemTests.test_revoked_source_stops_new_opportunity_but_keeps_item_history)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w03_unfinished_items.py", line 146, in test_revoked_source_stops_new_opportunity_but_keeps_item_history
+    self.assertEqual(self.service.ready(fresh),())
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (UnfinishedItem(item_id='rooted', subject_[402 chars]ne),) != ()
+
+First tuple contains 1 additional elements.
+First extra element 0:
+UnfinishedItem(item_id='rooted', subject_id='sub-5316177dd04a4af7', environment='TEST', title='Synthetic rooted', source_roots=('event:w03-root',), willing=True, importance_reason='Subject chose to keep this matter in view.', urgency='NORMAL', due_at=None, wait_condition=None, next_step='Review local evidence', status='OPEN', created_at='2026-09-04T08:00:00Z', updated_at='2026-09-04T08:00:00Z', revision=0, completion=None, last_progress=None)
+
+Diff is 745 characters long. Set self.maxDiff to None to see it.
+
+----------------------------------------------------------------------
+Ran 1 test in 1.671s
+
+FAILED (failures=1)

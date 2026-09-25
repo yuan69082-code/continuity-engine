@@ -1,0 +1,21 @@
+...E
+======================================================================
+ERROR: test_missing_core_fails_before_thinking_or_action (tests.test_w03_core_context.W03CoreContextTests.test_missing_core_fails_before_thinking_or_action)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w03_core_context.py", line 35, in test_missing_core_fails_before_thinking_or_action
+    fixture.runtime.subject_states.save(state)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\subject_state_service.py", line 69, in save
+    self._repository.save(state)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_repository.py", line 258, in save
+    raise StateEvolutionError(
+        "event-backed state cannot be changed with direct save; use save_transition"
+    )
+continuity_engine.domain.errors.StateEvolutionError: event-backed state cannot be changed with direct save; use save_transition
+
+----------------------------------------------------------------------
+Ran 4 tests in 2.109s
+
+FAILED (errors=1)

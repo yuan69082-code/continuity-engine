@@ -1,0 +1,14 @@
+.F....................
+======================================================================
+FAIL: test_everyday_response_contains_identity_and_relationship_before_thinking (tests.test_w03_core_context.W03CoreContextTests.test_everyday_response_contains_identity_and_relationship_before_thinking)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w03_core_context.py", line 33, in test_everyday_response_contains_identity_and_relationship_before_thinking
+    self.assertEqual(status['layers']['core'],2)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 3 != 2
+
+----------------------------------------------------------------------
+Ran 22 tests in 96.592s
+
+FAILED (failures=1)

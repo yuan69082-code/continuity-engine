@@ -1,0 +1,25 @@
+{
+  "label": "core-compat-03",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_p04_memory_repository",
+    "tests.test_p04_memory_consolidation",
+    "tests.test_p05_context_router",
+    "tests.test_p05_context_routing",
+    "tests.test_p06_context_composer",
+    "tests.test_p06_context_composition",
+    "tests.test_p16_providers",
+    "tests.test_p16_context",
+    "tests.test_p16_recovery",
+    "tests.test_p16_review_regressions",
+    "tests.test_p16_repair_edges",
+    "tests.test_p17_execution",
+    "tests.test_p17_recovery",
+    "tests.test_p17_boundaries",
+    "tests.test_p17_repair_edges"
+  ],
+  "started_at": "2026-09-24T17:16:17.651075+00:00",
+  "source_fingerprint": "sha256:0fb843ae12d8e0d54293e34bba8ec5aba8f34771adf5fbb0f4858f43c0077840"
+}

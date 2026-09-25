@@ -1,0 +1,29 @@
+{
+  "label": "w02-compat-02",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_w02_input_processing",
+    "tests.test_w02_input_recovery",
+    "tests.test_w02_input_integration",
+    "tests.test_w02_recall",
+    "tests.test_w02_recall_boundaries",
+    "tests.test_w02_recall_combinations",
+    "tests.test_w02_recall_consistency",
+    "tests.test_w02_recall_semantics"
+  ],
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "started_at": "2026-09-24T17:12:53.800190+00:00",
+  "ended_at": "2026-09-24T17:16:12.691453+00:00",
+  "elapsed_seconds": 197.8293554999982,
+  "exit_code": 0,
+  "source_fingerprint_before": "sha256:0fb843ae12d8e0d54293e34bba8ec5aba8f34771adf5fbb0f4858f43c0077840",
+  "source_fingerprint_after": "sha256:0fb843ae12d8e0d54293e34bba8ec5aba8f34771adf5fbb0f4858f43c0077840",
+  "source_inventory_identical": true,
+  "formal_identical": true,
+  "protected_identical": true,
+  "excluded_identical": true,
+  "stdout_sha256": "b089e4d14ad241fc18f1882afed7866ad284a9038a1e5759345ce6570675caf0",
+  "stderr_sha256": "73ed5f757812cb369e2a9943126fd6f2ed129c425d4204e23fe464262dd1f477"
+}

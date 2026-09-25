@@ -1,0 +1,14 @@
+test_distinct_counterevidence_is_conflict_not_a_winner (tests.test_w02_external_absorption.ExternalAbsorptionTests.test_distinct_counterevidence_is_conflict_not_a_winner) ... ok
+test_external_control_claim_is_not_usable_or_permission (tests.test_w02_external_absorption.ExternalAbsorptionTests.test_external_control_claim_is_not_usable_or_permission) ... ok
+test_missing_root_proof_waits_and_does_not_infer_history_absent (tests.test_w02_external_absorption.ExternalAbsorptionTests.test_missing_root_proof_waits_and_does_not_infer_history_absent) ... ok
+test_one_root_is_not_enough_for_long_term_and_no_automatic_memory (tests.test_w02_external_absorption.ExternalAbsorptionTests.test_one_root_is_not_enough_for_long_term_and_no_automatic_memory) ... ok
+test_read_only_outcome_does_not_advance_model_memory_or_revision (tests.test_w02_external_absorption.ExternalAbsorptionTests.test_read_only_outcome_does_not_advance_model_memory_or_revision) ... ok
+test_receipted_root_becomes_pre_answer_candidate_not_subject_fact (tests.test_w02_external_absorption.ExternalAbsorptionTests.test_receipted_root_becomes_pre_answer_candidate_not_subject_fact) ... ok
+test_revocation_correction_scope_and_expiry_invalidate_old_context (tests.test_w02_external_absorption.ExternalAbsorptionTests.test_revocation_correction_scope_and_expiry_invalidate_old_context) ... ok
+test_same_root_original_and_derived_wrapper_count_once (tests.test_w02_external_absorption.ExternalAbsorptionTests.test_same_root_original_and_derived_wrapper_count_once) ... ok
+test_two_independent_current_roots_can_use_original_p04_memory_and_summary (tests.test_w02_external_absorption.ExternalAbsorptionTests.test_two_independent_current_roots_can_use_original_p04_memory_and_summary) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 49.805s
+
+OK

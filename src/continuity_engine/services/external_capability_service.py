@@ -6,6 +6,7 @@ from continuity_engine.domain.action_planning import ActionChoice,ActionSpecific
 from continuity_engine.domain.action_capability import ActionReceipt,ReceiptQuery,InternalActionRequest
 from continuity_engine.domain.capability import parse_capability_datetime,CapabilityStatus
 from continuity_engine.domain.external_capabilities import QueryInput,ProviderResult,ExternalCapabilityError,KINDS
+from continuity_engine.domain.external_absorption import ExternalAbsorptionRecord
 from continuity_engine.domain.subject_lifecycle import LifecycleError
 from continuity_engine.domain.integration_results import format_contract_datetime
 from .action_planning_service import ActionCapabilityBinding
@@ -54,8 +55,10 @@ class _Policy:
 
 
 class ExternalCapabilityService:
-    def __init__(self,registry,*,broker,permissions,providers):
+    def __init__(self,registry,*,broker,permissions,providers,absorption=None):
         self.registry,self.broker,self.permissions,self.providers=registry,broker,permissions,dict(providers)
+        self.absorption=absorption
+        if absorption is not None:absorption.bind(self)
         self.core=None;self.calls={'select':0,'consume':0,'cache':0};self.last_outcome=None;self.last_trace_entry=None
         self.projection_audit={}
     def bind(self,core):
@@ -173,9 +176,19 @@ class ExternalCapabilityService:
                     'authority':'retrieved_candidate','snapshot_hash':r.choice.snapshot_hash}
                 continue
             self.last_outcome=value.status
-            self.calls['cache']+=1;self.registry.cache(value,at=format_contract_datetime(self.core.clock()))
+            self.calls['cache']+=1
+            old=next((entry for entry in self.registry.cached()
+                      if entry['request_id']==r.capability_request_id),None)
+            if old is not None and old['result']!=value.to_dict():
+                raise ExternalCapabilityError('EXTERNAL_CACHE_CONFLICT')
+            if self.absorption is not None and old is not None and 'absorption' not in old:
+                raise ExternalCapabilityError('EXTERNAL_LEGACY_ABSORPTION_NOT_READY')
+            evidence=(ExternalAbsorptionRecord.from_dict(old['absorption']) if old is not None and self.absorption is not None
+                      else self.absorption.assess(r,value,self.descriptor_for(r)) if self.absorption is not None else None)
+            self.registry.cache(value,at=format_contract_datetime(self.core.clock()),absorption=evidence)
             self.last_trace_entry={'status':value.status,'request_id':r.capability_request_id,
-                'candidate_count':len(value.candidates),'authority':'retrieved_candidate','snapshot_hash':r.choice.snapshot_hash}
+                'candidate_count':len(value.candidates),'authority':'retrieved_candidate','snapshot_hash':r.choice.snapshot_hash,
+                'absorption_statuses':[] if evidence is None else [d.disposition for d in evidence.decisions]}
     def cached(self):
         self.calls['consume']+=1;values=[]
         for entry in self.registry.cached():
@@ -189,3 +202,28 @@ class ExternalCapabilityService:
             if value.to_dict()!=entry['result']:raise ExternalCapabilityError('EXTERNAL_CACHE_RESULT_CONFLICT')
             values.append((r,value))
         return tuple(values)
+
+    def absorbed(self):
+        """Current W02-C projection of original independently verified P16 facts."""
+        if self.absorption is None:return ()
+        by_id={request.capability_request_id:(request,value) for request,value in self.cached()}
+        result=[]
+        for entry in self.registry.cached():
+            pair=by_id.get(entry['request_id'])
+            if pair is None:continue
+            # Old P16 material never silently becomes a trusted W02-C record.
+            if 'absorption' not in entry:continue
+            request,value=pair
+            result.append((request,value,self.absorption.current(request,value,entry['absorption'])))
+        conflicting=set()
+        for source in {d.source_id for _,_,rec in result for d in rec.decisions}:
+            decisions=[d for _,_,rec in result for d in rec.decisions
+                       if d.source_id==source and d.disposition=='CANDIDATE']
+            if any(a.content_hash!=b.content_hash and not set(a.roots).intersection(b.roots)
+                   for i,a in enumerate(decisions) for b in decisions[i+1:]):
+                conflicting.add(source)
+        if not conflicting:return tuple(result)
+        return tuple((request,value,replace(record,decisions=tuple(
+            replace(d,disposition='CONFLICT',reason='COUNTEREVIDENCE_UNRESOLVED')
+            if d.source_id in conflicting and d.disposition=='CANDIDATE' else d
+            for d in record.decisions))) for request,value,record in result)

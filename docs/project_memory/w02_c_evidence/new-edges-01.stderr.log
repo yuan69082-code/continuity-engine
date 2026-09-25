@@ -1,0 +1,17 @@
+test_w02_a_and_b_real_ingress_share_pre_answer_external_candidate (tests.test_w02_external_absorption.ExternalAbsorptionTests.test_w02_a_and_b_real_ingress_share_pre_answer_external_candidate) ... ok
+test_old_date_and_wrong_result_hash_are_rejected_before_absorption (tests.test_w02_external_absorption.ExternalAbsorptionTests.test_old_date_and_wrong_result_hash_are_rejected_before_absorption) ... FAIL
+test_permission_revocation_blocks_current_use_without_erasing_original_fact (tests.test_w02_external_absorption.ExternalAbsorptionTests.test_permission_revocation_blocks_current_use_without_erasing_original_fact) ... ok
+
+======================================================================
+FAIL: test_old_date_and_wrong_result_hash_are_rejected_before_absorption (tests.test_w02_external_absorption.ExternalAbsorptionTests.test_old_date_and_wrong_result_hash_are_rejected_before_absorption)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w02_external_absorption.py", line 184, in test_old_date_and_wrong_result_hash_are_rejected_before_absorption
+    with self.assertRaises(IntegrationExecutionError):f.submit()
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: IntegrationExecutionError not raised
+
+----------------------------------------------------------------------
+Ran 3 tests in 9.582s
+
+FAILED (failures=1)

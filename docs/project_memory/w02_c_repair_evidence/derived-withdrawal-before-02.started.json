@@ -1,0 +1,12 @@
+{
+  "label": "derived-withdrawal-before-02",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_w02_external_absorption.ExternalAbsorptionTests.test_withdrawing_only_derived_material_invalidates_every_dependent_use",
+    "-q"
+  ],
+  "started_at": "2026-09-25T00:24:46.247554+00:00",
+  "source_fingerprint": "sha256:91d71e6819ffb51426e3c868c6066f497bb69e43f2c6cd242dfbf622b5a87618"
+}

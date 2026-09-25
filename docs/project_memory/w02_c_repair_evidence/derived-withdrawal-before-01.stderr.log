@@ -1,0 +1,17 @@
+======================================================================
+ERROR: test_withdrawing_only_derived_material_invalidates_every_dependent_use (tests.test_w02_external_absorption.ExternalAbsorptionTests.test_withdrawing_only_derived_material_invalidates_every_dependent_use)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w02_external_absorption.py", line 248, in test_withdrawing_only_derived_material_invalidates_every_dependent_use
+    memory = f.absorption.adopt_corroborated(candidate.source_id, derived_hash,
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                             reason='Two current independent TEST roots').memory
+                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\external_absorption_service.py", line 203, in adopt_corroborated
+    raise ExternalCapabilityError('EXTERNAL_INDEPENDENT_EVIDENCE_INSUFFICIENT')
+continuity_engine.domain.external_capabilities.ExternalCapabilityError: EXTERNAL_INDEPENDENT_EVIDENCE_INSUFFICIENT
+
+----------------------------------------------------------------------
+Ran 1 test in 7.163s
+
+FAILED (errors=1)

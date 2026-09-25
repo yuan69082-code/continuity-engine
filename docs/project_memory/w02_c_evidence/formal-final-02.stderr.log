@@ -1,0 +1,14 @@
+............F........
+======================================================================
+FAIL: test_unrelated_external_material_is_not_selected_for_this_response (tests.test_w02_external_absorption.ExternalAbsorptionTests.test_unrelated_external_material_is_not_selected_for_this_response)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w02_external_absorption.py", line 89, in test_unrelated_external_material_is_not_selected_for_this_response
+    self.assertFalse(self._external(f.last_context))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [ComposedContextFragment(fragment_id='sha256:3ad731575723c5d76418afd931dbda10233d4f730869b0a743bd9dc9a63202b0', reference_id='sha256:ab04ee7c458bdbd5de312b92b95616f35dee2dd2826a728ccf006fd09a40c0b4', subject_id='sub-e9b7ad4c338b4da3', environment='TEST', authority=<ContextAuthority.RETRIEVED_CANDIDATE: 'retrieved_candidate'>, source_id='engine.external-candidates', source_type='external_candidate', stable_source_id='external-candidate:189cbf639c93c3b9e50386967683f4fb34ac711c85911be6a3ae283c94472642', version='v1', content_hash='sha256:9e91a819df5cad753fef9ed35813d88d04ef277ad5b4c24e96df2453042849ae', occurred_at=datetime.datetime(2026, 9, 4, 8, 0, tzinfo=datetime.timezone.utc), relevance=0.7675, confidence=0.7, provenance_roots=('external:shared-source:continuity',), conflict_markers=('EXTERNAL_UNVERIFIED',), missing_markers=(), estimated_tokens=318, rank=6, retained_reason='VERIFIED_CONTEXT_RETAINED', content='{"candidate":{"confidence":0.7,"content":"Unrelated astronomy report about distant galaxies","content_hash":"sha256:16f32a18343fe3845f00d489e95cf64c312efff4d1189927200c2e01e2ddee6e","expires_at":"2026-09-04T08:05:00Z","observed_at":"2026-09-04T08:00:00Z","roots":["external:shared-source:continuity"],"source_id":"item:astronomy","source_version":"v1","uncertainty":"UNVERIFIED_EXTERNAL"},"capability_ref":"external.memory.v1","connector":"local.memory","connector_version":"v1","descriptor_hash":"sha256:3e1607970fb4edb9a802a5ff1cd4fda8f63d093d04ad3dd8ef4cbf6445bd8a01","disposition":"CANDIDATE","kind":"memory","permission":"test:lookup","request_id":"action-cap:0af92566e060d8842dca9215629ae8447d3e331a1d7be71ca6c08dba3bbb7a3e","root_proof_hashes":["sha256:00831900ca9a7f89ba45b2c0d7a599bfa5703c9ee875914975efeb854f939cb5"]}', protected=False, protection_role=None, direct_state_write_allowed=False)] is not false
+
+----------------------------------------------------------------------
+Ran 21 tests in 74.572s
+
+FAILED (failures=1)

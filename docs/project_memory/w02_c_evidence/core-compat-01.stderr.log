@@ -1,0 +1,41 @@
+.............................................................................................................................................................................................................EEE
+======================================================================
+ERROR: test_p17_recovery (unittest.loader._FailedTest.test_p17_recovery)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_p17_recovery
+Traceback (most recent call last):
+  File "E:\Adobe\Lib\unittest\loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p17_recovery.py", line 7, in <module>
+    from test_p17_execution import ExecutionCase
+ModuleNotFoundError: No module named 'test_p17_execution'
+
+
+======================================================================
+ERROR: test_p17_boundaries (unittest.loader._FailedTest.test_p17_boundaries)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_p17_boundaries
+Traceback (most recent call last):
+  File "E:\Adobe\Lib\unittest\loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p17_boundaries.py", line 9, in <module>
+    from test_p17_execution import ExecutionCase
+ModuleNotFoundError: No module named 'test_p17_execution'
+
+
+======================================================================
+ERROR: test_p17_repair_edges (unittest.loader._FailedTest.test_p17_repair_edges)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_p17_repair_edges
+Traceback (most recent call last):
+  File "E:\Adobe\Lib\unittest\loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p17_repair_edges.py", line 6, in <module>
+    from test_p17_execution import ExecutionCase
+ModuleNotFoundError: No module named 'test_p17_execution'
+
+
+----------------------------------------------------------------------
+Ran 208 tests in 199.548s
+
+FAILED (errors=3)

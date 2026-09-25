@@ -1,0 +1,12 @@
+{
+  "label": "control-boundary-01",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_w02_external_absorption.ExternalAbsorptionTests.test_external_control_claim_is_not_usable_or_permission",
+    "tests.test_w02_external_absorption.ExternalAbsorptionTests.test_ordinary_psychological_material_is_not_screened_as_control_command"
+  ],
+  "started_at": "2026-09-24T17:52:30.672257+00:00",
+  "source_fingerprint": "sha256:41c56bd71950de9aca28b13043797fb794dfd04844dba17dd670341732419056"
+}

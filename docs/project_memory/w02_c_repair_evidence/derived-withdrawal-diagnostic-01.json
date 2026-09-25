@@ -1,0 +1,23 @@
+{
+  "label": "derived-withdrawal-diagnostic-01",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_w02_external_absorption.ExternalAbsorptionTests.test_withdrawing_only_derived_material_invalidates_every_dependent_use",
+    "-q"
+  ],
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "started_at": "2026-09-25T00:24:14.293969+00:00",
+  "ended_at": "2026-09-25T00:24:21.785664+00:00",
+  "elapsed_seconds": 7.788317900005495,
+  "exit_code": 1,
+  "source_fingerprint_before": "sha256:7b8dc47621a8a5b31daf278829ce25d4abd0b1794792a2fe9ed14df5087f1f20",
+  "source_fingerprint_after": "sha256:7b8dc47621a8a5b31daf278829ce25d4abd0b1794792a2fe9ed14df5087f1f20",
+  "source_inventory_identical": true,
+  "formal_identical": true,
+  "protected_identical": true,
+  "excluded_identical": true,
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "2f06c0903d0e51079a2fa0485445f65b704a8b1c4923aeee0def3b0be3ffad23"
+}

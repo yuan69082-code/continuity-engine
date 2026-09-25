@@ -1,3 +1,24 @@
+<!-- W02_C_ACCEPTED_D080_20260925 -->
+## W02-C 正式验收（D-080）
+
+用户已正式验收 W02-C 外部资料可信吸收及派生材料部分撤回补修。W02-A/B/C = ACCEPTED，W02 整体仍 IN_PROGRESS；W02 总贯通、W03、P19 未开工。本批已知撤销传播阻断关闭，历史 F1/H1/F2 仍为 UNKNOWN。规划监工进行了只读复核，施工方同一固定源码的专项 25 PASS、A/B 兼容 123 PASS、公共兼容 260 PASS、全量 1727 PASS／1 既有 SKIP；本次归档未重跑测试。[D-080、范围与证据](docs/project_memory/w02_c_acceptance_evidence/acceptance-report.md)。下文保留施工和修前历史状态。
+
+---
+
+<!-- W02_C_DERIVED_WITHDRAWAL_REPAIR_20260925 -->
+## W02-C 派生材料撤回补修：待独立复核
+
+同一有效来源仅撤回某份派生资料时，原始取得事实与仍获认可的原文保留；依赖被撤回内容的长期 Memory、Summary 和后续回应前材料已按原链重新核验。[本次补修与首次失败](docs/project_memory/w02_c_repair_evidence/matrix.md)单列归档，原 W02-C 交付报告保持历史记录。W02-C 仍为 IMPLEMENTED_NOT_ACCEPTED，W02 整体 IN_PROGRESS；尚无验收或 Git 写操作，真实服务和生产删除传播未开放。
+
+---
+
+<!-- W02_C_IMPLEMENTED_NOT_ACCEPTED_D079_20260925 -->
+## W02-C 外部资料可信吸收：已施工，待独立复核
+
+原 P16/E5-A 回执取得的外部资料现在可在隔离 TEST 根证明下进入回应前的候选 Context；缺证据、冲突、撤销、过期或撤权时保守处理。独立且当前有效的根可经原 P04 Memory 路径进行明确的 TEST 长期更新，资料文本不能直接获得权限或写入 SubjectState。[W02-C 交付和复核入口](docs/project_memory/w02_c_evidence/final-report.md)。本批 IMPLEMENTED_NOT_ACCEPTED，W02-A/B 已 ACCEPTED，W02 整体仍 IN_PROGRESS；不开放真实资料服务、生产策略、P19 页面或 P20 删除传播。历史失败与 F1/H1/F2 UNKNOWN 不变。
+
+---
+
 <!-- W02_B_ACCEPTED_D078_20260924 -->
 ## W02-B 正式验收（D-078）
 

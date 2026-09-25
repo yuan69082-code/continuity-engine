@@ -1,0 +1,26 @@
+{
+  "baseline_head": "d23441619f82c1b186736f5d65e2f9de34d95522",
+  "current_head": "d23441619f82c1b186736f5d65e2f9de34d95522",
+  "branch": "main",
+  "source_count": 296,
+  "source_fingerprint": "sha256:41c56bd71950de9aca28b13043797fb794dfd04844dba17dd670341732419056",
+  "old_source_changes": [
+    "src/continuity_engine/services/continuity_core_runtime.py",
+    "src/continuity_engine/services/external_capability_service.py",
+    "src/continuity_engine/services/external_context_source.py",
+    "src/continuity_engine/services/external_provider_ports.py",
+    "src/continuity_engine/storage/json_external_provider_repository.py",
+    "src/continuity_engine/testing/p16_provider_fixture.py"
+  ],
+  "protected_identical": true,
+  "formal_identical": true,
+  "formal_count": 7,
+  "excluded_identical": true,
+  "excluded_count": 57,
+  "excluded_expected": 57,
+  "index_identical": true,
+  "staged": "",
+  "ast_errors": [],
+  "markdown_missing_links": [],
+  "pending_count": 128
+}

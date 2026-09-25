@@ -42,6 +42,8 @@ def build_continuity_core(*, data_dir, binding, ledger, subject_states, action_g
                           extra_sources=(), extra_resolvers=(), **options):
     gates = gates or ContinuityCoreGates()
     permission = permission_policy or ContinuityCorePermissionPolicy()
+    external=options.pop('external_capabilities',None)
+    absorption=(external.absorption if external is not None and gates.enabled else None)
     state = JsonSubjectStateRepository(data_dir / "subject-state")
     timeline = TimelineService(state)
     memory = JsonMemoryRepository(data_dir, environment=environment)
@@ -54,11 +56,22 @@ def build_continuity_core(*, data_dir, binding, ledger, subject_states, action_g
         TimelineMaterialResolver(timeline, environment=environment,memory_repository=memory if gates.memory else None),
         ContextAuthority.RAW_SOURCE, "event")]
     if gates.memory:
-        sources.extend([ContextSourceBinding(MemoryContextSource(memory, environment=environment)),
-                        ContextSourceBinding(DerivedSummaryContextSource(memory, environment=environment))])
-        resolvers.extend([TrustedContextResolverBinding(MemoryMaterialResolver(memory, environment=environment),
+        memory_source=MemoryContextSource(memory,environment=environment)
+        summary_source=DerivedSummaryContextSource(memory,environment=environment)
+        memory_resolver=MemoryMaterialResolver(memory,environment=environment)
+        summary_resolver=DerivedSummaryMaterialResolver(memory,environment=environment)
+        if absorption is not None:
+            from .external_absorption_service import (
+                ExternalAwareMemorySource,ExternalAwareSummarySource,ExternalAwareMaterialResolver,
+            )
+            memory_source=ExternalAwareMemorySource(memory,environment=environment,absorption=absorption)
+            summary_source=ExternalAwareSummarySource(memory,environment=environment,absorption=absorption)
+            memory_resolver=ExternalAwareMaterialResolver(memory_resolver,memory,absorption)
+            summary_resolver=ExternalAwareMaterialResolver(summary_resolver,memory,absorption,summary=True)
+        sources.extend([ContextSourceBinding(memory_source),ContextSourceBinding(summary_source)])
+        resolvers.extend([TrustedContextResolverBinding(memory_resolver,
             ContextAuthority.CONFIRMED_MEMORY, "memory_record"), TrustedContextResolverBinding(
-            DerivedSummaryMaterialResolver(memory, environment=environment), ContextAuthority.DERIVED_SUMMARY,
+            summary_resolver, ContextAuthority.DERIVED_SUMMARY,
             "derived_summary")])
     sources.extend(extra_sources)
     resolvers.extend(extra_resolvers)
@@ -76,7 +89,6 @@ def build_continuity_core(*, data_dir, binding, ledger, subject_states, action_g
             input_history=HistoricalInputContextSource(ledger,permission,clock,binding.subject_id,environment)
             sources.append(ContextSourceBinding(input_history))
             resolvers.append(TrustedContextResolverBinding(input_history,ContextAuthority.RETRIEVED_CANDIDATE,'historical_message'))
-    external=options.pop('external_capabilities',None)
     if external is not None and gates.enabled:
         from .external_context_source import ExternalContextSource
         source=ExternalContextSource(external)
@@ -99,7 +111,11 @@ def build_continuity_core(*, data_dir, binding, ledger, subject_states, action_g
                                               resolution_evidence_verifier=resolution_verifier)
     if options.get('subject_growth'):
         from continuity_engine.storage.json_learning_repository import JsonLearningRepository
-        options['growth_repository']=JsonLearningRepository(data_dir)
+        if absorption is None:
+            options['growth_repository']=JsonLearningRepository(data_dir)
+        else:
+            from .external_absorption_service import external_aware_learning_repository
+            options['growth_repository']=external_aware_learning_repository(JsonLearningRepository,data_dir,absorption)
     core=ContinuityCoreService(subject_id=binding.subject_id, environment=environment,
         router=ContextRouterService(sources, permission_policy=permission, enabled=gates.enabled),
         composer=ContextComposerService(resolvers, clock=clock, enabled=gates.enabled,

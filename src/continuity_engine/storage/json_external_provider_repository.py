@@ -4,6 +4,7 @@ from pathlib import Path
 from threading import RLock
 from continuity_engine.domain.action_planning import digest,exact,identifier
 from continuity_engine.domain.external_capabilities import ProviderDescriptor,ProviderResult,ExternalCapabilityError
+from continuity_engine.domain.external_absorption import ExternalAbsorptionRecord
 from continuity_engine.domain.capability import parse_capability_datetime
 from continuity_engine.domain.errors import CapabilityValidationError
 
@@ -37,9 +38,13 @@ class JsonExternalProviderRepository:
                     exact(entry,{'descriptor','enabled'});d=ProviderDescriptor.from_dict(entry['descriptor']);keys.append(d.key)
                     if type(entry['enabled']) is not bool or (d.subject_id,d.environment)!=(self.subject_id,self.environment):raise ValueError()
                 else:
-                    exact(entry,{'request_id','cached_at','result'});value=ProviderResult.from_dict(entry['result']);keys.append(entry['request_id'])
+                    if set(entry) not in ({'request_id','cached_at','result'},
+                                          {'request_id','cached_at','result','absorption'}):raise ValueError()
+                    value=ProviderResult.from_dict(entry['result']);keys.append(entry['request_id'])
                     parse_capability_datetime(entry['cached_at'])
                     if (value.subject_id,value.environment)!=(self.subject_id,self.environment) or value.capability_request_id!=entry['request_id']:raise ValueError()
+                    if 'absorption' in entry:
+                        ExternalAbsorptionRecord.from_dict(entry['absorption']).validate_result(value)
             if len(keys)!=len(set(keys)) or len(keys)>256:raise ValueError()
             return document
         except (ValueError,TypeError,KeyError,CapabilityValidationError):raise ExternalCapabilityError('EXTERNAL_STORE_CORRUPT') from None
@@ -90,15 +95,19 @@ class JsonExternalProviderRepository:
             if entry is None:raise ExternalCapabilityError('EXTERNAL_CONNECTOR_MISSING')
             if not entry['enabled']:return
             entry['enabled']=False;data['revision']+=1;self._write('registry',data)
-    def cache(self,result,*,at):
+    def cache(self,result,*,at,absorption=None):
         parse_capability_datetime(at)
         value=ProviderResult.from_dict(result.to_dict())
         if (value.subject_id,value.environment)!=(self.subject_id,self.environment):raise ExternalCapabilityError('EXTERNAL_CACHE_BINDING')
         with _LOCK:
             data=self._read('cache');entry={'request_id':value.capability_request_id,'cached_at':at,'result':value.to_dict()}
+            if absorption is not None:
+                absorption.validate_result(value)
+                entry['absorption']=absorption.to_dict()
             old=next((e for e in data['entries'] if e['request_id']==value.capability_request_id),None)
             if old:
-                if old['result']!=entry['result']:raise ExternalCapabilityError('EXTERNAL_CACHE_CONFLICT')
+                if old['result']!=entry['result'] or old.get('absorption')!=entry.get('absorption'):
+                    raise ExternalCapabilityError('EXTERNAL_CACHE_CONFLICT')
                 return
             if len(data['entries'])>=256:raise ExternalCapabilityError('EXTERNAL_CACHE_FULL')
             data['entries'].append(entry);data['revision']+=1;self._write('cache',data)

@@ -1,0 +1,21 @@
+{
+  "label": "relevance-fix-01",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_w02_external_absorption.ExternalAbsorptionTests.test_unrelated_external_material_is_not_selected_for_this_response",
+    "tests.test_w02_external_absorption.ExternalAbsorptionTests.test_receipted_root_becomes_pre_answer_candidate_not_subject_fact"
+  ],
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "started_at": "2026-09-24T17:00:23.943424+00:00",
+  "ended_at": "2026-09-24T17:00:30.202423+00:00",
+  "elapsed_seconds": 5.3795178000000305,
+  "exit_code": 0,
+  "source_fingerprint_before": "sha256:d36b3202a5e5eb1feb173efa5698a2ffe26c3d5a265a67c8906afcd63e55c695",
+  "source_fingerprint_after": "sha256:d36b3202a5e5eb1feb173efa5698a2ffe26c3d5a265a67c8906afcd63e55c695",
+  "source_inventory_identical": true,
+  "formal_identical": true,
+  "protected_identical": true,
+  "excluded_identical": true
+}

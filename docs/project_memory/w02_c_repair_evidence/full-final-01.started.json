@@ -1,0 +1,14 @@
+{
+  "label": "full-final-01",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-q"
+  ],
+  "started_at": "2026-09-25T00:45:10.936185+00:00",
+  "source_fingerprint": "sha256:3bd153ce992261b1b5898da4e980bd0de4da1667f6d0136e27a6b04d300c08ea"
+}

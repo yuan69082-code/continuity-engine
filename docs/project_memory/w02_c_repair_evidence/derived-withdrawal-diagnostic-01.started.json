@@ -1,0 +1,12 @@
+{
+  "label": "derived-withdrawal-diagnostic-01",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_w02_external_absorption.ExternalAbsorptionTests.test_withdrawing_only_derived_material_invalidates_every_dependent_use",
+    "-q"
+  ],
+  "started_at": "2026-09-25T00:24:14.293969+00:00",
+  "source_fingerprint": "sha256:7b8dc47621a8a5b31daf278829ce25d4abd0b1794792a2fe9ed14df5087f1f20"
+}

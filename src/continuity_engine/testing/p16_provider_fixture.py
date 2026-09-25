@@ -48,6 +48,7 @@ class FakeQueryProvider:
         _validate_fixture_root(path.parent)
         self.path,self.control,self.clock=path,control,clock
         self.query_calls=0;self.execute_calls=0;self.result_hook=None;self.candidate_hook=None
+        self.root_sink=None  # Optional W02-C TEST source evidence, never a production port.
         if not path.exists():atomic_write_json(path,{'version':'p16-fake-receipts-v1','facts':[],'hash':digest([])})
     def facts(self):
         value=read_json(self.path)
@@ -80,6 +81,8 @@ class FakeQueryProvider:
                 if self.candidate_hook:candidate=self.candidate_hook(candidate)
                 candidates=(candidate,)
             result=ProviderResult(d.connector_id,digest(d.to_dict()),r.subject_id,r.choice.environment,r.capability_request_id,r.request_hash,status,candidates)
+            if self.root_sink is not None:
+                self.root_sink(result,d)
             receipt=ActionReceipt('receipt:'+r.idempotency_key[7:],r.capability_request_id,r.request_hash,d.adapter_id,
                 r.subject_id,r.choice.environment,r.step_id,'SUCCEEDED',0,0,format_contract_datetime(now),digest(result.to_dict()))
             facts=[*self.facts(),{'receipt':receipt.to_dict(),'result':result.to_dict()}]

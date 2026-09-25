@@ -1,0 +1,13 @@
+{
+  "label": "derived-withdrawal-controls-01",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_w02_external_absorption.ExternalAbsorptionTests.test_withdrawing_only_derived_material_invalidates_every_dependent_use",
+    "tests.test_w02_external_absorption.ExternalAbsorptionTests.test_adding_unrelated_same_root_material_preserves_current_memory",
+    "-q"
+  ],
+  "started_at": "2026-09-25T00:35:08.454519+00:00",
+  "source_fingerprint": "sha256:ac7cea1daa5f3b431a9b1164d74850376432881f7210768463984f543af4ccce"
+}

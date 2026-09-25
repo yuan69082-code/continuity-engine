@@ -1,0 +1,12 @@
+test_after_adapter_result_loss_recovers_exact_fact_not_second_query (tests.test_w02_external_recovery.ExternalRecoveryTests.test_after_adapter_result_loss_recovers_exact_fact_not_second_query) ... ok
+test_corrupt_absorption_binding_fails_closed_before_context (tests.test_w02_external_recovery.ExternalRecoveryTests.test_corrupt_absorption_binding_fails_closed_before_context) ... ok
+test_old_p16_cache_without_root_proof_is_not_trusted_w02c_material (tests.test_w02_external_recovery.ExternalRecoveryTests.test_old_p16_cache_without_root_proof_is_not_trusted_w02c_material) ... ok
+test_original_completed_request_replays_without_new_execution_or_cache_row (tests.test_w02_external_recovery.ExternalRecoveryTests.test_original_completed_request_replays_without_new_execution_or_cache_row) ... ok
+test_real_child_reopens_original_request_and_root_without_effect_replay (tests.test_w02_external_recovery.ExternalRecoveryTests.test_real_child_reopens_original_request_and_root_without_effect_replay) ... ok
+test_revoked_source_never_becomes_new_material_on_replay (tests.test_w02_external_recovery.ExternalRecoveryTests.test_revoked_source_never_becomes_new_material_on_replay) ... ok
+test_unknown_result_never_means_not_executed (tests.test_w02_external_recovery.ExternalRecoveryTests.test_unknown_result_never_means_not_executed) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 12.731s
+
+OK

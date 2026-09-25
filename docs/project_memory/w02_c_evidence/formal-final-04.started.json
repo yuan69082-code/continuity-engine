@@ -1,0 +1,12 @@
+{
+  "label": "formal-final-04",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_w02_external_absorption",
+    "tests.test_w02_external_recovery"
+  ],
+  "started_at": "2026-09-24T17:11:26.881801+00:00",
+  "source_fingerprint": "sha256:0fb843ae12d8e0d54293e34bba8ec5aba8f34771adf5fbb0f4858f43c0077840"
+}

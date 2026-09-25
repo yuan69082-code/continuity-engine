@@ -1,0 +1,13 @@
+======================================================================
+FAIL: test_withdrawing_only_derived_material_invalidates_every_dependent_use (tests.test_w02_external_absorption.ExternalAbsorptionTests.test_withdrawing_only_derived_material_invalidates_every_dependent_use)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w02_external_absorption.py", line 288, in test_withdrawing_only_derived_material_invalidates_every_dependent_use
+    self.assertFalse(f.absorption.memory_current(memory))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 1 test in 20.524s
+
+FAILED (failures=1)

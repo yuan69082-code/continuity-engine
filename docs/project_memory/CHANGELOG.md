@@ -1,3 +1,24 @@
+<!-- W02_C_ACCEPTED_D080_20260925 -->
+## 2026-09-25 — W02-C 正式验收（D-080）
+
+用户验收外部资料可信吸收及派生材料部分撤回补修。本批已知撤销传播阻断关闭，W02-A/B/C = ACCEPTED，W02 整体仍 IN_PROGRESS；W02 总贯通、W03、P19 未开工。[验收矩阵和原始证据](w02_c_acceptance_evidence/acceptance-report.md)。施工方固定源码的最终全量 1727 PASS／1 既有 SKIP，本次纯档案归档未重跑；历史失败、辅助错误和 F1/H1/F2 UNKNOWN 保留。
+
+---
+
+<!-- W02_C_DERIVED_WITHDRAWAL_REPAIR_20260925 -->
+## 2026-09-25 — W02-C 派生材料部分撤回定向补修（待复核）
+
+修前真实链路证明：来源 ACTIVE、版本和原文不变，仅撤回派生材料 hash 后，原外部候选和旧 Context 已失效，派生的 P04 Memory 却仍可继续消费。现由原 W02-C 消费边界逐根重验该条 Memory 的材料 hash，使依赖 Summary、Router/Composer 和 P15 当前学习支持按既有入口失效，保留历史取得事实。新增同根无关材料不影响旧记忆的正向测试及跨进程只读核对；原失败与辅助测试前提错误均保留。本批 W02-C 仍 IMPLEMENTED_NOT_ACCEPTED、W02 整体 IN_PROGRESS；终局全量和独立复核状态见[补修索引](w02_c_repair_evidence/test-index.md)。无验收或 Git 写操作。
+
+---
+
+<!-- W02_C_IMPLEMENTED_NOT_ACCEPTED_D079_20260925 -->
+## 2026-09-25 W02-C / N11 已施工，待独立复核
+
+外部资料沿原 P16/E5-A 回执取得事实，增加隔离根证明和可重建处置；回应前仅向原 Router/Composer 投影当前相关候选，显式 TEST 独立根可经原 P04 长期记忆链巩固。撤销、更正、过期和撤权阻断候选、旧 Context、依赖 Memory/Summary 与待固化 Learning 的继续消费；外部指令无权限或人格权威。W02-C IMPLEMENTED_NOT_ACCEPTED，W02整体仍IN_PROGRESS；首次失败、辅助错误及历史F1/H1/F2 UNKNOWN保留。[矩阵和原始证据](w02_c_evidence/final-report.md)。
+
+---
+
 <!-- W02_B_ACCEPTED_D078_20260924 -->
 ## 2026-09-24 W02-B 正式验收（D-078）
 

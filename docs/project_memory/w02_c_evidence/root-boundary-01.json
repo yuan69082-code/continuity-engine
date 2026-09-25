@@ -1,0 +1,22 @@
+{
+  "label": "root-boundary-01",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_w02_external_absorption.ExternalAbsorptionTests.test_external_root_subject_and_environment_binding_fail_closed"
+  ],
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "started_at": "2026-09-24T17:36:20.911636+00:00",
+  "ended_at": "2026-09-24T17:36:29.788513+00:00",
+  "elapsed_seconds": 7.934284999999363,
+  "exit_code": 0,
+  "source_fingerprint_before": "sha256:700ecb8d0c5b4185d4933c34c64c6994f38b7bd0ba95252826f479ee6b4235e1",
+  "source_fingerprint_after": "sha256:700ecb8d0c5b4185d4933c34c64c6994f38b7bd0ba95252826f479ee6b4235e1",
+  "source_inventory_identical": true,
+  "formal_identical": true,
+  "protected_identical": true,
+  "excluded_identical": true,
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "361c6a878ca6f445e75602f52ef32ad47628ad6ee98dd915dce84557e1ff25fe"
+}

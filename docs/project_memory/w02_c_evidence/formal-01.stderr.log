@@ -1,0 +1,415 @@
+test_distinct_counterevidence_is_conflict_not_a_winner (tests.test_w02_external_absorption.ExternalAbsorptionTests.test_distinct_counterevidence_is_conflict_not_a_winner) ... ok
+test_external_control_claim_is_not_usable_or_permission (tests.test_w02_external_absorption.ExternalAbsorptionTests.test_external_control_claim_is_not_usable_or_permission) ... ok
+test_missing_root_proof_waits_and_does_not_infer_history_absent (tests.test_w02_external_absorption.ExternalAbsorptionTests.test_missing_root_proof_waits_and_does_not_infer_history_absent) ... ok
+test_one_root_is_not_enough_for_long_term_and_no_automatic_memory (tests.test_w02_external_absorption.ExternalAbsorptionTests.test_one_root_is_not_enough_for_long_term_and_no_automatic_memory) ... FAIL
+test_read_only_outcome_does_not_advance_model_memory_or_revision (tests.test_w02_external_absorption.ExternalAbsorptionTests.test_read_only_outcome_does_not_advance_model_memory_or_revision) ... ok
+test_receipted_root_becomes_pre_answer_candidate_not_subject_fact (tests.test_w02_external_absorption.ExternalAbsorptionTests.test_receipted_root_becomes_pre_answer_candidate_not_subject_fact) ... FAIL
+test_revocation_correction_scope_and_expiry_invalidate_old_context (tests.test_w02_external_absorption.ExternalAbsorptionTests.test_revocation_correction_scope_and_expiry_invalidate_old_context) ... 
+  test_revocation_correction_scope_and_expiry_invalidate_old_context (tests.test_w02_external_absorption.ExternalAbsorptionTests.test_revocation_correction_scope_and_expiry_invalidate_old_context) (change={'status': 'REVOKED'}) ... ERROR
+  test_revocation_correction_scope_and_expiry_invalidate_old_context (tests.test_w02_external_absorption.ExternalAbsorptionTests.test_revocation_correction_scope_and_expiry_invalidate_old_context) (change={'version': 'v2'}) ... ERROR
+  test_revocation_correction_scope_and_expiry_invalidate_old_context (tests.test_w02_external_absorption.ExternalAbsorptionTests.test_revocation_correction_scope_and_expiry_invalidate_old_context) (change={'read_scope': 'other:scope'}) ... ERROR
+  test_revocation_correction_scope_and_expiry_invalidate_old_context (tests.test_w02_external_absorption.ExternalAbsorptionTests.test_revocation_correction_scope_and_expiry_invalidate_old_context) (change={'expire_now': True}) ... ERROR
+test_same_root_original_and_derived_wrapper_count_once (tests.test_w02_external_absorption.ExternalAbsorptionTests.test_same_root_original_and_derived_wrapper_count_once) ... ok
+test_two_independent_current_roots_can_use_original_p04_memory_and_summary (tests.test_w02_external_absorption.ExternalAbsorptionTests.test_two_independent_current_roots_can_use_original_p04_memory_and_summary) ... FAIL
+
+======================================================================
+ERROR: test_revocation_correction_scope_and_expiry_invalidate_old_context (tests.test_w02_external_absorption.ExternalAbsorptionTests.test_revocation_correction_scope_and_expiry_invalidate_old_context) (change={'status': 'REVOKED'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 739, in _run_domain
+    wake_session = self._awakening.get_session(
+        operation.subject_id,
+        progress.wake_session_id,
+    )
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\awakening_service.py", line 162, in get_session
+    return self._repository.load_session(subject_id, session_id)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_awakening_repository.py", line 86, in load_session
+    raise StateNotFoundError(f"wake session not found: {session_id}")
+continuity_engine.domain.errors.StateNotFoundError: wake session not found: 3658a4b3-efee-5b41-9534-e87bb8c56912
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 291, in _submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 744, in _run_domain
+    awakening = self._awakening.wake_manual(
+        binding.cycle_id,
+    ...<3 lines>...
+        preserve_recovery_context=True,
+    )
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\awakening_service.py", line 109, in wake_manual
+    return self._run(
+           ~~~~~~~~~^
+        cycle,
+        ^^^^^^
+    ...<3 lines>...
+        preserve_recovery_context=preserve_recovery_context,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\awakening_service.py", line 266, in _run
+    self._repository.save_session(session)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_awakening_repository.py", line 81, in save_session
+    self._write_json(path, session.to_dict())
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_awakening_repository.py", line 118, in _write_json
+    with tempfile.NamedTemporaryFile(
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        mode="w",
+        ^^^^^^^^^
+    ...<5 lines>...
+        delete=False,
+        ^^^^^^^^^^^^^
+    ) as temporary:
+    ^
+  File "E:\Adobe\Lib\tempfile.py", line 603, in NamedTemporaryFile
+    file = _io.open(dir, mode, buffering=buffering,
+                    newline=newline, encoding=encoding, errors=errors,
+                    opener=opener)
+  File "E:\Adobe\Lib\tempfile.py", line 600, in opener
+    fd, name = _mkstemp_inner(dir, prefix, suffix, flags, output_type)
+               ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Adobe\Lib\tempfile.py", line 255, in _mkstemp_inner
+    fd = _os.open(file, flags, 0o600)
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\Administrator\\AppData\\Local\\Temp\\w02c-root-change-ski23jcx\\s\\s\\s81b9591a\\b\\b91e0e55e\\data\\awakening\\sessions\\80a157d8748f8cc31c07f6f5c67ec7d0e19945e5495df6e85fda3a79d4d2532a\\.886628e514c0c1cf47bcb35da06e7f2b00021ca1ff7f828c388c8f16759c99fe.qzp8gtkj.tmp'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w02_external_absorption.py", line 70, in test_revocation_correction_scope_and_expiry_invalidate_old_context
+    f.submit()
+    ~~~~~~~~^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\w02_c_fixture.py", line 85, in submit
+    return self.base.submit(request)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p16_provider_fixture.py", line 166, in submit
+    request=request or self.request();value=self.app.adapter.submit(request)
+                                            ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 191, in submit
+    return self._submit(payload)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 303, in _submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.
+
+======================================================================
+ERROR: test_revocation_correction_scope_and_expiry_invalidate_old_context (tests.test_w02_external_absorption.ExternalAbsorptionTests.test_revocation_correction_scope_and_expiry_invalidate_old_context) (change={'version': 'v2'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 739, in _run_domain
+    wake_session = self._awakening.get_session(
+        operation.subject_id,
+        progress.wake_session_id,
+    )
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\awakening_service.py", line 162, in get_session
+    return self._repository.load_session(subject_id, session_id)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_awakening_repository.py", line 86, in load_session
+    raise StateNotFoundError(f"wake session not found: {session_id}")
+continuity_engine.domain.errors.StateNotFoundError: wake session not found: df2033b9-e850-5fe6-812e-e278054ca136
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 291, in _submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 744, in _run_domain
+    awakening = self._awakening.wake_manual(
+        binding.cycle_id,
+    ...<3 lines>...
+        preserve_recovery_context=True,
+    )
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\awakening_service.py", line 109, in wake_manual
+    return self._run(
+           ~~~~~~~~~^
+        cycle,
+        ^^^^^^
+    ...<3 lines>...
+        preserve_recovery_context=preserve_recovery_context,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\awakening_service.py", line 266, in _run
+    self._repository.save_session(session)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_awakening_repository.py", line 81, in save_session
+    self._write_json(path, session.to_dict())
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_awakening_repository.py", line 118, in _write_json
+    with tempfile.NamedTemporaryFile(
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        mode="w",
+        ^^^^^^^^^
+    ...<5 lines>...
+        delete=False,
+        ^^^^^^^^^^^^^
+    ) as temporary:
+    ^
+  File "E:\Adobe\Lib\tempfile.py", line 603, in NamedTemporaryFile
+    file = _io.open(dir, mode, buffering=buffering,
+                    newline=newline, encoding=encoding, errors=errors,
+                    opener=opener)
+  File "E:\Adobe\Lib\tempfile.py", line 600, in opener
+    fd, name = _mkstemp_inner(dir, prefix, suffix, flags, output_type)
+               ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Adobe\Lib\tempfile.py", line 255, in _mkstemp_inner
+    fd = _os.open(file, flags, 0o600)
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\Administrator\\AppData\\Local\\Temp\\w02c-root-change-3hf3wa26\\s\\s\\s827813cb\\b\\b8c2a9353\\data\\awakening\\sessions\\a393593aa845ebb89f0c12359fc2b599391b4e1233a3ca4824477e0d35dacfb1\\.aae41ca976316f7dd6cf1d9584200cd08bfae37a6d2f517b0e43c817a91e5215.tblr2rez.tmp'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w02_external_absorption.py", line 70, in test_revocation_correction_scope_and_expiry_invalidate_old_context
+    f.submit()
+    ~~~~~~~~^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\w02_c_fixture.py", line 85, in submit
+    return self.base.submit(request)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p16_provider_fixture.py", line 166, in submit
+    request=request or self.request();value=self.app.adapter.submit(request)
+                                            ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 191, in submit
+    return self._submit(payload)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 303, in _submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.
+
+======================================================================
+ERROR: test_revocation_correction_scope_and_expiry_invalidate_old_context (tests.test_w02_external_absorption.ExternalAbsorptionTests.test_revocation_correction_scope_and_expiry_invalidate_old_context) (change={'read_scope': 'other:scope'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 739, in _run_domain
+    wake_session = self._awakening.get_session(
+        operation.subject_id,
+        progress.wake_session_id,
+    )
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\awakening_service.py", line 162, in get_session
+    return self._repository.load_session(subject_id, session_id)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_awakening_repository.py", line 86, in load_session
+    raise StateNotFoundError(f"wake session not found: {session_id}")
+continuity_engine.domain.errors.StateNotFoundError: wake session not found: 18a6b350-a3f7-5063-a198-e27d962e6ff0
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 291, in _submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 744, in _run_domain
+    awakening = self._awakening.wake_manual(
+        binding.cycle_id,
+    ...<3 lines>...
+        preserve_recovery_context=True,
+    )
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\awakening_service.py", line 109, in wake_manual
+    return self._run(
+           ~~~~~~~~~^
+        cycle,
+        ^^^^^^
+    ...<3 lines>...
+        preserve_recovery_context=preserve_recovery_context,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\awakening_service.py", line 266, in _run
+    self._repository.save_session(session)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_awakening_repository.py", line 81, in save_session
+    self._write_json(path, session.to_dict())
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_awakening_repository.py", line 118, in _write_json
+    with tempfile.NamedTemporaryFile(
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        mode="w",
+        ^^^^^^^^^
+    ...<5 lines>...
+        delete=False,
+        ^^^^^^^^^^^^^
+    ) as temporary:
+    ^
+  File "E:\Adobe\Lib\tempfile.py", line 603, in NamedTemporaryFile
+    file = _io.open(dir, mode, buffering=buffering,
+                    newline=newline, encoding=encoding, errors=errors,
+                    opener=opener)
+  File "E:\Adobe\Lib\tempfile.py", line 600, in opener
+    fd, name = _mkstemp_inner(dir, prefix, suffix, flags, output_type)
+               ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Adobe\Lib\tempfile.py", line 255, in _mkstemp_inner
+    fd = _os.open(file, flags, 0o600)
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\Administrator\\AppData\\Local\\Temp\\w02c-root-change-r4p625na\\s\\s\\sc7a8f564\\b\\b9e015e2f\\data\\awakening\\sessions\\1e8d11c5b0969f127867f109801b555b437ca13bb86855426ebba87d302e14f8\\.15747e81bbf3dd194e62629fdee31fc20a5f3ef8d01191e3ec834c2d83a05e1d.y0am46g6.tmp'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w02_external_absorption.py", line 70, in test_revocation_correction_scope_and_expiry_invalidate_old_context
+    f.submit()
+    ~~~~~~~~^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\w02_c_fixture.py", line 85, in submit
+    return self.base.submit(request)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p16_provider_fixture.py", line 166, in submit
+    request=request or self.request();value=self.app.adapter.submit(request)
+                                            ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 191, in submit
+    return self._submit(payload)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 303, in _submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.
+
+======================================================================
+ERROR: test_revocation_correction_scope_and_expiry_invalidate_old_context (tests.test_w02_external_absorption.ExternalAbsorptionTests.test_revocation_correction_scope_and_expiry_invalidate_old_context) (change={'expire_now': True})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 739, in _run_domain
+    wake_session = self._awakening.get_session(
+        operation.subject_id,
+        progress.wake_session_id,
+    )
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\awakening_service.py", line 162, in get_session
+    return self._repository.load_session(subject_id, session_id)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_awakening_repository.py", line 86, in load_session
+    raise StateNotFoundError(f"wake session not found: {session_id}")
+continuity_engine.domain.errors.StateNotFoundError: wake session not found: c5d7ed7e-30aa-5484-908c-32088b11c40a
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 291, in _submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 744, in _run_domain
+    awakening = self._awakening.wake_manual(
+        binding.cycle_id,
+    ...<3 lines>...
+        preserve_recovery_context=True,
+    )
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\awakening_service.py", line 109, in wake_manual
+    return self._run(
+           ~~~~~~~~~^
+        cycle,
+        ^^^^^^
+    ...<3 lines>...
+        preserve_recovery_context=preserve_recovery_context,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\awakening_service.py", line 266, in _run
+    self._repository.save_session(session)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_awakening_repository.py", line 81, in save_session
+    self._write_json(path, session.to_dict())
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_awakening_repository.py", line 118, in _write_json
+    with tempfile.NamedTemporaryFile(
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        mode="w",
+        ^^^^^^^^^
+    ...<5 lines>...
+        delete=False,
+        ^^^^^^^^^^^^^
+    ) as temporary:
+    ^
+  File "E:\Adobe\Lib\tempfile.py", line 603, in NamedTemporaryFile
+    file = _io.open(dir, mode, buffering=buffering,
+                    newline=newline, encoding=encoding, errors=errors,
+                    opener=opener)
+  File "E:\Adobe\Lib\tempfile.py", line 600, in opener
+    fd, name = _mkstemp_inner(dir, prefix, suffix, flags, output_type)
+               ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Adobe\Lib\tempfile.py", line 255, in _mkstemp_inner
+    fd = _os.open(file, flags, 0o600)
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\Administrator\\AppData\\Local\\Temp\\w02c-root-change-xznqhca0\\s\\s\\s0fc1feb5\\b\\b2c05f0a4\\data\\awakening\\sessions\\3e19c09bec264307d533980e4cc7f7dacaa7d0487d26ba102b8dc2d841b91d00\\.d49a86c2f132d5e74619a4a383ea7d121afbad707fdaa16f73824f7b5790cc07.d5tbxgvv.tmp'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w02_external_absorption.py", line 70, in test_revocation_correction_scope_and_expiry_invalidate_old_context
+    f.submit()
+    ~~~~~~~~^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\w02_c_fixture.py", line 85, in submit
+    return self.base.submit(request)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p16_provider_fixture.py", line 166, in submit
+    request=request or self.request();value=self.app.adapter.submit(request)
+                                            ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 191, in submit
+    return self._submit(payload)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 303, in _submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.
+
+======================================================================
+FAIL: test_one_root_is_not_enough_for_long_term_and_no_automatic_memory (tests.test_w02_external_absorption.ExternalAbsorptionTests.test_one_root_is_not_enough_for_long_term_and_no_automatic_memory)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w02_external_absorption.py", line 163, in test_one_root_is_not_enough_for_long_term_and_no_automatic_memory
+    self.assertEqual(f.core.memory.list_memories(f.state.subject_id), [])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: [MemoryRecord(memory_id='memory:p01-fixtur[1785 chars]one)] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+MemoryRecord(memory_id='memory:p01-fixture-event-19b2fe6148404fff', subject_id='sub-a2b3e04e64ee44a6', environment='TEST', kind=<MemoryKind.EPISODIC: 'episodic'>, evidence_type=<MemoryEvidenceType.EXPERIENTIAL: 'experiential'>, content='legacy: Apply a synthetic P01 State Fixture through Event/Evolution.', root_evidence_ids=['event:p01-fixture-event-19b2fe6148404fff'], occurred_at=datetime.datetime(2026, 9, 4, 8, 0, tzinfo=datetime.timezone.utc), observed_at=datetime.datetime(2026, 9, 4, 8, 0, tzinfo=datetime.timezone.utc), recorded_at=datetime.datetime(2026, 9, 4, 8, 0, tzinfo=datetime.timezone.utc), consolidated_at=datetime.datetime(2026, 9, 4, 8, 0, tzinfo=datetime.timezone.utc), confidence=0.8, importance=0.6, activation=0.41, scope='c1.event:p01-fixture-event-19b2fe6148404fff', time_range=MemoryTimeRange(start_at=datetime.datetime(2026, 9, 4, 8, 0, tzinfo=datetime.timezone.utc), end_at=datetime.datetime(2026, 9, 4, 8, 0, tzinfo=datetime.timezone.utc)), consolidation_id='c1-consolidation:p01-fixture-event-19b2fe6148404fff', source_event_ids=['p01-fixture-event-19b2fe6148404fff'], source_memory_ids=[], source_message_ids=[], tags=['legacy'], temperature=<MemoryTemperature.COLD: 'COLD'>, visibility=<MemoryVisibility.ENGINE_PRIVATE: 'ENGINE_PRIVATE'>, status=<MemoryStatus.ACTIVE: 'ACTIVE'>, revision=0, memory_version=1, access_count=0, last_accessed_at=None, relation_relevance=0.0, emotional_weight=0.0, activation_explanation=['importance=0.600000', 'recency=1.000000', 'relation_relevance=0.000000', 'emotional_weight=0.000000', 'unique_reinforcement=0.200000'], lineage_event_id=None, consolidation_input_hash='sha256:dc4b83ec566587824b4190a8e2ff547ec01b1c1ca7c502db7b7a9df2a31a282f', lifecycle=None, retrieval_weight=None, weight_updated_at=None, lifecycle_command_id=None, source_memory_bindings=None)
+
+Diff is 2662 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_receipted_root_becomes_pre_answer_candidate_not_subject_fact (tests.test_w02_external_absorption.ExternalAbsorptionTests.test_receipted_root_becomes_pre_answer_candidate_not_subject_fact)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w02_external_absorption.py", line 32, in test_receipted_root_becomes_pre_answer_candidate_not_subject_fact
+    self.assertEqual(f.core.memory.list_memories(f.state.subject_id), [])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: [MemoryRecord(memory_id='memory:p01-fixtur[1785 chars]one)] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+MemoryRecord(memory_id='memory:p01-fixture-event-2bb851aa848240c5', subject_id='sub-4c39bec5ed834883', environment='TEST', kind=<MemoryKind.EPISODIC: 'episodic'>, evidence_type=<MemoryEvidenceType.EXPERIENTIAL: 'experiential'>, content='legacy: Apply a synthetic P01 State Fixture through Event/Evolution.', root_evidence_ids=['event:p01-fixture-event-2bb851aa848240c5'], occurred_at=datetime.datetime(2026, 9, 4, 8, 0, tzinfo=datetime.timezone.utc), observed_at=datetime.datetime(2026, 9, 4, 8, 0, tzinfo=datetime.timezone.utc), recorded_at=datetime.datetime(2026, 9, 4, 8, 0, tzinfo=datetime.timezone.utc), consolidated_at=datetime.datetime(2026, 9, 4, 8, 0, tzinfo=datetime.timezone.utc), confidence=0.8, importance=0.6, activation=0.41, scope='c1.event:p01-fixture-event-2bb851aa848240c5', time_range=MemoryTimeRange(start_at=datetime.datetime(2026, 9, 4, 8, 0, tzinfo=datetime.timezone.utc), end_at=datetime.datetime(2026, 9, 4, 8, 0, tzinfo=datetime.timezone.utc)), consolidation_id='c1-consolidation:p01-fixture-event-2bb851aa848240c5', source_event_ids=['p01-fixture-event-2bb851aa848240c5'], source_memory_ids=[], source_message_ids=[], tags=['legacy'], temperature=<MemoryTemperature.COLD: 'COLD'>, visibility=<MemoryVisibility.ENGINE_PRIVATE: 'ENGINE_PRIVATE'>, status=<MemoryStatus.ACTIVE: 'ACTIVE'>, revision=0, memory_version=1, access_count=0, last_accessed_at=None, relation_relevance=0.0, emotional_weight=0.0, activation_explanation=['importance=0.600000', 'recency=1.000000', 'relation_relevance=0.000000', 'emotional_weight=0.000000', 'unique_reinforcement=0.200000'], lineage_event_id=None, consolidation_input_hash='sha256:e30bd56cbda16d8f65c1445728bd299aec51ae46ea246b81b1f8a84dc9a0897d', lifecycle=None, retrieval_weight=None, weight_updated_at=None, lifecycle_command_id=None, source_memory_bindings=None)
+
+Diff is 2662 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_two_independent_current_roots_can_use_original_p04_memory_and_summary (tests.test_w02_external_absorption.ExternalAbsorptionTests.test_two_independent_current_roots_can_use_original_p04_memory_and_summary)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w02_external_absorption.py", line 141, in test_two_independent_current_roots_can_use_original_p04_memory_and_summary
+    self.assertTrue(any(x.source_type in ('memory_record','derived_summary')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        for x in f.last_context.composition.snapshot.fragments))
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 9 tests in 32.471s
+
+FAILED (failures=3, errors=4)

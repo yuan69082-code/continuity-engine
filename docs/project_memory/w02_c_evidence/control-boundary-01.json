@@ -1,0 +1,23 @@
+{
+  "label": "control-boundary-01",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_w02_external_absorption.ExternalAbsorptionTests.test_external_control_claim_is_not_usable_or_permission",
+    "tests.test_w02_external_absorption.ExternalAbsorptionTests.test_ordinary_psychological_material_is_not_screened_as_control_command"
+  ],
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "started_at": "2026-09-24T17:52:30.672257+00:00",
+  "ended_at": "2026-09-24T17:52:35.584742+00:00",
+  "elapsed_seconds": 4.198538000000553,
+  "exit_code": 0,
+  "source_fingerprint_before": "sha256:41c56bd71950de9aca28b13043797fb794dfd04844dba17dd670341732419056",
+  "source_fingerprint_after": "sha256:41c56bd71950de9aca28b13043797fb794dfd04844dba17dd670341732419056",
+  "source_inventory_identical": true,
+  "formal_identical": true,
+  "protected_identical": true,
+  "excluded_identical": true,
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "ce662e89d1829b6e342ca95225d216ea6460b1cd81b0d490ea5ab5b13e4ee8f0"
+}

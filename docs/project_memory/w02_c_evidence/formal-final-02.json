@@ -1,0 +1,21 @@
+{
+  "label": "formal-final-02",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_w02_external_absorption",
+    "tests.test_w02_external_recovery"
+  ],
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "started_at": "2026-09-24T16:58:00.838062+00:00",
+  "ended_at": "2026-09-24T16:59:17.241236+00:00",
+  "elapsed_seconds": 75.51199389999965,
+  "exit_code": 1,
+  "source_fingerprint_before": "sha256:549308e424385de538aaaee369aa721456326661b274c4fd82ac5367d5f791ab",
+  "source_fingerprint_after": "sha256:549308e424385de538aaaee369aa721456326661b274c4fd82ac5367d5f791ab",
+  "source_inventory_identical": true,
+  "formal_identical": true,
+  "protected_identical": true,
+  "excluded_identical": true
+}

@@ -1,0 +1,18 @@
+{
+  "label": "w02-compat-04",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_w02_input_processing",
+    "tests.test_w02_input_recovery",
+    "tests.test_w02_input_integration",
+    "tests.test_w02_recall",
+    "tests.test_w02_recall_boundaries",
+    "tests.test_w02_recall_combinations",
+    "tests.test_w02_recall_consistency",
+    "tests.test_w02_recall_semantics"
+  ],
+  "started_at": "2026-09-24T17:54:42.297042+00:00",
+  "source_fingerprint": "sha256:41c56bd71950de9aca28b13043797fb794dfd04844dba17dd670341732419056"
+}

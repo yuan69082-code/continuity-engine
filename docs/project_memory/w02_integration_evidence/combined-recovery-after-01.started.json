@@ -1,0 +1,12 @@
+{
+  "label": "combined-recovery-after-01",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_w02_integration.W02IntegratedChainTests.test_partial_failure_reopen_read_original_progress_and_resume_once",
+    "-q"
+  ],
+  "started_at": "2026-09-25T03:26:56.358677+00:00",
+  "source_fingerprint": "sha256:26af1f655e1b294264f8d9f941f87a657ccaf992e3a9c4eee657fa1288124e79"
+}

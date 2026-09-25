@@ -1,3 +1,17 @@
+<!-- W02_INTEGRATION_ACCEPTED_D081_20260925 -->
+## 2026-09-25 — W02 整体贯通正式验收（D-081）
+
+用户验收 A/B/C 同版内部贯通与 A+B 失败站恢复定点补修。固定源码专项 8 PASS、A/B/C 兼容 156 PASS、公共兼容 318 PASS、全量 1735 PASS／1 既有 SKIP；规划窗口只读复核，未独立运行测试，集合不相加。早期四份外部资料触及 1000 毫秒回忆时限，最终两份资料验证不代表四份负载已解决。[验收与风险](w02_integration_acceptance_evidence/acceptance-report.md)。F1/H1/F2 UNKNOWN、历史失败和后置生产能力边界不改；不启动 W03/P19。
+
+---
+
+<!-- W02_INTEGRATION_20260925 -->
+## 2026-09-25 — W02 已验收三批的同版贯通核验
+
+增加原消息→逐站处置→回答前本地回忆→P16/E5-A 外部资料候选→最终 Context 的正式集成对照。真实反例发现 A+B 同开时，已准备 Context 会越过 W02-A 失败站恢复；用户确认后，仅在原 C1 复用入口补回原请求的待完成站并重验当前 Context。修前失败、辅助错误、固定源码专项、兼容及最终全量结果见[原始证据](w02_integration_evidence/test-index.md)。最终全量 1736 项为 1735 PASS、1 既有 SKIP、0 FAIL/ERROR；W02 整体 `IMPLEMENTED_NOT_ACCEPTED` 待独立复核，不是正式验收；没有 Git 写操作、后续阶段或真实服务接入。F1/H1/F2 历史 `UNKNOWN` 不变。
+
+---
+
 <!-- W02_C_ACCEPTED_D080_20260925 -->
 ## 2026-09-25 — W02-C 正式验收（D-080）
 

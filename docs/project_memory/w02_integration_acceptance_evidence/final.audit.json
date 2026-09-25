@@ -1,0 +1,70 @@
+{
+  "branch": "main",
+  "head": "d6bd8ecf3041578cf5f101d6feecf7d22a451571",
+  "local_origin": "d6bd8ecf3041578cf5f101d6feecf7d22a451571",
+  "origin": "https://github.com/yuan69082-code/continuity-engine.git",
+  "remote_main_before_git_write": "d6bd8ecf3041578cf5f101d6feecf7d22a451571",
+  "remote_read_exit": 0,
+  "remote_read_error_code": null,
+  "staged_paths": [],
+  "status_count": 144,
+  "expected_included_count": 90,
+  "excluded_count": 57,
+  "status_missing": [],
+  "status_extra": [],
+  "excluded_drift": [],
+  "earlier_delivery_drift": [],
+  "source_count": 297,
+  "source_fingerprint": "sha256:188796ffbc704795291bba912f668f3d415c5173328de307ca9a7e2115d3afd1",
+  "source_delta_is_approved": true,
+  "protected_identical": true,
+  "planning_identical": true,
+  "formal_identical": true,
+  "formal_count": 7,
+  "formal_tree_hash": "sha256:f9c710c6085e430a251f74463d57133f8c5a4497fe8ffa2ccb96be2db1037bb2",
+  "runs": {
+    "integration-targeted-01": {
+      "count": 8,
+      "exit_code": 0,
+      "elapsed_seconds": 32.32782729999599,
+      "before": "sha256:188796ffbc704795291bba912f668f3d415c5173328de307ca9a7e2115d3afd1",
+      "after": "sha256:188796ffbc704795291bba912f668f3d415c5173328de307ca9a7e2115d3afd1",
+      "stable": true,
+      "ok": true
+    },
+    "w02-abc-compat-01": {
+      "count": 156,
+      "exit_code": 0,
+      "elapsed_seconds": 251.67537659999653,
+      "before": "sha256:188796ffbc704795291bba912f668f3d415c5173328de307ca9a7e2115d3afd1",
+      "after": "sha256:188796ffbc704795291bba912f668f3d415c5173328de307ca9a7e2115d3afd1",
+      "stable": true,
+      "ok": true
+    },
+    "public-compat-01": {
+      "count": 318,
+      "exit_code": 0,
+      "elapsed_seconds": 291.6930466999984,
+      "before": "sha256:188796ffbc704795291bba912f668f3d415c5173328de307ca9a7e2115d3afd1",
+      "after": "sha256:188796ffbc704795291bba912f668f3d415c5173328de307ca9a7e2115d3afd1",
+      "stable": true,
+      "ok": true
+    },
+    "full-final-01": {
+      "count": 1736,
+      "exit_code": 0,
+      "elapsed_seconds": 1677.0333973000015,
+      "before": "sha256:188796ffbc704795291bba912f668f3d415c5173328de307ca9a7e2115d3afd1",
+      "after": "sha256:188796ffbc704795291bba912f668f3d415c5173328de307ca9a7e2115d3afd1",
+      "stable": true,
+      "ok": true
+    }
+  },
+  "all_runs_same_source": true,
+  "ast_errors": [],
+  "missing_markdown_links": [],
+  "possible_secret_hits": [],
+  "diff_check_exit": 0,
+  "diff_check_output": "warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/project_memory/01_当前状态.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/project_memory/03_施工日志.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/project_memory/04_决策记录.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/project_memory/05_已完成模块.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/project_memory/06_未完成事项.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/project_memory/10_档案修订记录.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/project_memory/13_P00_档案与测试索引.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/project_memory/CHANGELOG.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'src/continuity_engine/services/continuity_core_service.py', LF will be replaced by CRLF the next time Git touches it\n",
+  "ready_for_precise_commit": true
+}

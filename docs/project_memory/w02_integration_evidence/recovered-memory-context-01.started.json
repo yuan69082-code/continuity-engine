@@ -1,0 +1,12 @@
+{
+  "label": "recovered-memory-context-01",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_w02_integration.W02IntegratedChainTests.test_recovered_memory_is_in_final_preanswer_context",
+    "-q"
+  ],
+  "started_at": "2026-09-25T03:30:13.489656+00:00",
+  "source_fingerprint": "sha256:b6b8c6e1af664e344c73012623a89d35124b0cb60fe7870d44c17994ce6e3ed9"
+}

@@ -1,0 +1,23 @@
+{
+  "label": "withdrawal-integrated-02",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_w02_integration.W02IntegratedChainTests.test_partial_derived_withdrawal_invalidates_integrated_reply_and_support",
+    "-q"
+  ],
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "started_at": "2026-09-25T03:27:41.584292+00:00",
+  "ended_at": "2026-09-25T03:27:46.479882+00:00",
+  "elapsed_seconds": 4.895066900004167,
+  "exit_code": 1,
+  "source_fingerprint_before": "sha256:c57c8eef01596875366aa7a13f6a8838b601ba9fd73edc80c546fd6e1c7dc0bf",
+  "source_fingerprint_after": "sha256:c57c8eef01596875366aa7a13f6a8838b601ba9fd73edc80c546fd6e1c7dc0bf",
+  "source_inventory_identical": true,
+  "formal_identical": true,
+  "protected_identical": true,
+  "excluded_identical": true,
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "b8f8947993cc8da10a2bb6430db1e9d9dd9ba2f88a6636a6624f6bc4838a63c0"
+}

@@ -1,0 +1,23 @@
+{
+  "label": "integration-targeted-01",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_w02_integration",
+    "-q"
+  ],
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "started_at": "2026-09-25T03:32:04.158015+00:00",
+  "ended_at": "2026-09-25T03:32:36.486341+00:00",
+  "elapsed_seconds": 32.32782729999599,
+  "exit_code": 0,
+  "source_fingerprint_before": "sha256:188796ffbc704795291bba912f668f3d415c5173328de307ca9a7e2115d3afd1",
+  "source_fingerprint_after": "sha256:188796ffbc704795291bba912f668f3d415c5173328de307ca9a7e2115d3afd1",
+  "source_inventory_identical": true,
+  "formal_identical": true,
+  "protected_identical": true,
+  "excluded_identical": true,
+  "stdout_sha256": "43533c1cbfcda3f7ff63b8bc0af634d83a89600a91e0fd1977fb3d8a6232cbc4",
+  "stderr_sha256": "cbe03c864c212f7e4795d1a42ba0e7a6bbebe6cc792958fd832df2209cd2ff60"
+}

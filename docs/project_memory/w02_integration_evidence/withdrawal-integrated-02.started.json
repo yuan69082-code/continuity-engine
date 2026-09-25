@@ -1,0 +1,12 @@
+{
+  "label": "withdrawal-integrated-02",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_w02_integration.W02IntegratedChainTests.test_partial_derived_withdrawal_invalidates_integrated_reply_and_support",
+    "-q"
+  ],
+  "started_at": "2026-09-25T03:27:41.584292+00:00",
+  "source_fingerprint": "sha256:c57c8eef01596875366aa7a13f6a8838b601ba9fd73edc80c546fd6e1c7dc0bf"
+}

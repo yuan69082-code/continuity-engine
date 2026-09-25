@@ -1,0 +1,23 @@
+{
+  "label": "combined-recovery-after-01",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_w02_integration.W02IntegratedChainTests.test_partial_failure_reopen_read_original_progress_and_resume_once",
+    "-q"
+  ],
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "started_at": "2026-09-25T03:26:56.358677+00:00",
+  "ended_at": "2026-09-25T03:26:58.751910+00:00",
+  "elapsed_seconds": 2.3926315999997314,
+  "exit_code": 0,
+  "source_fingerprint_before": "sha256:26af1f655e1b294264f8d9f941f87a657ccaf992e3a9c4eee657fa1288124e79",
+  "source_fingerprint_after": "sha256:26af1f655e1b294264f8d9f941f87a657ccaf992e3a9c4eee657fa1288124e79",
+  "source_inventory_identical": true,
+  "formal_identical": true,
+  "protected_identical": true,
+  "excluded_identical": true,
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "e2807f49754acab386e8d7e1546845bb28e63c52c3f62f984df61f5b4dccb6ea"
+}

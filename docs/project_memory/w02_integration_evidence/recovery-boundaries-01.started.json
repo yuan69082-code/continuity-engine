@@ -1,0 +1,14 @@
+{
+  "label": "recovery-boundaries-01",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_w02_integration.W02IntegratedChainTests.test_partial_failure_reopen_read_original_progress_and_resume_once",
+    "tests.test_w02_integration.W02IntegratedChainTests.test_failed_station_stays_pending_when_failure_repeats_then_resumes",
+    "tests.test_w02_integration.W02IntegratedChainTests.test_recovery_rechecks_current_input_permission_before_reusing_context",
+    "-q"
+  ],
+  "started_at": "2026-09-25T03:29:44.033857+00:00",
+  "source_fingerprint": "sha256:4666c6a7f8410c75c89cd3ea8eb2ce2f9584c6df7f6709e3f08b76755c4bc116"
+}

@@ -1,0 +1,12 @@
+{
+  "label": "integration-targeted-01",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_w02_integration",
+    "-q"
+  ],
+  "started_at": "2026-09-25T03:32:04.158015+00:00",
+  "source_fingerprint": "sha256:188796ffbc704795291bba912f668f3d415c5173328de307ca9a7e2115d3afd1"
+}

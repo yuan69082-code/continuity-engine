@@ -1,0 +1,23 @@
+{
+  "label": "recovered-memory-diagnostic-01",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_w02_integration.W02IntegratedChainTests.test_recovered_memory_is_in_final_preanswer_context",
+    "-q"
+  ],
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "started_at": "2026-09-25T03:31:11.407232+00:00",
+  "ended_at": "2026-09-25T03:31:13.651247+00:00",
+  "elapsed_seconds": 2.2434315999998944,
+  "exit_code": 1,
+  "source_fingerprint_before": "sha256:0b761f9c4ffde10e2da7a3ef262bbe54cb9759e81bf3c4441e65305386ab18ec",
+  "source_fingerprint_after": "sha256:0b761f9c4ffde10e2da7a3ef262bbe54cb9759e81bf3c4441e65305386ab18ec",
+  "source_inventory_identical": true,
+  "formal_identical": true,
+  "protected_identical": true,
+  "excluded_identical": true,
+  "stdout_sha256": "8976e2fa54e4e38ab638148fa73fad75d743d38ad378f104384dac86cb10c0fb",
+  "stderr_sha256": "6741e5398a2d0e2e1a2c5e7f1c21f745c5b5c544727b0057148dec77a95268c6"
+}

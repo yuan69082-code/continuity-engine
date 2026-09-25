@@ -1,0 +1,23 @@
+{
+  "label": "a-only-recovery-01",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_w02_input_recovery.PartialInputQueryTests.test_repeat_read_and_resume_do_not_repeat_successful_stations",
+    "-q"
+  ],
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "started_at": "2026-09-25T03:23:08.468468+00:00",
+  "ended_at": "2026-09-25T03:23:10.264684+00:00",
+  "elapsed_seconds": 1.7957011999969836,
+  "exit_code": 0,
+  "source_fingerprint_before": "sha256:322d7464a48f2f95475c51fbe1c274eabdbbde85755e10d2ee7df1e10b90fa43",
+  "source_fingerprint_after": "sha256:322d7464a48f2f95475c51fbe1c274eabdbbde85755e10d2ee7df1e10b90fa43",
+  "source_inventory_identical": true,
+  "formal_identical": true,
+  "protected_identical": true,
+  "excluded_identical": true,
+  "stdout_sha256": "ce513251706e0ffa817fc8132d272a8b06aa58a055d4a508b9779a6616b769f5",
+  "stderr_sha256": "2bde8e7d8b4c37de0408fd4b73390db82ae971a95e30feec3e30909e030e8bd8"
+}

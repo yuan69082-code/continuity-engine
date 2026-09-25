@@ -1,0 +1,12 @@
+{
+  "label": "baseline-existing-link-01",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_w02_external_absorption.ExternalAbsorptionTests.test_w02_a_and_b_real_ingress_share_pre_answer_external_candidate",
+    "-q"
+  ],
+  "started_at": "2026-09-25T03:07:23.556011+00:00",
+  "source_fingerprint": "sha256:3bd153ce992261b1b5898da4e980bd0de4da1667f6d0136e27a6b04d300c08ea"
+}

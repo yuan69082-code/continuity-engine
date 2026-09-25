@@ -1,0 +1,25 @@
+{
+  "label": "recovery-boundaries-01",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_w02_integration.W02IntegratedChainTests.test_partial_failure_reopen_read_original_progress_and_resume_once",
+    "tests.test_w02_integration.W02IntegratedChainTests.test_failed_station_stays_pending_when_failure_repeats_then_resumes",
+    "tests.test_w02_integration.W02IntegratedChainTests.test_recovery_rechecks_current_input_permission_before_reusing_context",
+    "-q"
+  ],
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "started_at": "2026-09-25T03:29:44.033857+00:00",
+  "ended_at": "2026-09-25T03:29:48.577280+00:00",
+  "elapsed_seconds": 4.542787300000782,
+  "exit_code": 0,
+  "source_fingerprint_before": "sha256:4666c6a7f8410c75c89cd3ea8eb2ce2f9584c6df7f6709e3f08b76755c4bc116",
+  "source_fingerprint_after": "sha256:4666c6a7f8410c75c89cd3ea8eb2ce2f9584c6df7f6709e3f08b76755c4bc116",
+  "source_inventory_identical": true,
+  "formal_identical": true,
+  "protected_identical": true,
+  "excluded_identical": true,
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "5a3dc453d2fde3096f6cfa0bdfe9e8095ed9fc4296a032a4b473e34313a3ae69"
+}

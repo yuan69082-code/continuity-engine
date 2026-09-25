@@ -312,6 +312,35 @@ class ContinuityCoreService:
                 raise CapabilityValidationError('RECALL_PENDING_FEATURE_DISABLED')
             prepared=operation.domain_progress.input_preparation
             if prepared is not None and prepared.continuity_context is not None:
+                # A durable recall context can outlive a failed independent input
+                # station. Complete only that station on the original operation
+                # before reusing the already prepared answer material.
+                if getattr(operation,'input_processing_enabled',False):
+                    if self.input_processing is None or save_input is None:
+                        raise CapabilityValidationError('INPUT_PENDING_FEATURE_DISABLED')
+                    record=operation.domain_progress.input_processing
+                    if record is None:
+                        raise CapabilityValidationError('INPUT_VERIFIABLE_CHECKPOINT_REQUIRED')
+                    from continuity_engine.domain.input_processing import InputDisposition
+                    pending=any(record.latest(station) is None or
+                        record.latest(station).disposition is InputDisposition.FAILED_WAITING
+                        for station in record.manifest['stations'])
+                    if pending:
+                        self.input_processing.verify_receipts(operation,partial=True)
+                        record,_,failure=self.input_processing.prepare(perception,operation,save_input)
+                        if failure is not None:
+                            raise failure
+                        self.input_processing.finish_context(record,prepared.continuity_context,
+                            lambda completed:save_input(completed,prepared=prepared))
+                        refreshed=self.input_processing.source.ledger.load_operation(operation.request_id)
+                        if refreshed is None:
+                            raise CapabilityValidationError('INPUT_VERIFIABLE_CHECKPOINT_REQUIRED')
+                        self.input_processing.verify_receipts(refreshed,partial=True)
+                        final=refreshed.domain_progress.input_processing
+                        if any(final.latest(station) is None or
+                               final.latest(station).disposition is InputDisposition.FAILED_WAITING
+                               for station in final.manifest['stations']):
+                            raise CapabilityValidationError('INPUT_UNFINISHED_STATION_WITH_CONTEXT')
                 prepared.continuity_context.validate_perception(perception)
                 if not self.current(prepared.continuity_context):
                     raise CapabilityValidationError('RECALL_PREPARED_CONTEXT_STALE')

@@ -1,0 +1,12 @@
+{
+  "label": "a-only-recovery-01",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_w02_input_recovery.PartialInputQueryTests.test_repeat_read_and_resume_do_not_repeat_successful_stations",
+    "-q"
+  ],
+  "started_at": "2026-09-25T03:23:08.468468+00:00",
+  "source_fingerprint": "sha256:322d7464a48f2f95475c51fbe1c274eabdbbde85755e10d2ee7df1e10b90fa43"
+}

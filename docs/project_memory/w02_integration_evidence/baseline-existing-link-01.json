@@ -1,0 +1,23 @@
+{
+  "label": "baseline-existing-link-01",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_w02_external_absorption.ExternalAbsorptionTests.test_w02_a_and_b_real_ingress_share_pre_answer_external_candidate",
+    "-q"
+  ],
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "started_at": "2026-09-25T03:07:23.556011+00:00",
+  "ended_at": "2026-09-25T03:07:27.409293+00:00",
+  "elapsed_seconds": 3.8528231000018422,
+  "exit_code": 0,
+  "source_fingerprint_before": "sha256:3bd153ce992261b1b5898da4e980bd0de4da1667f6d0136e27a6b04d300c08ea",
+  "source_fingerprint_after": "sha256:3bd153ce992261b1b5898da4e980bd0de4da1667f6d0136e27a6b04d300c08ea",
+  "source_inventory_identical": true,
+  "formal_identical": true,
+  "protected_identical": true,
+  "excluded_identical": true,
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "53c4f6288bb05f3b1c2ad80dab3512e0e34cfb4fce0ef5ccc89991f1d2c6f0bb"
+}

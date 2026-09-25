@@ -1,3 +1,17 @@
+<!-- W02_INTEGRATION_ACCEPTED_D081_20260925 -->
+## W02 整体贯通正式验收（D-081）
+
+用户验收 W02-A/B/C 的同版整体贯通，W02 整体 = `ACCEPTED`；A/B/C 各自原验收保持。规划窗口只读复核代码和原始证据，施工窗口同一源码实跑专项 8 PASS、A/B/C 兼容 156 PASS、公共兼容 318 PASS、全量 1735 PASS／1 既有 SKIP；集合重叠，不相加。[正式验收、已关闭阻断和四份资料时限限制](docs/project_memory/w02_integration_acceptance_evidence/acceptance-report.md)。F1/H1/F2 历史根因仍 `UNKNOWN`；W03、P19 等后续阶段未开工，真实服务未接入。
+
+---
+
+<!-- W02_INTEGRATION_20260925 -->
+## W02 整体贯通已实现，待独立复核
+
+W02-A/B/C 已分别正式验收；同版贯通把原消息处置、回答前回忆、P16/E5-A 外部资料候选及撤回连成一条隔离 TEST 链。首次核验发现 A+B 局部失败重开缺口；用户已单独确认定点补修，原失败和修后对照均保留。最终专项 8 PASS、A/B/C 兼容 156 PASS、公共兼容 318 PASS；完整回归 1736 项为 1735 PASS、1 既有 SKIP、0 FAIL/ERROR，测试集合有交集。[交付、原始运行与待复核状态](docs/project_memory/w02_integration_evidence/final-report.md)。W02 整体 `IMPLEMENTED_NOT_ACCEPTED`，`EVIDENCE_CONFLICT=PRESENT` 等待独立复核；不开展 W03/P19 或真实外部接入，历史 F1/H1/F2 仍为 `UNKNOWN`。
+
+---
+
 <!-- W02_C_ACCEPTED_D080_20260925 -->
 ## W02-C 正式验收（D-080）
 

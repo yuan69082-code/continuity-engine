@@ -87,6 +87,16 @@ class AssociativeRecallService:
             ledgers={id(b.source.ledger):b.source.ledger for b in self.core.router._bindings
                      if hasattr(getattr(b.source,'ledger',None),'_verified_operation_reads')}
             for ledger in ledgers.values():stack.enter_context(ledger._verified_operation_reads())
+            # The external candidate path verifies original E5-A requests and
+            # receipts repeatedly while routing and composing. Reuse their
+            # validated parse only for identical current bytes in this one
+            # preparation; each access still rechecks current permissions,
+            # provider facts and source roots.
+            external=getattr(self.core,'external_capabilities',None)
+            capability_ledger=getattr(getattr(getattr(external,'core',None),'coordination',None),
+                                      '_repository',None)
+            if capability_ledger is not None and hasattr(capability_ledger,'_verified_capability_reads'):
+                stack.enter_context(capability_ledger._verified_capability_reads())
             return self._prepare(perception,operation,save,attention=attention)
 
     def _prepare(self, perception, operation, save, *, attention=None):

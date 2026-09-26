@@ -1,3 +1,17 @@
+<!-- W02_RECALL_TIMEOUT_ACCEPTED_D084_20260927 -->
+## 2026-09-27 — W02 回答前回忆超时定点补修正式验收（D-084）
+
+用户验收本机隔离 TEST 四份资料和第三轮 16 项负载下的定点提速；原 1000 毫秒策略、权限、来源和回执核查不变。施工方同版三次各负载均在时限内，新增正式 5 PASS、W02 161 PASS、W03 32 PASS、公共兼容 155 PASS、全量 1772 PASS/1 既有 Win1314 SKIP，集合不相加。规划窗口仅只读复核，本次档案更新没有重跑测试。修前超时、辅助错误、首次审计 GBK 异常及 F1/H1/F2 `UNKNOWN` 保留；更大负载和生产性能未证明，W04 未开工。见[正式验收](w02_recall_timeout_acceptance_evidence/acceptance-report.md)。
+
+---
+
+<!-- W02_RECALL_TIMEOUT_REPAIR_20260927 -->
+## 2026-09-27 — W02 回答前回忆时限定点补修，待独立复核
+
+原 1000 ms 配置不变。修前当前版经正常原始消息四份资料负载在第四次回忆 1203.258 ms 明确超时；分站证据定位到外部候选重复完整解析原 E5-A 能力账本。只在一次回忆准备且当前文件字节精确相同时复用已完整校验的解析并返回独立副本；权限、根、Provider 事实仍逐次复核，旧公共调用不进入新作用域。预定两负载各三次无仪器通过；正式五项、W02 161 项、W03 32 项、P05/P06/P16 155 项通过，最终全量 1773 项为 1772 PASS、1 既有 Win1314 SKIP、0 FAIL/ERROR（退出 0），结果见[真实测试索引](w02_recall_timeout_evidence/test-index.md)。首次失败及辅助错误不覆盖，旧四份风险证据、W03 两版单次超时和 F1/H1/F2 `UNKNOWN` 不倒写。本轮 `IMPLEMENTED_NOT_ACCEPTED` / `EVIDENCE_CONFLICT=PRESENT` 待独立复核；W02/D-081、W03/D-083、P00—P18 原验收不撤回，不验收、不 Git 写、不启动 W04。[完整报告](w02_recall_timeout_evidence/report.md)。
+
+---
+
 <!-- W03_ACCEPTED_D083_20260926 -->
 ## 2026-09-26 — W03 正式验收（D-083）
 

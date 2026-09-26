@@ -1,0 +1,19 @@
+{
+  "label": "four-postfix-02",
+  "command": [
+    "E:/Adobe/python.exe",
+    "docs/project_memory/w02_recall_timeout_evidence/measure.py",
+    "four"
+  ],
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "started_at": "2026-09-26T18:09:20.680288+00:00",
+  "ended_at": "2026-09-26T18:09:36.986514+00:00",
+  "elapsed_seconds": 16.307,
+  "exit_code": 0,
+  "interrupt": null,
+  "source_before": "sha256:1008aabea9c72f769b97886cd9017051da083a95d14f9d9a010d7a738daa297b",
+  "source_after": "sha256:1008aabea9c72f769b97886cd9017051da083a95d14f9d9a010d7a738daa297b",
+  "source_unchanged": true,
+  "stdout_sha256": "1b1387ff614dc8d10096bf305a1210f8c487334347a1edebe20e2376e845c1fd",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

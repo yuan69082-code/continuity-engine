@@ -1,0 +1,21 @@
+{
+  "label": "formal-draft-03",
+  "command": [
+    "E:/Adobe/python.exe",
+    "-m",
+    "unittest",
+    "tests.test_w02_recall_timeout",
+    "-q"
+  ],
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "started_at": "2026-09-26T18:05:12.978931+00:00",
+  "ended_at": "2026-09-26T18:05:46.569973+00:00",
+  "elapsed_seconds": 33.592,
+  "exit_code": 0,
+  "interrupt": null,
+  "source_before": "sha256:0c1938b8bb31cbb8a3bc4eb47a0fc6751a216a95ac2223182ec1fdd44fca35d7",
+  "source_after": "sha256:0c1938b8bb31cbb8a3bc4eb47a0fc6751a216a95ac2223182ec1fdd44fca35d7",
+  "source_unchanged": true,
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "bbf6eeeb221295eb1e5926e675c65b2669a5a23e7b7a7b10856ae70ccb4f8bfa"
+}

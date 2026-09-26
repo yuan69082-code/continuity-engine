@@ -1,0 +1,24 @@
+{
+  "label": "w03-compat-01",
+  "command": [
+    "E:/Adobe/python.exe",
+    "-m",
+    "unittest",
+    "tests.test_w03_unfinished_items",
+    "tests.test_w03_recognition",
+    "tests.test_w03_n06_repair",
+    "tests.test_w03_core_context",
+    "-q"
+  ],
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "started_at": "2026-09-26T18:15:54.989071+00:00",
+  "ended_at": "2026-09-26T18:18:08.479932+00:00",
+  "elapsed_seconds": 133.492,
+  "exit_code": 0,
+  "interrupt": null,
+  "source_before": "sha256:1008aabea9c72f769b97886cd9017051da083a95d14f9d9a010d7a738daa297b",
+  "source_after": "sha256:1008aabea9c72f769b97886cd9017051da083a95d14f9d9a010d7a738daa297b",
+  "source_unchanged": true,
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "397ca491259adab2b4f925024ee06c31a5d9202494ce42724bd1b7680680fd48"
+}

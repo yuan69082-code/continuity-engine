@@ -213,6 +213,7 @@ class JsonIntegrationResultLedger:
         self._operation_path = Path(root) / "integration" / _OPERATION_FILE_NAME
         self._capability_path = Path(root) / "integration" / _CAPABILITY_FILE_NAME
         self._operation_read_scope = ContextVar('verified_operation_reads', default=None)
+        self._capability_read_scope = ContextVar('verified_capability_reads', default=None)
 
     @contextmanager
     def _verified_operation_reads(self):
@@ -227,6 +228,20 @@ class JsonIntegrationResultLedger:
             yield
         finally:
             self._operation_read_scope.reset(token)
+
+    @contextmanager
+    def _verified_capability_reads(self):
+        """Reuse validated capability records only while their exact bytes remain current.
+
+        The scope is one recall preparation. It caches neither authorization nor
+        provider results; every caller still reads the authoritative file and
+        receives independent objects. Other callers retain the original path.
+        """
+        token = self._capability_read_scope.set({})
+        try:
+            yield
+        finally:
+            self._capability_read_scope.reset(token)
 
     @property
     def path(self) -> Path:
@@ -472,7 +487,22 @@ class JsonIntegrationResultLedger:
             raise IntegrationRecordNotFoundError(
                 "capability ledger has not been initialized"
             )
-        raw = _read_json(self._capability_path, name="capability ledger")
+        scope = self._capability_read_scope.get()
+        if scope is None:
+            raw = _read_json(self._capability_path, name="capability ledger")
+        else:
+            try:
+                current_bytes = self._capability_path.read_bytes()
+                cached = scope.get('document')
+                if cached is not None and cached[0] == current_bytes:
+                    return deepcopy(cached[1])
+                raw = json.loads(current_bytes.decode('utf-8'))
+            except FileNotFoundError:
+                raise
+            except (OSError, UnicodeError, json.JSONDecodeError) as exc:
+                raise IntegrationPersistenceError(
+                    f"cannot read valid capability ledger: {self._capability_path}"
+                ) from exc
         document = _strict_document(
             raw,
             name="capability ledger document",
@@ -566,6 +596,8 @@ class JsonIntegrationResultLedger:
                         "capability ledger contains multiple terminal results"
                     )
                 terminal_requests.add(result.capability_request_id)
+        if scope is not None:
+            scope['document'] = (current_bytes, deepcopy((requests, attempts)))
         return requests, attempts
 
     def _write_capability_document(

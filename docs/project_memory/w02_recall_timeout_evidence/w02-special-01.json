@@ -1,0 +1,25 @@
+{
+  "label": "w02-special-01",
+  "command": [
+    "E:/Adobe/python.exe",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-p",
+    "test_w02_*.py",
+    "-q"
+  ],
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "started_at": "2026-09-26T18:10:49.882397+00:00",
+  "ended_at": "2026-09-26T18:15:32.782027+00:00",
+  "elapsed_seconds": 282.9,
+  "exit_code": 0,
+  "interrupt": null,
+  "source_before": "sha256:1008aabea9c72f769b97886cd9017051da083a95d14f9d9a010d7a738daa297b",
+  "source_after": "sha256:1008aabea9c72f769b97886cd9017051da083a95d14f9d9a010d7a738daa297b",
+  "source_unchanged": true,
+  "stdout_sha256": "a89a306beba745f4f0c1ad0770dfc4e68e0f416106da00f4e13e72128ada4ff5",
+  "stderr_sha256": "56e208f42b1fadceead084ee7d7b79bc441952b07bbd65956dcc349df11df083"
+}

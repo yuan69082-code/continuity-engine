@@ -1,0 +1,22 @@
+======================================================================
+FAIL: test_permission_revoked_between_external_retrieval_and_revalidation (tests.test_w02_recall_timeout.W02RecallTimeoutTests.test_permission_revoked_between_external_retrieval_and_revalidation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w02_recall_timeout.py", line 153, in test_permission_revoked_between_external_retrieval_and_revalidation
+    self.assertNotEqual(operation.domain_progress.recall_progress[-1]['status'], 'READY')
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'READY' == 'READY'
+
+======================================================================
+FAIL: test_capability_bytes_change_during_revalidation_blocks_old_candidate (tests.test_w02_recall_timeout.W02RecallTimeoutTests.test_capability_bytes_change_during_revalidation_blocks_old_candidate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w02_recall_timeout.py", line 176, in test_capability_bytes_change_during_revalidation_blocks_old_candidate
+    with self.assertRaises(IntegrationExecutionError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: IntegrationExecutionError not raised
+
+----------------------------------------------------------------------
+Ran 2 tests in 4.588s
+
+FAILED (failures=2)

@@ -1,0 +1,15 @@
+======================================================================
+FAIL: test_four_materials_preanswer_with_original_1000ms_policy (tests.test_w02_recall_timeout.W02RecallTimeoutTests.test_four_materials_preanswer_with_original_1000ms_policy)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w02_recall_timeout.py", line 62, in test_four_materials_preanswer_with_original_1000ms_policy
+    self.assertTrue(any(fragment.source_type == 'external_candidate'
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        for fragment in f.last_context.composition.snapshot.fragments))
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 3 tests in 33.076s
+
+FAILED (failures=1)

@@ -1,0 +1,21 @@
+{
+  "label": "third-prefx-01",
+  "command": [
+    "E:/Adobe/python.exe",
+    "-m",
+    "unittest",
+    "tests.test_w02_integration.W02IntegratedChainTests.test_partial_derived_withdrawal_invalidates_integrated_reply_and_support",
+    "-q"
+  ],
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "started_at": "2026-09-26T17:52:37.556008+00:00",
+  "ended_at": "2026-09-26T17:52:54.678897+00:00",
+  "elapsed_seconds": 17.124,
+  "exit_code": 0,
+  "interrupt": null,
+  "source_before": "sha256:d6a98e0ea091984c235cc16cd03c249f05b2c56e00ff2a423b9f95f774a23ecf",
+  "source_after": "sha256:d6a98e0ea091984c235cc16cd03c249f05b2c56e00ff2a423b9f95f774a23ecf",
+  "source_unchanged": true,
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "9300ad51b55f096a306aaeb7cf94493efd2d05a8b0076ad802e36f85fa5307af"
+}

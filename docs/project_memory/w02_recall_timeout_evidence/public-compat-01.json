@@ -1,0 +1,29 @@
+{
+  "label": "public-compat-01",
+  "command": [
+    "E:/Adobe/python.exe",
+    "-m",
+    "unittest",
+    "tests.test_p05_context_routing",
+    "tests.test_p05_context_router",
+    "tests.test_p06_context_composition",
+    "tests.test_p06_context_composer",
+    "tests.test_p16_recovery",
+    "tests.test_p16_providers",
+    "tests.test_p16_context",
+    "tests.test_p16_review_regressions",
+    "tests.test_p16_repair_edges",
+    "-q"
+  ],
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "started_at": "2026-09-26T18:18:22.074205+00:00",
+  "ended_at": "2026-09-26T18:20:09.953371+00:00",
+  "elapsed_seconds": 107.88,
+  "exit_code": 0,
+  "interrupt": null,
+  "source_before": "sha256:1008aabea9c72f769b97886cd9017051da083a95d14f9d9a010d7a738daa297b",
+  "source_after": "sha256:1008aabea9c72f769b97886cd9017051da083a95d14f9d9a010d7a738daa297b",
+  "source_unchanged": true,
+  "stdout_sha256": "4262fae9ed06a5e664b2561e6c18605ef3a5b1d3c59da3646f3cb11ad263fcc9",
+  "stderr_sha256": "2da031086c175cd5313ba7822d25b45237dcd37e8a6f06ded6be7fa85b288a09"
+}

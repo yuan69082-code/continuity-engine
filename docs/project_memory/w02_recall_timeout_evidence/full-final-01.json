@@ -1,0 +1,23 @@
+{
+  "label": "full-final-01",
+  "command": [
+    "E:/Adobe/python.exe",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-q"
+  ],
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "started_at": "2026-09-26T18:20:37.430694+00:00",
+  "ended_at": "2026-09-26T18:50:31.255878+00:00",
+  "elapsed_seconds": 1793.826,
+  "exit_code": 0,
+  "interrupt": null,
+  "source_before": "sha256:1008aabea9c72f769b97886cd9017051da083a95d14f9d9a010d7a738daa297b",
+  "source_after": "sha256:1008aabea9c72f769b97886cd9017051da083a95d14f9d9a010d7a738daa297b",
+  "source_unchanged": true,
+  "stdout_sha256": "470c09b6282f79a2d4a390d244dab0029ea3e70d45a74e170450b7789ff0eeab",
+  "stderr_sha256": "cc19831877a8125e55f68161cfb34102e699d7d14f425e81cdbd62f79d02d155"
+}

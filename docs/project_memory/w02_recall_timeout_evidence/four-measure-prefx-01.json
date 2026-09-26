@@ -1,0 +1,20 @@
+{
+  "label": "four-measure-prefx-01",
+  "command": [
+    "E:/Adobe/python.exe",
+    "docs/project_memory/w02_recall_timeout_evidence/measure.py",
+    "four",
+    "instrument"
+  ],
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "started_at": "2026-09-26T17:56:36.537971+00:00",
+  "ended_at": "2026-09-26T17:56:47.068034+00:00",
+  "elapsed_seconds": 10.531,
+  "exit_code": 1,
+  "interrupt": null,
+  "source_before": "sha256:d6a98e0ea091984c235cc16cd03c249f05b2c56e00ff2a423b9f95f774a23ecf",
+  "source_after": "sha256:d6a98e0ea091984c235cc16cd03c249f05b2c56e00ff2a423b9f95f774a23ecf",
+  "source_unchanged": true,
+  "stdout_sha256": "5f72f99c2397a95d6ea7006aaecf8425a80bfb5b70ea497bc2e364bc8645de9a",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

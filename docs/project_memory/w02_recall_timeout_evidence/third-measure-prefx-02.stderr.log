@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\docs\project_memory\w02_recall_timeout_evidence\measure.py", line 155, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "C:\Users\Administrator\Documents\continuity-engine\docs\project_memory\w02_recall_timeout_evidence\measure.py", line 150, in main
+    case.tearDown()
+    ~~~~~~~~~~~~~^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w02_integration.py", line 35, in tearDown
+    capture_failure(self, self.root)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\w02_input_fixture.py", line 16, in capture_failure
+    result = test._outcome.result
+             ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'result'

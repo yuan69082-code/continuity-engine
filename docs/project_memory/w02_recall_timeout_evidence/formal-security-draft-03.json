@@ -1,0 +1,22 @@
+{
+  "label": "formal-security-draft-03",
+  "command": [
+    "E:/Adobe/python.exe",
+    "-m",
+    "unittest",
+    "tests.test_w02_recall_timeout.W02RecallTimeoutTests.test_permission_revoked_between_external_retrieval_and_revalidation",
+    "tests.test_w02_recall_timeout.W02RecallTimeoutTests.test_capability_bytes_change_during_revalidation_blocks_old_candidate",
+    "-q"
+  ],
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "started_at": "2026-09-26T18:07:55.930753+00:00",
+  "ended_at": "2026-09-26T18:08:01.214292+00:00",
+  "elapsed_seconds": 5.284,
+  "exit_code": 0,
+  "interrupt": null,
+  "source_before": "sha256:1008aabea9c72f769b97886cd9017051da083a95d14f9d9a010d7a738daa297b",
+  "source_after": "sha256:1008aabea9c72f769b97886cd9017051da083a95d14f9d9a010d7a738daa297b",
+  "source_unchanged": true,
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "7c7765d43d09f7a22583787c8ffaa2d56e5820097bfbbaf1842eeb58866a3536"
+}

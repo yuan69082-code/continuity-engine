@@ -1,0 +1,16 @@
+{
+  "label": "w04-r1-full-final-01",
+  "started_at": "2026-09-26T23:51:27.226643+00:00",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-v"
+  ],
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "source_before": "sha256:4660952c9a4243db1928b706a4b2e73885122715815733eefc4a84efd531ec6c",
+  "status": "STARTED"
+}

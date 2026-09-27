@@ -128,6 +128,7 @@ class ContinuityInteractionService:
         capability_interpreter: CapabilityResultInterpreter | None = None,
         result_factory: FirstRoundResultFactory | None = None,
         continuity_core=None,
+        environment_access=None,
     ) -> None:
         self._validator = validator
         self._bindings = bindings
@@ -157,6 +158,7 @@ class ContinuityInteractionService:
         )
         self._result_factory = result_factory
         self._continuity_core = continuity_core
+        self._environment_access = environment_access
         self.last_call_log: list[str] = []
 
     @property
@@ -179,20 +181,24 @@ class ContinuityInteractionService:
     def submit(
         self,
         payload: Any,
+        *,
+        access_use=None,
     ):
         processor = self._continuity_core.input_processing if self._continuity_core is not None else None
         if processor is not None:
             with processor.admission():
                 try:
-                    return self._submit(payload)
+                    return self._submit(payload, access_use=access_use)
                 finally:
                     if isinstance(payload, Mapping) and isinstance(payload.get('requestId'), str):
                         processor.source.release(payload['requestId'])
-        return self._submit(payload)
+        return self._submit(payload, access_use=access_use)
 
     def _submit(
         self,
         payload: Any,
+        *,
+        access_use=None,
     ) -> (
         FirstRoundSuccessResult
         | FirstRoundErrorEnvelope
@@ -217,6 +223,17 @@ class ContinuityInteractionService:
             binding = self._validated_binding(request)
             if binding is None:
                 return self._error(request_id, FirstRoundErrorCode.SUBJECT_BINDING_MISMATCH)
+
+            if self._environment_access is not None:
+                # Trusted in-process attachment, separate from the frozen v1
+                # message envelope. Do this before any operation or Wake write.
+                if self._continuity_core is None:
+                    raise CapabilityValidationError("W04_ENVIRONMENT_CONTEXT_REQUIRED")
+                self._environment_access.require_ingress(
+                    access_use, subject_id=binding.subject_id,
+                    environment=self._continuity_core.environment,
+                    conversation_id=request.conversation.conversation_id,
+                )
 
             if self._continuity_core is not None and self._continuity_core.input_processing is not None:
                 # W02 raw input must pass the existing credential-material boundary

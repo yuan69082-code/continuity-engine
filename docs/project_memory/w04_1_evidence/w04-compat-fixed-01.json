@@ -1,0 +1,27 @@
+{
+  "label": "w04-compat-fixed-01",
+  "started_at": "2026-09-26T22:01:35.518513+00:00",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_p16_providers",
+    "tests.test_p16_context",
+    "tests.test_p17_execution",
+    "tests.test_p17_boundaries",
+    "tests.test_p18_runtime_recovery",
+    "tests.test_p18_runtime",
+    "tests.test_w02_recall_timeout",
+    "tests.test_w02_input_integration",
+    "tests.test_w02_integration",
+    "tests.test_w03_core_context",
+    "tests.test_w03_unfinished_items",
+    "-v"
+  ],
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "source_before": "sha256:166dc0fcd1404560b7dff5af2bb253e751b5d5051e78484413a60f27bfb02824",
+  "status": "COMPLETED",
+  "exit_code": 0,
+  "duration_seconds": 265.448,
+  "source_after": "sha256:166dc0fcd1404560b7dff5af2bb253e751b5d5051e78484413a60f27bfb02824"
+}

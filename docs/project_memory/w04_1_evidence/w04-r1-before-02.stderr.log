@@ -1,0 +1,132 @@
+test_handoff_preparation_cannot_cross_subject_or_environment (tests.test_w04_1_environment.W04EnvironmentTests.test_handoff_preparation_cannot_cross_subject_or_environment) ... 
+  test_handoff_preparation_cannot_cross_subject_or_environment (tests.test_w04_1_environment.W04EnvironmentTests.test_handoff_preparation_cannot_cross_subject_or_environment) (subject_id='subject:other', environment='TEST') ... FAIL
+  test_handoff_preparation_cannot_cross_subject_or_environment (tests.test_w04_1_environment.W04EnvironmentTests.test_handoff_preparation_cannot_cross_subject_or_environment) (subject_id='sub-e96df03fccb34cbd', environment='RESEARCH') ... FAIL
+test_migration_preparation_status_cannot_contradict_kind_or_inventory (tests.test_w04_1_environment.W04EnvironmentTests.test_migration_preparation_status_cannot_contradict_kind_or_inventory) ... 
+  test_migration_preparation_status_cannot_contradict_kind_or_inventory (tests.test_w04_1_environment.W04EnvironmentTests.test_migration_preparation_status_cannot_contradict_kind_or_inventory) (changes={'kind': 'FIRST_IMPORT'}) ... FAIL
+  test_migration_preparation_status_cannot_contradict_kind_or_inventory (tests.test_w04_1_environment.W04EnvironmentTests.test_migration_preparation_status_cannot_contradict_kind_or_inventory) (changes={'required': ('subject-state', 'e5a'), 'missing': ('e5a',)}) ... FAIL
+test_sensor_contract_rejects_non_finite_bool_and_wrong_type (tests.test_w04_1_environment.W04EnvironmentTests.test_sensor_contract_rejects_non_finite_bool_and_wrong_type) ... 
+  test_sensor_contract_rejects_non_finite_bool_and_wrong_type (tests.test_w04_1_environment.W04EnvironmentTests.test_sensor_contract_rejects_non_finite_bool_and_wrong_type) (value=nan) ... FAIL
+  test_sensor_contract_rejects_non_finite_bool_and_wrong_type (tests.test_w04_1_environment.W04EnvironmentTests.test_sensor_contract_rejects_non_finite_bool_and_wrong_type) (value=inf) ... FAIL
+  test_sensor_contract_rejects_non_finite_bool_and_wrong_type (tests.test_w04_1_environment.W04EnvironmentTests.test_sensor_contract_rejects_non_finite_bool_and_wrong_type) (value=-inf) ... FAIL
+  test_sensor_contract_rejects_non_finite_bool_and_wrong_type (tests.test_w04_1_environment.W04EnvironmentTests.test_sensor_contract_rejects_non_finite_bool_and_wrong_type) (value=True) ... FAIL
+  test_sensor_contract_rejects_non_finite_bool_and_wrong_type (tests.test_w04_1_environment.W04EnvironmentTests.test_sensor_contract_rejects_non_finite_bool_and_wrong_type) (value='0') ... ERROR
+  test_sensor_contract_rejects_non_finite_bool_and_wrong_type (tests.test_w04_1_environment.W04EnvironmentTests.test_sensor_contract_rejects_non_finite_bool_and_wrong_type) (value=[]) ... ERROR
+test_expired_output_ability_rejects_existing_execution_before_effect_or_cost (tests.test_w04_1_environment.W04ActionBindingTests.test_expired_output_ability_rejects_existing_execution_before_effect_or_cost) ... FAIL
+
+======================================================================
+ERROR: test_sensor_contract_rejects_non_finite_bool_and_wrong_type (tests.test_w04_1_environment.W04EnvironmentTests.test_sensor_contract_rejects_non_finite_bool_and_wrong_type) (value='0')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_1_environment.py", line 271, in test_sensor_contract_rejects_non_finite_bool_and_wrong_type
+    self.service.validate_sensor(use, replace(observation, value=value))
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\environment_access_service.py", line 196, in validate_sensor
+    if observation.value is not None and ((ability.lower is not None and observation.value < ability.lower)
+                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: '<' not supported between instances of 'str' and 'int'
+
+======================================================================
+ERROR: test_sensor_contract_rejects_non_finite_bool_and_wrong_type (tests.test_w04_1_environment.W04EnvironmentTests.test_sensor_contract_rejects_non_finite_bool_and_wrong_type) (value=[])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_1_environment.py", line 271, in test_sensor_contract_rejects_non_finite_bool_and_wrong_type
+    self.service.validate_sensor(use, replace(observation, value=value))
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\environment_access_service.py", line 196, in validate_sensor
+    if observation.value is not None and ((ability.lower is not None and observation.value < ability.lower)
+                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: '<' not supported between instances of 'list' and 'int'
+
+======================================================================
+FAIL: test_handoff_preparation_cannot_cross_subject_or_environment (tests.test_w04_1_environment.W04EnvironmentTests.test_handoff_preparation_cannot_cross_subject_or_environment) (subject_id='subject:other', environment='TEST')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_1_environment.py", line 237, in test_handoff_preparation_cannot_cross_subject_or_environment
+    with self.assertRaisesRegex(EnvironmentAccessError, "W04_HANDOFF_BINDING"):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: EnvironmentAccessError not raised
+
+======================================================================
+FAIL: test_handoff_preparation_cannot_cross_subject_or_environment (tests.test_w04_1_environment.W04EnvironmentTests.test_handoff_preparation_cannot_cross_subject_or_environment) (subject_id='sub-e96df03fccb34cbd', environment='RESEARCH')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_1_environment.py", line 237, in test_handoff_preparation_cannot_cross_subject_or_environment
+    with self.assertRaisesRegex(EnvironmentAccessError, "W04_HANDOFF_BINDING"):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: EnvironmentAccessError not raised
+
+======================================================================
+FAIL: test_migration_preparation_status_cannot_contradict_kind_or_inventory (tests.test_w04_1_environment.W04EnvironmentTests.test_migration_preparation_status_cannot_contradict_kind_or_inventory) (changes={'kind': 'FIRST_IMPORT'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_1_environment.py", line 251, in test_migration_preparation_status_cannot_contradict_kind_or_inventory
+    with self.assertRaisesRegex(EnvironmentAccessError, "W04_MIGRATION_STATUS"):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: EnvironmentAccessError not raised
+
+======================================================================
+FAIL: test_migration_preparation_status_cannot_contradict_kind_or_inventory (tests.test_w04_1_environment.W04EnvironmentTests.test_migration_preparation_status_cannot_contradict_kind_or_inventory) (changes={'required': ('subject-state', 'e5a'), 'missing': ('e5a',)})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_1_environment.py", line 251, in test_migration_preparation_status_cannot_contradict_kind_or_inventory
+    with self.assertRaisesRegex(EnvironmentAccessError, "W04_MIGRATION_STATUS"):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: EnvironmentAccessError not raised
+
+======================================================================
+FAIL: test_sensor_contract_rejects_non_finite_bool_and_wrong_type (tests.test_w04_1_environment.W04EnvironmentTests.test_sensor_contract_rejects_non_finite_bool_and_wrong_type) (value=nan)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_1_environment.py", line 270, in test_sensor_contract_rejects_non_finite_bool_and_wrong_type
+    with self.assertRaisesRegex(EnvironmentAccessError, "W04_SENSOR_VALUE_INVALID"):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: EnvironmentAccessError not raised
+
+======================================================================
+FAIL: test_sensor_contract_rejects_non_finite_bool_and_wrong_type (tests.test_w04_1_environment.W04EnvironmentTests.test_sensor_contract_rejects_non_finite_bool_and_wrong_type) (value=inf)
+----------------------------------------------------------------------
+continuity_engine.domain.environment_access.EnvironmentAccessError: W04_SENSOR_RANGE
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_1_environment.py", line 270, in test_sensor_contract_rejects_non_finite_bool_and_wrong_type
+    with self.assertRaisesRegex(EnvironmentAccessError, "W04_SENSOR_VALUE_INVALID"):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "W04_SENSOR_VALUE_INVALID" does not match "W04_SENSOR_RANGE"
+
+======================================================================
+FAIL: test_sensor_contract_rejects_non_finite_bool_and_wrong_type (tests.test_w04_1_environment.W04EnvironmentTests.test_sensor_contract_rejects_non_finite_bool_and_wrong_type) (value=-inf)
+----------------------------------------------------------------------
+continuity_engine.domain.environment_access.EnvironmentAccessError: W04_SENSOR_RANGE
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_1_environment.py", line 270, in test_sensor_contract_rejects_non_finite_bool_and_wrong_type
+    with self.assertRaisesRegex(EnvironmentAccessError, "W04_SENSOR_VALUE_INVALID"):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "W04_SENSOR_VALUE_INVALID" does not match "W04_SENSOR_RANGE"
+
+======================================================================
+FAIL: test_sensor_contract_rejects_non_finite_bool_and_wrong_type (tests.test_w04_1_environment.W04EnvironmentTests.test_sensor_contract_rejects_non_finite_bool_and_wrong_type) (value=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_1_environment.py", line 270, in test_sensor_contract_rejects_non_finite_bool_and_wrong_type
+    with self.assertRaisesRegex(EnvironmentAccessError, "W04_SENSOR_VALUE_INVALID"):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: EnvironmentAccessError not raised
+
+======================================================================
+FAIL: test_expired_output_ability_rejects_existing_execution_before_effect_or_cost (tests.test_w04_1_environment.W04ActionBindingTests.test_expired_output_ability_rejects_existing_execution_before_effect_or_cost)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_1_environment.py", line 414, in test_expired_output_ability_rejects_existing_execution_before_effect_or_cost
+    with self.assertRaisesRegex(EnvironmentAccessError, "W04_ACTION_ABILITY_EXPIRED"):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: EnvironmentAccessError not raised
+
+----------------------------------------------------------------------
+Ran 4 tests in 1.925s
+
+FAILED (failures=9, errors=2)

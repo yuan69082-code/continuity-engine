@@ -1,0 +1,17 @@
+{
+  "label": "w04-targeted-05",
+  "started_at": "2026-09-26T21:34:59.653338+00:00",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_w04_1_environment",
+    "-v"
+  ],
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "source_before": "sha256:9b61087ac45414d3be95af0aabc5ea0e46d302e0f657facba0c8d6f7fe3481a5",
+  "status": "COMPLETED",
+  "exit_code": 0,
+  "duration_seconds": 8.488,
+  "source_after": "sha256:9b61087ac45414d3be95af0aabc5ea0e46d302e0f657facba0c8d6f7fe3481a5"
+}

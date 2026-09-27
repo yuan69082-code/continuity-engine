@@ -1,0 +1,92 @@
+test_body_action_uses_existing_execution_and_fences_changed_attachment (tests.test_w04_1_environment.W04ActionBindingTests.test_body_action_uses_existing_execution_and_fences_changed_attachment) ... ok
+test_expired_output_ability_rejects_existing_execution_before_effect_or_cost (tests.test_w04_1_environment.W04ActionBindingTests.test_expired_output_ability_rejects_existing_execution_before_effect_or_cost) ... ERROR
+test_revocation_inside_final_reality_callback_prevents_world_effect (tests.test_w04_1_environment.W04ActionBindingTests.test_revocation_inside_final_reality_callback_prevents_world_effect) ... ok
+test_revocation_inside_resource_check_prevents_world_effect (tests.test_w04_1_environment.W04ActionBindingTests.test_revocation_inside_resource_check_prevents_world_effect) ... ok
+test_alternative_route_skips_disconnected_and_keeps_grant_checks (tests.test_w04_1_environment.W04EnvironmentTests.test_alternative_route_skips_disconnected_and_keeps_grant_checks) ... ok
+test_body_none_unknown_zero_and_source_separation (tests.test_w04_1_environment.W04EnvironmentTests.test_body_none_unknown_zero_and_source_separation) ... ok
+test_corrupt_store_and_revision_conflict_fail_closed (tests.test_w04_1_environment.W04EnvironmentTests.test_corrupt_store_and_revision_conflict_fail_closed) ... ok
+test_cross_environment_attachment_cannot_enter_test_engine (tests.test_w04_1_environment.W04EnvironmentTests.test_cross_environment_attachment_cannot_enter_test_engine) ... ok
+test_current_check_does_not_reuse_permission_or_connection_result (tests.test_w04_1_environment.W04EnvironmentTests.test_current_check_does_not_reuse_permission_or_connection_result) ... ok
+test_deep_history_needs_willingness_and_future_route (tests.test_w04_1_environment.W04EnvironmentTests.test_deep_history_needs_willingness_and_future_route) ... ok
+test_enabled_bound_entry_requires_trusted_use_even_for_same_formal_payload (tests.test_w04_1_environment.W04EnvironmentTests.test_enabled_bound_entry_requires_trusted_use_even_for_same_formal_payload) ... ok
+test_formal_ingress_checks_attachment_before_any_operation_write (tests.test_w04_1_environment.W04EnvironmentTests.test_formal_ingress_checks_attachment_before_any_operation_write) ... ok
+test_four_states_and_current_availability_are_distinct (tests.test_w04_1_environment.W04EnvironmentTests.test_four_states_and_current_availability_are_distinct) ... ok
+test_handoff_preparation_cannot_cross_subject_or_environment (tests.test_w04_1_environment.W04EnvironmentTests.test_handoff_preparation_cannot_cross_subject_or_environment) ... ok
+test_history_current_source_permission_and_scope_are_checked (tests.test_w04_1_environment.W04EnvironmentTests.test_history_current_source_permission_and_scope_are_checked) ... ok
+test_history_old_revision_cannot_be_reused_after_new_state (tests.test_w04_1_environment.W04EnvironmentTests.test_history_old_revision_cannot_be_reused_after_new_state) ... ok
+test_history_permission_change_during_read_rejects_before_return (tests.test_w04_1_environment.W04EnvironmentTests.test_history_permission_change_during_read_rejects_before_return) ... ok
+test_isolated_handoff_fences_old_host_and_restart_keeps_fence (tests.test_w04_1_environment.W04EnvironmentTests.test_isolated_handoff_fences_old_host_and_restart_keeps_fence) ... ok
+test_migration_kinds_missing_inventory_and_production_not_ready (tests.test_w04_1_environment.W04EnvironmentTests.test_migration_kinds_missing_inventory_and_production_not_ready) ... ok
+test_migration_preparation_status_cannot_contradict_kind_or_inventory (tests.test_w04_1_environment.W04EnvironmentTests.test_migration_preparation_status_cannot_contradict_kind_or_inventory) ... ok
+test_model_api_is_not_an_engine_message_ingress (tests.test_w04_1_environment.W04EnvironmentTests.test_model_api_is_not_an_engine_message_ingress) ... ok
+test_read_only_view_requires_current_subject_and_permission (tests.test_w04_1_environment.W04EnvironmentTests.test_read_only_view_requires_current_subject_and_permission) ... ok
+test_revocation_during_current_permission_callback_is_seen (tests.test_w04_1_environment.W04EnvironmentTests.test_revocation_during_current_permission_callback_is_seen) ... ok
+test_revocation_expiry_and_current_permission_stop_new_ingress (tests.test_w04_1_environment.W04EnvironmentTests.test_revocation_expiry_and_current_permission_stop_new_ingress) ... ok
+test_same_account_name_and_wrong_subject_are_not_identity (tests.test_w04_1_environment.W04EnvironmentTests.test_same_account_name_and_wrong_subject_are_not_identity) ... ok
+test_scoped_history_uses_original_router_composer_and_is_read_only (tests.test_w04_1_environment.W04EnvironmentTests.test_scoped_history_uses_original_router_composer_and_is_read_only) ... ok
+test_sensor_contract_rejects_non_finite_bool_and_wrong_type (tests.test_w04_1_environment.W04EnvironmentTests.test_sensor_contract_rejects_non_finite_bool_and_wrong_type) ... ok
+test_sensor_missing_ability_wrong_generation_and_expired_sample_rejected (tests.test_w04_1_environment.W04EnvironmentTests.test_sensor_missing_ability_wrong_generation_and_expired_sample_rejected) ... ok
+
+======================================================================
+ERROR: test_expired_output_ability_rejects_existing_execution_before_effect_or_cost (tests.test_w04_1_environment.W04ActionBindingTests.test_expired_output_ability_rejects_existing_execution_before_effect_or_cost)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 308, in _submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 946, in _run_domain
+    return self._complete_domain_after_thinking(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        operation,
+        ^^^^^^^^^^
+    ...<2 lines>...
+        thinking,
+        ^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 1184, in _complete_domain_after_thinking
+    self._continuity_core.after_action(operation,thinking,action)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 617, in after_action
+    self.last_action = service.run(choice, context.composition, retry=retry)
+                       ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\action_planning_service.py", line 168, in run
+    results[request.step_id] = self._resume(request, context=context, retry=retry)
+                               ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\action_planning_service.py", line 212, in _resume
+    preflight(request)
+    ~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\execution_service.py", line 30, in execution_preflight
+    self.service.current(request,route,'execute')
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\execution_service.py", line 226, in current
+    self.environment_access.require_action(use,route,request)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\environment_access_service.py", line 131, in require_action
+    raise EnvironmentAccessError("W04_ACTION_ABILITY_EXPIRED")
+continuity_engine.domain.environment_access.EnvironmentAccessError: W04_ACTION_ABILITY_EXPIRED
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_1_environment.py", line 415, in test_expired_output_ability_rejects_existing_execution_before_effect_or_cost
+    f.submit()
+    ~~~~~~~~^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p17_execution_fixture.py", line 242, in submit
+    result=self.app.adapter.submit(request)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\interfaces\integration_adapter.py", line 38, in submit
+    return self._service.submit(payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 195, in submit
+    return self._submit(payload, access_use=access_use)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 320, in _submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.
+
+----------------------------------------------------------------------
+Ran 28 tests in 12.389s
+
+FAILED (errors=1)

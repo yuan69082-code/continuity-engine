@@ -56,7 +56,8 @@ class _Policy:
 
 
 class ExecutionService:
-    def __init__(self, outbox, *, routes, adapters, boundary, broker, selection=None, limits=None, fault=None):
+    def __init__(self, outbox, *, routes, adapters, boundary, broker, selection=None, limits=None, fault=None,
+                 environment_access=None, access_uses=None):
         self.outbox = outbox
         self.routes = {r.capability_ref:WorldCapability.from_dict(r.to_dict()) for r in routes}
         if len(self.routes)!=len(routes):
@@ -65,6 +66,8 @@ class ExecutionService:
         self.selection = dict(selection or {})
         self.limits = limits or BlastRadius()
         self.fault = fault or (lambda point: None)
+        self.environment_access = environment_access
+        self.access_uses = dict(access_uses or {})
         self.core = None
         self._contexts = {}
 
@@ -215,6 +218,12 @@ class ExecutionService:
             raise ExecutionError('REALITY_DENIAL')
         if purpose=='execute' and self.port('RECOVERABILITY_NOT_READY',self.boundary.recoverable,route) is not True:
             raise ExecutionError('RECOVERABILITY_NOT_READY')
+        if purpose=='execute' and self.environment_access is not None:
+            # The attachment gate is the last synchronous check, including
+            # after the existing reality, broker and recoverability callbacks.
+            # The E5-A request remains the effect authority.
+            use=self.access_uses.get(route.capability_ref)
+            self.environment_access.require_action(use,route,request)
 
     def execute(self, request):
         route=self.route_for(request)

@@ -1,0 +1,19 @@
+{
+  "label": "w04-r1-full-resume-01",
+  "started_at": "2026-09-27T13:35:56.580655+00:00",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-v"
+  ],
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "source_before": "sha256:4660952c9a4243db1928b706a4b2e73885122715815733eefc4a84efd531ec6c",
+  "status": "COMPLETED",
+  "exit_code": 0,
+  "duration_seconds": 1876.171,
+  "source_after": "sha256:4660952c9a4243db1928b706a4b2e73885122715815733eefc4a84efd531ec6c"
+}

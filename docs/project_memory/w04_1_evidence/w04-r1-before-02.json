@@ -1,0 +1,20 @@
+{
+  "label": "w04-r1-before-02",
+  "started_at": "2026-09-26T23:44:39.208059+00:00",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_w04_1_environment.W04EnvironmentTests.test_handoff_preparation_cannot_cross_subject_or_environment",
+    "tests.test_w04_1_environment.W04EnvironmentTests.test_migration_preparation_status_cannot_contradict_kind_or_inventory",
+    "tests.test_w04_1_environment.W04EnvironmentTests.test_sensor_contract_rejects_non_finite_bool_and_wrong_type",
+    "tests.test_w04_1_environment.W04ActionBindingTests.test_expired_output_ability_rejects_existing_execution_before_effect_or_cost",
+    "-v"
+  ],
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "source_before": "sha256:b0cffb72f9785bcfcaaee350973cb532ecff6e320cc1407ccf7a02a6ef16c01c",
+  "status": "COMPLETED",
+  "exit_code": 1,
+  "duration_seconds": 2.401,
+  "source_after": "sha256:b0cffb72f9785bcfcaaee350973cb532ecff6e320cc1407ccf7a02a6ef16c01c"
+}

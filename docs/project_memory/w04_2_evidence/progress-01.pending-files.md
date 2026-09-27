@@ -1,0 +1,68 @@
+# W04-2 精确成果清单（未暂存）
+
+本批实现/测试/证据/必要档案；70份既有保留材料不在下表，逐项hash见 baseline.json。六份共享档案只新增本批记录，既有D-085及历史内容保持。
+
+| 相对路径 | SHA-256 |
+|---|---|
+| `docs/project_memory/01_当前状态.md` | `3b6c668287d7e95ad1a828517c7246e0d15e179d18187dac6768322e81217844` |
+| `docs/project_memory/03_施工日志.md` | `bda3e567440a3eee9ebc95967c99452cebeb962e363421ab4f3195fecbb49afe` |
+| `docs/project_memory/04_决策记录.md` | `fdc58ab57e07102beff176666a4c28f7805ab75c731e45a8102d15477590f264` |
+| `docs/project_memory/06_未完成事项.md` | `cbaf272dd573fd1e1f7bf3844d231e46adc162d1bb6430cafbc33d79b77f464a` |
+| `docs/project_memory/10_档案修订记录.md` | `5862d1249002074dd7688b15453951bf63fb2e0e5cd83ea1ce90b656ceb38439` |
+| `docs/project_memory/w04_2_evidence/audit.py` | `7cd0787c11d214cd205b7444154e301e70064c71ee22f4c61789d3d7084bcec1` |
+| `docs/project_memory/w04_2_evidence/baseline-test-identities.json` | `b74e65de0936081bea1421b0dd68568db2643b4bd1163f0e53ab333f05077fe3` |
+| `docs/project_memory/w04_2_evidence/baseline.json` | `9cc6493d981562993195ec8441002fbcaf80634cbd9962dbc01470ea270ba71c` |
+| `docs/project_memory/w04_2_evidence/continuation.md` | `a67ce395800e25bbaf69f5981a59a713a03bbef17d56f0391d6c7a875df649de` |
+| `docs/project_memory/w04_2_evidence/failure-history.md` | `24dc97a2240a81da536a468d56e2420cb89c4d4f3f04c4125dd44f20a578b1d7` |
+| `docs/project_memory/w04_2_evidence/frozen-source.json` | `aef1ceb4ca82e3be419c9b90fe90e12a8c0e3998c33bcd876d2779df55ab7236` |
+| `docs/project_memory/w04_2_evidence/implementation-notes.md` | `a9670888b4ffd524dfa0b0e3162d61c0d47ca573f7c20834d67950804b67e2a2` |
+| `docs/project_memory/w04_2_evidence/matrix.md` | `1e45ef24376f8a346b2adf44a8e650faa4eff23ee8fd5c14b0583a7988d68c08` |
+| `docs/project_memory/w04_2_evidence/new-test-identities.json` | `57af1dee64d3d271425ad58e90fa00aa1ad41dad37fc49f34bd6ab47aeed3a63` |
+| `docs/project_memory/w04_2_evidence/progress-01.diff-check.txt` | `d195c635b8ccf2ca3b24329e66a81eaa4b3df7d7ad54a9020d8f963262293703` |
+| `docs/project_memory/w04_2_evidence/progress-01.git-status.txt` | `cfbc62eeea152541c81617e9d3712aed8eed5d9ec54cf0d2f9a5b547634cd425` |
+| `docs/project_memory/w04_2_evidence/run.py` | `a56f57ffd06da0e4d63c63c81b9a990afb6dbde4744f24628d3bc496701a6b93` |
+| `docs/project_memory/w04_2_evidence/sample.py` | `2e698616bf563ce34e761574834c02a84e0826a8dc5556c692f853aabfa380f0` |
+| `docs/project_memory/w04_2_evidence/stage-brief.md` | `0984ad4d4318ef64eac19a26cf37810743991db0e1a5f004179e3508803613ae` |
+| `docs/project_memory/w04_2_evidence/w04-2-before-01.json` | `f740767bd5420d16680da97b9fc21033c9fe47e554f35b1985b9e167de317b5b` |
+| `docs/project_memory/w04_2_evidence/w04-2-before-01.stderr.log` | `e2ba51fc315c8a900b7ee7dbe123337782318c292800ab8fe02986f0b8c328e1` |
+| `docs/project_memory/w04_2_evidence/w04-2-before-01.stdout.log` | `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855` |
+| `docs/project_memory/w04_2_evidence/w04-2-boundary-fix-01.json` | `0954d77e601ed35dd5a0b1b4b8dd7bec209408a90034c72e6f0414f425661e8a` |
+| `docs/project_memory/w04_2_evidence/w04-2-boundary-fix-01.stderr.log` | `59d2dcbe51128e6f087f91e0144e7d89c5114e4ec7a9c5b6f22495e7646f240e` |
+| `docs/project_memory/w04_2_evidence/w04-2-boundary-fix-01.stdout.log` | `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855` |
+| `docs/project_memory/w04_2_evidence/w04-2-chain-01.json` | `f4aa2496387176fccf16ae890c300524c13763d49af0f66abf6158b3ce7262a1` |
+| `docs/project_memory/w04_2_evidence/w04-2-chain-01.stderr.log` | `5272df0cbff67f5ced75c2127b34657780c849689b4ba7304c398171532d6fe9` |
+| `docs/project_memory/w04_2_evidence/w04-2-chain-01.stdout.log` | `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855` |
+| `docs/project_memory/w04_2_evidence/w04-2-chain-02.json` | `bc4a560f6b4a2753d892241d91fdbabc1ee7b6293bf6267172732cd7c06ac515` |
+| `docs/project_memory/w04_2_evidence/w04-2-chain-02.stderr.log` | `072b568c368daac5abf901f973c88bf047bb94492e5e0526a9f88c23649f3348` |
+| `docs/project_memory/w04_2_evidence/w04-2-chain-02.stdout.log` | `551a096a898c16e684c7499a46b347118607672b380cffa42901ac9b1e7957d9` |
+| `docs/project_memory/w04_2_evidence/w04-2-compat-final-01.json` | `16fa9092d9d4863e7c4e92ed5e6a01099a7a2f6e4838da457ebe935d3f86877c` |
+| `docs/project_memory/w04_2_evidence/w04-2-compat-final-01.stderr.log` | `19e096af36486eb4a3c1f3ac5a7735dac2e56ec78bd3172a2f8b43a52ca42ca6` |
+| `docs/project_memory/w04_2_evidence/w04-2-compat-final-01.stdout.log` | `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855` |
+| `docs/project_memory/w04_2_evidence/w04-2-contract-01.json` | `28c9920acdf8f555b41a64e8a117aa77f917db587e23ece162e176c46e208be7` |
+| `docs/project_memory/w04_2_evidence/w04-2-contract-01.stderr.log` | `deaf617e15411b22fc87b872b156573e6e7408da0a48ecce8011eb05ba2dbda5` |
+| `docs/project_memory/w04_2_evidence/w04-2-contract-01.stdout.log` | `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855` |
+| `docs/project_memory/w04_2_evidence/w04-2-flow-01.json` | `497d78357a52d5ee668d5973424803d8e0feee5dc889f9ea9e4335e18e4e862d` |
+| `docs/project_memory/w04_2_evidence/w04-2-flow-01.stderr.log` | `615cdd98d522b7a6c103828a75f0a7a1d6c3b31410d17824d2cb23fd2c19ab40` |
+| `docs/project_memory/w04_2_evidence/w04-2-flow-01.stdout.log` | `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855` |
+| `docs/project_memory/w04_2_evidence/w04-2-guards-01.json` | `a7205e8c17d741a9fef8e63cf7a01c170a0d40b0d031fd7592574e2a40b5b944` |
+| `docs/project_memory/w04_2_evidence/w04-2-guards-01.stderr.log` | `a8230757732d34315c739a1d8883a7095be84c7fdbffd0f6f83fb76b21b0014b` |
+| `docs/project_memory/w04_2_evidence/w04-2-guards-01.stdout.log` | `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855` |
+| `docs/project_memory/w04_2_evidence/w04-2-host-fix-01.json` | `233f55f3812d4f62a6ada804521ddaf2bd4515425fc7b7ec5234c675705a5f3f` |
+| `docs/project_memory/w04_2_evidence/w04-2-host-fix-01.stderr.log` | `9ff1ce7921af7b4e2470e2129008f67c38a8aab8ad73a4b4d34773318afe9700` |
+| `docs/project_memory/w04_2_evidence/w04-2-host-fix-01.stdout.log` | `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855` |
+| `docs/project_memory/w04_2_evidence/w04-2-query-fix-01.json` | `3cba79d94267850f6f819d83be8c766e6021af35e6d87bb394672a74397537f1` |
+| `docs/project_memory/w04_2_evidence/w04-2-query-fix-01.stderr.log` | `a1d9667988d8a19ef008b219abf6352d816a372b4b8dd86a3ea89c676696ba67` |
+| `docs/project_memory/w04_2_evidence/w04-2-query-fix-01.stdout.log` | `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855` |
+| `docs/project_memory/w04_2_evidence/w04-2-special-final-01.json` | `89dfc1bf02ec6820cb8cc2f0ef2847a2020e98123e32152d1150ddc1166357a6` |
+| `docs/project_memory/w04_2_evidence/w04-2-special-final-01.stderr.log` | `cca862021d25554b8c3bed760ddd805f10db5baa5227ac04cd459a7dfc0a04c5` |
+| `docs/project_memory/w04_2_evidence/w04-2-special-final-01.stdout.log` | `3ec535b8c5203e2eee830f398c3a06126d09211e9b4e9ace8edc0a39ef4f8431` |
+| `docs/project_memory/工程总档案.md` | `d4e49e89f8ae504e89599c0f5f6186a267775ef9453c81210906fff1acf3f7b4` |
+| `src/continuity_engine/domain/action_planning.py` | `9b2cda28a6f6c00dd7d86c8a0ea1d1dd6570ce3c9f3228efe500f5f429bd5501` |
+| `src/continuity_engine/domain/device_operation.py` | `8a94508a913e76597fa7a8df5f1fd916f1db5962c513c18dee6aea129b31375d` |
+| `src/continuity_engine/services/device_operation_service.py` | `8c8a216766e39bda5a0e51b64ae979d6c77a7c00e93c51d973d826f3fd3f2e1e` |
+| `src/continuity_engine/services/execution_context_source.py` | `7c37366a73c52852891e47bb81370bac4a3ad3234b10e93a91d23409059dab14` |
+| `src/continuity_engine/services/execution_service.py` | `8d23b61c77f7654c7b1a9a48c0230c231c9130285330f59d753f04746e42ce57` |
+| `src/continuity_engine/testing/w04_device_fixture.py` | `a6316f63a3a442892ab44690da09d3fc80956b70c8202431184e5e64faddf1c1` |
+| `tests/test_w04_2_simulation.py` | `e6fcc445eb3c48eeb26461e97a7ba14870e914763b46969a0814b375f6eef8ed` |
+
+审计和本清单也属于交付；审计记录本清单hash，自身hash由后续只读工具计算，不作自引用。

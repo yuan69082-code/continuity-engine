@@ -1,0 +1,17 @@
+test_original_action_request_can_bind_device_observation_and_command (tests.test_w04_2_simulation.DevicePayloadAdmissionTests.test_original_action_request_can_bind_device_observation_and_command) ... ERROR
+
+======================================================================
+ERROR: test_original_action_request_can_bind_device_observation_and_command (tests.test_w04_2_simulation.DevicePayloadAdmissionTests.test_original_action_request_can_bind_device_observation_and_command)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_2_simulation.py", line 21, in test_original_action_request_can_bind_device_observation_and_command
+    step = ActionSpecification("step-0", "device.click", "software:a", digest(payload), input_payload=payload)
+  File "<string>", line 9, in __init__
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\domain\action_planning.py", line 56, in __post_init__
+    raise CapabilityValidationError('EXTERNAL_INPUT_BINDING_INVALID')
+continuity_engine.domain.errors.CapabilityValidationError: EXTERNAL_INPUT_BINDING_INVALID
+
+----------------------------------------------------------------------
+Ran 1 test in 0.008s
+
+FAILED (errors=1)

@@ -1,0 +1,12 @@
+test_changed_bytes_and_corrupt_hash_cannot_reuse_old_registry (tests.test_w04_2_registry_recheck.RegistryCurrentPathTests.test_changed_bytes_and_corrupt_hash_cannot_reuse_old_registry) ... ok
+test_current_directory_junction_rejects_and_restoring_real_directory_recovers (tests.test_w04_2_registry_recheck.RegistryCurrentPathTests.test_current_directory_junction_rejects_and_restoring_real_directory_recovers) ... ok
+test_current_registry_repeated_read_is_read_only_and_returns_private_values (tests.test_w04_2_registry_recheck.RegistryCurrentPathTests.test_current_registry_repeated_read_is_read_only_and_returns_private_values) ... ok
+test_missing_store_still_has_no_capability (tests.test_w04_2_registry_recheck.RegistryCurrentPathTests.test_missing_store_still_has_no_capability) ... ok
+test_path_metadata_denial_is_not_a_successful_read (tests.test_w04_2_registry_recheck.RegistryCurrentPathTests.test_path_metadata_denial_is_not_a_successful_read) ... ok
+test_recheck_all_current_ancestors_on_each_read_with_single_metadata_query (tests.test_w04_2_registry_recheck.RegistryCurrentPathTests.test_recheck_all_current_ancestors_on_each_read_with_single_metadata_query) ... ok
+test_registry_revoke_is_seen_on_next_read_and_after_reopen (tests.test_w04_2_registry_recheck.RegistryCurrentPathTests.test_registry_revoke_is_seen_on_next_read_and_after_reopen) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 2.889s
+
+OK

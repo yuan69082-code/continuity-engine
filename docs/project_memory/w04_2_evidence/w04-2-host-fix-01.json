@@ -1,0 +1,17 @@
+{
+  "label": "w04-2-host-fix-01",
+  "started_at": "2026-09-27T15:24:21.784260+00:00",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_w04_2_simulation.W04SimulatedChainTests.test_locked_device_does_not_stop_runtime_control_or_other_work",
+    "-v"
+  ],
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "source_before": "sha256:c2081af89f4e524b24b9764086bbf22dd9c78393233d748bd306c749e3d7fc07",
+  "status": "COMPLETED",
+  "exit_code": 0,
+  "duration_seconds": 4.103,
+  "source_after": "sha256:c2081af89f4e524b24b9764086bbf22dd9c78393233d748bd306c749e3d7fc07"
+}

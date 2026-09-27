@@ -1,0 +1,22 @@
+{
+  "label": "w04-2-guards-01",
+  "started_at": "2026-09-27T15:28:08.659860+00:00",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_w04_2_simulation.W04SimulatedChainTests.test_sensor_stale_wrong_unit_and_context_currentness",
+    "tests.test_w04_2_simulation.W04SimulatedChainTests.test_read_scope_required_and_observation_returns_detached_copy",
+    "tests.test_w04_2_simulation.W04SimulatedChainTests.test_secrets_rejected_before_ledger_and_standard_diagnostics_sanitized",
+    "tests.test_w04_2_simulation.W04SimulatedChainTests.test_resource_and_recoverability_denials_keep_zero_cost",
+    "tests.test_w04_2_simulation.W04SimulatedChainTests.test_click_receipt_cannot_be_relabelled_as_saved",
+    "tests.test_w04_2_simulation.W04SimulatedChainTests.test_subject_pause_blocks_new_device_effect_without_falsifying_old_fact",
+    "-v"
+  ],
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "source_before": "sha256:a8e8aa02aabf46d4e8f36b0602b2e4bf2f2068480b5a1f1f1bb4c8b03adda9b1",
+  "status": "COMPLETED",
+  "exit_code": 1,
+  "duration_seconds": 12.367,
+  "source_after": "sha256:a8e8aa02aabf46d4e8f36b0602b2e4bf2f2068480b5a1f1f1bb4c8b03adda9b1"
+}

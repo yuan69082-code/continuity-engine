@@ -1,0 +1,6 @@
+test_same_root_history_requery_does_not_create_independent_evidence (tests.test_w04_2_simulation.W04SimulatedChainTests.test_same_root_history_requery_does_not_create_independent_evidence) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 5.879s
+
+OK

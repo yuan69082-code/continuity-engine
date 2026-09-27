@@ -1,0 +1,850 @@
+{
+  "recall-cpu-01": {
+    "raw": "recall-cpu-01.trace.json",
+    "sha256": "9c5aef642145f8d1e630913a3269cb45c69faac3322fdc2a4bc327fe86a6b2c3",
+    "preparations": [
+      {
+        "index": 0,
+        "prepare": {
+          "file": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\associative_recall_service.py",
+          "line": 102,
+          "function": "_prepare",
+          "primitive": 1,
+          "calls": 1,
+          "own_seconds": 0.00023750000000000003,
+          "total_seconds": 0.1428269
+        },
+        "registry_read": {
+          "file": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\json_external_provider_repository.py",
+          "line": 25,
+          "function": "_read",
+          "primitive": 2,
+          "calls": 2,
+          "own_seconds": 0.0001006,
+          "total_seconds": 0.010754600000000001
+        },
+        "registry_safe": {
+          "file": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\json_external_provider_repository.py",
+          "line": 52,
+          "function": "_safe",
+          "primitive": 2,
+          "calls": 2,
+          "own_seconds": 0.00015120000000000002,
+          "total_seconds": 0.0088997
+        },
+        "metadata": {
+          "is_symlink": {
+            "file": "E:\\Adobe\\Lib\\pathlib\\__init__.py",
+            "line": 703,
+            "function": "is_symlink",
+            "primitive": 34,
+            "calls": 34,
+            "own_seconds": 2.23e-05,
+            "total_seconds": 0.0033199
+          },
+          "exists": {
+            "file": "E:\\Adobe\\Lib\\pathlib\\__init__.py",
+            "line": 663,
+            "function": "exists",
+            "primitive": 45,
+            "calls": 45,
+            "own_seconds": 3.77e-05,
+            "total_seconds": 0.0040883000000000004
+          },
+          "is_junction": {
+            "file": "E:\\Adobe\\Lib\\pathlib\\__init__.py",
+            "line": 709,
+            "function": "is_junction",
+            "primitive": 34,
+            "calls": 34,
+            "own_seconds": 2.19e-05,
+            "total_seconds": 0.0023784
+          },
+          "lstat": null
+        }
+      },
+      {
+        "index": 1,
+        "prepare": {
+          "file": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\associative_recall_service.py",
+          "line": 102,
+          "function": "_prepare",
+          "primitive": 1,
+          "calls": 1,
+          "own_seconds": 0.0002358,
+          "total_seconds": 0.40095020000000003
+        },
+        "registry_read": {
+          "file": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\json_external_provider_repository.py",
+          "line": 25,
+          "function": "_read",
+          "primitive": 21,
+          "calls": 21,
+          "own_seconds": 0.0005732000000000001,
+          "total_seconds": 0.1027745
+        },
+        "registry_safe": {
+          "file": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\json_external_provider_repository.py",
+          "line": 52,
+          "function": "_safe",
+          "primitive": 21,
+          "calls": 21,
+          "own_seconds": 0.0010358000000000001,
+          "total_seconds": 0.07805820000000001
+        },
+        "metadata": {
+          "is_symlink": {
+            "file": "E:\\Adobe\\Lib\\pathlib\\__init__.py",
+            "line": 703,
+            "function": "is_symlink",
+            "primitive": 357,
+            "calls": 357,
+            "own_seconds": 0.0001898,
+            "total_seconds": 0.026001700000000003
+          },
+          "exists": {
+            "file": "E:\\Adobe\\Lib\\pathlib\\__init__.py",
+            "line": 663,
+            "function": "exists",
+            "primitive": 399,
+            "calls": 399,
+            "own_seconds": 0.00025,
+            "total_seconds": 0.031063
+          },
+          "is_junction": {
+            "file": "E:\\Adobe\\Lib\\pathlib\\__init__.py",
+            "line": 709,
+            "function": "is_junction",
+            "primitive": 357,
+            "calls": 357,
+            "own_seconds": 0.0001887,
+            "total_seconds": 0.023759100000000002
+          },
+          "lstat": null
+        }
+      },
+      {
+        "index": 2,
+        "prepare": {
+          "file": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\associative_recall_service.py",
+          "line": 102,
+          "function": "_prepare",
+          "primitive": 1,
+          "calls": 1,
+          "own_seconds": 0.0002902,
+          "total_seconds": 0.970226
+        },
+        "registry_read": {
+          "file": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\json_external_provider_repository.py",
+          "line": 25,
+          "function": "_read",
+          "primitive": 60,
+          "calls": 60,
+          "own_seconds": 0.0017494000000000001,
+          "total_seconds": 0.29772580000000004
+        },
+        "registry_safe": {
+          "file": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\json_external_provider_repository.py",
+          "line": 52,
+          "function": "_safe",
+          "primitive": 60,
+          "calls": 60,
+          "own_seconds": 0.0028283,
+          "total_seconds": 0.2238677
+        },
+        "metadata": {
+          "is_symlink": {
+            "file": "E:\\Adobe\\Lib\\pathlib\\__init__.py",
+            "line": 703,
+            "function": "is_symlink",
+            "primitive": 1020,
+            "calls": 1020,
+            "own_seconds": 0.0005273000000000001,
+            "total_seconds": 0.0755599
+          },
+          "exists": {
+            "file": "E:\\Adobe\\Lib\\pathlib\\__init__.py",
+            "line": 663,
+            "function": "exists",
+            "primitive": 1125,
+            "calls": 1125,
+            "own_seconds": 0.0007081,
+            "total_seconds": 0.0847122
+          },
+          "is_junction": {
+            "file": "E:\\Adobe\\Lib\\pathlib\\__init__.py",
+            "line": 709,
+            "function": "is_junction",
+            "primitive": 1020,
+            "calls": 1020,
+            "own_seconds": 0.0005079,
+            "total_seconds": 0.0680236
+          },
+          "lstat": null
+        }
+      },
+      {
+        "index": 3,
+        "prepare": {
+          "file": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\associative_recall_service.py",
+          "line": 102,
+          "function": "_prepare",
+          "primitive": 1,
+          "calls": 1,
+          "own_seconds": 0.00012560000000000002,
+          "total_seconds": 1.4213787
+        },
+        "registry_read": {
+          "file": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\json_external_provider_repository.py",
+          "line": 25,
+          "function": "_read",
+          "primitive": 85,
+          "calls": 85,
+          "own_seconds": 0.0022930000000000003,
+          "total_seconds": 0.3814457
+        },
+        "registry_safe": {
+          "file": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\json_external_provider_repository.py",
+          "line": 52,
+          "function": "_safe",
+          "primitive": 85,
+          "calls": 85,
+          "own_seconds": 0.0037528,
+          "total_seconds": 0.27849090000000004
+        },
+        "metadata": {
+          "is_symlink": {
+            "file": "E:\\Adobe\\Lib\\pathlib\\__init__.py",
+            "line": 703,
+            "function": "is_symlink",
+            "primitive": 1445,
+            "calls": 1445,
+            "own_seconds": 0.0006990000000000001,
+            "total_seconds": 0.0926961
+          },
+          "exists": {
+            "file": "E:\\Adobe\\Lib\\pathlib\\__init__.py",
+            "line": 663,
+            "function": "exists",
+            "primitive": 1593,
+            "calls": 1593,
+            "own_seconds": 0.0008845000000000001,
+            "total_seconds": 0.1065566
+          },
+          "is_junction": {
+            "file": "E:\\Adobe\\Lib\\pathlib\\__init__.py",
+            "line": 709,
+            "function": "is_junction",
+            "primitive": 1445,
+            "calls": 1445,
+            "own_seconds": 0.0006514,
+            "total_seconds": 0.08519270000000001
+          },
+          "lstat": null
+        }
+      },
+      {
+        "index": 4,
+        "prepare": {
+          "file": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\associative_recall_service.py",
+          "line": 102,
+          "function": "_prepare",
+          "primitive": 1,
+          "calls": 1,
+          "own_seconds": 0.00011190000000000001,
+          "total_seconds": 0.0591339
+        },
+        "registry_read": {
+          "file": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\json_external_provider_repository.py",
+          "line": 25,
+          "function": "_read",
+          "primitive": 2,
+          "calls": 2,
+          "own_seconds": 3.6700000000000004e-05,
+          "total_seconds": 0.0082365
+        },
+        "registry_safe": {
+          "file": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\json_external_provider_repository.py",
+          "line": 52,
+          "function": "_safe",
+          "primitive": 2,
+          "calls": 2,
+          "own_seconds": 0.0001,
+          "total_seconds": 0.007378600000000001
+        },
+        "metadata": {
+          "is_symlink": {
+            "file": "E:\\Adobe\\Lib\\pathlib\\__init__.py",
+            "line": 703,
+            "function": "is_symlink",
+            "primitive": 34,
+            "calls": 34,
+            "own_seconds": 1.9200000000000003e-05,
+            "total_seconds": 0.0024789
+          },
+          "exists": {
+            "file": "E:\\Adobe\\Lib\\pathlib\\__init__.py",
+            "line": 663,
+            "function": "exists",
+            "primitive": 45,
+            "calls": 45,
+            "own_seconds": 3.21e-05,
+            "total_seconds": 0.0037075000000000003
+          },
+          "is_junction": {
+            "file": "E:\\Adobe\\Lib\\pathlib\\__init__.py",
+            "line": 709,
+            "function": "is_junction",
+            "primitive": 34,
+            "calls": 34,
+            "own_seconds": 1.8900000000000002e-05,
+            "total_seconds": 0.0021737
+          },
+          "lstat": null
+        }
+      },
+      {
+        "index": 5,
+        "prepare": {
+          "file": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\associative_recall_service.py",
+          "line": 102,
+          "function": "_prepare",
+          "primitive": 1,
+          "calls": 1,
+          "own_seconds": 0.00020290000000000003,
+          "total_seconds": 0.3443647
+        },
+        "registry_read": {
+          "file": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\json_external_provider_repository.py",
+          "line": 25,
+          "function": "_read",
+          "primitive": 21,
+          "calls": 21,
+          "own_seconds": 0.0006191,
+          "total_seconds": 0.0933004
+        },
+        "registry_safe": {
+          "file": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\json_external_provider_repository.py",
+          "line": 52,
+          "function": "_safe",
+          "primitive": 21,
+          "calls": 21,
+          "own_seconds": 0.0009545,
+          "total_seconds": 0.0696345
+        },
+        "metadata": {
+          "is_symlink": {
+            "file": "E:\\Adobe\\Lib\\pathlib\\__init__.py",
+            "line": 703,
+            "function": "is_symlink",
+            "primitive": 357,
+            "calls": 357,
+            "own_seconds": 0.0001705,
+            "total_seconds": 0.023657
+          },
+          "exists": {
+            "file": "E:\\Adobe\\Lib\\pathlib\\__init__.py",
+            "line": 663,
+            "function": "exists",
+            "primitive": 399,
+            "calls": 399,
+            "own_seconds": 0.00024050000000000002,
+            "total_seconds": 0.0278037
+          },
+          "is_junction": {
+            "file": "E:\\Adobe\\Lib\\pathlib\\__init__.py",
+            "line": 709,
+            "function": "is_junction",
+            "primitive": 357,
+            "calls": 357,
+            "own_seconds": 0.0001676,
+            "total_seconds": 0.0207611
+          },
+          "lstat": null
+        }
+      },
+      {
+        "index": 6,
+        "prepare": {
+          "file": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\associative_recall_service.py",
+          "line": 102,
+          "function": "_prepare",
+          "primitive": 1,
+          "calls": 1,
+          "own_seconds": 0.0001463,
+          "total_seconds": 1.2266151
+        },
+        "registry_read": {
+          "file": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\json_external_provider_repository.py",
+          "line": 25,
+          "function": "_read",
+          "primitive": 108,
+          "calls": 108,
+          "own_seconds": 0.0026456,
+          "total_seconds": 0.45161680000000004
+        },
+        "registry_safe": {
+          "file": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\json_external_provider_repository.py",
+          "line": 52,
+          "function": "_safe",
+          "primitive": 108,
+          "calls": 108,
+          "own_seconds": 0.0045691,
+          "total_seconds": 0.33800650000000004
+        },
+        "metadata": {
+          "is_symlink": {
+            "file": "E:\\Adobe\\Lib\\pathlib\\__init__.py",
+            "line": 703,
+            "function": "is_symlink",
+            "primitive": 1836,
+            "calls": 1836,
+            "own_seconds": 0.0008707000000000001,
+            "total_seconds": 0.1125788
+          },
+          "exists": {
+            "file": "E:\\Adobe\\Lib\\pathlib\\__init__.py",
+            "line": 663,
+            "function": "exists",
+            "primitive": 1989,
+            "calls": 1989,
+            "own_seconds": 0.0010656,
+            "total_seconds": 0.1255667
+          },
+          "is_junction": {
+            "file": "E:\\Adobe\\Lib\\pathlib\\__init__.py",
+            "line": 709,
+            "function": "is_junction",
+            "primitive": 1836,
+            "calls": 1836,
+            "own_seconds": 0.0008232000000000001,
+            "total_seconds": 0.103063
+          },
+          "lstat": null
+        }
+      }
+    ]
+  },
+  "recall-cpu-after-01": {
+    "raw": "recall-cpu-after-01.trace.json",
+    "sha256": "e0b1b15c4c6e2f69f03c71804c5e16eab6d785077074c4e396d025e1ab75d1c2",
+    "preparations": [
+      {
+        "index": 0,
+        "prepare": {
+          "file": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\associative_recall_service.py",
+          "line": 102,
+          "function": "_prepare",
+          "primitive": 1,
+          "calls": 1,
+          "own_seconds": 0.0001922,
+          "total_seconds": 0.102982
+        },
+        "registry_read": {
+          "file": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\json_external_provider_repository.py",
+          "line": 25,
+          "function": "_read",
+          "primitive": 2,
+          "calls": 2,
+          "own_seconds": 3.66e-05,
+          "total_seconds": 0.0041197000000000004
+        },
+        "registry_safe": {
+          "file": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\json_external_provider_repository.py",
+          "line": 52,
+          "function": "_safe",
+          "primitive": 2,
+          "calls": 2,
+          "own_seconds": 8.25e-05,
+          "total_seconds": 0.0031949
+        },
+        "metadata": {
+          "is_symlink": null,
+          "exists": {
+            "file": "E:\\Adobe\\Lib\\pathlib\\__init__.py",
+            "line": 663,
+            "function": "exists",
+            "primitive": 11,
+            "calls": 11,
+            "own_seconds": 1.0700000000000001e-05,
+            "total_seconds": 0.0012862000000000001
+          },
+          "is_junction": null,
+          "lstat": {
+            "file": "E:\\Adobe\\Lib\\pathlib\\__init__.py",
+            "line": 656,
+            "function": "lstat",
+            "primitive": 34,
+            "calls": 34,
+            "own_seconds": 1.7100000000000002e-05,
+            "total_seconds": 0.0028794000000000003
+          }
+        }
+      },
+      {
+        "index": 1,
+        "prepare": {
+          "file": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\associative_recall_service.py",
+          "line": 102,
+          "function": "_prepare",
+          "primitive": 1,
+          "calls": 1,
+          "own_seconds": 0.0001728,
+          "total_seconds": 0.3412118
+        },
+        "registry_read": {
+          "file": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\json_external_provider_repository.py",
+          "line": 25,
+          "function": "_read",
+          "primitive": 21,
+          "calls": 21,
+          "own_seconds": 0.0005109,
+          "total_seconds": 0.047507100000000003
+        },
+        "registry_safe": {
+          "file": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\json_external_provider_repository.py",
+          "line": 52,
+          "function": "_safe",
+          "primitive": 21,
+          "calls": 21,
+          "own_seconds": 0.0006412000000000001,
+          "total_seconds": 0.026136700000000002
+        },
+        "metadata": {
+          "is_symlink": null,
+          "exists": {
+            "file": "E:\\Adobe\\Lib\\pathlib\\__init__.py",
+            "line": 663,
+            "function": "exists",
+            "primitive": 42,
+            "calls": 42,
+            "own_seconds": 4.91e-05,
+            "total_seconds": 0.005487700000000001
+          },
+          "is_junction": null,
+          "lstat": {
+            "file": "E:\\Adobe\\Lib\\pathlib\\__init__.py",
+            "line": 656,
+            "function": "lstat",
+            "primitive": 357,
+            "calls": 357,
+            "own_seconds": 0.00014790000000000002,
+            "total_seconds": 0.022881500000000003
+          }
+        }
+      },
+      {
+        "index": 2,
+        "prepare": {
+          "file": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\associative_recall_service.py",
+          "line": 102,
+          "function": "_prepare",
+          "primitive": 1,
+          "calls": 1,
+          "own_seconds": 0.000246,
+          "total_seconds": 0.7209055000000001
+        },
+        "registry_read": {
+          "file": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\json_external_provider_repository.py",
+          "line": 25,
+          "function": "_read",
+          "primitive": 60,
+          "calls": 60,
+          "own_seconds": 0.001415,
+          "total_seconds": 0.1279018
+        },
+        "registry_safe": {
+          "file": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\json_external_provider_repository.py",
+          "line": 52,
+          "function": "_safe",
+          "primitive": 60,
+          "calls": 60,
+          "own_seconds": 0.0017217,
+          "total_seconds": 0.0647177
+        },
+        "metadata": {
+          "is_symlink": null,
+          "exists": {
+            "file": "E:\\Adobe\\Lib\\pathlib\\__init__.py",
+            "line": 663,
+            "function": "exists",
+            "primitive": 105,
+            "calls": 105,
+            "own_seconds": 0.0001082,
+            "total_seconds": 0.0134532
+          },
+          "is_junction": null,
+          "lstat": {
+            "file": "E:\\Adobe\\Lib\\pathlib\\__init__.py",
+            "line": 656,
+            "function": "lstat",
+            "primitive": 1020,
+            "calls": 1020,
+            "own_seconds": 0.000366,
+            "total_seconds": 0.055768700000000004
+          }
+        }
+      },
+      {
+        "index": 3,
+        "prepare": {
+          "file": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\associative_recall_service.py",
+          "line": 102,
+          "function": "_prepare",
+          "primitive": 1,
+          "calls": 1,
+          "own_seconds": 0.00011300000000000001,
+          "total_seconds": 1.1958705
+        },
+        "registry_read": {
+          "file": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\json_external_provider_repository.py",
+          "line": 25,
+          "function": "_read",
+          "primitive": 85,
+          "calls": 85,
+          "own_seconds": 0.0018984000000000002,
+          "total_seconds": 0.1891683
+        },
+        "registry_safe": {
+          "file": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\json_external_provider_repository.py",
+          "line": 52,
+          "function": "_safe",
+          "primitive": 85,
+          "calls": 85,
+          "own_seconds": 0.0025265,
+          "total_seconds": 0.0956493
+        },
+        "metadata": {
+          "is_symlink": null,
+          "exists": {
+            "file": "E:\\Adobe\\Lib\\pathlib\\__init__.py",
+            "line": 663,
+            "function": "exists",
+            "primitive": 148,
+            "calls": 148,
+            "own_seconds": 0.0001497,
+            "total_seconds": 0.0190472
+          },
+          "is_junction": null,
+          "lstat": {
+            "file": "E:\\Adobe\\Lib\\pathlib\\__init__.py",
+            "line": 656,
+            "function": "lstat",
+            "primitive": 1445,
+            "calls": 1445,
+            "own_seconds": 0.0005442,
+            "total_seconds": 0.0829506
+          }
+        }
+      },
+      {
+        "index": 4,
+        "prepare": {
+          "file": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\associative_recall_service.py",
+          "line": 102,
+          "function": "_prepare",
+          "primitive": 1,
+          "calls": 1,
+          "own_seconds": 0.00011520000000000001,
+          "total_seconds": 0.0500907
+        },
+        "registry_read": {
+          "file": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\json_external_provider_repository.py",
+          "line": 25,
+          "function": "_read",
+          "primitive": 2,
+          "calls": 2,
+          "own_seconds": 2.92e-05,
+          "total_seconds": 0.0025862000000000003
+        },
+        "registry_safe": {
+          "file": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\json_external_provider_repository.py",
+          "line": 52,
+          "function": "_safe",
+          "primitive": 2,
+          "calls": 2,
+          "own_seconds": 5.56e-05,
+          "total_seconds": 0.0019339000000000001
+        },
+        "metadata": {
+          "is_symlink": null,
+          "exists": {
+            "file": "E:\\Adobe\\Lib\\pathlib\\__init__.py",
+            "line": 663,
+            "function": "exists",
+            "primitive": 11,
+            "calls": 11,
+            "own_seconds": 1.11e-05,
+            "total_seconds": 0.0012827000000000001
+          },
+          "is_junction": null,
+          "lstat": {
+            "file": "E:\\Adobe\\Lib\\pathlib\\__init__.py",
+            "line": 656,
+            "function": "lstat",
+            "primitive": 34,
+            "calls": 34,
+            "own_seconds": 1.1900000000000001e-05,
+            "total_seconds": 0.0016533000000000001
+          }
+        }
+      },
+      {
+        "index": 5,
+        "prepare": {
+          "file": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\associative_recall_service.py",
+          "line": 102,
+          "function": "_prepare",
+          "primitive": 1,
+          "calls": 1,
+          "own_seconds": 0.00016480000000000002,
+          "total_seconds": 0.25598920000000003
+        },
+        "registry_read": {
+          "file": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\json_external_provider_repository.py",
+          "line": 25,
+          "function": "_read",
+          "primitive": 21,
+          "calls": 21,
+          "own_seconds": 0.0004711,
+          "total_seconds": 0.044813000000000006
+        },
+        "registry_safe": {
+          "file": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\json_external_provider_repository.py",
+          "line": 52,
+          "function": "_safe",
+          "primitive": 21,
+          "calls": 21,
+          "own_seconds": 0.0006515000000000001,
+          "total_seconds": 0.0243563
+        },
+        "metadata": {
+          "is_symlink": null,
+          "exists": {
+            "file": "E:\\Adobe\\Lib\\pathlib\\__init__.py",
+            "line": 663,
+            "function": "exists",
+            "primitive": 42,
+            "calls": 42,
+            "own_seconds": 4.38e-05,
+            "total_seconds": 0.0051755
+          },
+          "is_junction": null,
+          "lstat": {
+            "file": "E:\\Adobe\\Lib\\pathlib\\__init__.py",
+            "line": 656,
+            "function": "lstat",
+            "primitive": 357,
+            "calls": 357,
+            "own_seconds": 0.00013890000000000002,
+            "total_seconds": 0.021332800000000002
+          }
+        }
+      },
+      {
+        "index": 6,
+        "prepare": {
+          "file": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\associative_recall_service.py",
+          "line": 102,
+          "function": "_prepare",
+          "primitive": 1,
+          "calls": 1,
+          "own_seconds": 0.0002451,
+          "total_seconds": 0.8847643000000001
+        },
+        "registry_read": {
+          "file": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\json_external_provider_repository.py",
+          "line": 25,
+          "function": "_read",
+          "primitive": 112,
+          "calls": 112,
+          "own_seconds": 0.0023601,
+          "total_seconds": 0.2305869
+        },
+        "registry_safe": {
+          "file": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\json_external_provider_repository.py",
+          "line": 52,
+          "function": "_safe",
+          "primitive": 112,
+          "calls": 112,
+          "own_seconds": 0.003255,
+          "total_seconds": 0.1204577
+        },
+        "metadata": {
+          "is_symlink": null,
+          "exists": {
+            "file": "E:\\Adobe\\Lib\\pathlib\\__init__.py",
+            "line": 663,
+            "function": "exists",
+            "primitive": 157,
+            "calls": 157,
+            "own_seconds": 0.0001529,
+            "total_seconds": 0.019070200000000002
+          },
+          "is_junction": null,
+          "lstat": {
+            "file": "E:\\Adobe\\Lib\\pathlib\\__init__.py",
+            "line": 656,
+            "function": "lstat",
+            "primitive": 1904,
+            "calls": 1904,
+            "own_seconds": 0.0007119,
+            "total_seconds": 0.10438520000000001
+          }
+        }
+      },
+      {
+        "index": 7,
+        "prepare": {
+          "file": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\services\\associative_recall_service.py",
+          "line": 102,
+          "function": "_prepare",
+          "primitive": 1,
+          "calls": 1,
+          "own_seconds": 0.000245,
+          "total_seconds": 0.8078645000000001
+        },
+        "registry_read": {
+          "file": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\json_external_provider_repository.py",
+          "line": 25,
+          "function": "_read",
+          "primitive": 45,
+          "calls": 45,
+          "own_seconds": 0.0011146,
+          "total_seconds": 0.1027343
+        },
+        "registry_safe": {
+          "file": "C:\\Users\\Administrator\\Documents\\continuity-engine\\src\\continuity_engine\\storage\\json_external_provider_repository.py",
+          "line": 52,
+          "function": "_safe",
+          "primitive": 45,
+          "calls": 45,
+          "own_seconds": 0.0013342,
+          "total_seconds": 0.050474200000000004
+        },
+        "metadata": {
+          "is_symlink": null,
+          "exists": {
+            "file": "E:\\Adobe\\Lib\\pathlib\\__init__.py",
+            "line": 663,
+            "function": "exists",
+            "primitive": 90,
+            "calls": 90,
+            "own_seconds": 9.72e-05,
+            "total_seconds": 0.011601100000000001
+          },
+          "is_junction": null,
+          "lstat": {
+            "file": "E:\\Adobe\\Lib\\pathlib\\__init__.py",
+            "line": 656,
+            "function": "lstat",
+            "primitive": 765,
+            "calls": 765,
+            "own_seconds": 0.0002821,
+            "total_seconds": 0.0438172
+          }
+        }
+      }
+    ]
+  }
+}

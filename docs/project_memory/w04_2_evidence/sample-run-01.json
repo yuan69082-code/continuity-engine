@@ -1,0 +1,12 @@
+{
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "docs\\project_memory\\w04_2_evidence\\sample.py"
+  ],
+  "at_utc": "2026-09-27T16:35:26.032092+00:00",
+  "source_before": "sha256:61bb34c6728e6850786b10b867bf9a440b8193e1534c82ff30b46ba488392b0f",
+  "status": "COMPLETED",
+  "exit_code": 0,
+  "seconds": 80.321,
+  "source_after": "sha256:61bb34c6728e6850786b10b867bf9a440b8193e1534c82ff30b46ba488392b0f"
+}

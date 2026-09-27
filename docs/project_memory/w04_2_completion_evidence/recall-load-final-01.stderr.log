@@ -1,0 +1,7 @@
+test_four_materials_preanswer_with_original_1000ms_policy (tests.test_w02_recall_timeout.W02RecallTimeoutTests.test_four_materials_preanswer_with_original_1000ms_policy) ... ok
+test_third_message_sixteen_candidates_and_current_derived_sources (tests.test_w02_recall_timeout.W02RecallTimeoutTests.test_third_message_sixteen_candidates_and_current_derived_sources) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 32.868s
+
+OK

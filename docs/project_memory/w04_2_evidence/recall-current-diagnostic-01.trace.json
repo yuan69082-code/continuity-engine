@@ -1,0 +1,113 @@
+{
+  "tests_run": 4,
+  "failures": 1,
+  "errors": 3,
+  "skipped": 0,
+  "seconds": 46.352,
+  "recall_records": [
+    {
+      "request_id": "p01-request-1d13dd6f63e24b568b820d50cd64d01f",
+      "status": "READY",
+      "stop_reason": "NO_NEW_ASSOCIATION",
+      "elapsed_ms": 187.787,
+      "retrieved_count": 12,
+      "model_calls": 0,
+      "external_calls": 0,
+      "policy": {
+        "candidate_limit": 60,
+        "per_round_limit": 20,
+        "max_rounds": 4,
+        "latency_ms": 1000,
+        "sufficient_roots": 4,
+        "preference_minimum_roots": 3,
+        "preference_require_positive_report": true,
+        "version": "w02-recall-policy-v1"
+      },
+      "snapshot_hash": "sha256:310f5cd1a977473ceffa8c1e5bcd468e09f4c425aa9d6a6eb3fdbb5ee746009f"
+    },
+    {
+      "request_id": "p01-request-15cbbc679a8243d59f02d25611066672",
+      "status": "BLOCKED",
+      "stop_reason": "RECALL_TIMEOUT",
+      "elapsed_ms": 1131.481,
+      "retrieved_count": 14,
+      "model_calls": 0,
+      "external_calls": 0,
+      "policy": {
+        "candidate_limit": 60,
+        "per_round_limit": 20,
+        "max_rounds": 4,
+        "latency_ms": 1000,
+        "sufficient_roots": 4,
+        "preference_minimum_roots": 3,
+        "preference_require_positive_report": true,
+        "version": "w02-recall-policy-v1"
+      },
+      "snapshot_hash": null
+    },
+    {
+      "request_id": "p01-request-c0976be71ffe4c9fa376557034ad3b37",
+      "status": "READY",
+      "stop_reason": "RELEVANCE_INSUFFICIENT",
+      "elapsed_ms": 191.032,
+      "retrieved_count": 9,
+      "model_calls": 0,
+      "external_calls": 0,
+      "policy": {
+        "candidate_limit": 60,
+        "per_round_limit": 20,
+        "max_rounds": 4,
+        "latency_ms": 1000,
+        "sufficient_roots": 4,
+        "preference_minimum_roots": 3,
+        "preference_require_positive_report": true,
+        "version": "w02-recall-policy-v1"
+      },
+      "snapshot_hash": "sha256:71b53ee14c50037ae033d99e18d9af71e949d2697acb217a0169c7070a72304e"
+    },
+    {
+      "request_id": "p01-request-b7abea96513e400fb93ddb9c164b6290",
+      "status": "BLOCKED",
+      "stop_reason": "RECALL_TIMEOUT",
+      "elapsed_ms": 1336.462,
+      "retrieved_count": 11,
+      "model_calls": 0,
+      "external_calls": 0,
+      "policy": {
+        "candidate_limit": 60,
+        "per_round_limit": 20,
+        "max_rounds": 4,
+        "latency_ms": 1000,
+        "sufficient_roots": 4,
+        "preference_minimum_roots": 3,
+        "preference_require_positive_report": true,
+        "version": "w02-recall-policy-v1"
+      },
+      "snapshot_hash": null
+    }
+  ],
+  "changed_public_calls": {
+    "ActionSpecification.__post_init__": {
+      "all": 138,
+      "during_recall": 18
+    },
+    "ExecutionService.__init__": {
+      "all": 2,
+      "during_recall": 0
+    },
+    "ExecutionService.current": {
+      "all": 0,
+      "during_recall": 0
+    },
+    "ExecutionService.results_for_context": {
+      "all": 0,
+      "during_recall": 0
+    },
+    "ExecutionContextSource.resolve": {
+      "all": 0,
+      "during_recall": 0
+    }
+  },
+  "assertions_unchanged": true,
+  "observation_overhead": "one wrapper per preparation; record copy after elapsed_ms capture; no per-byte profiler"
+}

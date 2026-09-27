@@ -1,0 +1,19 @@
+{
+  "label": "w04-2-query-fix-01",
+  "started_at": "2026-09-27T15:16:16.896316+00:00",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_w04_2_simulation.W04SimulatedChainTests.test_query_and_status_are_read_only_and_bounded",
+    "tests.test_w04_2_simulation.W04SimulatedChainTests.test_deep_history_requires_willingness_and_current_permission",
+    "tests.test_w04_2_simulation.W04SimulatedChainTests.test_permission_or_device_connection_change_blocks_new_effect",
+    "-v"
+  ],
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "source_before": "sha256:9702d8d899a470fd370bd395da525cc34eb765ff35b06f69f1a83ecf105846c4",
+  "status": "COMPLETED",
+  "exit_code": 0,
+  "duration_seconds": 6.992,
+  "source_after": "sha256:9702d8d899a470fd370bd395da525cc34eb765ff35b06f69f1a83ecf105846c4"
+}

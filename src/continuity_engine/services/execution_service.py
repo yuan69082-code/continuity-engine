@@ -70,6 +70,10 @@ class ExecutionService:
         self.access_uses = dict(access_uses or {})
         self.core = None
         self._contexts = {}
+        from .device_operation_service import DeviceOperationService
+        for adapter in self.adapters.values():
+            if isinstance(adapter, DeviceOperationService):
+                adapter.execution = self
 
     @staticmethod
     def port(code, callback, *args, **kwargs):
@@ -224,6 +228,19 @@ class ExecutionService:
             # The E5-A request remains the effect authority.
             use=self.access_uses.get(route.capability_ref)
             self.environment_access.require_action(use,route,request)
+        if request.capability_type.startswith('device.'):
+            from .device_operation_service import DeviceOperationService
+            adapter = self.adapter(route)
+            if not isinstance(adapter, DeviceOperationService):
+                raise ExecutionError('DEVICE_ADAPTER_REQUIRED')
+            try:
+                adapter.current(request, purpose=purpose)
+            except ExecutionError as exc:
+                if purpose == 'consume' and str(exc) == 'DEVICE_SOURCE_NOT_CURRENT':
+                    raise ExecutionError('DEVICE_SOURCE_NOT_CURRENT') from None
+                raise ExecutionError('DEVICE_CURRENT_CHECK_REJECTED') from None
+            except Exception:
+                raise ExecutionError('DEVICE_CURRENT_CHECK_REJECTED') from None
 
     def execute(self, request):
         route=self.route_for(request)
@@ -428,7 +445,8 @@ class ExecutionService:
             # Research never silently becomes Main evidence.
             if route.world!=self.core.environment:
                 continue
-            self.current(request,route,'consume')
+            if not self._current_result_source(request, route):
+                continue
             adapter=next(b.adapter for b in self.bindings() if b.capability==request.capability_type)
             attempts=self.core.coordination.action_attempts(request,receipt_verifier=adapter)
             if not attempts or attempts[-1].result.status is not CapabilityStatus.SUCCEEDED:
@@ -442,8 +460,21 @@ class ExecutionService:
                 raise ExecutionError('EXECUTION_RESULT_BINDING')
             if not isinstance(payload['content'],str) or len(json.dumps(payload).encode())>route.max_output_bytes or digest(payload)!=fact.output_hash:
                 raise ExecutionError('EXECUTION_RESULT_HASH')
-            self.current(request,route,'consume')
+            if not self._current_result_source(request, route):
+                continue
             if self.query(request)!=fact:
                 raise ExecutionError('EXECUTION_RESULT_DRIFT')
             values.append((request,route,fact,payload))
         return values
+
+    def _current_result_source(self, request, route):
+        try:
+            self.current(request, route, 'consume')
+            return True
+        except ExecutionError as exc:
+            # An explicitly withdrawn device candidate leaves historical facts
+            # intact and disappears from the current source version. Corruption,
+            # unknown port errors and ordinary P17 failures still fail closed.
+            if request.capability_type.startswith('device.') and str(exc) == 'DEVICE_SOURCE_NOT_CURRENT':
+                return False
+            raise

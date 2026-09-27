@@ -1,0 +1,306 @@
+[
+  {
+    "test": "tests.test_w02_recall_timeout.W02RecallTimeoutTests.test_four_materials_preanswer_with_original_1000ms_policy",
+    "status": "READY",
+    "stop_reason": "NO_NEW_ASSOCIATION",
+    "elapsed_ms": 53.914,
+    "retrieved_count": 12,
+    "model_calls": 0,
+    "external_calls": 0,
+    "policy": {
+      "candidate_limit": 60,
+      "per_round_limit": 20,
+      "max_rounds": 4,
+      "latency_ms": 1000,
+      "sufficient_roots": 4,
+      "preference_minimum_roots": 3,
+      "preference_require_positive_report": true,
+      "version": "w02-recall-policy-v1"
+    }
+  },
+  {
+    "test": "tests.test_w02_recall_timeout.W02RecallTimeoutTests.test_four_materials_preanswer_with_original_1000ms_policy",
+    "status": "READY",
+    "stop_reason": "SUFFICIENT_MATERIAL",
+    "elapsed_ms": 160.064,
+    "retrieved_count": 14,
+    "model_calls": 0,
+    "external_calls": 0,
+    "policy": {
+      "candidate_limit": 60,
+      "per_round_limit": 20,
+      "max_rounds": 4,
+      "latency_ms": 1000,
+      "sufficient_roots": 4,
+      "preference_minimum_roots": 3,
+      "preference_require_positive_report": true,
+      "version": "w02-recall-policy-v1"
+    }
+  },
+  {
+    "test": "tests.test_w02_recall_timeout.W02RecallTimeoutTests.test_four_materials_preanswer_with_original_1000ms_policy",
+    "status": "READY",
+    "stop_reason": "NO_NEW_ASSOCIATION",
+    "elapsed_ms": 313.796,
+    "retrieved_count": 16,
+    "model_calls": 0,
+    "external_calls": 0,
+    "policy": {
+      "candidate_limit": 60,
+      "per_round_limit": 20,
+      "max_rounds": 4,
+      "latency_ms": 1000,
+      "sufficient_roots": 4,
+      "preference_minimum_roots": 3,
+      "preference_require_positive_report": true,
+      "version": "w02-recall-policy-v1"
+    }
+  },
+  {
+    "test": "tests.test_w02_recall_timeout.W02RecallTimeoutTests.test_four_materials_preanswer_with_original_1000ms_policy",
+    "status": "READY",
+    "stop_reason": "SUFFICIENT_MATERIAL",
+    "elapsed_ms": 459.441,
+    "retrieved_count": 17,
+    "model_calls": 0,
+    "external_calls": 0,
+    "policy": {
+      "candidate_limit": 60,
+      "per_round_limit": 20,
+      "max_rounds": 4,
+      "latency_ms": 1000,
+      "sufficient_roots": 4,
+      "preference_minimum_roots": 3,
+      "preference_require_positive_report": true,
+      "version": "w02-recall-policy-v1"
+    }
+  },
+  {
+    "test": "tests.test_w02_recall_timeout.W02RecallTimeoutTests.test_third_message_sixteen_candidates_and_current_derived_sources",
+    "status": "READY",
+    "stop_reason": "RELEVANCE_INSUFFICIENT",
+    "elapsed_ms": 23.041,
+    "retrieved_count": 9,
+    "model_calls": 0,
+    "external_calls": 0,
+    "policy": {
+      "candidate_limit": 60,
+      "per_round_limit": 20,
+      "max_rounds": 4,
+      "latency_ms": 1000,
+      "sufficient_roots": 4,
+      "preference_minimum_roots": 3,
+      "preference_require_positive_report": true,
+      "version": "w02-recall-policy-v1"
+    }
+  },
+  {
+    "test": "tests.test_w02_recall_timeout.W02RecallTimeoutTests.test_third_message_sixteen_candidates_and_current_derived_sources",
+    "status": "READY",
+    "stop_reason": "NO_NEW_ASSOCIATION",
+    "elapsed_ms": 111.839,
+    "retrieved_count": 11,
+    "model_calls": 0,
+    "external_calls": 0,
+    "policy": {
+      "candidate_limit": 60,
+      "per_round_limit": 20,
+      "max_rounds": 4,
+      "latency_ms": 1000,
+      "sufficient_roots": 4,
+      "preference_minimum_roots": 3,
+      "preference_require_positive_report": true,
+      "version": "w02-recall-policy-v1"
+    }
+  },
+  {
+    "test": "tests.test_w02_recall_timeout.W02RecallTimeoutTests.test_third_message_sixteen_candidates_and_current_derived_sources",
+    "status": "READY",
+    "stop_reason": "SUFFICIENT_MATERIAL",
+    "elapsed_ms": 417.132,
+    "retrieved_count": 16,
+    "model_calls": 0,
+    "external_calls": 0,
+    "policy": {
+      "candidate_limit": 60,
+      "per_round_limit": 20,
+      "max_rounds": 4,
+      "latency_ms": 1000,
+      "sufficient_roots": 4,
+      "preference_minimum_roots": 3,
+      "preference_require_positive_report": true,
+      "version": "w02-recall-policy-v1"
+    }
+  },
+  {
+    "test": "tests.test_w02_recall_timeout.W02RecallTimeoutTests.test_third_message_sixteen_candidates_and_current_derived_sources",
+    "status": "READY",
+    "stop_reason": "SUFFICIENT_MATERIAL",
+    "elapsed_ms": 331.508,
+    "retrieved_count": 13,
+    "model_calls": 0,
+    "external_calls": 0,
+    "policy": {
+      "candidate_limit": 60,
+      "per_round_limit": 20,
+      "max_rounds": 4,
+      "latency_ms": 1000,
+      "sufficient_roots": 4,
+      "preference_minimum_roots": 3,
+      "preference_require_positive_report": true,
+      "version": "w02-recall-policy-v1"
+    }
+  },
+  {
+    "test": "tests.test_w02_recall_timeout.W02RecallTimeoutTests.test_four_materials_preanswer_with_original_1000ms_policy",
+    "status": "READY",
+    "stop_reason": "NO_NEW_ASSOCIATION",
+    "elapsed_ms": 49.281,
+    "retrieved_count": 12,
+    "model_calls": 0,
+    "external_calls": 0,
+    "policy": {
+      "candidate_limit": 60,
+      "per_round_limit": 20,
+      "max_rounds": 4,
+      "latency_ms": 1000,
+      "sufficient_roots": 4,
+      "preference_minimum_roots": 3,
+      "preference_require_positive_report": true,
+      "version": "w02-recall-policy-v1"
+    }
+  },
+  {
+    "test": "tests.test_w02_recall_timeout.W02RecallTimeoutTests.test_four_materials_preanswer_with_original_1000ms_policy",
+    "status": "READY",
+    "stop_reason": "SUFFICIENT_MATERIAL",
+    "elapsed_ms": 140.22,
+    "retrieved_count": 14,
+    "model_calls": 0,
+    "external_calls": 0,
+    "policy": {
+      "candidate_limit": 60,
+      "per_round_limit": 20,
+      "max_rounds": 4,
+      "latency_ms": 1000,
+      "sufficient_roots": 4,
+      "preference_minimum_roots": 3,
+      "preference_require_positive_report": true,
+      "version": "w02-recall-policy-v1"
+    }
+  },
+  {
+    "test": "tests.test_w02_recall_timeout.W02RecallTimeoutTests.test_four_materials_preanswer_with_original_1000ms_policy",
+    "status": "READY",
+    "stop_reason": "NO_NEW_ASSOCIATION",
+    "elapsed_ms": 311.752,
+    "retrieved_count": 16,
+    "model_calls": 0,
+    "external_calls": 0,
+    "policy": {
+      "candidate_limit": 60,
+      "per_round_limit": 20,
+      "max_rounds": 4,
+      "latency_ms": 1000,
+      "sufficient_roots": 4,
+      "preference_minimum_roots": 3,
+      "preference_require_positive_report": true,
+      "version": "w02-recall-policy-v1"
+    }
+  },
+  {
+    "test": "tests.test_w02_recall_timeout.W02RecallTimeoutTests.test_four_materials_preanswer_with_original_1000ms_policy",
+    "status": "READY",
+    "stop_reason": "SUFFICIENT_MATERIAL",
+    "elapsed_ms": 465.252,
+    "retrieved_count": 17,
+    "model_calls": 0,
+    "external_calls": 0,
+    "policy": {
+      "candidate_limit": 60,
+      "per_round_limit": 20,
+      "max_rounds": 4,
+      "latency_ms": 1000,
+      "sufficient_roots": 4,
+      "preference_minimum_roots": 3,
+      "preference_require_positive_report": true,
+      "version": "w02-recall-policy-v1"
+    }
+  },
+  {
+    "test": "tests.test_w02_recall_timeout.W02RecallTimeoutTests.test_third_message_sixteen_candidates_and_current_derived_sources",
+    "status": "READY",
+    "stop_reason": "RELEVANCE_INSUFFICIENT",
+    "elapsed_ms": 23.93,
+    "retrieved_count": 9,
+    "model_calls": 0,
+    "external_calls": 0,
+    "policy": {
+      "candidate_limit": 60,
+      "per_round_limit": 20,
+      "max_rounds": 4,
+      "latency_ms": 1000,
+      "sufficient_roots": 4,
+      "preference_minimum_roots": 3,
+      "preference_require_positive_report": true,
+      "version": "w02-recall-policy-v1"
+    }
+  },
+  {
+    "test": "tests.test_w02_recall_timeout.W02RecallTimeoutTests.test_third_message_sixteen_candidates_and_current_derived_sources",
+    "status": "READY",
+    "stop_reason": "NO_NEW_ASSOCIATION",
+    "elapsed_ms": 125.829,
+    "retrieved_count": 11,
+    "model_calls": 0,
+    "external_calls": 0,
+    "policy": {
+      "candidate_limit": 60,
+      "per_round_limit": 20,
+      "max_rounds": 4,
+      "latency_ms": 1000,
+      "sufficient_roots": 4,
+      "preference_minimum_roots": 3,
+      "preference_require_positive_report": true,
+      "version": "w02-recall-policy-v1"
+    }
+  },
+  {
+    "test": "tests.test_w02_recall_timeout.W02RecallTimeoutTests.test_third_message_sixteen_candidates_and_current_derived_sources",
+    "status": "READY",
+    "stop_reason": "SUFFICIENT_MATERIAL",
+    "elapsed_ms": 432.095,
+    "retrieved_count": 16,
+    "model_calls": 0,
+    "external_calls": 0,
+    "policy": {
+      "candidate_limit": 60,
+      "per_round_limit": 20,
+      "max_rounds": 4,
+      "latency_ms": 1000,
+      "sufficient_roots": 4,
+      "preference_minimum_roots": 3,
+      "preference_require_positive_report": true,
+      "version": "w02-recall-policy-v1"
+    }
+  },
+  {
+    "test": "tests.test_w02_recall_timeout.W02RecallTimeoutTests.test_third_message_sixteen_candidates_and_current_derived_sources",
+    "status": "READY",
+    "stop_reason": "SUFFICIENT_MATERIAL",
+    "elapsed_ms": 316.714,
+    "retrieved_count": 13,
+    "model_calls": 0,
+    "external_calls": 0,
+    "policy": {
+      "candidate_limit": 60,
+      "per_round_limit": 20,
+      "max_rounds": 4,
+      "latency_ms": 1000,
+      "sufficient_roots": 4,
+      "preference_minimum_roots": 3,
+      "preference_require_positive_report": true,
+      "version": "w02-recall-policy-v1"
+    }
+  }
+]

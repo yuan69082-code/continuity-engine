@@ -1,0 +1,1934 @@
+{
+  "events": [
+    {
+      "ns": 13146528000900,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "load"
+    },
+    {
+      "ns": 13146533611100,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "load",
+      "result": {
+        "revision": 2,
+        "generation": 0,
+        "desired": "PAUSED",
+        "activity": "PAUSED",
+        "reason": "OWNER_PAUSE",
+        "next_check_at": null
+      }
+    },
+    {
+      "ns": 13146638600000,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_request",
+      "file": "owner.lock",
+      "path_id": "6ab6478a7ea2da69",
+      "wait": 0,
+      "checkpoint": false
+    },
+    {
+      "ns": 13146641053200,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_acquired",
+      "file": "owner.lock",
+      "path_id": "6ab6478a7ea2da69",
+      "wait": 0,
+      "checkpoint": false
+    },
+    {
+      "ns": 13146643472500,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_request",
+      "file": "runtime.v1.lock",
+      "path_id": "0f441cca8b006018",
+      "wait": 0.24998930000037944,
+      "checkpoint": true
+    },
+    {
+      "ns": 13146646259100,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_acquired",
+      "file": "runtime.v1.lock",
+      "path_id": "0f441cca8b006018",
+      "wait": 0.24998930000037944,
+      "checkpoint": true
+    },
+    {
+      "ns": 13146646451600,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "load"
+    },
+    {
+      "ns": 13146653865300,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "load",
+      "result": {
+        "revision": 2,
+        "generation": 0,
+        "desired": "PAUSED",
+        "activity": "PAUSED",
+        "reason": "OWNER_PAUSE",
+        "next_check_at": null
+      }
+    },
+    {
+      "ns": 13146653891100,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "injected_hold_start",
+      "reason": "HOST_ATTACHED"
+    },
+    {
+      "ns": 13147054181700,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "injected_hold_end",
+      "reason": "HOST_ATTACHED"
+    },
+    {
+      "ns": 13147054203100,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "save",
+      "revision": 2,
+      "generation": 1,
+      "desired": "PAUSED",
+      "activity": "PAUSED",
+      "reason": "HOST_ATTACHED",
+      "next_check_at": null
+    },
+    {
+      "ns": 13147062992800,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "load"
+    },
+    {
+      "ns": 13147070664100,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "load",
+      "result": {
+        "revision": 2,
+        "generation": 0,
+        "desired": "PAUSED",
+        "activity": "PAUSED",
+        "reason": "OWNER_PAUSE",
+        "next_check_at": null
+      }
+    },
+    {
+      "ns": 13147077644100,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "save",
+      "revision": 2,
+      "generation": 1,
+      "desired": "PAUSED",
+      "activity": "PAUSED",
+      "reason": "HOST_ATTACHED",
+      "next_check_at": null,
+      "result": {}
+    },
+    {
+      "ns": 13147077665900,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_releasing",
+      "file": "runtime.v1.lock",
+      "path_id": "0f441cca8b006018",
+      "wait": 0.24998930000037944,
+      "checkpoint": true
+    },
+    {
+      "ns": 13147077710800,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_released",
+      "file": "runtime.v1.lock",
+      "path_id": "0f441cca8b006018",
+      "wait": 0.24998930000037944,
+      "checkpoint": true
+    },
+    {
+      "ns": 13147077719600,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "tick"
+    },
+    {
+      "ns": 13147077724100,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "load"
+    },
+    {
+      "ns": 13147085180100,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "load",
+      "result": {
+        "revision": 3,
+        "generation": 1,
+        "desired": "PAUSED",
+        "activity": "PAUSED",
+        "reason": "HOST_ATTACHED",
+        "next_check_at": null
+      }
+    },
+    {
+      "ns": 13147085191200,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "_observe"
+    },
+    {
+      "ns": 13147088601900,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_request",
+      "file": "runtime.v1.lock",
+      "path_id": "0f441cca8b006018",
+      "wait": 0.24998200000118231,
+      "checkpoint": true
+    },
+    {
+      "ns": 13147093250700,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_acquired",
+      "file": "runtime.v1.lock",
+      "path_id": "0f441cca8b006018",
+      "wait": 0.24998200000118231,
+      "checkpoint": true
+    },
+    {
+      "ns": 13147093405600,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "load"
+    },
+    {
+      "ns": 13147102489000,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "load",
+      "result": {
+        "revision": 3,
+        "generation": 1,
+        "desired": "PAUSED",
+        "activity": "PAUSED",
+        "reason": "HOST_ATTACHED",
+        "next_check_at": null
+      }
+    },
+    {
+      "ns": 13147102509100,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "save",
+      "revision": 3,
+      "generation": 1,
+      "desired": "PAUSED",
+      "activity": "PAUSED",
+      "reason": "OWNER_PAUSE",
+      "next_check_at": null
+    },
+    {
+      "ns": 13147110693500,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "load"
+    },
+    {
+      "ns": 13147119308600,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "load",
+      "result": {
+        "revision": 3,
+        "generation": 1,
+        "desired": "PAUSED",
+        "activity": "PAUSED",
+        "reason": "HOST_ATTACHED",
+        "next_check_at": null
+      }
+    },
+    {
+      "ns": 13147129669600,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "save",
+      "revision": 3,
+      "generation": 1,
+      "desired": "PAUSED",
+      "activity": "PAUSED",
+      "reason": "OWNER_PAUSE",
+      "next_check_at": null,
+      "result": {}
+    },
+    {
+      "ns": 13147129682900,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_releasing",
+      "file": "runtime.v1.lock",
+      "path_id": "0f441cca8b006018",
+      "wait": 0.24998200000118231,
+      "checkpoint": true
+    },
+    {
+      "ns": 13147129727000,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_released",
+      "file": "runtime.v1.lock",
+      "path_id": "0f441cca8b006018",
+      "wait": 0.24998200000118231,
+      "checkpoint": true
+    },
+    {
+      "ns": 13147129736700,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "_observe",
+      "result": {}
+    },
+    {
+      "ns": 13147129743500,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "tick",
+      "result": {}
+    },
+    {
+      "ns": 13147231146100,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "tick"
+    },
+    {
+      "ns": 13147231166600,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "load"
+    },
+    {
+      "ns": 13147239718400,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "load",
+      "result": {
+        "revision": 4,
+        "generation": 1,
+        "desired": "PAUSED",
+        "activity": "PAUSED",
+        "reason": "OWNER_PAUSE",
+        "next_check_at": null
+      }
+    },
+    {
+      "ns": 13147239732100,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "_observe"
+    },
+    {
+      "ns": 13147243912800,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_request",
+      "file": "runtime.v1.lock",
+      "path_id": "0f441cca8b006018",
+      "wait": 0.24998800000139454,
+      "checkpoint": true
+    },
+    {
+      "ns": 13147248858000,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_acquired",
+      "file": "runtime.v1.lock",
+      "path_id": "0f441cca8b006018",
+      "wait": 0.24998800000139454,
+      "checkpoint": true
+    },
+    {
+      "ns": 13147249036000,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "load"
+    },
+    {
+      "ns": 13147256552100,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "load",
+      "result": {
+        "revision": 4,
+        "generation": 1,
+        "desired": "PAUSED",
+        "activity": "PAUSED",
+        "reason": "OWNER_PAUSE",
+        "next_check_at": null
+      }
+    },
+    {
+      "ns": 13147256570200,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_releasing",
+      "file": "runtime.v1.lock",
+      "path_id": "0f441cca8b006018",
+      "wait": 0.24998800000139454,
+      "checkpoint": true
+    },
+    {
+      "ns": 13147256620700,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_released",
+      "file": "runtime.v1.lock",
+      "path_id": "0f441cca8b006018",
+      "wait": 0.24998800000139454,
+      "checkpoint": true
+    },
+    {
+      "ns": 13147256630300,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "_observe",
+      "result": {}
+    },
+    {
+      "ns": 13147256638000,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "tick",
+      "result": {}
+    },
+    {
+      "ns": 13147371269300,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "tick"
+    },
+    {
+      "ns": 13147371280100,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "load"
+    },
+    {
+      "ns": 13147380502800,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "load",
+      "result": {
+        "revision": 4,
+        "generation": 1,
+        "desired": "PAUSED",
+        "activity": "PAUSED",
+        "reason": "OWNER_PAUSE",
+        "next_check_at": null
+      }
+    },
+    {
+      "ns": 13147380513000,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "_observe"
+    },
+    {
+      "ns": 13147384061400,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_request",
+      "file": "runtime.v1.lock",
+      "path_id": "0f441cca8b006018",
+      "wait": 0.24998690000029455,
+      "checkpoint": true
+    },
+    {
+      "ns": 13147388403700,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_acquired",
+      "file": "runtime.v1.lock",
+      "path_id": "0f441cca8b006018",
+      "wait": 0.24998690000029455,
+      "checkpoint": true
+    },
+    {
+      "ns": 13147388511000,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "load"
+    },
+    {
+      "ns": 13147398958500,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "load",
+      "result": {
+        "revision": 4,
+        "generation": 1,
+        "desired": "PAUSED",
+        "activity": "PAUSED",
+        "reason": "OWNER_PAUSE",
+        "next_check_at": null
+      }
+    },
+    {
+      "ns": 13147398971100,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_releasing",
+      "file": "runtime.v1.lock",
+      "path_id": "0f441cca8b006018",
+      "wait": 0.24998690000029455,
+      "checkpoint": true
+    },
+    {
+      "ns": 13147399012900,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_released",
+      "file": "runtime.v1.lock",
+      "path_id": "0f441cca8b006018",
+      "wait": 0.24998690000029455,
+      "checkpoint": true
+    },
+    {
+      "ns": 13147399020000,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "_observe",
+      "result": {}
+    },
+    {
+      "ns": 13147399025700,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "tick",
+      "result": {}
+    },
+    {
+      "ns": 13147511092100,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "tick"
+    },
+    {
+      "ns": 13147511129600,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "load"
+    },
+    {
+      "ns": 13147520630600,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "load",
+      "result": {
+        "revision": 4,
+        "generation": 1,
+        "desired": "PAUSED",
+        "activity": "PAUSED",
+        "reason": "OWNER_PAUSE",
+        "next_check_at": null
+      }
+    },
+    {
+      "ns": 13147520642100,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "_observe"
+    },
+    {
+      "ns": 13147525025200,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_request",
+      "file": "runtime.v1.lock",
+      "path_id": "0f441cca8b006018",
+      "wait": 0.2499879000006331,
+      "checkpoint": true
+    },
+    {
+      "ns": 13147529508200,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_acquired",
+      "file": "runtime.v1.lock",
+      "path_id": "0f441cca8b006018",
+      "wait": 0.2499879000006331,
+      "checkpoint": true
+    },
+    {
+      "ns": 13147529629500,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "load"
+    },
+    {
+      "ns": 13147537159700,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "load",
+      "result": {
+        "revision": 4,
+        "generation": 1,
+        "desired": "PAUSED",
+        "activity": "PAUSED",
+        "reason": "OWNER_PAUSE",
+        "next_check_at": null
+      }
+    },
+    {
+      "ns": 13147537179000,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_releasing",
+      "file": "runtime.v1.lock",
+      "path_id": "0f441cca8b006018",
+      "wait": 0.2499879000006331,
+      "checkpoint": true
+    },
+    {
+      "ns": 13147537232600,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_released",
+      "file": "runtime.v1.lock",
+      "path_id": "0f441cca8b006018",
+      "wait": 0.2499879000006331,
+      "checkpoint": true
+    },
+    {
+      "ns": 13147537241800,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "_observe",
+      "result": {}
+    },
+    {
+      "ns": 13147537248900,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "tick",
+      "result": {}
+    },
+    {
+      "ns": 13147652289600,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "tick"
+    },
+    {
+      "ns": 13147652309000,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "load"
+    },
+    {
+      "ns": 13147662219400,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "load",
+      "result": {
+        "revision": 4,
+        "generation": 1,
+        "desired": "PAUSED",
+        "activity": "PAUSED",
+        "reason": "OWNER_PAUSE",
+        "next_check_at": null
+      }
+    },
+    {
+      "ns": 13147662234900,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "_observe"
+    },
+    {
+      "ns": 13147666076500,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_request",
+      "file": "runtime.v1.lock",
+      "path_id": "0f441cca8b006018",
+      "wait": 0.24999059999936435,
+      "checkpoint": true
+    },
+    {
+      "ns": 13147669899400,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_acquired",
+      "file": "runtime.v1.lock",
+      "path_id": "0f441cca8b006018",
+      "wait": 0.24999059999936435,
+      "checkpoint": true
+    },
+    {
+      "ns": 13147670006900,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "load"
+    },
+    {
+      "ns": 13147678304000,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "load",
+      "result": {
+        "revision": 4,
+        "generation": 1,
+        "desired": "PAUSED",
+        "activity": "PAUSED",
+        "reason": "OWNER_PAUSE",
+        "next_check_at": null
+      }
+    },
+    {
+      "ns": 13147678316700,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_releasing",
+      "file": "runtime.v1.lock",
+      "path_id": "0f441cca8b006018",
+      "wait": 0.24999059999936435,
+      "checkpoint": true
+    },
+    {
+      "ns": 13147678358900,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_released",
+      "file": "runtime.v1.lock",
+      "path_id": "0f441cca8b006018",
+      "wait": 0.24999059999936435,
+      "checkpoint": true
+    },
+    {
+      "ns": 13147678365700,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "_observe",
+      "result": {}
+    },
+    {
+      "ns": 13147678370700,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "tick",
+      "result": {}
+    },
+    {
+      "ns": 13147779417600,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "tick"
+    },
+    {
+      "ns": 13147779451200,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "load"
+    },
+    {
+      "ns": 13147791045500,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "load",
+      "result": {
+        "revision": 4,
+        "generation": 1,
+        "desired": "PAUSED",
+        "activity": "PAUSED",
+        "reason": "OWNER_PAUSE",
+        "next_check_at": null
+      }
+    },
+    {
+      "ns": 13147791059000,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "_observe"
+    },
+    {
+      "ns": 13147795288400,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_request",
+      "file": "runtime.v1.lock",
+      "path_id": "0f441cca8b006018",
+      "wait": 0.2499840000000404,
+      "checkpoint": true
+    },
+    {
+      "ns": 13147799517300,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_acquired",
+      "file": "runtime.v1.lock",
+      "path_id": "0f441cca8b006018",
+      "wait": 0.2499840000000404,
+      "checkpoint": true
+    },
+    {
+      "ns": 13147799692300,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "load"
+    },
+    {
+      "ns": 13147810896700,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "load",
+      "result": {
+        "revision": 4,
+        "generation": 1,
+        "desired": "PAUSED",
+        "activity": "PAUSED",
+        "reason": "OWNER_PAUSE",
+        "next_check_at": null
+      }
+    },
+    {
+      "ns": 13147810921800,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_releasing",
+      "file": "runtime.v1.lock",
+      "path_id": "0f441cca8b006018",
+      "wait": 0.2499840000000404,
+      "checkpoint": true
+    },
+    {
+      "ns": 13147810993800,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_released",
+      "file": "runtime.v1.lock",
+      "path_id": "0f441cca8b006018",
+      "wait": 0.2499840000000404,
+      "checkpoint": true
+    },
+    {
+      "ns": 13147811007600,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "_observe",
+      "result": {}
+    },
+    {
+      "ns": 13147811016700,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "tick",
+      "result": {}
+    },
+    {
+      "ns": 13147919394000,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "tick"
+    },
+    {
+      "ns": 13147919419900,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "load"
+    },
+    {
+      "ns": 13147926778600,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "load",
+      "result": {
+        "revision": 4,
+        "generation": 1,
+        "desired": "PAUSED",
+        "activity": "PAUSED",
+        "reason": "OWNER_PAUSE",
+        "next_check_at": null
+      }
+    },
+    {
+      "ns": 13147926787300,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "_observe"
+    },
+    {
+      "ns": 13147929756500,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_request",
+      "file": "runtime.v1.lock",
+      "path_id": "0f441cca8b006018",
+      "wait": 0.2499920000009297,
+      "checkpoint": true
+    },
+    {
+      "ns": 13148185389500,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_exception",
+      "error_type": "RuntimeCheckpointBusy",
+      "file": "runtime.v1.lock",
+      "path_id": "0f441cca8b006018",
+      "wait": 0.2499920000009297,
+      "checkpoint": true
+    },
+    {
+      "ns": 13148185410700,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "error",
+      "method": "_observe",
+      "error_type": "RuntimeCheckpointBusy",
+      "errno": null,
+      "winerror": null
+    },
+    {
+      "ns": 13148185421500,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "_checkpoint_backoff"
+    },
+    {
+      "ns": 13148185457500,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "_checkpoint_backoff",
+      "result": {}
+    },
+    {
+      "ns": 13148185473900,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "tick",
+      "result": {}
+    },
+    {
+      "ns": 13148295285200,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "tick"
+    },
+    {
+      "ns": 13148295338200,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "load"
+    },
+    {
+      "ns": 13148303867800,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "load",
+      "result": {
+        "revision": 4,
+        "generation": 1,
+        "desired": "PAUSED",
+        "activity": "PAUSED",
+        "reason": "OWNER_PAUSE",
+        "next_check_at": null
+      }
+    },
+    {
+      "ns": 13148303875200,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "_observe"
+    },
+    {
+      "ns": 13148305900500,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_request",
+      "file": "runtime.v1.lock",
+      "path_id": "0f441cca8b006018",
+      "wait": 0.24999290000050678,
+      "checkpoint": true
+    },
+    {
+      "ns": 13148561820400,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_exception",
+      "error_type": "RuntimeCheckpointBusy",
+      "file": "runtime.v1.lock",
+      "path_id": "0f441cca8b006018",
+      "wait": 0.24999290000050678,
+      "checkpoint": true
+    },
+    {
+      "ns": 13148561895700,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "error",
+      "method": "_observe",
+      "error_type": "RuntimeCheckpointBusy",
+      "errno": null,
+      "winerror": null
+    },
+    {
+      "ns": 13148561944300,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "_checkpoint_backoff"
+    },
+    {
+      "ns": 13148561974000,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "_checkpoint_backoff",
+      "result": {}
+    },
+    {
+      "ns": 13148562039500,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "tick",
+      "result": {}
+    },
+    {
+      "ns": 13148672403200,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "tick"
+    },
+    {
+      "ns": 13148672428400,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "load"
+    },
+    {
+      "ns": 13148678694600,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "load",
+      "result": {
+        "revision": 4,
+        "generation": 1,
+        "desired": "PAUSED",
+        "activity": "PAUSED",
+        "reason": "OWNER_PAUSE",
+        "next_check_at": null
+      }
+    },
+    {
+      "ns": 13148678702800,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "_observe"
+    },
+    {
+      "ns": 13148680885100,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_request",
+      "file": "runtime.v1.lock",
+      "path_id": "0f441cca8b006018",
+      "wait": 0.24999159999970288,
+      "checkpoint": true
+    },
+    {
+      "ns": 13148940575600,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_exception",
+      "error_type": "RuntimeCheckpointBusy",
+      "file": "runtime.v1.lock",
+      "path_id": "0f441cca8b006018",
+      "wait": 0.24999159999970288,
+      "checkpoint": true
+    },
+    {
+      "ns": 13148940621100,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "error",
+      "method": "_observe",
+      "error_type": "RuntimeCheckpointBusy",
+      "errno": null,
+      "winerror": null
+    },
+    {
+      "ns": 13148940636300,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "_checkpoint_backoff"
+    },
+    {
+      "ns": 13148940643300,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "_checkpoint_backoff",
+      "result": {}
+    },
+    {
+      "ns": 13148940682400,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "tick",
+      "result": {}
+    },
+    {
+      "ns": 13149048165900,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "tick"
+    },
+    {
+      "ns": 13149048191000,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "load"
+    },
+    {
+      "ns": 13149056547000,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "load",
+      "result": {
+        "revision": 4,
+        "generation": 1,
+        "desired": "PAUSED",
+        "activity": "PAUSED",
+        "reason": "OWNER_PAUSE",
+        "next_check_at": null
+      }
+    },
+    {
+      "ns": 13149056556400,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "_observe"
+    },
+    {
+      "ns": 13149060072400,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_request",
+      "file": "runtime.v1.lock",
+      "path_id": "0f441cca8b006018",
+      "wait": 0.24998969999978726,
+      "checkpoint": true
+    },
+    {
+      "ns": 13149315317700,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_exception",
+      "error_type": "RuntimeCheckpointBusy",
+      "file": "runtime.v1.lock",
+      "path_id": "0f441cca8b006018",
+      "wait": 0.24998969999978726,
+      "checkpoint": true
+    },
+    {
+      "ns": 13149315377100,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "error",
+      "method": "_observe",
+      "error_type": "RuntimeCheckpointBusy",
+      "errno": null,
+      "winerror": null
+    },
+    {
+      "ns": 13149315391800,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "_checkpoint_backoff"
+    },
+    {
+      "ns": 13149315399500,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "_checkpoint_backoff",
+      "result": {}
+    },
+    {
+      "ns": 13149315434800,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "tick",
+      "result": {}
+    },
+    {
+      "ns": 13149423903500,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "tick"
+    },
+    {
+      "ns": 13149423924100,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "load"
+    },
+    {
+      "ns": 13149431903000,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "load",
+      "result": {
+        "revision": 4,
+        "generation": 1,
+        "desired": "PAUSED",
+        "activity": "PAUSED",
+        "reason": "OWNER_PAUSE",
+        "next_check_at": null
+      }
+    },
+    {
+      "ns": 13149431914200,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "_observe"
+    },
+    {
+      "ns": 13149435504100,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_request",
+      "file": "runtime.v1.lock",
+      "path_id": "0f441cca8b006018",
+      "wait": 0.2499924000003375,
+      "checkpoint": true
+    },
+    {
+      "ns": 13149689575900,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_exception",
+      "error_type": "RuntimeCheckpointBusy",
+      "file": "runtime.v1.lock",
+      "path_id": "0f441cca8b006018",
+      "wait": 0.2499924000003375,
+      "checkpoint": true
+    },
+    {
+      "ns": 13149689672300,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "error",
+      "method": "_observe",
+      "error_type": "RuntimeCheckpointBusy",
+      "errno": null,
+      "winerror": null
+    },
+    {
+      "ns": 13149689695200,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "_checkpoint_backoff"
+    },
+    {
+      "ns": 13149689707500,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "_checkpoint_backoff",
+      "result": {}
+    },
+    {
+      "ns": 13149689838500,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "tick",
+      "result": {}
+    },
+    {
+      "ns": 13149797880800,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "tick"
+    },
+    {
+      "ns": 13149797895900,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "load"
+    },
+    {
+      "ns": 13149805430500,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "load",
+      "result": {
+        "revision": 4,
+        "generation": 1,
+        "desired": "PAUSED",
+        "activity": "PAUSED",
+        "reason": "OWNER_PAUSE",
+        "next_check_at": null
+      }
+    },
+    {
+      "ns": 13149805444600,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "_observe"
+    },
+    {
+      "ns": 13149809424300,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_request",
+      "file": "runtime.v1.lock",
+      "path_id": "0f441cca8b006018",
+      "wait": 0.2499911000013526,
+      "checkpoint": true
+    },
+    {
+      "ns": 13150077560500,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_exception",
+      "error_type": "RuntimeCheckpointBusy",
+      "file": "runtime.v1.lock",
+      "path_id": "0f441cca8b006018",
+      "wait": 0.2499911000013526,
+      "checkpoint": true
+    },
+    {
+      "ns": 13150077598800,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "error",
+      "method": "_observe",
+      "error_type": "RuntimeCheckpointBusy",
+      "errno": null,
+      "winerror": null
+    },
+    {
+      "ns": 13150077622900,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "_checkpoint_backoff"
+    },
+    {
+      "ns": 13150077635400,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "_checkpoint_backoff",
+      "result": {}
+    },
+    {
+      "ns": 13150077668200,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "tick",
+      "result": {}
+    },
+    {
+      "ns": 13150186910700,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "tick"
+    },
+    {
+      "ns": 13150186926800,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "load"
+    },
+    {
+      "ns": 13150193045500,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "load",
+      "result": {
+        "revision": 5,
+        "generation": 1,
+        "desired": "PAUSED",
+        "activity": "PAUSED",
+        "reason": "OWNER_PAUSE",
+        "next_check_at": null
+      }
+    },
+    {
+      "ns": 13150193057000,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "_observe"
+    },
+    {
+      "ns": 13150195386500,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_request",
+      "file": "runtime.v1.lock",
+      "path_id": "0f441cca8b006018",
+      "wait": 0.24999250000109896,
+      "checkpoint": true
+    },
+    {
+      "ns": 13150198699900,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_acquired",
+      "file": "runtime.v1.lock",
+      "path_id": "0f441cca8b006018",
+      "wait": 0.24999250000109896,
+      "checkpoint": true
+    },
+    {
+      "ns": 13150198782100,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "load"
+    },
+    {
+      "ns": 13150205037300,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "load",
+      "result": {
+        "revision": 5,
+        "generation": 1,
+        "desired": "PAUSED",
+        "activity": "PAUSED",
+        "reason": "OWNER_PAUSE",
+        "next_check_at": null
+      }
+    },
+    {
+      "ns": 13150205046900,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_releasing",
+      "file": "runtime.v1.lock",
+      "path_id": "0f441cca8b006018",
+      "wait": 0.24999250000109896,
+      "checkpoint": true
+    },
+    {
+      "ns": 13150205078500,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_released",
+      "file": "runtime.v1.lock",
+      "path_id": "0f441cca8b006018",
+      "wait": 0.24999250000109896,
+      "checkpoint": true
+    },
+    {
+      "ns": 13150205084600,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "_observe",
+      "result": {}
+    },
+    {
+      "ns": 13150205100100,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "tick",
+      "result": {}
+    },
+    {
+      "ns": 13150313729000,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "tick"
+    },
+    {
+      "ns": 13150313758800,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "load"
+    },
+    {
+      "ns": 13150322130100,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "load",
+      "result": {
+        "revision": 5,
+        "generation": 1,
+        "desired": "PAUSED",
+        "activity": "PAUSED",
+        "reason": "OWNER_PAUSE",
+        "next_check_at": null
+      }
+    },
+    {
+      "ns": 13150322139000,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "_observe"
+    },
+    {
+      "ns": 13150324779400,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_request",
+      "file": "runtime.v1.lock",
+      "path_id": "0f441cca8b006018",
+      "wait": 0.2499922000006336,
+      "checkpoint": true
+    },
+    {
+      "ns": 13150578370800,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_exception",
+      "error_type": "RuntimeCheckpointBusy",
+      "file": "runtime.v1.lock",
+      "path_id": "0f441cca8b006018",
+      "wait": 0.2499922000006336,
+      "checkpoint": true
+    },
+    {
+      "ns": 13150578397200,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "error",
+      "method": "_observe",
+      "error_type": "RuntimeCheckpointBusy",
+      "errno": null,
+      "winerror": null
+    },
+    {
+      "ns": 13150578432500,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "_checkpoint_backoff"
+    },
+    {
+      "ns": 13150578473500,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "_checkpoint_backoff",
+      "result": {}
+    },
+    {
+      "ns": 13150578526500,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "tick",
+      "result": {}
+    },
+    {
+      "ns": 13150687273600,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "tick"
+    },
+    {
+      "ns": 13150687370200,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "load"
+    },
+    {
+      "ns": 13150696238600,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "load",
+      "result": {
+        "revision": 6,
+        "generation": 1,
+        "desired": "STOPPED",
+        "activity": "STOPPED",
+        "reason": "OWNER_STOP",
+        "next_check_at": null
+      }
+    },
+    {
+      "ns": 13150696266200,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "tick",
+      "result": {}
+    },
+    {
+      "ns": 13150699650900,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_request",
+      "file": "runtime.v1.lock",
+      "path_id": "0f441cca8b006018",
+      "wait": 0.24998889999915264,
+      "checkpoint": true
+    },
+    {
+      "ns": 13150703862300,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_acquired",
+      "file": "runtime.v1.lock",
+      "path_id": "0f441cca8b006018",
+      "wait": 0.24998889999915264,
+      "checkpoint": true
+    },
+    {
+      "ns": 13150704024900,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "load"
+    },
+    {
+      "ns": 13150711304500,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "load",
+      "result": {
+        "revision": 6,
+        "generation": 1,
+        "desired": "STOPPED",
+        "activity": "STOPPED",
+        "reason": "OWNER_STOP",
+        "next_check_at": null
+      }
+    },
+    {
+      "ns": 13150711315700,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "injected_hold_start",
+      "reason": "OWNER_STOP"
+    },
+    {
+      "ns": 13151111818500,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "injected_hold_end",
+      "reason": "OWNER_STOP"
+    },
+    {
+      "ns": 13151111841100,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "save",
+      "revision": 6,
+      "generation": 1,
+      "desired": "STOPPED",
+      "activity": "STOPPED",
+      "reason": "OWNER_STOP",
+      "next_check_at": null
+    },
+    {
+      "ns": 13151118962600,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "load"
+    },
+    {
+      "ns": 13151125604900,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "load",
+      "result": {
+        "revision": 6,
+        "generation": 1,
+        "desired": "STOPPED",
+        "activity": "STOPPED",
+        "reason": "OWNER_STOP",
+        "next_check_at": null
+      }
+    },
+    {
+      "ns": 13151137300000,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "save",
+      "revision": 6,
+      "generation": 1,
+      "desired": "STOPPED",
+      "activity": "STOPPED",
+      "reason": "OWNER_STOP",
+      "next_check_at": null,
+      "result": {}
+    },
+    {
+      "ns": 13151137312000,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_releasing",
+      "file": "runtime.v1.lock",
+      "path_id": "0f441cca8b006018",
+      "wait": 0.24998889999915264,
+      "checkpoint": true
+    },
+    {
+      "ns": 13151137353200,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_released",
+      "file": "runtime.v1.lock",
+      "path_id": "0f441cca8b006018",
+      "wait": 0.24998889999915264,
+      "checkpoint": true
+    },
+    {
+      "ns": 13151137359700,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_releasing",
+      "file": "owner.lock",
+      "path_id": "6ab6478a7ea2da69",
+      "wait": 0,
+      "checkpoint": false
+    },
+    {
+      "ns": 13151137410700,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_released",
+      "file": "owner.lock",
+      "path_id": "6ab6478a7ea2da69",
+      "wait": 0,
+      "checkpoint": false
+    },
+    {
+      "ns": 13151137420900,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "call",
+      "method": "load"
+    },
+    {
+      "ns": 13151144174000,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "return",
+      "method": "load",
+      "result": {
+        "revision": 7,
+        "generation": 1,
+        "desired": "STOPPED",
+        "activity": "STOPPED",
+        "reason": "OWNER_STOP",
+        "next_check_at": null
+      }
+    },
+    {
+      "ns": 13151144690800,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_request",
+      "file": "owner.lock",
+      "path_id": "6ab6478a7ea2da69",
+      "wait": 0,
+      "checkpoint": false
+    },
+    {
+      "ns": 13151147321000,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_acquired",
+      "file": "owner.lock",
+      "path_id": "6ab6478a7ea2da69",
+      "wait": 0,
+      "checkpoint": false
+    },
+    {
+      "ns": 13151147326000,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_releasing",
+      "file": "owner.lock",
+      "path_id": "6ab6478a7ea2da69",
+      "wait": 0,
+      "checkpoint": false
+    },
+    {
+      "ns": 13151147350800,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_released",
+      "file": "owner.lock",
+      "path_id": "6ab6478a7ea2da69",
+      "wait": 0,
+      "checkpoint": false
+    },
+    {
+      "ns": 13151150309600,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_request",
+      "file": "runtime.v1.lock",
+      "path_id": "0f441cca8b006018",
+      "wait": 0,
+      "checkpoint": true
+    },
+    {
+      "ns": 13151152982000,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_acquired",
+      "file": "runtime.v1.lock",
+      "path_id": "0f441cca8b006018",
+      "wait": 0,
+      "checkpoint": true
+    },
+    {
+      "ns": 13151152987100,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_releasing",
+      "file": "runtime.v1.lock",
+      "path_id": "0f441cca8b006018",
+      "wait": 0,
+      "checkpoint": true
+    },
+    {
+      "ns": 13151153013800,
+      "pid": 20068,
+      "thread": 7552,
+      "event": "lock_released",
+      "file": "runtime.v1.lock",
+      "path_id": "0f441cca8b006018",
+      "wait": 0,
+      "checkpoint": true
+    }
+  ],
+  "bookkeeping_ns": 967400,
+  "dropped": 0
+}

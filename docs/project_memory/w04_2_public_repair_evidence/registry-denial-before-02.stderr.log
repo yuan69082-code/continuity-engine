@@ -1,0 +1,6 @@
+test_path_metadata_denial_is_not_a_successful_read (tests.test_w04_2_registry_recheck.RegistryCurrentPathTests.test_path_metadata_denial_is_not_a_successful_read) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.464s
+
+OK

@@ -1,0 +1,2415 @@
+{
+  "recorded_utc": "2026-09-27T21:50:36.382680+00:00",
+  "process_observation": {
+    "observed_utc": "2026-09-27T21:50:14.1563324Z",
+    "command": "Get-Process -Name python,pythonw",
+    "python_processes": [],
+    "note": "Read-only observation after full-final-01 completed. No termination performed."
+  },
+  "remaining_test_processes": [],
+  "asserted_reaped": [
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_attach_transaction_busy_stop_is_uncommitted_then_same_identity_succeeds",
+      "childrenReaped": true
+    },
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_bounded_stop_busy_retry_uses_same_identity_after_real_lock_release",
+      "childrenReaped": true
+    },
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_bounded_stop_does_not_retry_non_busy_refusal",
+      "childrenReaped": true
+    },
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_corrupt_checkpoint_and_generation_fence_not_swallowed",
+      "childrenReaped": true
+    },
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_effect_before_busy_observation_is_not_dispatched_again",
+      "childrenReaped": true
+    },
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_h1_clock_advance_during_maintenance_observation",
+      "childrenReaped": true
+    },
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_process.RuntimeProcessTests.runTest",
+      "childrenReaped": true
+    },
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_h1_controller_timeout_captures_state_before_stop",
+      "childrenReaped": true
+    },
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_idle_tick_busy_is_bounded_read_only_and_resumes",
+      "childrenReaped": true
+    },
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_long_busy_control_rejects_without_record_and_same_identity_retries",
+      "childrenReaped": true
+    },
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_long_busy_host_remains_live_and_diagnostic_is_not_flooded",
+      "childrenReaped": true
+    },
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_non_contention_os_error_not_reclassified",
+      "childrenReaped": true
+    },
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_original_exception_recorded_when_exit_checkpoint_available",
+      "childrenReaped": true
+    },
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_owner_permission_rejection_not_treated_as_busy",
+      "childrenReaped": true
+    },
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_paused_process_control_competition",
+      "childrenReaped": true
+    },
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_real_busy_exit_keeps_original_error_and_releases_owner",
+      "childrenReaped": true
+    },
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_resource_wait_process_control_competition",
+      "childrenReaped": true
+    },
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_running_process_control_competition",
+      "childrenReaped": true
+    },
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_second_host_still_immediately_rejected",
+      "childrenReaped": true
+    },
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_short_lock_serializes_control_before_deadline",
+      "childrenReaped": true
+    },
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_stale_cas_and_conflicting_identity_still_fail_closed",
+      "childrenReaped": true
+    },
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_start_waits_for_checkpoint_without_relaxing_owner_lock",
+      "childrenReaped": true
+    },
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_thread_transaction_also_has_bounded_wait",
+      "childrenReaped": true
+    },
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_waiting_old_observation_does_not_overwrite_new_resume",
+      "childrenReaped": true
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_resume.RuntimeResumeTests.test_real_child_resumes_durable_pre_call_phase",
+      "childrenReaped": true
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_attach_transaction_busy_stop_is_uncommitted_then_same_identity_succeeds",
+      "childrenReaped": true
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_bounded_stop_busy_retry_uses_same_identity_after_real_lock_release",
+      "childrenReaped": true
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_bounded_stop_does_not_retry_non_busy_refusal",
+      "childrenReaped": true
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_corrupt_checkpoint_and_generation_fence_not_swallowed",
+      "childrenReaped": true
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_effect_before_busy_observation_is_not_dispatched_again",
+      "childrenReaped": true
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_h1_clock_advance_during_maintenance_observation",
+      "childrenReaped": true
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_process.RuntimeProcessTests.runTest",
+      "childrenReaped": true
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_h1_controller_timeout_captures_state_before_stop",
+      "childrenReaped": true
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_idle_tick_busy_is_bounded_read_only_and_resumes",
+      "childrenReaped": true
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_long_busy_control_rejects_without_record_and_same_identity_retries",
+      "childrenReaped": true
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_long_busy_host_remains_live_and_diagnostic_is_not_flooded",
+      "childrenReaped": true
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_non_contention_os_error_not_reclassified",
+      "childrenReaped": true
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_original_exception_recorded_when_exit_checkpoint_available",
+      "childrenReaped": true
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_owner_permission_rejection_not_treated_as_busy",
+      "childrenReaped": true
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_paused_process_control_competition",
+      "childrenReaped": true
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_real_busy_exit_keeps_original_error_and_releases_owner",
+      "childrenReaped": true
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_resource_wait_process_control_competition",
+      "childrenReaped": true
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_running_process_control_competition",
+      "childrenReaped": true
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_second_host_still_immediately_rejected",
+      "childrenReaped": true
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_short_lock_serializes_control_before_deadline",
+      "childrenReaped": true
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_stale_cas_and_conflicting_identity_still_fail_closed",
+      "childrenReaped": true
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_start_waits_for_checkpoint_without_relaxing_owner_lock",
+      "childrenReaped": true
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_thread_transaction_also_has_bounded_wait",
+      "childrenReaped": true
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_waiting_old_observation_does_not_overwrite_new_resume",
+      "childrenReaped": true
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_persistence.PersistenceTests.test_actual_repository_reader_does_not_prevent_atomic_transition",
+      "childrenReaped": true
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_persistence.PersistenceTests.test_real_reader_blocks_no_new_effect_or_revision_after_release",
+      "childrenReaped": true
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_contention.RuntimeContentionTests.test_attach_transaction_busy_stop_is_uncommitted_then_same_identity_succeeds",
+      "childrenReaped": true
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_contention.RuntimeContentionTests.test_bounded_stop_busy_retry_uses_same_identity_after_real_lock_release",
+      "childrenReaped": true
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_contention.RuntimeContentionTests.test_bounded_stop_does_not_retry_non_busy_refusal",
+      "childrenReaped": true
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_contention.RuntimeContentionTests.test_corrupt_checkpoint_and_generation_fence_not_swallowed",
+      "childrenReaped": true
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_contention.RuntimeContentionTests.test_effect_before_busy_observation_is_not_dispatched_again",
+      "childrenReaped": true
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_contention.RuntimeContentionTests.test_h1_clock_advance_during_maintenance_observation",
+      "childrenReaped": true
+    },
+    {
+      "label": "full-final-01",
+      "test": "tests.test_p18_runtime_process.RuntimeProcessTests.runTest",
+      "childrenReaped": true
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_contention.RuntimeContentionTests.test_h1_controller_timeout_captures_state_before_stop",
+      "childrenReaped": true
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_contention.RuntimeContentionTests.test_idle_tick_busy_is_bounded_read_only_and_resumes",
+      "childrenReaped": true
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_contention.RuntimeContentionTests.test_long_busy_control_rejects_without_record_and_same_identity_retries",
+      "childrenReaped": true
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_contention.RuntimeContentionTests.test_long_busy_host_remains_live_and_diagnostic_is_not_flooded",
+      "childrenReaped": true
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_contention.RuntimeContentionTests.test_non_contention_os_error_not_reclassified",
+      "childrenReaped": true
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_contention.RuntimeContentionTests.test_original_exception_recorded_when_exit_checkpoint_available",
+      "childrenReaped": true
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_contention.RuntimeContentionTests.test_owner_permission_rejection_not_treated_as_busy",
+      "childrenReaped": true
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_contention.RuntimeContentionTests.test_paused_process_control_competition",
+      "childrenReaped": true
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_contention.RuntimeContentionTests.test_real_busy_exit_keeps_original_error_and_releases_owner",
+      "childrenReaped": true
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_contention.RuntimeContentionTests.test_resource_wait_process_control_competition",
+      "childrenReaped": true
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_contention.RuntimeContentionTests.test_running_process_control_competition",
+      "childrenReaped": true
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_contention.RuntimeContentionTests.test_second_host_still_immediately_rejected",
+      "childrenReaped": true
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_contention.RuntimeContentionTests.test_short_lock_serializes_control_before_deadline",
+      "childrenReaped": true
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_contention.RuntimeContentionTests.test_stale_cas_and_conflicting_identity_still_fail_closed",
+      "childrenReaped": true
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_contention.RuntimeContentionTests.test_start_waits_for_checkpoint_without_relaxing_owner_lock",
+      "childrenReaped": true
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_contention.RuntimeContentionTests.test_thread_transaction_also_has_bounded_wait",
+      "childrenReaped": true
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_contention.RuntimeContentionTests.test_waiting_old_observation_does_not_overwrite_new_resume",
+      "childrenReaped": true
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_process.RuntimeProcessTests.test_advancing_silent_process_continues_multiple_native_cycles",
+      "childrenReaped": true
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_process.RuntimeProcessTests.test_continuous_golden_contact_then_absorption_without_chat",
+      "childrenReaped": true
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_process.RuntimeProcessTests.test_idle_and_subject_silence_do_not_end_process",
+      "childrenReaped": true
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_process.RuntimeProcessTests.test_real_process_crash_after_effect_restarts_original_identity",
+      "childrenReaped": true
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_process.RuntimeProcessTests.test_resource_wait_host_lives_and_restores_without_message",
+      "childrenReaped": true
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_process.RuntimeProcessTests.test_two_real_processes_cannot_dispatch_same_subject",
+      "childrenReaped": true
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_resume.RuntimeResumeTests.test_real_child_resumes_durable_pre_call_phase",
+      "childrenReaped": true
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_storage_runtime.RuntimeStorageProcessTests.test_real_host_survives_exhausted_checkpoint_and_resumes_without_chat",
+      "childrenReaped": true
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_pre_p19_autonomy_runtime.AutonomyProcessTests.test_saturated_internal_state_continues_in_new_real_runtime_process",
+      "childrenReaped": true
+    }
+  ],
+  "subprocess_records": [
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_attach_transaction_busy_stop_is_uncommitted_then_same_identity_succeeds",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.runtime",
+        "start",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-v04yf4h7"
+      ],
+      "pid": 18544,
+      "exitCode": 2,
+      "stdout": "",
+      "stderr": "RUNTIME_BUSY\n",
+      "forcedCleanup": false
+    },
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_attach_transaction_busy_stop_is_uncommitted_then_same_identity_succeeds",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "\nimport contextlib,sys\nfrom pathlib import Path\nfrom continuity_engine.storage.json_runtime_repository import JsonRuntimeRepository\nfrom continuity_engine.runtime import main\nroot=Path(sys.argv[1]);hold=sys.argv[2]=='hold'\ntransaction=JsonRuntimeRepository.transaction;save=JsonRuntimeRepository.save\nattached=False\n@contextlib.contextmanager\ndef observed(self):\n    global attached\n    with transaction(self) as d:\n        yield d\n        attachment=d is not None and d['reason']=='HOST_ATTACHED'\n    if attachment and not attached:\n        attached=True;(root/'attach-released').write_text('released',encoding='utf8')\ndef saving(self,d):\n    if hold and d['reason']=='HOST_ATTACHED':\n        (root/'attach-held').write_text('held',encoding='utf8')\n        sys.stdin.readline()\n    return save(self,d)\nJsonRuntimeRepository.transaction=observed;JsonRuntimeRepository.save=saving\nraise SystemExit(main(['start','--root',str(root)]))\n",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-v04yf4h7",
+        "hold"
+      ],
+      "pid": 11984,
+      "exitCode": 0,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:141d8a5703f0b60aff71bbf9b1834ba1ec76a11648a1cb6a8d447d22a9bc3d1d\", \"id\": \"sha256:2a3222d24a6185236166cb51f758b891882ff255c2b0b8afcbfb0d31909be561\", \"operation\": \"PAUSE\", \"revision\": 2}, {\"hash\": \"sha256:54875ea0585dfa9e3dd209f1b0bbb3c3e4ca8146496ae64094a2c2bab171c9d3\", \"id\": \"sha256:3bcb316df573bb472056bd1b27665f16b0cac021374465ee6843c01626370d2a\", \"operation\": \"STOP\", \"revision\": 5}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 1, \"interruptions\": [], \"last_task\": null, \"last_time\": null, \"next_check_at\": null, \"observations\": 1, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 6, \"root_hash\": \"sha256:b0a72b2a3a4a989b50789971f1aec0bc0fd7beceb941726be23b9ee21ac1c635\", \"state\": \"STOP\", \"subject_id\": \"sub-f0a26f63a8df4250\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 100000, \"token_used\": 0, \"token_remaining\": 100000, \"compute_remaining\": 1000}}\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_attach_transaction_busy_stop_is_uncommitted_then_same_identity_succeeds",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.runtime",
+        "start",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-v04yf4h7"
+      ],
+      "pid": 8240,
+      "exitCode": 0,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:141d8a5703f0b60aff71bbf9b1834ba1ec76a11648a1cb6a8d447d22a9bc3d1d\", \"id\": \"sha256:2a3222d24a6185236166cb51f758b891882ff255c2b0b8afcbfb0d31909be561\", \"operation\": \"PAUSE\", \"revision\": 2}, {\"hash\": \"sha256:54875ea0585dfa9e3dd209f1b0bbb3c3e4ca8146496ae64094a2c2bab171c9d3\", \"id\": \"sha256:3bcb316df573bb472056bd1b27665f16b0cac021374465ee6843c01626370d2a\", \"operation\": \"STOP\", \"revision\": 5}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 1, \"interruptions\": [], \"last_task\": null, \"last_time\": null, \"next_check_at\": null, \"observations\": 1, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 7, \"root_hash\": \"sha256:b0a72b2a3a4a989b50789971f1aec0bc0fd7beceb941726be23b9ee21ac1c635\", \"state\": \"STOP\", \"subject_id\": \"sub-f0a26f63a8df4250\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 100000, \"token_used\": 0, \"token_remaining\": 100000, \"compute_remaining\": 1000}}\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_bounded_stop_busy_retry_uses_same_identity_after_real_lock_release",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "\nimport contextlib,sys\nfrom pathlib import Path\nfrom continuity_engine.storage.json_runtime_repository import JsonRuntimeRepository\nfrom continuity_engine.runtime import main\nroot=Path(sys.argv[1]);hold=sys.argv[2]=='hold'\ntransaction=JsonRuntimeRepository.transaction;save=JsonRuntimeRepository.save\nattached=False\n@contextlib.contextmanager\ndef observed(self):\n    global attached\n    with transaction(self) as d:\n        yield d\n        attachment=d is not None and d['reason']=='HOST_ATTACHED'\n    if attachment and not attached:\n        attached=True;(root/'attach-released').write_text('released',encoding='utf8')\ndef saving(self,d):\n    if hold and d['reason']=='HOST_ATTACHED':\n        (root/'attach-held').write_text('held',encoding='utf8')\n        sys.stdin.readline()\n    return save(self,d)\nJsonRuntimeRepository.transaction=observed;JsonRuntimeRepository.save=saving\nraise SystemExit(main(['start','--root',str(root)]))\n",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-1d4maer8",
+        "observe"
+      ],
+      "pid": 18708,
+      "exitCode": 0,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:f71b476ee500ee41ffa5c9550baccbeb199f9fe6720e67590dad7b30704616ae\", \"id\": \"sha256:c7f71604f3762433d74f3458748e4cf17ffbab35e71405be8c973874d1fe6d89\", \"operation\": \"PAUSE\", \"revision\": 2}, {\"hash\": \"sha256:60e8e2365cd5071a4b1ea191a284d3ef055efaf81c47171621703c54ac3c0be2\", \"id\": \"sha256:8c3e6e8c200e4b6e9921b68ec449b6480cdf1bcad89db98305caaeeaafab7be8\", \"operation\": \"PAUSE\", \"revision\": 5}, {\"hash\": \"sha256:3f2bdcea768bd984833967df71e2ca8d1f1638db62589af3bd683a1315e6ad90\", \"id\": \"sha256:3bcb316df573bb472056bd1b27665f16b0cac021374465ee6843c01626370d2a\", \"operation\": \"STOP\", \"revision\": 6}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 1, \"interruptions\": [], \"last_task\": null, \"last_time\": null, \"next_check_at\": null, \"observations\": 1, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 7, \"root_hash\": \"sha256:d5ded0d0911fa99cda6a48a5235165c31eba094926c52a50dac28d3d22ae2d30\", \"state\": \"STOP\", \"subject_id\": \"sub-9abe595edcc440cb\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 100000, \"token_used\": 0, \"token_remaining\": 100000, \"compute_remaining\": 1000}}\n",
+      "stderr": "RUNTIME_CHECKPOINT_BUSY\nRUNTIME_CHECKPOINT_AVAILABLE\n",
+      "forcedCleanup": false
+    },
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_bounded_stop_busy_retry_uses_same_identity_after_real_lock_release",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "\nimport sys\nfrom pathlib import Path\nfrom continuity_engine.testing.p18_runtime_fixture import P18Fixture\nf=P18Fixture(Path(sys.argv[1]),initialize=False)\noriginal=f.store.save\ndef save(d):\n    print('CONTROL_LOCK_HELD',flush=True)\n    sys.stdin.readline()\n    return original(d)\nf.store.save=save\nf.host.control(sys.argv[2],command_id=sys.argv[3],expected_revision=None,handle='p18-test-owner')\nprint('CONTROL_SAVED',flush=True)\n",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-1d4maer8",
+        "PAUSE",
+        "retry-holder"
+      ],
+      "pid": 8420,
+      "exitCode": 0,
+      "stdout": "CONTROL_SAVED\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_bounded_stop_busy_retry_uses_same_identity_after_real_lock_release",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.runtime",
+        "start",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-1d4maer8"
+      ],
+      "pid": 17832,
+      "exitCode": 0,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:f71b476ee500ee41ffa5c9550baccbeb199f9fe6720e67590dad7b30704616ae\", \"id\": \"sha256:c7f71604f3762433d74f3458748e4cf17ffbab35e71405be8c973874d1fe6d89\", \"operation\": \"PAUSE\", \"revision\": 2}, {\"hash\": \"sha256:60e8e2365cd5071a4b1ea191a284d3ef055efaf81c47171621703c54ac3c0be2\", \"id\": \"sha256:8c3e6e8c200e4b6e9921b68ec449b6480cdf1bcad89db98305caaeeaafab7be8\", \"operation\": \"PAUSE\", \"revision\": 5}, {\"hash\": \"sha256:3f2bdcea768bd984833967df71e2ca8d1f1638db62589af3bd683a1315e6ad90\", \"id\": \"sha256:3bcb316df573bb472056bd1b27665f16b0cac021374465ee6843c01626370d2a\", \"operation\": \"STOP\", \"revision\": 6}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 1, \"interruptions\": [], \"last_task\": null, \"last_time\": null, \"next_check_at\": null, \"observations\": 1, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 8, \"root_hash\": \"sha256:d5ded0d0911fa99cda6a48a5235165c31eba094926c52a50dac28d3d22ae2d30\", \"state\": \"STOP\", \"subject_id\": \"sub-9abe595edcc440cb\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 100000, \"token_used\": 0, \"token_remaining\": 100000, \"compute_remaining\": 1000}}\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_bounded_stop_does_not_retry_non_busy_refusal",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "\nimport contextlib,sys\nfrom pathlib import Path\nfrom continuity_engine.storage.json_runtime_repository import JsonRuntimeRepository\nfrom continuity_engine.runtime import main\nroot=Path(sys.argv[1]);hold=sys.argv[2]=='hold'\ntransaction=JsonRuntimeRepository.transaction;save=JsonRuntimeRepository.save\nattached=False\n@contextlib.contextmanager\ndef observed(self):\n    global attached\n    with transaction(self) as d:\n        yield d\n        attachment=d is not None and d['reason']=='HOST_ATTACHED'\n    if attachment and not attached:\n        attached=True;(root/'attach-released').write_text('released',encoding='utf8')\ndef saving(self,d):\n    if hold and d['reason']=='HOST_ATTACHED':\n        (root/'attach-held').write_text('held',encoding='utf8')\n        sys.stdin.readline()\n    return save(self,d)\nJsonRuntimeRepository.transaction=observed;JsonRuntimeRepository.save=saving\nraise SystemExit(main(['start','--root',str(root)]))\n",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-pshbh6gv",
+        "observe"
+      ],
+      "pid": 6544,
+      "exitCode": 0,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:0bb2302e9b432ae1b3bfb85b954dc63995eb40caab036000b9699b30d87117cc\", \"id\": \"sha256:7f09bc5f5e5d43f45211d17fe8cfbc0b82e30d924c859e34bf7607cc4c8fa3d2\", \"operation\": \"PAUSE\", \"revision\": 2}, {\"hash\": \"sha256:9402dc57ada1bea6f551d07b8b4672f84ada023db259d1042e5f244dc86af51e\", \"id\": \"sha256:3bcb316df573bb472056bd1b27665f16b0cac021374465ee6843c01626370d2a\", \"operation\": \"STOP\", \"revision\": 5}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 1, \"interruptions\": [], \"last_task\": null, \"last_time\": null, \"next_check_at\": null, \"observations\": 1, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 6, \"root_hash\": \"sha256:eea7bace4e95cec4fc02c9f85a29720f44b160ef37b054edb948793e95e03326\", \"state\": \"STOP\", \"subject_id\": \"sub-b3335522ea99434b\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 100000, \"token_used\": 0, \"token_remaining\": 100000, \"compute_remaining\": 1000}}\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_bounded_stop_does_not_retry_non_busy_refusal",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.runtime",
+        "start",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-pshbh6gv"
+      ],
+      "pid": 24504,
+      "exitCode": 0,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:0bb2302e9b432ae1b3bfb85b954dc63995eb40caab036000b9699b30d87117cc\", \"id\": \"sha256:7f09bc5f5e5d43f45211d17fe8cfbc0b82e30d924c859e34bf7607cc4c8fa3d2\", \"operation\": \"PAUSE\", \"revision\": 2}, {\"hash\": \"sha256:9402dc57ada1bea6f551d07b8b4672f84ada023db259d1042e5f244dc86af51e\", \"id\": \"sha256:3bcb316df573bb472056bd1b27665f16b0cac021374465ee6843c01626370d2a\", \"operation\": \"STOP\", \"revision\": 5}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 1, \"interruptions\": [], \"last_task\": null, \"last_time\": null, \"next_check_at\": null, \"observations\": 1, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 7, \"root_hash\": \"sha256:eea7bace4e95cec4fc02c9f85a29720f44b160ef37b054edb948793e95e03326\", \"state\": \"STOP\", \"subject_id\": \"sub-b3335522ea99434b\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 100000, \"token_used\": 0, \"token_remaining\": 100000, \"compute_remaining\": 1000}}\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_effect_before_busy_observation_is_not_dispatched_again",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "\nimport sys\nfrom pathlib import Path\nfrom continuity_engine.testing.p18_runtime_fixture import P18Fixture\nf=P18Fixture(Path(sys.argv[1]),initialize=False)\noriginal=f.store.save\ndef save(d):\n    print('CONTROL_LOCK_HELD',flush=True)\n    sys.stdin.readline()\n    return original(d)\nf.store.save=save\nf.host.control(sys.argv[2],command_id=sys.argv[3],expected_revision=None,handle='p18-test-owner')\nprint('CONTROL_SAVED',flush=True)\n",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-w5lume0j",
+        "PAUSE",
+        "held-command"
+      ],
+      "pid": 2008,
+      "exitCode": 0,
+      "stdout": "CONTROL_SAVED\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_process.RuntimeProcessTests.runTest",
+      "stage": "controller-timeout-before-stop-child-diagnostic",
+      "pid": 20316,
+      "exitCode": null,
+      "stderr": ""
+    },
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_process.RuntimeProcessTests.runTest",
+      "stage": "controller-before-stop-cleanup-child-diagnostic",
+      "pid": 20316,
+      "exitCode": null,
+      "stderr": ""
+    },
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_process.RuntimeProcessTests.runTest",
+      "stage": "continuous-child",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.runtime",
+        "start",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\p18-process-2yq79ofy"
+      ],
+      "pid": 20316,
+      "exitCode": 0,
+      "forcedCleanup": false,
+      "seconds": 1.9359679000008327,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:a0a9a251f3736eb6ae6ca55e9820208339dcbf50e72663be35c43f659adbff9c\", \"id\": \"sha256:3bc1ba9e8d0011792eb84d044cb20b98db9393b05850d5aaaddfc964907a01a0\", \"operation\": \"STOP\", \"revision\": 4}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 1, \"interruptions\": [], \"last_task\": \"maintenance:1648656c3821f0c4ee28a907498115bd7bdbc0435fba95e5c00bc21e9bda6ec4\", \"last_time\": \"2026-09-04T08:00:00+00:00\", \"next_check_at\": null, \"observations\": 1, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 5, \"root_hash\": \"sha256:2597747e5a1eb50fc29626c3a3fe6a0a8a4522e01d154f79916bdfef98500ba1\", \"state\": \"STOP\", \"subject_id\": \"sub-e5fe456c2a134588\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 0, \"token_used\": 0, \"token_remaining\": 0, \"compute_remaining\": 999}}\n",
+      "stderr": ""
+    },
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_idle_tick_busy_is_bounded_read_only_and_resumes",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "\nimport sys\nfrom pathlib import Path\nfrom continuity_engine.testing.p18_runtime_fixture import P18Fixture\nf=P18Fixture(Path(sys.argv[1]),initialize=False)\noriginal=f.store.save\ndef save(d):\n    print('CONTROL_LOCK_HELD',flush=True)\n    sys.stdin.readline()\n    return original(d)\nf.store.save=save\nf.host.control(sys.argv[2],command_id=sys.argv[3],expected_revision=None,handle='p18-test-owner')\nprint('CONTROL_SAVED',flush=True)\n",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-mdw72mhj",
+        "PAUSE",
+        "held-command"
+      ],
+      "pid": 2712,
+      "exitCode": 0,
+      "stdout": "CONTROL_SAVED\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_long_busy_control_rejects_without_record_and_same_identity_retries",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "\nimport sys\nfrom pathlib import Path\nfrom continuity_engine.testing.p18_runtime_fixture import P18Fixture\nf=P18Fixture(Path(sys.argv[1]),initialize=False)\noriginal=f.store.save\ndef save(d):\n    print('CONTROL_LOCK_HELD',flush=True)\n    sys.stdin.readline()\n    return original(d)\nf.store.save=save\nf.host.control(sys.argv[2],command_id=sys.argv[3],expected_revision=None,handle='p18-test-owner')\nprint('CONTROL_SAVED',flush=True)\n",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-bmqk62i1",
+        "PAUSE",
+        "held-command"
+      ],
+      "pid": 25380,
+      "exitCode": 0,
+      "stdout": "CONTROL_SAVED\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_long_busy_host_remains_live_and_diagnostic_is_not_flooded",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "\nimport sys\nfrom pathlib import Path\nfrom continuity_engine.testing.p18_runtime_fixture import P18Fixture\nf=P18Fixture(Path(sys.argv[1]),initialize=False)\noriginal=f.store.save\ndef save(d):\n    print('CONTROL_LOCK_HELD',flush=True)\n    sys.stdin.readline()\n    return original(d)\nf.store.save=save\nf.host.control(sys.argv[2],command_id=sys.argv[3],expected_revision=None,handle='p18-test-owner')\nprint('CONTROL_SAVED',flush=True)\n",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-z293qud0",
+        "PAUSE",
+        "held-command"
+      ],
+      "pid": 20920,
+      "exitCode": 0,
+      "stdout": "CONTROL_SAVED\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_long_busy_host_remains_live_and_diagnostic_is_not_flooded",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "\nimport sys\nfrom pathlib import Path\nfrom continuity_engine.testing.p18_runtime_fixture import P18Fixture\nf=P18Fixture(Path(sys.argv[1]),initialize=False)\noriginal=f.store.save\ndef save(d):\n    print('CONTROL_LOCK_HELD',flush=True)\n    sys.stdin.readline()\n    return original(d)\nf.store.save=save\nf.host.control(sys.argv[2],command_id=sys.argv[3],expected_revision=None,handle='p18-test-owner')\nprint('CONTROL_SAVED',flush=True)\n",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-z293qud0",
+        "STOP",
+        "test-stop"
+      ],
+      "pid": 10288,
+      "exitCode": 0,
+      "stdout": "CONTROL_SAVED\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_long_busy_host_remains_live_and_diagnostic_is_not_flooded",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "\nimport contextlib,sys\nfrom pathlib import Path\nfrom continuity_engine.storage.json_runtime_repository import JsonRuntimeRepository\nfrom continuity_engine.runtime import main\nroot=Path(sys.argv[1]);hold=sys.argv[2]=='hold'\ntransaction=JsonRuntimeRepository.transaction;save=JsonRuntimeRepository.save\nattached=False\n@contextlib.contextmanager\ndef observed(self):\n    global attached\n    with transaction(self) as d:\n        yield d\n        attachment=d is not None and d['reason']=='HOST_ATTACHED'\n    if attachment and not attached:\n        attached=True;(root/'attach-released').write_text('released',encoding='utf8')\ndef saving(self,d):\n    if hold and d['reason']=='HOST_ATTACHED':\n        (root/'attach-held').write_text('held',encoding='utf8')\n        sys.stdin.readline()\n    return save(self,d)\nJsonRuntimeRepository.transaction=observed;JsonRuntimeRepository.save=saving\nraise SystemExit(main(['start','--root',str(root)]))\n",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-z293qud0",
+        "observe"
+      ],
+      "pid": 12824,
+      "exitCode": 0,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:c64c4a02b7c289ce58409ad4354197cacc65041b6c80c7e085e12cbf7c8e7c4e\", \"id\": \"sha256:e315f1df37e11c5b42333c77adc7d784e4c1e7f25d22d9ecc8ec41ac82effbec\", \"operation\": \"PAUSE\", \"revision\": 2}, {\"hash\": \"sha256:9981ccd14e484d1b3239645f6aa54f8e2d08680b8ee751b6b992a7ab7d618b08\", \"id\": \"sha256:4a5b9149122dd601b637b0eeb3d908bdf325bdcce1f6bd06ce16663c70251a03\", \"operation\": \"PAUSE\", \"revision\": 5}, {\"hash\": \"sha256:bf50cdf57fffa916f1badff433b613195a60d6cb2c143c2222da0810d378e470\", \"id\": \"sha256:3bcb316df573bb472056bd1b27665f16b0cac021374465ee6843c01626370d2a\", \"operation\": \"STOP\", \"revision\": 6}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 1, \"interruptions\": [], \"last_task\": null, \"last_time\": null, \"next_check_at\": null, \"observations\": 1, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 7, \"root_hash\": \"sha256:eee5e430fb1a7edc0088d913e4de018f8225c95d39459c73cb1f1d2ea0b3f497\", \"state\": \"STOP\", \"subject_id\": \"sub-30472074cd10433c\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 100000, \"token_used\": 0, \"token_remaining\": 100000, \"compute_remaining\": 1000}}\n",
+      "stderr": "RUNTIME_CHECKPOINT_BUSY\nRUNTIME_CHECKPOINT_AVAILABLE\nRUNTIME_CHECKPOINT_BUSY\nRUNTIME_CHECKPOINT_AVAILABLE\n",
+      "forcedCleanup": false
+    },
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_long_busy_host_remains_live_and_diagnostic_is_not_flooded",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.runtime",
+        "start",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-z293qud0"
+      ],
+      "pid": 23708,
+      "exitCode": 0,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:c64c4a02b7c289ce58409ad4354197cacc65041b6c80c7e085e12cbf7c8e7c4e\", \"id\": \"sha256:e315f1df37e11c5b42333c77adc7d784e4c1e7f25d22d9ecc8ec41ac82effbec\", \"operation\": \"PAUSE\", \"revision\": 2}, {\"hash\": \"sha256:9981ccd14e484d1b3239645f6aa54f8e2d08680b8ee751b6b992a7ab7d618b08\", \"id\": \"sha256:4a5b9149122dd601b637b0eeb3d908bdf325bdcce1f6bd06ce16663c70251a03\", \"operation\": \"PAUSE\", \"revision\": 5}, {\"hash\": \"sha256:bf50cdf57fffa916f1badff433b613195a60d6cb2c143c2222da0810d378e470\", \"id\": \"sha256:3bcb316df573bb472056bd1b27665f16b0cac021374465ee6843c01626370d2a\", \"operation\": \"STOP\", \"revision\": 6}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 1, \"interruptions\": [], \"last_task\": null, \"last_time\": null, \"next_check_at\": null, \"observations\": 1, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 8, \"root_hash\": \"sha256:eee5e430fb1a7edc0088d913e4de018f8225c95d39459c73cb1f1d2ea0b3f497\", \"state\": \"STOP\", \"subject_id\": \"sub-30472074cd10433c\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 100000, \"token_used\": 0, \"token_remaining\": 100000, \"compute_remaining\": 1000}}\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_paused_process_control_competition",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "\nimport sys\nfrom pathlib import Path\nfrom continuity_engine.testing.p18_runtime_fixture import P18Fixture\nf=P18Fixture(Path(sys.argv[1]),initialize=False)\noriginal=f.store.save\ndef save(d):\n    print('CONTROL_LOCK_HELD',flush=True)\n    sys.stdin.readline()\n    return original(d)\nf.store.save=save\nf.host.control(sys.argv[2],command_id=sys.argv[3],expected_revision=None,handle='p18-test-owner')\nprint('CONTROL_SAVED',flush=True)\n",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-nf5vnwts",
+        "PAUSE",
+        "held-command"
+      ],
+      "pid": 8288,
+      "exitCode": 0,
+      "stdout": "CONTROL_SAVED\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_paused_process_control_competition",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.runtime",
+        "start",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-nf5vnwts"
+      ],
+      "pid": 23228,
+      "exitCode": 0,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:cb1eb7d6946ce2050d63dbab07ebde2ebabe7931772facf6f0695e5df6ef0908\", \"id\": \"sha256:8976b3ebe04d020e8931d9ab76ef842642c07aa5ff1b64d595b56d49b1780b4b\", \"operation\": \"PAUSE\", \"revision\": 5}, {\"hash\": \"sha256:85d69add237017bd1c8b557e75f7473067c5d2f3361a4e3ab44d76c30fa66c5a\", \"id\": \"sha256:4a5b9149122dd601b637b0eeb3d908bdf325bdcce1f6bd06ce16663c70251a03\", \"operation\": \"PAUSE\", \"revision\": 8}, {\"hash\": \"sha256:2e6074a8b32189517fc10bfc384a592a8a40117d06677ac18d8892b09c9aafb7\", \"id\": \"sha256:d1c375c559888424bd7b57f5e1c9f3c1a566e2d00a706bfc7024ee9ce8b8b4f6\", \"operation\": \"RESUME\", \"revision\": 9}, {\"hash\": \"sha256:b767b2975c8afea10624f1b3cc85bbd40bcfbbd80db1bebedb5f0e2ed4e4b419\", \"id\": \"sha256:3bcb316df573bb472056bd1b27665f16b0cac021374465ee6843c01626370d2a\", \"operation\": \"STOP\", \"revision\": 11}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 2, \"interruptions\": [{\"generation\": 1, \"last_trusted_time\": \"2026-09-04T09:00:00+00:00\", \"reason\": \"HOST_DETACHED\"}, {\"generation\": 1, \"last_trusted_time\": \"2026-09-04T09:00:00+00:00\", \"reason\": \"PRIOR_HOST_LOST\"}], \"last_task\": \"cognition:206e3058c5e29a9cfe2d881405ea13a61d15db81783cdd4dfb4928aa7dacc989\", \"last_time\": \"2026-09-04T09:03:00+00:00\", \"next_check_at\": null, \"observations\": 3, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 12, \"root_hash\": \"sha256:bcb8b9b08574e0e5ac95d045bb5968b04f762ce669272bc343dc8642eda50a60\", \"state\": \"STOP\", \"subject_id\": \"sub-d2535b5a4792471a\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 100000, \"token_used\": 320, \"token_remaining\": 99680, \"compute_remaining\": 997}}\n",
+      "stderr": "RUNTIME_CHECKPOINT_BUSY\nRUNTIME_CHECKPOINT_AVAILABLE\n",
+      "forcedCleanup": false
+    },
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_paused_process_control_competition",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.runtime",
+        "start",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-nf5vnwts"
+      ],
+      "pid": 24624,
+      "exitCode": 0,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:cb1eb7d6946ce2050d63dbab07ebde2ebabe7931772facf6f0695e5df6ef0908\", \"id\": \"sha256:8976b3ebe04d020e8931d9ab76ef842642c07aa5ff1b64d595b56d49b1780b4b\", \"operation\": \"PAUSE\", \"revision\": 5}, {\"hash\": \"sha256:85d69add237017bd1c8b557e75f7473067c5d2f3361a4e3ab44d76c30fa66c5a\", \"id\": \"sha256:4a5b9149122dd601b637b0eeb3d908bdf325bdcce1f6bd06ce16663c70251a03\", \"operation\": \"PAUSE\", \"revision\": 8}, {\"hash\": \"sha256:2e6074a8b32189517fc10bfc384a592a8a40117d06677ac18d8892b09c9aafb7\", \"id\": \"sha256:d1c375c559888424bd7b57f5e1c9f3c1a566e2d00a706bfc7024ee9ce8b8b4f6\", \"operation\": \"RESUME\", \"revision\": 9}, {\"hash\": \"sha256:b767b2975c8afea10624f1b3cc85bbd40bcfbbd80db1bebedb5f0e2ed4e4b419\", \"id\": \"sha256:3bcb316df573bb472056bd1b27665f16b0cac021374465ee6843c01626370d2a\", \"operation\": \"STOP\", \"revision\": 11}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 2, \"interruptions\": [{\"generation\": 1, \"last_trusted_time\": \"2026-09-04T09:00:00+00:00\", \"reason\": \"HOST_DETACHED\"}, {\"generation\": 1, \"last_trusted_time\": \"2026-09-04T09:00:00+00:00\", \"reason\": \"PRIOR_HOST_LOST\"}], \"last_task\": \"cognition:206e3058c5e29a9cfe2d881405ea13a61d15db81783cdd4dfb4928aa7dacc989\", \"last_time\": \"2026-09-04T09:03:00+00:00\", \"next_check_at\": null, \"observations\": 3, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 13, \"root_hash\": \"sha256:bcb8b9b08574e0e5ac95d045bb5968b04f762ce669272bc343dc8642eda50a60\", \"state\": \"STOP\", \"subject_id\": \"sub-d2535b5a4792471a\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 100000, \"token_used\": 320, \"token_remaining\": 99680, \"compute_remaining\": 997}}\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_real_busy_exit_keeps_original_error_and_releases_owner",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "\nimport sys\nfrom pathlib import Path\nfrom continuity_engine.testing.p18_runtime_fixture import P18Fixture\nf=P18Fixture(Path(sys.argv[1]),initialize=False)\noriginal=f.store.save\ndef save(d):\n    print('CONTROL_LOCK_HELD',flush=True)\n    sys.stdin.readline()\n    return original(d)\nf.store.save=save\nf.host.control(sys.argv[2],command_id=sys.argv[3],expected_revision=None,handle='p18-test-owner')\nprint('CONTROL_SAVED',flush=True)\n",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-9qf7mw8o",
+        "PAUSE",
+        "held-command"
+      ],
+      "pid": 21308,
+      "exitCode": 0,
+      "stdout": "CONTROL_SAVED\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_resource_wait_process_control_competition",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "\nimport sys\nfrom pathlib import Path\nfrom continuity_engine.testing.p18_runtime_fixture import P18Fixture\nf=P18Fixture(Path(sys.argv[1]),initialize=False)\noriginal=f.store.save\ndef save(d):\n    print('CONTROL_LOCK_HELD',flush=True)\n    sys.stdin.readline()\n    return original(d)\nf.store.save=save\nf.host.control(sys.argv[2],command_id=sys.argv[3],expected_revision=None,handle='p18-test-owner')\nprint('CONTROL_SAVED',flush=True)\n",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-cg2rimxy",
+        "PAUSE",
+        "held-command"
+      ],
+      "pid": 19972,
+      "exitCode": 0,
+      "stdout": "CONTROL_SAVED\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_resource_wait_process_control_competition",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.runtime",
+        "start",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-cg2rimxy"
+      ],
+      "pid": 8324,
+      "exitCode": 0,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:cccd7ad957eaf3763237976114861d15f342df7958ee25f357b3539349e7be44\", \"id\": \"sha256:4a5b9149122dd601b637b0eeb3d908bdf325bdcce1f6bd06ce16663c70251a03\", \"operation\": \"PAUSE\", \"revision\": 9}, {\"hash\": \"sha256:a3deab0a33644522b8fc9d93cdc44b646241be541a8ee2510032f50a73d32476\", \"id\": \"sha256:d1c375c559888424bd7b57f5e1c9f3c1a566e2d00a706bfc7024ee9ce8b8b4f6\", \"operation\": \"RESUME\", \"revision\": 10}, {\"hash\": \"sha256:903afb662b12592e4d52392051afec2065288db48a154f0f926b66af680fd13a\", \"id\": \"sha256:3bcb316df573bb472056bd1b27665f16b0cac021374465ee6843c01626370d2a\", \"operation\": \"STOP\", \"revision\": 12}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 3, \"interruptions\": [{\"generation\": 1, \"last_trusted_time\": \"2026-09-04T09:00:00+00:00\", \"reason\": \"HOST_DETACHED\"}, {\"generation\": 1, \"last_trusted_time\": \"2026-09-04T09:00:00+00:00\", \"reason\": \"PRIOR_HOST_LOST\"}, {\"generation\": 2, \"last_trusted_time\": \"2026-09-04T09:01:00+00:00\", \"reason\": \"HOST_DETACHED\"}, {\"generation\": 2, \"last_trusted_time\": \"2026-09-04T09:01:00+00:00\", \"reason\": \"PRIOR_HOST_LOST\"}], \"last_task\": \"cognition:cac845e6c2ba048b423021c72c2505b63423b7cff0958b8325dd65dfbaf93a39\", \"last_time\": \"2026-09-04T09:04:00+00:00\", \"next_check_at\": null, \"observations\": 3, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 13, \"root_hash\": \"sha256:ffd068e4b1a0d23cc62400051d4565491d0ac302be9d04b2d40f871e46e7ac4d\", \"state\": \"STOP\", \"subject_id\": \"sub-1d4c6a81a9444ab7\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 100000, \"token_used\": 320, \"token_remaining\": 99680, \"compute_remaining\": 997}}\n",
+      "stderr": "RUNTIME_CHECKPOINT_BUSY\nRUNTIME_CHECKPOINT_AVAILABLE\n",
+      "forcedCleanup": false
+    },
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_resource_wait_process_control_competition",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.runtime",
+        "start",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-cg2rimxy"
+      ],
+      "pid": 12452,
+      "exitCode": 0,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:cccd7ad957eaf3763237976114861d15f342df7958ee25f357b3539349e7be44\", \"id\": \"sha256:4a5b9149122dd601b637b0eeb3d908bdf325bdcce1f6bd06ce16663c70251a03\", \"operation\": \"PAUSE\", \"revision\": 9}, {\"hash\": \"sha256:a3deab0a33644522b8fc9d93cdc44b646241be541a8ee2510032f50a73d32476\", \"id\": \"sha256:d1c375c559888424bd7b57f5e1c9f3c1a566e2d00a706bfc7024ee9ce8b8b4f6\", \"operation\": \"RESUME\", \"revision\": 10}, {\"hash\": \"sha256:903afb662b12592e4d52392051afec2065288db48a154f0f926b66af680fd13a\", \"id\": \"sha256:3bcb316df573bb472056bd1b27665f16b0cac021374465ee6843c01626370d2a\", \"operation\": \"STOP\", \"revision\": 12}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 3, \"interruptions\": [{\"generation\": 1, \"last_trusted_time\": \"2026-09-04T09:00:00+00:00\", \"reason\": \"HOST_DETACHED\"}, {\"generation\": 1, \"last_trusted_time\": \"2026-09-04T09:00:00+00:00\", \"reason\": \"PRIOR_HOST_LOST\"}, {\"generation\": 2, \"last_trusted_time\": \"2026-09-04T09:01:00+00:00\", \"reason\": \"HOST_DETACHED\"}, {\"generation\": 2, \"last_trusted_time\": \"2026-09-04T09:01:00+00:00\", \"reason\": \"PRIOR_HOST_LOST\"}], \"last_task\": \"cognition:cac845e6c2ba048b423021c72c2505b63423b7cff0958b8325dd65dfbaf93a39\", \"last_time\": \"2026-09-04T09:04:00+00:00\", \"next_check_at\": null, \"observations\": 3, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 14, \"root_hash\": \"sha256:ffd068e4b1a0d23cc62400051d4565491d0ac302be9d04b2d40f871e46e7ac4d\", \"state\": \"STOP\", \"subject_id\": \"sub-1d4c6a81a9444ab7\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 100000, \"token_used\": 320, \"token_remaining\": 99680, \"compute_remaining\": 997}}\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_running_process_control_competition",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "\nimport sys\nfrom pathlib import Path\nfrom continuity_engine.testing.p18_runtime_fixture import P18Fixture\nf=P18Fixture(Path(sys.argv[1]),initialize=False)\noriginal=f.store.save\ndef save(d):\n    print('CONTROL_LOCK_HELD',flush=True)\n    sys.stdin.readline()\n    return original(d)\nf.store.save=save\nf.host.control(sys.argv[2],command_id=sys.argv[3],expected_revision=None,handle='p18-test-owner')\nprint('CONTROL_SAVED',flush=True)\n",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-ob89aiek",
+        "PAUSE",
+        "held-command"
+      ],
+      "pid": 13560,
+      "exitCode": 0,
+      "stdout": "CONTROL_SAVED\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_running_process_control_competition",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.runtime",
+        "start",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-ob89aiek"
+      ],
+      "pid": 3288,
+      "exitCode": 0,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:70f8e62a7c3ed5061bb7e4ebbd0d02400435c48ec449587d45b00548fae49c88\", \"id\": \"sha256:4a5b9149122dd601b637b0eeb3d908bdf325bdcce1f6bd06ce16663c70251a03\", \"operation\": \"PAUSE\", \"revision\": 6}, {\"hash\": \"sha256:aaa355d7d6f9bea70f4a9390fd56ee0d008ad1fedb220ba11857261d43082491\", \"id\": \"sha256:d1c375c559888424bd7b57f5e1c9f3c1a566e2d00a706bfc7024ee9ce8b8b4f6\", \"operation\": \"RESUME\", \"revision\": 7}, {\"hash\": \"sha256:1e8fc0f6adcaffa67b2c411c686bbfbc4248473bdfa47652be5d9cf3d727e614\", \"id\": \"sha256:3bcb316df573bb472056bd1b27665f16b0cac021374465ee6843c01626370d2a\", \"operation\": \"STOP\", \"revision\": 9}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 2, \"interruptions\": [{\"generation\": 1, \"last_trusted_time\": \"2026-09-04T09:00:00+00:00\", \"reason\": \"HOST_DETACHED\"}, {\"generation\": 1, \"last_trusted_time\": \"2026-09-04T09:00:00+00:00\", \"reason\": \"PRIOR_HOST_LOST\"}], \"last_task\": \"maintenance:fe2fe1990adea070ac2ceb0d4292e380b06f0c0efdebc43c29dab660058da12f\", \"last_time\": \"2026-09-04T09:03:00+00:00\", \"next_check_at\": null, \"observations\": 2, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 10, \"root_hash\": \"sha256:147622895e46168759a7538f063f69673bf55c1d01f90677c34306c39d7d6e24\", \"state\": \"STOP\", \"subject_id\": \"sub-153d30d00500462e\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 100000, \"token_used\": 0, \"token_remaining\": 100000, \"compute_remaining\": 999}}\n",
+      "stderr": "RUNTIME_CHECKPOINT_BUSY\nRUNTIME_CHECKPOINT_AVAILABLE\n",
+      "forcedCleanup": false
+    },
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_second_host_still_immediately_rejected",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.runtime",
+        "start",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-x92ua911"
+      ],
+      "pid": 25804,
+      "exitCode": 2,
+      "stdout": "",
+      "stderr": "RUNTIME_BUSY\n",
+      "forcedCleanup": false
+    },
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_stale_cas_and_conflicting_identity_still_fail_closed",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "\nimport sys\nfrom pathlib import Path\nfrom continuity_engine.testing.p18_runtime_fixture import P18Fixture\nf=P18Fixture(Path(sys.argv[1]),initialize=False)\noriginal=f.store.save\ndef save(d):\n    print('CONTROL_LOCK_HELD',flush=True)\n    sys.stdin.readline()\n    return original(d)\nf.store.save=save\nf.host.control(sys.argv[2],command_id=sys.argv[3],expected_revision=None,handle='p18-test-owner')\nprint('CONTROL_SAVED',flush=True)\n",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-6hqpp5pa",
+        "PAUSE",
+        "held-command"
+      ],
+      "pid": 14152,
+      "exitCode": 0,
+      "stdout": "CONTROL_SAVED\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_start_waits_for_checkpoint_without_relaxing_owner_lock",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "\nimport sys\nfrom pathlib import Path\nfrom continuity_engine.testing.p18_runtime_fixture import P18Fixture\nf=P18Fixture(Path(sys.argv[1]),initialize=False)\noriginal=f.store.save\ndef save(d):\n    print('CONTROL_LOCK_HELD',flush=True)\n    sys.stdin.readline()\n    return original(d)\nf.store.save=save\nf.host.control(sys.argv[2],command_id=sys.argv[3],expected_revision=None,handle='p18-test-owner')\nprint('CONTROL_SAVED',flush=True)\n",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-4k5zmsk0",
+        "PAUSE",
+        "held-command"
+      ],
+      "pid": 11808,
+      "exitCode": 0,
+      "stdout": "CONTROL_SAVED\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_start_waits_for_checkpoint_without_relaxing_owner_lock",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "\nimport contextlib,sys\nfrom pathlib import Path\nfrom continuity_engine.storage.json_runtime_repository import JsonRuntimeRepository\nfrom continuity_engine.runtime import main\nroot=Path(sys.argv[1]);hold=sys.argv[2]=='hold'\ntransaction=JsonRuntimeRepository.transaction;save=JsonRuntimeRepository.save\nattached=False\n@contextlib.contextmanager\ndef observed(self):\n    global attached\n    with transaction(self) as d:\n        yield d\n        attachment=d is not None and d['reason']=='HOST_ATTACHED'\n    if attachment and not attached:\n        attached=True;(root/'attach-released').write_text('released',encoding='utf8')\ndef saving(self,d):\n    if hold and d['reason']=='HOST_ATTACHED':\n        (root/'attach-held').write_text('held',encoding='utf8')\n        sys.stdin.readline()\n    return save(self,d)\nJsonRuntimeRepository.transaction=observed;JsonRuntimeRepository.save=saving\nraise SystemExit(main(['start','--root',str(root)]))\n",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-4k5zmsk0",
+        "observe"
+      ],
+      "pid": 7112,
+      "exitCode": 0,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:1b9b52978608ea893b873dbd993afd852bc16532bced30b28b571fd88b5259ec\", \"id\": \"sha256:4a5b9149122dd601b637b0eeb3d908bdf325bdcce1f6bd06ce16663c70251a03\", \"operation\": \"PAUSE\", \"revision\": 2}, {\"hash\": \"sha256:38ed3974f406148ffa9582da0cf66af50849b73a645ecac40fa92ce18ae476b8\", \"id\": \"sha256:3bcb316df573bb472056bd1b27665f16b0cac021374465ee6843c01626370d2a\", \"operation\": \"STOP\", \"revision\": 5}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 1, \"interruptions\": [], \"last_task\": null, \"last_time\": null, \"next_check_at\": null, \"observations\": 1, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 6, \"root_hash\": \"sha256:c6031d501108e89502f7bbac9c4839f347d1901d2efd05ab1703ce209e0ce627\", \"state\": \"STOP\", \"subject_id\": \"sub-107c29cb2f9143f2\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 100000, \"token_used\": 0, \"token_remaining\": 100000, \"compute_remaining\": 1000}}\n",
+      "stderr": "RUNTIME_CHECKPOINT_BUSY\nRUNTIME_CHECKPOINT_AVAILABLE\n",
+      "forcedCleanup": false
+    },
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_start_waits_for_checkpoint_without_relaxing_owner_lock",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.runtime",
+        "start",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-4k5zmsk0"
+      ],
+      "pid": 9960,
+      "exitCode": 0,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:1b9b52978608ea893b873dbd993afd852bc16532bced30b28b571fd88b5259ec\", \"id\": \"sha256:4a5b9149122dd601b637b0eeb3d908bdf325bdcce1f6bd06ce16663c70251a03\", \"operation\": \"PAUSE\", \"revision\": 2}, {\"hash\": \"sha256:38ed3974f406148ffa9582da0cf66af50849b73a645ecac40fa92ce18ae476b8\", \"id\": \"sha256:3bcb316df573bb472056bd1b27665f16b0cac021374465ee6843c01626370d2a\", \"operation\": \"STOP\", \"revision\": 5}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 1, \"interruptions\": [], \"last_task\": null, \"last_time\": null, \"next_check_at\": null, \"observations\": 1, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 7, \"root_hash\": \"sha256:c6031d501108e89502f7bbac9c4839f347d1901d2efd05ab1703ce209e0ce627\", \"state\": \"STOP\", \"subject_id\": \"sub-107c29cb2f9143f2\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 100000, \"token_used\": 0, \"token_remaining\": 100000, \"compute_remaining\": 1000}}\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "targeted-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_waiting_old_observation_does_not_overwrite_new_resume",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "\nimport sys\nfrom pathlib import Path\nfrom continuity_engine.testing.p18_runtime_fixture import P18Fixture\nf=P18Fixture(Path(sys.argv[1]),initialize=False)\noriginal=f.store.save\ndef save(d):\n    print('CONTROL_LOCK_HELD',flush=True)\n    sys.stdin.readline()\n    return original(d)\nf.store.save=save\nf.host.control(sys.argv[2],command_id=sys.argv[3],expected_revision=None,handle='p18-test-owner')\nprint('CONTROL_SAVED',flush=True)\n",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-wjv67x2_",
+        "RESUME",
+        "held-command"
+      ],
+      "pid": 16268,
+      "exitCode": 0,
+      "stdout": "CONTROL_SAVED\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_attach_transaction_busy_stop_is_uncommitted_then_same_identity_succeeds",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.runtime",
+        "start",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-ft8wc1ir"
+      ],
+      "pid": 24236,
+      "exitCode": 2,
+      "stdout": "",
+      "stderr": "RUNTIME_BUSY\n",
+      "forcedCleanup": false
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_attach_transaction_busy_stop_is_uncommitted_then_same_identity_succeeds",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "\nimport contextlib,sys\nfrom pathlib import Path\nfrom continuity_engine.storage.json_runtime_repository import JsonRuntimeRepository\nfrom continuity_engine.runtime import main\nroot=Path(sys.argv[1]);hold=sys.argv[2]=='hold'\ntransaction=JsonRuntimeRepository.transaction;save=JsonRuntimeRepository.save\nattached=False\n@contextlib.contextmanager\ndef observed(self):\n    global attached\n    with transaction(self) as d:\n        yield d\n        attachment=d is not None and d['reason']=='HOST_ATTACHED'\n    if attachment and not attached:\n        attached=True;(root/'attach-released').write_text('released',encoding='utf8')\ndef saving(self,d):\n    if hold and d['reason']=='HOST_ATTACHED':\n        (root/'attach-held').write_text('held',encoding='utf8')\n        sys.stdin.readline()\n    return save(self,d)\nJsonRuntimeRepository.transaction=observed;JsonRuntimeRepository.save=saving\nraise SystemExit(main(['start','--root',str(root)]))\n",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-ft8wc1ir",
+        "hold"
+      ],
+      "pid": 26320,
+      "exitCode": 0,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:4cccd094ffffe72cde5fd560e9ea251d69c6d1194bc4e3be3ee4c0db9ea095ee\", \"id\": \"sha256:be678d1c992ed75b8f6bcd03df0df497e6354968a7a904da917612db8c9d6b76\", \"operation\": \"PAUSE\", \"revision\": 2}, {\"hash\": \"sha256:833cb98f5c47f79d4b07e0f1a209f468230048d9fca171ddfb43f62883676a84\", \"id\": \"sha256:3bcb316df573bb472056bd1b27665f16b0cac021374465ee6843c01626370d2a\", \"operation\": \"STOP\", \"revision\": 5}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 1, \"interruptions\": [], \"last_task\": null, \"last_time\": null, \"next_check_at\": null, \"observations\": 1, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 6, \"root_hash\": \"sha256:b4e62fb0ff8ae47cf0ea59f5a0f92629cc9bbfc67891570d9dcbc5fd24be397f\", \"state\": \"STOP\", \"subject_id\": \"sub-7650d9b0f98c4de4\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 100000, \"token_used\": 0, \"token_remaining\": 100000, \"compute_remaining\": 1000}}\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_attach_transaction_busy_stop_is_uncommitted_then_same_identity_succeeds",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.runtime",
+        "start",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-ft8wc1ir"
+      ],
+      "pid": 11384,
+      "exitCode": 0,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:4cccd094ffffe72cde5fd560e9ea251d69c6d1194bc4e3be3ee4c0db9ea095ee\", \"id\": \"sha256:be678d1c992ed75b8f6bcd03df0df497e6354968a7a904da917612db8c9d6b76\", \"operation\": \"PAUSE\", \"revision\": 2}, {\"hash\": \"sha256:833cb98f5c47f79d4b07e0f1a209f468230048d9fca171ddfb43f62883676a84\", \"id\": \"sha256:3bcb316df573bb472056bd1b27665f16b0cac021374465ee6843c01626370d2a\", \"operation\": \"STOP\", \"revision\": 5}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 1, \"interruptions\": [], \"last_task\": null, \"last_time\": null, \"next_check_at\": null, \"observations\": 1, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 7, \"root_hash\": \"sha256:b4e62fb0ff8ae47cf0ea59f5a0f92629cc9bbfc67891570d9dcbc5fd24be397f\", \"state\": \"STOP\", \"subject_id\": \"sub-7650d9b0f98c4de4\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 100000, \"token_used\": 0, \"token_remaining\": 100000, \"compute_remaining\": 1000}}\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_bounded_stop_busy_retry_uses_same_identity_after_real_lock_release",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "\nimport contextlib,sys\nfrom pathlib import Path\nfrom continuity_engine.storage.json_runtime_repository import JsonRuntimeRepository\nfrom continuity_engine.runtime import main\nroot=Path(sys.argv[1]);hold=sys.argv[2]=='hold'\ntransaction=JsonRuntimeRepository.transaction;save=JsonRuntimeRepository.save\nattached=False\n@contextlib.contextmanager\ndef observed(self):\n    global attached\n    with transaction(self) as d:\n        yield d\n        attachment=d is not None and d['reason']=='HOST_ATTACHED'\n    if attachment and not attached:\n        attached=True;(root/'attach-released').write_text('released',encoding='utf8')\ndef saving(self,d):\n    if hold and d['reason']=='HOST_ATTACHED':\n        (root/'attach-held').write_text('held',encoding='utf8')\n        sys.stdin.readline()\n    return save(self,d)\nJsonRuntimeRepository.transaction=observed;JsonRuntimeRepository.save=saving\nraise SystemExit(main(['start','--root',str(root)]))\n",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-4dba_9sg",
+        "observe"
+      ],
+      "pid": 22000,
+      "exitCode": 0,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:3b2c1ffd58c8b1ea987b2c310dd4fddfd79b74a5dc93e6c165042a566994ff23\", \"id\": \"sha256:5f79d01c6bf2addc5026a84a31e4f21cee12c444c27d1fca80675efb88cf9dc2\", \"operation\": \"PAUSE\", \"revision\": 2}, {\"hash\": \"sha256:31e65cc83c77d2022d97ae8eb340dcdd53f92ca1ac66e0d8070de0150897da02\", \"id\": \"sha256:8c3e6e8c200e4b6e9921b68ec449b6480cdf1bcad89db98305caaeeaafab7be8\", \"operation\": \"PAUSE\", \"revision\": 5}, {\"hash\": \"sha256:e39a8554b1b5f1afb40f43552d85f4cdead4a06d6028c8dce76ccb3d29af6987\", \"id\": \"sha256:3bcb316df573bb472056bd1b27665f16b0cac021374465ee6843c01626370d2a\", \"operation\": \"STOP\", \"revision\": 6}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 1, \"interruptions\": [], \"last_task\": null, \"last_time\": null, \"next_check_at\": null, \"observations\": 1, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 7, \"root_hash\": \"sha256:484ade5f7acb0d844528a3b21283b444cbdb5083f44598acdfcc85e7b4af3dcd\", \"state\": \"STOP\", \"subject_id\": \"sub-39b70b30aeda4972\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 100000, \"token_used\": 0, \"token_remaining\": 100000, \"compute_remaining\": 1000}}\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_bounded_stop_busy_retry_uses_same_identity_after_real_lock_release",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "\nimport sys\nfrom pathlib import Path\nfrom continuity_engine.testing.p18_runtime_fixture import P18Fixture\nf=P18Fixture(Path(sys.argv[1]),initialize=False)\noriginal=f.store.save\ndef save(d):\n    print('CONTROL_LOCK_HELD',flush=True)\n    sys.stdin.readline()\n    return original(d)\nf.store.save=save\nf.host.control(sys.argv[2],command_id=sys.argv[3],expected_revision=None,handle='p18-test-owner')\nprint('CONTROL_SAVED',flush=True)\n",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-4dba_9sg",
+        "PAUSE",
+        "retry-holder"
+      ],
+      "pid": 27604,
+      "exitCode": 0,
+      "stdout": "CONTROL_SAVED\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_bounded_stop_busy_retry_uses_same_identity_after_real_lock_release",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.runtime",
+        "start",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-4dba_9sg"
+      ],
+      "pid": 23396,
+      "exitCode": 0,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:3b2c1ffd58c8b1ea987b2c310dd4fddfd79b74a5dc93e6c165042a566994ff23\", \"id\": \"sha256:5f79d01c6bf2addc5026a84a31e4f21cee12c444c27d1fca80675efb88cf9dc2\", \"operation\": \"PAUSE\", \"revision\": 2}, {\"hash\": \"sha256:31e65cc83c77d2022d97ae8eb340dcdd53f92ca1ac66e0d8070de0150897da02\", \"id\": \"sha256:8c3e6e8c200e4b6e9921b68ec449b6480cdf1bcad89db98305caaeeaafab7be8\", \"operation\": \"PAUSE\", \"revision\": 5}, {\"hash\": \"sha256:e39a8554b1b5f1afb40f43552d85f4cdead4a06d6028c8dce76ccb3d29af6987\", \"id\": \"sha256:3bcb316df573bb472056bd1b27665f16b0cac021374465ee6843c01626370d2a\", \"operation\": \"STOP\", \"revision\": 6}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 1, \"interruptions\": [], \"last_task\": null, \"last_time\": null, \"next_check_at\": null, \"observations\": 1, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 8, \"root_hash\": \"sha256:484ade5f7acb0d844528a3b21283b444cbdb5083f44598acdfcc85e7b4af3dcd\", \"state\": \"STOP\", \"subject_id\": \"sub-39b70b30aeda4972\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 100000, \"token_used\": 0, \"token_remaining\": 100000, \"compute_remaining\": 1000}}\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_bounded_stop_does_not_retry_non_busy_refusal",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "\nimport contextlib,sys\nfrom pathlib import Path\nfrom continuity_engine.storage.json_runtime_repository import JsonRuntimeRepository\nfrom continuity_engine.runtime import main\nroot=Path(sys.argv[1]);hold=sys.argv[2]=='hold'\ntransaction=JsonRuntimeRepository.transaction;save=JsonRuntimeRepository.save\nattached=False\n@contextlib.contextmanager\ndef observed(self):\n    global attached\n    with transaction(self) as d:\n        yield d\n        attachment=d is not None and d['reason']=='HOST_ATTACHED'\n    if attachment and not attached:\n        attached=True;(root/'attach-released').write_text('released',encoding='utf8')\ndef saving(self,d):\n    if hold and d['reason']=='HOST_ATTACHED':\n        (root/'attach-held').write_text('held',encoding='utf8')\n        sys.stdin.readline()\n    return save(self,d)\nJsonRuntimeRepository.transaction=observed;JsonRuntimeRepository.save=saving\nraise SystemExit(main(['start','--root',str(root)]))\n",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-e9vnucx2",
+        "observe"
+      ],
+      "pid": 13232,
+      "exitCode": 0,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:d59389eb00646bc2bde7b61aacc60603e556fa5368bc614f051f48efae3cb352\", \"id\": \"sha256:af2be3477295593eaf8d7b068e9ee69aa44362496f78bedcb88e5e1b5a2ec6d7\", \"operation\": \"PAUSE\", \"revision\": 2}, {\"hash\": \"sha256:b840079fd19f8029024eb3d58e8ff0f758b16447b1dd80dd37892074958cc98f\", \"id\": \"sha256:3bcb316df573bb472056bd1b27665f16b0cac021374465ee6843c01626370d2a\", \"operation\": \"STOP\", \"revision\": 5}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 1, \"interruptions\": [], \"last_task\": null, \"last_time\": null, \"next_check_at\": null, \"observations\": 1, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 6, \"root_hash\": \"sha256:4138a201841a70bbb114651fb821034c50cebd1103b6e71729709406f2db0bbc\", \"state\": \"STOP\", \"subject_id\": \"sub-8104459dc16b4e95\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 100000, \"token_used\": 0, \"token_remaining\": 100000, \"compute_remaining\": 1000}}\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_bounded_stop_does_not_retry_non_busy_refusal",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.runtime",
+        "start",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-e9vnucx2"
+      ],
+      "pid": 26028,
+      "exitCode": 0,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:d59389eb00646bc2bde7b61aacc60603e556fa5368bc614f051f48efae3cb352\", \"id\": \"sha256:af2be3477295593eaf8d7b068e9ee69aa44362496f78bedcb88e5e1b5a2ec6d7\", \"operation\": \"PAUSE\", \"revision\": 2}, {\"hash\": \"sha256:b840079fd19f8029024eb3d58e8ff0f758b16447b1dd80dd37892074958cc98f\", \"id\": \"sha256:3bcb316df573bb472056bd1b27665f16b0cac021374465ee6843c01626370d2a\", \"operation\": \"STOP\", \"revision\": 5}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 1, \"interruptions\": [], \"last_task\": null, \"last_time\": null, \"next_check_at\": null, \"observations\": 1, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 7, \"root_hash\": \"sha256:4138a201841a70bbb114651fb821034c50cebd1103b6e71729709406f2db0bbc\", \"state\": \"STOP\", \"subject_id\": \"sub-8104459dc16b4e95\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 100000, \"token_used\": 0, \"token_remaining\": 100000, \"compute_remaining\": 1000}}\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_effect_before_busy_observation_is_not_dispatched_again",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "\nimport sys\nfrom pathlib import Path\nfrom continuity_engine.testing.p18_runtime_fixture import P18Fixture\nf=P18Fixture(Path(sys.argv[1]),initialize=False)\noriginal=f.store.save\ndef save(d):\n    print('CONTROL_LOCK_HELD',flush=True)\n    sys.stdin.readline()\n    return original(d)\nf.store.save=save\nf.host.control(sys.argv[2],command_id=sys.argv[3],expected_revision=None,handle='p18-test-owner')\nprint('CONTROL_SAVED',flush=True)\n",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-7d1hd5eb",
+        "PAUSE",
+        "held-command"
+      ],
+      "pid": 26020,
+      "exitCode": 0,
+      "stdout": "CONTROL_SAVED\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_process.RuntimeProcessTests.runTest",
+      "stage": "controller-timeout-before-stop-child-diagnostic",
+      "pid": 25140,
+      "exitCode": null,
+      "stderr": ""
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_process.RuntimeProcessTests.runTest",
+      "stage": "controller-before-stop-cleanup-child-diagnostic",
+      "pid": 25140,
+      "exitCode": null,
+      "stderr": ""
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_process.RuntimeProcessTests.runTest",
+      "stage": "continuous-child",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.runtime",
+        "start",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\p18-process-xbt__9e2"
+      ],
+      "pid": 25140,
+      "exitCode": 0,
+      "forcedCleanup": false,
+      "seconds": 1.9088382000009005,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:4f2e58e8dd8eb91c85f859b78299e1316a2e3dd30d0d5422c3f16412e4016ea8\", \"id\": \"sha256:9418a2b5ee83f3192060671dd799f9641cdad9939843e0af60362158b57fe0ac\", \"operation\": \"STOP\", \"revision\": 4}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 1, \"interruptions\": [], \"last_task\": \"maintenance:ed8f254ac49ca269e915c16ff6c603061d09abb11dc0d7232cc0eef8919239a5\", \"last_time\": \"2026-09-04T08:00:00+00:00\", \"next_check_at\": null, \"observations\": 1, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 5, \"root_hash\": \"sha256:bec54c201005352b4d986f66648295bae7041fee23afee3821811fae12a34a86\", \"state\": \"STOP\", \"subject_id\": \"sub-1904d0c0fdc9449d\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 0, \"token_used\": 0, \"token_remaining\": 0, \"compute_remaining\": 999}}\n",
+      "stderr": ""
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_idle_tick_busy_is_bounded_read_only_and_resumes",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "\nimport sys\nfrom pathlib import Path\nfrom continuity_engine.testing.p18_runtime_fixture import P18Fixture\nf=P18Fixture(Path(sys.argv[1]),initialize=False)\noriginal=f.store.save\ndef save(d):\n    print('CONTROL_LOCK_HELD',flush=True)\n    sys.stdin.readline()\n    return original(d)\nf.store.save=save\nf.host.control(sys.argv[2],command_id=sys.argv[3],expected_revision=None,handle='p18-test-owner')\nprint('CONTROL_SAVED',flush=True)\n",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-gfyew53k",
+        "PAUSE",
+        "held-command"
+      ],
+      "pid": 12232,
+      "exitCode": 0,
+      "stdout": "CONTROL_SAVED\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_long_busy_control_rejects_without_record_and_same_identity_retries",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "\nimport sys\nfrom pathlib import Path\nfrom continuity_engine.testing.p18_runtime_fixture import P18Fixture\nf=P18Fixture(Path(sys.argv[1]),initialize=False)\noriginal=f.store.save\ndef save(d):\n    print('CONTROL_LOCK_HELD',flush=True)\n    sys.stdin.readline()\n    return original(d)\nf.store.save=save\nf.host.control(sys.argv[2],command_id=sys.argv[3],expected_revision=None,handle='p18-test-owner')\nprint('CONTROL_SAVED',flush=True)\n",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-3tnb3ehp",
+        "PAUSE",
+        "held-command"
+      ],
+      "pid": 11996,
+      "exitCode": 0,
+      "stdout": "CONTROL_SAVED\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_long_busy_host_remains_live_and_diagnostic_is_not_flooded",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "\nimport sys\nfrom pathlib import Path\nfrom continuity_engine.testing.p18_runtime_fixture import P18Fixture\nf=P18Fixture(Path(sys.argv[1]),initialize=False)\noriginal=f.store.save\ndef save(d):\n    print('CONTROL_LOCK_HELD',flush=True)\n    sys.stdin.readline()\n    return original(d)\nf.store.save=save\nf.host.control(sys.argv[2],command_id=sys.argv[3],expected_revision=None,handle='p18-test-owner')\nprint('CONTROL_SAVED',flush=True)\n",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-n5cwn_6n",
+        "PAUSE",
+        "held-command"
+      ],
+      "pid": 17624,
+      "exitCode": 0,
+      "stdout": "CONTROL_SAVED\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_long_busy_host_remains_live_and_diagnostic_is_not_flooded",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "\nimport sys\nfrom pathlib import Path\nfrom continuity_engine.testing.p18_runtime_fixture import P18Fixture\nf=P18Fixture(Path(sys.argv[1]),initialize=False)\noriginal=f.store.save\ndef save(d):\n    print('CONTROL_LOCK_HELD',flush=True)\n    sys.stdin.readline()\n    return original(d)\nf.store.save=save\nf.host.control(sys.argv[2],command_id=sys.argv[3],expected_revision=None,handle='p18-test-owner')\nprint('CONTROL_SAVED',flush=True)\n",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-n5cwn_6n",
+        "STOP",
+        "test-stop"
+      ],
+      "pid": 12336,
+      "exitCode": 0,
+      "stdout": "CONTROL_SAVED\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_long_busy_host_remains_live_and_diagnostic_is_not_flooded",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "\nimport contextlib,sys\nfrom pathlib import Path\nfrom continuity_engine.storage.json_runtime_repository import JsonRuntimeRepository\nfrom continuity_engine.runtime import main\nroot=Path(sys.argv[1]);hold=sys.argv[2]=='hold'\ntransaction=JsonRuntimeRepository.transaction;save=JsonRuntimeRepository.save\nattached=False\n@contextlib.contextmanager\ndef observed(self):\n    global attached\n    with transaction(self) as d:\n        yield d\n        attachment=d is not None and d['reason']=='HOST_ATTACHED'\n    if attachment and not attached:\n        attached=True;(root/'attach-released').write_text('released',encoding='utf8')\ndef saving(self,d):\n    if hold and d['reason']=='HOST_ATTACHED':\n        (root/'attach-held').write_text('held',encoding='utf8')\n        sys.stdin.readline()\n    return save(self,d)\nJsonRuntimeRepository.transaction=observed;JsonRuntimeRepository.save=saving\nraise SystemExit(main(['start','--root',str(root)]))\n",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-n5cwn_6n",
+        "observe"
+      ],
+      "pid": 14004,
+      "exitCode": 0,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:706a0ed6f281cf328289827972eafe3c60f60aea94775340b726be1dbc19003f\", \"id\": \"sha256:401407ef21cfdcf63a3ba9b6b3e0557f5f214d8fe7978bdfc8ab573e4ce8f688\", \"operation\": \"PAUSE\", \"revision\": 2}, {\"hash\": \"sha256:17895e12b424191939adbe71c3904f25f12999c3df4a25d5bc441bfec1c75323\", \"id\": \"sha256:4a5b9149122dd601b637b0eeb3d908bdf325bdcce1f6bd06ce16663c70251a03\", \"operation\": \"PAUSE\", \"revision\": 5}, {\"hash\": \"sha256:eea5c914606571265aea783c69add9ed4871cca1238a710132e1780ed9250955\", \"id\": \"sha256:3bcb316df573bb472056bd1b27665f16b0cac021374465ee6843c01626370d2a\", \"operation\": \"STOP\", \"revision\": 6}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 1, \"interruptions\": [], \"last_task\": null, \"last_time\": null, \"next_check_at\": null, \"observations\": 1, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 7, \"root_hash\": \"sha256:15de362a916afbf22587de6af0f93454e6fa448871f8f723b579f2ba3b5af918\", \"state\": \"STOP\", \"subject_id\": \"sub-81fec38cfa114ac3\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 100000, \"token_used\": 0, \"token_remaining\": 100000, \"compute_remaining\": 1000}}\n",
+      "stderr": "RUNTIME_CHECKPOINT_BUSY\nRUNTIME_CHECKPOINT_AVAILABLE\nRUNTIME_CHECKPOINT_BUSY\nRUNTIME_CHECKPOINT_AVAILABLE\n",
+      "forcedCleanup": false
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_long_busy_host_remains_live_and_diagnostic_is_not_flooded",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.runtime",
+        "start",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-n5cwn_6n"
+      ],
+      "pid": 27324,
+      "exitCode": 0,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:706a0ed6f281cf328289827972eafe3c60f60aea94775340b726be1dbc19003f\", \"id\": \"sha256:401407ef21cfdcf63a3ba9b6b3e0557f5f214d8fe7978bdfc8ab573e4ce8f688\", \"operation\": \"PAUSE\", \"revision\": 2}, {\"hash\": \"sha256:17895e12b424191939adbe71c3904f25f12999c3df4a25d5bc441bfec1c75323\", \"id\": \"sha256:4a5b9149122dd601b637b0eeb3d908bdf325bdcce1f6bd06ce16663c70251a03\", \"operation\": \"PAUSE\", \"revision\": 5}, {\"hash\": \"sha256:eea5c914606571265aea783c69add9ed4871cca1238a710132e1780ed9250955\", \"id\": \"sha256:3bcb316df573bb472056bd1b27665f16b0cac021374465ee6843c01626370d2a\", \"operation\": \"STOP\", \"revision\": 6}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 1, \"interruptions\": [], \"last_task\": null, \"last_time\": null, \"next_check_at\": null, \"observations\": 1, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 8, \"root_hash\": \"sha256:15de362a916afbf22587de6af0f93454e6fa448871f8f723b579f2ba3b5af918\", \"state\": \"STOP\", \"subject_id\": \"sub-81fec38cfa114ac3\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 100000, \"token_used\": 0, \"token_remaining\": 100000, \"compute_remaining\": 1000}}\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_paused_process_control_competition",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "\nimport sys\nfrom pathlib import Path\nfrom continuity_engine.testing.p18_runtime_fixture import P18Fixture\nf=P18Fixture(Path(sys.argv[1]),initialize=False)\noriginal=f.store.save\ndef save(d):\n    print('CONTROL_LOCK_HELD',flush=True)\n    sys.stdin.readline()\n    return original(d)\nf.store.save=save\nf.host.control(sys.argv[2],command_id=sys.argv[3],expected_revision=None,handle='p18-test-owner')\nprint('CONTROL_SAVED',flush=True)\n",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-94l55bsa",
+        "PAUSE",
+        "held-command"
+      ],
+      "pid": 16552,
+      "exitCode": 0,
+      "stdout": "CONTROL_SAVED\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_paused_process_control_competition",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.runtime",
+        "start",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-94l55bsa"
+      ],
+      "pid": 23068,
+      "exitCode": 0,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:de96e58ce708524c6f2bad7ecd5336e14a1dca2eb19249169ce8830bd351f568\", \"id\": \"sha256:1348acf9a3e2bf0e54a9ef8667315cbb8937b99ee67927a9b9e12e6811eb8f4c\", \"operation\": \"PAUSE\", \"revision\": 5}, {\"hash\": \"sha256:8022d7590ecd2302ecca18c6a7b784e0dc6b875ee0feb55123eb679b091ecbff\", \"id\": \"sha256:4a5b9149122dd601b637b0eeb3d908bdf325bdcce1f6bd06ce16663c70251a03\", \"operation\": \"PAUSE\", \"revision\": 8}, {\"hash\": \"sha256:738b1fbad904e35872a3720b2f2d46ad576ce540c3eb276cda494866e19521e3\", \"id\": \"sha256:d1c375c559888424bd7b57f5e1c9f3c1a566e2d00a706bfc7024ee9ce8b8b4f6\", \"operation\": \"RESUME\", \"revision\": 9}, {\"hash\": \"sha256:a6573b26aa7f16a0d9d6093b90273117d78bb0e31f193466699378ccadab4ac0\", \"id\": \"sha256:3bcb316df573bb472056bd1b27665f16b0cac021374465ee6843c01626370d2a\", \"operation\": \"STOP\", \"revision\": 11}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 2, \"interruptions\": [{\"generation\": 1, \"last_trusted_time\": \"2026-09-04T09:00:00+00:00\", \"reason\": \"HOST_DETACHED\"}, {\"generation\": 1, \"last_trusted_time\": \"2026-09-04T09:00:00+00:00\", \"reason\": \"PRIOR_HOST_LOST\"}], \"last_task\": \"maintenance:28b7d4743bc440a5f0aec3f725a4936b933090e94269a3b795c13f13785f1028\", \"last_time\": \"2026-09-04T09:03:00+00:00\", \"next_check_at\": null, \"observations\": 3, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 12, \"root_hash\": \"sha256:2b0fd45e35de63ce92dcd246208b475c85aa59a460dfe6455a3f1d47bcbfce43\", \"state\": \"STOP\", \"subject_id\": \"sub-cd32524b509a43ab\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 1, \"unconfirmed_tasks\": 1, \"resources\": {\"token_budget\": 100000, \"token_used\": 320, \"token_remaining\": 99680, \"compute_remaining\": 997}}\n",
+      "stderr": "RUNTIME_CHECKPOINT_BUSY\nRUNTIME_CHECKPOINT_AVAILABLE\n{\"stage\": \"native-exception-before-cleanup\", \"task_id\": \"cognition:05d4d81ec363e089338f49c4ddb9e024a0afb76e0562b8ff1b58ad24357dbfc1\", \"attempt_id\": \"p11-attempt-f6947c08a543a1873043e32641ba968fd9dd24a86bd72cf22f9f81e6c1064f8e\", \"chain\": [{\"frames\": [{\"file\": \"testing/p18_runtime_fixture.py\", \"line\": 140, \"function\": \"diagnosed_continue\"}, {\"file\": \"services/runtime_cognition.py\", \"line\": 248, \"function\": \"_continue\"}, {\"file\": \"services/resource_manager.py\", \"line\": 338, \"function\": \"record_actual_usage\"}, {\"file\": \"storage/json_resource_repository.py\", \"line\": 166, \"function\": \"reconcile_usage\"}, {\"file\": \"storage/json_resource_repository.py\", \"line\": 252, \"function\": \"_write_document\"}], \"code\": \"TEST_NATIVE_EXCEPTION\"}], \"systemChain\": [{\"type\": \"PermissionError\", \"operation\": \"other\", \"frames\": [{\"file\": \"testing/p18_runtime_fixture.py\", \"line\": 140, \"function\": \"diagnosed_continue\"}, {\"file\": \"services/runtime_cognition.py\", \"line\": 248, \"function\": \"_continue\"}, {\"file\": \"services/resource_manager.py\", \"line\": 338, \"function\": \"record_actual_usage\"}, {\"file\": \"storage/json_resource_repository.py\", \"line\": 166, \"function\": \"reconcile_usage\"}, {\"file\": \"storage/json_resource_repository.py\", \"line\": 252, \"function\": \"_write_document\"}], \"errno\": 13, \"winerror\": 5}], \"stateWriteLockOwnedAfterUnwind\": false}\n",
+      "forcedCleanup": false
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_paused_process_control_competition",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.runtime",
+        "start",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-94l55bsa"
+      ],
+      "pid": 2580,
+      "exitCode": 0,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:de96e58ce708524c6f2bad7ecd5336e14a1dca2eb19249169ce8830bd351f568\", \"id\": \"sha256:1348acf9a3e2bf0e54a9ef8667315cbb8937b99ee67927a9b9e12e6811eb8f4c\", \"operation\": \"PAUSE\", \"revision\": 5}, {\"hash\": \"sha256:8022d7590ecd2302ecca18c6a7b784e0dc6b875ee0feb55123eb679b091ecbff\", \"id\": \"sha256:4a5b9149122dd601b637b0eeb3d908bdf325bdcce1f6bd06ce16663c70251a03\", \"operation\": \"PAUSE\", \"revision\": 8}, {\"hash\": \"sha256:738b1fbad904e35872a3720b2f2d46ad576ce540c3eb276cda494866e19521e3\", \"id\": \"sha256:d1c375c559888424bd7b57f5e1c9f3c1a566e2d00a706bfc7024ee9ce8b8b4f6\", \"operation\": \"RESUME\", \"revision\": 9}, {\"hash\": \"sha256:a6573b26aa7f16a0d9d6093b90273117d78bb0e31f193466699378ccadab4ac0\", \"id\": \"sha256:3bcb316df573bb472056bd1b27665f16b0cac021374465ee6843c01626370d2a\", \"operation\": \"STOP\", \"revision\": 11}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 2, \"interruptions\": [{\"generation\": 1, \"last_trusted_time\": \"2026-09-04T09:00:00+00:00\", \"reason\": \"HOST_DETACHED\"}, {\"generation\": 1, \"last_trusted_time\": \"2026-09-04T09:00:00+00:00\", \"reason\": \"PRIOR_HOST_LOST\"}], \"last_task\": \"maintenance:28b7d4743bc440a5f0aec3f725a4936b933090e94269a3b795c13f13785f1028\", \"last_time\": \"2026-09-04T09:03:00+00:00\", \"next_check_at\": null, \"observations\": 3, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 13, \"root_hash\": \"sha256:2b0fd45e35de63ce92dcd246208b475c85aa59a460dfe6455a3f1d47bcbfce43\", \"state\": \"STOP\", \"subject_id\": \"sub-cd32524b509a43ab\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 1, \"unconfirmed_tasks\": 1, \"resources\": {\"token_budget\": 100000, \"token_used\": 320, \"token_remaining\": 99680, \"compute_remaining\": 997}}\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_real_busy_exit_keeps_original_error_and_releases_owner",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "\nimport sys\nfrom pathlib import Path\nfrom continuity_engine.testing.p18_runtime_fixture import P18Fixture\nf=P18Fixture(Path(sys.argv[1]),initialize=False)\noriginal=f.store.save\ndef save(d):\n    print('CONTROL_LOCK_HELD',flush=True)\n    sys.stdin.readline()\n    return original(d)\nf.store.save=save\nf.host.control(sys.argv[2],command_id=sys.argv[3],expected_revision=None,handle='p18-test-owner')\nprint('CONTROL_SAVED',flush=True)\n",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-f7ap_7fl",
+        "PAUSE",
+        "held-command"
+      ],
+      "pid": 12444,
+      "exitCode": 0,
+      "stdout": "CONTROL_SAVED\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_resource_wait_process_control_competition",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "\nimport sys\nfrom pathlib import Path\nfrom continuity_engine.testing.p18_runtime_fixture import P18Fixture\nf=P18Fixture(Path(sys.argv[1]),initialize=False)\noriginal=f.store.save\ndef save(d):\n    print('CONTROL_LOCK_HELD',flush=True)\n    sys.stdin.readline()\n    return original(d)\nf.store.save=save\nf.host.control(sys.argv[2],command_id=sys.argv[3],expected_revision=None,handle='p18-test-owner')\nprint('CONTROL_SAVED',flush=True)\n",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-clsnxxwv",
+        "PAUSE",
+        "held-command"
+      ],
+      "pid": 24304,
+      "exitCode": 0,
+      "stdout": "CONTROL_SAVED\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_resource_wait_process_control_competition",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.runtime",
+        "start",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-clsnxxwv"
+      ],
+      "pid": 23516,
+      "exitCode": 0,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:f00217f0ecf77217e0f799ab26b0644b83f3000956fdc79a99d1601dd32db6e7\", \"id\": \"sha256:4a5b9149122dd601b637b0eeb3d908bdf325bdcce1f6bd06ce16663c70251a03\", \"operation\": \"PAUSE\", \"revision\": 9}, {\"hash\": \"sha256:3f0177fa3a61a5b478b3e6a1bddd213fe9e41b17972a5067157c787ac5bb0c59\", \"id\": \"sha256:d1c375c559888424bd7b57f5e1c9f3c1a566e2d00a706bfc7024ee9ce8b8b4f6\", \"operation\": \"RESUME\", \"revision\": 10}, {\"hash\": \"sha256:3c9b6953799a5c936cd5b9211d9918aca42799ace0e209585ef2c7d66663ff07\", \"id\": \"sha256:3bcb316df573bb472056bd1b27665f16b0cac021374465ee6843c01626370d2a\", \"operation\": \"STOP\", \"revision\": 12}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 3, \"interruptions\": [{\"generation\": 1, \"last_trusted_time\": \"2026-09-04T09:00:00+00:00\", \"reason\": \"HOST_DETACHED\"}, {\"generation\": 1, \"last_trusted_time\": \"2026-09-04T09:00:00+00:00\", \"reason\": \"PRIOR_HOST_LOST\"}, {\"generation\": 2, \"last_trusted_time\": \"2026-09-04T09:01:00+00:00\", \"reason\": \"HOST_DETACHED\"}, {\"generation\": 2, \"last_trusted_time\": \"2026-09-04T09:01:00+00:00\", \"reason\": \"PRIOR_HOST_LOST\"}], \"last_task\": \"cognition:cfc5e199c04c2f643da5679609f97e2e182ea2cb018dbb9f2ed78482b82668d6\", \"last_time\": \"2026-09-04T09:04:00+00:00\", \"next_check_at\": null, \"observations\": 3, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 13, \"root_hash\": \"sha256:b6a7849033016389373b951ef8a8fa3e1e50480a80f4178082b55d054e6167ef\", \"state\": \"STOP\", \"subject_id\": \"sub-78088145eeb64806\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 100000, \"token_used\": 320, \"token_remaining\": 99680, \"compute_remaining\": 997}}\n",
+      "stderr": "RUNTIME_CHECKPOINT_BUSY\nRUNTIME_CHECKPOINT_AVAILABLE\n",
+      "forcedCleanup": false
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_resource_wait_process_control_competition",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.runtime",
+        "start",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-clsnxxwv"
+      ],
+      "pid": 14980,
+      "exitCode": 0,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:f00217f0ecf77217e0f799ab26b0644b83f3000956fdc79a99d1601dd32db6e7\", \"id\": \"sha256:4a5b9149122dd601b637b0eeb3d908bdf325bdcce1f6bd06ce16663c70251a03\", \"operation\": \"PAUSE\", \"revision\": 9}, {\"hash\": \"sha256:3f0177fa3a61a5b478b3e6a1bddd213fe9e41b17972a5067157c787ac5bb0c59\", \"id\": \"sha256:d1c375c559888424bd7b57f5e1c9f3c1a566e2d00a706bfc7024ee9ce8b8b4f6\", \"operation\": \"RESUME\", \"revision\": 10}, {\"hash\": \"sha256:3c9b6953799a5c936cd5b9211d9918aca42799ace0e209585ef2c7d66663ff07\", \"id\": \"sha256:3bcb316df573bb472056bd1b27665f16b0cac021374465ee6843c01626370d2a\", \"operation\": \"STOP\", \"revision\": 12}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 3, \"interruptions\": [{\"generation\": 1, \"last_trusted_time\": \"2026-09-04T09:00:00+00:00\", \"reason\": \"HOST_DETACHED\"}, {\"generation\": 1, \"last_trusted_time\": \"2026-09-04T09:00:00+00:00\", \"reason\": \"PRIOR_HOST_LOST\"}, {\"generation\": 2, \"last_trusted_time\": \"2026-09-04T09:01:00+00:00\", \"reason\": \"HOST_DETACHED\"}, {\"generation\": 2, \"last_trusted_time\": \"2026-09-04T09:01:00+00:00\", \"reason\": \"PRIOR_HOST_LOST\"}], \"last_task\": \"cognition:cfc5e199c04c2f643da5679609f97e2e182ea2cb018dbb9f2ed78482b82668d6\", \"last_time\": \"2026-09-04T09:04:00+00:00\", \"next_check_at\": null, \"observations\": 3, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 14, \"root_hash\": \"sha256:b6a7849033016389373b951ef8a8fa3e1e50480a80f4178082b55d054e6167ef\", \"state\": \"STOP\", \"subject_id\": \"sub-78088145eeb64806\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 100000, \"token_used\": 320, \"token_remaining\": 99680, \"compute_remaining\": 997}}\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_running_process_control_competition",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "\nimport sys\nfrom pathlib import Path\nfrom continuity_engine.testing.p18_runtime_fixture import P18Fixture\nf=P18Fixture(Path(sys.argv[1]),initialize=False)\noriginal=f.store.save\ndef save(d):\n    print('CONTROL_LOCK_HELD',flush=True)\n    sys.stdin.readline()\n    return original(d)\nf.store.save=save\nf.host.control(sys.argv[2],command_id=sys.argv[3],expected_revision=None,handle='p18-test-owner')\nprint('CONTROL_SAVED',flush=True)\n",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-8cwjb9k8",
+        "PAUSE",
+        "held-command"
+      ],
+      "pid": 15160,
+      "exitCode": 0,
+      "stdout": "CONTROL_SAVED\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_running_process_control_competition",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.runtime",
+        "start",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-8cwjb9k8"
+      ],
+      "pid": 15396,
+      "exitCode": 0,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:ff2eab0be944bd9afcdc6028dc04f4f36e3dff4d09cfe5aca2e06b139dd62b5f\", \"id\": \"sha256:4a5b9149122dd601b637b0eeb3d908bdf325bdcce1f6bd06ce16663c70251a03\", \"operation\": \"PAUSE\", \"revision\": 6}, {\"hash\": \"sha256:013c3019979c4e6ac74ba7cfaaf663fec78463da1fc88952d6a6e0cae3896cf5\", \"id\": \"sha256:d1c375c559888424bd7b57f5e1c9f3c1a566e2d00a706bfc7024ee9ce8b8b4f6\", \"operation\": \"RESUME\", \"revision\": 7}, {\"hash\": \"sha256:f0f335675cfb81db00b49465cf61d90143b872ced4709d7502f1cc8bf154b501\", \"id\": \"sha256:3bcb316df573bb472056bd1b27665f16b0cac021374465ee6843c01626370d2a\", \"operation\": \"STOP\", \"revision\": 9}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 2, \"interruptions\": [{\"generation\": 1, \"last_trusted_time\": \"2026-09-04T09:00:00+00:00\", \"reason\": \"HOST_DETACHED\"}, {\"generation\": 1, \"last_trusted_time\": \"2026-09-04T09:00:00+00:00\", \"reason\": \"PRIOR_HOST_LOST\"}], \"last_task\": \"maintenance:4472bb27389c57e32cf92765fe5aaa768337babf1d19acfbb1de525c4ee8cbc7\", \"last_time\": \"2026-09-04T09:03:00+00:00\", \"next_check_at\": null, \"observations\": 2, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 10, \"root_hash\": \"sha256:2bbfe803b671a36a3051b67b7a103c329a9ecc34ef034db1683ec8c3586fc238\", \"state\": \"STOP\", \"subject_id\": \"sub-bff88d49e15548de\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 100000, \"token_used\": 0, \"token_remaining\": 100000, \"compute_remaining\": 999}}\n",
+      "stderr": "RUNTIME_CHECKPOINT_BUSY\nRUNTIME_CHECKPOINT_AVAILABLE\n",
+      "forcedCleanup": false
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_second_host_still_immediately_rejected",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.runtime",
+        "start",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-r9oe03d1"
+      ],
+      "pid": 14400,
+      "exitCode": 2,
+      "stdout": "",
+      "stderr": "RUNTIME_BUSY\n",
+      "forcedCleanup": false
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_stale_cas_and_conflicting_identity_still_fail_closed",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "\nimport sys\nfrom pathlib import Path\nfrom continuity_engine.testing.p18_runtime_fixture import P18Fixture\nf=P18Fixture(Path(sys.argv[1]),initialize=False)\noriginal=f.store.save\ndef save(d):\n    print('CONTROL_LOCK_HELD',flush=True)\n    sys.stdin.readline()\n    return original(d)\nf.store.save=save\nf.host.control(sys.argv[2],command_id=sys.argv[3],expected_revision=None,handle='p18-test-owner')\nprint('CONTROL_SAVED',flush=True)\n",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-p4dmlcuz",
+        "PAUSE",
+        "held-command"
+      ],
+      "pid": 23784,
+      "exitCode": 0,
+      "stdout": "CONTROL_SAVED\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_start_waits_for_checkpoint_without_relaxing_owner_lock",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "\nimport sys\nfrom pathlib import Path\nfrom continuity_engine.testing.p18_runtime_fixture import P18Fixture\nf=P18Fixture(Path(sys.argv[1]),initialize=False)\noriginal=f.store.save\ndef save(d):\n    print('CONTROL_LOCK_HELD',flush=True)\n    sys.stdin.readline()\n    return original(d)\nf.store.save=save\nf.host.control(sys.argv[2],command_id=sys.argv[3],expected_revision=None,handle='p18-test-owner')\nprint('CONTROL_SAVED',flush=True)\n",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-1idd0r6e",
+        "PAUSE",
+        "held-command"
+      ],
+      "pid": 10204,
+      "exitCode": 0,
+      "stdout": "CONTROL_SAVED\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_start_waits_for_checkpoint_without_relaxing_owner_lock",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "\nimport contextlib,sys\nfrom pathlib import Path\nfrom continuity_engine.storage.json_runtime_repository import JsonRuntimeRepository\nfrom continuity_engine.runtime import main\nroot=Path(sys.argv[1]);hold=sys.argv[2]=='hold'\ntransaction=JsonRuntimeRepository.transaction;save=JsonRuntimeRepository.save\nattached=False\n@contextlib.contextmanager\ndef observed(self):\n    global attached\n    with transaction(self) as d:\n        yield d\n        attachment=d is not None and d['reason']=='HOST_ATTACHED'\n    if attachment and not attached:\n        attached=True;(root/'attach-released').write_text('released',encoding='utf8')\ndef saving(self,d):\n    if hold and d['reason']=='HOST_ATTACHED':\n        (root/'attach-held').write_text('held',encoding='utf8')\n        sys.stdin.readline()\n    return save(self,d)\nJsonRuntimeRepository.transaction=observed;JsonRuntimeRepository.save=saving\nraise SystemExit(main(['start','--root',str(root)]))\n",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-1idd0r6e",
+        "observe"
+      ],
+      "pid": 27056,
+      "exitCode": 0,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:7d86a59bc963583e06b322a12f80c70fc8ff8b0b6cea379048bfeb95505fd53f\", \"id\": \"sha256:4a5b9149122dd601b637b0eeb3d908bdf325bdcce1f6bd06ce16663c70251a03\", \"operation\": \"PAUSE\", \"revision\": 2}, {\"hash\": \"sha256:ef16d4e8761b9191ac27559f5ceba9cefd9c3c9419165977fc340142d7e476b9\", \"id\": \"sha256:3bcb316df573bb472056bd1b27665f16b0cac021374465ee6843c01626370d2a\", \"operation\": \"STOP\", \"revision\": 5}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 1, \"interruptions\": [], \"last_task\": null, \"last_time\": null, \"next_check_at\": null, \"observations\": 1, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 6, \"root_hash\": \"sha256:c7dbae273ff950f85635b3117152dd8d3a8614fce9516d89f3d449f51f180795\", \"state\": \"STOP\", \"subject_id\": \"sub-5fe4b4d4e784457b\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 100000, \"token_used\": 0, \"token_remaining\": 100000, \"compute_remaining\": 1000}}\n",
+      "stderr": "RUNTIME_CHECKPOINT_BUSY\nRUNTIME_CHECKPOINT_AVAILABLE\n",
+      "forcedCleanup": false
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_start_waits_for_checkpoint_without_relaxing_owner_lock",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.runtime",
+        "start",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-1idd0r6e"
+      ],
+      "pid": 15712,
+      "exitCode": 0,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:7d86a59bc963583e06b322a12f80c70fc8ff8b0b6cea379048bfeb95505fd53f\", \"id\": \"sha256:4a5b9149122dd601b637b0eeb3d908bdf325bdcce1f6bd06ce16663c70251a03\", \"operation\": \"PAUSE\", \"revision\": 2}, {\"hash\": \"sha256:ef16d4e8761b9191ac27559f5ceba9cefd9c3c9419165977fc340142d7e476b9\", \"id\": \"sha256:3bcb316df573bb472056bd1b27665f16b0cac021374465ee6843c01626370d2a\", \"operation\": \"STOP\", \"revision\": 5}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 1, \"interruptions\": [], \"last_task\": null, \"last_time\": null, \"next_check_at\": null, \"observations\": 1, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 7, \"root_hash\": \"sha256:c7dbae273ff950f85635b3117152dd8d3a8614fce9516d89f3d449f51f180795\", \"state\": \"STOP\", \"subject_id\": \"sub-5fe4b4d4e784457b\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 100000, \"token_used\": 0, \"token_remaining\": 100000, \"compute_remaining\": 1000}}\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "compatibility-final-01",
+      "test": "tests.test_p18_runtime_contention.RuntimeContentionTests.test_waiting_old_observation_does_not_overwrite_new_resume",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "\nimport sys\nfrom pathlib import Path\nfrom continuity_engine.testing.p18_runtime_fixture import P18Fixture\nf=P18Fixture(Path(sys.argv[1]),initialize=False)\noriginal=f.store.save\ndef save(d):\n    print('CONTROL_LOCK_HELD',flush=True)\n    sys.stdin.readline()\n    return original(d)\nf.store.save=save\nf.host.control(sys.argv[2],command_id=sys.argv[3],expected_revision=None,handle='p18-test-owner')\nprint('CONTROL_SAVED',flush=True)\n",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-inwd6vbv",
+        "RESUME",
+        "held-command"
+      ],
+      "pid": 21952,
+      "exitCode": 0,
+      "stdout": "CONTROL_SAVED\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_contention.RuntimeContentionTests.test_attach_transaction_busy_stop_is_uncommitted_then_same_identity_succeeds",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.runtime",
+        "start",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-guifg76l"
+      ],
+      "pid": 12388,
+      "exitCode": 2,
+      "stdout": "",
+      "stderr": "RUNTIME_BUSY\n",
+      "forcedCleanup": false
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_contention.RuntimeContentionTests.test_attach_transaction_busy_stop_is_uncommitted_then_same_identity_succeeds",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "\nimport contextlib,sys\nfrom pathlib import Path\nfrom continuity_engine.storage.json_runtime_repository import JsonRuntimeRepository\nfrom continuity_engine.runtime import main\nroot=Path(sys.argv[1]);hold=sys.argv[2]=='hold'\ntransaction=JsonRuntimeRepository.transaction;save=JsonRuntimeRepository.save\nattached=False\n@contextlib.contextmanager\ndef observed(self):\n    global attached\n    with transaction(self) as d:\n        yield d\n        attachment=d is not None and d['reason']=='HOST_ATTACHED'\n    if attachment and not attached:\n        attached=True;(root/'attach-released').write_text('released',encoding='utf8')\ndef saving(self,d):\n    if hold and d['reason']=='HOST_ATTACHED':\n        (root/'attach-held').write_text('held',encoding='utf8')\n        sys.stdin.readline()\n    return save(self,d)\nJsonRuntimeRepository.transaction=observed;JsonRuntimeRepository.save=saving\nraise SystemExit(main(['start','--root',str(root)]))\n",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-guifg76l",
+        "hold"
+      ],
+      "pid": 22624,
+      "exitCode": 0,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:75888324662c01419d11482f9d602a743c0af7757319ac65d39785797f66201b\", \"id\": \"sha256:81931e70b4b50314aa920e7490c213de5e7769f4671362703f154596c8b1f431\", \"operation\": \"PAUSE\", \"revision\": 2}, {\"hash\": \"sha256:6fba78cded3b588301a042db113243bf1ec02aae7604c357614ced26cc7fd3ae\", \"id\": \"sha256:3bcb316df573bb472056bd1b27665f16b0cac021374465ee6843c01626370d2a\", \"operation\": \"STOP\", \"revision\": 5}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 1, \"interruptions\": [], \"last_task\": null, \"last_time\": null, \"next_check_at\": null, \"observations\": 1, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 6, \"root_hash\": \"sha256:acaee266c9900af27095401d0adf16780b4dfec270bb2d9f1fd7b073ccb604b9\", \"state\": \"STOP\", \"subject_id\": \"sub-5fee846a5790498a\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 100000, \"token_used\": 0, \"token_remaining\": 100000, \"compute_remaining\": 1000}}\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_contention.RuntimeContentionTests.test_attach_transaction_busy_stop_is_uncommitted_then_same_identity_succeeds",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.runtime",
+        "start",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-guifg76l"
+      ],
+      "pid": 5500,
+      "exitCode": 0,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:75888324662c01419d11482f9d602a743c0af7757319ac65d39785797f66201b\", \"id\": \"sha256:81931e70b4b50314aa920e7490c213de5e7769f4671362703f154596c8b1f431\", \"operation\": \"PAUSE\", \"revision\": 2}, {\"hash\": \"sha256:6fba78cded3b588301a042db113243bf1ec02aae7604c357614ced26cc7fd3ae\", \"id\": \"sha256:3bcb316df573bb472056bd1b27665f16b0cac021374465ee6843c01626370d2a\", \"operation\": \"STOP\", \"revision\": 5}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 1, \"interruptions\": [], \"last_task\": null, \"last_time\": null, \"next_check_at\": null, \"observations\": 1, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 7, \"root_hash\": \"sha256:acaee266c9900af27095401d0adf16780b4dfec270bb2d9f1fd7b073ccb604b9\", \"state\": \"STOP\", \"subject_id\": \"sub-5fee846a5790498a\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 100000, \"token_used\": 0, \"token_remaining\": 100000, \"compute_remaining\": 1000}}\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_contention.RuntimeContentionTests.test_bounded_stop_busy_retry_uses_same_identity_after_real_lock_release",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "\nimport contextlib,sys\nfrom pathlib import Path\nfrom continuity_engine.storage.json_runtime_repository import JsonRuntimeRepository\nfrom continuity_engine.runtime import main\nroot=Path(sys.argv[1]);hold=sys.argv[2]=='hold'\ntransaction=JsonRuntimeRepository.transaction;save=JsonRuntimeRepository.save\nattached=False\n@contextlib.contextmanager\ndef observed(self):\n    global attached\n    with transaction(self) as d:\n        yield d\n        attachment=d is not None and d['reason']=='HOST_ATTACHED'\n    if attachment and not attached:\n        attached=True;(root/'attach-released').write_text('released',encoding='utf8')\ndef saving(self,d):\n    if hold and d['reason']=='HOST_ATTACHED':\n        (root/'attach-held').write_text('held',encoding='utf8')\n        sys.stdin.readline()\n    return save(self,d)\nJsonRuntimeRepository.transaction=observed;JsonRuntimeRepository.save=saving\nraise SystemExit(main(['start','--root',str(root)]))\n",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-zttnu2zn",
+        "observe"
+      ],
+      "pid": 12824,
+      "exitCode": 0,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:aa9303e93b500a280585b233c56e2938b14a3bc77dfd9ef1431ceff550bb93e5\", \"id\": \"sha256:c07d9a2aba461a6b4ff943aca8df8796c189d459340567447c742e25ea2a74a5\", \"operation\": \"PAUSE\", \"revision\": 2}, {\"hash\": \"sha256:d58961f288915ff86e5854a4c32dbdf7a61e0a70098681aa358dbe34fd8cecb2\", \"id\": \"sha256:8c3e6e8c200e4b6e9921b68ec449b6480cdf1bcad89db98305caaeeaafab7be8\", \"operation\": \"PAUSE\", \"revision\": 5}, {\"hash\": \"sha256:2103f6be3172806f76cc17f43ce9a680069585bcde101eca995a00522e309c4c\", \"id\": \"sha256:3bcb316df573bb472056bd1b27665f16b0cac021374465ee6843c01626370d2a\", \"operation\": \"STOP\", \"revision\": 6}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 1, \"interruptions\": [], \"last_task\": null, \"last_time\": null, \"next_check_at\": null, \"observations\": 1, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 7, \"root_hash\": \"sha256:46880684ae6f8a01732878ec4c63cf46f66c23eadd79cb6db7a7947d84fb8d34\", \"state\": \"STOP\", \"subject_id\": \"sub-5a43a30c43a74fcc\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 100000, \"token_used\": 0, \"token_remaining\": 100000, \"compute_remaining\": 1000}}\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_contention.RuntimeContentionTests.test_bounded_stop_busy_retry_uses_same_identity_after_real_lock_release",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "\nimport sys\nfrom pathlib import Path\nfrom continuity_engine.testing.p18_runtime_fixture import P18Fixture\nf=P18Fixture(Path(sys.argv[1]),initialize=False)\noriginal=f.store.save\ndef save(d):\n    print('CONTROL_LOCK_HELD',flush=True)\n    sys.stdin.readline()\n    return original(d)\nf.store.save=save\nf.host.control(sys.argv[2],command_id=sys.argv[3],expected_revision=None,handle='p18-test-owner')\nprint('CONTROL_SAVED',flush=True)\n",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-zttnu2zn",
+        "PAUSE",
+        "retry-holder"
+      ],
+      "pid": 27184,
+      "exitCode": 0,
+      "stdout": "CONTROL_SAVED\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_contention.RuntimeContentionTests.test_bounded_stop_busy_retry_uses_same_identity_after_real_lock_release",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.runtime",
+        "start",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-zttnu2zn"
+      ],
+      "pid": 2660,
+      "exitCode": 0,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:aa9303e93b500a280585b233c56e2938b14a3bc77dfd9ef1431ceff550bb93e5\", \"id\": \"sha256:c07d9a2aba461a6b4ff943aca8df8796c189d459340567447c742e25ea2a74a5\", \"operation\": \"PAUSE\", \"revision\": 2}, {\"hash\": \"sha256:d58961f288915ff86e5854a4c32dbdf7a61e0a70098681aa358dbe34fd8cecb2\", \"id\": \"sha256:8c3e6e8c200e4b6e9921b68ec449b6480cdf1bcad89db98305caaeeaafab7be8\", \"operation\": \"PAUSE\", \"revision\": 5}, {\"hash\": \"sha256:2103f6be3172806f76cc17f43ce9a680069585bcde101eca995a00522e309c4c\", \"id\": \"sha256:3bcb316df573bb472056bd1b27665f16b0cac021374465ee6843c01626370d2a\", \"operation\": \"STOP\", \"revision\": 6}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 1, \"interruptions\": [], \"last_task\": null, \"last_time\": null, \"next_check_at\": null, \"observations\": 1, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 8, \"root_hash\": \"sha256:46880684ae6f8a01732878ec4c63cf46f66c23eadd79cb6db7a7947d84fb8d34\", \"state\": \"STOP\", \"subject_id\": \"sub-5a43a30c43a74fcc\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 100000, \"token_used\": 0, \"token_remaining\": 100000, \"compute_remaining\": 1000}}\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_contention.RuntimeContentionTests.test_bounded_stop_does_not_retry_non_busy_refusal",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "\nimport contextlib,sys\nfrom pathlib import Path\nfrom continuity_engine.storage.json_runtime_repository import JsonRuntimeRepository\nfrom continuity_engine.runtime import main\nroot=Path(sys.argv[1]);hold=sys.argv[2]=='hold'\ntransaction=JsonRuntimeRepository.transaction;save=JsonRuntimeRepository.save\nattached=False\n@contextlib.contextmanager\ndef observed(self):\n    global attached\n    with transaction(self) as d:\n        yield d\n        attachment=d is not None and d['reason']=='HOST_ATTACHED'\n    if attachment and not attached:\n        attached=True;(root/'attach-released').write_text('released',encoding='utf8')\ndef saving(self,d):\n    if hold and d['reason']=='HOST_ATTACHED':\n        (root/'attach-held').write_text('held',encoding='utf8')\n        sys.stdin.readline()\n    return save(self,d)\nJsonRuntimeRepository.transaction=observed;JsonRuntimeRepository.save=saving\nraise SystemExit(main(['start','--root',str(root)]))\n",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-n3auwme8",
+        "observe"
+      ],
+      "pid": 17964,
+      "exitCode": 0,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:33f9b9d44715edd1585607a767b7dccfd21e2539ab9a7338b528899cf00673d0\", \"id\": \"sha256:b5f6e1b8b103082482631103e207ce12d1cc3227d535efedd8bf6dcf742a3cf0\", \"operation\": \"PAUSE\", \"revision\": 2}, {\"hash\": \"sha256:442d1e6643e0fb8e59199aa4ca9b0fd3ce69b31d2083b9c6f773ed77705eb8a7\", \"id\": \"sha256:3bcb316df573bb472056bd1b27665f16b0cac021374465ee6843c01626370d2a\", \"operation\": \"STOP\", \"revision\": 5}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 1, \"interruptions\": [], \"last_task\": null, \"last_time\": null, \"next_check_at\": null, \"observations\": 1, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 6, \"root_hash\": \"sha256:25b3f570a4ae0478466a0f60875c761c8d97520cd8a257ec53b0812d07d7e2d1\", \"state\": \"STOP\", \"subject_id\": \"sub-fcc5663b3db544fd\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 100000, \"token_used\": 0, \"token_remaining\": 100000, \"compute_remaining\": 1000}}\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_contention.RuntimeContentionTests.test_bounded_stop_does_not_retry_non_busy_refusal",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.runtime",
+        "start",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-n3auwme8"
+      ],
+      "pid": 21660,
+      "exitCode": 0,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:33f9b9d44715edd1585607a767b7dccfd21e2539ab9a7338b528899cf00673d0\", \"id\": \"sha256:b5f6e1b8b103082482631103e207ce12d1cc3227d535efedd8bf6dcf742a3cf0\", \"operation\": \"PAUSE\", \"revision\": 2}, {\"hash\": \"sha256:442d1e6643e0fb8e59199aa4ca9b0fd3ce69b31d2083b9c6f773ed77705eb8a7\", \"id\": \"sha256:3bcb316df573bb472056bd1b27665f16b0cac021374465ee6843c01626370d2a\", \"operation\": \"STOP\", \"revision\": 5}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 1, \"interruptions\": [], \"last_task\": null, \"last_time\": null, \"next_check_at\": null, \"observations\": 1, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 7, \"root_hash\": \"sha256:25b3f570a4ae0478466a0f60875c761c8d97520cd8a257ec53b0812d07d7e2d1\", \"state\": \"STOP\", \"subject_id\": \"sub-fcc5663b3db544fd\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 100000, \"token_used\": 0, \"token_remaining\": 100000, \"compute_remaining\": 1000}}\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_contention.RuntimeContentionTests.test_effect_before_busy_observation_is_not_dispatched_again",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "\nimport sys\nfrom pathlib import Path\nfrom continuity_engine.testing.p18_runtime_fixture import P18Fixture\nf=P18Fixture(Path(sys.argv[1]),initialize=False)\noriginal=f.store.save\ndef save(d):\n    print('CONTROL_LOCK_HELD',flush=True)\n    sys.stdin.readline()\n    return original(d)\nf.store.save=save\nf.host.control(sys.argv[2],command_id=sys.argv[3],expected_revision=None,handle='p18-test-owner')\nprint('CONTROL_SAVED',flush=True)\n",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-j4emp102",
+        "PAUSE",
+        "held-command"
+      ],
+      "pid": 10756,
+      "exitCode": 0,
+      "stdout": "CONTROL_SAVED\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "full-final-01",
+      "test": "tests.test_p18_runtime_process.RuntimeProcessTests.runTest",
+      "stage": "controller-timeout-before-stop-child-diagnostic",
+      "pid": 8392,
+      "exitCode": null,
+      "stderr": ""
+    },
+    {
+      "label": "full-final-01",
+      "test": "tests.test_p18_runtime_process.RuntimeProcessTests.runTest",
+      "stage": "controller-before-stop-cleanup-child-diagnostic",
+      "pid": 8392,
+      "exitCode": null,
+      "stderr": ""
+    },
+    {
+      "label": "full-final-01",
+      "test": "tests.test_p18_runtime_process.RuntimeProcessTests.runTest",
+      "stage": "continuous-child",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.runtime",
+        "start",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\p18-process-h5rk3fp3"
+      ],
+      "pid": 8392,
+      "exitCode": 0,
+      "forcedCleanup": false,
+      "seconds": 1.9546487999978126,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:12d435e5807944786c7b3fa6ac2d7d951c8414e776b62aeaace52d42ea55de43\", \"id\": \"sha256:d088ea8857449c2828024694885f69b84794aa45efacdda73e984553c015afe6\", \"operation\": \"STOP\", \"revision\": 4}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 1, \"interruptions\": [], \"last_task\": \"maintenance:7c0badeb05f8222080768997c0cd411ea5269c504ba32684a99873f77dd8f40e\", \"last_time\": \"2026-09-04T08:00:00+00:00\", \"next_check_at\": null, \"observations\": 1, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 5, \"root_hash\": \"sha256:92ed768991e63f61cc67e3af68293936e826f6f48fd317ecb98121dbbaf33baf\", \"state\": \"STOP\", \"subject_id\": \"sub-6868fef7dc5946e7\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 0, \"token_used\": 0, \"token_remaining\": 0, \"compute_remaining\": 999}}\n",
+      "stderr": ""
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_contention.RuntimeContentionTests.test_idle_tick_busy_is_bounded_read_only_and_resumes",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "\nimport sys\nfrom pathlib import Path\nfrom continuity_engine.testing.p18_runtime_fixture import P18Fixture\nf=P18Fixture(Path(sys.argv[1]),initialize=False)\noriginal=f.store.save\ndef save(d):\n    print('CONTROL_LOCK_HELD',flush=True)\n    sys.stdin.readline()\n    return original(d)\nf.store.save=save\nf.host.control(sys.argv[2],command_id=sys.argv[3],expected_revision=None,handle='p18-test-owner')\nprint('CONTROL_SAVED',flush=True)\n",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-09_gm8uk",
+        "PAUSE",
+        "held-command"
+      ],
+      "pid": 22996,
+      "exitCode": 0,
+      "stdout": "CONTROL_SAVED\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_contention.RuntimeContentionTests.test_long_busy_control_rejects_without_record_and_same_identity_retries",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "\nimport sys\nfrom pathlib import Path\nfrom continuity_engine.testing.p18_runtime_fixture import P18Fixture\nf=P18Fixture(Path(sys.argv[1]),initialize=False)\noriginal=f.store.save\ndef save(d):\n    print('CONTROL_LOCK_HELD',flush=True)\n    sys.stdin.readline()\n    return original(d)\nf.store.save=save\nf.host.control(sys.argv[2],command_id=sys.argv[3],expected_revision=None,handle='p18-test-owner')\nprint('CONTROL_SAVED',flush=True)\n",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-4b6r3gu9",
+        "PAUSE",
+        "held-command"
+      ],
+      "pid": 23228,
+      "exitCode": 0,
+      "stdout": "CONTROL_SAVED\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_contention.RuntimeContentionTests.test_long_busy_host_remains_live_and_diagnostic_is_not_flooded",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "\nimport sys\nfrom pathlib import Path\nfrom continuity_engine.testing.p18_runtime_fixture import P18Fixture\nf=P18Fixture(Path(sys.argv[1]),initialize=False)\noriginal=f.store.save\ndef save(d):\n    print('CONTROL_LOCK_HELD',flush=True)\n    sys.stdin.readline()\n    return original(d)\nf.store.save=save\nf.host.control(sys.argv[2],command_id=sys.argv[3],expected_revision=None,handle='p18-test-owner')\nprint('CONTROL_SAVED',flush=True)\n",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-636mksua",
+        "PAUSE",
+        "held-command"
+      ],
+      "pid": 12296,
+      "exitCode": 0,
+      "stdout": "CONTROL_SAVED\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_contention.RuntimeContentionTests.test_long_busy_host_remains_live_and_diagnostic_is_not_flooded",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "\nimport sys\nfrom pathlib import Path\nfrom continuity_engine.testing.p18_runtime_fixture import P18Fixture\nf=P18Fixture(Path(sys.argv[1]),initialize=False)\noriginal=f.store.save\ndef save(d):\n    print('CONTROL_LOCK_HELD',flush=True)\n    sys.stdin.readline()\n    return original(d)\nf.store.save=save\nf.host.control(sys.argv[2],command_id=sys.argv[3],expected_revision=None,handle='p18-test-owner')\nprint('CONTROL_SAVED',flush=True)\n",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-636mksua",
+        "STOP",
+        "test-stop"
+      ],
+      "pid": 8292,
+      "exitCode": 0,
+      "stdout": "CONTROL_SAVED\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_contention.RuntimeContentionTests.test_long_busy_host_remains_live_and_diagnostic_is_not_flooded",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "\nimport contextlib,sys\nfrom pathlib import Path\nfrom continuity_engine.storage.json_runtime_repository import JsonRuntimeRepository\nfrom continuity_engine.runtime import main\nroot=Path(sys.argv[1]);hold=sys.argv[2]=='hold'\ntransaction=JsonRuntimeRepository.transaction;save=JsonRuntimeRepository.save\nattached=False\n@contextlib.contextmanager\ndef observed(self):\n    global attached\n    with transaction(self) as d:\n        yield d\n        attachment=d is not None and d['reason']=='HOST_ATTACHED'\n    if attachment and not attached:\n        attached=True;(root/'attach-released').write_text('released',encoding='utf8')\ndef saving(self,d):\n    if hold and d['reason']=='HOST_ATTACHED':\n        (root/'attach-held').write_text('held',encoding='utf8')\n        sys.stdin.readline()\n    return save(self,d)\nJsonRuntimeRepository.transaction=observed;JsonRuntimeRepository.save=saving\nraise SystemExit(main(['start','--root',str(root)]))\n",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-636mksua",
+        "observe"
+      ],
+      "pid": 24348,
+      "exitCode": 0,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:3d428f6dbb5bac217eae53b02c79bc1819ded3036a6d710cf6555056717b2c49\", \"id\": \"sha256:07aa1c177e30c820dea3da642020aba7b5856c20c72b616390cff461ee19e4ad\", \"operation\": \"PAUSE\", \"revision\": 2}, {\"hash\": \"sha256:6aa2e81e56ad0df8c978f00ed2a0fe8da2a6102dd4202ebe8c0dc2cc7609d8d1\", \"id\": \"sha256:4a5b9149122dd601b637b0eeb3d908bdf325bdcce1f6bd06ce16663c70251a03\", \"operation\": \"PAUSE\", \"revision\": 5}, {\"hash\": \"sha256:2458b468e600f2717664d85a3cf41034b8bdf8656097db51d8ecae1fa7180011\", \"id\": \"sha256:3bcb316df573bb472056bd1b27665f16b0cac021374465ee6843c01626370d2a\", \"operation\": \"STOP\", \"revision\": 6}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 1, \"interruptions\": [], \"last_task\": null, \"last_time\": null, \"next_check_at\": null, \"observations\": 1, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 7, \"root_hash\": \"sha256:f30d5c2cd0419b8efde6b8e186a1d63350adf7cf8ee4fe56763fe47302feda72\", \"state\": \"STOP\", \"subject_id\": \"sub-59f7426494e6414d\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 100000, \"token_used\": 0, \"token_remaining\": 100000, \"compute_remaining\": 1000}}\n",
+      "stderr": "RUNTIME_CHECKPOINT_BUSY\nRUNTIME_CHECKPOINT_AVAILABLE\nRUNTIME_CHECKPOINT_BUSY\nRUNTIME_CHECKPOINT_AVAILABLE\n",
+      "forcedCleanup": false
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_contention.RuntimeContentionTests.test_long_busy_host_remains_live_and_diagnostic_is_not_flooded",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.runtime",
+        "start",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-636mksua"
+      ],
+      "pid": 23568,
+      "exitCode": 0,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:3d428f6dbb5bac217eae53b02c79bc1819ded3036a6d710cf6555056717b2c49\", \"id\": \"sha256:07aa1c177e30c820dea3da642020aba7b5856c20c72b616390cff461ee19e4ad\", \"operation\": \"PAUSE\", \"revision\": 2}, {\"hash\": \"sha256:6aa2e81e56ad0df8c978f00ed2a0fe8da2a6102dd4202ebe8c0dc2cc7609d8d1\", \"id\": \"sha256:4a5b9149122dd601b637b0eeb3d908bdf325bdcce1f6bd06ce16663c70251a03\", \"operation\": \"PAUSE\", \"revision\": 5}, {\"hash\": \"sha256:2458b468e600f2717664d85a3cf41034b8bdf8656097db51d8ecae1fa7180011\", \"id\": \"sha256:3bcb316df573bb472056bd1b27665f16b0cac021374465ee6843c01626370d2a\", \"operation\": \"STOP\", \"revision\": 6}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 1, \"interruptions\": [], \"last_task\": null, \"last_time\": null, \"next_check_at\": null, \"observations\": 1, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 8, \"root_hash\": \"sha256:f30d5c2cd0419b8efde6b8e186a1d63350adf7cf8ee4fe56763fe47302feda72\", \"state\": \"STOP\", \"subject_id\": \"sub-59f7426494e6414d\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 100000, \"token_used\": 0, \"token_remaining\": 100000, \"compute_remaining\": 1000}}\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_contention.RuntimeContentionTests.test_paused_process_control_competition",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "\nimport sys\nfrom pathlib import Path\nfrom continuity_engine.testing.p18_runtime_fixture import P18Fixture\nf=P18Fixture(Path(sys.argv[1]),initialize=False)\noriginal=f.store.save\ndef save(d):\n    print('CONTROL_LOCK_HELD',flush=True)\n    sys.stdin.readline()\n    return original(d)\nf.store.save=save\nf.host.control(sys.argv[2],command_id=sys.argv[3],expected_revision=None,handle='p18-test-owner')\nprint('CONTROL_SAVED',flush=True)\n",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-um_ik7xs",
+        "PAUSE",
+        "held-command"
+      ],
+      "pid": 17088,
+      "exitCode": 0,
+      "stdout": "CONTROL_SAVED\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_contention.RuntimeContentionTests.test_paused_process_control_competition",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.runtime",
+        "start",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-um_ik7xs"
+      ],
+      "pid": 13664,
+      "exitCode": 0,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:918f2ad84a2f6447e7dad9d5578569928477ed8b583752dd8cdacbd018873469\", \"id\": \"sha256:7603a9a04e2655439835cc40eb507df2f584be54a8f8fd97e591e545a3d59e2e\", \"operation\": \"PAUSE\", \"revision\": 5}, {\"hash\": \"sha256:e712bc7657ee9429a41008059ebffe5a53239610f860ed4b4b84eced2ab79cc6\", \"id\": \"sha256:4a5b9149122dd601b637b0eeb3d908bdf325bdcce1f6bd06ce16663c70251a03\", \"operation\": \"PAUSE\", \"revision\": 8}, {\"hash\": \"sha256:a11517fb514269ef9b8e60cf420525cb3c174be2d9609a93080c7462b03f9146\", \"id\": \"sha256:d1c375c559888424bd7b57f5e1c9f3c1a566e2d00a706bfc7024ee9ce8b8b4f6\", \"operation\": \"RESUME\", \"revision\": 9}, {\"hash\": \"sha256:1a860f213df414d5f3758350b576893d86aaac2f29d089ca8fb9a1c12a66b1fa\", \"id\": \"sha256:3bcb316df573bb472056bd1b27665f16b0cac021374465ee6843c01626370d2a\", \"operation\": \"STOP\", \"revision\": 11}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 2, \"interruptions\": [{\"generation\": 1, \"last_trusted_time\": \"2026-09-04T09:00:00+00:00\", \"reason\": \"HOST_DETACHED\"}, {\"generation\": 1, \"last_trusted_time\": \"2026-09-04T09:00:00+00:00\", \"reason\": \"PRIOR_HOST_LOST\"}], \"last_task\": \"cognition:fe97efa1957973553f630e197fe023d4437396b3914759c0f1910c47d873ba0c\", \"last_time\": \"2026-09-04T09:03:00+00:00\", \"next_check_at\": null, \"observations\": 3, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 12, \"root_hash\": \"sha256:a2374c0cb38b3c7ab5d854fe2678d844d52f90b86a47371bcc3a3d6451792f05\", \"state\": \"STOP\", \"subject_id\": \"sub-891ae23f67064030\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 100000, \"token_used\": 320, \"token_remaining\": 99680, \"compute_remaining\": 997}}\n",
+      "stderr": "RUNTIME_CHECKPOINT_BUSY\nRUNTIME_CHECKPOINT_AVAILABLE\n",
+      "forcedCleanup": false
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_contention.RuntimeContentionTests.test_paused_process_control_competition",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.runtime",
+        "start",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-um_ik7xs"
+      ],
+      "pid": 27624,
+      "exitCode": 0,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:918f2ad84a2f6447e7dad9d5578569928477ed8b583752dd8cdacbd018873469\", \"id\": \"sha256:7603a9a04e2655439835cc40eb507df2f584be54a8f8fd97e591e545a3d59e2e\", \"operation\": \"PAUSE\", \"revision\": 5}, {\"hash\": \"sha256:e712bc7657ee9429a41008059ebffe5a53239610f860ed4b4b84eced2ab79cc6\", \"id\": \"sha256:4a5b9149122dd601b637b0eeb3d908bdf325bdcce1f6bd06ce16663c70251a03\", \"operation\": \"PAUSE\", \"revision\": 8}, {\"hash\": \"sha256:a11517fb514269ef9b8e60cf420525cb3c174be2d9609a93080c7462b03f9146\", \"id\": \"sha256:d1c375c559888424bd7b57f5e1c9f3c1a566e2d00a706bfc7024ee9ce8b8b4f6\", \"operation\": \"RESUME\", \"revision\": 9}, {\"hash\": \"sha256:1a860f213df414d5f3758350b576893d86aaac2f29d089ca8fb9a1c12a66b1fa\", \"id\": \"sha256:3bcb316df573bb472056bd1b27665f16b0cac021374465ee6843c01626370d2a\", \"operation\": \"STOP\", \"revision\": 11}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 2, \"interruptions\": [{\"generation\": 1, \"last_trusted_time\": \"2026-09-04T09:00:00+00:00\", \"reason\": \"HOST_DETACHED\"}, {\"generation\": 1, \"last_trusted_time\": \"2026-09-04T09:00:00+00:00\", \"reason\": \"PRIOR_HOST_LOST\"}], \"last_task\": \"cognition:fe97efa1957973553f630e197fe023d4437396b3914759c0f1910c47d873ba0c\", \"last_time\": \"2026-09-04T09:03:00+00:00\", \"next_check_at\": null, \"observations\": 3, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 13, \"root_hash\": \"sha256:a2374c0cb38b3c7ab5d854fe2678d844d52f90b86a47371bcc3a3d6451792f05\", \"state\": \"STOP\", \"subject_id\": \"sub-891ae23f67064030\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 100000, \"token_used\": 320, \"token_remaining\": 99680, \"compute_remaining\": 997}}\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_contention.RuntimeContentionTests.test_real_busy_exit_keeps_original_error_and_releases_owner",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "\nimport sys\nfrom pathlib import Path\nfrom continuity_engine.testing.p18_runtime_fixture import P18Fixture\nf=P18Fixture(Path(sys.argv[1]),initialize=False)\noriginal=f.store.save\ndef save(d):\n    print('CONTROL_LOCK_HELD',flush=True)\n    sys.stdin.readline()\n    return original(d)\nf.store.save=save\nf.host.control(sys.argv[2],command_id=sys.argv[3],expected_revision=None,handle='p18-test-owner')\nprint('CONTROL_SAVED',flush=True)\n",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-39fw4a8i",
+        "PAUSE",
+        "held-command"
+      ],
+      "pid": 15096,
+      "exitCode": 0,
+      "stdout": "CONTROL_SAVED\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_contention.RuntimeContentionTests.test_resource_wait_process_control_competition",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "\nimport sys\nfrom pathlib import Path\nfrom continuity_engine.testing.p18_runtime_fixture import P18Fixture\nf=P18Fixture(Path(sys.argv[1]),initialize=False)\noriginal=f.store.save\ndef save(d):\n    print('CONTROL_LOCK_HELD',flush=True)\n    sys.stdin.readline()\n    return original(d)\nf.store.save=save\nf.host.control(sys.argv[2],command_id=sys.argv[3],expected_revision=None,handle='p18-test-owner')\nprint('CONTROL_SAVED',flush=True)\n",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-_zvqv7vi",
+        "PAUSE",
+        "held-command"
+      ],
+      "pid": 14380,
+      "exitCode": 0,
+      "stdout": "CONTROL_SAVED\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_contention.RuntimeContentionTests.test_resource_wait_process_control_competition",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.runtime",
+        "start",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-_zvqv7vi"
+      ],
+      "pid": 6108,
+      "exitCode": 0,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:db7e799190568a05763e3ada9582c9bed6df0d51ecb420ba968822781bbd3054\", \"id\": \"sha256:4a5b9149122dd601b637b0eeb3d908bdf325bdcce1f6bd06ce16663c70251a03\", \"operation\": \"PAUSE\", \"revision\": 9}, {\"hash\": \"sha256:70c1415c2dc610126df2bea63a45a92b243c1dab6bf89f17b47680cda3cd9982\", \"id\": \"sha256:d1c375c559888424bd7b57f5e1c9f3c1a566e2d00a706bfc7024ee9ce8b8b4f6\", \"operation\": \"RESUME\", \"revision\": 10}, {\"hash\": \"sha256:e3547163e0419e99572d28ec55cc8d0089784a7a4fca54fc33b2caf2ca09c199\", \"id\": \"sha256:3bcb316df573bb472056bd1b27665f16b0cac021374465ee6843c01626370d2a\", \"operation\": \"STOP\", \"revision\": 12}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 3, \"interruptions\": [{\"generation\": 1, \"last_trusted_time\": \"2026-09-04T09:00:00+00:00\", \"reason\": \"HOST_DETACHED\"}, {\"generation\": 1, \"last_trusted_time\": \"2026-09-04T09:00:00+00:00\", \"reason\": \"PRIOR_HOST_LOST\"}, {\"generation\": 2, \"last_trusted_time\": \"2026-09-04T09:01:00+00:00\", \"reason\": \"HOST_DETACHED\"}, {\"generation\": 2, \"last_trusted_time\": \"2026-09-04T09:01:00+00:00\", \"reason\": \"PRIOR_HOST_LOST\"}], \"last_task\": \"cognition:6f565a510caf142d941b3668d131774b2e54eff0e5e20e9485ffbadd8363279c\", \"last_time\": \"2026-09-04T09:04:00+00:00\", \"next_check_at\": null, \"observations\": 3, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 13, \"root_hash\": \"sha256:cd54a404d317cf8c7a16960ec4a836bad4b565f55c3baa58e52ab3957e1c2832\", \"state\": \"STOP\", \"subject_id\": \"sub-6ebc76ba6464434f\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 100000, \"token_used\": 320, \"token_remaining\": 99680, \"compute_remaining\": 997}}\n",
+      "stderr": "RUNTIME_CHECKPOINT_BUSY\nRUNTIME_CHECKPOINT_AVAILABLE\n",
+      "forcedCleanup": false
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_contention.RuntimeContentionTests.test_resource_wait_process_control_competition",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.runtime",
+        "start",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-_zvqv7vi"
+      ],
+      "pid": 14448,
+      "exitCode": 0,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:db7e799190568a05763e3ada9582c9bed6df0d51ecb420ba968822781bbd3054\", \"id\": \"sha256:4a5b9149122dd601b637b0eeb3d908bdf325bdcce1f6bd06ce16663c70251a03\", \"operation\": \"PAUSE\", \"revision\": 9}, {\"hash\": \"sha256:70c1415c2dc610126df2bea63a45a92b243c1dab6bf89f17b47680cda3cd9982\", \"id\": \"sha256:d1c375c559888424bd7b57f5e1c9f3c1a566e2d00a706bfc7024ee9ce8b8b4f6\", \"operation\": \"RESUME\", \"revision\": 10}, {\"hash\": \"sha256:e3547163e0419e99572d28ec55cc8d0089784a7a4fca54fc33b2caf2ca09c199\", \"id\": \"sha256:3bcb316df573bb472056bd1b27665f16b0cac021374465ee6843c01626370d2a\", \"operation\": \"STOP\", \"revision\": 12}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 3, \"interruptions\": [{\"generation\": 1, \"last_trusted_time\": \"2026-09-04T09:00:00+00:00\", \"reason\": \"HOST_DETACHED\"}, {\"generation\": 1, \"last_trusted_time\": \"2026-09-04T09:00:00+00:00\", \"reason\": \"PRIOR_HOST_LOST\"}, {\"generation\": 2, \"last_trusted_time\": \"2026-09-04T09:01:00+00:00\", \"reason\": \"HOST_DETACHED\"}, {\"generation\": 2, \"last_trusted_time\": \"2026-09-04T09:01:00+00:00\", \"reason\": \"PRIOR_HOST_LOST\"}], \"last_task\": \"cognition:6f565a510caf142d941b3668d131774b2e54eff0e5e20e9485ffbadd8363279c\", \"last_time\": \"2026-09-04T09:04:00+00:00\", \"next_check_at\": null, \"observations\": 3, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 14, \"root_hash\": \"sha256:cd54a404d317cf8c7a16960ec4a836bad4b565f55c3baa58e52ab3957e1c2832\", \"state\": \"STOP\", \"subject_id\": \"sub-6ebc76ba6464434f\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 100000, \"token_used\": 320, \"token_remaining\": 99680, \"compute_remaining\": 997}}\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_contention.RuntimeContentionTests.test_running_process_control_competition",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "\nimport sys\nfrom pathlib import Path\nfrom continuity_engine.testing.p18_runtime_fixture import P18Fixture\nf=P18Fixture(Path(sys.argv[1]),initialize=False)\noriginal=f.store.save\ndef save(d):\n    print('CONTROL_LOCK_HELD',flush=True)\n    sys.stdin.readline()\n    return original(d)\nf.store.save=save\nf.host.control(sys.argv[2],command_id=sys.argv[3],expected_revision=None,handle='p18-test-owner')\nprint('CONTROL_SAVED',flush=True)\n",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-w5dslj50",
+        "PAUSE",
+        "held-command"
+      ],
+      "pid": 19920,
+      "exitCode": 0,
+      "stdout": "CONTROL_SAVED\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_contention.RuntimeContentionTests.test_running_process_control_competition",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.runtime",
+        "start",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-w5dslj50"
+      ],
+      "pid": 15632,
+      "exitCode": 0,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:530eaafe75cf861f2adf2db2b5c0b60697c1c4522f1c6036bca8f60781912dd3\", \"id\": \"sha256:4a5b9149122dd601b637b0eeb3d908bdf325bdcce1f6bd06ce16663c70251a03\", \"operation\": \"PAUSE\", \"revision\": 6}, {\"hash\": \"sha256:fe2b479fd2aad4616683f72bdb2a0f02af1cfa6cce20f3333af753204cd09ce3\", \"id\": \"sha256:d1c375c559888424bd7b57f5e1c9f3c1a566e2d00a706bfc7024ee9ce8b8b4f6\", \"operation\": \"RESUME\", \"revision\": 7}, {\"hash\": \"sha256:ff19109eb13a8fdff084142731ab09beff37fb4815fdfc30937bbb09b262f731\", \"id\": \"sha256:3bcb316df573bb472056bd1b27665f16b0cac021374465ee6843c01626370d2a\", \"operation\": \"STOP\", \"revision\": 9}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 2, \"interruptions\": [{\"generation\": 1, \"last_trusted_time\": \"2026-09-04T09:00:00+00:00\", \"reason\": \"HOST_DETACHED\"}, {\"generation\": 1, \"last_trusted_time\": \"2026-09-04T09:00:00+00:00\", \"reason\": \"PRIOR_HOST_LOST\"}], \"last_task\": \"maintenance:7edaada8e698b46b1dda4588761a11203b3b7c247d474a6f79af28ea13fe6f9e\", \"last_time\": \"2026-09-04T09:03:00+00:00\", \"next_check_at\": null, \"observations\": 2, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 10, \"root_hash\": \"sha256:8d69ba2c72c3e8a1a81e151bf9b76478ff053b3c6e3e2f3709fc54d87282a288\", \"state\": \"STOP\", \"subject_id\": \"sub-9605c5ba93974e0c\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 100000, \"token_used\": 0, \"token_remaining\": 100000, \"compute_remaining\": 999}}\n",
+      "stderr": "RUNTIME_CHECKPOINT_BUSY\nRUNTIME_CHECKPOINT_AVAILABLE\n",
+      "forcedCleanup": false
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_contention.RuntimeContentionTests.test_second_host_still_immediately_rejected",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.runtime",
+        "start",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-oalf5jhx"
+      ],
+      "pid": 24636,
+      "exitCode": 2,
+      "stdout": "",
+      "stderr": "RUNTIME_BUSY\n",
+      "forcedCleanup": false
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_contention.RuntimeContentionTests.test_stale_cas_and_conflicting_identity_still_fail_closed",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "\nimport sys\nfrom pathlib import Path\nfrom continuity_engine.testing.p18_runtime_fixture import P18Fixture\nf=P18Fixture(Path(sys.argv[1]),initialize=False)\noriginal=f.store.save\ndef save(d):\n    print('CONTROL_LOCK_HELD',flush=True)\n    sys.stdin.readline()\n    return original(d)\nf.store.save=save\nf.host.control(sys.argv[2],command_id=sys.argv[3],expected_revision=None,handle='p18-test-owner')\nprint('CONTROL_SAVED',flush=True)\n",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-a11kdnx7",
+        "PAUSE",
+        "held-command"
+      ],
+      "pid": 24216,
+      "exitCode": 0,
+      "stdout": "CONTROL_SAVED\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_contention.RuntimeContentionTests.test_start_waits_for_checkpoint_without_relaxing_owner_lock",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "\nimport sys\nfrom pathlib import Path\nfrom continuity_engine.testing.p18_runtime_fixture import P18Fixture\nf=P18Fixture(Path(sys.argv[1]),initialize=False)\noriginal=f.store.save\ndef save(d):\n    print('CONTROL_LOCK_HELD',flush=True)\n    sys.stdin.readline()\n    return original(d)\nf.store.save=save\nf.host.control(sys.argv[2],command_id=sys.argv[3],expected_revision=None,handle='p18-test-owner')\nprint('CONTROL_SAVED',flush=True)\n",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-ku7xyb9n",
+        "PAUSE",
+        "held-command"
+      ],
+      "pid": 19244,
+      "exitCode": 0,
+      "stdout": "CONTROL_SAVED\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_contention.RuntimeContentionTests.test_start_waits_for_checkpoint_without_relaxing_owner_lock",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "\nimport contextlib,sys\nfrom pathlib import Path\nfrom continuity_engine.storage.json_runtime_repository import JsonRuntimeRepository\nfrom continuity_engine.runtime import main\nroot=Path(sys.argv[1]);hold=sys.argv[2]=='hold'\ntransaction=JsonRuntimeRepository.transaction;save=JsonRuntimeRepository.save\nattached=False\n@contextlib.contextmanager\ndef observed(self):\n    global attached\n    with transaction(self) as d:\n        yield d\n        attachment=d is not None and d['reason']=='HOST_ATTACHED'\n    if attachment and not attached:\n        attached=True;(root/'attach-released').write_text('released',encoding='utf8')\ndef saving(self,d):\n    if hold and d['reason']=='HOST_ATTACHED':\n        (root/'attach-held').write_text('held',encoding='utf8')\n        sys.stdin.readline()\n    return save(self,d)\nJsonRuntimeRepository.transaction=observed;JsonRuntimeRepository.save=saving\nraise SystemExit(main(['start','--root',str(root)]))\n",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-ku7xyb9n",
+        "observe"
+      ],
+      "pid": 4244,
+      "exitCode": 0,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:2015a166da4eb43ecd765cffc5a8f7405e895fd9a754a12f1427f095298b3b2c\", \"id\": \"sha256:4a5b9149122dd601b637b0eeb3d908bdf325bdcce1f6bd06ce16663c70251a03\", \"operation\": \"PAUSE\", \"revision\": 2}, {\"hash\": \"sha256:45e340ce84550125e3224b3993ac42cf81f069e5a61306b942c1deed7e094a4d\", \"id\": \"sha256:3bcb316df573bb472056bd1b27665f16b0cac021374465ee6843c01626370d2a\", \"operation\": \"STOP\", \"revision\": 5}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 1, \"interruptions\": [], \"last_task\": null, \"last_time\": null, \"next_check_at\": null, \"observations\": 1, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 6, \"root_hash\": \"sha256:28a0ac18ef8463980738a9c6f079fd1403224c088f516b8079e39f99f5095239\", \"state\": \"STOP\", \"subject_id\": \"sub-35a8d9473a6340ed\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 100000, \"token_used\": 0, \"token_remaining\": 100000, \"compute_remaining\": 1000}}\n",
+      "stderr": "RUNTIME_CHECKPOINT_BUSY\nRUNTIME_CHECKPOINT_AVAILABLE\n",
+      "forcedCleanup": false
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_contention.RuntimeContentionTests.test_start_waits_for_checkpoint_without_relaxing_owner_lock",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.runtime",
+        "start",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-ku7xyb9n"
+      ],
+      "pid": 2572,
+      "exitCode": 0,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:2015a166da4eb43ecd765cffc5a8f7405e895fd9a754a12f1427f095298b3b2c\", \"id\": \"sha256:4a5b9149122dd601b637b0eeb3d908bdf325bdcce1f6bd06ce16663c70251a03\", \"operation\": \"PAUSE\", \"revision\": 2}, {\"hash\": \"sha256:45e340ce84550125e3224b3993ac42cf81f069e5a61306b942c1deed7e094a4d\", \"id\": \"sha256:3bcb316df573bb472056bd1b27665f16b0cac021374465ee6843c01626370d2a\", \"operation\": \"STOP\", \"revision\": 5}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 1, \"interruptions\": [], \"last_task\": null, \"last_time\": null, \"next_check_at\": null, \"observations\": 1, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 7, \"root_hash\": \"sha256:28a0ac18ef8463980738a9c6f079fd1403224c088f516b8079e39f99f5095239\", \"state\": \"STOP\", \"subject_id\": \"sub-35a8d9473a6340ed\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 100000, \"token_used\": 0, \"token_remaining\": 100000, \"compute_remaining\": 1000}}\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_contention.RuntimeContentionTests.test_waiting_old_observation_does_not_overwrite_new_resume",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "\nimport sys\nfrom pathlib import Path\nfrom continuity_engine.testing.p18_runtime_fixture import P18Fixture\nf=P18Fixture(Path(sys.argv[1]),initialize=False)\noriginal=f.store.save\ndef save(d):\n    print('CONTROL_LOCK_HELD',flush=True)\n    sys.stdin.readline()\n    return original(d)\nf.store.save=save\nf.host.control(sys.argv[2],command_id=sys.argv[3],expected_revision=None,handle='p18-test-owner')\nprint('CONTROL_SAVED',flush=True)\n",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rc18-5bo_slp1",
+        "RESUME",
+        "held-command"
+      ],
+      "pid": 26300,
+      "exitCode": 0,
+      "stdout": "CONTROL_SAVED\n",
+      "stderr": "",
+      "forcedCleanup": false
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_process.RuntimeProcessTests.test_advancing_silent_process_continues_multiple_native_cycles",
+      "stage": "controller-before-stop-cleanup-child-diagnostic",
+      "pid": 19732,
+      "exitCode": 0,
+      "stderr": ""
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_process.RuntimeProcessTests.test_advancing_silent_process_continues_multiple_native_cycles",
+      "stage": "continuous-child",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.runtime",
+        "start",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\p18-process-95bu18w4"
+      ],
+      "pid": 19732,
+      "exitCode": 0,
+      "forcedCleanup": false,
+      "seconds": 8.07632939999894,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:d9718483520f20d2a826362a8e5dfe81bfa2e83ef97b15c449a2974dc45a241c\", \"id\": \"sha256:abefc46d28bf57016aafcdc7d126703011047d2b021df7bf770322dd4528ece0\", \"operation\": \"STOP\", \"revision\": 8}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 1, \"interruptions\": [], \"last_task\": \"maintenance:11c7fa509d2943d1048de884383176c254ae503a7fc6e6529bfb9b4d8f9abfe0\", \"last_time\": \"2026-09-04T09:13:48.093120+00:00\", \"next_check_at\": null, \"observations\": 5, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 9, \"root_hash\": \"sha256:15ec0f6dbc5ec36d81ef2e70e19ec7f8c157e7b656e721341c0e4ed9f5776ba6\", \"state\": \"STOP\", \"subject_id\": \"sub-907378f76f284a4d\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 1, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 100000, \"token_used\": 640, \"token_remaining\": 99360, \"compute_remaining\": 993}}\n",
+      "stderr": ""
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_process.RuntimeProcessTests.test_continuous_golden_contact_then_absorption_without_chat",
+      "stage": "controller-before-stop-cleanup-child-diagnostic",
+      "pid": 10460,
+      "exitCode": 0,
+      "stderr": ""
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_process.RuntimeProcessTests.test_continuous_golden_contact_then_absorption_without_chat",
+      "stage": "continuous-child",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.runtime",
+        "start",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\p18-process-vuvmzr9h"
+      ],
+      "pid": 10460,
+      "exitCode": 0,
+      "forcedCleanup": false,
+      "seconds": 9.21273629999996,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:a9dcca551bf75a966db89300492aea14c988b3adb3e4df43d20b97ab4811e1a4\", \"id\": \"sha256:b11a0f83c1206535bc97475790f4fd7dc8db027fe480db3aa0bb11161a823d2d\", \"operation\": \"STOP\", \"revision\": 7}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 1, \"interruptions\": [], \"last_task\": \"cognition:671699b07ed067c2687bae65984aeaed8d6f61f3aa773a1feee9f40842e8cf26\", \"last_time\": \"2026-09-04T09:10:18.293760+00:00\", \"next_check_at\": null, \"observations\": 4, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 8, \"root_hash\": \"sha256:57e6ab345029029b76172a52aabce7d75864a510d1d36d14a57a1965adf149cc\", \"state\": \"STOP\", \"subject_id\": \"sub-d4f690df07d44ab0\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 100000, \"token_used\": 640, \"token_remaining\": 99360, \"compute_remaining\": 994}}\n",
+      "stderr": ""
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_process.RuntimeProcessTests.test_idle_and_subject_silence_do_not_end_process",
+      "stage": "controller-before-stop-cleanup-child-diagnostic",
+      "pid": 23200,
+      "exitCode": 0,
+      "stderr": ""
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_process.RuntimeProcessTests.test_idle_and_subject_silence_do_not_end_process",
+      "stage": "controller-before-stop-cleanup-child-diagnostic",
+      "pid": 11204,
+      "exitCode": 0,
+      "stderr": ""
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_process.RuntimeProcessTests.test_idle_and_subject_silence_do_not_end_process",
+      "stage": "continuous-child",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.runtime",
+        "start",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\p18-process-pidpt9c4"
+      ],
+      "pid": 23200,
+      "exitCode": 0,
+      "forcedCleanup": false,
+      "seconds": 11.03093649999937,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:b222c354c11d6948920f4a9c16ea9e270d14b1b323707f8f47fe8f296f17c6b9\", \"id\": \"sha256:8d8bb83cbd9562e98494dba933c3168f15c89b8fe0c93cb4162ce28009b78e2a\", \"operation\": \"PAUSE\", \"revision\": 5}, {\"hash\": \"sha256:89dee0ab19d0125a3e373195239b139f11105db286ae0d1cbb50cf9948e53aa3\", \"id\": \"sha256:5fa580fd8d3cd42c6eb3455ed71efecf7d2faa3f25b4fb336315c06e4e160ddd\", \"operation\": \"RESUME\", \"revision\": 6}, {\"hash\": \"sha256:ae5a0c4c3941b38e3c6fa9f0f6ec42d3561825bae2ceb3446f3b9e779b1a3656\", \"id\": \"sha256:f48654ab6477efda07d46c5440b54fd195bbc1fd5a23cce5307b6611f4c92c31\", \"operation\": \"STOP\", \"revision\": 9}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 1, \"interruptions\": [], \"last_task\": \"cognition:32f63290ac23f1e1467def35efb37047b58b4cda1c49a88542d0f9a9cc1b2e4e\", \"last_time\": \"2026-09-04T10:02:00+00:00\", \"next_check_at\": null, \"observations\": 4, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 10, \"root_hash\": \"sha256:a1c7f273d0a85b431472407b8c0056c39cabdef1ddaf21f9987fd34ec370debe\", \"state\": \"STOP\", \"subject_id\": \"sub-e21d75009b2f41ff\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 100000, \"token_used\": 640, \"token_remaining\": 99360, \"compute_remaining\": 994}}\n",
+      "stderr": ""
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_process.RuntimeProcessTests.test_idle_and_subject_silence_do_not_end_process",
+      "stage": "continuous-child",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.runtime",
+        "start",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\p18-process-pidpt9c4"
+      ],
+      "pid": 11204,
+      "exitCode": 0,
+      "forcedCleanup": false,
+      "seconds": 1.0487556000007316,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:b222c354c11d6948920f4a9c16ea9e270d14b1b323707f8f47fe8f296f17c6b9\", \"id\": \"sha256:8d8bb83cbd9562e98494dba933c3168f15c89b8fe0c93cb4162ce28009b78e2a\", \"operation\": \"PAUSE\", \"revision\": 5}, {\"hash\": \"sha256:89dee0ab19d0125a3e373195239b139f11105db286ae0d1cbb50cf9948e53aa3\", \"id\": \"sha256:5fa580fd8d3cd42c6eb3455ed71efecf7d2faa3f25b4fb336315c06e4e160ddd\", \"operation\": \"RESUME\", \"revision\": 6}, {\"hash\": \"sha256:ae5a0c4c3941b38e3c6fa9f0f6ec42d3561825bae2ceb3446f3b9e779b1a3656\", \"id\": \"sha256:f48654ab6477efda07d46c5440b54fd195bbc1fd5a23cce5307b6611f4c92c31\", \"operation\": \"STOP\", \"revision\": 9}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 1, \"interruptions\": [], \"last_task\": \"cognition:32f63290ac23f1e1467def35efb37047b58b4cda1c49a88542d0f9a9cc1b2e4e\", \"last_time\": \"2026-09-04T10:02:00+00:00\", \"next_check_at\": null, \"observations\": 4, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 11, \"root_hash\": \"sha256:a1c7f273d0a85b431472407b8c0056c39cabdef1ddaf21f9987fd34ec370debe\", \"state\": \"STOP\", \"subject_id\": \"sub-e21d75009b2f41ff\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 100000, \"token_used\": 640, \"token_remaining\": 99360, \"compute_remaining\": 994}}\n",
+      "stderr": ""
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_process.RuntimeProcessTests.test_real_process_crash_after_effect_restarts_original_identity",
+      "stage": "controller-before-stop-cleanup-child-diagnostic",
+      "pid": 9508,
+      "exitCode": 73,
+      "stderr": ""
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_process.RuntimeProcessTests.test_real_process_crash_after_effect_restarts_original_identity",
+      "stage": "controller-before-stop-cleanup-child-diagnostic",
+      "pid": 22856,
+      "exitCode": 0,
+      "stderr": ""
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_process.RuntimeProcessTests.test_real_process_crash_after_effect_restarts_original_identity",
+      "stage": "continuous-child",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-c",
+        "import os,sys; from pathlib import Path; from continuity_engine.testing.p18_runtime_fixture import P18Fixture; f=P18Fixture(Path(sys.argv[1]),initialize=False); f.fault=lambda stage: os._exit(73) if stage=='after_native_effect' else None; f.host.serve()",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\p18-process-is178l_l"
+      ],
+      "pid": 9508,
+      "exitCode": 73,
+      "forcedCleanup": false,
+      "seconds": 3.858611399999063,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_process.RuntimeProcessTests.test_real_process_crash_after_effect_restarts_original_identity",
+      "stage": "continuous-child",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.runtime",
+        "start",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\p18-process-is178l_l"
+      ],
+      "pid": 22856,
+      "exitCode": 0,
+      "forcedCleanup": false,
+      "seconds": 2.2865438000008,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:f9c065b84c4d833d28dcb9192da747c2a095ec0846573b484531274ad4fd4c82\", \"id\": \"sha256:c1883f8a4269c3a33da8ee1a5a0ab52dda8d0135b24c4a6e957afbdf7b27ce71\", \"operation\": \"STOP\", \"revision\": 8}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 3, \"interruptions\": [{\"generation\": 1, \"last_trusted_time\": \"2026-09-04T09:00:00+00:00\", \"reason\": \"HOST_DETACHED\"}, {\"generation\": 1, \"last_trusted_time\": \"2026-09-04T09:00:00+00:00\", \"reason\": \"PRIOR_HOST_LOST\"}, {\"generation\": 2, \"last_trusted_time\": \"2026-09-04T09:00:00+00:00\", \"reason\": \"PRIOR_HOST_LOST\"}], \"last_task\": \"cognition:a58bdf48d94e0e065fc14ed9fc4d8474b1653fe1c700597909f29ddd970e389a\", \"last_time\": \"2026-09-04T09:01:00+00:00\", \"next_check_at\": null, \"observations\": 2, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 9, \"root_hash\": \"sha256:d1706f15b99feb1d9df21d0904410c226597976059d065fd1c8209e1802caef6\", \"state\": \"STOP\", \"subject_id\": \"sub-d487e9fce27b4b63\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 100000, \"token_used\": 320, \"token_remaining\": 99680, \"compute_remaining\": 997}}\n",
+      "stderr": ""
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_process.RuntimeProcessTests.test_resource_wait_host_lives_and_restores_without_message",
+      "stage": "controller-before-stop-cleanup-child-diagnostic",
+      "pid": 11800,
+      "exitCode": 0,
+      "stderr": ""
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_process.RuntimeProcessTests.test_resource_wait_host_lives_and_restores_without_message",
+      "stage": "continuous-child",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.runtime",
+        "start",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\p18-process-vrdmzcvw"
+      ],
+      "pid": 11800,
+      "exitCode": 0,
+      "forcedCleanup": false,
+      "seconds": 5.675212100002682,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:360cd1bee29b982eba76c2f5682deb93b606c31bd7769c84699454e0d24412e4\", \"id\": \"sha256:ab1a15f78af8d7fc59124a8ab021b5b34d2bea58d5db39ff6e96289ba371ca70\", \"operation\": \"STOP\", \"revision\": 6}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 1, \"interruptions\": [], \"last_task\": \"cognition:5a499056a74850f8e3448bcdbaafca6d3624b471c664ffa11537725bf28c751b\", \"last_time\": \"2026-09-04T09:01:05+00:00\", \"next_check_at\": null, \"observations\": 3, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 7, \"root_hash\": \"sha256:af77290c597c70cd577f722a668c719b402fcea909ae56552e89b9e3b01f1622\", \"state\": \"STOP\", \"subject_id\": \"sub-7b7887d9bd6e496f\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 100000, \"token_used\": 320, \"token_remaining\": 99680, \"compute_remaining\": 997}}\n",
+      "stderr": ""
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_process.RuntimeProcessTests.test_two_real_processes_cannot_dispatch_same_subject",
+      "stage": "controller-before-stop-cleanup-child-diagnostic",
+      "pid": 7112,
+      "exitCode": 0,
+      "stderr": ""
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_process.RuntimeProcessTests.test_two_real_processes_cannot_dispatch_same_subject",
+      "stage": "controller-before-stop-cleanup-child-diagnostic",
+      "pid": 25988,
+      "exitCode": 2,
+      "stderr": "RUNTIME_BUSY\n"
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_process.RuntimeProcessTests.test_two_real_processes_cannot_dispatch_same_subject",
+      "stage": "continuous-child",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.runtime",
+        "start",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\p18-process-wnd7bbem"
+      ],
+      "pid": 7112,
+      "exitCode": 0,
+      "forcedCleanup": false,
+      "seconds": 3.3687363999997615,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:4a3b30a13033ba17f68866ae18bb03fbef136ab8e5122e3f3cc9ee93a9aa46b5\", \"id\": \"sha256:4c7ee035f7266d24a8ba8a66659f38cc77de37c627450d02bf101b2bc85d05d8\", \"operation\": \"STOP\", \"revision\": 4}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 1, \"interruptions\": [], \"last_task\": \"maintenance:d55f0cf78aa10af8581449c20b72ce87175bac60b4c18ce308665dde038b664b\", \"last_time\": \"2026-09-04T08:00:00+00:00\", \"next_check_at\": null, \"observations\": 1, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 5, \"root_hash\": \"sha256:0f3abb76bf143e28f65b96e95ccf987a73623c1e2f6f5ca618fd7ccedf5b03c2\", \"state\": \"STOP\", \"subject_id\": \"sub-94e65dbf400b4365\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 100000, \"token_used\": 0, \"token_remaining\": 100000, \"compute_remaining\": 999}}\n",
+      "stderr": ""
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_runtime_process.RuntimeProcessTests.test_two_real_processes_cannot_dispatch_same_subject",
+      "stage": "continuous-child",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.runtime",
+        "start",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\p18-process-wnd7bbem"
+      ],
+      "pid": 25988,
+      "exitCode": 2,
+      "forcedCleanup": false,
+      "seconds": 2.2236265999999887,
+      "stdout": "",
+      "stderr": "RUNTIME_BUSY\n"
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_storage_runtime.RuntimeStorageProcessTests.test_real_host_survives_exhausted_checkpoint_and_resumes_without_chat",
+      "stage": "long-storage-refusal-before-release-child-diagnostic",
+      "pid": 18028,
+      "exitCode": null,
+      "stderr": "RUNTIME_CHECKPOINT_BUSY\n"
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_storage_runtime.RuntimeStorageProcessTests.test_real_host_survives_exhausted_checkpoint_and_resumes_without_chat",
+      "stage": "controller-before-stop-cleanup-child-diagnostic",
+      "pid": 18028,
+      "exitCode": 0,
+      "stderr": "RUNTIME_CHECKPOINT_BUSY\nRUNTIME_CHECKPOINT_AVAILABLE\n"
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_storage_runtime.RuntimeStorageProcessTests.test_real_host_survives_exhausted_checkpoint_and_resumes_without_chat",
+      "stage": "controller-before-stop-cleanup-child-diagnostic",
+      "pid": 10432,
+      "exitCode": 0,
+      "stderr": ""
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_storage_runtime.RuntimeStorageProcessTests.test_real_host_survives_exhausted_checkpoint_and_resumes_without_chat",
+      "stage": "continuous-child",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.runtime",
+        "start",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\p18-process-v8ta1_he"
+      ],
+      "pid": 18028,
+      "exitCode": 0,
+      "forcedCleanup": false,
+      "seconds": 10.323631899998873,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:4b4dddc718632bef1fc4706cabe1921a4e3aa085e4846e65fdc386a3e7f050ea\", \"id\": \"sha256:2dceaa5f6b33dfb377a64b8b86b04bf9774703723be74c6d717108047cbcbae9\", \"operation\": \"PAUSE\", \"revision\": 5}, {\"hash\": \"sha256:2466d756fa4f66d07b6064339b9d548aeb38c6c3a77092caec18d9bcea9d1886\", \"id\": \"sha256:dc7940b830efeaad8873964c37919b5e86d6ad3f483fa9fe5b6d7f21583b48ca\", \"operation\": \"RESUME\", \"revision\": 6}, {\"hash\": \"sha256:e67ee0bf21e06ab8779c416aa814c0adc4d30b0a0ed5633d35f552679347d16b\", \"id\": \"sha256:ed4bf37fbf5ac7da6a21a30c7ac89de6e84a8b42347c7043016c1de81e726a18\", \"operation\": \"STOP\", \"revision\": 8}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 1, \"interruptions\": [], \"last_task\": \"cognition:1b2f7eb1f015fb788a458a68ab3f41916a1d1d7d0c0cc366208b4b9c638566b4\", \"last_time\": \"2026-09-04T09:01:05+00:00\", \"next_check_at\": null, \"observations\": 3, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 9, \"root_hash\": \"sha256:91ccf3b4922ff88221a509bf6ffd02b0a858a3a420fc9dd8bec7ccae8e0ce4a3\", \"state\": \"STOP\", \"subject_id\": \"sub-3bcdb9f1d0c64c0f\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 100000, \"token_used\": 320, \"token_remaining\": 99680, \"compute_remaining\": 997}}\n",
+      "stderr": "RUNTIME_CHECKPOINT_BUSY\nRUNTIME_CHECKPOINT_AVAILABLE\n"
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_p18_storage_runtime.RuntimeStorageProcessTests.test_real_host_survives_exhausted_checkpoint_and_resumes_without_chat",
+      "stage": "continuous-child",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.runtime",
+        "start",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\p18-process-v8ta1_he"
+      ],
+      "pid": 10432,
+      "exitCode": 0,
+      "forcedCleanup": false,
+      "seconds": 0.8047024999978021,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:4b4dddc718632bef1fc4706cabe1921a4e3aa085e4846e65fdc386a3e7f050ea\", \"id\": \"sha256:2dceaa5f6b33dfb377a64b8b86b04bf9774703723be74c6d717108047cbcbae9\", \"operation\": \"PAUSE\", \"revision\": 5}, {\"hash\": \"sha256:2466d756fa4f66d07b6064339b9d548aeb38c6c3a77092caec18d9bcea9d1886\", \"id\": \"sha256:dc7940b830efeaad8873964c37919b5e86d6ad3f483fa9fe5b6d7f21583b48ca\", \"operation\": \"RESUME\", \"revision\": 6}, {\"hash\": \"sha256:e67ee0bf21e06ab8779c416aa814c0adc4d30b0a0ed5633d35f552679347d16b\", \"id\": \"sha256:ed4bf37fbf5ac7da6a21a30c7ac89de6e84a8b42347c7043016c1de81e726a18\", \"operation\": \"STOP\", \"revision\": 8}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 1, \"interruptions\": [], \"last_task\": \"cognition:1b2f7eb1f015fb788a458a68ab3f41916a1d1d7d0c0cc366208b4b9c638566b4\", \"last_time\": \"2026-09-04T09:01:05+00:00\", \"next_check_at\": null, \"observations\": 3, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 10, \"root_hash\": \"sha256:91ccf3b4922ff88221a509bf6ffd02b0a858a3a420fc9dd8bec7ccae8e0ce4a3\", \"state\": \"STOP\", \"subject_id\": \"sub-3bcdb9f1d0c64c0f\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 100000, \"token_used\": 320, \"token_remaining\": 99680, \"compute_remaining\": 997}}\n",
+      "stderr": ""
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_pre_p19_autonomy_runtime.AutonomyProcessTests.test_saturated_internal_state_continues_in_new_real_runtime_process",
+      "stage": "controller-before-stop-cleanup-child-diagnostic",
+      "pid": 20248,
+      "exitCode": 0,
+      "stderr": ""
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_pre_p19_autonomy_runtime.AutonomyProcessTests.test_saturated_internal_state_continues_in_new_real_runtime_process",
+      "stage": "controller-before-stop-cleanup-child-diagnostic",
+      "pid": 20864,
+      "exitCode": 0,
+      "stderr": ""
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_pre_p19_autonomy_runtime.AutonomyProcessTests.test_saturated_internal_state_continues_in_new_real_runtime_process",
+      "stage": "continuous-child",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.runtime",
+        "start",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\p18-process-vjgbgta7"
+      ],
+      "pid": 20248,
+      "exitCode": 0,
+      "forcedCleanup": false,
+      "seconds": 5.07945959999779,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:74f611fec00ab1f4975408d05ba59ba0d609befba193e64ddc64958d4650523b\", \"id\": \"sha256:f8eedd7a04c23f3c966f68b6876fcc1e44badc90dce92e22283dd918b7e814f5\", \"operation\": \"STOP\", \"revision\": 9}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 2, \"interruptions\": [{\"generation\": 1, \"last_trusted_time\": \"2027-09-04T08:01:15.132480+00:00\", \"reason\": \"HOST_DETACHED\"}, {\"generation\": 1, \"last_trusted_time\": \"2027-09-04T08:01:15.132480+00:00\", \"reason\": \"PRIOR_HOST_LOST\"}], \"last_task\": \"cognition:fc4d474b8e6efe918326084e16f10e690e0a812d438a58d689cf88bed51cddcd\", \"last_time\": \"2027-09-04T08:08:52.742580+00:00\", \"next_check_at\": null, \"observations\": 4, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 10, \"root_hash\": \"sha256:c8a0fe933002aa84316870cb4919b7e44a217fcbe3a5536c70bf52f42aa47949\", \"state\": \"STOP\", \"subject_id\": \"sub-77f6131972cc4eab\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 100000, \"token_used\": 640, \"token_remaining\": 99360, \"compute_remaining\": 994}}\n",
+      "stderr": ""
+    },
+    {
+      "label": "full-final-01",
+      "test": "test_pre_p19_autonomy_runtime.AutonomyProcessTests.test_saturated_internal_state_continues_in_new_real_runtime_process",
+      "stage": "continuous-child",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.runtime",
+        "start",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\p18-process-vjgbgta7"
+      ],
+      "pid": 20864,
+      "exitCode": 0,
+      "forcedCleanup": false,
+      "seconds": 0.8305961000005482,
+      "stdout": "{\"activity\": \"STOPPED\", \"commands\": [{\"hash\": \"sha256:74f611fec00ab1f4975408d05ba59ba0d609befba193e64ddc64958d4650523b\", \"id\": \"sha256:f8eedd7a04c23f3c966f68b6876fcc1e44badc90dce92e22283dd918b7e814f5\", \"operation\": \"STOP\", \"revision\": 9}], \"desired\": \"STOPPED\", \"environment\": \"TEST\", \"generation\": 2, \"interruptions\": [{\"generation\": 1, \"last_trusted_time\": \"2027-09-04T08:01:15.132480+00:00\", \"reason\": \"HOST_DETACHED\"}, {\"generation\": 1, \"last_trusted_time\": \"2027-09-04T08:01:15.132480+00:00\", \"reason\": \"PRIOR_HOST_LOST\"}], \"last_task\": \"cognition:fc4d474b8e6efe918326084e16f10e690e0a812d438a58d689cf88bed51cddcd\", \"last_time\": \"2027-09-04T08:08:52.742580+00:00\", \"next_check_at\": null, \"observations\": 4, \"owner\": null, \"reason\": \"OWNER_STOP\", \"revision\": 11, \"root_hash\": \"sha256:c8a0fe933002aa84316870cb4919b7e44a217fcbe3a5536c70bf52f42aa47949\", \"state\": \"STOP\", \"subject_id\": \"sub-77f6131972cc4eab\", \"version\": \"p18-runtime-v1\", \"host_alive\": false, \"checkpoint_busy\": false, \"subject_lifecycle\": \"ACTIVE\", \"pending_tasks\": 0, \"unconfirmed_tasks\": 0, \"resources\": {\"token_budget\": 100000, \"token_used\": 640, \"token_remaining\": 99360, \"compute_remaining\": 994}}\n",
+      "stderr": ""
+    }
+  ],
+  "unreaped_test_records": [],
+  "forced_cleanup_records": [],
+  "post_test_termination_performed": false,
+  "observation_sha256": "151784fe8527709c090a90f804f7d1a37f1246d37990a923f54fa1a7d441daa3"
+}

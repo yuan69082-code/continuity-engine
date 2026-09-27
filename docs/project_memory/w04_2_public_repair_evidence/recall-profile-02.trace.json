@@ -1,0 +1,1423 @@
+{
+  "instrumented": true,
+  "records": [
+    {
+      "test": "tests.test_w02_recall_timeout.W02RecallTimeoutTests.test_four_materials_preanswer_with_original_1000ms_policy",
+      "metrics": {
+        "candidate_assess": {
+          "count": 10,
+          "ms": 1.0812
+        },
+        "json_loads": {
+          "count": 51,
+          "ms": 2.7741
+        },
+        "cached": {
+          "count": 1,
+          "ms": 4.2979
+        },
+        "absorbed": {
+          "count": 1,
+          "ms": 8.4428
+        },
+        "external_items": {
+          "count": 1,
+          "ms": 8.4789
+        },
+        "read:operation-journal.first-round-v1.json": {
+          "count": 9,
+          "ms": 1.1484
+        },
+        "operation_full_validation": {
+          "count": 1,
+          "ms": 0.002
+        },
+        "journal_copy": {
+          "count": 10,
+          "ms": 3.1395
+        },
+        "operations_load": {
+          "count": 9,
+          "ms": 6.423
+        },
+        "input_material": {
+          "count": 6,
+          "ms": 5.9444
+        },
+        "history": {
+          "count": 1,
+          "ms": 0.801
+        },
+        "router": {
+          "count": 1,
+          "ms": 36.3273
+        },
+        "authorize": {
+          "count": 1,
+          "ms": 0.0103
+        },
+        "composer": {
+          "count": 1,
+          "ms": 19.9631
+        },
+        "preference": {
+          "count": 1,
+          "ms": 9.1802
+        }
+      },
+      "bytes": {
+        "operation-journal.first-round-v1.json": 206595
+      },
+      "operation_scopes": [
+        true,
+        true
+      ],
+      "result": "RETURNED",
+      "total_ms": 70.0307
+    },
+    {
+      "test": "tests.test_w02_recall_timeout.W02RecallTimeoutTests.test_four_materials_preanswer_with_original_1000ms_policy",
+      "metrics": {
+        "candidate_assess": {
+          "count": 13,
+          "ms": 1.6118
+        },
+        "json_loads": {
+          "count": 143,
+          "ms": 6.2673
+        },
+        "read:capability-ledger.v1.json": {
+          "count": 9,
+          "ms": 1.4355
+        },
+        "journal_copy": {
+          "count": 22,
+          "ms": 27.9591
+        },
+        "capability_load": {
+          "count": 9,
+          "ms": 9.3078
+        },
+        "verified": {
+          "count": 3,
+          "ms": 66.0085
+        },
+        "cached": {
+          "count": 3,
+          "ms": 89.315
+        },
+        "proof": {
+          "count": 12,
+          "ms": 4.3884
+        },
+        "current": {
+          "count": 3,
+          "ms": 19.4277
+        },
+        "absorbed": {
+          "count": 3,
+          "ms": 123.5136
+        },
+        "external_items": {
+          "count": 3,
+          "ms": 139.7517
+        },
+        "read:operation-journal.first-round-v1.json": {
+          "count": 12,
+          "ms": 2.0838
+        },
+        "operation_full_validation": {
+          "count": 1,
+          "ms": 0.0035
+        },
+        "operations_load": {
+          "count": 12,
+          "ms": 48.1792
+        },
+        "input_material": {
+          "count": 8,
+          "ms": 28.7414
+        },
+        "history": {
+          "count": 2,
+          "ms": 19.7383
+        },
+        "router": {
+          "count": 1,
+          "ms": 167.0917
+        },
+        "authorize": {
+          "count": 1,
+          "ms": 0.0106
+        },
+        "composer": {
+          "count": 1,
+          "ms": 70.9866
+        },
+        "preference": {
+          "count": 1,
+          "ms": 14.7745
+        }
+      },
+      "bytes": {
+        "capability-ledger.v1.json": 92547,
+        "operation-journal.first-round-v1.json": 2788200
+      },
+      "operation_scopes": [
+        true,
+        true
+      ],
+      "result": "RETURNED",
+      "total_ms": 255.9583
+    },
+    {
+      "test": "tests.test_w02_recall_timeout.W02RecallTimeoutTests.test_four_materials_preanswer_with_original_1000ms_policy",
+      "metrics": {
+        "candidate_assess": {
+          "count": 27,
+          "ms": 2.3409
+        },
+        "json_loads": {
+          "count": 339,
+          "ms": 10.2297
+        },
+        "read:capability-ledger.v1.json": {
+          "count": 30,
+          "ms": 4.0417
+        },
+        "journal_copy": {
+          "count": 46,
+          "ms": 50.5495
+        },
+        "capability_load": {
+          "count": 30,
+          "ms": 24.6753
+        },
+        "verified": {
+          "count": 10,
+          "ms": 207.3295
+        },
+        "cached": {
+          "count": 5,
+          "ms": 244.3689
+        },
+        "proof": {
+          "count": 35,
+          "ms": 11.7358
+        },
+        "current": {
+          "count": 10,
+          "ms": 57.1982
+        },
+        "absorbed": {
+          "count": 5,
+          "ms": 323.4628
+        },
+        "external_items": {
+          "count": 5,
+          "ms": 372.5958
+        },
+        "read:operation-journal.first-round-v1.json": {
+          "count": 15,
+          "ms": 3.3099
+        },
+        "operation_full_validation": {
+          "count": 1,
+          "ms": 0.0034
+        },
+        "operations_load": {
+          "count": 15,
+          "ms": 83.4752
+        },
+        "input_material": {
+          "count": 10,
+          "ms": 52.3633
+        },
+        "history": {
+          "count": 3,
+          "ms": 34.3966
+        },
+        "router": {
+          "count": 1,
+          "ms": 336.0656
+        },
+        "authorize": {
+          "count": 1,
+          "ms": 0.012
+        },
+        "composer": {
+          "count": 1,
+          "ms": 169.9754
+        },
+        "preference": {
+          "count": 1,
+          "ms": 19.3895
+        }
+      },
+      "bytes": {
+        "capability-ledger.v1.json": 622320,
+        "operation-journal.first-round-v1.json": 6870300
+      },
+      "operation_scopes": [
+        true,
+        true
+      ],
+      "result": "RETURNED",
+      "total_ms": 528.2848
+    },
+    {
+      "test": "tests.test_w02_recall_timeout.W02RecallTimeoutTests.test_four_materials_preanswer_with_original_1000ms_policy",
+      "metrics": {
+        "candidate_assess": {
+          "count": 37,
+          "ms": 3.6951
+        },
+        "json_loads": {
+          "count": 479,
+          "ms": 14.1139
+        },
+        "read:capability-ledger.v1.json": {
+          "count": 45,
+          "ms": 6.2798
+        },
+        "journal_copy": {
+          "count": 64,
+          "ms": 95.8904
+        },
+        "capability_load": {
+          "count": 45,
+          "ms": 41.2094
+        },
+        "verified": {
+          "count": 15,
+          "ms": 318.9147
+        },
+        "cached": {
+          "count": 5,
+          "ms": 367.4263
+        },
+        "proof": {
+          "count": 50,
+          "ms": 15.7981
+        },
+        "current": {
+          "count": 15,
+          "ms": 79.0226
+        },
+        "absorbed": {
+          "count": 5,
+          "ms": 470.0895
+        },
+        "external_items": {
+          "count": 5,
+          "ms": 539.0647
+        },
+        "read:operation-journal.first-round-v1.json": {
+          "count": 18,
+          "ms": 4.3801
+        },
+        "operation_full_validation": {
+          "count": 1,
+          "ms": 0.004
+        },
+        "operations_load": {
+          "count": 18,
+          "ms": 130.8981
+        },
+        "input_material": {
+          "count": 12,
+          "ms": 61.3268
+        },
+        "history": {
+          "count": 4,
+          "ms": 75.727
+        },
+        "router": {
+          "count": 1,
+          "ms": 458.0416
+        },
+        "authorize": {
+          "count": 1,
+          "ms": 0.0095
+        },
+        "composer": {
+          "count": 1,
+          "ms": 268.3304
+        },
+        "preference": {
+          "count": 1,
+          "ms": 32.3872
+        }
+      },
+      "bytes": {
+        "capability-ledger.v1.json": 1404225,
+        "operation-journal.first-round-v1.json": 12466314
+      },
+      "operation_scopes": [
+        true,
+        true
+      ],
+      "result": "RETURNED",
+      "total_ms": 761.7203
+    },
+    {
+      "test": "tests.test_w02_recall_timeout.W02RecallTimeoutTests.test_third_message_sixteen_candidates_and_current_derived_sources",
+      "metrics": {
+        "candidate_assess": {
+          "count": 7,
+          "ms": 0.5173
+        },
+        "json_loads": {
+          "count": 27,
+          "ms": 0.6313
+        },
+        "cached": {
+          "count": 1,
+          "ms": 3.0037
+        },
+        "absorbed": {
+          "count": 1,
+          "ms": 5.5298
+        },
+        "external_items": {
+          "count": 1,
+          "ms": 5.5375
+        },
+        "read:operation-journal.first-round-v1.json": {
+          "count": 9,
+          "ms": 0.9442
+        },
+        "operation_full_validation": {
+          "count": 1,
+          "ms": 0.0017
+        },
+        "journal_copy": {
+          "count": 10,
+          "ms": 2.444
+        },
+        "operations_load": {
+          "count": 9,
+          "ms": 5.1291
+        },
+        "input_material": {
+          "count": 6,
+          "ms": 4.9397
+        },
+        "history": {
+          "count": 1,
+          "ms": 0.6005
+        },
+        "router": {
+          "count": 1,
+          "ms": 18.2705
+        },
+        "authorize": {
+          "count": 1,
+          "ms": 0.0053
+        },
+        "composer": {
+          "count": 1,
+          "ms": 5.1299
+        },
+        "preference": {
+          "count": 1,
+          "ms": 1.8106
+        }
+      },
+      "bytes": {
+        "operation-journal.first-round-v1.json": 186498
+      },
+      "operation_scopes": [
+        true,
+        true
+      ],
+      "result": "RETURNED",
+      "total_ms": 27.2642
+    },
+    {
+      "test": "tests.test_w02_recall_timeout.W02RecallTimeoutTests.test_third_message_sixteen_candidates_and_current_derived_sources",
+      "metrics": {
+        "candidate_assess": {
+          "count": 15,
+          "ms": 2.9732
+        },
+        "json_loads": {
+          "count": 120,
+          "ms": 3.1785
+        },
+        "read:capability-ledger.v1.json": {
+          "count": 9,
+          "ms": 1.2117
+        },
+        "journal_copy": {
+          "count": 22,
+          "ms": 18.9184
+        },
+        "capability_load": {
+          "count": 9,
+          "ms": 8.5407
+        },
+        "verified": {
+          "count": 3,
+          "ms": 60.9946
+        },
+        "cached": {
+          "count": 3,
+          "ms": 80.0686
+        },
+        "proof": {
+          "count": 12,
+          "ms": 3.4227
+        },
+        "current": {
+          "count": 3,
+          "ms": 16.4742
+        },
+        "absorbed": {
+          "count": 3,
+          "ms": 109.1749
+        },
+        "external_items": {
+          "count": 3,
+          "ms": 123.4464
+        },
+        "read:operation-journal.first-round-v1.json": {
+          "count": 12,
+          "ms": 1.8809
+        },
+        "operation_full_validation": {
+          "count": 1,
+          "ms": 0.0026
+        },
+        "operations_load": {
+          "count": 12,
+          "ms": 33.8822
+        },
+        "input_material": {
+          "count": 8,
+          "ms": 22.7537
+        },
+        "history": {
+          "count": 2,
+          "ms": 11.5529
+        },
+        "router": {
+          "count": 1,
+          "ms": 128.3051
+        },
+        "authorize": {
+          "count": 1,
+          "ms": 0.0106
+        },
+        "composer": {
+          "count": 1,
+          "ms": 47.9045
+        },
+        "preference": {
+          "count": 1,
+          "ms": 7.1563
+        }
+      },
+      "bytes": {
+        "capability-ledger.v1.json": 85365,
+        "operation-journal.first-round-v1.json": 2444988
+      },
+      "operation_scopes": [
+        true,
+        true
+      ],
+      "result": "RETURNED",
+      "total_ms": 187.4023
+    },
+    {
+      "test": "tests.test_w02_recall_timeout.W02RecallTimeoutTests.test_third_message_sixteen_candidates_and_current_derived_sources",
+      "metrics": {
+        "candidate_assess": {
+          "count": 23,
+          "ms": 1.88
+        },
+        "json_loads": {
+          "count": 630,
+          "ms": 13.6332
+        },
+        "read:capability-ledger.v1.json": {
+          "count": 30,
+          "ms": 4.0461
+        },
+        "journal_copy": {
+          "count": 46,
+          "ms": 42.3481
+        },
+        "capability_load": {
+          "count": 30,
+          "ms": 25.6511
+        },
+        "verified": {
+          "count": 10,
+          "ms": 211.3678
+        },
+        "cached": {
+          "count": 5,
+          "ms": 249.2055
+        },
+        "proof": {
+          "count": 87,
+          "ms": 28.3473
+        },
+        "current": {
+          "count": 10,
+          "ms": 59.522
+        },
+        "absorbed": {
+          "count": 5,
+          "ms": 332.4894
+        },
+        "external_items": {
+          "count": 5,
+          "ms": 378.2563
+        },
+        "read:operation-journal.first-round-v1.json": {
+          "count": 15,
+          "ms": 2.7796
+        },
+        "operation_full_validation": {
+          "count": 1,
+          "ms": 0.003
+        },
+        "operations_load": {
+          "count": 15,
+          "ms": 69.2718
+        },
+        "input_material": {
+          "count": 10,
+          "ms": 42.3658
+        },
+        "history": {
+          "count": 3,
+          "ms": 28.1071
+        },
+        "router": {
+          "count": 1,
+          "ms": 512.4394
+        },
+        "authorize": {
+          "count": 1,
+          "ms": 0.0086
+        },
+        "composer": {
+          "count": 1,
+          "ms": 247.6938
+        },
+        "preference": {
+          "count": 1,
+          "ms": 41.1636
+        }
+      },
+      "bytes": {
+        "capability-ledger.v1.json": 582420,
+        "operation-journal.first-round-v1.json": 6105600
+      },
+      "operation_scopes": [
+        true,
+        true
+      ],
+      "result": "RETURNED",
+      "total_ms": 804.1385
+    },
+    {
+      "test": "tests.test_w02_recall_timeout.W02RecallTimeoutTests.test_third_message_sixteen_candidates_and_current_derived_sources",
+      "metrics": {
+        "candidate_assess": {
+          "count": 37,
+          "ms": 4.1119
+        },
+        "json_loads": {
+          "count": 294,
+          "ms": 11.7273
+        },
+        "read:capability-ledger.v1.json": {
+          "count": 27,
+          "ms": 3.462
+        },
+        "journal_copy": {
+          "count": 46,
+          "ms": 114.4612
+        },
+        "capability_load": {
+          "count": 27,
+          "ms": 28.9817
+        },
+        "verified": {
+          "count": 9,
+          "ms": 189.1708
+        },
+        "cached": {
+          "count": 3,
+          "ms": 224.3297
+        },
+        "proof": {
+          "count": 28,
+          "ms": 10.1368
+        },
+        "current": {
+          "count": 9,
+          "ms": 51.0147
+        },
+        "absorbed": {
+          "count": 3,
+          "ms": 291.4855
+        },
+        "external_items": {
+          "count": 3,
+          "ms": 310.639
+        },
+        "read:operation-journal.first-round-v1.json": {
+          "count": 18,
+          "ms": 4.7714
+        },
+        "operation_full_validation": {
+          "count": 1,
+          "ms": 0.0071
+        },
+        "operations_load": {
+          "count": 18,
+          "ms": 169.9391
+        },
+        "input_material": {
+          "count": 12,
+          "ms": 108.7908
+        },
+        "history": {
+          "count": 4,
+          "ms": 83.339
+        },
+        "router": {
+          "count": 1,
+          "ms": 412.0982
+        },
+        "authorize": {
+          "count": 1,
+          "ms": 0.0086
+        },
+        "composer": {
+          "count": 1,
+          "ms": 129.2333
+        },
+        "preference": {
+          "count": 1,
+          "ms": 18.9055
+        }
+      },
+      "bytes": {
+        "capability-ledger.v1.json": 806625,
+        "operation-journal.first-round-v1.json": 11567484
+      },
+      "operation_scopes": [
+        true,
+        true
+      ],
+      "result": "RETURNED",
+      "total_ms": 563.0089
+    },
+    {
+      "test": "tests.test_w02_integration.W02IntegratedChainTests.test_partial_derived_withdrawal_invalidates_integrated_reply_and_support",
+      "metrics": {
+        "candidate_assess": {
+          "count": 7,
+          "ms": 0.6012
+        },
+        "json_loads": {
+          "count": 27,
+          "ms": 0.6832
+        },
+        "cached": {
+          "count": 1,
+          "ms": 3.5312
+        },
+        "absorbed": {
+          "count": 1,
+          "ms": 6.792
+        },
+        "external_items": {
+          "count": 1,
+          "ms": 6.801
+        },
+        "read:operation-journal.first-round-v1.json": {
+          "count": 9,
+          "ms": 1.0256
+        },
+        "operation_full_validation": {
+          "count": 1,
+          "ms": 0.0017
+        },
+        "journal_copy": {
+          "count": 10,
+          "ms": 2.7348
+        },
+        "operations_load": {
+          "count": 9,
+          "ms": 5.559
+        },
+        "input_material": {
+          "count": 6,
+          "ms": 5.0442
+        },
+        "history": {
+          "count": 1,
+          "ms": 1.0626
+        },
+        "router": {
+          "count": 1,
+          "ms": 21.759
+        },
+        "authorize": {
+          "count": 1,
+          "ms": 0.005
+        },
+        "composer": {
+          "count": 1,
+          "ms": 5.2374
+        },
+        "preference": {
+          "count": 1,
+          "ms": 1.7326
+        }
+      },
+      "bytes": {
+        "operation-journal.first-round-v1.json": 186498
+      },
+      "operation_scopes": [
+        true,
+        true
+      ],
+      "result": "RETURNED",
+      "total_ms": 30.7651
+    },
+    {
+      "test": "tests.test_w02_integration.W02IntegratedChainTests.test_partial_derived_withdrawal_invalidates_integrated_reply_and_support",
+      "metrics": {
+        "candidate_assess": {
+          "count": 15,
+          "ms": 2.6902
+        },
+        "json_loads": {
+          "count": 120,
+          "ms": 3.2449
+        },
+        "read:capability-ledger.v1.json": {
+          "count": 9,
+          "ms": 1.1522
+        },
+        "journal_copy": {
+          "count": 22,
+          "ms": 21.2195
+        },
+        "capability_load": {
+          "count": 9,
+          "ms": 8.5158
+        },
+        "verified": {
+          "count": 3,
+          "ms": 61.5594
+        },
+        "cached": {
+          "count": 3,
+          "ms": 81.8379
+        },
+        "proof": {
+          "count": 12,
+          "ms": 4.016
+        },
+        "current": {
+          "count": 3,
+          "ms": 16.4379
+        },
+        "absorbed": {
+          "count": 3,
+          "ms": 112.4202
+        },
+        "external_items": {
+          "count": 3,
+          "ms": 127.5556
+        },
+        "read:operation-journal.first-round-v1.json": {
+          "count": 12,
+          "ms": 2.1577
+        },
+        "operation_full_validation": {
+          "count": 1,
+          "ms": 0.0027
+        },
+        "operations_load": {
+          "count": 12,
+          "ms": 36.4652
+        },
+        "input_material": {
+          "count": 8,
+          "ms": 22.8706
+        },
+        "history": {
+          "count": 2,
+          "ms": 14.3526
+        },
+        "router": {
+          "count": 1,
+          "ms": 131.391
+        },
+        "authorize": {
+          "count": 1,
+          "ms": 0.008
+        },
+        "composer": {
+          "count": 1,
+          "ms": 52.2951
+        },
+        "preference": {
+          "count": 1,
+          "ms": 8.0144
+        }
+      },
+      "bytes": {
+        "capability-ledger.v1.json": 85365,
+        "operation-journal.first-round-v1.json": 2444988
+      },
+      "operation_scopes": [
+        true,
+        true
+      ],
+      "result": "RETURNED",
+      "total_ms": 195.4775
+    },
+    {
+      "test": "tests.test_w02_integration.W02IntegratedChainTests.test_partial_derived_withdrawal_invalidates_integrated_reply_and_support",
+      "metrics": {
+        "candidate_assess": {
+          "count": 23,
+          "ms": 1.961
+        },
+        "json_loads": {
+          "count": 630,
+          "ms": 13.2257
+        },
+        "read:capability-ledger.v1.json": {
+          "count": 30,
+          "ms": 3.5736
+        },
+        "journal_copy": {
+          "count": 46,
+          "ms": 41.6038
+        },
+        "capability_load": {
+          "count": 30,
+          "ms": 23.9089
+        },
+        "verified": {
+          "count": 10,
+          "ms": 186.985
+        },
+        "cached": {
+          "count": 5,
+          "ms": 223.5679
+        },
+        "proof": {
+          "count": 87,
+          "ms": 25.6548
+        },
+        "current": {
+          "count": 10,
+          "ms": 49.6574
+        },
+        "absorbed": {
+          "count": 5,
+          "ms": 292.4815
+        },
+        "external_items": {
+          "count": 5,
+          "ms": 337.5623
+        },
+        "read:operation-journal.first-round-v1.json": {
+          "count": 15,
+          "ms": 2.675
+        },
+        "operation_full_validation": {
+          "count": 1,
+          "ms": 0.0028
+        },
+        "operations_load": {
+          "count": 15,
+          "ms": 65.6037
+        },
+        "input_material": {
+          "count": 10,
+          "ms": 38.2495
+        },
+        "history": {
+          "count": 3,
+          "ms": 31.4767
+        },
+        "router": {
+          "count": 1,
+          "ms": 492.6186
+        },
+        "authorize": {
+          "count": 1,
+          "ms": 0.0085
+        },
+        "composer": {
+          "count": 1,
+          "ms": 189.9572
+        },
+        "preference": {
+          "count": 1,
+          "ms": 33.5273
+        }
+      },
+      "bytes": {
+        "capability-ledger.v1.json": 582420,
+        "operation-journal.first-round-v1.json": 6105540
+      },
+      "operation_scopes": [
+        true,
+        true
+      ],
+      "result": "RETURNED",
+      "total_ms": 718.5359
+    },
+    {
+      "test": "tests.test_w02_integration.W02IntegratedChainTests.test_partial_derived_withdrawal_invalidates_integrated_reply_and_support",
+      "metrics": {
+        "candidate_assess": {
+          "count": 37,
+          "ms": 3.6089
+        },
+        "json_loads": {
+          "count": 294,
+          "ms": 9.0255
+        },
+        "read:capability-ledger.v1.json": {
+          "count": 27,
+          "ms": 3.2651
+        },
+        "journal_copy": {
+          "count": 46,
+          "ms": 80.309
+        },
+        "capability_load": {
+          "count": 27,
+          "ms": 26.3426
+        },
+        "verified": {
+          "count": 9,
+          "ms": 162.2693
+        },
+        "cached": {
+          "count": 3,
+          "ms": 191.4852
+        },
+        "proof": {
+          "count": 28,
+          "ms": 7.9454
+        },
+        "current": {
+          "count": 9,
+          "ms": 45.6282
+        },
+        "absorbed": {
+          "count": 3,
+          "ms": 255.5552
+        },
+        "external_items": {
+          "count": 3,
+          "ms": 268.0305
+        },
+        "read:operation-journal.first-round-v1.json": {
+          "count": 18,
+          "ms": 3.9178
+        },
+        "operation_full_validation": {
+          "count": 1,
+          "ms": 0.0029
+        },
+        "operations_load": {
+          "count": 18,
+          "ms": 117.4069
+        },
+        "input_material": {
+          "count": 12,
+          "ms": 55.7447
+        },
+        "history": {
+          "count": 4,
+          "ms": 79.6241
+        },
+        "router": {
+          "count": 1,
+          "ms": 299.026
+        },
+        "authorize": {
+          "count": 1,
+          "ms": 0.0095
+        },
+        "composer": {
+          "count": 1,
+          "ms": 135.9778
+        },
+        "preference": {
+          "count": 1,
+          "ms": 21.3395
+        }
+      },
+      "bytes": {
+        "capability-ledger.v1.json": 806625,
+        "operation-journal.first-round-v1.json": 11567826
+      },
+      "operation_scopes": [
+        true,
+        true
+      ],
+      "result": "RETURNED",
+      "total_ms": 458.8145
+    },
+    {
+      "test": "tests.test_w02_integration.W02IntegratedChainTests.test_raw_message_stations_old_memory_receipt_and_final_preanswer_context",
+      "metrics": {
+        "candidate_assess": {
+          "count": 10,
+          "ms": 1.2365
+        },
+        "json_loads": {
+          "count": 51,
+          "ms": 2.8219
+        },
+        "cached": {
+          "count": 1,
+          "ms": 4.2309
+        },
+        "absorbed": {
+          "count": 1,
+          "ms": 8.22
+        },
+        "external_items": {
+          "count": 1,
+          "ms": 8.2309
+        },
+        "read:operation-journal.first-round-v1.json": {
+          "count": 9,
+          "ms": 1.317
+        },
+        "operation_full_validation": {
+          "count": 1,
+          "ms": 0.0016
+        },
+        "journal_copy": {
+          "count": 10,
+          "ms": 3.5438
+        },
+        "operations_load": {
+          "count": 9,
+          "ms": 7.1124
+        },
+        "input_material": {
+          "count": 6,
+          "ms": 6.2868
+        },
+        "history": {
+          "count": 1,
+          "ms": 0.8736
+        },
+        "router": {
+          "count": 1,
+          "ms": 35.0339
+        },
+        "authorize": {
+          "count": 1,
+          "ms": 0.0148
+        },
+        "composer": {
+          "count": 1,
+          "ms": 22.8993
+        },
+        "preference": {
+          "count": 1,
+          "ms": 8.1622
+        }
+      },
+      "bytes": {
+        "operation-journal.first-round-v1.json": 206595
+      },
+      "operation_scopes": [
+        true,
+        true
+      ],
+      "result": "RETURNED",
+      "total_ms": 69.2602
+    },
+    {
+      "test": "tests.test_w02_integration.W02IntegratedChainTests.test_raw_message_stations_old_memory_receipt_and_final_preanswer_context",
+      "metrics": {
+        "candidate_assess": {
+          "count": 17,
+          "ms": 3.3804
+        },
+        "json_loads": {
+          "count": 138,
+          "ms": 5.6726
+        },
+        "read:capability-ledger.v1.json": {
+          "count": 9,
+          "ms": 1.3367
+        },
+        "journal_copy": {
+          "count": 22,
+          "ms": 23.5039
+        },
+        "capability_load": {
+          "count": 9,
+          "ms": 10.6179
+        },
+        "verified": {
+          "count": 3,
+          "ms": 62.3823
+        },
+        "cached": {
+          "count": 3,
+          "ms": 89.3664
+        },
+        "proof": {
+          "count": 6,
+          "ms": 2.3326
+        },
+        "current": {
+          "count": 3,
+          "ms": 15.2214
+        },
+        "absorbed": {
+          "count": 3,
+          "ms": 117.6013
+        },
+        "external_items": {
+          "count": 3,
+          "ms": 135.7234
+        },
+        "read:operation-journal.first-round-v1.json": {
+          "count": 12,
+          "ms": 2.1863
+        },
+        "operation_full_validation": {
+          "count": 1,
+          "ms": 0.0026
+        },
+        "operations_load": {
+          "count": 12,
+          "ms": 42.2401
+        },
+        "input_material": {
+          "count": 8,
+          "ms": 27.8377
+        },
+        "history": {
+          "count": 2,
+          "ms": 11.6729
+        },
+        "router": {
+          "count": 1,
+          "ms": 155.0725
+        },
+        "authorize": {
+          "count": 1,
+          "ms": 0.0082
+        },
+        "composer": {
+          "count": 1,
+          "ms": 69.2425
+        },
+        "preference": {
+          "count": 1,
+          "ms": 17.5048
+        }
+      },
+      "bytes": {
+        "capability-ledger.v1.json": 92547,
+        "operation-journal.first-round-v1.json": 2788200
+      },
+      "operation_scopes": [
+        true,
+        true
+      ],
+      "result": "RETURNED",
+      "total_ms": 246.5314
+    },
+    {
+      "test": "tests.test_w02_external_absorption.ExternalAbsorptionTests.test_w02_a_and_b_real_ingress_share_pre_answer_external_candidate",
+      "metrics": {
+        "candidate_assess": {
+          "count": 8,
+          "ms": 1.2751
+        },
+        "json_loads": {
+          "count": 28,
+          "ms": 0.9602
+        },
+        "cached": {
+          "count": 1,
+          "ms": 5.524
+        },
+        "absorbed": {
+          "count": 1,
+          "ms": 10.4547
+        },
+        "external_items": {
+          "count": 1,
+          "ms": 10.466
+        },
+        "read:operation-journal.first-round-v1.json": {
+          "count": 7,
+          "ms": 1.1429
+        },
+        "operation_full_validation": {
+          "count": 1,
+          "ms": 0.0028
+        },
+        "journal_copy": {
+          "count": 8,
+          "ms": 2.5119
+        },
+        "operations_load": {
+          "count": 7,
+          "ms": 5.7949
+        },
+        "input_material": {
+          "count": 6,
+          "ms": 7.9018
+        },
+        "history": {
+          "count": 1,
+          "ms": 0.8211
+        },
+        "router": {
+          "count": 1,
+          "ms": 30.4798
+        },
+        "authorize": {
+          "count": 1,
+          "ms": 0.0117
+        },
+        "composer": {
+          "count": 1,
+          "ms": 9.0754
+        },
+        "preference": {
+          "count": 1,
+          "ms": 0.0115
+        }
+      },
+      "bytes": {
+        "operation-journal.first-round-v1.json": 146951
+      },
+      "operation_scopes": [
+        true,
+        true
+      ],
+      "result": "RETURNED",
+      "total_ms": 42.5667
+    },
+    {
+      "test": "tests.test_w02_external_absorption.ExternalAbsorptionTests.test_w02_a_and_b_real_ingress_share_pre_answer_external_candidate",
+      "metrics": {
+        "candidate_assess": {
+          "count": 16,
+          "ms": 2.3208
+        },
+        "json_loads": {
+          "count": 115,
+          "ms": 2.4171
+        },
+        "read:capability-ledger.v1.json": {
+          "count": 9,
+          "ms": 1.0179
+        },
+        "journal_copy": {
+          "count": 20,
+          "ms": 12.2254
+        },
+        "capability_load": {
+          "count": 9,
+          "ms": 8.9458
+        },
+        "verified": {
+          "count": 3,
+          "ms": 51.8275
+        },
+        "cached": {
+          "count": 3,
+          "ms": 71.9846
+        },
+        "proof": {
+          "count": 6,
+          "ms": 1.6474
+        },
+        "current": {
+          "count": 3,
+          "ms": 12.544
+        },
+        "absorbed": {
+          "count": 3,
+          "ms": 96.6382
+        },
+        "external_items": {
+          "count": 3,
+          "ms": 109.7058
+        },
+        "read:operation-journal.first-round-v1.json": {
+          "count": 10,
+          "ms": 1.306
+        },
+        "operation_full_validation": {
+          "count": 1,
+          "ms": 0.0026
+        },
+        "operations_load": {
+          "count": 10,
+          "ms": 24.8639
+        },
+        "input_material": {
+          "count": 8,
+          "ms": 19.6416
+        },
+        "history": {
+          "count": 2,
+          "ms": 11.224
+        },
+        "router": {
+          "count": 1,
+          "ms": 117.324
+        },
+        "authorize": {
+          "count": 1,
+          "ms": 0.0071
+        },
+        "composer": {
+          "count": 1,
+          "ms": 40.221
+        },
+        "preference": {
+          "count": 1,
+          "ms": 0.0056
+        }
+      },
+      "bytes": {
+        "capability-ledger.v1.json": 87759,
+        "operation-journal.first-round-v1.json": 2068150
+      },
+      "operation_scopes": [
+        true,
+        true
+      ],
+      "result": "RETURNED",
+      "total_ms": 160.6622
+    }
+  ],
+  "bookkeeping_ms": 6.4124,
+  "wrapper_calls": 5581,
+  "note": "nested times not additive; overhead excludes timer and call-dispatch cost"
+}

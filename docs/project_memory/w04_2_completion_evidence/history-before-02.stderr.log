@@ -1,0 +1,29 @@
+test_two_current_targets_both_orders_and_distinct_identifiers (tests.test_w04_2_history_selection.HistorySelectionTests.test_two_current_targets_both_orders_and_distinct_identifiers) ... ERROR
+
+======================================================================
+ERROR: test_two_current_targets_both_orders_and_distinct_identifiers (tests.test_w04_2_history_selection.HistorySelectionTests.test_two_current_targets_both_orders_and_distinct_identifiers)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_2_history_selection.py", line 53, in test_two_current_targets_both_orders_and_distinct_identifiers
+    requests=[self.query(identity) for identity in ('query:Z-final','query:a.other/second')]
+              ~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_2_history_selection.py", line 31, in query
+    request,run=f.prepare(f.command('query',history=asdict(f.scope(query_id=identity))),decision=identity)
+                                                           ~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\w04_device_fixture.py", line 301, in scope
+    return HistoryScope(**{**dict(query_id=query_id, subject_id=self.state.subject_id, environment="TEST",
+        object_id="object:continuity", software_id="software:a", device_id="device:a", session_id="session:a",
+        from_at=None, until_at=None, source_ids=(), permission_ref="permission:history", mode="EXTERNAL",
+        subject_willing=True, user_requested=False, limit=4), **changes})
+  File "<string>", line 18, in __init__
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\domain\environment_access.py", line 207, in __post_init__
+    identifier(value)
+    ~~~~~~~~~~^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\domain\action_planning.py", line 18, in identifier
+    raise CapabilityValidationError("invalid internal action identity")
+continuity_engine.domain.errors.CapabilityValidationError: invalid internal action identity
+
+----------------------------------------------------------------------
+Ran 1 test in 1.629s
+
+FAILED (errors=1)

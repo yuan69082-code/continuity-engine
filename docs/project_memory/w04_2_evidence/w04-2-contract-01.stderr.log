@@ -1,0 +1,33 @@
+test_original_action_request_can_bind_device_observation_and_command (tests.test_w04_2_simulation.DevicePayloadAdmissionTests.test_original_action_request_can_bind_device_observation_and_command) ... ERROR
+
+======================================================================
+ERROR: test_original_action_request_can_bind_device_observation_and_command (tests.test_w04_2_simulation.DevicePayloadAdmissionTests.test_original_action_request_can_bind_device_observation_and_command)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_2_simulation.py", line 21, in test_original_action_request_can_bind_device_observation_and_command
+    step = ActionSpecification("step-0", "device.click", "software:a", digest(payload), input_payload=payload)
+  File "<string>", line 9, in __init__
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\domain\action_planning.py", line 56, in __post_init__
+    command = DeviceCommand.from_dict(self.input_payload)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\domain\device_operation.py", line 98, in from_dict
+    return cls(**{**d, "observation": DeviceObservation.from_dict(d["observation"])})
+                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\domain\device_operation.py", line 47, in from_dict
+    return cls(**{**d, "use": AttachmentUse(**exact(d["use"], set(AttachmentUse.__dataclass_fields__)))})
+  File "<string>", line 12, in __init__
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\domain\device_operation.py", line 30, in __post_init__
+    if parse_capability_datetime(self.expires_at) <= parse_capability_datetime(self.observed_at):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\domain\capability.py", line 745, in parse_capability_datetime
+    _utc(value, "capability timestamp")
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\domain\capability.py", line 73, in _utc
+    raise CapabilityValidationError(
+        f"{name} must be an RFC 3339 UTC timestamp ending in uppercase Z"
+    )
+continuity_engine.domain.errors.CapabilityValidationError: capability timestamp must be an RFC 3339 UTC timestamp ending in uppercase Z
+
+----------------------------------------------------------------------
+Ran 1 test in 0.013s
+
+FAILED (errors=1)

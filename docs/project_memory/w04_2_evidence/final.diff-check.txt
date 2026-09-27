@@ -1,0 +1,7 @@
+exit_code=0
+STDOUT
+
+STDERR
+warning: in the working copy of 'src/continuity_engine/domain/action_planning.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/continuity_engine/services/execution_context_source.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/continuity_engine/services/execution_service.py', LF will be replaced by CRLF the next time Git touches it

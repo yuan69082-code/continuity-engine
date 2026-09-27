@@ -1,0 +1,50 @@
+test_long_busy_host_remains_live_and_diagnostic_is_not_flooded (tests.test_p18_runtime_contention.RuntimeContentionTests.test_long_busy_host_remains_live_and_diagnostic_is_not_flooded) ... FAIL
+test_start_waits_for_checkpoint_without_relaxing_owner_lock (tests.test_p18_runtime_contention.RuntimeContentionTests.test_start_waits_for_checkpoint_without_relaxing_owner_lock) ... ERROR
+
+======================================================================
+ERROR: test_start_waits_for_checkpoint_without_relaxing_owner_lock (tests.test_p18_runtime_contention.RuntimeContentionTests.test_start_waits_for_checkpoint_without_relaxing_owner_lock)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p18_runtime_contention.py", line 322, in test_start_waits_for_checkpoint_without_relaxing_owner_lock
+    self.stop(p)
+    ~~~~~~~~~^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p18_runtime_contention.py", line 89, in stop
+    self.f.host.control('STOP',command_id='test-stop',expected_revision=None,handle='p18-test-owner')
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\docs\project_memory\w04_2_public_repair_evidence\lock_trace\sitecustomize.py", line 38, in traced
+    value=original(self,*args,**kw)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\persistent_runtime_service.py", line 38, in control
+    with self.repository.transaction() as d:
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "E:\Adobe\Lib\contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_runtime_repository.py", line 146, in transaction
+    with file_lock(self.path.with_suffix('.lock'),checkpoint=True,
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                   wait_seconds=max(0,deadline-time.monotonic())):
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Adobe\Lib\contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "C:\Users\Administrator\Documents\continuity-engine\docs\project_memory\w04_2_public_repair_evidence\lock_trace\sitecustomize.py", line 21, in lock
+    with original_lock(path,**kw):
+         ~~~~~~~~~~~~~^^^^^^^^^^^
+  File "E:\Adobe\Lib\contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\storage\json_runtime_repository.py", line 73, in file_lock
+    if checkpoint:raise RuntimeCheckpointBusy() from None
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+continuity_engine.storage.json_runtime_repository.RuntimeCheckpointBusy: RUNTIME_CHECKPOINT_BUSY
+
+======================================================================
+FAIL: test_long_busy_host_remains_live_and_diagnostic_is_not_flooded (tests.test_p18_runtime_contention.RuntimeContentionTests.test_long_busy_host_remains_live_and_diagnostic_is_not_flooded)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_p18_runtime_contention.py", line 271, in test_long_busy_host_remains_live_and_diagnostic_is_not_flooded
+    self.assertEqual(err.count('RUNTIME_CHECKPOINT_BUSY'),1)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 1
+
+----------------------------------------------------------------------
+Ran 2 tests in 9.209s
+
+FAILED (failures=1, errors=1)

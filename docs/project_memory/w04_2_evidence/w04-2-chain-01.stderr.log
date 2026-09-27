@@ -1,0 +1,86 @@
+test_original_action_request_can_bind_device_observation_and_command (tests.test_w04_2_simulation.DevicePayloadAdmissionTests.test_original_action_request_can_bind_device_observation_and_command) ... ok
+test_body_action_and_sensor_reach_original_perception (tests.test_w04_2_simulation.W04SimulatedChainTests.test_body_action_and_sensor_reach_original_perception) ... ok
+test_cancel_before_effect_remains_cancelled (tests.test_w04_2_simulation.W04SimulatedChainTests.test_cancel_before_effect_remains_cancelled) ... ok
+test_deep_history_requires_willingness_and_current_permission (tests.test_w04_2_simulation.W04SimulatedChainTests.test_deep_history_requires_willingness_and_current_permission) ... ERROR
+test_external_instruction_is_observation_not_subject_authority (tests.test_w04_2_simulation.W04SimulatedChainTests.test_external_instruction_is_observation_not_subject_authority) ... ok
+test_final_native_boundary_rechecks_takeover_and_authority (tests.test_w04_2_simulation.W04SimulatedChainTests.test_final_native_boundary_rechecks_takeover_and_authority) ... ok
+test_focus_page_lock_offline_takeover_and_unobservable_block_stale_actions (tests.test_w04_2_simulation.W04SimulatedChainTests.test_focus_page_lock_offline_takeover_and_unobservable_block_stale_actions) ... ok
+test_no_body_subject_and_unknown_zero_are_distinct (tests.test_w04_2_simulation.W04SimulatedChainTests.test_no_body_subject_and_unknown_zero_are_distinct) ... ok
+test_observation_expiry_boundary_and_fresh_reobservation (tests.test_w04_2_simulation.W04SimulatedChainTests.test_observation_expiry_boundary_and_fresh_reobservation) ... ok
+test_original_reality_denial_is_not_bypassed_by_ui (tests.test_w04_2_simulation.W04SimulatedChainTests.test_original_reality_denial_is_not_bypassed_by_ui) ... ok
+test_permission_or_device_connection_change_blocks_new_effect (tests.test_w04_2_simulation.W04SimulatedChainTests.test_permission_or_device_connection_change_blocks_new_effect) ... ERROR
+test_query_and_status_are_read_only_and_bounded (tests.test_w04_2_simulation.W04SimulatedChainTests.test_query_and_status_are_read_only_and_bounded) ... ERROR
+test_repeated_receipt_and_lost_response_recover_without_new_effect (tests.test_w04_2_simulation.W04SimulatedChainTests.test_repeated_receipt_and_lost_response_recover_without_new_effect) ... ok
+test_somatic_and_dream_cannot_impersonate_hardware (tests.test_w04_2_simulation.W04SimulatedChainTests.test_somatic_and_dream_cannot_impersonate_hardware) ... ok
+test_terminal_failure_is_not_business_success (tests.test_w04_2_simulation.W04SimulatedChainTests.test_terminal_failure_is_not_business_success) ... ok
+test_true_unknown_keeps_old_request_and_never_resends (tests.test_w04_2_simulation.W04SimulatedChainTests.test_true_unknown_keeps_old_request_and_never_resends) ... ok
+test_ui_locate_click_type_scroll_save_send_and_reobserve (tests.test_w04_2_simulation.W04SimulatedChainTests.test_ui_locate_click_type_scroll_save_send_and_reobserve) ... ok
+test_wrong_subject_environment_account_device_and_session_are_rejected (tests.test_w04_2_simulation.W04SimulatedChainTests.test_wrong_subject_environment_account_device_and_session_are_rejected) ... ok
+
+======================================================================
+ERROR: test_deep_history_requires_willingness_and_current_permission (tests.test_w04_2_simulation.W04SimulatedChainTests.test_deep_history_requires_willingness_and_current_permission)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_2_simulation.py", line 225, in test_deep_history_requires_willingness_and_current_permission
+    request, _ = self.run_action("query", history=asdict(f.scope(user_requested=True, subject_willing=False)))
+                 ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_2_simulation.py", line 51, in run_action
+    result = run()
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\w04_device_fixture.py", line 279, in <lambda>
+    return request, lambda retry=False: planner.run(choice, self.last_context.composition, retry=retry)
+                                        ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\action_planning_service.py", line 159, in run
+    self.coordination.ensure_action_request(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        request, allow_create=self.constraints.validate_context(context))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\capability_coordination_service.py", line 55, in ensure_action_request
+    raise CapabilityConflictError("operation recovery identity conflict")
+continuity_engine.domain.errors.CapabilityConflictError: operation recovery identity conflict
+
+======================================================================
+ERROR: test_permission_or_device_connection_change_blocks_new_effect (tests.test_w04_2_simulation.W04SimulatedChainTests.test_permission_or_device_connection_change_blocks_new_effect)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_2_simulation.py", line 143, in test_permission_or_device_connection_change_blocks_new_effect
+    self.assert_no_effect(run)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_2_simulation.py", line 59, in assert_no_effect
+    result = run()
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\w04_device_fixture.py", line 279, in <lambda>
+    return request, lambda retry=False: planner.run(choice, self.last_context.composition, retry=retry)
+                                        ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\action_planning_service.py", line 159, in run
+    self.coordination.ensure_action_request(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        request, allow_create=self.constraints.validate_context(context))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\capability_coordination_service.py", line 55, in ensure_action_request
+    raise CapabilityConflictError("operation recovery identity conflict")
+continuity_engine.domain.errors.CapabilityConflictError: operation recovery identity conflict
+
+======================================================================
+ERROR: test_query_and_status_are_read_only_and_bounded (tests.test_w04_2_simulation.W04SimulatedChainTests.test_query_and_status_are_read_only_and_bounded)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_2_simulation.py", line 210, in test_query_and_status_are_read_only_and_bounded
+    request, result = self.run_action("query", history=asdict(f.scope()))
+                      ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_2_simulation.py", line 51, in run_action
+    result = run()
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\w04_device_fixture.py", line 279, in <lambda>
+    return request, lambda retry=False: planner.run(choice, self.last_context.composition, retry=retry)
+                                        ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\action_planning_service.py", line 159, in run
+    self.coordination.ensure_action_request(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        request, allow_create=self.constraints.validate_context(context))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\capability_coordination_service.py", line 55, in ensure_action_request
+    raise CapabilityConflictError("operation recovery identity conflict")
+continuity_engine.domain.errors.CapabilityConflictError: operation recovery identity conflict
+
+----------------------------------------------------------------------
+Ran 18 tests in 33.729s
+
+FAILED (errors=3)

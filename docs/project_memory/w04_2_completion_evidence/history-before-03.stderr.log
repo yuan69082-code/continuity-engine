@@ -1,0 +1,40 @@
+test_two_current_targets_both_orders_and_distinct_identifiers (tests.test_w04_2_history_selection.HistorySelectionTests.test_two_current_targets_both_orders_and_distinct_identifiers) ... 
+  test_two_current_targets_both_orders_and_distinct_identifiers (tests.test_w04_2_history_selection.HistorySelectionTests.test_two_current_targets_both_orders_and_distinct_identifiers) (target='action-cap:1f545dc98165a99a274d36075c0e499060993aaa858756bb361b69b48243ef14') ... ERROR
+  test_two_current_targets_both_orders_and_distinct_identifiers (tests.test_w04_2_history_selection.HistorySelectionTests.test_two_current_targets_both_orders_and_distinct_identifiers) (target='action-cap:1f545dc98165a99a274d36075c0e499060993aaa858756bb361b69b48243ef14') ... ERROR
+
+======================================================================
+ERROR: test_two_current_targets_both_orders_and_distinct_identifiers (tests.test_w04_2_history_selection.HistorySelectionTests.test_two_current_targets_both_orders_and_distinct_identifiers) (target='action-cap:1f545dc98165a99a274d36075c0e499060993aaa858756bb361b69b48243ef14')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_2_history_selection.py", line 56, in test_two_current_targets_both_orders_and_distinct_identifiers
+    with self.subTest(target=request.capability_request_id):self.assert_context(request)
+                                                            ~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_2_history_selection.py", line 42, in assert_context
+    c=self.context(request)
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_2_history_selection.py", line 39, in context
+    return f.device.history_context(request.capability_request_id,perception)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\device_operation_service.py", line 280, in history_context
+    raise EnvironmentAccessError("DEVICE_HISTORY_CONTEXT_NOT_READY")
+continuity_engine.domain.environment_access.EnvironmentAccessError: DEVICE_HISTORY_CONTEXT_NOT_READY
+
+======================================================================
+ERROR: test_two_current_targets_both_orders_and_distinct_identifiers (tests.test_w04_2_history_selection.HistorySelectionTests.test_two_current_targets_both_orders_and_distinct_identifiers) (target='action-cap:1f545dc98165a99a274d36075c0e499060993aaa858756bb361b69b48243ef14')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_2_history_selection.py", line 56, in test_two_current_targets_both_orders_and_distinct_identifiers
+    with self.subTest(target=request.capability_request_id):self.assert_context(request)
+                                                            ~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_2_history_selection.py", line 42, in assert_context
+    c=self.context(request)
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_2_history_selection.py", line 39, in context
+    return f.device.history_context(request.capability_request_id,perception)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\device_operation_service.py", line 280, in history_context
+    raise EnvironmentAccessError("DEVICE_HISTORY_CONTEXT_NOT_READY")
+continuity_engine.domain.environment_access.EnvironmentAccessError: DEVICE_HISTORY_CONTEXT_NOT_READY
+
+----------------------------------------------------------------------
+Ran 1 test in 18.292s
+
+FAILED (errors=2)

@@ -1,0 +1,8 @@
+test_query_and_status_are_read_only_and_bounded (tests.test_w04_2_simulation.W04SimulatedChainTests.test_query_and_status_are_read_only_and_bounded) ... ok
+test_deep_history_requires_willingness_and_current_permission (tests.test_w04_2_simulation.W04SimulatedChainTests.test_deep_history_requires_willingness_and_current_permission) ... ok
+test_permission_or_device_connection_change_blocks_new_effect (tests.test_w04_2_simulation.W04SimulatedChainTests.test_permission_or_device_connection_change_blocks_new_effect) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 6.354s
+
+OK

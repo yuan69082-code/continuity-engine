@@ -1,0 +1,21 @@
+{
+  "label": "w04-2-flow-01",
+  "started_at": "2026-09-27T15:26:11.012451+00:00",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_w04_2_simulation.W04SimulatedChainTests.test_raw_message_c1_device_action_result_and_legal_evolution_absorption",
+    "tests.test_w04_2_simulation.W04SimulatedChainTests.test_same_root_history_requery_does_not_create_independent_evidence",
+    "tests.test_w04_2_simulation.W04SimulatedChainTests.test_history_scope_filters_other_session_time_and_unreadable_records",
+    "tests.test_w04_2_simulation.W04SimulatedChainTests.test_expired_history_not_consumable_but_original_receipt_recovers",
+    "tests.test_w04_2_simulation.W04SimulatedChainTests.test_unavailable_route_can_reobserve_but_reality_denial_cannot_be_bypassed",
+    "-v"
+  ],
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "source_before": "sha256:3586132974ce12ba1e2c2dd5c789514e242945139c88c43d25244aaed0c4317c",
+  "status": "COMPLETED",
+  "exit_code": 0,
+  "duration_seconds": 24.5,
+  "source_after": "sha256:3586132974ce12ba1e2c2dd5c789514e242945139c88c43d25244aaed0c4317c"
+}

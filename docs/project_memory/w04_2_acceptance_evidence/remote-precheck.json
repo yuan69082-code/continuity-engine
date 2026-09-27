@@ -1,0 +1,33 @@
+{
+  "command": [
+    "git",
+    "-c",
+    "core.quotepath=false",
+    "-c",
+    "http.sslBackend=openssl",
+    "-c",
+    "http.sslVerify=true",
+    "ls-remote",
+    "--exit-code",
+    "origin",
+    "refs/heads/main"
+  ],
+  "exit_code": 0,
+  "stdout": "fc185843d7de815262d9efbcab4a04337c6f303d\trefs/heads/main\n",
+  "stderr": "",
+  "checked_utc": "2026-09-27T23:22:21.907782+00:00",
+  "earlier_default_backend_observation": {
+    "exit_code": 1,
+    "safe_error": "schannel: AcquireCredentialsHandle failed: SEC_E_NO_CREDENTIALS (0x8009030e)",
+    "source": "Earlier tool output this turn; localized suffix was not decoded reliably. No token read/copied.",
+    "command": [
+      "git",
+      "ls-remote",
+      "--exit-code",
+      "origin",
+      "refs/heads/main"
+    ]
+  },
+  "configuration_changed": false,
+  "tls_verification": true
+}

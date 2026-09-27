@@ -1,0 +1,7 @@
+{
+  "instrumented": true,
+  "records": [],
+  "bookkeeping_ms": 0.0,
+  "wrapper_calls": 0,
+  "note": "nested times not additive; overhead excludes timer and call-dispatch cost"
+}

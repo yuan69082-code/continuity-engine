@@ -1,0 +1,357 @@
+{
+  "source_before": "sha256:61bb34c6728e6850786b10b867bf9a440b8193e1534c82ff30b46ba488392b0f",
+  "source_after": "sha256:61bb34c6728e6850786b10b867bf9a440b8193e1534c82ff30b46ba488392b0f",
+  "seconds": 79.676,
+  "examples": [
+    {
+      "kind": "body",
+      "subject_id": "sub-42de0eddb14b4709",
+      "message_request_id": "p01-request-213c412e9d89464cba0597754ac92c36",
+      "capability_request_id": "action-cap:e29843a718534fe7c9bc925506bc1dbc7cbdd440b65490a6d095c03ba172d808",
+      "request_hash": "sha256:b17a55bc10bea0c588d31684150463dc5de938a674c8a26c26910617d6f15371",
+      "argument_hash": "sha256:8b4f3a3644ba51e6461183277307ee56937b533a0457a6c29733b8e07f2177a0",
+      "observation_id": "observation:01c8c380024213c2d0c860e06a98f24caa7dbfd05b10b85a98711653de3ee6b9",
+      "read_only_result": {
+        "request_id": "action-cap:e29843a718534fe7c9bc925506bc1dbc7cbdd440b65490a6d095c03ba172d808",
+        "status": "SUCCEEDED",
+        "receipt_hash": "sha256:33a074edef03b0b4dc8cf27597b25f855a34c8340c1f2709f1f30f73c0588b36",
+        "result": {
+          "after": {
+            "expires_at": "2026-09-04T08:00:30Z",
+            "focus_id": "focus:editor",
+            "observation_id": "observation:16eca372de79e64ddb57f90bc403fd5e5538dd2911008026c4cd3f29bfb33519",
+            "observed_at": "2026-09-04T08:00:00Z",
+            "page_id": "page:editor",
+            "revision": 1,
+            "status": "READY",
+            "use": {
+              "account_id": "account:a",
+              "attachment_id": "body:attachment",
+              "channel_id": "channel:a",
+              "device_id": "body:a",
+              "environment": "TEST",
+              "generation": 1,
+              "host_id": "host:a",
+              "purpose": "device.act",
+              "scope": "device:read",
+              "session_id": "session:a",
+              "software_id": "software:a",
+              "subject_id": "sub-42de0eddb14b4709"
+            },
+            "view": {
+              "controls": [
+                "control:edit",
+                "control:save",
+                "control:send"
+              ],
+              "draft": "",
+              "position": 2,
+              "saved": "",
+              "scroll": 0,
+              "send_count": 0,
+              "sent": ""
+            }
+          },
+          "authority": "SIMULATED_RESULT_OBSERVATION",
+          "before": {
+            "expires_at": "2026-09-04T08:00:30Z",
+            "focus_id": "focus:editor",
+            "observation_id": "observation:01c8c380024213c2d0c860e06a98f24caa7dbfd05b10b85a98711653de3ee6b9",
+            "observed_at": "2026-09-04T08:00:00Z",
+            "page_id": "page:editor",
+            "revision": 0,
+            "status": "READY",
+            "use": {
+              "account_id": "account:a",
+              "attachment_id": "body:attachment",
+              "channel_id": "channel:a",
+              "device_id": "body:a",
+              "environment": "TEST",
+              "generation": 1,
+              "host_id": "host:a",
+              "purpose": "device.act",
+              "scope": "device:read",
+              "session_id": "session:a",
+              "software_id": "software:a",
+              "subject_id": "sub-42de0eddb14b4709"
+            },
+            "view": {
+              "controls": [
+                "control:edit",
+                "control:save",
+                "control:send"
+              ],
+              "draft": "",
+              "position": 0,
+              "saved": "",
+              "scroll": 0,
+              "send_count": 0,
+              "sent": ""
+            }
+          },
+          "business_complete": true,
+          "outcome": "ACTUATED",
+          "records": []
+        }
+      },
+      "effects": 1,
+      "credits": 1,
+      "revision": 1,
+      "subject_unchanged": true,
+      "read_only_zero_writes": true,
+      "temporary_root_released": true,
+      "sensor_fact": {
+        "observation_id": "sensor:af1a1fc110b6094c48582b0ef83553cb7908d7a4365424eef28e76ef6c88d630",
+        "source_event_id": "body:sensor:af1a1fc110b6094c48582b0ef83553cb7908d7a4365424eef28e76ef6c88d630",
+        "observation_type": "SIMULATED_BODY_OBSERVATION",
+        "fact_id": "sensor:af1a1fc110b6094c48582b0ef83553cb7908d7a4365424eef28e76ef6c88d630",
+        "conversation_id": "session:a",
+        "message_id": "sensor:af1a1fc110b6094c48582b0ef83553cb7908d7a4365424eef28e76ef6c88d630",
+        "message_version_id": "sha256:2b2a11c2810bf5a950a6403693f3017e1b33d370ac2ebdb71f14ee151f692db7",
+        "content": "{\"ability_name\": \"sensor.position\", \"authority\": \"OBSERVATION_NOT_SUBJECT_STATE\", \"body_id\": \"body:a\", \"coordinate\": \"frame:body\", \"environment\": \"TEST\", \"generation\": 1, \"observation_id\": \"sensor:af1a1fc110b6094c48582b0ef83553cb7908d7a4365424eef28e76ef6c88d630\", \"observed_at\": \"2026-09-04T08:00:00Z\", \"simulation\": \"TEST_SIMULATED\", \"source\": \"BODY_OBSERVATION\", \"subject_id\": \"sub-42de0eddb14b4709\", \"unit\": \"unit:meter\", \"value\": 2}",
+        "occurred_at": "2026-09-04T08:00:00Z",
+        "observed_at": "2026-09-04T08:00:00Z"
+      }
+    },
+    {
+      "kind": "ui",
+      "subject_id": "sub-ae847e7380514d80",
+      "message_request_id": "p01-request-b5f7777da41e4654a8c82338704298e6",
+      "capability_request_id": "action-cap:cec1215455a0cdd49a323a30a3227344ef2b4e8ef85e64aeea8f3618f8fd517e",
+      "request_hash": "sha256:3e564b1b80c089a0197b0059a0e18cbd32643707c879f407e32fff6349964323",
+      "argument_hash": "sha256:48bc7aa635b32271d393ec563fe57456fb448d4815c9afa333c4645ceda8d9bf",
+      "observation_id": "observation:f36c2a1343887ec4bf3f51a7086077d2da8814060ea387a5ca917f48755b40cd",
+      "read_only_result": {
+        "request_id": "action-cap:cec1215455a0cdd49a323a30a3227344ef2b4e8ef85e64aeea8f3618f8fd517e",
+        "status": "SUCCEEDED",
+        "receipt_hash": "sha256:5dd478e020194b4cbc9361e92ca4f88489035f3284e2d1f55b2ad76a24543ab6",
+        "result": {
+          "after": {
+            "expires_at": "2026-09-04T08:00:30Z",
+            "focus_id": "focus:editor",
+            "observation_id": "observation:2c60d48569c61e5b5331cb964c0f6feebc0cdc1a8648fade28c893a64ceeed0f",
+            "observed_at": "2026-09-04T08:00:00Z",
+            "page_id": "page:editor",
+            "revision": 3,
+            "status": "READY",
+            "use": {
+              "account_id": "account:a",
+              "attachment_id": "ui:attachment",
+              "channel_id": "channel:a",
+              "device_id": "device:a",
+              "environment": "TEST",
+              "generation": 1,
+              "host_id": "host:a",
+              "purpose": "device.act",
+              "scope": "device:read",
+              "session_id": "session:a",
+              "software_id": "software:a",
+              "subject_id": "sub-ae847e7380514d80"
+            },
+            "view": {
+              "controls": [
+                "control:edit",
+                "control:save",
+                "control:send"
+              ],
+              "draft": "isolated simulated document",
+              "last_clicked": "control:edit",
+              "position": 0,
+              "saved": "isolated simulated document",
+              "scroll": 0,
+              "send_count": 0,
+              "sent": ""
+            }
+          },
+          "authority": "SIMULATED_RESULT_OBSERVATION",
+          "before": {
+            "expires_at": "2026-09-04T08:00:30Z",
+            "focus_id": "focus:editor",
+            "observation_id": "observation:f36c2a1343887ec4bf3f51a7086077d2da8814060ea387a5ca917f48755b40cd",
+            "observed_at": "2026-09-04T08:00:00Z",
+            "page_id": "page:editor",
+            "revision": 2,
+            "status": "READY",
+            "use": {
+              "account_id": "account:a",
+              "attachment_id": "ui:attachment",
+              "channel_id": "channel:a",
+              "device_id": "device:a",
+              "environment": "TEST",
+              "generation": 1,
+              "host_id": "host:a",
+              "purpose": "device.act",
+              "scope": "device:read",
+              "session_id": "session:a",
+              "software_id": "software:a",
+              "subject_id": "sub-ae847e7380514d80"
+            },
+            "view": {
+              "controls": [
+                "control:edit",
+                "control:save",
+                "control:send"
+              ],
+              "draft": "isolated simulated document",
+              "last_clicked": "control:edit",
+              "position": 0,
+              "saved": "",
+              "scroll": 0,
+              "send_count": 0,
+              "sent": ""
+            }
+          },
+          "business_complete": true,
+          "outcome": "SAVED",
+          "records": []
+        }
+      },
+      "effects": 3,
+      "credits": 3,
+      "revision": 1,
+      "subject_unchanged": true,
+      "read_only_zero_writes": true,
+      "temporary_root_released": true,
+      "app_state": {
+        "controls": [
+          "control:edit",
+          "control:save",
+          "control:send"
+        ],
+        "draft": "isolated simulated document",
+        "last_clicked": "control:edit",
+        "position": 0,
+        "saved": "isolated simulated document",
+        "scroll": 0,
+        "send_count": 0,
+        "sent": ""
+      }
+    },
+    {
+      "kind": "history",
+      "subject_id": "sub-b6e98137956d473a",
+      "message_request_id": "p01-request-e3a16847d7104d81b5f7f17e72a56d71",
+      "capability_request_id": "action-cap:a4245e14198ce3fbe522b87592aef292721281addbc383198dddc579ce63befa",
+      "request_hash": "sha256:3b91660d33c2a6fcc858e38f5e0570fb00ac6b5d8bcda1df13678e9a3ed27a63",
+      "argument_hash": "sha256:54ae20463ab33428664d8dc338b476cee5b485a392e06d5868328fc585e182c4",
+      "observation_id": "observation:9cc4376f75f6b0313ffb06eb14bfaf301453271cd3b9dc65f10235aefbcbaee2",
+      "read_only_result": {
+        "request_id": "action-cap:a4245e14198ce3fbe522b87592aef292721281addbc383198dddc579ce63befa",
+        "status": "SUCCEEDED",
+        "receipt_hash": "sha256:32a076e1089f12aaf9d095d91eff7da80bfb115bbee73b4badd784a74d6dccd2",
+        "result": {
+          "after": {
+            "expires_at": "2026-09-04T08:00:30Z",
+            "focus_id": "focus:editor",
+            "observation_id": "observation:3b6434df9887a78ee8804de9424af1fa54ed6bbcdaf9f56da0f12feb9411a290",
+            "observed_at": "2026-09-04T08:00:00Z",
+            "page_id": "page:editor",
+            "revision": 2,
+            "status": "READY",
+            "use": {
+              "account_id": "account:a",
+              "attachment_id": "ui:attachment",
+              "channel_id": "channel:a",
+              "device_id": "device:a",
+              "environment": "TEST",
+              "generation": 1,
+              "host_id": "host:a",
+              "purpose": "device.act",
+              "scope": "device:read",
+              "session_id": "session:a",
+              "software_id": "software:a",
+              "subject_id": "sub-b6e98137956d473a"
+            },
+            "view": {
+              "controls": [
+                "control:edit",
+                "control:save",
+                "control:send"
+              ],
+              "draft": "",
+              "position": 0,
+              "saved": "",
+              "scroll": 0,
+              "send_count": 0,
+              "sent": ""
+            }
+          },
+          "authority": "SIMULATED_RESULT_OBSERVATION",
+          "before": {
+            "expires_at": "2026-09-04T08:00:30Z",
+            "focus_id": "focus:editor",
+            "observation_id": "observation:9cc4376f75f6b0313ffb06eb14bfaf301453271cd3b9dc65f10235aefbcbaee2",
+            "observed_at": "2026-09-04T08:00:00Z",
+            "page_id": "page:editor",
+            "revision": 1,
+            "status": "READY",
+            "use": {
+              "account_id": "account:a",
+              "attachment_id": "ui:attachment",
+              "channel_id": "channel:a",
+              "device_id": "device:a",
+              "environment": "TEST",
+              "generation": 1,
+              "host_id": "host:a",
+              "purpose": "device.act",
+              "scope": "device:read",
+              "session_id": "session:a",
+              "software_id": "software:a",
+              "subject_id": "sub-b6e98137956d473a"
+            },
+            "view": {
+              "controls": [
+                "control:edit",
+                "control:save",
+                "control:send"
+              ],
+              "draft": "",
+              "position": 0,
+              "saved": "",
+              "scroll": 0,
+              "send_count": 0,
+              "sent": ""
+            }
+          },
+          "business_complete": false,
+          "outcome": "QUERIED",
+          "records": [
+            {
+              "content": "continuity historical simulation note",
+              "content_hash": "sha256:44a90134f71b67aaeb4d18b3ef740af9ec36788b68515016063249b0efe54050",
+              "device_id": "device:a",
+              "expires_at": "2026-09-04T09:00:00Z",
+              "object_id": "object:continuity",
+              "occurred_at": "2026-09-04T08:00:00Z",
+              "readable": true,
+              "root_id": "root:sample",
+              "session_id": "session:a",
+              "software_id": "software:a",
+              "source_id": "source:sample",
+              "version": "v1"
+            }
+          ]
+        }
+      },
+      "effects": 0,
+      "credits": 0,
+      "revision": 1,
+      "subject_unchanged": true,
+      "read_only_zero_writes": true,
+      "temporary_root_released": true,
+      "context_hash": "sha256:6c25fb8b8d004a4bb67b5d5003ff454bfeadebda86d1f0f1c489a0f364b33603",
+      "references": [
+        {
+          "source": "engine.execution-results",
+          "stable_id": "execution:action-cap:a4245e14198ce3fbe522b87592aef292721281addbc383198dddc579ce63befa",
+          "hash": "sha256:407bb41564e8c65cd0c3cba4ac235ce5720d8519354da98be1dce7056adac27d",
+          "roots": [
+            "external-history:root:sample"
+          ]
+        }
+      ]
+    }
+  ],
+  "status": "COMPLETED",
+  "exit_code": 0
+}

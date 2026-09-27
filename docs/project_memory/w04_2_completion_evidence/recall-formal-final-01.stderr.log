@@ -1,0 +1,10 @@
+test_four_materials_preanswer_with_original_1000ms_policy (tests.test_w02_recall_timeout.W02RecallTimeoutTests.test_four_materials_preanswer_with_original_1000ms_policy) ... ok
+test_third_message_sixteen_candidates_and_current_derived_sources (tests.test_w02_recall_timeout.W02RecallTimeoutTests.test_third_message_sixteen_candidates_and_current_derived_sources) ... ok
+test_partial_derived_withdrawal_invalidates_integrated_reply_and_support (tests.test_w02_integration.W02IntegratedChainTests.test_partial_derived_withdrawal_invalidates_integrated_reply_and_support) ... ok
+test_raw_message_stations_old_memory_receipt_and_final_preanswer_context (tests.test_w02_integration.W02IntegratedChainTests.test_raw_message_stations_old_memory_receipt_and_final_preanswer_context) ... ok
+test_w02_a_and_b_real_ingress_share_pre_answer_external_candidate (tests.test_w02_external_absorption.ExternalAbsorptionTests.test_w02_a_and_b_real_ingress_share_pre_answer_external_candidate) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 56.436s
+
+OK

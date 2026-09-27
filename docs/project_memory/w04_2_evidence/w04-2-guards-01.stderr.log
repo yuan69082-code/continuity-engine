@@ -1,0 +1,29 @@
+test_sensor_stale_wrong_unit_and_context_currentness (tests.test_w04_2_simulation.W04SimulatedChainTests.test_sensor_stale_wrong_unit_and_context_currentness) ... ok
+test_read_scope_required_and_observation_returns_detached_copy (tests.test_w04_2_simulation.W04SimulatedChainTests.test_read_scope_required_and_observation_returns_detached_copy) ... ok
+test_secrets_rejected_before_ledger_and_standard_diagnostics_sanitized (tests.test_w04_2_simulation.W04SimulatedChainTests.test_secrets_rejected_before_ledger_and_standard_diagnostics_sanitized) ... ok
+test_resource_and_recoverability_denials_keep_zero_cost (tests.test_w04_2_simulation.W04SimulatedChainTests.test_resource_and_recoverability_denials_keep_zero_cost) ... ok
+test_click_receipt_cannot_be_relabelled_as_saved (tests.test_w04_2_simulation.W04SimulatedChainTests.test_click_receipt_cannot_be_relabelled_as_saved) ... ok
+test_subject_pause_blocks_new_device_effect_without_falsifying_old_fact (tests.test_w04_2_simulation.W04SimulatedChainTests.test_subject_pause_blocks_new_device_effect_without_falsifying_old_fact) ... ERROR
+
+======================================================================
+ERROR: test_subject_pause_blocks_new_device_effect_without_falsifying_old_fact (tests.test_w04_2_simulation.W04SimulatedChainTests.test_subject_pause_blocks_new_device_effect_without_falsifying_old_fact)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_2_simulation.py", line 559, in test_subject_pause_blocks_new_device_effect_without_falsifying_old_fact
+    f.lifecycle("PAUSE")
+    ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p17_execution_fixture.py", line 249, in lifecycle
+    return P16Fixture.lifecycle(self,operation)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p16_provider_fixture.py", line 183, in lifecycle
+    command=LifecycleCommand('p16-lifecycle-'+str(state.revision),state.subject_id,'TEST',state.revision,now,
+        'Explicit isolated P16 lifecycle test',operation,'OWNER')
+  File "<string>", line 11, in __init__
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\domain\subject_lifecycle.py", line 73, in __post_init__
+    raise LifecycleError('SUBJECT_INITIATOR_OPERATION_INVALID')
+continuity_engine.domain.subject_lifecycle.LifecycleError: SUBJECT_INITIATOR_OPERATION_INVALID
+
+----------------------------------------------------------------------
+Ran 6 tests in 11.673s
+
+FAILED (errors=1)

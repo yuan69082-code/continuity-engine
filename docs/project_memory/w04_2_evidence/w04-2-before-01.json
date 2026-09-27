@@ -1,0 +1,17 @@
+{
+  "label": "w04-2-before-01",
+  "started_at": "2026-09-27T15:05:26.121078+00:00",
+  "command": [
+    "E:\\Adobe\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_w04_2_simulation",
+    "-v"
+  ],
+  "cwd": "C:\\Users\\Administrator\\Documents\\continuity-engine",
+  "source_before": "sha256:b9c8ab6beefa9c315096cbf6f9e5134774bb24ccf8f2e18c3c31fc3b34d9c335",
+  "status": "COMPLETED",
+  "exit_code": 1,
+  "duration_seconds": 0.58,
+  "source_after": "sha256:b9c8ab6beefa9c315096cbf6f9e5134774bb24ccf8f2e18c3c31fc3b34d9c335"
+}

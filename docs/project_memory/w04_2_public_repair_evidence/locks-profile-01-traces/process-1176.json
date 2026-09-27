@@ -1,0 +1,165 @@
+{
+  "events": [
+    {
+      "ns": 13009174700100,
+      "pid": 1176,
+      "thread": 2592,
+      "event": "call",
+      "method": "load"
+    },
+    {
+      "ns": 13009182181300,
+      "pid": 1176,
+      "thread": 2592,
+      "event": "return",
+      "method": "load",
+      "result": {
+        "revision": 4,
+        "generation": 1,
+        "desired": "PAUSED",
+        "activity": "PAUSED",
+        "reason": "OWNER_PAUSE",
+        "next_check_at": null
+      }
+    },
+    {
+      "ns": 13009344232100,
+      "pid": 1176,
+      "thread": 2592,
+      "event": "call",
+      "method": "control",
+      "operation": "PAUSE",
+      "command_hash": "7d8a31d56e1eb6d9"
+    },
+    {
+      "ns": 13009347687500,
+      "pid": 1176,
+      "thread": 2592,
+      "event": "lock_request",
+      "file": "runtime.v1.lock",
+      "path_id": "227c0eb9d0a7e31f",
+      "wait": 0.24998039999991306,
+      "checkpoint": true
+    },
+    {
+      "ns": 13009351858600,
+      "pid": 1176,
+      "thread": 2592,
+      "event": "lock_acquired",
+      "file": "runtime.v1.lock",
+      "path_id": "227c0eb9d0a7e31f",
+      "wait": 0.24998039999991306,
+      "checkpoint": true
+    },
+    {
+      "ns": 13009351982900,
+      "pid": 1176,
+      "thread": 2592,
+      "event": "call",
+      "method": "load"
+    },
+    {
+      "ns": 13009359933500,
+      "pid": 1176,
+      "thread": 2592,
+      "event": "return",
+      "method": "load",
+      "result": {
+        "revision": 4,
+        "generation": 1,
+        "desired": "PAUSED",
+        "activity": "PAUSED",
+        "reason": "OWNER_PAUSE",
+        "next_check_at": null
+      }
+    },
+    {
+      "ns": 13011668564500,
+      "pid": 1176,
+      "thread": 2592,
+      "event": "call",
+      "method": "save",
+      "revision": 4,
+      "generation": 1,
+      "desired": "PAUSED",
+      "activity": "PAUSED",
+      "reason": "OWNER_PAUSE",
+      "next_check_at": null
+    },
+    {
+      "ns": 13011674205900,
+      "pid": 1176,
+      "thread": 2592,
+      "event": "call",
+      "method": "load"
+    },
+    {
+      "ns": 13011679458800,
+      "pid": 1176,
+      "thread": 2592,
+      "event": "return",
+      "method": "load",
+      "result": {
+        "revision": 4,
+        "generation": 1,
+        "desired": "PAUSED",
+        "activity": "PAUSED",
+        "reason": "OWNER_PAUSE",
+        "next_check_at": null
+      }
+    },
+    {
+      "ns": 13011691800600,
+      "pid": 1176,
+      "thread": 2592,
+      "event": "return",
+      "method": "save",
+      "revision": 4,
+      "generation": 1,
+      "desired": "PAUSED",
+      "activity": "PAUSED",
+      "reason": "OWNER_PAUSE",
+      "next_check_at": null,
+      "result": {}
+    },
+    {
+      "ns": 13011691820400,
+      "pid": 1176,
+      "thread": 2592,
+      "event": "lock_releasing",
+      "file": "runtime.v1.lock",
+      "path_id": "227c0eb9d0a7e31f",
+      "wait": 0.24998039999991306,
+      "checkpoint": true
+    },
+    {
+      "ns": 13011691861400,
+      "pid": 1176,
+      "thread": 2592,
+      "event": "lock_released",
+      "file": "runtime.v1.lock",
+      "path_id": "227c0eb9d0a7e31f",
+      "wait": 0.24998039999991306,
+      "checkpoint": true
+    },
+    {
+      "ns": 13011691882000,
+      "pid": 1176,
+      "thread": 2592,
+      "event": "return",
+      "method": "control",
+      "operation": "PAUSE",
+      "command_hash": "7d8a31d56e1eb6d9",
+      "result": {
+        "revision": 5,
+        "generation": 1,
+        "desired": "PAUSED",
+        "activity": "PAUSED",
+        "reason": "OWNER_PAUSE",
+        "next_check_at": null
+      }
+    }
+  ],
+  "bookkeeping_ns": 52900,
+  "dropped": 0
+}

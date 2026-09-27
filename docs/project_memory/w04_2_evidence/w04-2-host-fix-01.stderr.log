@@ -1,0 +1,6 @@
+test_locked_device_does_not_stop_runtime_control_or_other_work (tests.test_w04_2_simulation.W04SimulatedChainTests.test_locked_device_does_not_stop_runtime_control_or_other_work) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 3.573s
+
+OK

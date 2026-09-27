@@ -51,9 +51,18 @@ class ActionSpecification:
         if self.capability == "model.generate":
             raise CapabilityValidationError("MODEL_GENERATE_REMAINS_THINKING_DIRECT")
         if self.input_payload is not None:
-            from .external_capabilities import QueryInput
-            if not self.capability.startswith('external.') or digest(QueryInput.from_dict(self.input_payload).to_dict())!=self.argument_hash:
-                raise CapabilityValidationError('EXTERNAL_INPUT_BINDING_INVALID')
+            if self.capability.startswith('device.'):
+                from .device_operation import DeviceCommand
+                command = DeviceCommand.from_dict(self.input_payload)
+                if (not command.accepts_capability(self.capability) or command.hash != self.argument_hash
+                        or command.to_dict() != self.input_payload):
+                    raise CapabilityValidationError('DEVICE_INPUT_BINDING_INVALID')
+            else:
+                from .external_capabilities import QueryInput
+                if not self.capability.startswith('external.') or digest(QueryInput.from_dict(self.input_payload).to_dict())!=self.argument_hash:
+                    raise CapabilityValidationError('EXTERNAL_INPUT_BINDING_INVALID')
+        elif self.capability.startswith('device.'):
+            raise CapabilityValidationError('DEVICE_INPUT_REQUIRED')
 
     def to_dict(self) -> dict:
         value={**asdict(self), "dependencies": list(self.dependencies)}

@@ -1,0 +1,13 @@
+{
+  "checked_utc": "2026-09-27T17:36:03.3720826Z",
+  "inspection": "Read-only Get-CimInstance Win32_Process, python.exe/pythonw.exe filter; elevated read approved, exit 0",
+  "observed_python_processes": [],
+  "remaining_test_processes": [],
+  "compatibility_session": {"id": 68619, "exit_code": 0, "completed": true},
+  "last_cpu_profile_session": {"id": 47361, "exit_code": 1, "completed": true},
+  "controlled_runtime_hosts": "Original test cleanup sent STOP; trace evidence records host exit 0. No forced termination in controlled experiments.",
+  "forced_cleanup_this_handoff": false,
+  "unrelated_processes_terminated": false,
+  "full_regression_started": false,
+  "note": "This is a current process snapshot, not proof of historical process load. All original failures and diagnostic records remain."
+}

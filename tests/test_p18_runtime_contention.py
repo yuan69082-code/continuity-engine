@@ -34,6 +34,33 @@ f.host.control(sys.argv[2],command_id=sys.argv[3],expected_revision=None,handle=
 print('CONTROL_SAVED',flush=True)
 '''
 
+# Child-only observation hooks around the original transaction. The release
+# marker is emitted after the OS checkpoint lock has actually been released.
+OBSERVED_START=r'''
+import contextlib,sys
+from pathlib import Path
+from continuity_engine.storage.json_runtime_repository import JsonRuntimeRepository
+from continuity_engine.runtime import main
+root=Path(sys.argv[1]);hold=sys.argv[2]=='hold'
+transaction=JsonRuntimeRepository.transaction;save=JsonRuntimeRepository.save
+attached=False
+@contextlib.contextmanager
+def observed(self):
+    global attached
+    with transaction(self) as d:
+        yield d
+        attachment=d is not None and d['reason']=='HOST_ATTACHED'
+    if attachment and not attached:
+        attached=True;(root/'attach-released').write_text('released',encoding='utf8')
+def saving(self,d):
+    if hold and d['reason']=='HOST_ATTACHED':
+        (root/'attach-held').write_text('held',encoding='utf8')
+        sys.stdin.readline()
+    return save(self,d)
+JsonRuntimeRepository.transaction=observed;JsonRuntimeRepository.save=saving
+raise SystemExit(main(['start','--root',str(root)]))
+'''
+
 
 class RuntimeContentionTests(unittest.TestCase):
     def setUp(self):
@@ -45,18 +72,19 @@ class RuntimeContentionTests(unittest.TestCase):
         self.f=P18Fixture(self.root,policy=RuntimePolicy(idle_wait_seconds=.1,need_delta=need_delta),**options)
         return self.f
 
-    def launch(self,command):
-        p=subprocess.Popen(command,stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.PIPE,
+    def launch(self,command,*,stderr=subprocess.PIPE):
+        p=subprocess.Popen(command,stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=stderr,
             text=True,encoding='utf8',env={**os.environ,'PYTHONUTF8':'1','PYTHONDONTWRITEBYTECODE':'1'},
             creationflags=getattr(subprocess,'CREATE_NO_WINDOW',0))
         self.children.append((p,command));return p
 
-    def reap(self,p,data=None):
+    def reap(self,p,data=None,*,timeout=15):
         if getattr(p,'evidence_saved',False):return
         forced=False
-        try:out,err=p.communicate(data,timeout=15)
+        try:out,err=p.communicate(data,timeout=timeout)
         except subprocess.TimeoutExpired:
             forced=True;p.terminate();out,err=p.communicate(timeout=10)
+        if hasattr(p,'diagnostic_path'):err=p.diagnostic_path.read_text(encoding='utf8')
         command=next(c for child,c in self.children if child is p)
         self.records.append(dict(command=command,pid=p.pid,exitCode=p.returncode,stdout=out,stderr=err,forcedCleanup=forced))
         p.evidence_saved=True
@@ -84,6 +112,58 @@ class RuntimeContentionTests(unittest.TestCase):
             self.assertEqual(p.returncode,0)
 
     def start(self):return self.launch([sys.executable,'-m','continuity_engine.runtime','start','--root',str(self.root)])
+
+    def observed_start(self,*,hold_attach=False):
+        path=self.root/'host-diagnostics.log'
+        with path.open('w',encoding='utf8') as stderr:
+            p=self.launch([sys.executable,'-c',OBSERVED_START,str(self.root),'hold' if hold_attach else 'observe'],stderr=stderr)
+        p.diagnostic_path=path
+        return p
+
+    def diagnostics_since(self,p,offset=0):
+        return p.diagnostic_path.read_text(encoding='utf8').splitlines()[offset:]
+
+    def await_attached(self,p):
+        self.until(lambda:(self.root/'attach-released').exists(),p)
+        self.assertTrue(self.f.store.host_alive())
+        self.assertIsNotNone(self.f.store.load()['owner'])
+
+    def bounded_stop(self,p,identity='test-stop'):
+        # Same original 15s controller envelope, including process exit. Only
+        # the expected lock refusal is retryable, and it must not be committed.
+        from continuity_engine.domain.action_planning import digest
+        end=time.monotonic()+15;attempts=0
+        while True:
+            self.assertLess(time.monotonic(),end,'STOP controller deadline')
+            attempts+=1
+            try:
+                self.f.host.control('STOP',command_id=identity,expected_revision=None,handle='p18-test-owner')
+                break
+            except RuntimeCheckpointBusy:
+                d=self.f.store.load()
+                self.assertFalse(any(c['id']==digest(identity) for c in d['commands']))
+                self.assertNotEqual(d['desired'],'STOPPED')
+                self.records.append(dict(stage='stop-busy-uncommitted',attempt=attempts,revision=d['revision']))
+                threading.Event().wait(min(.025,max(0,end-time.monotonic())))
+        out,err,forced=self.reap(p,timeout=max(.001,end-time.monotonic()))
+        self.assertFalse(forced);self.assertEqual(p.returncode,0,err)
+        d=self.f.store.load();self.assertEqual(d['desired'],'STOPPED')
+        self.assertEqual(sum(c['id']==digest(identity) for c in d['commands']),1)
+        before=self.f.store.path.read_bytes()
+        self.f.host.control('STOP',command_id=identity,expected_revision=None,handle='p18-test-owner')
+        self.assertEqual(before,self.f.store.path.read_bytes())
+        return out,err
+
+    def assert_stopped_without_effects(self):
+        f=self.f
+        self.assertEqual(f.state.revision,1);self.assertEqual(f.fake.effect_count,0)
+        self.assertEqual(f.fake.credits,0)
+        self.assertEqual(f.resources.get_resource_state(f.state.subject_id).token_used,0)
+        again=self.start();_,err,forced=self.reap(again)
+        self.assertFalse(forced);self.assertEqual(again.returncode,0,err)
+        self.assertEqual(f.store.load()['desired'],'STOPPED')
+        self.assertEqual(f.state.revision,1);self.assertEqual(f.fake.effect_count,0)
+        self.assertEqual(f.fake.credits,0)
 
     def stop(self,p):
         self.f.host.control('STOP',command_id='test-stop',expected_revision=None,handle='p18-test-owner')
@@ -257,20 +337,25 @@ class RuntimeContentionTests(unittest.TestCase):
         self.assertTrue(any(r['reason']=='PROCESS_INTERRUPTED' for r in f.store.load()['interruptions']))
 
     def test_long_busy_host_remains_live_and_diagnostic_is_not_flooded(self):
-        f=self.fixture();f.control('PAUSE');p=self.start()
-        self.until(lambda:f.store.host_alive(),p)
-        self.until(lambda:f.store.load()['owner'] is not None,p)
-        with self.held_control():
-            before=f.store.path.read_bytes();end=time.monotonic()+2.2
-            while time.monotonic()<end:
-                self.assertIsNone(p.poll());threading.Event().wait(.1)
-            self.assertEqual(before,f.store.path.read_bytes())
-            self.assertTrue(f.host.query()['checkpoint_busy'])
-        self.until(lambda:f.store.load()['reason']=='OWNER_PAUSE',p)
-        _,err=self.stop(p)
-        self.assertEqual(err.count('RUNTIME_CHECKPOINT_BUSY'),1)
-        self.assertIn('RUNTIME_CHECKPOINT_AVAILABLE',err)
-        self.assertEqual(f.state.revision,1);self.assertEqual(f.fake.credits,0)
+        f=self.fixture();f.control('PAUSE');p=self.observed_start();self.await_attached(p)
+        # The second real control interval must not be hidden by the first.
+        for operation,identity,hold in (('PAUSE','held-command',2.2),('STOP','test-stop',.9)):
+            offset=len(self.diagnostics_since(p))
+            with self.held_control(operation,identity):
+                before=f.store.path.read_bytes();end=time.monotonic()+hold
+                while time.monotonic()<end:
+                    self.assertIsNone(p.poll());threading.Event().wait(.1)
+                self.assertEqual(before,f.store.path.read_bytes())
+                self.assertTrue(f.host.query()['checkpoint_busy'])
+                self.assertEqual(self.diagnostics_since(p,offset),['RUNTIME_CHECKPOINT_BUSY'])
+            self.until(lambda:'RUNTIME_CHECKPOINT_AVAILABLE' in self.diagnostics_since(p,offset))
+            self.assertEqual(self.diagnostics_since(p,offset),['RUNTIME_CHECKPOINT_BUSY','RUNTIME_CHECKPOINT_AVAILABLE'])
+            self.records.append(dict(stage='separate-control-interval',operation=operation,
+                diagnostics=self.diagnostics_since(p,offset),revision=f.store.load()['revision']))
+        _,err,forced=self.reap(p)
+        self.assertFalse(forced);self.assertEqual(p.returncode,0,err)
+        self.assertEqual(err.splitlines(),['RUNTIME_CHECKPOINT_BUSY','RUNTIME_CHECKPOINT_AVAILABLE']*2)
+        self.assert_stopped_without_effects()
 
     def test_effect_before_busy_observation_is_not_dispatched_again(self):
         f=self.fixture(mode='contact');holder=None
@@ -316,10 +401,53 @@ class RuntimeContentionTests(unittest.TestCase):
     def test_start_waits_for_checkpoint_without_relaxing_owner_lock(self):
         f=self.fixture()
         with self.held_control():
-            p=self.start();threading.Event().wait(.9)
+            p=self.observed_start();threading.Event().wait(.9)
             self.assertIsNone(p.poll());self.assertEqual(f.provider.calls,0)
-        self.until(lambda:f.store.host_alive(),p)
-        self.stop(p)
+        self.await_attached(p)
+        self.bounded_stop(p)
+        self.assert_stopped_without_effects()
+
+    def test_attach_transaction_busy_stop_is_uncommitted_then_same_identity_succeeds(self):
+        f=self.fixture();f.control('PAUSE');p=self.observed_start(hold_attach=True)
+        self.until(lambda:(self.root/'attach-held').exists(),p)
+        self.assertTrue(f.store.host_alive())
+        self.assertFalse((self.root/'attach-released').exists())
+        before=f.store.path.read_bytes()
+        try:
+            with self.assertRaises(RuntimeCheckpointBusy):
+                f.host.control('STOP',command_id='test-stop',expected_revision=None,handle='p18-test-owner')
+            self.assertEqual(before,f.store.path.read_bytes())
+            self.assertFalse(any(c['operation']=='STOP' for c in f.store.load()['commands']))
+            second=self.start();_,err,forced=self.reap(second)
+            self.assertFalse(forced);self.assertEqual(second.returncode,2);self.assertEqual(err.strip(),'RUNTIME_BUSY')
+        finally:p.stdin.write('\n');p.stdin.flush()
+        self.await_attached(p);self.bounded_stop(p)
+        self.assert_stopped_without_effects()
+
+    def test_bounded_stop_does_not_retry_non_busy_refusal(self):
+        f=self.fixture();f.control('PAUSE');p=self.observed_start();self.await_attached(p)
+        with patch.object(f.host,'control',side_effect=RuntimeBoundaryError('RUNTIME_CONTROL_DENIED')) as control:
+            with self.assertRaisesRegex(RuntimeBoundaryError,'RUNTIME_CONTROL_DENIED'):self.bounded_stop(p)
+            self.assertEqual(control.call_count,1)
+        self.bounded_stop(p);self.assert_stopped_without_effects()
+
+    def test_bounded_stop_busy_retry_uses_same_identity_after_real_lock_release(self):
+        f=self.fixture();f.control('PAUSE');p=self.observed_start();self.await_attached(p)
+        original=f.host.control;identities=[]
+        with self.held_control('PAUSE','retry-holder') as holder:
+            def controlled(*args,**kw):
+                identities.append(kw['command_id'])
+                try:return original(*args,**kw)
+                except RuntimeCheckpointBusy:
+                    # Release only after a genuine native busy refusal, not a
+                    # sleep that may expire before the tested call begins.
+                    holder.stdin.write('\n');holder.stdin.flush()
+                    raise
+            with patch.object(f.host,'control',controlled):self.bounded_stop(p)
+        self.assertGreaterEqual(len(identities),3)  # busy, success, exact replay
+        self.assertEqual(set(identities),{'test-stop'})
+        self.assertTrue(any(r.get('stage')=='stop-busy-uncommitted' for r in self.records))
+        self.assert_stopped_without_effects()
 
     def test_h1_clock_advance_during_maintenance_observation(self):
         f=self.fixture(tokens=0);original=f.store.save;advanced=[]

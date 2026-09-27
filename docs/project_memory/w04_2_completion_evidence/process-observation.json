@@ -1,0 +1,6 @@
+{
+  "observed_utc": "2026-09-27T21:50:14.1563324Z",
+  "command": "Get-Process -Name python,pythonw",
+  "python_processes": [],
+  "note": "Read-only observation after full-final-01 completed. No termination performed."
+}

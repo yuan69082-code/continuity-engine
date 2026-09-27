@@ -1,0 +1,40 @@
+test_changed_bytes_and_corrupt_hash_cannot_reuse_old_registry (tests.test_w04_2_registry_recheck.RegistryCurrentPathTests.test_changed_bytes_and_corrupt_hash_cannot_reuse_old_registry) ... ok
+test_current_directory_junction_rejects_and_restoring_real_directory_recovers (tests.test_w04_2_registry_recheck.RegistryCurrentPathTests.test_current_directory_junction_rejects_and_restoring_real_directory_recovers) ... ok
+test_current_registry_repeated_read_is_read_only_and_returns_private_values (tests.test_w04_2_registry_recheck.RegistryCurrentPathTests.test_current_registry_repeated_read_is_read_only_and_returns_private_values) ... ok
+test_missing_store_still_has_no_capability (tests.test_w04_2_registry_recheck.RegistryCurrentPathTests.test_missing_store_still_has_no_capability) ... ok
+test_path_metadata_denial_is_not_a_successful_read (tests.test_w04_2_registry_recheck.RegistryCurrentPathTests.test_path_metadata_denial_is_not_a_successful_read) ... FAIL
+test_recheck_all_current_ancestors_on_each_read_with_single_metadata_query (tests.test_w04_2_registry_recheck.RegistryCurrentPathTests.test_recheck_all_current_ancestors_on_each_read_with_single_metadata_query) ... FAIL
+test_registry_revoke_is_seen_on_next_read_and_after_reopen (tests.test_w04_2_registry_recheck.RegistryCurrentPathTests.test_registry_revoke_is_seen_on_next_read_and_after_reopen) ... ok
+
+======================================================================
+FAIL: test_path_metadata_denial_is_not_a_successful_read (tests.test_w04_2_registry_recheck.RegistryCurrentPathTests.test_path_metadata_denial_is_not_a_successful_read)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_2_registry_recheck.py", line 66, in test_path_metadata_denial_is_not_a_successful_read
+    with self.assertRaises(PermissionError):JsonExternalProviderRepository._safe(r.registry_path)
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+AssertionError: PermissionError not raised
+
+======================================================================
+FAIL: test_recheck_all_current_ancestors_on_each_read_with_single_metadata_query (tests.test_w04_2_registry_recheck.RegistryCurrentPathTests.test_recheck_all_current_ancestors_on_each_read_with_single_metadata_query)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_2_registry_recheck.py", line 93, in test_recheck_all_current_ancestors_on_each_read_with_single_metadata_query
+    self.assertEqual(calls[:split],expected)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: [Wind[399 chars]9cd44/registry.json'), WindowsPath('C:/Users/A[4234 chars]:/')] != [Wind[399 chars]9cd44'), WindowsPath('C:/Users/Administrator/A[1108 chars]:/')]
+
+First differing element 1:
+Windo[143 chars]c9d435ee91eaa6d5a91799ee16c9ca795f791e55329cd44/registry.json')
+Windo[143 chars]c9d435ee91eaa6d5a91799ee16c9ca795f791e55329cd44')
+
+First list contains 34 additional elements.
+First extra element 17:
+WindowsPath('C:/Users/Administrator/AppData/Local/Temp/w4-registry-4w2exzd7/s/s/s4c94b5f6/b/b7b4705da')
+
+Diff is 4842 characters long. Set self.maxDiff to None to see it.
+
+----------------------------------------------------------------------
+Ran 7 tests in 3.634s
+
+FAILED (failures=2)

@@ -1,5 +1,5 @@
 """Only registry metadata and rebuildable candidate cache. No operation ledger."""
-import json,os,tempfile
+import json,os,stat,tempfile
 from pathlib import Path
 from threading import RLock
 from continuity_engine.domain.action_planning import digest,exact,identifier
@@ -52,7 +52,13 @@ class JsonExternalProviderRepository:
     @staticmethod
     def _safe(path):
         for p in (path,*path.parents):
-            if p.is_symlink() or (p.exists() and getattr(p,'is_junction',lambda:False)()):
+            # A single current, non-following metadata read supplies both link
+            # predicates. Do not memoize ancestors across accesses: a root can
+            # be replaced between retrieval and response-time revalidation.
+            try:metadata=p.lstat()
+            except FileNotFoundError:continue
+            if (stat.S_ISLNK(metadata.st_mode)
+                    or getattr(metadata,'st_reparse_tag',None)==getattr(stat,'IO_REPARSE_TAG_MOUNT_POINT',-1)):
                 raise ExternalCapabilityError('EXTERNAL_STORE_LINK_FORBIDDEN')
 
     def _write(self,kind,document):

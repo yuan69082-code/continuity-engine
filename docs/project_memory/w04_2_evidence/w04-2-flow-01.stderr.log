@@ -1,0 +1,10 @@
+test_raw_message_c1_device_action_result_and_legal_evolution_absorption (tests.test_w04_2_simulation.W04SimulatedChainTests.test_raw_message_c1_device_action_result_and_legal_evolution_absorption) ... ok
+test_same_root_history_requery_does_not_create_independent_evidence (tests.test_w04_2_simulation.W04SimulatedChainTests.test_same_root_history_requery_does_not_create_independent_evidence) ... ok
+test_history_scope_filters_other_session_time_and_unreadable_records (tests.test_w04_2_simulation.W04SimulatedChainTests.test_history_scope_filters_other_session_time_and_unreadable_records) ... ok
+test_expired_history_not_consumable_but_original_receipt_recovers (tests.test_w04_2_simulation.W04SimulatedChainTests.test_expired_history_not_consumable_but_original_receipt_recovers) ... ok
+test_unavailable_route_can_reobserve_but_reality_denial_cannot_be_bypassed (tests.test_w04_2_simulation.W04SimulatedChainTests.test_unavailable_route_can_reobserve_but_reality_denial_cannot_be_bypassed) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 23.353s
+
+OK

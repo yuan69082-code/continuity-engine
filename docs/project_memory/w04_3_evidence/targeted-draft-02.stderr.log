@@ -1,0 +1,15 @@
+test_authorized_connect_verify_use_cleanup_and_readonly (tests.test_w04_3_tools.TemporaryToolTests.test_authorized_connect_verify_use_cleanup_and_readonly) ... ok
+test_discovery_is_real_p16_and_not_current_availability (tests.test_w04_3_tools.TemporaryToolTests.test_discovery_is_real_p16_and_not_current_availability) ... ok
+test_expiry_denies_use_but_cleanup_is_separately_authorized (tests.test_w04_3_tools.TemporaryToolTests.test_expiry_denies_use_but_cleanup_is_separately_authorized) ... ok
+test_history_query_reuses_original_receipt_router_composer (tests.test_w04_3_tools.TemporaryToolTests.test_history_query_reuses_original_receipt_router_composer) ... ok
+test_missing_login_resumes_same_connection_without_discovery_or_cost_repeat (tests.test_w04_3_tools.TemporaryToolTests.test_missing_login_resumes_same_connection_without_discovery_or_cost_repeat) ... ok
+test_partial_cleanup_is_pending_then_linked_cleanup_preserves_facts (tests.test_w04_3_tools.TemporaryToolTests.test_partial_cleanup_is_pending_then_linked_cleanup_preserves_facts) ... ok
+test_return_lost_recovers_original_receipt_without_second_connection (tests.test_w04_3_tools.TemporaryToolTests.test_return_lost_recovers_original_receipt_without_second_connection) ... ok
+test_revocation_cannot_switch_route_and_view_permission_is_current (tests.test_w04_3_tools.TemporaryToolTests.test_revocation_cannot_switch_route_and_view_permission_is_current) ... ok
+test_single_use_cannot_run_second_business_action (tests.test_w04_3_tools.TemporaryToolTests.test_single_use_cannot_run_second_business_action) ... ok
+test_unknown_connection_never_replays_or_creates_effect (tests.test_w04_3_tools.TemporaryToolTests.test_unknown_connection_never_replays_or_creates_effect) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 121.443s
+
+OK

@@ -1,0 +1,8 @@
+{
+  "reason": "cancel-before-01 reproduced a new cancellation gap; do not launch old-version full; current compatibility runner should finish",
+  "action": "STOP_ORCHESTRATOR_ONLY",
+  "pid": 22340,
+  "started": "2026-09-28T22:12:18.6607544+08:00",
+  "path": "E:\\Adobe\\python.exe",
+  "at": "2026-09-28T14:21:33.9766061+00:00"
+}

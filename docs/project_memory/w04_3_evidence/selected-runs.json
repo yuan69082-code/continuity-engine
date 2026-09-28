@@ -1,0 +1,51 @@
+{
+  "fingerprint": "sha256:ddb85f6a7e49f8bf61c39717ea0e51c73ccb8efbd391aab17813ff6ead6a88a3",
+  "runs": [
+    {
+      "label": "targeted-final-02",
+      "total": 46,
+      "fail": 0,
+      "error": 0,
+      "skip": 0,
+      "seconds": 155.642,
+      "runner_seconds": 156.263,
+      "exit_code": 0,
+      "pass": 46
+    },
+    {
+      "label": "special-final-02",
+      "total": 87,
+      "fail": 0,
+      "error": 0,
+      "skip": 0,
+      "seconds": 161.742,
+      "runner_seconds": 162.382,
+      "exit_code": 0,
+      "pass": 87
+    },
+    {
+      "label": "compatibility-final-02",
+      "total": 417,
+      "fail": 0,
+      "error": 0,
+      "skip": 0,
+      "seconds": 697.07,
+      "runner_seconds": 697.779,
+      "exit_code": 0,
+      "pass": 417
+    },
+    {
+      "label": "full-final-01",
+      "total": 1909,
+      "fail": 0,
+      "error": 0,
+      "skip": 1,
+      "seconds": 2184.956,
+      "runner_seconds": 2186.189,
+      "exit_code": 0,
+      "pass": 1908
+    }
+  ],
+  "overlap": true,
+  "source": "施工方本轮实跑"
+}

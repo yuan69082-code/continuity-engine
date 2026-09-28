@@ -1,0 +1,37 @@
+{
+  "command": [
+    "git",
+    "-c",
+    "core.quotepath=false",
+    "-c",
+    "http.sslBackend=openssl",
+    "-c",
+    "http.sslVerify=true",
+    "ls-remote",
+    "--exit-code",
+    "origin",
+    "refs/heads/main"
+  ],
+  "exit_code": 0,
+  "stdout": "f64fb797ae4defae2dfd16278f38e89c8b13cd66\trefs/heads/main\n",
+  "stderr": "",
+  "seconds": 0.877,
+  "checked_utc": "2026-09-28T17:45:41.823946+00:00",
+  "earlier_default_backend_observation": {
+    "command": [
+      "git",
+      "ls-remote",
+      "--exit-code",
+      "origin",
+      "refs/heads/main"
+    ],
+    "at_utc": "2026-09-28T17:40:51.487144+00:00",
+    "exit_code": 128,
+    "safe_error": "schannel: AcquireCredentialsHandle failed: SEC_E_NO_CREDENTIALS (0x8009030e)",
+    "source": "Tool output in this acceptance turn; localized suffix was not decoded reliably; not reconstructed."
+  },
+  "earlier_openssl_success_utc": "2026-09-28T17:40:52.411373+00:00",
+  "configuration_changed": false,
+  "tls_verification": true,
+  "credentials_read_or_copied": false
+}

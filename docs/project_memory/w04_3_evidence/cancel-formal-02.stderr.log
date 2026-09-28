@@ -1,0 +1,8 @@
+test_cancel_before_connection_reopen_and_replay_never_opens_it (tests.test_w04_3_tools.TemporaryToolTests.test_cancel_before_connection_reopen_and_replay_never_opens_it) ... ok
+test_cancel_during_connect_before_native_commit_is_fenced (tests.test_w04_3_tools.TemporaryToolTests.test_cancel_during_connect_before_native_commit_is_fenced) ... ok
+test_terminal_failed_connection_can_finish_cleanup_without_fake_connection (tests.test_w04_3_tools.TemporaryToolTests.test_terminal_failed_connection_can_finish_cleanup_without_fake_connection) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 5.522s
+
+OK

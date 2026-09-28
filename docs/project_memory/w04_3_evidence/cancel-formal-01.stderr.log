@@ -1,0 +1,20 @@
+test_cancel_before_connection_reopen_and_replay_never_opens_it (tests.test_w04_3_tools.TemporaryToolTests.test_cancel_before_connection_reopen_and_replay_never_opens_it) ... ok
+test_cancel_during_connect_before_native_commit_is_fenced (tests.test_w04_3_tools.TemporaryToolTests.test_cancel_during_connect_before_native_commit_is_fenced) ... FAIL
+test_terminal_failed_connection_can_finish_cleanup_without_fake_connection (tests.test_w04_3_tools.TemporaryToolTests.test_terminal_failed_connection_can_finish_cleanup_without_fake_connection) ... ok
+
+======================================================================
+FAIL: test_cancel_during_connect_before_native_commit_is_fenced (tests.test_w04_3_tools.TemporaryToolTests.test_cancel_during_connect_before_native_commit_is_fenced)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_3_tools.py", line 163, in test_cancel_during_connect_before_native_commit_is_fenced
+    self.assertEqual(f.tools.inspect(connection.capability_request_id)['state'],'CLOSED')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'PENDING_CLEANUP' != 'CLOSED'
+- PENDING_CLEANUP
++ CLOSED
+
+
+----------------------------------------------------------------------
+Ran 3 tests in 5.129s
+
+FAILED (failures=1)

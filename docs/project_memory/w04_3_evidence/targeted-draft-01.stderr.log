@@ -1,0 +1,127 @@
+test_authorized_connect_verify_use_cleanup_and_readonly (tests.test_w04_3_tools.TemporaryToolTests.test_authorized_connect_verify_use_cleanup_and_readonly) ... ok
+test_discovery_is_real_p16_and_not_current_availability (tests.test_w04_3_tools.TemporaryToolTests.test_discovery_is_real_p16_and_not_current_availability) ... ok
+test_expiry_denies_use_but_cleanup_is_separately_authorized (tests.test_w04_3_tools.TemporaryToolTests.test_expiry_denies_use_but_cleanup_is_separately_authorized) ... ERROR
+test_history_query_reuses_original_receipt_router_composer (tests.test_w04_3_tools.TemporaryToolTests.test_history_query_reuses_original_receipt_router_composer) ... ERROR
+test_missing_login_resumes_same_connection_without_discovery_or_cost_repeat (tests.test_w04_3_tools.TemporaryToolTests.test_missing_login_resumes_same_connection_without_discovery_or_cost_repeat) ... ERROR
+test_partial_cleanup_is_pending_then_linked_cleanup_preserves_facts (tests.test_w04_3_tools.TemporaryToolTests.test_partial_cleanup_is_pending_then_linked_cleanup_preserves_facts) ... ok
+test_return_lost_recovers_original_receipt_without_second_connection (tests.test_w04_3_tools.TemporaryToolTests.test_return_lost_recovers_original_receipt_without_second_connection) ... ERROR
+test_revocation_cannot_switch_route_and_view_permission_is_current (tests.test_w04_3_tools.TemporaryToolTests.test_revocation_cannot_switch_route_and_view_permission_is_current) ... ERROR
+test_single_use_cannot_run_second_business_action (tests.test_w04_3_tools.TemporaryToolTests.test_single_use_cannot_run_second_business_action) ... ERROR
+test_unknown_connection_never_replays_or_creates_effect (tests.test_w04_3_tools.TemporaryToolTests.test_unknown_connection_never_replays_or_creates_effect) ... ERROR
+
+======================================================================
+ERROR: test_expiry_denies_use_but_cleanup_is_separately_authorized (tests.test_w04_3_tools.TemporaryToolTests.test_expiry_denies_use_but_cleanup_is_separately_authorized)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_3_tools.py", line 90, in test_expiry_denies_use_but_cleanup_is_separately_authorized
+    self.assertEqual(run().status,'WAITING_CAPABILITY');self.assertEqual(f.fake.effect_count,0)
+                     ~~~^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\w04_tool_fixture.py", line 196, in <lambda>
+    return request,lambda retry=False:self.tools.run(planner,choice,self.last_context.composition,retry=retry)
+                                      ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\temporary_tool_service.py", line 275, in run
+    self.execution.retain_pending(run);self.execution.collect(run)
+                                       ~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\execution_service.py", line 326, in collect
+    raise ExecutionError('EXECUTION_RESULT_BINDING')
+continuity_engine.domain.execution.ExecutionError: EXECUTION_RESULT_BINDING
+
+======================================================================
+ERROR: test_history_query_reuses_original_receipt_router_composer (tests.test_w04_3_tools.TemporaryToolTests.test_history_query_reuses_original_receipt_router_composer)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_3_tools.py", line 107, in test_history_query_reuses_original_receipt_router_composer
+    result=f.device.history_context(req.capability_request_id,perception)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\device_operation_service.py", line 286, in history_context
+    raise EnvironmentAccessError("DEVICE_HISTORY_CONTEXT_NOT_READY")
+continuity_engine.domain.environment_access.EnvironmentAccessError: DEVICE_HISTORY_CONTEXT_NOT_READY
+
+======================================================================
+ERROR: test_missing_login_resumes_same_connection_without_discovery_or_cost_repeat (tests.test_w04_3_tools.TemporaryToolTests.test_missing_login_resumes_same_connection_without_discovery_or_cost_repeat)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_3_tools.py", line 47, in test_missing_login_resumes_same_connection_without_discovery_or_cost_repeat
+    self.assertEqual(run().status,'WAITING_CAPABILITY')
+                     ~~~^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\w04_tool_fixture.py", line 196, in <lambda>
+    return request,lambda retry=False:self.tools.run(planner,choice,self.last_context.composition,retry=retry)
+                                      ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\temporary_tool_service.py", line 275, in run
+    self.execution.retain_pending(run);self.execution.collect(run)
+                                       ~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\execution_service.py", line 326, in collect
+    raise ExecutionError('EXECUTION_RESULT_BINDING')
+continuity_engine.domain.execution.ExecutionError: EXECUTION_RESULT_BINDING
+
+======================================================================
+ERROR: test_return_lost_recovers_original_receipt_without_second_connection (tests.test_w04_3_tools.TemporaryToolTests.test_return_lost_recovers_original_receipt_without_second_connection)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_3_tools.py", line 74, in test_return_lost_recovers_original_receipt_without_second_connection
+    f.tool_port.mode='lost_response';self.assertEqual(run().status,'WAITING_CAPABILITY')
+                                                      ~~~^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\w04_tool_fixture.py", line 196, in <lambda>
+    return request,lambda retry=False:self.tools.run(planner,choice,self.last_context.composition,retry=retry)
+                                      ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\temporary_tool_service.py", line 275, in run
+    self.execution.retain_pending(run);self.execution.collect(run)
+                                       ~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\execution_service.py", line 326, in collect
+    raise ExecutionError('EXECUTION_RESULT_BINDING')
+continuity_engine.domain.execution.ExecutionError: EXECUTION_RESULT_BINDING
+
+======================================================================
+ERROR: test_revocation_cannot_switch_route_and_view_permission_is_current (tests.test_w04_3_tools.TemporaryToolTests.test_revocation_cannot_switch_route_and_view_permission_is_current)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_3_tools.py", line 98, in test_revocation_cannot_switch_route_and_view_permission_is_current
+    self.assertEqual(run().status,'WAITING_CAPABILITY');self.assertEqual(f.fake.effect_count,0)
+                     ~~~^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\w04_tool_fixture.py", line 196, in <lambda>
+    return request,lambda retry=False:self.tools.run(planner,choice,self.last_context.composition,retry=retry)
+                                      ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\temporary_tool_service.py", line 275, in run
+    self.execution.retain_pending(run);self.execution.collect(run)
+                                       ~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\execution_service.py", line 326, in collect
+    raise ExecutionError('EXECUTION_RESULT_BINDING')
+continuity_engine.domain.execution.ExecutionError: EXECUTION_RESULT_BINDING
+
+======================================================================
+ERROR: test_single_use_cannot_run_second_business_action (tests.test_w04_3_tools.TemporaryToolTests.test_single_use_cannot_run_second_business_action)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_3_tools.py", line 83, in test_single_use_cannot_run_second_business_action
+    self.assertEqual(run().status,'WAITING_CAPABILITY')
+                     ~~~^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\w04_tool_fixture.py", line 196, in <lambda>
+    return request,lambda retry=False:self.tools.run(planner,choice,self.last_context.composition,retry=retry)
+                                      ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\temporary_tool_service.py", line 275, in run
+    self.execution.retain_pending(run);self.execution.collect(run)
+                                       ~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\execution_service.py", line 326, in collect
+    raise ExecutionError('EXECUTION_RESULT_BINDING')
+continuity_engine.domain.execution.ExecutionError: EXECUTION_RESULT_BINDING
+
+======================================================================
+ERROR: test_unknown_connection_never_replays_or_creates_effect (tests.test_w04_3_tools.TemporaryToolTests.test_unknown_connection_never_replays_or_creates_effect)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_3_tools.py", line 68, in test_unknown_connection_never_replays_or_creates_effect
+    self.assertEqual(run().status,'WAITING_CAPABILITY');self.assertEqual(run(True).status,'WAITING_CAPABILITY')
+                     ~~~^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\w04_tool_fixture.py", line 196, in <lambda>
+    return request,lambda retry=False:self.tools.run(planner,choice,self.last_context.composition,retry=retry)
+                                      ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\temporary_tool_service.py", line 275, in run
+    self.execution.retain_pending(run);self.execution.collect(run)
+                                       ~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\execution_service.py", line 326, in collect
+    raise ExecutionError('EXECUTION_RESULT_BINDING')
+continuity_engine.domain.execution.ExecutionError: EXECUTION_RESULT_BINDING
+
+----------------------------------------------------------------------
+Ran 10 tests in 113.540s
+
+FAILED (errors=7)

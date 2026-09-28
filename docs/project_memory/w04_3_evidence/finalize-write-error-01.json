@@ -1,0 +1,45 @@
+{
+  "error_type": "OSError",
+  "errno": 22,
+  "operation": "Path.write_bytes/open",
+  "path": "docs/project_memory/04_决策记录.md",
+  "source": "Tool stdout/stderr traceback, finalize.py line149",
+  "observed_files": [
+    {
+      "path": "docs/project_memory/01_当前状态.md",
+      "bytes": 132927,
+      "delivery_markers": 1,
+      "kickoff_markers": 1
+    },
+    {
+      "path": "docs/project_memory/03_施工日志.md",
+      "bytes": 383942,
+      "delivery_markers": 1,
+      "kickoff_markers": 1
+    },
+    {
+      "path": "docs/project_memory/04_决策记录.md",
+      "bytes": 256372,
+      "delivery_markers": 0,
+      "kickoff_markers": 1
+    },
+    {
+      "path": "docs/project_memory/06_未完成事项.md",
+      "bytes": 97777,
+      "delivery_markers": 0,
+      "kickoff_markers": 1
+    },
+    {
+      "path": "docs/project_memory/10_档案修订记录.md",
+      "bytes": 152231,
+      "delivery_markers": 0,
+      "kickoff_markers": 0
+    },
+    {
+      "path": "docs/project_memory/工程总档案.md",
+      "bytes": 122627,
+      "delivery_markers": 0,
+      "kickoff_markers": 0
+    }
+  ]
+}

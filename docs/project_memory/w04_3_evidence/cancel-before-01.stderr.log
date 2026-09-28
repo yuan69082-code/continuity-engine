@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\docs\project_memory\w04_3_evidence\cancel-before-connect-probe.py", line 13, in <module>
+    assert record['connections']==0,'cancelled pending connection must not be opened by replay'
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: cancelled pending connection must not be opened by replay

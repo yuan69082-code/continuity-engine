@@ -1,0 +1,57 @@
+test_automatic_partial_cleanup_survives_three_failures_and_reopen (tests.test_w04_3_repairs.ToolRepairTests.test_automatic_partial_cleanup_survives_three_failures_and_reopen) ... ok
+test_both_native_needs_and_two_tools_obtain_real_dispatch (tests.test_w04_3_repairs.ToolRepairTests.test_both_native_needs_and_two_tools_obtain_real_dispatch) ... FAIL
+test_cleanup_backoff_is_receipt_bound_readonly_and_configurable (tests.test_w04_3_repairs.ToolRepairTests.test_cleanup_backoff_is_receipt_bound_readonly_and_configurable) ... ERROR
+test_cleanup_revocation_pause_stop_and_other_connection_isolation (tests.test_w04_3_repairs.ToolRepairTests.test_cleanup_revocation_pause_stop_and_other_connection_isolation) ... ok
+test_cleanup_unknown_and_return_lost_use_original_fact (tests.test_w04_3_repairs.ToolRepairTests.test_cleanup_unknown_and_return_lost_use_original_fact) ... ok
+test_current_host_and_scope_denial_prevent_new_cleanup (tests.test_w04_3_repairs.ToolRepairTests.test_current_host_and_scope_denial_prevent_new_cleanup) ... ERROR
+test_dependency_wait_and_pending_cleanup_do_not_block_ready (tests.test_w04_3_repairs.ToolRepairTests.test_dependency_wait_and_pending_cleanup_do_not_block_ready) ... ok
+test_login_wait_reopen_pause_resume_and_original_identity (tests.test_w04_3_repairs.ToolRepairTests.test_login_wait_reopen_pause_resume_and_original_identity) ... ok
+test_three_failed_cleanup_facts_can_resume_via_host (tests.test_w04_3_repairs.ToolRepairTests.test_three_failed_cleanup_facts_can_resume_via_host) ... ok
+test_unknown_first_does_not_block_second_or_replay (tests.test_w04_3_repairs.ToolRepairTests.test_unknown_first_does_not_block_second_or_replay) ... ok
+test_waiting_first_does_not_starve_second_or_native_work (tests.test_w04_3_repairs.ToolRepairTests.test_waiting_first_does_not_starve_second_or_native_work) ... ok
+
+======================================================================
+ERROR: test_cleanup_backoff_is_receipt_bound_readonly_and_configurable (tests.test_w04_3_repairs.ToolRepairTests.test_cleanup_backoff_is_receipt_bound_readonly_and_configurable)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_3_repairs.py", line 221, in test_cleanup_backoff_is_receipt_bound_readonly_and_configurable
+    self.ticks(1,seconds=0)
+    ~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_3_repairs.py", line 72, in ticks
+    self.host.advance(seconds)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p18_runtime_fixture.py", line 181, in advance
+    def advance(self,seconds):self.clock.advance(seconds)
+                              ~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p18_runtime_fixture.py", line 41, in advance
+    def advance(self,seconds):self.frozen.advance(seconds if isinstance(seconds,timedelta) else timedelta(seconds=seconds))
+                              ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\persistence.py", line 198, in advance
+    raise SandboxOperationError("CLOCK_INVALID", "advance must be positive")
+continuity_engine.testing.models.SandboxOperationError: CLOCK_INVALID: advance must be positive
+
+======================================================================
+ERROR: test_current_host_and_scope_denial_prevent_new_cleanup (tests.test_w04_3_repairs.ToolRepairTests.test_current_host_and_scope_denial_prevent_new_cleanup)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_3_repairs.py", line 279, in test_current_host_and_scope_denial_prevent_new_cleanup
+    self.f.repo.handoff(expected_revision=self.f.repo.load()['revision'],new_host='replacement')
+    ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'JsonEnvironmentRepository' object has no attribute 'handoff'
+
+======================================================================
+FAIL: test_both_native_needs_and_two_tools_obtain_real_dispatch (tests.test_w04_3_repairs.ToolRepairTests.test_both_native_needs_and_two_tools_obtain_real_dispatch)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_3_repairs.py", line 131, in test_both_native_needs_and_two_tools_obtain_real_dispatch
+    self.assertEqual(self.f.tools.inspect(b.capability_request_id)['state'],'CLOSED')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'WAITING_CONDITIONS' != 'CLOSED'
+- WAITING_CONDITIONS
++ CLOSED
+
+
+----------------------------------------------------------------------
+Ran 11 tests in 128.184s
+
+FAILED (failures=1, errors=2)

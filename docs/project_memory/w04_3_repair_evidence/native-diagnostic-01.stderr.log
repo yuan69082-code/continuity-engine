@@ -1,0 +1,18 @@
+test_both_native_needs_and_two_tools_obtain_real_dispatch (tests.test_w04_3_repairs.ToolRepairTests.test_both_native_needs_and_two_tools_obtain_real_dispatch) ... ERROR
+
+======================================================================
+ERROR: test_both_native_needs_and_two_tools_obtain_real_dispatch (tests.test_w04_3_repairs.ToolRepairTests.test_both_native_needs_and_two_tools_obtain_real_dispatch)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_3_repairs.py", line 150, in test_both_native_needs_and_two_tools_obtain_real_dispatch
+    self.diagnostic('R1-native-and-tools')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_3_repairs.py", line 94, in diagnostic
+    for a in f.core.coordination.action_attempts(r,receipt_verifier=f.core.capabilities[r.capability_type].adapter)])
+                                                                    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+TypeError: tuple indices must be integers or slices, not str
+
+----------------------------------------------------------------------
+Ran 1 test in 22.155s
+
+FAILED (errors=1)

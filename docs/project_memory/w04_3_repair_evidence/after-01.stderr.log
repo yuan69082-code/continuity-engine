@@ -1,0 +1,16 @@
+test_three_failed_cleanup_facts_can_resume_via_host (tests.test_w04_3_repairs.ToolRepairTests.test_three_failed_cleanup_facts_can_resume_via_host) ... ok
+test_waiting_first_does_not_starve_second_or_native_work (tests.test_w04_3_repairs.ToolRepairTests.test_waiting_first_does_not_starve_second_or_native_work) ... FAIL
+
+======================================================================
+FAIL: test_waiting_first_does_not_starve_second_or_native_work (tests.test_w04_3_repairs.ToolRepairTests.test_waiting_first_does_not_starve_second_or_native_work)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_3_repairs.py", line 82, in test_waiting_first_does_not_starve_second_or_native_work
+    self.assertGreater(self.host.provider.calls,0)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 not greater than 0
+
+----------------------------------------------------------------------
+Ran 2 tests in 19.326s
+
+FAILED (failures=1)

@@ -1,3 +1,26 @@
+<!-- W04_3_ACCEPTED_D091_20260929 -->
+## D-091：W04-3 初版及 R1/R2 正式验收
+
+2026-09-29，用户正式验收W04第三子批次工具发现、临时接入/等待、使用、结束及恢复，以及R1等待首项入队饥饿、R2累计三份清理请求永久封顶两项返修；授权本批精确暂存、现有main一次普通提交及既有origin/main普通push。D-090开工记录保持。W04-3=ACCEPTED；W04整体=IN_PROGRESS；W04-4=NOT_STARTED，不启动下一批。
+
+规划窗口完成代码、原始证据、身份和保护范围的独立只读复核，未运行Engine或测试。本次引用施工方最终同版：定点14PASS、W04-3专项60PASS、W04-1/2专项87PASS、公共417PASS、全量1923项=1922PASS/1既有Windows1314SKIP/0FAIL/ERROR。集合重叠不相加；原1909项身份和旧测试保留，新增14。源码321项 `sha256:aa96381b507957c66efbb3a7cd6d8721d4b920199cfb6a547e59c2d655ad8506`；本轮只归档，不改实现/测试或重跑。
+
+本批已知复核阻断依据验收报告逐项关闭：原真实宿主before-02的两条反例同场景修后通过，并由同版兼容/全量、规划窗口只读复核及用户确认支持。当前本批EVIDENCE_CONFLICT=NONE、PLANNING_CONFLICT=NONE，不保证无其他缺陷。旧PRESENT、IMPLEMENTED_NOT_ACCEPTED、FAIL/ERROR/辅助错误/中断/格式提示及F1/H1/F2 UNKNOWN原样保留。旧Context失效仍拒绝、不自动重绑；原两个need/1000ms/2048/P18控制及权限/费用/E5-A边界不变。
+
+仅本机隔离TEST验证；不保证任意无界负载公平性或生产性能。真实账号、服务、设备、凭据未开放，未取得远端CI结果。70份保留材料含D-085独有规划档案/现行索引继续排除，不冒称已推送；共享档案的既有授权记录保留。63保护、规划原文、正式七文件、版本及原始测试日志本轮不变。
+
+[验收报告](w04_3_acceptance_evidence/acceptance-report.md) · [逐项验收矩阵](w04_3_acceptance_evidence/acceptance-matrix.md) · [精确清单](w04_3_acceptance_evidence/final.pending-files.md) · [审计](w04_3_acceptance_evidence/final.audit.json) · [原测试索引](w04_3_repair_evidence/test-index.md)。实际提交/push结果在操作后单独核验，不预填成功。以下全部旧时点记录原样保留。
+
+<!-- W04_3_R1_R2_DELIVERY -->
+## W04-3 R1/R2返修，待复核
+
+等待工具不再固定阻挡后项与原认知/维护；清理按原事实退避，取消累计三次永久封顶。状态IMPLEMENTED_NOT_ACCEPTED，EVIDENCE_CONFLICT=PRESENT，原控制/权限/账本保持。见[本轮报告](w04_3_repair_evidence/final-report.md)。无验收或Git写入，W04-4未启动。
+
+<!-- W04_3_DELIVERY -->
+## W04-3 工具发现与临时接入（待复核）
+
+已实现隔离发现、授权内接入/使用、缺项等待与原事实恢复、清理及N21查询衔接；状态 IMPLEMENTED_NOT_ACCEPTED。原公共链兼容、保护及测试证据见[本批交付](w04_3_evidence/final-report.md)。无真实服务接入，无Git写入；W04-4未开工。
+
 <!-- W02_RECALL_TIMEOUT_ACCEPTED_D084_20260927 -->
 ## 2026-09-27 — W02 回答前回忆超时定点补修正式验收（D-084）
 

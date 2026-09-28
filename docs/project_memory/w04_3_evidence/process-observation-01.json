@@ -1,0 +1,25 @@
+{
+  "observed_python_processes": [
+    {
+      "Id": 9556,
+      "ProcessName": "python",
+      "StartTime": "2026-09-28T22:15:00.8902033+08:00",
+      "Path": "E:\\Adobe\\python.exe"
+    },
+    {
+      "Id": 18300,
+      "ProcessName": "python",
+      "StartTime": "2026-09-28T22:15:00.9763852+08:00",
+      "Path": "E:\\Adobe\\python.exe"
+    },
+    {
+      "Id": 22340,
+      "ProcessName": "python",
+      "StartTime": "2026-09-28T22:12:18.6607544+08:00",
+      "Path": "E:\\Adobe\\python.exe"
+    }
+  ],
+  "note": "CIM denied earlier; Get-Process snapshot only; validation runner still active",
+  "at": "2026-09-28T14:20:03.3536513+00:00",
+  "action": "READ_ONLY_NO_TERMINATION"
+}

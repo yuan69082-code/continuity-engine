@@ -1,0 +1,21 @@
+{
+  "at_utc": "2026-09-28T17:45:41.911960+00:00",
+  "engine_or_test_runs": false,
+  "observations": [
+    {
+      "kind": "DOCUMENT_SEARCH_HELPER_ERROR",
+      "command": "rg ... docs/project_memory/planning_v16_20260927/planning/*.md",
+      "result": "Windows literal wildcard path: os error 123; no file mutation. Corrected to rg -g *.md on directory; clauses subsequently read."
+    },
+    {
+      "kind": "READ_ONLY_REMOTE_DEFAULT_TLS_ERROR",
+      "evidence": "remote-precheck.json",
+      "result": "Single-command OpenSSL succeeded with TLS verification retained."
+    },
+    {
+      "kind": "LOCAL_EVIDENCE_SANDBOX_READ_DENIED",
+      "path": "C:/Users/Administrator/AppData/Local/Temp/w04-3-d091-git-closeout-p8njbzr8/",
+      "result": "Ordinary read denied; authorized read succeeded. No repository change or Engine test execution caused by this helper error."
+    }
+  ]
+}

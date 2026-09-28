@@ -14,12 +14,13 @@ from continuity_engine.services.perception_service import PerceptionService
 
 class DeviceOperationService:
     def __init__(self, *, access, port, clock, subject_states, authorize_history,
-                 sensor_max_age=timedelta(seconds=30)):
+                 sensor_max_age=timedelta(seconds=30), connection_guard=None):
         self.access, self.port, self.clock = access, port, clock
         self.subject_states, self.authorize_history = subject_states, authorize_history
         self.subject_id, self.environment = port.subject_id, port.environment
         self.adapter_id, self.world, self.version = port.adapter_id, port.world, port.version
         self.execution = None
+        self.connection_guard = connection_guard
         if not isinstance(sensor_max_age, timedelta) or sensor_max_age.total_seconds() <= 0:
             raise EnvironmentAccessError("DEVICE_SENSOR_TIME_POLICY")
         self.sensor_max_age = sensor_max_age
@@ -41,6 +42,8 @@ class DeviceOperationService:
         if use.scope is None:
             raise EnvironmentAccessError("DEVICE_READ_SCOPE_REQUIRED")
         self.access.require(use, kinds={AttachmentKind.TOOL_EGRESS, AttachmentKind.BODY})
+        if self.connection_guard is not None:
+            self.connection_guard.observe(use)
         observation = self._call("DEVICE_OBSERVATION_UNAVAILABLE", self.port.observe, use)
         if not isinstance(observation, DeviceObservation) or observation.use != use:
             raise EnvironmentAccessError("DEVICE_OBSERVATION_BINDING")
@@ -48,6 +51,8 @@ class DeviceOperationService:
             self.execution.validate_input_material(observation.to_dict())
         self.access.require(use, kinds={AttachmentKind.TOOL_EGRESS, AttachmentKind.BODY})
         self._active(use)
+        if self.connection_guard is not None:
+            self.connection_guard.observe(use)
         return DeviceObservation.from_dict(observation.to_dict())
 
     def step(self, command, *, step_id="step-0", dependencies=(), capability=None):
@@ -95,6 +100,8 @@ class DeviceOperationService:
         route = self.execution.routes[request.capability_type]
         self.access.require_action(use, route, request)
         self._history_allowed(command)
+        if self.connection_guard is not None:
+            self.connection_guard(request, purpose=purpose)
         if purpose == "execute":
             now = self.clock()
             observation = command.observation
@@ -110,6 +117,8 @@ class DeviceOperationService:
                 raise EnvironmentAccessError("DEVICE_HISTORY_SOURCE_CHANGED")
         self.access.require_action(use, route, request)
         self._active(use)
+        if self.connection_guard is not None:
+            self.connection_guard(request, purpose=purpose)
 
     def query(self, request):
         command = self.command(request)

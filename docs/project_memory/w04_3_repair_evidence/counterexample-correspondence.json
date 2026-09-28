@@ -1,0 +1,15 @@
+{
+  "saved_before_tests_sha256": "3c667831ae2add7c2a4ce8ae1a5d7f03415846c71e4169720e09ab1ff3ceb255",
+  "matches_before_02": true,
+  "before_runtime_matches_original_delivery": true,
+  "original_counterexample_assertions": {
+    "test_waiting_first_does_not_starve_second_or_native_work": {
+      "original_assertion_count": 5,
+      "all_retained": true
+    },
+    "test_three_failed_cleanup_facts_can_resume_via_host": {
+      "original_assertion_count": 5,
+      "all_retained": true
+    }
+  }
+}

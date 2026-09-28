@@ -1,0 +1,9 @@
+{
+  "at": "2026-09-28T14:35:07.583657+00:00",
+  "kind": "READ_ONLY_PREFLIGHT_NOT_FINAL",
+  "source_count": 320,
+  "source_fingerprint": "sha256:ddb85f6a7e49f8bf61c39717ea0e51c73ccb8efbd391aab17813ff6ead6a88a3",
+  "source_matches_frozen": true,
+  "syntax_errors": [],
+  "old_test_byte_changes": []
+}

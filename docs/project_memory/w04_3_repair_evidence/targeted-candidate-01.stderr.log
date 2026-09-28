@@ -1,0 +1,34 @@
+test_automatic_partial_cleanup_survives_three_failures_and_reopen (tests.test_w04_3_repairs.ToolRepairTests.test_automatic_partial_cleanup_survives_three_failures_and_reopen) ... ok
+test_backoff_survives_reopen_without_reset_or_read_side_effect (tests.test_w04_3_repairs.ToolRepairTests.test_backoff_survives_reopen_without_reset_or_read_side_effect) ... ok
+test_both_native_needs_and_two_tools_obtain_real_dispatch (tests.test_w04_3_repairs.ToolRepairTests.test_both_native_needs_and_two_tools_obtain_real_dispatch) ... ok
+test_cleanup_backoff_is_receipt_bound_readonly_and_configurable (tests.test_w04_3_repairs.ToolRepairTests.test_cleanup_backoff_is_receipt_bound_readonly_and_configurable) ... ok
+test_cleanup_revocation_pause_stop_and_other_connection_isolation (tests.test_w04_3_repairs.ToolRepairTests.test_cleanup_revocation_pause_stop_and_other_connection_isolation) ... ok
+test_cleanup_unknown_and_return_lost_use_original_fact (tests.test_w04_3_repairs.ToolRepairTests.test_cleanup_unknown_and_return_lost_use_original_fact) ... ok
+test_current_host_and_scope_denial_prevent_new_cleanup (tests.test_w04_3_repairs.ToolRepairTests.test_current_host_and_scope_denial_prevent_new_cleanup) ... ok
+test_dependency_wait_and_pending_cleanup_do_not_block_ready (tests.test_w04_3_repairs.ToolRepairTests.test_dependency_wait_and_pending_cleanup_do_not_block_ready) ... ok
+test_invalid_cleanup_pacing_is_rejected_without_port_work (tests.test_w04_3_repairs.ToolRepairTests.test_invalid_cleanup_pacing_is_rejected_without_port_work) ... ERROR
+test_login_wait_reopen_pause_resume_and_original_identity (tests.test_w04_3_repairs.ToolRepairTests.test_login_wait_reopen_pause_resume_and_original_identity) ... ok
+test_old_context_is_not_rebound_after_native_revision (tests.test_w04_3_repairs.ToolRepairTests.test_old_context_is_not_rebound_after_native_revision) ... ok
+test_three_failed_cleanup_facts_can_resume_via_host (tests.test_w04_3_repairs.ToolRepairTests.test_three_failed_cleanup_facts_can_resume_via_host) ... ok
+test_unknown_first_does_not_block_second_or_replay (tests.test_w04_3_repairs.ToolRepairTests.test_unknown_first_does_not_block_second_or_replay) ... ok
+test_waiting_first_does_not_starve_second_or_native_work (tests.test_w04_3_repairs.ToolRepairTests.test_waiting_first_does_not_starve_second_or_native_work) ... ok
+
+======================================================================
+ERROR: test_invalid_cleanup_pacing_is_rejected_without_port_work (tests.test_w04_3_repairs.ToolRepairTests.test_invalid_cleanup_pacing_is_rejected_without_port_work)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_3_repairs.py", line 374, in test_invalid_cleanup_pacing_is_rejected_without_port_work
+    s=self.f.tools;before=self.f.tool_port.store.path.read_bytes()
+                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "E:\Adobe\Lib\pathlib\__init__.py", line 777, in read_bytes
+    with self.open(mode='rb', buffering=0) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Adobe\Lib\pathlib\__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\Administrator\\AppData\\Local\\Temp\\w43-r-7lf8rmsk\\s\\s\\sdf3fcf30\\b\\b2882c3ca\\data\\worlds\\tools\\connections.json'
+
+----------------------------------------------------------------------
+Ran 14 tests in 167.137s
+
+FAILED (errors=1)

@@ -1,0 +1,77 @@
+{
+  "at": "2026-09-28T15:26:04.348826+00:00",
+  "full_status": "COMPLETED",
+  "full_exit": 0,
+  "process_observation_command": [
+    "powershell",
+    "-NoProfile",
+    "-Command",
+    "@(Get-Process python,pythonw -ErrorAction SilentlyContinue | Select-Object Id,ProcessName,StartTime,Path) | ConvertTo-Json -Depth 3"
+  ],
+  "observed_python": [
+    {
+      "Id": 4280,
+      "ProcessName": "python",
+      "StartTime": "/Date(1790609163781)/",
+      "Path": "E:\\Adobe\\python.exe"
+    }
+  ],
+  "observer_pid": 4280,
+  "remaining_owned_processes": [],
+  "classification": "No other Python process observed",
+  "explicit_test_subprocesses": [
+    {
+      "phase": "prepare",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.testing.w04_tool_fixture",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\w04-3-process-r5_3yd9s",
+        "--phase",
+        "prepare"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"phase\": \"prepare\", \"status\": \"UNKNOWN\", \"connections\": 1}\n",
+      "stderr": ""
+    },
+    {
+      "phase": "resume",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.testing.w04_tool_fixture",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\w04-3-process-r5_3yd9s",
+        "--phase",
+        "resume"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"phase\": \"resume\", \"status\": \"CLOSED\", \"effects\": 1, \"credits\": 1, \"new_discovery\": 0, \"new_models\": 0, \"revision\": 1}\n",
+      "stderr": ""
+    },
+    {
+      "phase": "replay",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "continuity_engine.testing.w04_tool_fixture",
+        "--root",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\w04-3-process-r5_3yd9s",
+        "--phase",
+        "replay"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"phase\": \"replay\", \"status\": \"CLOSED\", \"effects\": 1, \"credits\": 1, \"new_discovery\": 0, \"new_models\": 0, \"revision\": 1}\n",
+      "stderr": ""
+    }
+  ],
+  "forced_test_cleanup": false,
+  "orchestrator_only_stop": "validation-order-stop-01.json: first orchestration stopped before its full run, compatibility finished normally",
+  "retained_controlled_fixtures": [
+    "RETAINED_CONTROLLED_FAILURE C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\c1e-fxmmfz04 exit_code=91",
+    "RETAINED_CONTROLLED_INTERRUPT C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\c1e-jpu2n2ed exit_code= 1"
+  ],
+  "retained_reason": "Original tests deliberately preserve controlled failure/interrupt evidence; no unrelated cleanup",
+  "no_production_service_installed": true
+}

@@ -1,0 +1,38 @@
+test_three_failed_cleanup_facts_can_resume_via_host (tests.test_w04_3_repairs.ToolRepairTests.test_three_failed_cleanup_facts_can_resume_via_host) ... ERROR
+test_waiting_first_does_not_starve_second_or_native_work (tests.test_w04_3_repairs.ToolRepairTests.test_waiting_first_does_not_starve_second_or_native_work) ... FAIL
+
+======================================================================
+ERROR: test_three_failed_cleanup_facts_can_resume_via_host (tests.test_w04_3_repairs.ToolRepairTests.test_three_failed_cleanup_facts_can_resume_via_host)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_3_repairs.py", line 87, in test_three_failed_cleanup_facts_can_resume_via_host
+    f=self.f;c,lease,_=self.prepare('cleanup',opened=True)
+                       ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_3_repairs.py", line 45, in prepare
+    connection,_,lease,offer=f.open_tool(name=name)
+                             ~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\w04_tool_fixture.py", line 230, in open_tool
+    self.tools.activate(verify.capability_request_id)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\temporary_tool_service.py", line 28, in call
+    return method(self,*args,**kwargs)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\temporary_tool_service.py", line 266, in activate
+    raise ExecutionError('TOOL_VERIFICATION_REQUIRED')
+continuity_engine.domain.execution.ExecutionError: TOOL_VERIFICATION_REQUIRED
+
+======================================================================
+FAIL: test_waiting_first_does_not_starve_second_or_native_work (tests.test_w04_3_repairs.ToolRepairTests.test_waiting_first_does_not_starve_second_or_native_work)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_3_repairs.py", line 77, in test_waiting_first_does_not_starve_second_or_native_work
+    self.assertEqual(self.f.tools.inspect(b.capability_request_id)['state'],'CLOSED')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'CANDIDATE' != 'CLOSED'
+- CANDIDATE
++ CLOSED
+
+
+----------------------------------------------------------------------
+Ran 2 tests in 4.658s
+
+FAILED (failures=1, errors=1)

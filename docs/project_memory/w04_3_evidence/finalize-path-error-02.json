@@ -1,0 +1,9 @@
+{
+  "error_type": "FileNotFoundError",
+  "errno": 2,
+  "operation": "read_bytes",
+  "requested_path": "CHANGELOG.md",
+  "actual_path": "docs/project_memory/CHANGELOG.md",
+  "source": "finalize.py line154, tool traceback",
+  "classification": "New archive helper path error; no Engine source/test changes"
+}

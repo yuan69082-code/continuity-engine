@@ -1,0 +1,13 @@
+{
+  "at_utc": "2026-09-28T17:24:01.0148969Z",
+  "runner_session": 83807,
+  "runner_exit_code": 0,
+  "final_run": "full-final-01",
+  "observed_python_processes": [],
+  "remaining_owned_processes": [],
+  "agent_forced_cleanup": false,
+  "observation": "Get-Process python after final runner completed: none",
+  "limitation": "Get-CimInstance command-line inspection earlier returned access denied; no elevation attempted",
+  "fixture_cleanup": "New TEST fixtures stop hosts in finally blocks and close TemporaryDirectory; original crash-injection tests retain their designed process-control behavior",
+  "unrelated_cleanup": false
+}

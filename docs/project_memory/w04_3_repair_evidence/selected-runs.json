@@ -1,0 +1,77 @@
+{
+  "fingerprint": "sha256:aa96381b507957c66efbb3a7cd6d8721d4b920199cfb6a547e59c2d655ad8506",
+  "runs": [
+    {
+      "label": "targeted-final-01",
+      "status": "COMPLETED",
+      "exit_code": 0,
+      "runner_seconds": 167.125,
+      "fingerprint_before": "sha256:aa96381b507957c66efbb3a7cd6d8721d4b920199cfb6a547e59c2d655ad8506",
+      "fingerprint_after": "sha256:aa96381b507957c66efbb3a7cd6d8721d4b920199cfb6a547e59c2d655ad8506",
+      "total": 14,
+      "seconds": 166.421,
+      "fail": 0,
+      "error": 0,
+      "skip": 0,
+      "pass": 14
+    },
+    {
+      "label": "w04-3-final-01",
+      "status": "COMPLETED",
+      "exit_code": 0,
+      "runner_seconds": 325.487,
+      "fingerprint_before": "sha256:aa96381b507957c66efbb3a7cd6d8721d4b920199cfb6a547e59c2d655ad8506",
+      "fingerprint_after": "sha256:aa96381b507957c66efbb3a7cd6d8721d4b920199cfb6a547e59c2d655ad8506",
+      "total": 60,
+      "seconds": 324.797,
+      "fail": 0,
+      "error": 0,
+      "skip": 0,
+      "pass": 60
+    },
+    {
+      "label": "w04-12-final-01",
+      "status": "COMPLETED",
+      "exit_code": 0,
+      "runner_seconds": 160.0,
+      "fingerprint_before": "sha256:aa96381b507957c66efbb3a7cd6d8721d4b920199cfb6a547e59c2d655ad8506",
+      "fingerprint_after": "sha256:aa96381b507957c66efbb3a7cd6d8721d4b920199cfb6a547e59c2d655ad8506",
+      "total": 87,
+      "seconds": 159.335,
+      "fail": 0,
+      "error": 0,
+      "skip": 0,
+      "pass": 87
+    },
+    {
+      "label": "compatibility-final-01",
+      "status": "COMPLETED",
+      "exit_code": 0,
+      "runner_seconds": 701.916,
+      "fingerprint_before": "sha256:aa96381b507957c66efbb3a7cd6d8721d4b920199cfb6a547e59c2d655ad8506",
+      "fingerprint_after": "sha256:aa96381b507957c66efbb3a7cd6d8721d4b920199cfb6a547e59c2d655ad8506",
+      "total": 417,
+      "seconds": 701.162,
+      "fail": 0,
+      "error": 0,
+      "skip": 0,
+      "pass": 417
+    },
+    {
+      "label": "full-final-01",
+      "status": "COMPLETED",
+      "exit_code": 0,
+      "runner_seconds": 2391.61,
+      "fingerprint_before": "sha256:aa96381b507957c66efbb3a7cd6d8721d4b920199cfb6a547e59c2d655ad8506",
+      "fingerprint_after": "sha256:aa96381b507957c66efbb3a7cd6d8721d4b920199cfb6a547e59c2d655ad8506",
+      "total": 1923,
+      "seconds": 2390.489,
+      "fail": 0,
+      "error": 0,
+      "skip": 1,
+      "pass": 1922
+    }
+  ],
+  "source": "施工方本轮实跑",
+  "overlap": true
+}

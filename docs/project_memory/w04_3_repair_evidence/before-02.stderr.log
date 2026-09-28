@@ -1,0 +1,31 @@
+test_three_failed_cleanup_facts_can_resume_via_host (tests.test_w04_3_repairs.ToolRepairTests.test_three_failed_cleanup_facts_can_resume_via_host) ... FAIL
+test_waiting_first_does_not_starve_second_or_native_work (tests.test_w04_3_repairs.ToolRepairTests.test_waiting_first_does_not_starve_second_or_native_work) ... FAIL
+
+======================================================================
+FAIL: test_three_failed_cleanup_facts_can_resume_via_host (tests.test_w04_3_repairs.ToolRepairTests.test_three_failed_cleanup_facts_can_resume_via_host)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_3_repairs.py", line 98, in test_three_failed_cleanup_facts_can_resume_via_host
+    self.assertEqual(f.tools.inspect(c.capability_request_id)['state'],'CLOSED')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'PENDING_CLEANUP' != 'CLOSED'
+- PENDING_CLEANUP
++ CLOSED
+
+
+======================================================================
+FAIL: test_waiting_first_does_not_starve_second_or_native_work (tests.test_w04_3_repairs.ToolRepairTests.test_waiting_first_does_not_starve_second_or_native_work)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_3_repairs.py", line 77, in test_waiting_first_does_not_starve_second_or_native_work
+    self.assertEqual(self.f.tools.inspect(b.capability_request_id)['state'],'CLOSED')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'CANDIDATE' != 'CLOSED'
+- CANDIDATE
++ CLOSED
+
+
+----------------------------------------------------------------------
+Ran 2 tests in 11.180s
+
+FAILED (failures=2)

@@ -1,0 +1,18 @@
+test_both_native_needs_and_two_tools_obtain_real_dispatch (tests.test_w04_3_repairs.ToolRepairTests.test_both_native_needs_and_two_tools_obtain_real_dispatch) ... FAIL
+
+======================================================================
+FAIL: test_both_native_needs_and_two_tools_obtain_real_dispatch (tests.test_w04_3_repairs.ToolRepairTests.test_both_native_needs_and_two_tools_obtain_real_dispatch)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_3_repairs.py", line 147, in test_both_native_needs_and_two_tools_obtain_real_dispatch
+    self.assertEqual(self.f.tools.inspect(b.capability_request_id)['state'],'CLOSED')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'PENDING_CLEANUP' != 'CLOSED'
+- PENDING_CLEANUP
++ CLOSED
+
+
+----------------------------------------------------------------------
+Ran 1 test in 21.990s
+
+FAILED (failures=1)

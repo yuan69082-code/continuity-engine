@@ -1,0 +1,93 @@
+{
+  "review_date": "2026-10-01",
+  "timezone": "Asia/Shanghai",
+  "scope": "D-092 / W04-4 and W04 package integration",
+  "review_mode": "Independent static source review and read-only evidence verification. No Engine code or tests executed. No Engine files or Git state modified.",
+  "recommendation": "REQUEST_CHANGES: two static review findings require targeted runtime counterexamples and resolution before acceptance.",
+  "engine_root": "C:/Users/Administrator/Documents/continuity-engine",
+  "head": "c910be8ff65f1384c4942c980fc4087c1b595a87",
+  "actual_remote_main": "c910be8ff65f1384c4942c980fc4087c1b595a87",
+  "remote_verification": "Read-only ls-remote using a per-command OpenSSL backend; exit 0. No persistent Git configuration changed.",
+  "source_count": 331,
+  "source_fingerprint": "sha256:63b8189dda6bca9a7cb5985cfeded9e0d920aca284500d32bdded91040307261",
+  "verified": {
+    "source_matches_frozen_and_audit": true,
+    "four_runs_before_after_source_matches_current": true,
+    "delivery_paths": 402,
+    "manifest_hashes_checked": 401,
+    "manifest_self_hash_exception": "docs/project_memory/w04_4_evidence/final.files.json",
+    "manifest_hash_mismatches": [],
+    "retained_paths": 70,
+    "retained_hash_mismatches": [],
+    "protected_files": 63,
+    "formal_data_files": 7,
+    "planning_files": 3,
+    "protected_hash_mismatches": [],
+    "actual_git_paths_equal_manifest_union_retained": true,
+    "staged_paths": [],
+    "old_test_files_changed": [],
+    "historical_shared_documents_preserve_head_bytes_as_suffix": true,
+    "source_and_test_ast_errors": [],
+    "full_verbose_log_test_identities_equal_frozen_ids": true,
+    "local_ahead_behind": "0/0"
+  },
+  "builder_test_evidence": [
+    {"label": "targeted-final-02", "passed": 52, "skipped": 0, "exit_code": 0, "seconds": 306.026},
+    {"label": "w04-final-02", "passed": 199, "skipped": 0, "exit_code": 0, "seconds": 662.495},
+    {"label": "public-final-02", "passed": 1144, "skipped": 1, "exit_code": 0, "seconds": 1666.164},
+    {"label": "full-final-02", "passed": 1974, "skipped": 1, "exit_code": 0, "seconds": 2380.273}
+  ],
+  "test_evidence_limits": "These overlapping sets were run by the construction window. This review read their raw logs and source identities; it did not rerun them. Passing existing tests does not cover the two scenarios below. Existing Windows 1314 SKIP remains a SKIP; remote CI is unverified.",
+  "findings": [
+    {
+      "id": "R1",
+      "priority": "P1",
+      "title": "State projection uses only the last entry writer and loses retained or derived source restrictions",
+      "file": "src/continuity_engine/services/cross_entry_service.py",
+      "lines": [493, 508],
+      "static_facts": [
+        "scoped_state builds last_writers by replacing each field's writer with the operation matching the latest mutation event.",
+        "It skips a field when that writer is None; native Evolution events without a C1 operation are therefore not source-filtered here.",
+        "For a mapped writer it checks only that operation's entry, not the field's retained values or the original ThinkSession/context ancestry.",
+        "origins has no engine.subject-state case. EntryPermission therefore does not independently recover these state-field origins.",
+        "The current W04 TEST provider sets update_subject_state=False and supplies no proposed_mutations. The existing related-memory regression does not exercise the multi-writer field scenario."
+      ],
+      "impact_inferred_from_source": "A restricted value can survive in a list field after B appends an unrelated allowed value, while the whole field is thereafter treated as B-origin. Native or indirect state changes can also lose entry provenance. Such a field can enter B's composed context despite withdrawal of A-to-B transfer.",
+      "runtime_reproduced_by_reviewer": false,
+      "required_counterexamples": [
+        "Through the original C1/Thinking/Action/Evolution path, write an identifiable A-only marker to a legal list-valued state field; revoke A-to-B transfer; append B-local content to the same field; ask B about the topic. Check the exact final context and any emitted content, retaining the original persisted state/history.",
+        "Exercise a native ThinkSession or indirect B update that derives a state value from A, followed by withdrawal, including reopen.",
+        "Assert both exclusion of the A marker and continued availability of B-local material; blanket state exclusion is not a valid repair."
+      ],
+      "repair_constraint": "Use original state mutation semantics, Event/ThinkSession and existing provenance. Preserve state/history, current permissions, and the sole authoritative store. Do not merely label an entire accumulated field by its last writer."
+    },
+    {
+      "id": "R2",
+      "priority": "P1",
+      "title": "Entry authorization precedes later observation callbacks even inside the final dispatch guard",
+      "file": "src/continuity_engine/services/device_operation_service.py",
+      "lines": [103, 128],
+      "static_facts": [
+        "_current calls entry.delivery_current at line 109, then connection_guard and self.observe at line 117, followed by attachment/action and lifecycle checks.",
+        "The trailing require_action checks the device attachment and ability; it does not re-evaluate entry read_from, binding fingerprint or user-level contact_pauses.",
+        "DeviceOperationService.execute invokes the original ExecutionService.current inside the port's final guard, so that final guard repeats this same ordering.",
+        "SimulatedDevice.execute calls guard, compares the device state hash, then records the effect; its state comparison does not validate the separate entry configuration."
+      ],
+      "impact_inferred_from_source": "If entry transfer permission, recipient binding, or contact-pause state changes during the last device observation while the device view/attachment remains unchanged, the final guard has no subsequent entry-specific authorization check before the simulated send.",
+      "runtime_reproduced_by_reviewer": false,
+      "required_counterexamples": [
+        "Arm a controlled hook only for the final port-held guard. During its device observation, withdraw A-to-B transfer or change the B binding while preserving the device state hash. The send must have zero effects and zero cost.",
+        "In the same final-observation window, activate the user-level contact pause. Verify no B/C send and preserve independent lawful internal cognition.",
+        "Retain unchanged-permission success controls; verify a later legitimate new request works after reauthorization without silently rebinding an old sealed context or replaying UNKNOWN effects."
+      ],
+      "repair_constraint": "Close the original synchronous dispatch boundary after the remaining callbacks. Preserve P17, the existing request/receipt identity and device transaction; do not claim distributed or arbitrary production revocation guarantees."
+    }
+  ],
+  "planning_basis": {
+    "path": "docs/project_memory/planning_v16_20260927/planning/Continuity_Engine_最终新增规划_v1.6_W施工正文完整版.md",
+    "lines": [337, 343, 1091],
+    "requirements": "N15/N16, T36 current transfer restrictions, T42 contact pause; compatible positive use of other authorized material and lawful internal cognition."
+  },
+  "next_step": "Send the two review findings to the construction window for targeted counterexamples and minimal repairs if confirmed, preserving all before/after evidence. Freeze the repaired source and rerun the affected targeted/W04/public/full validation. Return for independent review; do not accept, stage, commit, push or start W05 in this review.",
+  "historical_unknown": ["F1", "H1", "F2"]
+}

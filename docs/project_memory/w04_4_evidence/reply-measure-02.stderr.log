@@ -1,0 +1,54 @@
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 321, in _submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 876, in _run_domain
+    perception = self._continuity_core.prepare(perception, operation,
+        **({'save_input': save_input} if operation.input_processing_enabled else {}),
+        **({'save_recall':save_recall} if operation.recall_enabled else {}))
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 344, in prepare
+    return self._prepare(perception, operation, save_input=save_input,save_recall=save_recall)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 423, in _prepare
+    route,composition,recall_record=self.recall.prepare(perception,operation,save_recall,
+                                    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        attention=mind['influence']['attention'] if mind is not None else None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\associative_recall_service.py", line 100, in prepare
+    return self._prepare(perception,operation,save,attention=attention)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\docs\project_memory\w04_4_evidence\reply-measure-02.py", line 31, in measured
+    try:return prepare(*args,**kw)
+               ~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\associative_recall_service.py", line 211, in _prepare
+    raise CapabilityValidationError(stop)
+continuity_engine.domain.errors.CapabilityValidationError: RECALL_TIMEOUT
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\docs\project_memory\w04_4_evidence\reply-measure-02.py", line 36, in <module>
+    try:f.submit('选河边店，窗边那张桌。',entry='entry:B',item_id=item.item_id,reply_to=delivery['request_id'])
+        ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\w04_cross_entry_fixture.py", line 275, in submit
+    return self.entries.receive(self.last_request, self.last_message)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\cross_entry_service.py", line 408, in receive
+    return self.interaction.submit(payload, entry_message=message)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 192, in submit
+    return self._submit(payload, access_use=access_use, entry_message=entry_message)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 333, in _submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\docs\project_memory\w04_4_evidence\reply-measure-02.py", line 38, in <module>
+    print(json.dumps({'type':type(error).__name__,'recall':{k:v for k,v in (f.core.last_trace.get('recall') or {}).items()
+                                                                            ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'

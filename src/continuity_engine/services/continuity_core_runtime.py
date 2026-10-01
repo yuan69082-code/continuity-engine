@@ -42,6 +42,10 @@ def build_continuity_core(*, data_dir, binding, ledger, subject_states, action_g
                           extra_sources=(), extra_resolvers=(), **options):
     gates = gates or ContinuityCoreGates()
     permission = permission_policy or ContinuityCorePermissionPolicy()
+    entry = options.get('entry_continuity')
+    if entry is not None:
+        from .cross_entry_service import EntryPermission
+        permission = EntryPermission(entry, permission)
     external=options.pop('external_capabilities',None)
     absorption=(external.absorption if external is not None and gates.enabled else None)
     state = JsonSubjectStateRepository(data_dir / "subject-state")
@@ -55,6 +59,11 @@ def build_continuity_core(*, data_dir, binding, ledger, subject_states, action_g
         "subject_state_section", required=True), TrustedContextResolverBinding(
         TimelineMaterialResolver(timeline, environment=environment,memory_repository=memory if gates.memory else None),
         ContextAuthority.RAW_SOURCE, "event")]
+    if entry is not None:
+        from .entry_context_source import EntryStateSource, EntryStateResolver
+        sources[0] = ContextSourceBinding(EntryStateSource(state, environment=environment, entry=entry), required=True)
+        resolvers[0] = TrustedContextResolverBinding(EntryStateResolver(state, environment=environment, entry=entry),
+            ContextAuthority.CONFIRMED_STATE, 'subject_state_section', required=True)
     if gates.memory:
         memory_source=MemoryContextSource(memory,environment=environment)
         summary_source=DerivedSummaryContextSource(memory,environment=environment)
@@ -100,7 +109,7 @@ def build_continuity_core(*, data_dir, binding, ledger, subject_states, action_g
     execution=options.pop('execution',None)
     if execution is not None and gates.enabled:
         from .execution_context_source import ExecutionContextSource
-        source=ExecutionContextSource(execution)
+        source=ExecutionContextSource(execution, entry_selective=options.get('entry_continuity') is not None)
         sources.append(ContextSourceBinding(source))
         resolvers.append(TrustedContextResolverBinding(source,ContextAuthority.RETRIEVED_CANDIDATE,'execution_result'))
         capabilities=(*capabilities,*execution.bindings())

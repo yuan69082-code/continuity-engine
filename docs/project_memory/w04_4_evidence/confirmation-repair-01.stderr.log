@@ -1,0 +1,74 @@
+test_api_question_followup_reply_same_engine_and_matter (tests.test_w04_4_continuity.CrossEntryTests.test_api_question_followup_reply_same_engine_and_matter) ... ERROR
+{"test": "tests.test_w04_4_continuity.CrossEntryTests.test_api_question_followup_reply_same_engine_and_matter", "stage": "before-TEST-cleanup", "files": {"s/.p01-sandbox-root.v1.json": {"bytes": 98, "sha256": "3ced39d6b395df89d9b1f34e1b3faf46c14ccc6edab679a616f588a978e002f7"}, "s/s/s2cd92add/b/be9ab2d89/branch-manifest.v1.json": {"bytes": 243, "sha256": "178570e71e4e69578f306d000d6d6c7a2ec4d8c2693d9e43139e60fe5ebd4dd1"}, "s/s/s2cd92add/b/be9ab2d89/data/awakening/cycles/f03af4f40ba2194befc627ca692fd0b43ab68903a6e58170d8ca7d79b401b5d9.json": {"bytes": 253, "sha256": "4e582654f1a7508f9b925403cd26f4b8a9d54d56488b875c593e6798c451b3a1"}, "s/s/s2cd92add/b/be9ab2d89/data/awakening/sessions/b486a16de4ff2698aecb87fb7437a4c5cfe919ce7594319e17aeee76d4e26bb1/00b737e0f09554b4ad6d89245acff66d914a5556948cde19ccd6a1654329fa6d.json": {"bytes": 10657, "sha256": "efaa481f0f6b1d20ae77ccd40c941550d4affec639237618ea86609f1e60dd07"}, "s/s/s2cd92add/b/be9ab2d89/data/awakening/sessions/b486a16de4ff2698aecb87fb7437a4c5cfe919ce7594319e17aeee76d4e26bb1/7fb2eed6a3d1abacfd4dbf5942a5c98016027785bccabcd317f7c58f8dbc40ef.json": {"bytes": 17953, "sha256": "09842b2f125d5da639630ac423c094aad91b0ceaa7a5e60729187d4a44e86ea8"}, "s/s/s2cd92add/b/be9ab2d89/data/c1-receipts/p08-fake-receipts.json": {"bytes": 148, "sha256": "a411df96a3b6eea514baf41f59d45ab70c55b96ee9f28e118d79525ea3bfe8c8"}, "s/s/s2cd92add/b/be9ab2d89/data/clock/subject-clock.v1.json": {"bytes": 109, "sha256": "eac15dc2b3d8f4515e4624954537b0aa614bb79b38abc5e9e4f1a57d9184c15f"}, "s/s/s2cd92add/b/be9ab2d89/data/contradiction/test/b486a16de4ff2698aecb87fb7437a4c5cfe919ce7594319e17aeee76d4e26bb1.json": {"bytes": 228, "sha256": "450e9c9cc549e11593de1adc88cdf932f85d77fb3039e1d712f6dc14e6b34f38"}, "s/s/s2cd92add/b/be9ab2d89/data/environment-access/test/b593c49ebdaf47f1ed496db6fb7fd257742fff0bdcbcf84c89c3579613656fc2/attachments.v1.json": {"bytes": 8486, "sha256": "abcbbddb76ac83229b05e51d15dc2e6b194dde97ebf8fc44670adc7169a68d61"}, "s/s/s2cd92add/b/be9ab2d89/data/environment-access/test/b593c49ebdaf47f1ed496db6fb7fd257742fff0bdcbcf84c89c3579613656fc2/attachments.v1.lock": {"bytes": 1, "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"}, "s/s/s2cd92add/b/be9ab2d89/data/execution-outbox/test/b593c49ebdaf47f1ed496db6fb7fd257742fff0bdcbcf84c89c3579613656fc2/delivery.v1.json": {"bytes": 653, "sha256": "2e5594797e00f67d116ea976b2c6d82e409a48ab15649e09e48d60a63ab7256b"}, "s/s/s2cd92add/b/be9ab2d89/data/execution-outbox/test/b593c49ebdaf47f1ed496db6fb7fd257742fff0bdcbcf84c89c3579613656fc2/delivery.v1.lock": {"bytes": 1, "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"}, "s/s/s2cd92add/b/be9ab2d89/data/fixture/c1-profile.v1.json": {"bytes": 102, "sha256": "d6eb1a228315dfde1e2666042cee487c6c898784ef558ed22c6dc3e9fac23851"}, "s/s/s2cd92add/b/be9ab2d89/data/fixture/state-fixture.v1.json": {"bytes": 635, "sha256": "deb0d314a4c3bb14f322699f674764d569093edd286f1916664925826a8ab37a"}, "s/s/s2cd92add/b/be9ab2d89/data/integration/capability-ledger.v1.json": {"bytes": 15809, "sha256": "aaf2036ad78b8dc7db7faf2f41ab06c40e78f7e69a13165d6b7d4942f24e89a5"}, "s/s/s2cd92add/b/be9ab2d89/data/integration/operation-journal.first-round-v1.json": {"bytes": 219964, "sha256": "101ced4b2d1fc701a0b1a7353bfeeaab20f41834066fb256ee7a8fe423fe1dd0"}, "s/s/s2cd92add/b/be9ab2d89/data/integration/result-ledger.first-round-v1.json": {"bytes": 1558, "sha256": "1265a6f2db2630051494dc48caa7e1384e3d7106eee3826a26205d0c63f0bdea"}, "s/s/s2cd92add/b/be9ab2d89/data/integration/subject-binding.runtime-v1.json": {"bytes": 613, "sha256": "8fc98331ecf46ce920b50171a5b51b2947b3f4c22189d2dc74b5e08a775dab54"}, "s/s/s2cd92add/b/be9ab2d89/data/learning/b486a16de4ff2698aecb87fb7437a4c5cfe919ce7594319e17aeee76d4e26bb1.json": {"bytes": 2154, "sha256": "23d714712e2274911adab2f200bc08757bfe070b331735ff6431a1ed1c17971b"}, "s/s/s2cd92add/b/be9ab2d89/data/memory/test/b486a16de4ff2698aecb87fb7437a4c5cfe919ce7594319e17aeee76d4e26bb1.json": {"bytes": 9828, "sha256": "dfb4dfddf9c615262dd8287b0f8877457f349254f88f959d3d08cece54836ae8"}, "s/s/s2cd92add/b/be9ab2d89/data/resources/b486a16de4ff2698aecb87fb7437a4c5cfe919ce7594319e17aeee76d4e26bb1.json": {"bytes": 437, "sha256": "df105f60a20b3848a178ffa2b5e71d30c7d445b9a7946e8067332326c04b1ddd"}, "s/s/s2cd92add/b/be9ab2d89/data/subject-state/b486a16de4ff2698aecb87fb7437a4c5cfe919ce7594319e17aeee76d4e26bb1.json": {"bytes": 9441, "sha256": "a6bd9f0d90a27244e06c1fdbf04109cb2ced9bde0d2de7fcbbdf58e996bb3c07"}, "s/s/s2cd92add/b/be9ab2d89/data/test-actions/action-sessions.v1.json": {"bytes": 128, "sha256": "31aebbdf44a409e04f3db594cab27f217cb9619e3c42676288cacbf922bd3384"}, "s/s/s2cd92add/b/be9ab2d89/data/test-indexes/events.v1.json": {"bytes": 138, "sha256": "7d01b317a8452a6cd1a2f0f3f8db3950fad1b1e5449c87a0e79031abbd56fde4"}, "s/s/s2cd92add/b/be9ab2d89/data/test-indexes/evolution.v1.json": {"bytes": 141, "sha256": "ef0f5aa74d64ebd777a2e233d8429f497d6a358569b9ac947d58733e99d406d2"}, "s/s/s2cd92add/b/be9ab2d89/data/test-indexes/relationship-state.v1.json": {"bytes": 150, "sha256": "a4b42e0c46277c29d1047acd4eabbd1920700e5a00a54ed71a33b66ec98f5284"}, "s/s/s2cd92add/b/be9ab2d89/data/test-indexes/state-mutations.v1.json": {"bytes": 147, "sha256": "2b551a941e2acbad3ba3a9ba3f537c818a7bbf3ff3b68d00d5a002a0c9026aeb"}, "s/s/s2cd92add/b/be9ab2d89/data/test-indexes/thinking-sessions.v1.json": {"bytes": 149, "sha256": "5bd52f3b0af049f3487f11a7011881fb9e13ddf31ba7fcfd5efef56f78d44cb2"}, "s/s/s2cd92add/b/be9ab2d89/data/test-indexes/wake-sessions.v1.json": {"bytes": 145, "sha256": "522378d0b6e39fda1fa576b6cf2762111103586f03cc074b42c9179d412f1e46"}, "s/s/s2cd92add/b/be9ab2d89/data/test-memory/memory-ledger.v1.json": {"bytes": 631, "sha256": "312775892ad8af7b0eb299dafa74e6f1222ec7ee5fd415de356a5e5e1e40049c"}, "s/s/s2cd92add/b/be9ab2d89/data/test-trace/subject-clock-trace.v1.json": {"bytes": 1558, "sha256": "4c9f2a14fe9a8236e2b6a35383ee91df9697f3d3fa296a43cb2660be4a7148f8"}, "s/s/s2cd92add/b/be9ab2d89/data/thinking/sessions/b486a16de4ff2698aecb87fb7437a4c5cfe919ce7594319e17aeee76d4e26bb1/6e06da9e7e1ed54f491bbd75913acf1cce2d0963de58b11966976e9fb29c78fa.json": {"bytes": 65267, "sha256": "86b7f4b4443446396a81e17ec27a45a0a3156adf95873bc6f5c9b06a5dcacb51"}, "s/s/s2cd92add/b/be9ab2d89/data/worlds/entry-A/simulated-device.json": {"bytes": 3384, "sha256": "222ee16d5c4c060e1327872cf87cbaecb7c1bc9820ae3a99676ac1fc63b44d4b"}, "s/s/s2cd92add/b/be9ab2d89/data/worlds/entry-A/simulated-device.lock": {"bytes": 1, "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"}, "s/s/s2cd92add/sandbox-manifest.v1.json": {"bytes": 916, "sha256": "8c3b8639f65f89b1644bba6a0f4fe9261a52dfda74c54a62081236f5a3804698"}, "s/sandbox-registry.v1.json": {"bytes": 479, "sha256": "3c00d5f25cebb67fe6dbdb3fa605a0a70208d176ed272dac137b8acb489bbcfc"}}}
+
+======================================================================
+ERROR: test_api_question_followup_reply_same_engine_and_matter (tests.test_w04_4_continuity.CrossEntryTests.test_api_question_followup_reply_same_engine_and_matter)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 321, in _submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 876, in _run_domain
+    perception = self._continuity_core.prepare(perception, operation,
+        **({'save_input': save_input} if operation.input_processing_enabled else {}),
+        **({'save_recall':save_recall} if operation.recall_enabled else {}))
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 335, in prepare
+    return self._prepare(perception, operation, save_input=save_input,save_recall=save_recall)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 414, in _prepare
+    route,composition,recall_record=self.recall.prepare(perception,operation,save_recall,
+                                    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        attention=mind['influence']['attention'] if mind is not None else None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\associative_recall_service.py", line 100, in prepare
+    return self._prepare(perception,operation,save,attention=attention)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\associative_recall_service.py", line 142, in _prepare
+    current=core.router.route(perception,request_id=operation.request_id,
+        environment=core.environment,budget=budget,
+        recall_terms=terms,attention=attention)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\context_router_service.py", line 783, in route
+    return self._execute(plan, query_terms, by_partition, allocations,
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                         state_query_terms=state_query_terms if recall_terms is not None else None)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\context_router_service.py", line 910, in _execute
+    batch = source.retrieve(query)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\entry_context_source.py", line 22, in retrieve
+    state, document = self.entry.scoped_state(query.request_id)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\cross_entry_service.py", line 247, in scoped_state
+    for root in item['source_roots']:
+                ~~~~^^^^^^^^^^^^^^^^
+TypeError: string indices must be integers, not 'str'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_4_continuity.py", line 57, in test_api_question_followup_reply_same_engine_and_matter
+    self.chain()
+    ~~~~~~~~~~^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_4_continuity.py", line 35, in chain
+    self.f.submit('继续考虑原选店问题', entry='entry:A', role='SUBJECT_CONTINUATION',
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                  item_id=item.item_id, preferred_entry_id='entry:B')
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\w04_cross_entry_fixture.py", line 181, in submit
+    return self.entries.receive(self.last_request, self.last_message)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\cross_entry_service.py", line 324, in receive
+    return self.interaction.submit(payload, entry_message=message)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 192, in submit
+    return self._submit(payload, access_use=access_use, entry_message=entry_message)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 333, in _submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.
+
+----------------------------------------------------------------------
+Ran 1 test in 6.294s
+
+FAILED (errors=1)

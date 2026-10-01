@@ -56,6 +56,9 @@ class InputContextSource:
             raise ContextCompositionSourceError('INPUT_SOURCE_BOUNDARY')
         fact = perception.external_facts[0]
         payload={'content':fact.content,'reading':record.manifest['interpretation'],'received_not_remembered':True}
+        if getattr(operation, 'entry_record', None) is not None:
+            payload['entry_provenance'] = operation.entry_record['message']
+            payload['identity_authority'] = 'VERIFIED_BINDING_NOT_DISPLAY_NAME'
         if operation.recall_enabled:
             from .associative_recall_service import assess
             semantic=assess(fact.content,fact.occurred_at)
@@ -157,7 +160,9 @@ class HistoricalInputContextSource(InputContextSource):
         # A historical projection carries the original utterance and its
         # epistemic boundary. It does not repeat the full current-input analysis.
         content=json.dumps({'reporter_binding':operation.binding_id,'content':fact.content,
-            'not_verified_fact':True},ensure_ascii=False,sort_keys=True,separators=(',',':'))
+            'not_verified_fact':True,
+            **({'entry_provenance': operation.entry_record['message']} if getattr(operation, 'entry_record', None) else {})},
+            ensure_ascii=False,sort_keys=True,separators=(',',':'))
         return perception,record,fact,content
 
     def retrieve(self,query):

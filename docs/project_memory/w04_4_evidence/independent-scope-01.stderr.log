@@ -1,0 +1,13 @@
+test_wrong_sender_and_same_display_name_do_not_grant_identity (tests.test_w04_4_continuity.CrossEntryTests.test_wrong_sender_and_same_display_name_do_not_grant_identity) ... ok
+test_mirror_deduplicates_original_operation_and_effect (tests.test_w04_4_continuity.CrossEntryTests.test_mirror_deduplicates_original_operation_and_effect) ... ok
+test_no_transfer_permission_keeps_other_authorized_entry_material (tests.test_w04_4_continuity.CrossEntryTests.test_no_transfer_permission_keeps_other_authorized_entry_material) ... ok
+test_verified_environment_parse_returns_private_copy_and_rechecks_bytes (tests.test_w04_4_continuity.CrossEntryTests.test_verified_environment_parse_returns_private_copy_and_rechecks_bytes) ... ok
+test_current_permission_is_not_cached_with_environment_parse (tests.test_w04_4_continuity.CrossEntryTests.test_current_permission_is_not_cached_with_environment_parse) ... ok
+test_subject_echo_never_becomes_user_reply_or_new_thinking (tests.test_w04_4_continuity.CrossEntryTests.test_subject_echo_never_becomes_user_reply_or_new_thinking) ... ok
+test_readonly_delivery_view_reopen_does_not_advance_work (tests.test_w04_4_continuity.CrossEntryTests.test_readonly_delivery_view_reopen_does_not_advance_work) ... ok
+test_disconnected_and_expired_entries_reject_without_new_operation (tests.test_w04_4_continuity.CrossEntryTests.test_disconnected_and_expired_entries_reject_without_new_operation) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 30.739s
+
+OK

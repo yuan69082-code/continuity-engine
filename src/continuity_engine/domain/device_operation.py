@@ -60,18 +60,31 @@ class DeviceCommand:
     amount: float | None
     history: dict | None
     observation: DeviceObservation
+    entry_delivery: dict | None = None
 
     def __post_init__(self):
-        if self.version != "w04-device-v1" or self.operation not in {
-                "locate", "click", "type", "scroll", "save", "send", "query", "body.act"}:
+        entry_send = self.operation in {'message.send.api', 'message.send.ui'}
+        if (self.version != ('w04-device-v2' if entry_send else 'w04-device-v1') or self.operation not in {
+                "locate", "click", "type", "scroll", "save", "send", "query", "body.act",
+                'message.send.api', 'message.send.ui'}):
             raise EnvironmentAccessError("DEVICE_COMMAND_KIND")
         identifier(self.target)
         if not isinstance(self.observation, DeviceObservation):
             raise EnvironmentAccessError("DEVICE_COMMAND_OBSERVATION")
         if self.text is not None and (not isinstance(self.text, str) or len(self.text) > 2048):
             raise EnvironmentAccessError("DEVICE_COMMAND_TEXT")
-        if (self.operation == "type") != (self.text is not None):
+        if (self.operation == "type" or entry_send) != (self.text is not None):
             raise EnvironmentAccessError("DEVICE_COMMAND_TEXT")
+        if entry_send:
+            link = exact(self.entry_delivery, {'request_id', 'entry_id', 'binding_hash', 'item_id', 'inquiry_id'})
+            for key in ('request_id', 'entry_id', 'inquiry_id'):
+                identifier(link[key])
+            if link['item_id'] is not None:
+                identifier(link['item_id'])
+            if not isinstance(link['binding_hash'], str) or len(link['binding_hash']) != 71:
+                raise EnvironmentAccessError('DEVICE_ENTRY_BINDING')
+        elif self.entry_delivery is not None:
+            raise EnvironmentAccessError('DEVICE_ENTRY_UNEXPECTED')
         if self.amount is not None and (type(self.amount) not in (int, float) or not math.isfinite(self.amount)):
             raise EnvironmentAccessError("DEVICE_COMMAND_AMOUNT")
         if (self.operation in {"scroll", "body.act"}) != (self.amount is not None):
@@ -91,12 +104,15 @@ class DeviceCommand:
 
     def to_dict(self):
         # JSON arrays must have identical types before and after E5-A recovery.
-        return json.loads(json.dumps({**asdict(self), "observation": self.observation.to_dict()},
+        value = {**asdict(self), "observation": self.observation.to_dict()}
+        if self.entry_delivery is None:
+            value.pop('entry_delivery')
+        return json.loads(json.dumps(value,
                                     ensure_ascii=False, allow_nan=False))
 
     @classmethod
     def from_dict(cls, value):
-        d = exact(value, set(cls.__dataclass_fields__))
+        d = exact(value, set(cls.__dataclass_fields__) if 'entry_delivery' in value else set(cls.__dataclass_fields__) - {'entry_delivery'})
         return cls(**{**d, "observation": DeviceObservation.from_dict(d["observation"])})
 
     @property
@@ -117,4 +133,5 @@ class DeviceCommand:
     @property
     def expected_outcome(self):
         return {"locate": "LOCATED", "click": "CLICKED", "type": "TYPED", "scroll": "SCROLLED",
-                "save": "SAVED", "send": "SENT", "query": "QUERIED", "body.act": "ACTUATED"}[self.operation]
+                "save": "SAVED", "send": "SENT", "query": "QUERIED", "body.act": "ACTUATED",
+                'message.send.api': 'SENT', 'message.send.ui': 'SENT'}[self.operation]

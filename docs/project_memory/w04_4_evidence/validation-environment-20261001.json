@@ -1,0 +1,17 @@
+{
+  "captured_utc": "2026-09-30T17:15:50.407628+00:00",
+  "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+  "executable": "E:\\Adobe\\python.exe",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "architecture": "AMD64",
+  "logical_cpus": 12,
+  "run_environment": {
+    "PYTHONUTF8": "1",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONPATH": "repository root + src + tests (set by evidence runner)"
+  },
+  "fixtures": "isolated TEST roots; Fake model/device/tool adapters",
+  "credentials_inspected": false,
+  "production_access": false,
+  "performance_guarantee": false
+}

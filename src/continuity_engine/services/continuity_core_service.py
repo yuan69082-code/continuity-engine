@@ -114,7 +114,7 @@ class ContinuityCoreService:
                  permission_policy, policy=None, gates=None, retrieval_budget=None,
                  context_budget=None, context_ttl=timedelta(minutes=10), planner=None, limits=None, fault=None, expression_policy=None,
                  dynamic_mind=False, subject_growth=False, growth_repository=None, external_capabilities=None, execution=None,
-                 input_processing=None, recall_policy=None):
+                 input_processing=None, recall_policy=None, entry_continuity=None):
         if environment not in {"TEST", "RESEARCH"}:
             raise ValueError("P09 requires a TEST/RESEARCH boundary")
         self.subject_id, self.environment = subject_id, environment
@@ -123,6 +123,9 @@ class ContinuityCoreService:
         self.subject_states, self.coordination, self.action_gate = subject_states, coordination, action_gate
         self.constraints, self.capabilities, self.clock = constraints, tuple(capabilities), clock
         self.permission = permission_policy
+        self.entry_continuity = entry_continuity
+        if entry_continuity is not None:
+            entry_continuity.core = self
         self.policy = policy or CoreDecisionPolicy()
         self.gates = gates or ContinuityCoreGates()
         self.retrieval_budget = retrieval_budget or RetrievalBudget()
@@ -329,7 +332,22 @@ class ContinuityCoreService:
 
     def prepare(self, perception, operation, *, save_input=None, save_recall=None):
         try:
-            return self._prepare(perception, operation, save_input=save_input,save_recall=save_recall)
+            from contextlib import ExitStack
+            with ExitStack() as reads:
+                if self.entry_continuity is not None:
+                    from continuity_engine.domain.action_planning import verified_digest_reads
+                    reads.enter_context(verified_digest_reads())
+                    # Native Wake has no outer C1 receive scope. Reuse validated
+                    # parses of identical CURRENT ledger bytes here as well;
+                    # no source, binding, permission or expiry result is cached.
+                    ledger = self.coordination._repository
+                    reads.enter_context(ledger._verified_operation_reads())
+                    reads.enter_context(ledger._verified_capability_reads())
+                    reads.enter_context(self.subject_states._repository._verified_state_reads())
+                    thinking = self.entry_continuity.native_thinking
+                    if thinking is not None:
+                        reads.enter_context(thinking._repository._verified_session_reads())
+                return self._prepare(perception, operation, save_input=save_input,save_recall=save_recall)
         except Exception as primary:
             if getattr(operation, 'input_processing_enabled', False) and self.input_processing is not None and save_input is not None:
                 latest = self.input_processing.source.ledger.load_operation(operation.request_id)

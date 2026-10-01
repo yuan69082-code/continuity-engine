@@ -1,0 +1,7 @@
+test_ui_history_result_cannot_bypass_entry_transfer_withdrawal (tests.test_w04_4_boundaries.EntryBoundaryTests.test_ui_history_result_cannot_bypass_entry_transfer_withdrawal) ... ok
+test_authorized_ui_history_result_is_available_without_new_query_cost (tests.test_w04_4_boundaries.EntryBoundaryTests.test_authorized_ui_history_result_is_available_without_new_query_cost) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 11.619s
+
+OK

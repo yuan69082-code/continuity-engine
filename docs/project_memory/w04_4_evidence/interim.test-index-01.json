@@ -1,0 +1,368 @@
+{
+  "source": "sha256:7f6ed84a73215ccac21d6a4c2b1578a36970943f51952fa83bd25891a56fc34b",
+  "runs": [
+    {
+      "label": "before-entry-01",
+      "status": "COMPLETED",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "docs/project_memory/w04_4_evidence/pre-entry-01.py"
+      ],
+      "started_utc": "2026-09-28T18:14:47.917402+00:00",
+      "exit_code": 1,
+      "duration_seconds": 0.538,
+      "hash_before": "sha256:d1aed3d5e67dc171fdd1a691beb7c8b2fe04e03bddd837d8511d62438008fe1a",
+      "hash_after": "sha256:d1aed3d5e67dc171fdd1a691beb7c8b2fe04e03bddd837d8511d62438008fe1a",
+      "test_summary": [],
+      "classification": "辅助脚本误用 str 代替 Path；非 Engine 缺陷，未进入目标链。",
+      "matches_current_source": false,
+      "record": "before-entry-01.json",
+      "stdout": "before-entry-01.stdout.log",
+      "stderr": "before-entry-01.stderr.log"
+    },
+    {
+      "label": "before-entry-02",
+      "status": "COMPLETED",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "docs/project_memory/w04_4_evidence/pre-entry-02.py"
+      ],
+      "started_utc": "2026-09-28T18:15:05.973261+00:00",
+      "exit_code": 0,
+      "duration_seconds": 0.876,
+      "hash_before": "sha256:d1aed3d5e67dc171fdd1a691beb7c8b2fe04e03bddd837d8511d62438008fe1a",
+      "hash_after": "sha256:d1aed3d5e67dc171fdd1a691beb7c8b2fe04e03bddd837d8511d62438008fe1a",
+      "test_summary": [],
+      "classification": "修前旧 C1 不接受 entry_message 的真实入口缺口证据；诊断退出0不等于正式测试PASS。",
+      "matches_current_source": false,
+      "record": "before-entry-02.json",
+      "stdout": "before-entry-02.stdout.log",
+      "stderr": "before-entry-02.stderr.log"
+    },
+    {
+      "label": "compatibility-interim-01",
+      "status": "COMPLETED",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "unittest",
+        "-v",
+        "tests.test_w04_1_environment",
+        "tests.test_w04_2_simulation",
+        "tests.test_w04_2_registry_recheck",
+        "tests.test_w04_2_history_selection",
+        "tests.test_w02_input_integration",
+        "tests.test_w02_input_recovery",
+        "tests.test_w03_unfinished_items",
+        "tests.test_w03_n06_repair"
+      ],
+      "started_utc": "2026-09-28T18:41:03.206939+00:00",
+      "exit_code": 0,
+      "duration_seconds": 279.081,
+      "hash_before": "sha256:7f6ed84a73215ccac21d6a4c2b1578a36970943f51952fa83bd25891a56fc34b",
+      "hash_after": "sha256:7f6ed84a73215ccac21d6a4c2b1578a36970943f51952fa83bd25891a56fc34b",
+      "test_summary": [
+        "Ran 153 tests in 278.354s",
+        "OK"
+      ],
+      "classification": "施工窗口153/153 PASS，unittest278.354秒；中间兼容，不是最终全套兼容或全量。",
+      "matches_current_source": true,
+      "record": "compatibility-interim-01.json",
+      "stdout": "compatibility-interim-01.stdout.log",
+      "stderr": "compatibility-interim-01.stderr.log"
+    },
+    {
+      "label": "confirmation-conflict-01",
+      "status": "COMPLETED",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "docs/project_memory/w04_4_evidence/confirmation-conflict-01.py"
+      ],
+      "started_utc": "2026-09-28T18:39:38.243075+00:00",
+      "exit_code": 0,
+      "duration_seconds": 1.427,
+      "hash_before": "sha256:7f6ed84a73215ccac21d6a4c2b1578a36970943f51952fa83bd25891a56fc34b",
+      "hash_after": "sha256:7f6ed84a73215ccac21d6a4c2b1578a36970943f51952fa83bd25891a56fc34b",
+      "test_summary": [],
+      "classification": "诊断未到目标路径；异常被诊断捕获故退出0，不能计PASS。",
+      "matches_current_source": true,
+      "record": "confirmation-conflict-01.json",
+      "stdout": "confirmation-conflict-01.stdout.log",
+      "stderr": "confirmation-conflict-01.stderr.log"
+    },
+    {
+      "label": "confirmation-conflict-02",
+      "status": "COMPLETED",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "docs/project_memory/w04_4_evidence/confirmation-conflict-02.py"
+      ],
+      "started_utc": "2026-09-28T18:40:11.790236+00:00",
+      "exit_code": 0,
+      "duration_seconds": 1.427,
+      "hash_before": "sha256:7f6ed84a73215ccac21d6a4c2b1578a36970943f51952fa83bd25891a56fc34b",
+      "hash_after": "sha256:7f6ed84a73215ccac21d6a4c2b1578a36970943f51952fa83bd25891a56fc34b",
+      "test_summary": [],
+      "classification": "诊断记录 NamedTemporaryFile/FileNotFoundError，未到模型，未证明唯一原因；不能计PASS。",
+      "matches_current_source": true,
+      "record": "confirmation-conflict-02.json",
+      "stdout": "confirmation-conflict-02.stdout.log",
+      "stderr": "confirmation-conflict-02.stderr.log"
+    },
+    {
+      "label": "confirmation-conflict-03",
+      "status": "COMPLETED",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "docs/project_memory/w04_4_evidence/confirmation-conflict-03.py"
+      ],
+      "started_utc": "2026-09-28T18:40:39.337670+00:00",
+      "exit_code": 0,
+      "duration_seconds": 2.532,
+      "hash_before": "sha256:7f6ed84a73215ccac21d6a4c2b1578a36970943f51952fa83bd25891a56fc34b",
+      "hash_after": "sha256:7f6ed84a73215ccac21d6a4c2b1578a36970943f51952fa83bd25891a56fc34b",
+      "test_summary": [],
+      "classification": "短TEST根路径到达目标：精确确认true，Action approved/require-confirmation均true，P13仍PLATFORM_DENIED；新增守卫下模型1次、A/B效果及费用均0。是冲突证据，不是通过测试。",
+      "matches_current_source": true,
+      "record": "confirmation-conflict-03.json",
+      "stdout": "confirmation-conflict-03.stdout.log",
+      "stderr": "confirmation-conflict-03.stderr.log"
+    },
+    {
+      "label": "entry-draft-01",
+      "status": "COMPLETED",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "unittest",
+        "-v",
+        "tests.test_w04_4_continuity.CrossEntryTests.test_api_question_followup_reply_same_engine_and_matter"
+      ],
+      "started_utc": "2026-09-28T18:27:48.766921+00:00",
+      "exit_code": 1,
+      "duration_seconds": 2.769,
+      "hash_before": "sha256:17dcbd93186060c14bbd66a26fbffbaccce0cdb51a3db6f64d09d840ccd5e04b",
+      "hash_after": "sha256:17dcbd93186060c14bbd66a26fbffbaccce0cdb51a3db6f64d09d840ccd5e04b",
+      "test_summary": [
+        "Ran 1 test in 2.066s",
+        "FAILED (errors=1)"
+      ],
+      "classification": "新增入口检查重复工作触发 RECALL_TIMEOUT；1 ERROR，原1000ms未改。",
+      "matches_current_source": false,
+      "record": "entry-draft-01.json",
+      "stdout": "entry-draft-01.stdout.log",
+      "stderr": "entry-draft-01.stderr.log"
+    },
+    {
+      "label": "entry-draft-02",
+      "status": "COMPLETED",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "unittest",
+        "-v",
+        "tests.test_w04_4_continuity.CrossEntryTests.test_api_question_followup_reply_same_engine_and_matter"
+      ],
+      "started_utc": "2026-09-28T18:29:10.094624+00:00",
+      "exit_code": 1,
+      "duration_seconds": 2.974,
+      "hash_before": "sha256:f48741a3934b175ce75f651d28dd4a6a315970462d37bf76a6480830bca220c7",
+      "hash_after": "sha256:f48741a3934b175ce75f651d28dd4a6a315970462d37bf76a6480830bca220c7",
+      "test_summary": [
+        "Ran 1 test in 2.271s",
+        "FAILED (errors=1)"
+      ],
+      "classification": "TEST fixture 未接入既有 expression.emit 授权视图；1 ERROR，后来补接但原件保留。",
+      "matches_current_source": false,
+      "record": "entry-draft-02.json",
+      "stdout": "entry-draft-02.stdout.log",
+      "stderr": "entry-draft-02.stderr.log"
+    },
+    {
+      "label": "entry-draft-03",
+      "status": "COMPLETED",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "unittest",
+        "-v",
+        "tests.test_w04_4_continuity.CrossEntryTests.test_api_question_followup_reply_same_engine_and_matter"
+      ],
+      "started_utc": "2026-09-28T18:29:32.544546+00:00",
+      "exit_code": 1,
+      "duration_seconds": 8.607,
+      "hash_before": "sha256:379dda7df4d78c3a5d34d3c43297aeb5c9372fc2f94bbae8137361d48d2df759",
+      "hash_after": "sha256:379dda7df4d78c3a5d34d3c43297aeb5c9372fc2f94bbae8137361d48d2df759",
+      "test_summary": [
+        "Ran 1 test in 7.949s",
+        "FAILED (errors=1)"
+      ],
+      "classification": "C1完成核验报 C1_ACTION_HISTORY_WITH_DENIED_EXPRESSION；1 ERROR。未保存当次效果计数正文，不能把路径推断冒充直接计数。",
+      "matches_current_source": false,
+      "record": "entry-draft-03.json",
+      "stdout": "entry-draft-03.stdout.log",
+      "stderr": "entry-draft-03.stderr.log"
+    },
+    {
+      "label": "entry-profile-01",
+      "status": "COMPLETED",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "cProfile",
+        "-s",
+        "cumtime",
+        "-m",
+        "unittest",
+        "tests.test_w04_4_continuity.CrossEntryTests.test_api_question_followup_reply_same_engine_and_matter"
+      ],
+      "started_utc": "2026-09-28T18:28:12.677764+00:00",
+      "exit_code": 0,
+      "duration_seconds": 3.531,
+      "hash_before": "sha256:17dcbd93186060c14bbd66a26fbffbaccce0cdb51a3db6f64d09d840ccd5e04b",
+      "hash_after": "sha256:17dcbd93186060c14bbd66a26fbffbaccce0cdb51a3db6f64d09d840ccd5e04b",
+      "test_summary": [
+        "Ran 1 test in 2.525s",
+        "FAILED (errors=1)"
+      ],
+      "classification": "有开销的 cProfile 定位环境配置重复读取；unittest 1 ERROR，包装进程0不得算PASS。",
+      "matches_current_source": false,
+      "record": "entry-profile-01.json",
+      "stdout": "entry-profile-01.stdout.log",
+      "stderr": "entry-profile-01.stderr.log"
+    },
+    {
+      "label": "entry-scope-01",
+      "status": "COMPLETED",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "unittest",
+        "-v",
+        "tests.test_w04_4_continuity.CrossEntryTests.test_wrong_sender_and_same_display_name_do_not_grant_identity",
+        "tests.test_w04_4_continuity.CrossEntryTests.test_mirror_deduplicates_original_operation_and_effect",
+        "tests.test_w04_4_continuity.CrossEntryTests.test_no_transfer_permission_keeps_other_authorized_entry_material"
+      ],
+      "started_utc": "2026-09-28T18:31:48.274199+00:00",
+      "exit_code": 1,
+      "duration_seconds": 27.485,
+      "hash_before": "sha256:ff2b705747c1b70bc20259851c15163b41181260d4ea2d4926cf7b0c41bb8fd6",
+      "hash_after": "sha256:ff2b705747c1b70bc20259851c15163b41181260d4ea2d4926cf7b0c41bb8fd6",
+      "test_summary": [
+        "Ran 3 tests in 26.786s",
+        "FAILED (errors=1)"
+      ],
+      "classification": "3项中2 PASS/1 ERROR：跨入口第二轮 RECALL_TIMEOUT，旧结果不覆盖当前版本。",
+      "matches_current_source": false,
+      "record": "entry-scope-01.json",
+      "stdout": "entry-scope-01.stdout.log",
+      "stderr": "entry-scope-01.stderr.log"
+    },
+    {
+      "label": "independent-scope-01",
+      "status": "COMPLETED",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "unittest",
+        "-v",
+        "tests.test_w04_4_continuity.CrossEntryTests.test_wrong_sender_and_same_display_name_do_not_grant_identity",
+        "tests.test_w04_4_continuity.CrossEntryTests.test_mirror_deduplicates_original_operation_and_effect",
+        "tests.test_w04_4_continuity.CrossEntryTests.test_no_transfer_permission_keeps_other_authorized_entry_material",
+        "tests.test_w04_4_continuity.CrossEntryTests.test_verified_environment_parse_returns_private_copy_and_rechecks_bytes",
+        "tests.test_w04_4_continuity.CrossEntryTests.test_current_permission_is_not_cached_with_environment_parse",
+        "tests.test_w04_4_continuity.CrossEntryTests.test_subject_echo_never_becomes_user_reply_or_new_thinking",
+        "tests.test_w04_4_continuity.CrossEntryTests.test_readonly_delivery_view_reopen_does_not_advance_work",
+        "tests.test_w04_4_continuity.CrossEntryTests.test_disconnected_and_expired_entries_reject_without_new_operation"
+      ],
+      "started_utc": "2026-09-28T18:37:52.957264+00:00",
+      "exit_code": 0,
+      "duration_seconds": 31.523,
+      "hash_before": "sha256:7f6ed84a73215ccac21d6a4c2b1578a36970943f51952fa83bd25891a56fc34b",
+      "hash_after": "sha256:7f6ed84a73215ccac21d6a4c2b1578a36970943f51952fa83bd25891a56fc34b",
+      "test_summary": [
+        "Ran 8 tests in 30.739s",
+        "OK"
+      ],
+      "classification": "本施工窗口实跑8/8 PASS；标签指不依赖冲突项的集合，不是规划窗口独立实跑。",
+      "matches_current_source": true,
+      "record": "independent-scope-01.json",
+      "stdout": "independent-scope-01.stdout.log",
+      "stderr": "independent-scope-01.stderr.log"
+    },
+    {
+      "label": "scope-02",
+      "status": "COMPLETED",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "unittest",
+        "-v",
+        "tests.test_w04_4_continuity.CrossEntryTests.test_no_transfer_permission_keeps_other_authorized_entry_material"
+      ],
+      "started_utc": "2026-09-28T18:34:12.355781+00:00",
+      "exit_code": 1,
+      "duration_seconds": 7.96,
+      "hash_before": "sha256:fe86252e65e70fb240394cbcaa315a5de6e281c7d5901cc8d2bd5d0eccdf37d9",
+      "hash_after": "sha256:fe86252e65e70fb240394cbcaa315a5de6e281c7d5901cc8d2bd5d0eccdf37d9",
+      "test_summary": [
+        "Ran 1 test in 7.321s",
+        "FAILED (errors=1)"
+      ],
+      "classification": "第二轮仍 RECALL_TIMEOUT，1 ERROR；保留该次优化不足的证据。",
+      "matches_current_source": false,
+      "record": "scope-02.json",
+      "stdout": "scope-02.stdout.log",
+      "stderr": "scope-02.stderr.log"
+    },
+    {
+      "label": "scope-light-01",
+      "status": "COMPLETED",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "docs/project_memory/w04_4_evidence/measure-scope-01.py"
+      ],
+      "started_utc": "2026-09-28T18:35:35.726714+00:00",
+      "exit_code": 0,
+      "duration_seconds": 11.932,
+      "hash_before": "sha256:ff97bbdfe1246fc2acf388f9eb4be8ca8be00a26233866552c37227998e3c21d",
+      "hash_after": "sha256:ff97bbdfe1246fc2acf388f9eb4be8ca8be00a26233866552c37227998e3c21d",
+      "test_summary": [],
+      "classification": "轻量计时诊断；回忆准备794.51ms/检索11项，非全链时间，也不是最终版专项PASS。",
+      "matches_current_source": false,
+      "record": "scope-light-01.json",
+      "stdout": "scope-light-01.stdout.log",
+      "stderr": "scope-light-01.stderr.log"
+    },
+    {
+      "label": "scope-profile-01",
+      "status": "COMPLETED",
+      "command": [
+        "E:\\Adobe\\python.exe",
+        "-m",
+        "cProfile",
+        "-s",
+        "cumtime",
+        "-m",
+        "unittest",
+        "tests.test_w04_4_continuity.CrossEntryTests.test_no_transfer_permission_keeps_other_authorized_entry_material"
+      ],
+      "started_utc": "2026-09-28T18:32:55.606798+00:00",
+      "exit_code": 0,
+      "duration_seconds": 32.805,
+      "hash_before": "sha256:ff2b705747c1b70bc20259851c15163b41181260d4ea2d4926cf7b0c41bb8fd6",
+      "hash_after": "sha256:ff2b705747c1b70bc20259851c15163b41181260d4ea2d4926cf7b0c41bb8fd6",
+      "test_summary": [
+        "Ran 1 test in 31.797s",
+        "FAILED (errors=1)"
+      ],
+      "classification": "有开销的 cProfile 定位原操作日志重复完整解析；unittest 1 ERROR，包装进程0非PASS。",
+      "matches_current_source": false,
+      "record": "scope-profile-01.json",
+      "stdout": "scope-profile-01.stdout.log",
+      "stderr": "scope-profile-01.stderr.log"
+    }
+  ],
+  "no_total_summing": true,
+  "final_full_regression": "NOT_STARTED"
+}

@@ -1,0 +1,6 @@
+test_native_history_does_not_bypass_later_entry_transfer_withdrawal (tests.test_w04_4_boundaries.EntryBoundaryTests.test_native_history_does_not_bypass_later_entry_transfer_withdrawal) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 12.643s
+
+OK

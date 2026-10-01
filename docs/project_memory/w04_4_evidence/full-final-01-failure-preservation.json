@@ -1,0 +1,15 @@
+{
+  "at_utc": "2026-09-30T17:59:16.099782+00:00",
+  "tests": 1972,
+  "passed": 1969,
+  "skipped": 1,
+  "errors": 2,
+  "exit_code": 1,
+  "source": "sha256:2e910dd2cd8a4dfe19e8ec64485f26daa3cbc64b2e1aeef6843f88f7202919f9",
+  "raw_hashes": {
+    "full-final-01.json": "184531594c91fcb54035ed3aed0fc656cbbe66477a9f52ef18d4a2069641fc0f",
+    "full-final-01.stdout.log": "77291fc0737da445621949f1e99bfa67c5c4a4503ea20d2955ab93879efd584c",
+    "full-final-01.stderr.log": "69214b6c160dada77c023f3846a7e80a136f7c687d4b64ad710e25019cf192d5"
+  },
+  "automatic_rerun": false
+}

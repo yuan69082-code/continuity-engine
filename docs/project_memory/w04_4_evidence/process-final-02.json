@@ -1,0 +1,14 @@
+{
+  "observed_at": "2026-10-01T03:41:13.7062885+08:00",
+  "command": "Get-Process filtered to python/pythonw",
+  "python_count": 0,
+  "processes": [],
+  "sequence_exec_session": 4916,
+  "sequence_exit_code": 0,
+  "full_label": "full-final-02",
+  "full_exit_code": 0,
+  "operator_forced_cleanup_count": 0,
+  "test_controlled_fault_injections": "Retained in original test logs; distinct from manual cleanup",
+  "unrelated_processes_terminated": false,
+  "scope": "Current local process snapshot after original validation sequence completed"
+}

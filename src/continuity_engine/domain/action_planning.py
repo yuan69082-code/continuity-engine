@@ -2,6 +2,8 @@
 from __future__ import annotations
 
 from dataclasses import asdict, dataclass
+from contextlib import contextmanager
+from contextvars import ContextVar
 import re
 
 from .capability import parse_capability_datetime
@@ -9,8 +11,39 @@ from .errors import CapabilityValidationError
 from .integration_hashing import canonicalize_json, sha256_hash
 
 
+_DIGEST_READS = ContextVar('action_value_digest_reads', default=None)
+
+
+def _digest_key(value):
+    """Exact typed content, never object identity or a cached authorization."""
+    kind=type(value)
+    if kind is dict:
+        if any(type(key) is not str for key in value):raise TypeError()
+        return ('object',tuple(sorted((key,_digest_key(item)) for key,item in value.items())))
+    if kind in (list,tuple):return ('array',tuple(_digest_key(item) for item in value))
+    if kind in (str,int,bool,type(None)):return (kind,value)
+    if kind is float:return (kind,value.hex())
+    raise TypeError()
+
+
+@contextmanager
+def verified_digest_reads():
+    """Optional one-preparation pure-value memo. No persistence or grants."""
+    token=_DIGEST_READS.set({})
+    try:yield
+    finally:_DIGEST_READS.reset(token)
+
+
 def digest(value: object) -> str:
-    return sha256_hash(canonicalize_json(value))
+    memo=_DIGEST_READS.get()
+    if memo is None:return sha256_hash(canonicalize_json(value))
+    try:key=_digest_key(value)
+    except (TypeError,ValueError,RecursionError):return sha256_hash(canonicalize_json(value))
+    if key in memo:return memo[key]
+    result=sha256_hash(canonicalize_json(value))
+    # Bound infrastructure memory without changing any retrieval/work budget.
+    if len(memo)<2048:memo[key]=result
+    return result
 
 
 def identifier(value: str) -> None:

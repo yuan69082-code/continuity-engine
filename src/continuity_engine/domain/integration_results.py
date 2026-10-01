@@ -1034,8 +1034,14 @@ class IntegrationOperationRecord:
     capability: IntegrationCapabilityCheckpoint | None = None
     input_processing_enabled: bool = False
     recall_enabled: bool = False
+    entry_record: dict | None = None
 
     def __post_init__(self) -> None:
+        if self.entry_record is not None:
+            from .cross_entry import validate_entry_record
+            _, entry_binding = validate_entry_record(self.entry_record)
+            if entry_binding.use.subject_id != self.subject_id:
+                raise MachineContractValidationError('ENTRY_OPERATION_SUBJECT')
         if type(self.recall_enabled) is not bool or self.recall_enabled and not self.input_processing_enabled:
             raise MachineContractValidationError('RECALL_GATE_INVALID')
         if self.domain_progress is not None:
@@ -1185,6 +1191,7 @@ class IntegrationOperationRecord:
             "inputRevision": self.input_revision,
             **({'inputProcessingEnabled': True} if self.input_processing_enabled else {}),
             **({'recallEnabled':True} if self.recall_enabled else {}),
+            **({'entryRecord': self.entry_record} if self.entry_record is not None else {}),
             "consumedObservationIds": list(self.consumed_observation_ids),
             "stage": self.stage.value,
             "reservedAt": self.reserved_at,
@@ -1205,6 +1212,9 @@ class IntegrationOperationRecord:
 
     @classmethod
     def from_dict(cls, value: Any) -> IntegrationOperationRecord:
+        entry_record = value.get('entryRecord') if isinstance(value, dict) else None
+        if isinstance(value, dict):
+            value = {k: v for k, v in value.items() if k != 'entryRecord'}
         recall_enabled=value.get('recallEnabled',False) if isinstance(value,dict) else False
         if isinstance(value,dict):value={k:v for k,v in value.items() if k!='recallEnabled'}
         enabled = value.get('inputProcessingEnabled', False) if isinstance(value, dict) else False
@@ -1256,6 +1266,7 @@ class IntegrationOperationRecord:
             input_revision=_integer(data["inputRevision"], "operation inputRevision"),
             input_processing_enabled=enabled,
             recall_enabled=recall_enabled,
+            entry_record=entry_record,
             consumed_observation_ids=tuple(raw_observations),
             stage=stage,
             reserved_at=_utc_datetime(data["reservedAt"], "operation reservedAt"),

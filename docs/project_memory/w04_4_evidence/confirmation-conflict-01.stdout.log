@@ -1,0 +1,1 @@
+{"outcome": "IntegrationExecutionError", "observations": [], "model_calls": 0, "effects": {"entry:A": 0, "entry:B": 0}, "credits": {"entry:A": 0, "entry:B": 0}}

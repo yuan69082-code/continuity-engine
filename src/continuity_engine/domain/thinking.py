@@ -187,8 +187,14 @@ class ThinkingResult:
     tool_target: str | None = None
     request_more_thinking: bool = False
     expression_mode: str | None = None
+    contact_intent: dict | None = None
 
     def __post_init__(self) -> None:
+        if self.contact_intent is not None:
+            from .cross_entry import ContactIntent
+            ContactIntent.from_dict(self.contact_intent)
+            if not self.suggest_future_user_contact or self.should_wait:
+                raise ThinkingValidationError('contact intent requires a formed contact decision')
         if self.expression_mode is not None:
             from .expression import ExpressionMode
             if self.expression_mode not in {mode.value for mode in ExpressionMode}:
@@ -268,6 +274,7 @@ class ThinkingResult:
         tool_target: str | None = None,
         request_more_thinking: bool = False,
         expression_mode: str | None = None,
+        contact_intent: dict | None = None,
         result_id: str | None = None,
     ) -> ThinkingResult:
         return cls(
@@ -287,6 +294,7 @@ class ThinkingResult:
             tool_target=tool_target,
             request_more_thinking=request_more_thinking,
             expression_mode=expression_mode,
+            contact_intent=contact_intent,
         )
 
     def to_dict(self) -> dict[str, JsonValue]:
@@ -307,6 +315,7 @@ class ThinkingResult:
             "tool_target": self.tool_target,
             "request_more_thinking": self.request_more_thinking,
             **({"expression_mode": self.expression_mode} if self.expression_mode is not None else {}),
+            **({"contact_intent": self.contact_intent} if self.contact_intent is not None else {}),
         }
 
     @classmethod
@@ -333,6 +342,7 @@ class ThinkingResult:
             tool_target=value.get("tool_target"),
             request_more_thinking=value.get("request_more_thinking", False),
             expression_mode=value.get("expression_mode"),
+            contact_intent=value.get("contact_intent"),
         )
 
 

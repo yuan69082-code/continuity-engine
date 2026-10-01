@@ -1,0 +1,58 @@
+test_authorized_ui_history_result_is_available_without_new_query_cost (test_w04_4_boundaries.EntryBoundaryTests.test_authorized_ui_history_result_is_available_without_new_query_cost) ... ok
+test_capability_projection_validates_unselected_records_and_isolates_copies (test_w04_4_boundaries.EntryBoundaryTests.test_capability_projection_validates_unselected_records_and_isolates_copies) ... ok
+test_contact_pause_does_not_cancel_independent_native_mind_update (test_w04_4_boundaries.EntryBoundaryTests.test_contact_pause_does_not_cancel_independent_native_mind_update) ... ok
+test_digest_scope_recomputes_mutations_and_keeps_rfc_rejections (test_w04_4_boundaries.EntryBoundaryTests.test_digest_scope_recomputes_mutations_and_keeps_rfc_rejections) ... ok
+test_dispatched_unknown_send_allows_distinct_inquiry_without_replaying_original (test_w04_4_boundaries.EntryBoundaryTests.test_dispatched_unknown_send_allows_distinct_inquiry_without_replaying_original) ... ok
+test_environment_callback_changes_cannot_pass_single_document_reuse (test_w04_4_boundaries.EntryBoundaryTests.test_environment_callback_changes_cannot_pass_single_document_reuse) ... ok
+test_environment_current_junction_rejects_before_ingress_and_restores (test_w04_4_boundaries.EntryBoundaryTests.test_environment_current_junction_rejects_before_ingress_and_restores) ... ok
+test_environment_metadata_access_denied_is_not_absent_or_cached (test_w04_4_boundaries.EntryBoundaryTests.test_environment_metadata_access_denied_is_not_absent_or_cached) ... ok
+test_group_bound_recipient_success_wrong_group_and_self_sender_rejected (test_w04_4_boundaries.EntryBoundaryTests.test_group_bound_recipient_success_wrong_group_and_self_sender_rejected) ... ok
+test_native_history_does_not_bypass_later_entry_transfer_withdrawal (test_w04_4_boundaries.EntryBoundaryTests.test_native_history_does_not_bypass_later_entry_transfer_withdrawal) ... ok
+test_native_new_inquiry_can_send_when_original_remains_unknown (test_w04_4_boundaries.EntryBoundaryTests.test_native_new_inquiry_can_send_when_original_remains_unknown) ... ok
+test_native_unknown_delivery_does_not_prevent_later_cognition (test_w04_4_boundaries.EntryBoundaryTests.test_native_unknown_delivery_does_not_prevent_later_cognition) ... {"stage": "before-TEST-cleanup", "first_calls": 1, "after_calls": 2, "host": {"activity": "COGNITION", "commands": [], "desired": "RUNNING", "environment": "TEST", "generation": 2, "interruptions": [{"generation": 1, "last_trusted_time": "2026-09-04T08:16:00+00:00", "reason": "HOST_DETACHED"}, {"generation": 1, "last_trusted_time": "2026-09-04T08:16:00+00:00", "reason": "PRIOR_HOST_LOST"}, {"generation": 2, "last_trusted_time": "2026-09-04T08:32:00+00:00", "reason": "HOST_DETACHED"}], "last_task": "cognition:96c75d0707ad16ea9907c9d67cde131d1d6717aced38b09acbd1c219cb47597c", "last_time": "2026-09-04T08:32:00+00:00", "next_check_at": "2026-09-04T08:33:00+00:00", "observations": 4, "owner": "owner:a56258a6df1e411fa26d62dc9214332d", "reason": "HOST_DETACHED", "revision": 9, "root_hash": "sha256:43cdaa2ef6c9bd3036153298f24d8949269b35f25ee26471c9501845ff75a3d4", "state": "SUSPENDED", "subject_id": "sub-b911bc7dcfcc480a", "version": "p18-runtime-v1", "host_alive": false, "checkpoint_busy": false, "subject_lifecycle": "ACTIVE", "pending_tasks": 0, "unconfirmed_tasks": 0, "resources": {"token_budget": 10000, "token_used": 640, "token_remaining": 9360, "compute_remaining": 994}}, "tasks": [{"id": "cognition:8c7bcc6b4f559a404bd44961e76363c5275de5b87cf657fbe51f418da81177e1", "state": "COMPLETED", "attempts": 1}, {"id": "maintenance:212c92a6dee36309e4967ea6c3215f08dda3812a1e7c263d433a7295ae20df86", "state": "COMPLETED", "attempts": 1}, {"id": "cognition:96c75d0707ad16ea9907c9d67cde131d1d6717aced38b09acbd1c219cb47597c", "state": "COMPLETED", "attempts": 1}, {"id": "maintenance:71d38e0bf2785f9cecd6bfd52c81d661a3c79d63f3a1654897b4fbf08ca5d0fa", "state": "COMPLETED", "attempts": 1}], "effects": 1, "credits": 1, "revision": 4}
+ok
+test_provenance_projection_validates_whole_current_journal_and_isolates (test_w04_4_boundaries.EntryBoundaryTests.test_provenance_projection_validates_whole_current_journal_and_isolates) ... ok
+test_read_callback_binding_change_is_rejected_before_persistence (test_w04_4_boundaries.EntryBoundaryTests.test_read_callback_binding_change_is_rejected_before_persistence) ... ok
+test_related_native_memory_cannot_bypass_entry_transfer_withdrawal (test_w04_4_boundaries.EntryBoundaryTests.test_related_native_memory_cannot_bypass_entry_transfer_withdrawal) ... ok
+test_scoped_state_parse_checks_current_bytes_and_returns_private_copies (test_w04_4_boundaries.EntryBoundaryTests.test_scoped_state_parse_checks_current_bytes_and_returns_private_copies) ... ok
+test_thinking_projection_reads_current_bytes_and_returns_private_copies (test_w04_4_boundaries.EntryBoundaryTests.test_thinking_projection_reads_current_bytes_and_returns_private_copies) ... ok
+test_transfer_revoked_inside_read_callback_does_not_return_old_grant (test_w04_4_boundaries.EntryBoundaryTests.test_transfer_revoked_inside_read_callback_does_not_return_old_grant) ... ok
+test_ui_history_result_cannot_bypass_entry_transfer_withdrawal (test_w04_4_boundaries.EntryBoundaryTests.test_ui_history_result_cannot_bypass_entry_transfer_withdrawal) ... ok
+test_unknown_body_effect_cannot_masquerade_as_new_contact (test_w04_4_boundaries.EntryBoundaryTests.test_unknown_body_effect_cannot_masquerade_as_new_contact) ... ok
+test_unknown_old_send_does_not_freeze_distinct_same_matter_inquiry (test_w04_4_boundaries.EntryBoundaryTests.test_unknown_old_send_does_not_freeze_distinct_same_matter_inquiry) ... ok
+test_concurrent_a_b_requests_remain_bound_without_duplicate_effects (test_w04_4_continuation.ContinuationTests.test_concurrent_a_b_requests_remain_bound_without_duplicate_effects) ... ok
+test_late_timezone_message_preserves_three_times_and_mirror_root (test_w04_4_continuation.ContinuationTests.test_late_timezone_message_preserves_three_times_and_mirror_root) ... ok
+test_loss_after_effect_reopens_original_thinking_and_send (test_w04_4_continuation.ContinuationTests.test_loss_after_effect_reopens_original_thinking_and_send) ... ok
+test_owner_pause_stop_and_silent_native_work_do_not_send (test_w04_4_continuation.ContinuationTests.test_owner_pause_stop_and_silent_native_work_do_not_send) ... ok
+test_same_user_two_matters_and_ambiguous_reference_stay_separate (test_w04_4_continuation.ContinuationTests.test_same_user_two_matters_and_ambiguous_reference_stay_separate) ... ok
+test_api_question_followup_reply_same_engine_and_matter (test_w04_4_continuity.CrossEntryTests.test_api_question_followup_reply_same_engine_and_matter) ... ok
+test_binding_change_after_thinking_prevents_delivery (test_w04_4_continuity.CrossEntryTests.test_binding_change_after_thinking_prevents_delivery) ... ok
+test_current_permission_is_not_cached_with_environment_parse (test_w04_4_continuity.CrossEntryTests.test_current_permission_is_not_cached_with_environment_parse) ... ok
+test_disconnected_and_expired_entries_reject_without_new_operation (test_w04_4_continuity.CrossEntryTests.test_disconnected_and_expired_entries_reject_without_new_operation) ... ok
+test_mirror_deduplicates_original_operation_and_effect (test_w04_4_continuity.CrossEntryTests.test_mirror_deduplicates_original_operation_and_effect) ... ok
+test_no_transfer_permission_keeps_other_authorized_entry_material (test_w04_4_continuity.CrossEntryTests.test_no_transfer_permission_keeps_other_authorized_entry_material) ... ok
+test_original_request_reopen_has_no_new_model_effect_or_revision (test_w04_4_continuity.CrossEntryTests.test_original_request_reopen_has_no_new_model_effect_or_revision) ... ok
+test_pause_at_a_blocks_b_without_disabling_internal_state (test_w04_4_continuity.CrossEntryTests.test_pause_at_a_blocks_b_without_disabling_internal_state) ... ok
+test_readonly_delivery_view_reopen_does_not_advance_work (test_w04_4_continuity.CrossEntryTests.test_readonly_delivery_view_reopen_does_not_advance_work) ... ok
+test_simulated_ui_question_followup_reply_same_engine_and_matter (test_w04_4_continuity.CrossEntryTests.test_simulated_ui_question_followup_reply_same_engine_and_matter) ... ok
+test_subject_echo_never_becomes_user_reply_or_new_thinking (test_w04_4_continuity.CrossEntryTests.test_subject_echo_never_becomes_user_reply_or_new_thinking) ... ok
+test_verified_environment_parse_returns_private_copy_and_rechecks_bytes (test_w04_4_continuity.CrossEntryTests.test_verified_environment_parse_returns_private_copy_and_rechecks_bytes) ... ok
+test_wrong_sender_and_same_display_name_do_not_grant_identity (test_w04_4_continuity.CrossEntryTests.test_wrong_sender_and_same_display_name_do_not_grant_identity) ... ok
+test_evidence_current_source_withdrawal_and_permission_rejection (test_w04_4_delivery.DeliveryEvidenceTests.test_evidence_current_source_withdrawal_and_permission_rejection) ... ok
+test_formed_matter_adoption_recovers_once_via_original_w03_without_rebinding_context (test_w04_4_delivery.DeliveryEvidenceTests.test_formed_matter_adoption_recovers_once_via_original_w03_without_rebinding_context) ... ok
+test_send_receipt_cannot_substitute_for_read_observation (test_w04_4_delivery.DeliveryEvidenceTests.test_send_receipt_cannot_substitute_for_read_observation) ... ok
+test_sent_delivery_read_evidence_and_readonly_reopen (test_w04_4_delivery.DeliveryEvidenceTests.test_sent_delivery_read_evidence_and_readonly_reopen) ... ok
+test_action_permission_refusal_is_not_overridden_by_expression_confirmation (test_w04_4_expression.EntryExpressionTests.test_action_permission_refusal_is_not_overridden_by_expression_confirmation) ... ok
+test_exact_confirmation_satisfies_contact_without_erasing_required_flag (test_w04_4_expression.EntryExpressionTests.test_exact_confirmation_satisfies_contact_without_erasing_required_flag) ... ok
+test_failed_presentation_precedes_native_effect (test_w04_4_expression.EntryExpressionTests.test_failed_presentation_precedes_native_effect) ... ok
+test_historical_confirmed_artifact_does_not_grant_current_consumption (test_w04_4_expression.EntryExpressionTests.test_historical_confirmed_artifact_does_not_grant_current_consumption) ... ok
+test_revocation_during_presentation_prevents_delivery (test_w04_4_expression.EntryExpressionTests.test_revocation_during_presentation_prevents_delivery) ... ok
+test_saved_refusal_is_not_upgraded_when_confirmation_later_appears (test_w04_4_expression.EntryExpressionTests.test_saved_refusal_is_not_upgraded_when_confirmation_later_appears) ... ok
+test_unconfirmed_contact_keeps_refusal_and_has_no_effect (test_w04_4_expression.EntryExpressionTests.test_unconfirmed_contact_keeps_refusal_and_has_no_effect) ... ok
+test_discovery_history_body_and_native_cross_entry_share_authorities (test_w04_package.W04PackageTests.test_discovery_history_body_and_native_cross_entry_share_authorities) ... ok
+test_simulator_rechecks_current_bytes_without_sharing_mutable_facts (test_w04_package.W04PackageTests.test_simulator_rechecks_current_bytes_without_sharing_mutable_facts) ... ok
+
+----------------------------------------------------------------------
+Ran 52 tests in 306.026s
+
+OK

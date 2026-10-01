@@ -1,3 +1,65 @@
+<!-- W04_ACCEPTED_D093_20261002 -->
+## D-093：W04-4 初版、R1/R2 及 W04 包级正式验收
+
+2026-10-02用户明确正式验收并授权精确暂存、现有main一次普通提交及既有origin/main普通push。**W04-4=ACCEPTED；W04整体=ACCEPTED**。D-092开工记录、前三批D-087/D-089/D-091、W02/W03及P00—P18历史验收保持。W05未开工，不自动进入后续阶段。
+
+规划窗口完成代码、原始输出、身份和清单的独立只读复核，未运行Engine测试。本次归档引用施工方同版定向17PASS、W04专项215PASS、公共1144PASS/1SKIP、全量1990PASS/1SKIP，均0FAIL/ERROR、退出0，集合交叠不相加。源码332项`sha256:d77fb9e525eae8bd5d09796db3703029ce3e759ca0eee9207db52f1347ab596c`，原1975测试保留、新增16；本轮不改实现/测试、不重跑。
+
+R1按原字段变更及Event/ThinkSession保留逐值/原生派生来源；R2在最后观察及剩余回调后重核入口许可。修前真实失败、修后最终Context/表达、零效果/零费用及正常对照、同版兼容/全量、规划窗口只读结论与用户确认共同支持本批已知阻断关闭。当前本批EVIDENCE_CONFLICT=NONE、PLANNING_CONFLICT=NONE，不保证无其他缺陷。旧PRESENT和失败历史不改，F1/H1/F2仍UNKNOWN。
+
+原1000ms、2048预算、调度/权限/费用/持续运行边界保持；失效旧Context不自动重绑。验收仅本机隔离TEST，不保证无界负载、真实语言质量、任意生产并发撤权或真实平台性能。Windows1314 SKIP、辅助错误、中断、重度剖析超时及行尾提示照留，无远端CI PASS证据。生产服务/账号/设备未开放；W05/W06及P19—P23待各自授权。
+
+[验收报告](docs/project_memory/w04_4_acceptance_evidence/acceptance-report.md) · [逐项验收矩阵](docs/project_memory/w04_4_acceptance_evidence/acceptance-matrix.md) · [测试引用](docs/project_memory/w04_4_acceptance_evidence/test-references.json) · [精确清单](docs/project_memory/w04_4_acceptance_evidence/final.pending-files.md) · [审计](docs/project_memory/w04_4_acceptance_evidence/final.audit.json)。70份保留材料（含D-085独有规划及现行索引）继续排除，不冒称已推送；共享档案旧字节后缀保持。提交/push尚须实际操作后核验，不预填成功。以下均为历史时点，原正文保留。
+
+<!-- W04_4_REVIEW_REPAIR_FINAL_20261001 -->
+## D-092：两项独立复核返修交回
+
+W04-4及W04包级为 **IMPLEMENTED_NOT_ACCEPTED / EVIDENCE_CONFLICT=PRESENT**。本轮两处静态意见已以真实链复现并最小补修：状态逐值/原生派生来源保留；最后设备观察和剩余回调后重核入口许可。合法B材料及内部提交保持，失效旧Context不重绑。涉及两个补修文件和同职责entry_context_source；旧测试和历史验收不改。
+
+施工方最终同版：定向17 PASS（新增16及原包级1），W04专项215 PASS，公共1144 PASS/1既有SKIP，全量1990 PASS/1既有SKIP，0 FAIL/ERROR，集合不相加。源码332项`sha256:d77fb9e525eae8bd5d09796db3703029ce3e759ca0eee9207db52f1347ab596c`；原1975测试保留，新增16。规划窗口是静态复核，没有独立实跑；无远端CI PASS证据。旧1974 PASS/1 SKIP属于旧版，原FAIL/ERROR/辅助错误/中断/行尾提示及F1/H1/F2 UNKNOWN全留。
+
+[交付报告](docs/project_memory/w04_4_review_repair_evidence/final-report.md) · [矩阵](docs/project_memory/w04_4_review_repair_evidence/matrix.md) · [测试索引](docs/project_memory/w04_4_review_repair_evidence/test-index.md) · [精确清单](docs/project_memory/w04_4_review_repair_evidence/final.pending-files.md) · [终局审计](docs/project_memory/w04_4_review_repair_evidence/final.audit.json)。1000ms/2048/原调度与权限不变；不承诺无界负载/生产性能或任意并发撤权保证。未验收、暂存、提交、push，W05未启动；下一步仅独立复核。以下是历史时点，原字节保留，本轮不新增验收决定。
+
+<!-- W04_4_FINAL_D092_20261001 -->
+## D-092：W04-4及包级施工交回独立复核
+
+W04-4与W04包级均为 **IMPLEMENTED_NOT_ACCEPTED / EVIDENCE_CONFLICT=PRESENT**，不是用户验收；前三批D-087/D-089/D-091不改。P13/C1两处公共修补已有用户明确确认并实施，下面的“等待同一批准”仅为历史时点，不再代表现行状态。
+
+已完成可信入口/事项接续、原生API及模拟UI续问回流、当前转用和Event/Memory/UI查询追溯、投递证据/UNKNOWN独立新问、统一暂停及四批因果组合。来源撤权初始FAIL与回忆超时、中间辅助错误均保留；优化逐次读当前字节并核权限，不改变1000ms/2048/两need或唯一账本。
+
+施工窗口最终同版实跑：targeted-final-02 52 PASS/0 SKIP；w04-final-02 199 PASS/0 SKIP；public-final-02 1144 PASS/1 SKIP；full-final-02 1974 PASS/1 SKIP，交叠不相加。源码331项 `sha256:63b8189dda6bca9a7cb5985cfeded9e0d920aca284500d32bdded91040307261`；原1923测试身份/旧断言文件不变，新增52。不是规划窗口实跑或远端CI PASS。
+
+历史F1/H1/F2 UNKNOWN、Windows1314 SKIP、旧FAIL/ERROR/格式提示保留。真实服务/设备/生产凭据、W05、P19页面、P20/21恢复和P22实接未开放；未验收、暂存、提交或push。下一步仅规划窗口独立复核和用户决定。
+
+[交付报告](docs/project_memory/w04_4_evidence/final-report.md) · [逐项矩阵](docs/project_memory/w04_4_evidence/final-matrix.md) · [测试索引](docs/project_memory/w04_4_evidence/test-index.md) · [精确清单](docs/project_memory/w04_4_evidence/final.pending-files.md) · [终局审计](docs/project_memory/w04_4_evidence/final.audit.json) · [支持范围](docs/project_memory/w04_4_evidence/final-scope-and-limits.md)。以下全部历史正文原字节保留，本段不生成新决策编号。
+
+<!-- W04_4_RESUMED_20260930 -->
+## D-092 当前续作记录：原确认已生效，继续验证
+
+2026-09-30恢复原W04-4及包级任务，IN_PROGRESS / EVIDENCE_CONFLICT=PRESENT。P13/C1同一补修已经获准并实施，下方旧“待决定”仅为当时历史；不再代表当前审批状态。撤权来源追溯保留，API/UI定向正常链与送达/已读证据已分组通过，新增联系暂停不阻断独立心智提交的反例及补修证据已存；最终同版专项/兼容/全量未完成，不提前交付或验收。
+
+[本次事实与辅助错误](docs/project_memory/w04_4_evidence/resume-progress-20260930-01.md) · [续接](docs/project_memory/w04_4_evidence/continuation.md) · [恢复身份](docs/project_memory/w04_4_evidence/resume-20260930-01.json)。本段是D-092续作，不新增阶段/验收决定；旧失败、F1/H1/F2 UNKNOWN、Windows1314 SKIP及全部历史正文保留。不暂存/提交/push，不W05。
+
+<!-- W04_4_INTERIM_CONFLICT_01 -->
+## W04-4 中间进度：N16表达确认接线待决定
+
+2026-09-29：D-092施工中，W04-4 IN_PROGRESS；N16相关项BLOCKED / PLANNING_CONFLICT，W04包级尚未完成，EVIDENCE_CONFLICT=PRESENT。当前源码326项、指纹7f6ed84a…；施工窗口8项新边界及153项选定旧兼容通过，均为中间验证，最终全量未运行。原P13在精确确认已true时仍按requires_confirmation拒绝，普通C1表达/执行顺序有冲突；新增入口仅作投递前拒绝守卫，A/B效果及费用0的诊断已存。修改公共P13/C1判定与顺序已请求用户决定，尚未实施。
+
+已保存首次ERROR、辅助错误、带开销剖析及安全停点。自主native续接、API/UI完整主动链、完整投递状态、UNKNOWN新询问及四批因果贯通仍未完成。历史D-091等验收、F1/H1/F2 UNKNOWN及Windows1314 SKIP不改。未验收、暂存、提交、push或启动W05，无远端CI结果。
+
+[中间报告](docs/project_memory/w04_4_evidence/interim-report-01.md) · [真实测试索引](docs/project_memory/w04_4_evidence/interim.test-index-01.md) · [矩阵](docs/project_memory/w04_4_evidence/matrix.md) · [清单](docs/project_memory/w04_4_evidence/interim.pending-files-01.md) · [续接](docs/project_memory/w04_4_evidence/continuation.md)。以下保留原开工及历史时点记录，不将旧“尚未运行”等快照冒充现状。
+
+<!-- W04_4_AUTHORIZED_D092 -->
+## D-092：W04第四子批次及包级贯通开工
+
+2026-09-29用户授权N15/N16及N10/N21本批衔接，实现、隔离测试、证据与工程档案；W04-4 IN_PROGRESS、W04整体IN_PROGRESS。D-091及前三批验收保持。不得验收、暂存、提交、push或启动W05。
+
+开工真实main/HEAD/本地与实际远端c910be8ff65f1384c4942c980fc4087c1b595a87，源码321项aa96381b…、原1923测试身份与70保留材料核对一致；暂存与已跟踪工作区干净。63保护、正式7及规划原文不动。进程CIM初次权限错误及文档搜索辅助错误保留，授权只读查询无Python进程。本轮测试尚未运行，不借用旧PASS。
+
+本批补跨入口身份/转用、话题事项、新表达投递/回执和恢复，沿原W02/W03/P08/P13/P16/P17/P18与E5-A；不复制主体，不改1000ms/2048/两need或控制边界。PLANNING_CONFLICT=NONE（尚未发现已证实冲突），EVIDENCE_CONFLICT=PRESENT，待同版证据和独立复核。F1/H1/F2 UNKNOWN、旧失败与SKIP保留。
+
+[Stage Brief](docs/project_memory/w04_4_evidence/stage-brief.md) · [施工矩阵](docs/project_memory/w04_4_evidence/matrix.md) · [基线](docs/project_memory/w04_4_evidence/baseline.json) · [续接](docs/project_memory/w04_4_evidence/continuation.md)。以下历史原字节保留。
+
 <!-- W04_3_ACCEPTED_D091_20260929 -->
 ## D-091：W04-3 初版及 R1/R2 正式验收
 

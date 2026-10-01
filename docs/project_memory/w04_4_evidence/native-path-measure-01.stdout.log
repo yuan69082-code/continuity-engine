@@ -1,0 +1,2 @@
+{"stage": "one-native-opportunity", "metrics": {"read_bytes unscoped": {"calls": 397, "seconds": 0.05760160001227632}, "_load_operations scoped": {"calls": 82, "seconds": 0.08910380001179874}, "load unscoped": {"calls": 288, "seconds": 1.0307888999086572}, "safe_root unscoped": {"calls": 288, "seconds": 0.7782755000080215}, "_load_capability_document scoped": {"calls": 21, "seconds": 0.021885599999222904}}, "operation_bytes": 185056, "capability_bytes": 15773}
+{"effects": {"entry:A": 1, "entry:B": 0}, "model_calls": 0, "host_attached": false}

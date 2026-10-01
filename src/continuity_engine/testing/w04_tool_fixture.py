@@ -1,5 +1,6 @@
 """W04-3 local discovery + real P08/P16/P17/W04-2 chains, no real accounts."""
 from dataclasses import asdict, replace
+from copy import deepcopy
 from datetime import timedelta
 import json
 from pathlib import Path
@@ -35,13 +36,17 @@ class SimulatedConnections(JsonExecutionOutbox):
         root=_validate_fixture_root(Path(root))
         super().__init__(root,subject_id=subject,environment='TEST')
         self.path=root/'connections.json'
+        self._verified_document=None
     def empty(self):
         return dict(revision=0,subject_id=self.subject_id,environment='TEST',connections={},facts=[])
     def load(self):
         self._safe()
         if not self.path.exists(): return self.empty()
         try:
-            e=json.loads(self.path.read_text(encoding='utf8'));d=e['document']
+            current=self.path.read_bytes()
+            if self._verified_document is not None and self._verified_document[0]==current:
+                return deepcopy(self._verified_document[1])
+            e=json.loads(current.decode('utf8'));d=e['document']
             if set(e)!={'document','hash'} or e['hash']!=digest(d) or set(d)!=set(self.empty()): raise ValueError()
             if (d['subject_id'],d['environment'])!=(self.subject_id,'TEST'): raise ValueError()
             ids=[]
@@ -49,6 +54,7 @@ class SimulatedConnections(JsonExecutionOutbox):
                 receipt=ActionReceipt.from_dict(row['receipt']);ids.append(receipt.capability_request_id)
                 if receipt.output_hash!=digest(row['output']): raise ValueError()
             if len(ids)!=len(set(ids)): raise ValueError()
+            self._verified_document=(current,deepcopy(d))
             return d
         except Exception: raise ExecutionError('FAKE_CONNECTION_CORRUPT') from None
 

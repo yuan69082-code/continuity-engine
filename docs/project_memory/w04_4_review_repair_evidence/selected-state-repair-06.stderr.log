@@ -1,0 +1,8 @@
+test_redacted_matter_does_not_block_independent_b_expression (test_w04_4_review_repairs.EntryReviewRepairTests.test_redacted_matter_does_not_block_independent_b_expression) ... ok
+test_state_query_and_same_request_reopen_do_not_repeat_submission (test_w04_4_review_repairs.EntryReviewRepairTests.test_state_query_and_same_request_reopen_do_not_repeat_submission) ... ok
+test_api_question_followup_reply_same_engine_and_matter (tests.test_w04_4_continuity.CrossEntryTests.test_api_question_followup_reply_same_engine_and_matter) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 24.796s
+
+OK

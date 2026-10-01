@@ -1,0 +1,96 @@
+         4241733 function calls (3476644 primitive calls) in 1.916 seconds
+
+   Ordered by: internal time
+   List reduced from 1050 to 35 due to restriction <35>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+     5184    0.275    0.000    0.277    0.000 {built-in method nt.lstat}
+104668/9218    0.151    0.000    0.541    0.000 _impl.py:188(dump)
+   138020    0.118    0.000    0.282    0.000 _impl.py:79(_serialize_str)
+     1118    0.094    0.000    0.096    0.000 {built-in method _io.open}
+   138064    0.086    0.000    0.100    0.000 {method 'sub' of 're.Pattern' objects}
+   656423    0.081    0.000    0.117    0.000 {built-in method builtins.isinstance}
+165893/5152    0.077    0.000    0.115    0.000 dataclasses.py:1499(_asdict_inner)
+104668/9218    0.073    0.000    0.157    0.000 integration_hashing.py:21(_json_value)
+218709/1179    0.070    0.000    0.214    0.000 copy.py:110(deepcopy)
+      785    0.069    0.000    0.071    0.000 {built-in method nt._path_exists}
+   604222    0.066    0.000    0.066    0.000 {method 'write' of '_io.BytesIO' objects}
+   210624    0.044    0.000    0.044    0.000 {method 'encode' of 'str' objects}
+10346/913    0.039    0.000    0.199    0.000 copy.py:198(_deepcopy_dict)
+154760/22350    0.026    0.000    0.037    0.000 encoder.py:339(_iterencode_dict)
+    10573    0.021    0.000    0.035    0.000 dataclasses.py:1445(fields)
+     3558    0.020    0.000    0.020    0.000 encoder.py:207(iterencode)
+   104671    0.019    0.000    0.037    0.000 <frozen abc>:117(__instancecheck__)
+   104671    0.018    0.000    0.018    0.000 {built-in method _abc._abc_instancecheck}
+8409/8295    0.017    0.000    0.064    0.000 {built-in method builtins.sorted}
+     1118    0.017    0.000    0.017    0.000 {method '__exit__' of '_io._IOBase' objects}
+ 6549/628    0.016    0.000    0.161    0.000 copy.py:228(_reconstruct)
+   119840    0.015    0.000    0.015    0.000 {built-in method builtins.getattr}
+    64032    0.014    0.000    0.036    0.000 _impl.py:238(<lambda>)
+    22540    0.013    0.000    0.013    0.000 {method 'fullmatch' of 're.Pattern' objects}
+   118812    0.013    0.000    0.013    0.000 {built-in method builtins.hasattr}
+    26992    0.011    0.000    0.017    0.000 copy.py:212(_keep_alive)
+    81852    0.011    0.000    0.011    0.000 {method 'get' of 'dict' objects}
+   106758    0.010    0.000    0.010    0.000 dataclasses.py:1460(<genexpr>)
+      680    0.010    0.000    0.010    0.000 {method 'read' of '_io.FileIO' objects}
+       87    0.010    0.000    0.012    0.000 {built-in method nt._path_isfile}
+7518/1346    0.009    0.000    0.160    0.000 copy.py:172(_deepcopy_list)
+        1    0.009    0.009    0.009    0.009 {built-in method nt.fsync}
+    91532    0.009    0.000    0.009    0.000 {built-in method builtins.id}
+    47918    0.009    0.000    0.014    0.000 _impl.py:84(_replace)
+     9425    0.008    0.000    0.008    0.000 {built-in method _hashlib.openssl_sha256}
+
+
+         4241733 function calls (3476644 primitive calls) in 1.916 seconds
+
+   Ordered by: cumulative time
+   List reduced from 1050 to 45 due to restriction <45>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    1.925    1.925 associative_recall_service.py:102(_prepare)
+        1    0.000    0.000    1.830    1.830 context_router_service.py:691(route)
+        1    0.000    0.000    1.829    1.829 context_router_service.py:786(_execute)
+        3    0.000    0.000    1.459    0.486 execution_context_source.py:41(_retrieve)
+        3    0.000    0.000    1.430    0.477 execution_context_source.py:25(items)
+        3    0.000    0.000    1.429    0.476 execution_service.py:442(results_for_context)
+        1    0.000    0.000    0.890    0.890 execution_context_source.py:70(retrieve)
+       12    0.000    0.000    0.881    0.073 execution_service.py:475(_current_result_source)
+       12    0.000    0.000    0.881    0.073 execution_service.py:176(current)
+        6    0.000    0.000    0.872    0.145 device_operation_service.py:82(current)
+        6    0.000    0.000    0.872    0.145 device_operation_service.py:96(_current)
+        8    0.000    0.000    0.757    0.095 w04_cross_entry_fixture.py:201(__call__)
+        8    0.000    0.000    0.756    0.094 temporary_tool_service.py:204(__call__)
+     32/8    0.000    0.000    0.756    0.094 temporary_tool_service.py:22(call)
+        8    0.000    0.000    0.756    0.094 temporary_tool_service.py:288(require_device)
+     9218    0.005    0.000    0.738    0.000 action_planning.py:12(digest)
+     9218    0.006    0.000    0.714    0.000 integration_hashing.py:31(canonicalize_json)
+        2    0.000    0.000    0.569    0.284 execution_context_source.py:73(revalidate)
+     9218    0.007    0.000    0.550    0.000 _impl.py:177(dumps)
+104668/9218    0.151    0.000    0.541    0.000 _impl.py:188(dump)
+       24    0.000    0.000    0.415    0.017 temporary_tool_service.py:89(offer)
+       26    0.000    0.000    0.401    0.015 external_capability_service.py:144(_verified)
+       24    0.000    0.000    0.393    0.016 temporary_tool_service.py:70(candidates)
+       32    0.000    0.000    0.360    0.011 capability_coordination_service.py:66(action_attempts)
+      974    0.001    0.000    0.351    0.000 action_planning.py:138(canonical_hash)
+      880    0.001    0.000    0.346    0.000 action_capability.py:57(request_hash)
+        8    0.000    0.000    0.324    0.040 temporary_tool_service.py:115(conditions)
+       64    0.000    0.000    0.317    0.005 capability_coordination_service.py:93(_verify_action_result_evidence)
+      330    0.003    0.000    0.306    0.001 json_integration_repository.py:481(_load_capability_document)
+   138020    0.118    0.000    0.282    0.000 _impl.py:79(_serialize_str)
+     5184    0.002    0.000    0.279    0.000 __init__.py:656(lstat)
+     5184    0.275    0.000    0.277    0.000 {built-in method nt.lstat}
+      274    0.001    0.000    0.264    0.001 json_integration_repository.py:389(load_capability_request)
+      238    0.000    0.000    0.250    0.001 execution_service.py:116(request)
+       44    0.001    0.000    0.250    0.006 temporary_tool_service.py:155(query)
+       18    0.000    0.000    0.243    0.013 execution_service.py:165(query)
+       24    0.000    0.000    0.223    0.009 temporary_tool_service.py:305(<genexpr>)
+218709/1179    0.070    0.000    0.214    0.000 copy.py:110(deepcopy)
+      217    0.001    0.000    0.207    0.001 action_capability.py:82(to_dict)
+       16    0.000    0.000    0.207    0.013 temporary_tool_service.py:189(_value)
+10346/913    0.039    0.000    0.199    0.000 copy.py:198(_deepcopy_dict)
+      155    0.000    0.000    0.187    0.001 temporary_tool_service.py:54(_port)
+3008/2192    0.001    0.000    0.183    0.000 execution_service.py:78(port)
+       57    0.002    0.000    0.183    0.003 json_integration_repository.py:738(_load_operations)
+      181    0.005    0.000    0.182    0.001 json_execution_outbox.py:31(_safe)
+
+

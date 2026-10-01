@@ -1,0 +1,7 @@
+test_simulated_ui_question_followup_reply_same_engine_and_matter (test_w04_4_continuity.CrossEntryTests.test_simulated_ui_question_followup_reply_same_engine_and_matter) ... ok
+test_discovery_history_body_and_native_cross_entry_share_authorities (test_w04_package.W04PackageTests.test_discovery_history_body_and_native_cross_entry_share_authorities) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 132.059s
+
+OK

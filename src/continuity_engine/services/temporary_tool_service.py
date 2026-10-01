@@ -59,9 +59,10 @@ class TemporaryToolService:
     def _requests(self):
         # Read typed immutable originals with the repository's full validation.
         # No shadow list of operation identities is maintained.
-        requests,_=self.execution.core.coordination._repository._load_capability_document()
-        return tuple(r for r in requests if isinstance(r,InternalActionRequest)
-                     and (r.subject_id,r.choice.environment)==(self.subject_id,self.environment))
+        return self.execution.core.coordination._repository._load_capability_document(
+            _projection=lambda requests, attempts: tuple(r for r in requests
+                if isinstance(r,InternalActionRequest)
+                and (r.subject_id,r.choice.environment)==(self.subject_id,self.environment)))
 
     def _material(self,value):
         self.execution.validate_input_material(value)
@@ -151,7 +152,7 @@ class TemporaryToolService:
             return ('CAPABILITY_UNAVAILABLE',)
         return ()
 
-    def query(self, request):
+    def _verified_result(self, request):
         command=self.command(request)
         fact=self._port('TOOL_QUERY_UNAVAILABLE',self.port.query,request)
         if isinstance(fact,ActionReceipt):
@@ -178,16 +179,20 @@ class TemporaryToolService:
                 statuses={'connect':{'CONNECTED','FAILED'},'verify':{'VERIFIED','FAILED'},'close':{'CLOSED','PARTIAL','FAILED'}}
                 if value['status'] not in statuses[command.operation]: raise ValueError()
             except Exception: raise ExecutionError('TOOL_RESULT_BINDING') from None
-            return fact
-        return ReceiptQuery.NOT_EXECUTED if fact is ReceiptQuery.NOT_EXECUTED else ReceiptQuery.UNKNOWN
+            return fact,payload
+        return (ReceiptQuery.NOT_EXECUTED if fact is ReceiptQuery.NOT_EXECUTED else ReceiptQuery.UNKNOWN),None
+
+    def query(self, request):
+        return self._verified_result(request)[0]
 
     def read_result(self,request):
-        if not isinstance(self.query(request),ActionReceipt): raise ExecutionError('TOOL_RESULT_UNKNOWN')
-        return self._port('TOOL_RESULT_UNAVAILABLE',self.port.read_result,request)
+        fact,payload=self._verified_result(request)
+        if not isinstance(fact,ActionReceipt): raise ExecutionError('TOOL_RESULT_UNKNOWN')
+        return payload
 
     def _value(self,request):
-        fact=self.query(request)
-        return json.loads(self.read_result(request)['content']) if isinstance(fact,ActionReceipt) else None
+        fact,payload=self._verified_result(request)
+        return json.loads(payload['content']) if isinstance(fact,ActionReceipt) else None
 
     def related(self, connection_id):
         rows=[]
@@ -218,8 +223,8 @@ class TemporaryToolService:
         if (self.conditions(c) or self._closed_or_pending(r.capability_request_id)
                 or self._port('TOOL_CONNECTION_UNAVAILABLE',self.port.connected,r.capability_request_id,o) is not True):
             raise EnvironmentAccessError('W04_REVOKED')
-        if not any(self.command(v).operation=='verify' and self._value(v) is not None
-                and self._value(v)['status']=='VERIFIED' for v in self.related(r.capability_request_id)):
+        if not any(self.command(v).operation=='verify' and (value:=self._value(v)) is not None
+                and value['status']=='VERIFIED' for v in self.related(r.capability_request_id)):
             raise EnvironmentAccessError('TOOL_VERIFICATION_REQUIRED')
 
     @_verified_reads
@@ -301,8 +306,8 @@ class TemporaryToolService:
         if self._port('TOOL_ACTION_AUTHORIZATION_UNAVAILABLE',self.authorize_action,request,command.lease,
                 offer,at=self.clock(),purpose=purpose) is not True: reject()
         if self._port('TOOL_CONNECTION_UNAVAILABLE',self.port.connected,connection,offer) is not True: reject()
-        verified=any(self.command(r).operation=='verify' and self._value(r) is not None
-                     and self._value(r)['status']=='VERIFIED' for r in self.related(connection))
+        verified=any(self.command(r).operation=='verify' and (value:=self._value(r)) is not None
+                     and value['status']=='VERIFIED' for r in self.related(connection))
         if not verified: reject()
         if purpose=='execute':
             credits=0;used=False

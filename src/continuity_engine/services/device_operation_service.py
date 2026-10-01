@@ -85,7 +85,9 @@ class DeviceOperationService:
         except EnvironmentAccessError as exc:
             stale = {"W04_REVOKED", "W04_EXPIRED", "W04_OLD_HOST_FENCED", "W04_DISCONNECTED",
                 "W04_NOT_CONNECTED", "W04_PERMISSION_DENIED", "W04_SCOPE_DENIED", "W04_ABILITY_EXPIRED",
-                "DEVICE_HISTORY_PERMISSION_DENIED", "DEVICE_HISTORY_SOURCE_CHANGED"}
+                "DEVICE_HISTORY_PERMISSION_DENIED", "DEVICE_HISTORY_SOURCE_CHANGED",
+                "ENTRY_BINDING_EXPIRED", "ENTRY_BOUND_CONTEXT_CHANGED", "ENTRY_READ_DENIED",
+                "ENTRY_CONTACT_TRANSFER_DENIED", "ENTRY_DELIVERY_SOURCE_DENIED", "ENTRY_DELIVERY_BINDING_STALE"}
             if purpose == "consume" and str(exc) in stale:
                 from continuity_engine.domain.execution import ExecutionError
                 raise ExecutionError("DEVICE_SOURCE_NOT_CURRENT") from None
@@ -100,6 +102,15 @@ class DeviceOperationService:
         route = self.execution.routes[request.capability_type]
         self.access.require_action(use, route, request)
         self._history_allowed(command)
+        if command.entry_delivery is not None:
+            entry = getattr(self.execution.core, 'entry_continuity', None)
+            if entry is None:
+                raise EnvironmentAccessError('ENTRY_CONTINUITY_NOT_READY')
+            # Execution needs permission before observing the destination and
+            # again after the last callback. Consumption does not observe or
+            # send: its one full entry check belongs after those callbacks.
+            if purpose == 'execute':
+                entry.delivery_current(request, command, purpose=purpose)
         if self.connection_guard is not None:
             self.connection_guard(request, purpose=purpose)
         if purpose == "execute":
@@ -119,6 +130,11 @@ class DeviceOperationService:
         self._active(use)
         if self.connection_guard is not None:
             self.connection_guard(request, purpose=purpose)
+        if command.entry_delivery is not None:
+            # Observation and connection callbacks may change entry permissions
+            # while the page itself remains identical. Check them last inside
+            # the original port-held final dispatch guard as well.
+            entry.delivery_current(request, command, purpose=purpose)
 
     def query(self, request):
         command = self.command(request)
@@ -171,7 +187,7 @@ class DeviceOperationService:
         if fact.status == "SUCCEEDED":
             if result["outcome"] != command.expected_outcome:
                 raise EnvironmentAccessError("DEVICE_RESULT_NOT_BUSINESS_SUCCESS")
-            business = command.operation in {"save", "send", "body.act"}
+            business = command.operation in {"save", "send", "body.act", 'message.send.api', 'message.send.ui'}
             if (result["business_complete"] != business or fact.effect_count != int(command.operation not in {"locate", "query"})):
                 raise EnvironmentAccessError("DEVICE_RESULT_EFFECT_BINDING")
             if command.operation == "type" and after.view.get("draft") != command.text:
@@ -189,6 +205,13 @@ class DeviceOperationService:
                 raise EnvironmentAccessError("DEVICE_SEND_NOT_VERIFIED")
             if command.operation == "body.act" and after.view.get("position") != before.view.get("position", 0) + command.amount:
                 raise EnvironmentAccessError("DEVICE_BODY_RESULT_NOT_VERIFIED")
+            if command.entry_delivery is not None:
+                if (after.view.get('sent') != command.text or after.view.get('send_count') != before.view.get('send_count', 0) + 1
+                        or after.view.get('recipient') != command.entry_delivery['entry_id']):
+                    raise EnvironmentAccessError('DEVICE_ENTRY_SEND_NOT_VERIFIED')
+                if command.operation == 'message.send.ui' and (
+                        after.view.get('draft') != command.text or after.view.get('last_clicked') != command.target):
+                    raise EnvironmentAccessError('DEVICE_ENTRY_UI_NOT_VERIFIED')
         elif result["outcome"] != "FAILED" or result["business_complete"] or fact.effect_count:
             raise EnvironmentAccessError("DEVICE_FAILURE_MISLABELLED")
         records = result["records"]

@@ -6,6 +6,7 @@ There is no background worker, polling, duplicate request body, or receipt body.
 from contextlib import contextmanager
 import json
 import os
+import stat
 from pathlib import Path
 import tempfile
 from threading import Lock, RLock
@@ -29,7 +30,11 @@ class JsonExecutionOutbox:
 
     def _safe(self):
         for path in (self.path, *self.path.parents):
-            if path.is_symlink() or (path.exists() and getattr(path.lstat(),'st_file_attributes',0) & 0x400):
+            try:
+                info = path.lstat()
+            except FileNotFoundError:
+                continue
+            if stat.S_ISLNK(info.st_mode) or getattr(info, 'st_file_attributes', 0) & 0x400:
                 raise ExecutionError('EXECUTION_STORE_LINK_FORBIDDEN')
 
     def empty(self):

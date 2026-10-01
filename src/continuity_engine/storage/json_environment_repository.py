@@ -3,13 +3,45 @@ from __future__ import annotations
 
 import json
 import os
+import stat
 import tempfile
+from copy import deepcopy
 from pathlib import Path
 
 from continuity_engine.domain.action_planning import digest, identifier
 from continuity_engine.domain.environment_access import Attachment, EnvironmentAccessError
 from continuity_engine.domain.errors import CapabilityValidationError
 from continuity_engine.storage.json_runtime_repository import file_lock, safe_root
+from continuity_engine.domain.persistent_runtime import RuntimeBoundaryError
+
+
+if os.name == 'nt':
+    import ctypes
+    from ctypes import wintypes
+    _get_attributes = ctypes.WinDLL('kernel32', use_last_error=True).GetFileAttributesW
+    _get_attributes.argtypes = [wintypes.LPCWSTR]
+    _get_attributes.restype = wintypes.DWORD
+
+
+def _path_is_link(path):
+    """Read CURRENT link attributes without requesting unused file metadata.
+
+    Windows GetFileAttributes reports the link/reparse point itself. Every
+    component is still queried on every load; no path or permission is cached.
+    Access/other OS failures propagate rather than becoming a missing path.
+    """
+    if os.name == 'nt':
+        attributes = _get_attributes(str(path))
+        if attributes == 0xffffffff:
+            error = ctypes.get_last_error()
+            if error in (2, 3):
+                return False
+            raise ctypes.WinError(error)
+        return bool(attributes & 0x400)
+    try:
+        return stat.S_ISLNK(path.lstat().st_mode)
+    except FileNotFoundError:
+        return False
 
 
 class JsonEnvironmentRepository:
@@ -21,6 +53,7 @@ class JsonEnvironmentRepository:
         self.subject_id, self.environment = subject_id, environment
         self.path = self.root / "environment-access" / environment.lower() / digest(subject_id)[7:] / "attachments.v1.json"
         self.lock_path = self.path.with_suffix(".lock")
+        self._verified = None
 
     def _empty(self):
         return dict(version="w04-attachments-v1", subject_id=self.subject_id,
@@ -28,19 +61,47 @@ class JsonEnvironmentRepository:
                     generation=0, attachments=[])
 
     def load(self):
-        safe_root(self.root)
-        for path in (self.path, self.path.parent):
-            if path.is_symlink() or (path.exists() and getattr(path.lstat(), "st_file_attributes", 0) & 0x400):
-                raise EnvironmentAccessError("W04_STORE_LINK_FORBIDDEN")
+        # The canonical root was established on construction. Recheck EVERY
+        # component now, once per component rather than is_symlink + exists +
+        # lstat + resolve. This is not a cached path/permission decision.
+        for path in (self.path, *self.path.parents):
+            if os.path.normcase(path.name) in {os.path.normcase('.continuity-data'), os.path.normcase('.assistant-data')}:
+                raise RuntimeBoundaryError('RUNTIME_FORMAL_ROOT_FORBIDDEN')
+            if _path_is_link(path):
+                raise EnvironmentAccessError('W04_STORE_LINK_FORBIDDEN')
+        repository = Path(__file__).absolute().parents[3]
+        if (self.root == repository or self.root in repository.parents or repository in self.root.parents
+                or (self.root / '.git').exists()):
+            raise RuntimeBoundaryError('RUNTIME_REPOSITORY_ROOT_FORBIDDEN')
         if not self.path.exists():
             return self._empty()
         try:
-            envelope = json.loads(self.path.read_text(encoding="utf-8"))
+            raw = self.path.read_bytes()
+            # Parsing reuse only: reread the current bytes and paths on EVERY
+            # access. Permissions, availability and binding gates are outside
+            # this cache and still run for each caller. Return isolated copies.
+            verified = self._verified
+            if verified is not None and raw == verified[0]:
+                return deepcopy(verified[1])
+            envelope = json.loads(raw)
             if set(envelope) != {"document", "hash"}:
                 raise ValueError()
             value = envelope["document"]
-            if set(value) != set(self._empty()) or envelope["hash"] != digest(value):
+            if set(value) - {'entry_bindings', 'contact_pauses'} != set(self._empty()) or envelope["hash"] != digest(value):
                 raise ValueError()
+            from continuity_engine.domain.cross_entry import EntryBinding
+            links = value.get('entry_bindings', [])
+            if not isinstance(links, list) or len(links) > 256:
+                raise ValueError()
+            parsed = [EntryBinding.from_dict(row) for row in links]
+            if len({row.entry_id for row in parsed}) != len(parsed) or any(
+                    (row.use.subject_id, row.use.environment) != (self.subject_id, self.environment) for row in parsed):
+                raise ValueError()
+            pauses = value.get('contact_pauses', [])
+            if not isinstance(pauses, list) or len(pauses) > 256 or len(pauses) != len(set(pauses)):
+                raise ValueError()
+            for user in pauses:
+                identifier(user)
             if any(value[k] != self._empty()[k] for k in ("version", "subject_id", "environment")):
                 raise ValueError()
             if type(value["revision"]) is not int or value["revision"] < 0 or type(value["generation"]) is not int or value["generation"] < 0:
@@ -55,6 +116,7 @@ class JsonEnvironmentRepository:
             if any((row.subject_id, row.environment) != (self.subject_id, self.environment)
                    or row.generation > value["generation"] for row in records):
                 raise ValueError()
+            self._verified = (raw, deepcopy(value))
             return value
         except (OSError, UnicodeError, ValueError, TypeError, KeyError, CapabilityValidationError):
             raise EnvironmentAccessError("W04_STORE_CORRUPT") from None
@@ -133,6 +195,39 @@ class JsonEnvironmentRepository:
                 return value
             old["enabled"] = False
             value["revision"] += 1
+            return value
+        return self.transact(expected_revision, change)
+
+    def bind_entry(self, binding, *, expected_revision):
+        """Versioned identity/ACL configuration, never messages or execution facts."""
+        from continuity_engine.domain.cross_entry import EntryBinding
+        if not isinstance(binding, EntryBinding) or (binding.use.subject_id, binding.use.environment) != (self.subject_id, self.environment):
+            raise EnvironmentAccessError('ENTRY_CONFIG_BOUNDARY')
+        def change(value):
+            links = value.setdefault('entry_bindings', [])
+            prior = next((row for row in links if row['entry_id'] == binding.entry_id), None)
+            if prior == binding.to_dict():
+                return value
+            if binding.version != (prior['version'] + 1 if prior else 1):
+                raise EnvironmentAccessError('ENTRY_CONFIG_VERSION')
+            if prior:
+                links.remove(prior)
+            links.append(binding.to_dict())
+            value['revision'] += 1
+            return value
+        return self.transact(expected_revision, change)
+
+    def contact_pause(self, user_id, paused, *, expected_revision):
+        identifier(user_id)
+        if type(paused) is not bool:
+            raise EnvironmentAccessError('ENTRY_PAUSE_VALUE')
+        def change(value):
+            users = set(value.get('contact_pauses', []))
+            if (user_id in users) == paused:
+                return value
+            users.add(user_id) if paused else users.discard(user_id)
+            value['contact_pauses'] = sorted(users)
+            value['revision'] += 1
             return value
         return self.transact(expected_revision, change)
 

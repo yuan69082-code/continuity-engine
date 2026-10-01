@@ -1,0 +1,62 @@
+test_api_question_followup_reply_same_engine_and_matter (tests.test_w04_4_continuity.CrossEntryTests.test_api_question_followup_reply_same_engine_and_matter) ... ERROR
+{"test": "tests.test_w04_4_continuity.CrossEntryTests.test_api_question_followup_reply_same_engine_and_matter", "stage": "before-TEST-cleanup", "files": {"s/.p01-sandbox-root.v1.json": {"bytes": 98, "sha256": "3ced39d6b395df89d9b1f34e1b3faf46c14ccc6edab679a616f588a978e002f7"}, "s/s/s7e1066bd/b/bfae23f35/branch-manifest.v1.json": {"bytes": 243, "sha256": "a9102cef5634539786fc2bf3006d3def5228e782412aa1b563fc77d458522810"}, "s/s/s7e1066bd/b/bfae23f35/data/awakening/cycles/c0a460ea819df181d7de7c38009ae633f42f2c184c84816d4876f251e98c506c.json": {"bytes": 253, "sha256": "5a7b4b97cfe8ddc627c765b4c721a4720a4360a5c9d64049c429c6b8a9df2506"}, "s/s/s7e1066bd/b/bfae23f35/data/awakening/sessions/26997da382f2fe313a8d3366f5b2ecfea89df43305f5479a1e8ccf16a97e5e16/177bc7274646e8104e37c8aca9f1d2d01740dc07fc9c7d946d9b00ae35c6beab.json": {"bytes": 10657, "sha256": "a5a2b83eead769362304e25682b8efab0f19bde3672f648daec2ea7c85de5738"}, "s/s/s7e1066bd/b/bfae23f35/data/c1-receipts/p08-fake-receipts.json": {"bytes": 148, "sha256": "a411df96a3b6eea514baf41f59d45ab70c55b96ee9f28e118d79525ea3bfe8c8"}, "s/s/s7e1066bd/b/bfae23f35/data/clock/subject-clock.v1.json": {"bytes": 109, "sha256": "9215b6977c7811370330d01c8bfe7e63b8e43ba8b12a8f09d85b24e7efac24ad"}, "s/s/s7e1066bd/b/bfae23f35/data/contradiction/test/26997da382f2fe313a8d3366f5b2ecfea89df43305f5479a1e8ccf16a97e5e16.json": {"bytes": 228, "sha256": "af880bf12f4c4201a8ccf1e675bc85448273b7243e06adda92f60abc1c12847e"}, "s/s/s7e1066bd/b/bfae23f35/data/environment-access/test/d424c9d13abf4cadaad142ae895db57b7fb918806372776df8d51c9d80a50889/attachments.v1.json": {"bytes": 8486, "sha256": "d0a7477111cbafb6db1f286dbd1636823a640a39d5a5ee924a404d11d63df280"}, "s/s/s7e1066bd/b/bfae23f35/data/environment-access/test/d424c9d13abf4cadaad142ae895db57b7fb918806372776df8d51c9d80a50889/attachments.v1.lock": {"bytes": 1, "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"}, "s/s/s7e1066bd/b/bfae23f35/data/fixture/c1-profile.v1.json": {"bytes": 102, "sha256": "94c46761fe96b272f2eea8ec1f28a22991e6886d58e18e0dbed1fd7cd51354fe"}, "s/s/s7e1066bd/b/bfae23f35/data/fixture/state-fixture.v1.json": {"bytes": 635, "sha256": "1c18ac797c1dbf3ebeef1937c9295fe3662b2519dc727bfec237c0b10a901b10"}, "s/s/s7e1066bd/b/bfae23f35/data/integration/capability-ledger.v1.json": {"bytes": 82, "sha256": "95f292f0db842e43cccb490ce10bbeefd3bab92d43fa69f4bb1b6188d4ed43de"}, "s/s/s7e1066bd/b/bfae23f35/data/integration/operation-journal.first-round-v1.json": {"bytes": 183130, "sha256": "86e7ab6a74b9b0c7aa69f4178d467877f6d309453550729212b1690cf6195f04"}, "s/s/s7e1066bd/b/bfae23f35/data/integration/result-ledger.first-round-v1.json": {"bytes": 63, "sha256": "5407f91ac04019966f84bfbad51ebc1fb904bd085a6579febfa75a9ea068592a"}, "s/s/s7e1066bd/b/bfae23f35/data/integration/subject-binding.runtime-v1.json": {"bytes": 613, "sha256": "82728900a6f445838f628664782ce6f026d08c69074d98a8738825e30ca83c12"}, "s/s/s7e1066bd/b/bfae23f35/data/learning/26997da382f2fe313a8d3366f5b2ecfea89df43305f5479a1e8ccf16a97e5e16.json": {"bytes": 2154, "sha256": "c274773fc330027ebe388209ac0ec726105f8cb2481eed3382e36f2cbb0bc2eb"}, "s/s/s7e1066bd/b/bfae23f35/data/memory/test/26997da382f2fe313a8d3366f5b2ecfea89df43305f5479a1e8ccf16a97e5e16.json": {"bytes": 4202, "sha256": "35be0d09a2219ecbe40627498190fe1270c0e4b047d1b041b7de76a8267f4f2b"}, "s/s/s7e1066bd/b/bfae23f35/data/resources/26997da382f2fe313a8d3366f5b2ecfea89df43305f5479a1e8ccf16a97e5e16.json": {"bytes": 437, "sha256": "de536fc15cedb398368843072c35b16f2f8752e260803a79409a67195b7f8706"}, "s/s/s7e1066bd/b/bfae23f35/data/subject-state/26997da382f2fe313a8d3366f5b2ecfea89df43305f5479a1e8ccf16a97e5e16.json": {"bytes": 4912, "sha256": "93d9c40f12bd1fce93893344a59819f0faa2172c6b709edd5f043c41612cf077"}, "s/s/s7e1066bd/b/bfae23f35/data/test-actions/action-sessions.v1.json": {"bytes": 128, "sha256": "cb914791c0b54493ed2228ce5fc03226a3d2bcc4c0ae994e6a0d3ecd5e67fb16"}, "s/s/s7e1066bd/b/bfae23f35/data/test-indexes/events.v1.json": {"bytes": 138, "sha256": "aed60a8c6589a5c713ded3d8ff1b65feb147f617074bde4449f2551c27655c68"}, "s/s/s7e1066bd/b/bfae23f35/data/test-indexes/evolution.v1.json": {"bytes": 141, "sha256": "f8b7537e048082f0e9b60c68ff52bccd763c0b03d2bacec4171f15999ec5a6e3"}, "s/s/s7e1066bd/b/bfae23f35/data/test-indexes/relationship-state.v1.json": {"bytes": 150, "sha256": "9e38898af312ddcc6508a2c3888d707bf6a1a5de442c6c3e704e6f1206ff7f41"}, "s/s/s7e1066bd/b/bfae23f35/data/test-indexes/state-mutations.v1.json": {"bytes": 147, "sha256": "e782e30fde3ab56f755257a2a28a52a16d0627601c2770f1c319d7faeb96f7e1"}, "s/s/s7e1066bd/b/bfae23f35/data/test-indexes/thinking-sessions.v1.json": {"bytes": 149, "sha256": "6eab6fd030ba49f1eba87f90f711ae2859f1505af4be36558b83308f337bc0e9"}, "s/s/s7e1066bd/b/bfae23f35/data/test-indexes/wake-sessions.v1.json": {"bytes": 145, "sha256": "ddf133d25e8a90a04f29f5261767c7392bb9e54f37a0a82aca50c9e5f6aa2dd2"}, "s/s/s7e1066bd/b/bfae23f35/data/test-memory/memory-ledger.v1.json": {"bytes": 631, "sha256": "2e84fc36595daadb8b821f8eef4b233587f49ce91a7ae1bad001fdc33a973554"}, "s/s/s7e1066bd/b/bfae23f35/data/test-trace/subject-clock-trace.v1.json": {"bytes": 1558, "sha256": "cdb8fe2761df00499eb2052dd4c823e567399c4e62b888cad89b3805b2af25c1"}, "s/s/s7e1066bd/b/bfae23f35/data/thinking/sessions/26997da382f2fe313a8d3366f5b2ecfea89df43305f5479a1e8ccf16a97e5e16/cf116e604d57d07f35fa00bf63911f929641d379b92e2c27d8fc28fcbd9e93bb.json": {"bytes": 65267, "sha256": "859e936602bd5a4f7728df7baee11dde36adbf352ff33e930c482241665b8c4d"}, "s/s/s7e1066bd/sandbox-manifest.v1.json": {"bytes": 916, "sha256": "db05b8ad809b3eed9dce18efe6c52dfe26b7936c469d3287cc04b4af83b4e43e"}, "s/sandbox-registry.v1.json": {"bytes": 479, "sha256": "c764414d28b520f673be31f9b8dff836914ac7ac0f15f9aab0c37535fa0bd743"}}}
+
+======================================================================
+ERROR: test_api_question_followup_reply_same_engine_and_matter (tests.test_w04_4_continuity.CrossEntryTests.test_api_question_followup_reply_same_engine_and_matter)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 321, in _submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 959, in _run_domain
+    return self._complete_domain_after_thinking(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        operation,
+        ^^^^^^^^^^
+    ...<2 lines>...
+        thinking,
+        ^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 1197, in _complete_domain_after_thinking
+    self._continuity_core.after_action(operation,thinking,action)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 551, in after_action
+    choice = self.policy.choose(operation, context, thinking, action)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\w04_cross_entry_fixture.py", line 151, in confirmed
+    grant = self.core.expression_policy.authorization_request(self.core, operation, context, thinking, action)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\expression_policy_service.py", line 68, in authorization_request
+    raise ExpressionAccessError('EXPRESSION_CAPABILITY_UNAVAILABLE')
+continuity_engine.domain.expression.ExpressionAccessError: EXPRESSION_CAPABILITY_UNAVAILABLE
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_4_continuity.py", line 57, in test_api_question_followup_reply_same_engine_and_matter
+    self.chain()
+    ~~~~~~~~~~^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_4_continuity.py", line 33, in chain
+    first, item = self.begin()
+                  ~~~~~~~~~~^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_4_continuity.py", line 25, in begin
+    result = self.f.submit('周六选河边店还是山坡店？')
+             ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\w04_cross_entry_fixture.py", line 181, in submit
+    return self.entries.receive(self.last_request, self.last_message)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\cross_entry_service.py", line 313, in receive
+    return self.interaction.submit(payload, entry_message=message)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 192, in submit
+    return self._submit(payload, access_use=access_use, entry_message=entry_message)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 333, in _submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.
+
+----------------------------------------------------------------------
+Ran 1 test in 2.271s
+
+FAILED (errors=1)

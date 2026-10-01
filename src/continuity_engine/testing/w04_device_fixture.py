@@ -4,6 +4,7 @@ The durable device document is the Fake external app/body itself. E5-A owns
 Engine requests/results; the app atomically changes its state and native receipt.
 """
 from dataclasses import asdict, replace
+from copy import deepcopy
 from datetime import timedelta
 import json
 from pathlib import Path
@@ -31,6 +32,7 @@ class SimulatedDeviceStore(JsonExecutionOutbox):
         _validate_fixture_root(root)
         super().__init__(root, subject_id=subject, environment="TEST")
         self.path = Path(root) / "simulated-device.json"
+        self._verified_document = None
 
     def empty(self):
         return dict(subject_id=self.subject_id, environment="TEST", revision=0, page_id="page:editor",
@@ -42,7 +44,13 @@ class SimulatedDeviceStore(JsonExecutionOutbox):
         if not self.path.exists():
             return self.empty()
         try:
-            e = json.loads(self.path.read_text(encoding="utf-8")); d = e["document"]
+            # Simulated external app still reads its actual file every time.
+            # Reuse only full validation of identical bytes, never a receipt,
+            # authorization, connection status or execution decision.
+            raw = self.path.read_bytes()
+            if self._verified_document is not None and raw == self._verified_document[0]:
+                return deepcopy(self._verified_document[1])
+            e = json.loads(raw); d = e["document"]
             if set(e) != {"document", "hash"} or e["hash"] != digest(d) or set(d) != set(self.empty()):
                 raise ValueError()
             if (d["subject_id"], d["environment"]) != (self.subject_id, "TEST"):
@@ -57,6 +65,7 @@ class SimulatedDeviceStore(JsonExecutionOutbox):
                     effects.append(receipt.capability_request_id)
             if len(ids) != len(set(ids)) or credits != d["credits"] or effects != d["effects"]:
                 raise ValueError()
+            self._verified_document = (raw, deepcopy(d))
             return d
         except Exception:
             raise ExecutionError("SIMULATED_DEVICE_CORRUPT") from None
@@ -134,7 +143,7 @@ class SimulatedDevicePort:
         success = self.mode != "failure"
         records = []
         if success:
-            if op in {"locate", "click", "type", "save", "send"} and command.target not in view["controls"]:
+            if op in {"locate", "click", "type", "save", "send", 'message.send.ui'} and command.target not in view["controls"]:
                 raise EnvironmentAccessError("DEVICE_TARGET_MISSING")
             if op == "click":
                 view["last_clicked"] = command.target
@@ -144,6 +153,13 @@ class SimulatedDevicePort:
                 view["saved"] = view["draft"]
             elif op == "send":
                 view["sent"] = view["draft"]; view["send_count"] += 1
+            elif op in {'message.send.api', 'message.send.ui'}:
+                if op == 'message.send.ui':
+                    view['draft'] = command.text
+                    view['last_clicked'] = command.target
+                view['sent'] = command.text
+                view['send_count'] += 1
+                view['recipient'] = command.entry_delivery['entry_id']
             elif op == "scroll":
                 view["scroll"] += command.amount
             elif op == "body.act":
@@ -155,7 +171,7 @@ class SimulatedDevicePort:
         after = self.observation(command.observation.use, {**d, "revision": d["revision"] + 1})
         result = dict(outcome=command.expected_outcome if success else "FAILED",
             before=command.observation.to_dict(), after=after.to_dict(), records=records,
-            authority="SIMULATED_RESULT_OBSERVATION", business_complete=success and op in {"save", "send", "body.act"})
+            authority="SIMULATED_RESULT_OBSERVATION", business_complete=success and op in {"save", "send", "body.act", 'message.send.api', 'message.send.ui'})
         payload = dict(request_id=request.capability_request_id, request_hash=request.request_hash,
             world="TEST", asset=request.step.target, kind="device_observation",
             content=json.dumps(result, ensure_ascii=False, sort_keys=True))

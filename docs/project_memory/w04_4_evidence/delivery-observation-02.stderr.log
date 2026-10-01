@@ -1,0 +1,9 @@
+test_evidence_current_source_withdrawal_and_permission_rejection (tests.test_w04_4_delivery.DeliveryEvidenceTests.test_evidence_current_source_withdrawal_and_permission_rejection) ... ok
+test_formed_matter_adoption_recovers_once_via_original_w03_without_rebinding_context (tests.test_w04_4_delivery.DeliveryEvidenceTests.test_formed_matter_adoption_recovers_once_via_original_w03_without_rebinding_context) ... ok
+test_send_receipt_cannot_substitute_for_read_observation (tests.test_w04_4_delivery.DeliveryEvidenceTests.test_send_receipt_cannot_substitute_for_read_observation) ... ok
+test_sent_delivery_read_evidence_and_readonly_reopen (tests.test_w04_4_delivery.DeliveryEvidenceTests.test_sent_delivery_read_evidence_and_readonly_reopen) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 13.815s
+
+OK

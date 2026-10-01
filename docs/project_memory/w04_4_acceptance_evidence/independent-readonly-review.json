@@ -1,0 +1,81 @@
+{
+  "review_date": "2026-10-02",
+  "timezone": "Asia/Shanghai",
+  "scope": "D-092 / W04-4 R1/R2 repairs and same-source W04 package evidence",
+  "mode": "Independent static code review and read-only verification of construction-window evidence. No Engine code or tests executed; no Engine files or Git state modified.",
+  "conclusion": "NO_NEW_BLOCKING_FINDINGS_IN_REVIEWED_SCOPE. Prior R1 and R2 findings are resolved by the reviewed implementation and construction-window counterexample evidence. Ready for the user's formal acceptance decision; this record is not acceptance or Git authorization.",
+  "engine_root": "C:/Users/Administrator/Documents/continuity-engine",
+  "prior_review": "w04_4_d092_readonly_review_20261001.json",
+  "head": "c910be8ff65f1384c4942c980fc4087c1b595a87",
+  "local_origin_main": "c910be8ff65f1384c4942c980fc4087c1b595a87",
+  "actual_remote_main": "c910be8ff65f1384c4942c980fc4087c1b595a87",
+  "remote_check": "Read-only ls-remote completed successfully with per-command OpenSSL backend. No persistent configuration change.",
+  "ahead_behind": "0/0",
+  "source_count": 332,
+  "source_fingerprint": "sha256:d77fb9e525eae8bd5d09796db3703029ce3e759ca0eee9207db52f1347ab596c",
+  "source_changes_since_repair_baseline": [
+    "src/continuity_engine/services/cross_entry_service.py",
+    "src/continuity_engine/services/device_operation_service.py",
+    "src/continuity_engine/services/entry_context_source.py",
+    "tests/test_w04_4_review_repairs.py"
+  ],
+  "verification": {
+    "current_source_equals_frozen_source_and_audit": true,
+    "four_final_runs_source_before_and_after_equal_current_source": true,
+    "manifest_paths": 496,
+    "manifest_hashes_checked": 495,
+    "manifest_self_hash_exception": "docs/project_memory/w04_4_review_repair_evidence/final.files.json",
+    "manifest_hash_mismatches": [],
+    "retained_paths": 70,
+    "retained_hash_mismatches": [],
+    "protected_files": 63,
+    "formal_data_files": 7,
+    "planning_files": 3,
+    "protected_hash_mismatches": [],
+    "git_changed_and_untracked_paths": 566,
+    "git_paths_equal_manifest_union_retained": true,
+    "staged_paths": [],
+    "previous_test_files_changed": [],
+    "original_1975_test_identities_missing": [],
+    "final_verbose_log_identities_equal_frozen_1991_identities": true,
+    "previous_delivery_changed_paths_limited_to_three_runtime_files_and_eight_shared_documents": true,
+    "all_eight_shared_documents_preserve_previous_delivery_bytes_as_suffix": true,
+    "all_eight_shared_documents_preserve_HEAD_history_bytes_as_suffix": true,
+    "source_and_test_ast_errors": []
+  },
+  "construction_window_final_runs": [
+    {"label": "lineage-prefix-repair-09", "pass": 17, "skip": 0, "exit_code": 0, "test_seconds": 277.089, "scope": "16 new tests and the original package test"},
+    {"label": "w04-final-02", "pass": 215, "skip": 0, "exit_code": 0, "test_seconds": 904.839},
+    {"label": "public-final-02", "pass": 1144, "skip": 1, "exit_code": 0, "test_seconds": 1605.812},
+    {"label": "full-final-02", "pass": 1990, "skip": 1, "exit_code": 0, "test_seconds": 2460.921}
+  ],
+  "evidence_directory": "docs/project_memory/w04_4_review_repair_evidence",
+  "finding_resolutions": [
+    {
+      "id": "R1",
+      "status": "RESOLVED_IN_REVIEWED_SCOPE",
+      "source": "cross_entry_service.py:299-311,352-648; entry_context_source.py",
+      "implementation_review": "Original FieldChanges reconstruct per-value ancestry within a read. Retained APPEND/SET values retain previous sources; new values inherit Event/ThinkSession ancestors from actually composed historical fragments. Native and indirect state updates are no longer ignored. Current permission-scoped projection keeps eligible list members, and the source/resolver revalidate the selected section. No parallel persistent state or grant cache introduced.",
+      "before_evidence": "counterexamples-before-01 showed A markers in final B context and actual simulated expression after withdrawal, including reopen. Original state retained both values.",
+      "after_evidence": "lineage-prefix-repair-09 showed A markers absent and B markers present in final context and expression; authoritative state retained A. Native/indirect derivation, SET retention, reopen, binding change during read and authorized positive controls passed.",
+      "runtime_executed_by_reviewer": false
+    },
+    {
+      "id": "R2",
+      "status": "RESOLVED_IN_REVIEWED_SCOPE",
+      "source": "device_operation_service.py:96-137; cross_entry_service.py:669-704",
+      "implementation_review": "Execution keeps the early entry check and adds the final check after device observation and connection callbacks inside the original port-held dispatch guard. delivery_current compares the original control document again after its own remaining callbacks. Consumption still performs a full current entry check after its callbacks without duplicating the execution observation.",
+      "before_evidence": "counterexamples-before-01 showed effects=1 and credits=1 after late transfer withdrawal and contact pause; binding-before-02 established the same valid late-binding counterexample after correcting the auxiliary fixture input.",
+      "after_evidence": "lineage-prefix-repair-09 recorded the final guard request and unchanged device state: binding change, transfer withdrawal, pause, remaining connection callback and remaining permission callback each produced effects=0/credits=0. The unchanged-permission control produced effects=1/credits=1. Independent lawful internal cognition and stale-context refusal remain covered.",
+      "runtime_executed_by_reviewer": false
+    }
+  ],
+  "limits": [
+    "Existing tests and counterexamples were executed by the construction window. This reviewer inspected code, source identities and raw evidence; no independent runtime pass is claimed.",
+    "Test sets overlap and must not be added. Windows 1314 remains a SKIP, not PASS.",
+    "The original 1000 ms, 2048 budget and old tests remain unchanged; local isolated TEST evidence is not a production, unlimited-load or arbitrary concurrent revocation guarantee.",
+    "Historical failures, interrupted runs, F1/H1/F2 UNKNOWN and lack of remote CI evidence remain.",
+    "Formal acceptance, commit, push and W05 have not been performed by this review."
+  ],
+  "recommended_next_step": "Upon the user's explicit acceptance instruction, archive W04-4 and W04 package acceptance, build the exact final path manifest from the current 496 deliverables plus acceptance records, exclude the 70 retained materials, create one normal commit and push, then verify actual remote main. Stop before W05."
+}

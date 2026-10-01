@@ -390,29 +390,28 @@ class JsonIntegrationResultLedger:
         self,
         capability_request_id: str,
     ) -> CapabilityRequest | None:
-        requests, _ = self._load_capability_document()
-        return next(
+        return self._load_capability_document(_projection=lambda requests, attempts: next(
             (
                 item for item in requests
                 if item.capability_request_id == capability_request_id
             ),
             None,
-        )
+        ))
 
     def find_capability_request_by_operation(
         self,
         operation_id: str,
     ) -> CapabilityRequest | None:
-        requests, _ = self._load_capability_document()
-        return next((item for item in requests if item.operation_id == operation_id), None)
+        return self._load_capability_document(_projection=lambda requests, attempts:
+            next((item for item in requests if item.operation_id == operation_id), None))
 
     def find_action_requests_by_decision(self, decision_id: str) -> list[InternalActionRequest]:
         """Read existing typed requests; this is not an execution receipt check."""
         if not self._capability_path.exists():
             return []
-        requests, _ = self._load_capability_document()
-        return [item for item in requests if isinstance(item, InternalActionRequest)
-                and item.choice.decision_id == decision_id]
+        return self._load_capability_document(_projection=lambda requests, attempts:
+            [item for item in requests if isinstance(item, InternalActionRequest)
+             and item.choice.decision_id == decision_id])
 
     def save_capability_result(
         self,
@@ -474,15 +473,19 @@ class JsonIntegrationResultLedger:
         self,
         capability_request_id: str,
     ) -> list[CapabilityAttempt]:
-        _, attempts = self._load_capability_document()
-        return [
+        return self._load_capability_document(_projection=lambda requests, attempts: [
             item for item in attempts
             if item.result.capability_request_id == capability_request_id
-        ]
+        ])
 
     def _load_capability_document(
         self,
+        *, _projection=None,
     ) -> tuple[list[CapabilityRequest], list[CapabilityAttempt]]:
+        # Projections are internal reads of a fully verified document, never a
+        # replacement for whole-ledger validation. Read current bytes each time;
+        # copy only the selected result rather than every unrelated attempt.
+        project = _projection or (lambda requests, attempts: (requests, attempts))
         if not self._capability_path.exists():
             raise IntegrationRecordNotFoundError(
                 "capability ledger has not been initialized"
@@ -495,7 +498,7 @@ class JsonIntegrationResultLedger:
                 current_bytes = self._capability_path.read_bytes()
                 cached = scope.get('document')
                 if cached is not None and cached[0] == current_bytes:
-                    return deepcopy(cached[1])
+                    return deepcopy(project(*cached[1]))
                 raw = json.loads(current_bytes.decode('utf-8'))
             except FileNotFoundError:
                 raise
@@ -598,7 +601,7 @@ class JsonIntegrationResultLedger:
                 terminal_requests.add(result.capability_request_id)
         if scope is not None:
             scope['document'] = (current_bytes, deepcopy((requests, attempts)))
-        return requests, attempts
+        return project(requests, attempts)
 
     def _write_capability_document(
         self,
@@ -651,9 +654,15 @@ class JsonIntegrationResultLedger:
             subject_id=operation.subject_id, binding_id=operation.binding_id,
             input_processing_enabled=operation.input_processing_enabled,
             recall_enabled=operation.recall_enabled,
+            entry_record=operation.entry_record,
+            evolution=operation.evolution,
             domain_progress=None if progress is None else SimpleNamespace(
                 input_processing=progress.input_processing, perception=input_only(progress.perception),
                 input_preparation=input_only(progress.input_preparation)))
+
+    def _list_operation_inputs(self):
+        """Small provenance projection AFTER full original journal validation."""
+        return self._load_operations(_input_view=True)
 
     def save_operation(self, operation: IntegrationOperationRecord) -> None:
         if not isinstance(operation, IntegrationOperationRecord):
@@ -726,7 +735,7 @@ class JsonIntegrationResultLedger:
             name="first-round result ledger",
         )
 
-    def _load_operations(self, *, _request_id=None, _input_view=False) -> list[IntegrationOperationRecord]:
+    def _load_operations(self, *, _request_id=None, _input_view=False, _projection=None) -> list[IntegrationOperationRecord]:
         if not self._operation_path.exists():
             return []
         scope = self._operation_read_scope.get()
@@ -744,6 +753,8 @@ class JsonIntegrationResultLedger:
                         item for item in cached[1] if item.request_id == _request_id]
                     if _input_view:
                         selected = [self._input_view(item) for item in selected]
+                    if _projection is not None:
+                        selected = [_projection(item) for item in selected]
                     return deepcopy(selected)
                 raw = json.loads(current_bytes.decode('utf-8'))
             except FileNotFoundError:
@@ -778,6 +789,8 @@ class JsonIntegrationResultLedger:
             scope['document'] = (current_bytes, deepcopy(operations))
         selected = operations if _request_id is None else [
             item for item in operations if item.request_id == _request_id]
+        if _projection is not None:
+            return deepcopy([_projection(item) for item in selected])
         return deepcopy([self._input_view(item) for item in selected]) if _input_view else selected
 
     @staticmethod
@@ -831,6 +844,7 @@ class JsonIntegrationResultLedger:
             "reserved_at",
             "input_processing_enabled",
             "recall_enabled",
+            "entry_record",
         )
         if any(
             getattr(previous, field) != getattr(current, field)

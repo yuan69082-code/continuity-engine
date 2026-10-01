@@ -1,0 +1,8 @@
+test_environment_current_junction_rejects_before_ingress_and_restores (test_w04_4_boundaries.EntryBoundaryTests.test_environment_current_junction_rejects_before_ingress_and_restores) ... ok
+test_environment_metadata_access_denied_is_not_absent_or_cached (test_w04_4_boundaries.EntryBoundaryTests.test_environment_metadata_access_denied_is_not_absent_or_cached) ... ok
+test_provenance_projection_validates_whole_current_journal_and_isolates (test_w04_4_boundaries.EntryBoundaryTests.test_provenance_projection_validates_whole_current_journal_and_isolates) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 4.350s
+
+OK

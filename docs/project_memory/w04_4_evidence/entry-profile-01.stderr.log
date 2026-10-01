@@ -1,0 +1,59 @@
+E{"test": "tests.test_w04_4_continuity.CrossEntryTests.test_api_question_followup_reply_same_engine_and_matter", "stage": "before-TEST-cleanup", "files": {"s/.p01-sandbox-root.v1.json": {"bytes": 98, "sha256": "3ced39d6b395df89d9b1f34e1b3faf46c14ccc6edab679a616f588a978e002f7"}, "s/s/se1e7655e/b/bf66e382d/branch-manifest.v1.json": {"bytes": 243, "sha256": "906812a04c069722152d0ffe0218174fbc87e9158833ea4368cb1f9bffc5cb3d"}, "s/s/se1e7655e/b/bf66e382d/data/awakening/cycles/cff4802f899f0c922c90423962e1d29fc5cd459e669d8cf4bb1f290593adb4d4.json": {"bytes": 253, "sha256": "d504a3a0d8583cb90fa7ad8cf0c360a2de39943be604c22bcfce19ecbdbdf783"}, "s/s/se1e7655e/b/bf66e382d/data/awakening/sessions/709ccae0e0545273b503e8dec912e314ab2513402946dbae934e73bf04a090dd/f461a2125b995eed01da708cb780608012135393504e520a335088f450837418.json": {"bytes": 10657, "sha256": "755ba7ebba9a3c577a2657edcd51154abcc472d7529e30c711631dc6ccac65c8"}, "s/s/se1e7655e/b/bf66e382d/data/c1-receipts/p08-fake-receipts.json": {"bytes": 148, "sha256": "a411df96a3b6eea514baf41f59d45ab70c55b96ee9f28e118d79525ea3bfe8c8"}, "s/s/se1e7655e/b/bf66e382d/data/clock/subject-clock.v1.json": {"bytes": 109, "sha256": "9215b6977c7811370330d01c8bfe7e63b8e43ba8b12a8f09d85b24e7efac24ad"}, "s/s/se1e7655e/b/bf66e382d/data/contradiction/test/709ccae0e0545273b503e8dec912e314ab2513402946dbae934e73bf04a090dd.json": {"bytes": 228, "sha256": "d362116ea5f07489dda1decbd49d307a3a837e2ce8b8dc14dd215b7a6b19fa5a"}, "s/s/se1e7655e/b/bf66e382d/data/environment-access/test/00ce9496532618741451640b009f9643f2c35015dd525cc9bc288f2f427d5b28/attachments.v1.json": {"bytes": 8486, "sha256": "4b5b59a1b1001bc97b15542392176f5b14290dc45faf034c76821b95b642489b"}, "s/s/se1e7655e/b/bf66e382d/data/environment-access/test/00ce9496532618741451640b009f9643f2c35015dd525cc9bc288f2f427d5b28/attachments.v1.lock": {"bytes": 1, "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"}, "s/s/se1e7655e/b/bf66e382d/data/fixture/c1-profile.v1.json": {"bytes": 102, "sha256": "f3136a138634ffa73e9c6d50d5315abc3f99180b4020af0176ed0c84fbaa7a65"}, "s/s/se1e7655e/b/bf66e382d/data/fixture/state-fixture.v1.json": {"bytes": 635, "sha256": "b407401e357872fa1eb48cb8b96b721b8832d600e1a47998cb8d3de780aa6874"}, "s/s/se1e7655e/b/bf66e382d/data/integration/capability-ledger.v1.json": {"bytes": 82, "sha256": "95f292f0db842e43cccb490ce10bbeefd3bab92d43fa69f4bb1b6188d4ed43de"}, "s/s/se1e7655e/b/bf66e382d/data/integration/operation-journal.first-round-v1.json": {"bytes": 33777, "sha256": "2a1ee236a081b14bb31c8d8a7beec0e253bca567a91affa92be1a676c8842f89"}, "s/s/se1e7655e/b/bf66e382d/data/integration/result-ledger.first-round-v1.json": {"bytes": 63, "sha256": "5407f91ac04019966f84bfbad51ebc1fb904bd085a6579febfa75a9ea068592a"}, "s/s/se1e7655e/b/bf66e382d/data/integration/subject-binding.runtime-v1.json": {"bytes": 613, "sha256": "0a164aa26b4397a8d3295a2e0c9803dab1a27c0749eeebb151026f06979c80ba"}, "s/s/se1e7655e/b/bf66e382d/data/learning/709ccae0e0545273b503e8dec912e314ab2513402946dbae934e73bf04a090dd.json": {"bytes": 2154, "sha256": "96c07a41765a9f7fb371ad2c4b95a62567088b29477114b88765f92da13a9d0f"}, "s/s/se1e7655e/b/bf66e382d/data/memory/test/709ccae0e0545273b503e8dec912e314ab2513402946dbae934e73bf04a090dd.json": {"bytes": 4202, "sha256": "3584489e0b39f90b236b7c63f41be4ec6198c4e9e3eff8ca7c24b8e285708954"}, "s/s/se1e7655e/b/bf66e382d/data/resources/709ccae0e0545273b503e8dec912e314ab2513402946dbae934e73bf04a090dd.json": {"bytes": 437, "sha256": "cc6f8f73a9f51885ed5d7d7d6a98eced84afd0fa1e14eeca116d731585aeab40"}, "s/s/se1e7655e/b/bf66e382d/data/subject-state/709ccae0e0545273b503e8dec912e314ab2513402946dbae934e73bf04a090dd.json": {"bytes": 4912, "sha256": "5e60385d956d255c3bd0b38a06e0f9c70c2990a97248b71aa6edd1855f49e077"}, "s/s/se1e7655e/b/bf66e382d/data/test-actions/action-sessions.v1.json": {"bytes": 128, "sha256": "914b83688ebf97e6206614fe03dbb2c304fe5ad92bdfda8d1e0124754d537906"}, "s/s/se1e7655e/b/bf66e382d/data/test-indexes/events.v1.json": {"bytes": 138, "sha256": "fc3410e2fc79603683d82c5941ed3ce70081124218b52151b2b3a58e8e4db93b"}, "s/s/se1e7655e/b/bf66e382d/data/test-indexes/evolution.v1.json": {"bytes": 141, "sha256": "feb7e95fb7045b0794375e31ac559342164684a93ee8160b0f12bce7a44b0c2c"}, "s/s/se1e7655e/b/bf66e382d/data/test-indexes/relationship-state.v1.json": {"bytes": 150, "sha256": "14a423a9dbcd559eb2197df03bb5c8de78596566d4e05d208ab08d7e23d3fd95"}, "s/s/se1e7655e/b/bf66e382d/data/test-indexes/state-mutations.v1.json": {"bytes": 147, "sha256": "13ad5f3f15c2426447079a02482b1c344c3bcd92477af1ea153620a6fd15645a"}, "s/s/se1e7655e/b/bf66e382d/data/test-indexes/thinking-sessions.v1.json": {"bytes": 149, "sha256": "0fed8c548ca63fdc4cfc29712b3dd668419410643e629c908c32fe40e6faee61"}, "s/s/se1e7655e/b/bf66e382d/data/test-indexes/wake-sessions.v1.json": {"bytes": 145, "sha256": "4369a20c00a5df697780ecb7fc7ebcd38487b73cbd2a006c168acb5436781679"}, "s/s/se1e7655e/b/bf66e382d/data/test-memory/memory-ledger.v1.json": {"bytes": 631, "sha256": "0b4eab4ffcb493aac61ffcf38d3a994df2216e42c584b174a3f4c3f34785ad70"}, "s/s/se1e7655e/b/bf66e382d/data/test-trace/subject-clock-trace.v1.json": {"bytes": 1558, "sha256": "aa3b30b4141029a8b932966947ba945f71863fecf85fc973137009bc7df73a79"}, "s/s/se1e7655e/sandbox-manifest.v1.json": {"bytes": 916, "sha256": "af9939eeeba8dc0056b8b6373f7d6010bdb6af90880ffdb635b2ccf879803a6f"}, "s/sandbox-registry.v1.json": {"bytes": 479, "sha256": "fb036fc54fd6e0029e70bff02c0302f725e2fbd48d4928f7fe033ce423a06683"}}}
+
+======================================================================
+ERROR: test_api_question_followup_reply_same_engine_and_matter (tests.test_w04_4_continuity.CrossEntryTests.test_api_question_followup_reply_same_engine_and_matter)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 321, in _submit
+    operation, thinking_execution = self._run_domain(request, operation, binding)
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 876, in _run_domain
+    perception = self._continuity_core.prepare(perception, operation,
+        **({'save_input': save_input} if operation.input_processing_enabled else {}),
+        **({'save_recall':save_recall} if operation.recall_enabled else {}))
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 335, in prepare
+    return self._prepare(perception, operation, save_input=save_input,save_recall=save_recall)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_core_service.py", line 414, in _prepare
+    route,composition,recall_record=self.recall.prepare(perception,operation,save_recall,
+                                    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        attention=mind['influence']['attention'] if mind is not None else None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\associative_recall_service.py", line 100, in prepare
+    return self._prepare(perception,operation,save,attention=attention)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\associative_recall_service.py", line 211, in _prepare
+    raise CapabilityValidationError(stop)
+continuity_engine.domain.errors.CapabilityValidationError: RECALL_TIMEOUT
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_4_continuity.py", line 57, in test_api_question_followup_reply_same_engine_and_matter
+    self.chain()
+    ~~~~~~~~~~^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_4_continuity.py", line 33, in chain
+    first, item = self.begin()
+                  ~~~~~~~~~~^^
+  File "C:\Users\Administrator\Documents\continuity-engine\tests\test_w04_4_continuity.py", line 25, in begin
+    result = self.f.submit('周六选河边店还是山坡店？')
+             ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\w04_cross_entry_fixture.py", line 181, in submit
+    return self.entries.receive(self.last_request, self.last_message)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\cross_entry_service.py", line 300, in receive
+    return self.interaction.submit(payload, entry_message=message)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 192, in submit
+    return self._submit(payload, access_use=access_use, entry_message=entry_message)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\services\continuity_interaction_service.py", line 333, in _submit
+    raise IntegrationExecutionError(
+    ...<4 lines>...
+    ) from exc
+continuity_engine.domain.errors.IntegrationExecutionError: Local integration encountered an unexpected execution fault during domain.
+
+----------------------------------------------------------------------
+Ran 1 test in 2.525s
+
+FAILED (errors=1)

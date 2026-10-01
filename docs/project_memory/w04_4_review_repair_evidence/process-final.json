@@ -1,0 +1,15 @@
+{
+  "observed_utc": "2026-10-01T16:00:32.7148738Z",
+  "method": "Get-Process python,pythonw after full-final-02 controller exited 0",
+  "all_python_count": 0,
+  "owned_python_count": 0,
+  "processes": [],
+  "forced_cleanup": false,
+  "scope": "No Python process observed; no unrelated process terminated",
+  "completed_runs": [
+    "lineage-prefix-repair-09",
+    "w04-final-02",
+    "public-final-02",
+    "full-final-02"
+  ]
+}

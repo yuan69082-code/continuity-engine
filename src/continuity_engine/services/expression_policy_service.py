@@ -124,7 +124,14 @@ class ExpressionPolicyService:
             raise ExpressionAccessError('EXPRESSION_CONTEXT_STALE_OR_UNAUTHORIZED')
         result=thinking.session.result
         mode=self.mode(result)
-        denied=not action.decision.approved or action.decision.requires_confirmation
+        confirmation_satisfied=False
+        if action.decision.approved and action.decision.requires_confirmation and mode!='SILENCE':
+            request=self.authorization_request(core,operation,context,thinking,action)
+            try:
+                confirmation_satisfied=core.constraints.confirmed(request) is True
+            except Exception:
+                raise ExpressionAccessError('EXPRESSION_CONFIRMATION_UNAVAILABLE') from None
+        denied=not action.decision.approved or (action.decision.requires_confirmation and not confirmation_satisfied)
         delivery_denial=None
         if not denied and mode!='SILENCE':
             try:
@@ -147,6 +154,10 @@ class ExpressionPolicyService:
                  'ACTION_GATE_DENIED' if denied else ('NO_VISIBLE_EXPRESSION' if mode=='SILENCE' else 'CURRENT_ACTION_GATE_CHECKED'))
         if delivery_denial is not None:
             reasons=(*reasons[:-1],'INDEPENDENT_STATE_EXPRESSION_DENIED',delivery_denial)
+        if confirmation_satisfied and not denied:
+            # Bound to the original operation/Thinking/Action by binding_hash.
+            # A saved assessment proves a past decision, never current consent.
+            reasons=(*reasons,'EXACT_ACTION_CONFIRMATION_CHECKED')
         return ExpressionDecision(mode,binding,digest(result.result_summary),state_hash,
             context.binding_hash(),layout,compact,emphasis,reasons,status)
 
@@ -183,6 +194,14 @@ class ExpressionPolicyService:
         decision=artifact.decision
         result=thinking.session.result
         denied=not action.decision.approved or action.decision.requires_confirmation
+        confirmation_checked='EXACT_ACTION_CONFIRMATION_CHECKED' in decision.reason_codes
+        if confirmation_checked:
+            if (not action.decision.approved or not action.decision.requires_confirmation
+                    or decision.mode=='SILENCE' or decision.status!='SUBJECT_EXPRESSION'
+                    or decision.reason_codes.count('EXACT_ACTION_CONFIRMATION_CHECKED')!=1
+                    or 'CURRENT_ACTION_GATE_CHECKED' not in decision.reason_codes):
+                raise ExpressionValidationError('EXPRESSION_CONFIRMATION_BINDING_INVALID')
+            denied=False
         independent_denial=('INDEPENDENT_STATE_EXPRESSION_DENIED' in decision.reason_codes)
         if independent_denial:
             from continuity_engine.domain.action import ApprovedStateAction

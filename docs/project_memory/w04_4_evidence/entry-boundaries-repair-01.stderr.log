@@ -1,0 +1,11 @@
+test_dispatched_unknown_send_allows_distinct_inquiry_without_replaying_original (tests.test_w04_4_boundaries.EntryBoundaryTests.test_dispatched_unknown_send_allows_distinct_inquiry_without_replaying_original) ... ok
+test_environment_callback_changes_cannot_pass_single_document_reuse (tests.test_w04_4_boundaries.EntryBoundaryTests.test_environment_callback_changes_cannot_pass_single_document_reuse) ... ok
+test_group_bound_recipient_success_wrong_group_and_self_sender_rejected (tests.test_w04_4_boundaries.EntryBoundaryTests.test_group_bound_recipient_success_wrong_group_and_self_sender_rejected) ... ok
+test_read_callback_binding_change_is_rejected_before_persistence (tests.test_w04_4_boundaries.EntryBoundaryTests.test_read_callback_binding_change_is_rejected_before_persistence) ... ok
+test_scoped_state_parse_checks_current_bytes_and_returns_private_copies (tests.test_w04_4_boundaries.EntryBoundaryTests.test_scoped_state_parse_checks_current_bytes_and_returns_private_copies) ... ok
+test_unknown_old_send_does_not_freeze_distinct_same_matter_inquiry (tests.test_w04_4_boundaries.EntryBoundaryTests.test_unknown_old_send_does_not_freeze_distinct_same_matter_inquiry) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 24.280s
+
+OK

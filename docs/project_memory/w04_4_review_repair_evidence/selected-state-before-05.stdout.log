@@ -1,0 +1,3 @@
+{"test": "test_w04_4_review_repairs.EntryReviewRepairTests.test_redacted_matter_does_not_block_independent_b_expression", "review_observations": []}
+{"test": "test_w04_4_review_repairs.EntryReviewRepairTests.test_state_read_binding_change_is_rejected_before_provider", "review_observations": [{"provider_proposal": [["continuity.current_focus", "A_CURRENT_SOURCE"]], "native": false}]}
+{"test": "test_w04_4_review_repairs.EntryReviewRepairTests.test_state_query_and_same_request_reopen_do_not_repeat_submission", "review_observations": [{"provider_proposal": [["continuity.current_focus", "A_REPLAY_PRIVATE"]], "native": false}, {"provider_proposal": [["continuity.current_focus", "B_REPLAY_LOCAL"]], "native": false}]}

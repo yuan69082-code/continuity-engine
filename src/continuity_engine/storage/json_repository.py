@@ -8,6 +8,7 @@ import tempfile
 import time
 from contextlib import contextmanager
 from contextvars import ContextVar
+from copy import deepcopy
 from pathlib import Path
 from threading import Event as ThreadEvent, RLock
 from typing import Any
@@ -223,6 +224,32 @@ class JsonSubjectStateRepository:
 
     def __init__(self, root: Path | str) -> None:
         self.root = Path(root)
+        self._verified_read_scope = ContextVar('verified_state_reads', default=None)
+
+    @contextmanager
+    def _verified_state_reads(self):
+        """Optional preparation-local parse reuse; no lifecycle/permission cache."""
+        token = self._verified_read_scope.set({})
+        try:
+            yield
+        finally:
+            self._verified_read_scope.reset(token)
+
+    def _read_component(self, path, subject_id, index):
+        scope = self._verified_read_scope.get()
+        if scope is None:
+            return self._decode_document(self._read_payload(path, subject_id))[index]
+        try:
+            raw = path.read_bytes()
+            cached = scope.get(path)
+            if cached is None or raw != cached[0]:
+                decoded = self._decode_document(json.loads(raw))
+                if decoded[0].subject_id != subject_id:
+                    raise StateValidationError('persisted subject_id does not match requested subject_id')
+                scope[path] = (raw, decoded)
+            return deepcopy(scope[path][1][index])
+        except (OSError, json.JSONDecodeError) as exc:
+            raise StateValidationError(f'unable to read valid state data for: {subject_id}') from exc
 
     @staticmethod
     def _validate_subject_id(subject_id: str) -> None:
@@ -241,7 +268,7 @@ class JsonSubjectStateRepository:
         path = self._path_for(subject_id)
         if not path.is_file():
             raise StateNotFoundError(f"subject state not found: {subject_id}")
-        state, _ = self._decode_document(self._read_payload(path, subject_id))
+        state = self._read_component(path, subject_id, 0)
         if state.subject_id != subject_id:
             raise StateValidationError("persisted subject_id does not match requested subject_id")
         return state
@@ -312,6 +339,8 @@ class JsonSubjectStateRepository:
         path = self._path_for(subject_id)
         if not path.is_file():
             raise StateNotFoundError(f"subject state not found: {subject_id}")
+        if self._verified_read_scope.get() is not None:
+            return self._read_component(path, subject_id, 1)
         state, updates = self._decode_document(self._read_payload(path, subject_id))
         if state.subject_id != subject_id:
             raise StateValidationError("persisted subject_id does not match requested subject_id")

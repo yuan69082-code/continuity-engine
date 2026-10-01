@@ -191,7 +191,10 @@ class ExecutionService:
                     continue
                 fact = self.query(prior)
                 if fact is ReceiptQuery.UNKNOWN:
-                    raise ExecutionError('EXECUTION_UNCONFIRMED')
+                    continuity = getattr(self.core, 'entry_continuity', None)
+                    if continuity is None or self.port('EXECUTION_INQUIRY_CHECK_UNAVAILABLE',
+                            continuity.independent_inquiry, prior, request) is not True:
+                        raise ExecutionError('EXECUTION_UNCONFIRMED')
             # Resource calculation may change local permission/readiness. It is
             # preparation, never the authorization snapshot for the world call.
             if self.port('RESOURCE_EXHAUSTED',self.boundary.capacity,route,request,self.limits) is not True:
@@ -436,9 +439,11 @@ class ExecutionService:
         # Dispatch must still go through original P08/E5-A, never direct call here.
         return compensation_id
 
-    def results_for_context(self):
+    def results_for_context(self, *, request_id=None):
         values=[]
         for entry in self.outbox.load()['entries']:
+            if request_id is not None and entry['request_id'] != request_id:
+                continue
             if entry['state']!='DELIVERED':
                 continue
             request=self.request(entry['request_id']);route=self.route_for(request)

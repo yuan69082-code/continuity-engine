@@ -1,0 +1,41 @@
+{
+  "at_utc": "2026-09-30T18:33:01.179994+00:00",
+  "exec_session": 4916,
+  "source": "sha256:63b8189dda6bca9a7cb5985cfeded9e0d920aca284500d32bdded91040307261",
+  "runs": [
+    {
+      "label": "targeted-final-02",
+      "status": "COMPLETED",
+      "exit_code": 0,
+      "duration_seconds": 306.668,
+      "hash_before": "sha256:63b8189dda6bca9a7cb5985cfeded9e0d920aca284500d32bdded91040307261",
+      "hash_after": "sha256:63b8189dda6bca9a7cb5985cfeded9e0d920aca284500d32bdded91040307261"
+    },
+    {
+      "label": "w04-final-02",
+      "status": "STARTED",
+      "exit_code": null,
+      "duration_seconds": null,
+      "hash_before": "sha256:63b8189dda6bca9a7cb5985cfeded9e0d920aca284500d32bdded91040307261",
+      "hash_after": null
+    },
+    {
+      "label": "public-final-02",
+      "status": null,
+      "exit_code": null,
+      "duration_seconds": null,
+      "hash_before": null,
+      "hash_after": null
+    },
+    {
+      "label": "full-final-02",
+      "status": null,
+      "exit_code": null,
+      "duration_seconds": null,
+      "hash_before": null,
+      "hash_after": null
+    }
+  ],
+  "unfinished_not_pass": true,
+  "restart_requires_process_and_log_check": true
+}

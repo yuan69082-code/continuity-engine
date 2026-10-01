@@ -1,0 +1,39 @@
+{
+  "at_utc": "2026-09-30T19:01:38.290430+00:00",
+  "exec_session": 4916,
+  "runs": [
+    {
+      "label": "targeted-final-02",
+      "status": "COMPLETED",
+      "exit_code": 0,
+      "duration_seconds": 306.668,
+      "hash_before": "sha256:63b8189dda6bca9a7cb5985cfeded9e0d920aca284500d32bdded91040307261",
+      "hash_after": "sha256:63b8189dda6bca9a7cb5985cfeded9e0d920aca284500d32bdded91040307261"
+    },
+    {
+      "label": "w04-final-02",
+      "status": "COMPLETED",
+      "exit_code": 0,
+      "duration_seconds": 663.233,
+      "hash_before": "sha256:63b8189dda6bca9a7cb5985cfeded9e0d920aca284500d32bdded91040307261",
+      "hash_after": "sha256:63b8189dda6bca9a7cb5985cfeded9e0d920aca284500d32bdded91040307261"
+    },
+    {
+      "label": "public-final-02",
+      "status": "COMPLETED",
+      "exit_code": 0,
+      "duration_seconds": 1667.02,
+      "hash_before": "sha256:63b8189dda6bca9a7cb5985cfeded9e0d920aca284500d32bdded91040307261",
+      "hash_after": "sha256:63b8189dda6bca9a7cb5985cfeded9e0d920aca284500d32bdded91040307261"
+    },
+    {
+      "label": "full-final-02",
+      "status": "STARTED",
+      "exit_code": null,
+      "duration_seconds": null,
+      "hash_before": "sha256:63b8189dda6bca9a7cb5985cfeded9e0d920aca284500d32bdded91040307261",
+      "hash_after": null
+    }
+  ],
+  "incomplete_not_pass": true
+}

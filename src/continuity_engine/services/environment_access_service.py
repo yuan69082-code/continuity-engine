@@ -55,8 +55,8 @@ class EnvironmentAccessService:
     def _now(self):
         return _time(self.clock())
 
-    def _available(self, attachment, *, purpose, scope=None):
-        document = self.repository.load()
+    def _available(self, attachment, *, purpose, scope=None, document=None):
+        document = self.repository.load() if document is None else document
         current = next((row for row in document["attachments"]
                         if row["attachment_id"] == attachment.attachment_id), None)
         if current != attachment.to_dict():
@@ -81,6 +81,8 @@ class EnvironmentAccessService:
             raise EnvironmentAccessError("W04_CURRENT_PORT_UNAVAILABLE") from None
         latest = self.repository.load()
         if ((latest["active_host"], latest["generation"]) != (attachment.host_id, attachment.generation)
+                or latest.get('entry_bindings') != document.get('entry_bindings')
+                or latest.get('contact_pauses') != document.get('contact_pauses')
                 or next((row for row in latest["attachments"]
                          if row["attachment_id"] == attachment.attachment_id), None) != attachment.to_dict()):
             return "CHANGED_DURING_CHECK"
@@ -91,8 +93,23 @@ class EnvironmentAccessService:
             raise EnvironmentAccessError("W04_USE_REQUIRED")
         if (use.subject_id, use.environment) != (self.repository.subject_id, self.repository.environment):
             raise EnvironmentAccessError("W04_USE_BOUNDARY")
-        records = [Attachment.from_dict(row) for row in self.repository.load()["attachments"]]
-        item = next((row for row in records if row.attachment_id == use.attachment_id), None)
+        return self._require_from_document(use, kinds=kinds, document=self.repository.load())
+
+    def _require_from_document(self, use: AttachmentUse, *, kinds, document):
+        """One check can reuse its already read pre-callback document.
+
+        _available still rereads current bytes after every external callback.
+        Even a stale/forged document cannot pass that exact attachment binding.
+        No authorization result survives this invocation.
+        """
+        if not isinstance(use, AttachmentUse):
+            raise EnvironmentAccessError("W04_USE_REQUIRED")
+        if (use.subject_id, use.environment) != (self.repository.subject_id, self.repository.environment):
+            raise EnvironmentAccessError("W04_USE_BOUNDARY")
+        # Repository has verified the complete document. Construct the selected
+        # value only; _available rechecks it against current bytes after ports.
+        row=next((row for row in document["attachments"] if row['attachment_id']==use.attachment_id),None)
+        item=Attachment.from_dict(row) if row is not None else None
         if item is None or item.kind not in kinds:
             raise EnvironmentAccessError("W04_ATTACHMENT_MISSING")
         if (item.subject_id, item.environment, item.generation, item.host_id, item.channel_id,
@@ -100,7 +117,7 @@ class EnvironmentAccessService:
                 use.subject_id, use.environment, use.generation, use.host_id, use.channel_id,
                 use.software_id, use.device_id, use.account_id, use.session_id):
             raise EnvironmentAccessError("W04_USE_BINDING")
-        reason = self._available(item, purpose=use.purpose, scope=use.scope)
+        reason = self._available(item, purpose=use.purpose, scope=use.scope, document=document)
         if reason != "CURRENTLY_AVAILABLE":
             raise EnvironmentAccessError("W04_" + reason)
         return item

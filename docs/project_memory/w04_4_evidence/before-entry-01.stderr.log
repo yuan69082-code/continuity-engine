@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Documents\continuity-engine\docs\project_memory\w04_4_evidence\pre-entry-01.py", line 4, in <module>
+    f=W02RecallFixture(root)
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\w02_recall_fixture.py", line 9, in __init__
+    super().__init__(root,gates=replace(gates or ContinuityCoreGates(),automatic_recall=True),**options)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\w02_input_fixture.py", line 32, in __init__
+    super().__init__(root, gates=replace(gates or ContinuityCoreGates(), input_processing=enabled), **options)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Documents\continuity-engine\src\continuity_engine\testing\p09_core_fixture.py", line 125, in __init__
+    self.manager = manager or P01SandboxManager(root / "s", formal_data_roots=(root / "formal-canary",))
+                                                ~~~~~^~~~~
+TypeError: unsupported operand type(s) for /: 'str' and 'str'

@@ -183,22 +183,24 @@ class ContinuityInteractionService:
         payload: Any,
         *,
         access_use=None,
+        entry_message=None,
     ):
         processor = self._continuity_core.input_processing if self._continuity_core is not None else None
         if processor is not None:
             with processor.admission():
                 try:
-                    return self._submit(payload, access_use=access_use)
+                    return self._submit(payload, access_use=access_use, entry_message=entry_message)
                 finally:
                     if isinstance(payload, Mapping) and isinstance(payload.get('requestId'), str):
                         processor.source.release(payload['requestId'])
-        return self._submit(payload, access_use=access_use)
+        return self._submit(payload, access_use=access_use, entry_message=entry_message)
 
     def _submit(
         self,
         payload: Any,
         *,
         access_use=None,
+        entry_message=None,
     ) -> (
         FirstRoundSuccessResult
         | FirstRoundErrorEnvelope
@@ -224,6 +226,16 @@ class ContinuityInteractionService:
             if binding is None:
                 return self._error(request_id, FirstRoundErrorCode.SUBJECT_BINDING_MISMATCH)
 
+            entry_record = None
+            entry = getattr(self._continuity_core, 'entry_continuity', None)
+            if entry is not None:
+                entry_record, duplicate = entry.prepare(request, entry_message)
+                if duplicate is not None:
+                    return duplicate
+                access_use = entry_message and entry.binding(entry_message.entry_id).use
+            elif entry_message is not None:
+                raise CapabilityValidationError('ENTRY_CONTINUITY_NOT_READY')
+
             if self._environment_access is not None:
                 # Trusted in-process attachment, separate from the frozen v1
                 # message envelope. Do this before any operation or Wake write.
@@ -239,6 +251,9 @@ class ContinuityInteractionService:
                 # W02 raw input must pass the existing credential-material boundary
                 # before the first operation/Wake/Perception write, not at Provider time.
                 self._validate_capability_material(payload)
+
+            if entry is not None:
+                entry.validate_for_persistence(entry_record)
 
             stage = "ledger"
             self._record("ledger")
@@ -293,6 +308,7 @@ class ContinuityInteractionService:
                     input_processing_enabled=(self._continuity_core is not None
                         and self._continuity_core.enabled and self._continuity_core.gates.input_processing),
                     recall_enabled=(self._continuity_core is not None and self._continuity_core.recall is not None),
+                    entry_record=entry_record,
                 )
                 self._ledger.save_operation(operation)
                 self._fault("after_operation_reserved", operation)
@@ -1173,10 +1189,13 @@ class ContinuityInteractionService:
         self._fault("after_action_completed", operation)
         independent_internal=(perception.continuity_context is not None
                               and perception.continuity_context.mind is not None)
+        expression_first=(independent_internal or (
+            operation.entry_record is not None and perception.continuity_context is not None
+            and perception.continuity_context.expression_enabled))
         if perception.continuity_context is not None:
             if self._continuity_core is None:
                 raise CapabilityValidationError("C1_PENDING_FEATURE_DISABLED")
-            if independent_internal:
+            if expression_first:
                 # Form the original routed choice (including exact consent)
                 # before presentation assessment, without dispatching it.
                 self._continuity_core.state_choice(operation,thinking,action)
@@ -1192,7 +1211,7 @@ class ContinuityInteractionService:
             response_content = expression.content
         else:
             response_content = self._reply_composer.compose(thinking, action)
-        if independent_internal:
+        if expression_first:
             self._continuity_core.after_action(operation, thinking, action, expression=expression)
             self._fault("after_c1_action_completed", operation)
         approved = self._state_authorization(action, operation.domain_progress.perception, operation, thinking)

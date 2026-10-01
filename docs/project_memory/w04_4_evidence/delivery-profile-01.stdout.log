@@ -1,0 +1,46 @@
+         4155319 function calls (3234029 primitive calls) in 2.179 seconds
+
+   Ordered by: cumulative time
+   List reduced from 1005 to 35 due to restriction <35>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    2.193    2.193 associative_recall_service.py:102(_prepare)
+    736/3    0.005    0.000    2.105    0.702 reply-profile-01.py:14(wrapped)
+        1    0.000    0.000    2.090    2.090 context_router_service.py:691(route)
+        1    0.001    0.001    2.089    2.089 context_router_service.py:786(_execute)
+        3    0.000    0.000    1.401    0.467 execution_context_source.py:34(retrieve)
+        3    0.000    0.000    1.396    0.465 execution_context_source.py:24(items)
+        3    0.000    0.000    1.395    0.465 execution_service.py:439(results_for_context)
+        2    0.000    0.000    0.866    0.433 execution_context_source.py:51(revalidate)
+       12    0.000    0.000    0.625    0.052 execution_service.py:470(_current_result_source)
+       12    0.000    0.000    0.625    0.052 execution_service.py:176(current)
+       12    0.000    0.000    0.573    0.048 device_operation_service.py:82(current)
+       12    0.000    0.000    0.573    0.048 device_operation_service.py:94(_current)
+     2702    0.002    0.000    0.475    0.000 action_planning.py:12(digest)
+     2702    0.003    0.000    0.463    0.000 integration_hashing.py:31(canonicalize_json)
+       18    0.000    0.000    0.427    0.024 execution_service.py:165(query)
+466153/1083    0.146    0.000    0.422    0.000 copy.py:110(deepcopy)
+23109/980    0.093    0.000    0.408    0.000 copy.py:198(_deepcopy_dict)
+        7    0.000    0.000    0.396    0.057 entry_context_source.py:17(retrieve)
+26214/2349    0.027    0.000    0.395    0.000 copy.py:172(_deepcopy_list)
+ 1128/552    0.001    0.000    0.381    0.001 execution_service.py:78(port)
+      156    0.012    0.000    0.369    0.002 json_environment_repository.py:34(load)
+     2702    0.003    0.000    0.359    0.000 _impl.py:177(dumps)
+59423/2702    0.099    0.000    0.355    0.000 _impl.py:188(dump)
+       12    0.000    0.000    0.325    0.027 cross_entry_service.py:433(delivery_current)
+       54    0.001    0.000    0.322    0.006 cross_entry_service.py:70(binding)
+        6    0.000    0.000    0.292    0.049 entry_context_source.py:29(revalidate)
+       24    0.000    0.000    0.288    0.012 device_operation_service.py:128(query)
+      107    0.005    0.000    0.279    0.003 json_integration_repository.py:735(_load_operations)
+       87    0.001    0.000    0.276    0.003 json_repository.py:336(_decode_document)
+       78    0.001    0.000    0.258    0.003 environment_access_service.py:98(_require_from_document)
+     3873    0.002    0.000    0.247    0.000 __init__.py:656(lstat)
+        7    0.000    0.000    0.246    0.035 cross_entry_service.py:341(scoped_state)
+     3873    0.243    0.000    0.245    0.000 {built-in method nt.lstat}
+       54    0.000    0.000    0.245    0.005 device_operation_service.py:28(_call)
+        6    0.000    0.000    0.243    0.041 capability_coordination_service.py:66(action_attempts)
+
+
+{"stage": "reply-recall-only", "nested_metrics": {"route": {"calls": 1, "seconds": 2.090086100004555}, "_load_operations": {"calls": 107, "seconds": 0.2794096999714384}, "from_dict": {"calls": 92, "seconds": 0.009916499955579638}, "scoped_state": {"calls": 7, "seconds": 0.24602479999884963}, "state.load": {"calls": 19, "seconds": 0.07515409999905387}, "binding": {"calls": 54, "seconds": 0.32194159997743554}, "environment.load": {"calls": 156, "seconds": 0.3700315000169212}, "_available": {"calls": 78, "seconds": 0.21654479997960152}, "origins": {"calls": 112, "seconds": 0.18910209997557104}, "transfer": {"calls": 7, "seconds": 0.07852749999437947}, "get_update_history": {"calls": 32, "seconds": 0.12618310002289945}, "reference_allowed": {"calls": 21, "seconds": 0.18784140000207117}, "_load_capability_document": {"calls": 50, "seconds": 0.14733519998844713}}}
+{"type": "IntegrationExecutionError", "recall": {"elapsed_ms": 2092.188, "retrieved_count": 17, "status": "BLOCKED", "stop_reason": "RECALL_TIMEOUT"}}
+{"model_calls": 0, "effect_counts": {"entry:A": 1, "entry:B": 1}}

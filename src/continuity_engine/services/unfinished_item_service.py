@@ -160,7 +160,18 @@ class UnfinishedItemService:
         active={entry.event.event_id for entry in c.timeline.rebuild(c.subject_id).entries
                 if entry.status.value=='active'}
         for root in roots:
-            if root.startswith('event:'):
+            if root.startswith('input:'):
+                entry = getattr(c, 'entry_continuity', None)
+                if entry is None or context is None:
+                    raise StateEvolutionError('W03_ITEM_INPUT_CONTEXT_REQUIRED')
+                operation = entry.ledger.load_operation(root[6:])
+                entry.current_record(operation)
+                c.input_processing.verify_receipts(operation)
+                from continuity_engine.domain.context_routing import ContextCandidateReference, ContextPartition
+                reference = c.input_processing.source._candidate(root[6:])
+                if not c.permission.authorize_candidate(context.route.plan.request, reference).allowed:
+                    raise StateEvolutionError('W03_ITEM_INPUT_PERMISSION_DENIED')
+            elif root.startswith('event:'):
                 if root[6:] not in active:
                     raise StateEvolutionError('W03_ITEM_SOURCE_NOT_CURRENT')
             elif root.startswith('memory:'):

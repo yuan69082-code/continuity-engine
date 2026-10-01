@@ -1,0 +1,6 @@
+test_contact_pause_does_not_cancel_independent_native_mind_update (tests.test_w04_4_boundaries.EntryBoundaryTests.test_contact_pause_does_not_cancel_independent_native_mind_update) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 6.513s
+
+OK

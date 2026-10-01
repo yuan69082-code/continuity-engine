@@ -4,6 +4,9 @@ import hashlib
 import json
 import os
 import tempfile
+from contextlib import contextmanager
+from contextvars import ContextVar
+from copy import deepcopy
 from pathlib import Path
 from typing import Any
 
@@ -16,6 +19,39 @@ class JsonThinkingRepository:
 
     def __init__(self, root: Path | str) -> None:
         self.root = Path(root) / "thinking" / "sessions"
+        self._read_scope = ContextVar("verified_think_session_reads", default=None)
+
+    @contextmanager
+    def _verified_session_reads(self):
+        token = self._read_scope.set({})
+        try:
+            yield
+        finally:
+            self._read_scope.reset(token)
+
+    def _load_projection(self, subject_id, think_id, project):
+        """Full current record validation before a private read-only projection.
+
+        No permission is cached; every access reads current authoritative bytes.
+        Reuse is restricted to this explicit preparation scope.
+        """
+        scope = self._read_scope.get()
+        if scope is None:
+            return deepcopy(project(self.load_think_session(subject_id, think_id)))
+        path = self._path(subject_id, think_id)
+        try:
+            raw = path.read_bytes()
+            cached = scope.get(path)
+            if cached is None or cached[0] != raw:
+                session = ThinkSession.from_dict(json.loads(raw))
+                if session.subject_id != subject_id or session.think_id != think_id:
+                    raise ThinkingValidationError("persisted ThinkSession identity does not match")
+                scope[path] = (raw, session)
+            return deepcopy(project(scope[path][1]))
+        except FileNotFoundError:
+            raise StateNotFoundError("ThinkSession not found") from None
+        except (OSError, UnicodeError, json.JSONDecodeError) as exc:
+            raise ThinkingValidationError("unable to read valid ThinkSession data") from exc
 
     @staticmethod
     def _hash(value: str, field_name: str) -> str:
